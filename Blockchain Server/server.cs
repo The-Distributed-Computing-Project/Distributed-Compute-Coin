@@ -109,6 +109,7 @@ public class serv
 				float usersMoney = 0;
 				string[] previousHash = new string[amountOfBlocks];
 				string[] currentHash = new string[amountOfBlocks];
+				string[] currentNonce = new string[amountOfBlocks];
 				string[] everyTransaction = new string[amountOfBlocks];
 
 				for (int c = 0; c < amountOfBlocks; c++)
@@ -116,10 +117,13 @@ public class serv
 					StreamReader readAll = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + c + ".txt");
 					previousHash[c] = readAll.ReadLine();           //Gets the previous blocks hash
 					currentHash[c] = readAll.ReadLine();            //Gets the current blocks hash
+					currentNonce[c] = readAll.ReadLine();   
 					if (previousHash[c] == null)
 						previousHash[c] = "";
 					if (currentHash[c] == null)
 						currentHash[c] = "";
+					if (currentNonce[c] == null)
+						currentNonce[c] = "";
 					everyTransaction = readAll.ReadToEnd().Split("\n");
 					foreach (string usersTransactions in everyTransaction)
 					{
@@ -165,6 +169,7 @@ public class serv
 				StreamReader lasthashget = null;
 				string lastHash = null;
 				string thisHash = null;
+				string thisNonce = null;
 				string hashHistory = null;
 				//Reads current or most recently mined block
 
@@ -174,6 +179,7 @@ public class serv
 				lastHash = lasthashget.ReadLine();       //Gets the previous blocks hash
 				skipline = readCurrentBlock.ReadLine();
 				thisHash = readCurrentBlock.ReadLine();       //Gets the current blocks hash
+				thisNonce = readCurrentBlock.ReadLine();
 				hashHistory = readCurrentBlock.ReadToEnd();   //Gets transaction history as a single string
 															  //Console.WriteLine("HASH HISTORY: " + readCurrentBlock.ReadToEnd());
 				readCurrentBlock.Close();
@@ -224,16 +230,20 @@ public class serv
 		float usersMoney = 0;
 		string[] previousHash = new string[amountOfBlocks];
 		string[] currentHash = new string[amountOfBlocks];
+		string[] currentNonce = new string[amountOfBlocks];
 		string[] everyTransaction = new string[amountOfBlocks];
 		for (int c = 1; c < amountOfBlocks; c++)
 		{
 			StreamReader readAll = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + c + ".txt");
 			previousHash[c] = readAll.ReadLine();           //Gets the previous blocks hash
 			currentHash[c] = readAll.ReadLine();            //Gets the current blocks hash
+			currentNonce[c] = readAll.ReadLine();            //Gets the current blocks hash
 			if (previousHash[c] == null)
 				previousHash[c] = "";
 			if (currentHash[c] == null)
 				currentHash[c] = "";
+			if (currentNonce[c] == null)
+				currentNonce[c] = "";
 			everyTransaction = readAll.ReadToEnd().Split("\n");
 			foreach (string usersTransactions in everyTransaction)
 			{
@@ -337,11 +347,11 @@ public class serv
 				s.Send(sendbak.GetBytes("\nMined new block: " + finalHash + " : " + noncey));
 				StreamWriter sw = new StreamWriter("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (blockNum) + ".txt");
 				File.Delete("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (blockNum) + ".txt");
-				sw.Write(lastHash + "\n" + finalHash + "\n" + hashHistory);
+				sw.Write(lastHash + "\n" + finalHash + "\n" + noncey + "\n" + hashHistory);
 				sw.Close();
 
 				StreamWriter writeReward = new StreamWriter("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (blockNum + 1) + ".txt");
-				writeReward.Write(finalHash + "\n\n");
+				writeReward.Write(finalHash + "\n\n\n");
 				writeReward.Write(2 + "->" + rewardee);
 				writeReward.Close();
 			}

@@ -12,6 +12,8 @@ public class clnt
 	static String wallet = null;
 	static TcpClient tcpclnt = null;
 	static int blockchainlength = 0;
+	static string confirmTransact = null;
+	static string transactionDetails = null;
 	public static void Main()
 	{
 		Console.Write("Enter your wallet address : ");
@@ -19,6 +21,14 @@ public class clnt
 		Console.Write("Syncing with server...");
 		float balance = GetBalance(wallet);
 		Console.WriteLine("You have " + balance.ToString() + " Compute Credits");
+		
+		StreamReader readConfig = new StreamReader("D:\\Blockchain Main\\Blockchain Client\\config.txt");
+		confirmTransact = readConfig.readLine();
+		transactionDetails = readConfig.readLine();
+		readConfig.Close();
+		
+		if(confirmTransact == "true")
+			WaitForConfirmation();
 
 		while (true)
 		{
@@ -37,6 +47,42 @@ public class clnt
 			}
 
 
+		}
+	}
+	
+	static void WaitForConfirmation()
+	{
+		Console.WriteLine("Waiting for transaction confirmation...");
+		try
+		{
+			tcpclnt = new TcpClient();
+			tcpclnt.Connect("192.168.56.1", 8001);
+
+			String str = "$ISTRANSACTIONREADY##" + transactionDetails;
+			Stream stm = tcpclnt.GetStream();
+
+			ASCIIEncoding asen = new ASCIIEncoding();
+			byte[] ba = asen.GetBytes(str);
+
+			stm.Write(ba, 0, ba.Length);
+
+			byte[] bb = new byte[500];
+			int k = stm.Read(bb, 0, 500);
+			string received = "";
+			for (int recv = 0; recv < k; recv++)
+			{
+				received += Convert.ToChar(bb[recv]).ToString();
+			}
+
+			tcpclnt.Close();
+			StreamWriter writeBlock = new StreamWriter("D:\\Blockchain Main\\Blockchain Client\\config.txt");
+			writeBlock.Write(" \n ");
+			writeBlock.Close();
+		}
+		catch (Exception e)
+		{
+			tcpclnt.Close();
+			Console.WriteLine("Error, Try again later" + e.StackTrace);
 		}
 	}
 
@@ -71,6 +117,10 @@ public class clnt
 			Console.WriteLine(received);
 
 			tcpclnt.Close();
+			
+			StreamWriter writeBlock = new StreamWriter("D:\\Blockchain Main\\Blockchain Client\\config.txt");
+			writeBlock.Write("true\n" + sendAmount + "->" + wallet + "->" + recipient);
+			writeBlock.Close();
 		}
 		catch (Exception e)
 		{
@@ -78,7 +128,6 @@ public class clnt
 			Console.WriteLine("Error, Try again later" + e.StackTrace);
 			return;
 		}
-
 
 		//Console.WriteLine("Your wallet has:  " + walletValue + " Compute Tokens");
 	}

@@ -108,6 +108,7 @@ public class clnt
 				StreamReader readBlock = new StreamReader("D:\\Blockchain Main\\Blockchain Miner\\pendingblocks\\block" + (blockChainLength + 1).ToString() + ".txt");
 				string lastHash = readBlock.ReadLine();
 				string skipline = readBlock.ReadLine();
+				skipline = readBlock.ReadLine();
 				string transactions = readBlock.ReadToEnd();
 				Mine(lastHash, transactions, (blockChainLength + 1));
 			}
@@ -147,6 +148,7 @@ public class clnt
 					StreamReader readBlock = new StreamReader("D:\\Blockchain Main\\Blockchain Miner\\pendingblocks\\block" + (blockChainLength + 1).ToString() + ".txt");
 					string lastHash = readBlock.ReadLine();
 					string skipline = readBlock.ReadLine();
+					skipline = readBlock.ReadLine();
 					string transactions = readBlock.ReadToEnd();
 					Mine(lastHash, transactions, (blockChainLength + 1));
 				}

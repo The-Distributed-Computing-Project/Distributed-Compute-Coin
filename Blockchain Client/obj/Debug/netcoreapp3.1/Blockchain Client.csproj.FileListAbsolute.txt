@@ -10,4 +10,3 @@ D:\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.c
 D:\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.dll
 D:\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.pdb
 D:\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.genruntimeconfig.cache
-D:\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.csproj.AssemblyReference.cache

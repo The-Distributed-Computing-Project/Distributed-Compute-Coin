@@ -23,8 +23,8 @@ public class clnt
 		Console.WriteLine("You have " + balance.ToString() + " Compute Credits");
 		
 		StreamReader readConfig = new StreamReader("D:\\Blockchain Main\\Blockchain Client\\config.txt");
-		confirmTransact = readConfig.readLine();
-		transactionDetails = readConfig.readLine();
+		confirmTransact = readConfig.ReadLine();
+		transactionDetails = readConfig.ReadLine();
 		readConfig.Close();
 		
 		if(confirmTransact == "true")
@@ -93,7 +93,6 @@ public class clnt
 		Console.Write("Amount of Compute Credits : ");
 		String sendAmount = Console.ReadLine();
 
-		String walletValue = "0";
 		try
 		{
 			tcpclnt = new TcpClient();

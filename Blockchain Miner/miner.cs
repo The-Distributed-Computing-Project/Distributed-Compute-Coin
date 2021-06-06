@@ -308,7 +308,7 @@ public class clnt
 
 		//Checks Hash
 		int nonce = 0;
-		while (!sha256(lastHash + transactionHistory + nonce.ToString()).StartsWith("00000"))
+		while (!sha256(lastHash + transactionHistory + nonce.ToString()).StartsWith("0000"))
 		{
 			nonce++;
 			Console.WriteLine((DateTime.UtcNow - startTime).ToString().Split(".")[0] + " :	" + nonce.ToString() + " # " + sha256(lastHash + transactionHistory + nonce.ToString()));

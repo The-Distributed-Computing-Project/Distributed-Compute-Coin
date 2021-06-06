@@ -114,7 +114,7 @@ public class serv
 
 				for (int c = 0; c < amountOfBlocks; c++)
 				{
-					StreamReader readAll = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + c + ".txt");
+					StreamReader readAll = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (c+1) + ".txt");
 					previousHash[c] = readAll.ReadLine();           //Gets the previous blocks hash
 					currentHash[c] = readAll.ReadLine();            //Gets the current blocks hash
 					currentNonce[c] = readAll.ReadLine();   
@@ -148,7 +148,7 @@ public class serv
 					}
 					readAll.Close();
 
-					if (c > 0)
+					if (c > 1)
 					{
 						if (currentHash[c - 1].Trim() != previousHash[c].Trim())
 						{
@@ -173,30 +173,42 @@ public class serv
 				string hashHistory = null;
 				//Reads current or most recently mined block
 
-				readCurrentBlock = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (amountOfBlocks) + ".txt");
-				lasthashget = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (amountOfBlocks - 1) + ".txt");
-				string skipline = lasthashget.ReadLine();
-				lastHash = lasthashget.ReadLine();       //Gets the previous blocks hash
-				skipline = readCurrentBlock.ReadLine();
-				thisHash = readCurrentBlock.ReadLine();       //Gets the current blocks hash
-				thisNonce = readCurrentBlock.ReadLine();
-				hashHistory = readCurrentBlock.ReadToEnd();   //Gets transaction history as a single string
-															  //Console.WriteLine("HASH HISTORY: " + readCurrentBlock.ReadToEnd());
-				readCurrentBlock.Close();
+				if(File.Exists("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (amountOfBlocks + 1) + ".txt"))
+				{
+					readCurrentBlock = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (amountOfBlocks + 1) + ".txt");
+					lasthashget = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (amountOfBlocks) + ".txt");
+					string skipline = lasthashget.ReadLine();
+					lastHash = lasthashget.ReadLine();       //Gets the previous blocks hash
+					skipline = readCurrentBlock.ReadLine();
+					thisHash = readCurrentBlock.ReadLine();       //Gets the current blocks hash
+					thisNonce = readCurrentBlock.ReadLine();
+					hashHistory = readCurrentBlock.ReadToEnd();   //Gets transaction history as a single string
+																  //Console.WriteLine("HASH HISTORY: " + readCurrentBlock.ReadToEnd());
+					readCurrentBlock.Close();
+					lasthashget.Close();
+				}
+				else
+				{
+					lasthashget = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (amountOfBlocks) + ".txt");
+					string skipline = lasthashget.ReadLine();
+					lastHash = lasthashget.ReadLine();       //Gets the previous blocks hash
+
+					lasthashget.Close();
+				}
 
 				string finalHash = sha256(lastHash + hashHistory + received);
 
 				ASCIIEncoding sendbak = new ASCIIEncoding();
 				s.Send(sendbak.GetBytes("\nCreated new as:" + finalHash + "\n"));
 				Console.WriteLine("\nCreated new as:" + finalHash + "\n");
-				StreamWriter sw = new StreamWriter("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (amountOfBlocks) + ".txt");
+				StreamWriter sw = new StreamWriter("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (amountOfBlocks+1) + ".txt");
 				if (hashHistory != null)
 				{
-					sw.Write(lastHash + "\n" + finalHash + "\n" + hashHistory + "\n" + received.Trim().Replace("\n", ""));
+					sw.Write(lastHash + "\n" + finalHash + "\n\n" + hashHistory + "\n" + received.Trim().Replace("\n", ""));
 				}
 				else
 				{
-					sw.Write(lastHash + "\n" + finalHash + "\n" + received.Trim().Replace("\n", ""));
+					sw.Write(lastHash + "\n" + finalHash + "\n\n" + received.Trim().Replace("\n", ""));
 				}
 				sw.Close();
 
@@ -232,9 +244,9 @@ public class serv
 		string[] currentHash = new string[amountOfBlocks];
 		string[] currentNonce = new string[amountOfBlocks];
 		string[] everyTransaction = new string[amountOfBlocks];
-		for (int c = 1; c < amountOfBlocks; c++)
+		for (int c = 0; c < amountOfBlocks; c++)
 		{
-			StreamReader readAll = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + c + ".txt");
+			StreamReader readAll = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (c + 1) + ".txt");
 			previousHash[c] = readAll.ReadLine();           //Gets the previous blocks hash
 			currentHash[c] = readAll.ReadLine();            //Gets the current blocks hash
 			currentNonce[c] = readAll.ReadLine();            //Gets the current blocks hash
@@ -318,6 +330,7 @@ public class serv
 			StreamReader readCurrentBlock = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (blockNum) + ".txt");
 			string lastHash = readCurrentBlock.ReadLine();       //Gets the previous blocks hash
 			string thisHash = readCurrentBlock.ReadLine();       //Gets the current blocks hash
+			string skipline = readCurrentBlock.ReadLine();       //Gets the current blocks hash
 			if (thisHash == null)
 			{
 				thisHash = "";
@@ -330,7 +343,7 @@ public class serv
 			readCurrentBlock.Close();
 
 			//Checks Hash
-			if (!sha256(lastHash + hashHistory + noncey.ToString()).StartsWith("00000"))
+			if (!sha256(lastHash + hashHistory + noncey.ToString()).StartsWith("0000"))
 			{
 				Console.WriteLine("\nIncorrectly mined block: " + blockNum);
 				string finalHash = sha256(lastHash + hashHistory + noncey.ToString());
@@ -348,12 +361,8 @@ public class serv
 				StreamWriter sw = new StreamWriter("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (blockNum) + ".txt");
 				File.Delete("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (blockNum) + ".txt");
 				sw.Write(lastHash + "\n" + finalHash + "\n" + noncey + "\n" + hashHistory);
+				sw.WriteLine("\n" + 2 + "->" + rewardee);
 				sw.Close();
-
-				StreamWriter writeReward = new StreamWriter("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (blockNum + 1) + ".txt");
-				writeReward.Write(finalHash + "\n\n\n");
-				writeReward.Write(2 + "->" + rewardee);
-				writeReward.Close();
 			}
 		}
 		catch (Exception)

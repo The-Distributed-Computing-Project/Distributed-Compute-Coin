@@ -1,0 +1,4 @@
+﻿  cppClient.cpp
+D:\Code\Blockchain Main\cppClient\cppClient.cpp(47,67): error C2664: 'INT getaddrinfo(PCSTR,PCSTR,const ADDRINFOA *,PADDRINFOA *)': cannot convert argument 1 from 'std::string' to 'PCSTR'
+D:\Code\Blockchain Main\cppClient\cppClient.cpp(47,27): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ws2tcpip.h(121,1): message : see declaration of 'getaddrinfo'

@@ -183,7 +183,7 @@ void WaitForConfirmation()
        
         closesocket(ConnectSocket);
         fstream writeBlock;
-        writeBlock.open("D:\\Blockchain Main\\Blockchain Client\\config.txt", std::ios_base::app);
+        writeBlock.open("D:\\Code\\Blockchain Main\\Blockchain Client\\config.txt", std::ios_base::app);
         writeBlock << (" \n ");
         writeBlock.close();
     }
@@ -234,7 +234,7 @@ void Trade()
         closesocket(ConnectSocket);
 
         fstream writeBlock;
-        writeBlock.open("D:\\Blockchain Main\\Blockchain Client\\config.txt", std::ios_base::app);
+        writeBlock.open("D:\\Code\\Blockchain Main\\Blockchain Client\\config.txt", std::ios_base::app);
         writeBlock << ("true\n" + sendAmount + "->" + wallet + "->" + recipient);
         writeBlock.close();
     }
@@ -304,7 +304,11 @@ static void Sync(int whichBlock)
 
     try
     {
-        string str = "$GETBLOCKCHAIN##" + whichBlock;
+        std::ostringstream ww;
+        ww << whichBlock;
+        string w;
+        w = ww.str();
+        string str = "$GETBLOCKCHAIN##" + w;
 
         iResult = send(ConnectSocket, str.c_str(), (int)strlen(str.c_str()), 0);
         if (iResult == SOCKET_ERROR)
@@ -321,16 +325,17 @@ static void Sync(int whichBlock)
         else
             printf("recv failed with error: %d\n", WSAGetLastError());
 
-        closesocket(ConnectSocket);
-
         std::ostringstream ss;
         ss << recvbuf;
         string s;
         s = ss.str();
         std::replace(s.begin(), s.end(), (char)"##DIVIDE$LINE##", '\n');
         cout << (s) << endl;
+
+        closesocket(ConnectSocket);
+
         fstream writeBlock;
-        writeBlock.open("D:\\Blockchain Main\\Blockchain Client\\blockchain\\block" + to_string(whichBlock) + ".txt", std::ios_base::app);
+        writeBlock.open("D:\\Code\\Blockchain Main\\Blockchain Client\\blockchain\\block" + to_string(whichBlock) + ".txt", std::ios_base::app);
         writeBlock << (s);
         writeBlock.close();
     }

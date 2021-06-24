@@ -10,3 +10,16 @@ D:\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.c
 D:\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.dll
 D:\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.pdb
 D:\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.genruntimeconfig.cache
+D:\Code\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.csproj.AssemblyReference.cache
+D:\Code\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.AssemblyInfoInputs.cache
+D:\Code\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.AssemblyInfo.cs
+D:\Code\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.csproj.CoreCompileInputs.cache
+D:\Code\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.dll
+D:\Code\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.pdb
+D:\Code\Blockchain Main\Blockchain Client\bin\Debug\netcoreapp3.1\Blockchain Client.exe
+D:\Code\Blockchain Main\Blockchain Client\bin\Debug\netcoreapp3.1\Blockchain Client.deps.json
+D:\Code\Blockchain Main\Blockchain Client\bin\Debug\netcoreapp3.1\Blockchain Client.runtimeconfig.json
+D:\Code\Blockchain Main\Blockchain Client\bin\Debug\netcoreapp3.1\Blockchain Client.runtimeconfig.dev.json
+D:\Code\Blockchain Main\Blockchain Client\bin\Debug\netcoreapp3.1\Blockchain Client.dll
+D:\Code\Blockchain Main\Blockchain Client\bin\Debug\netcoreapp3.1\Blockchain Client.pdb
+D:\Code\Blockchain Main\Blockchain Client\obj\Debug\netcoreapp3.1\Blockchain Client.genruntimeconfig.cache

@@ -1,0 +1,11 @@
+0000de166e4ee4c4c433247297bcfbf7aafe790c99f6653cd376b2ec4689090e
+000054f952ea6691f15312a657eb098b193b78ea51bf09702a6c3e206002a8d9
+210680
+10->john->sam
+4->carl->sam
+2->miner->sam
+2->miner
+2->sam
+2->sam
+2->sam
+2->sam

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Blockchain Main\\Blockchain Miner\\Miner.csproj": {}
+    "D:\\Code\\Blockchain Main\\Blockchain Miner\\Miner.csproj": {}
   },
   "projects": {
-    "D:\\Blockchain Main\\Blockchain Miner\\Miner.csproj": {
+    "D:\\Code\\Blockchain Main\\Blockchain Miner\\Miner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Blockchain Main\\Blockchain Miner\\Miner.csproj",
+        "projectUniqueName": "D:\\Code\\Blockchain Main\\Blockchain Miner\\Miner.csproj",
         "projectName": "Miner",
-        "projectPath": "D:\\Blockchain Main\\Blockchain Miner\\Miner.csproj",
+        "projectPath": "D:\\Code\\Blockchain Main\\Blockchain Miner\\Miner.csproj",
         "packagesPath": "C:\\Users\\samda\\.nuget\\packages\\",
-        "outputPath": "D:\\Blockchain Main\\Blockchain Miner\\obj\\",
+        "outputPath": "D:\\Code\\Blockchain Main\\Blockchain Miner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

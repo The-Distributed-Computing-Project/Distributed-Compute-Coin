@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Blockchain Main\\Blockchain Server\\Blockchain Server.csproj": {}
+    "D:\\Code\\Blockchain Main\\Blockchain Server\\Blockchain Server.csproj": {}
   },
   "projects": {
-    "D:\\Blockchain Main\\Blockchain Server\\Blockchain Server.csproj": {
+    "D:\\Code\\Blockchain Main\\Blockchain Server\\Blockchain Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Blockchain Main\\Blockchain Server\\Blockchain Server.csproj",
+        "projectUniqueName": "D:\\Code\\Blockchain Main\\Blockchain Server\\Blockchain Server.csproj",
         "projectName": "Blockchain Server",
-        "projectPath": "D:\\Blockchain Main\\Blockchain Server\\Blockchain Server.csproj",
+        "projectPath": "D:\\Code\\Blockchain Main\\Blockchain Server\\Blockchain Server.csproj",
         "packagesPath": "C:\\Users\\samda\\.nuget\\packages\\",
-        "outputPath": "D:\\Blockchain Main\\Blockchain Server\\obj\\",
+        "outputPath": "D:\\Code\\Blockchain Main\\Blockchain Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

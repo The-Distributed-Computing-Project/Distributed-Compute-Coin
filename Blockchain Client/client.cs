@@ -22,7 +22,7 @@ public class clnt
 		float balance = GetBalance(wallet);
 		Console.WriteLine("You have " + balance.ToString() + " Compute Credits");
 		
-		StreamReader readConfig = new StreamReader("D:\\Blockchain Main\\Blockchain Client\\config.txt");
+		StreamReader readConfig = new StreamReader("D:\\Code\\Blockchain Main\\Blockchain Client\\config.txt");
 		confirmTransact = readConfig.ReadLine();
 		transactionDetails = readConfig.ReadLine();
 		readConfig.Close();
@@ -75,7 +75,7 @@ public class clnt
 			}
 
 			tcpclnt.Close();
-			StreamWriter writeBlock = new StreamWriter("D:\\Blockchain Main\\Blockchain Client\\config.txt");
+			StreamWriter writeBlock = new StreamWriter("D:\\Code\\Blockchain Main\\Blockchain Client\\config.txt");
 			writeBlock.Write(" \n ");
 			writeBlock.Close();
 		}
@@ -117,7 +117,7 @@ public class clnt
 
 			tcpclnt.Close();
 			
-			StreamWriter writeBlock = new StreamWriter("D:\\Blockchain Main\\Blockchain Client\\config.txt");
+			StreamWriter writeBlock = new StreamWriter("D:\\Code\\Blockchain Main\\Blockchain Client\\config.txt");
 			writeBlock.Write("true\n" + sendAmount + "->" + wallet + "->" + recipient);
 			writeBlock.Close();
 		}
@@ -204,7 +204,7 @@ public class clnt
 
 			tcpclnt.Close();
 			Console.WriteLine(received.Replace("##DIVIDE$LINE##", "\n"));
-			StreamWriter writeBlock = new StreamWriter("D:\\Blockchain Main\\Blockchain Client\\blockchain\\block" + whichBlock + ".txt");
+			StreamWriter writeBlock = new StreamWriter("D:\\Code\\Blockchain Main\\Blockchain Client\\blockchain\\block" + whichBlock + ".txt");
 			writeBlock.Write(received.Replace("##DIVIDE$LINE##", "\n"));
 			writeBlock.Close();
 		}

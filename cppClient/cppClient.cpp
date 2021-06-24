@@ -14,6 +14,8 @@
 #include <functional> 
 #include <cctype>
 #include <locale>
+//#include <graphics.h>
+#include "CImg.h"
 
 
 // Need to link with Ws2_32.lib, Mswsock.lib, and Advapi32.lib
@@ -26,6 +28,7 @@
 #define DEFAULT_PORT "8001"
 
 using namespace std;
+using namespace cimg_library;
 
 static string wallet = "";
 static int blockchainlength = 0;
@@ -58,6 +61,24 @@ static void Connect();
 
 int main()
 {
+    /*unsigned int width = 500;
+    unsigned int height = 500;
+    CImg<unsigned char> bg(width, height, 1, 3, 255);
+
+    const unsigned char blue[] = { 0,20,255 };
+
+    bg.draw_circle(width / 2, height / 2, 100, blue);
+
+    CImgDisplay dsp(width, height, "Compute Coin Client", 0);
+
+    dsp.display(bg);
+
+    while (!dsp.is_closed())
+    {
+
+        dsp.wait();
+    }*/
+
     // Initialize Winsock
     iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
     if (iResult != 0)
@@ -78,7 +99,7 @@ int main()
     cout << "You have " + ss.str() + " Compute Credits" << endl;
 
     fstream readConfig;
-    readConfig.open("D:\\Code\\Blockchain Main\\Blockchain Client\\config.txt");
+    readConfig.open("D:\\Code\\Blockchain Main\\cppClient\\config.txt");
     readConfig >> confirmTransact;
     readConfig >> transactionDetails;
     readConfig.close();
@@ -183,7 +204,7 @@ void WaitForConfirmation()
        
         closesocket(ConnectSocket);
         fstream writeBlock;
-        writeBlock.open("D:\\Code\\Blockchain Main\\Blockchain Client\\config.txt", std::ios_base::app);
+        writeBlock.open("D:\\Code\\Blockchain Main\\cppClient\\config.txt", std::ios_base::app);
         writeBlock << (" \n ");
         writeBlock.close();
     }
@@ -234,7 +255,7 @@ void Trade()
         closesocket(ConnectSocket);
 
         fstream writeBlock;
-        writeBlock.open("D:\\Code\\Blockchain Main\\Blockchain Client\\config.txt", std::ios_base::app);
+        writeBlock.open("D:\\Code\\Blockchain Main\\cppClient\\config.txt", std::ios_base::app);
         writeBlock << ("true\n" + sendAmount + "->" + wallet + "->" + recipient);
         writeBlock.close();
     }
@@ -331,11 +352,11 @@ static void Sync(int whichBlock)
         s = ss.str();
         std::replace(s.begin(), s.end(), (char)"##DIVIDE$LINE##", '\n');
         cout << (s) << endl;
-
+        
         closesocket(ConnectSocket);
 
         fstream writeBlock;
-        writeBlock.open("D:\\Code\\Blockchain Main\\Blockchain Client\\blockchain\\block" + to_string(whichBlock) + ".txt", std::ios_base::app);
+        writeBlock.open("D:\\Code\\Blockchain Main\\cppClient\\blockchain\\block" + to_string(whichBlock) + ".txt", std::ios_base::app);
         writeBlock << (s);
         writeBlock.close();
     }

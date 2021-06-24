@@ -44,7 +44,7 @@ public class clnt
 				Help();
 			if (command.ToUpper() == "SYNC")
 			{
-				foreach (string oldBlock in Directory.GetFiles("D:\\Blockchain Main\\Blockchain Miner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly))
+				foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\Blockchain Miner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly))
 				{
 					try
 					{
@@ -54,7 +54,7 @@ public class clnt
 					{
 					}
 				}
-				foreach (string oldBlock in Directory.GetFiles("D:\\Blockchain Main\\Blockchain Miner\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly))
+				foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\Blockchain Miner\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly))
 				{
 					try
 					{
@@ -76,7 +76,7 @@ public class clnt
 			}
 			if (command.ToUpper() == "MINE")
 			{
-				foreach (string oldBlock in Directory.GetFiles("D:\\Blockchain Main\\Blockchain Miner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly))
+				foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\Blockchain Miner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly))
 				{
 					try
 					{
@@ -86,7 +86,7 @@ public class clnt
 					{
 					}
 				}
-				foreach (string oldBlock in Directory.GetFiles("D:\\Blockchain Main\\Blockchain Miner\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly))
+				foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\Blockchain Miner\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly))
 				{
 					try
 					{
@@ -105,18 +105,19 @@ public class clnt
 					SyncEntireChain(1 + i);
 				}
 				Console.WriteLine((blockChainLength + 1).ToString());
-				StreamReader readBlock = new StreamReader("D:\\Blockchain Main\\Blockchain Miner\\pendingblocks\\block" + (blockChainLength + 1).ToString() + ".txt");
-				string lastHash = readBlock.ReadLine();
-				string skipline = readBlock.ReadLine();
-				skipline = readBlock.ReadLine();
-				string transactions = readBlock.ReadToEnd();
+				StreamReader readBlockCurrent = new StreamReader("D:\\Code\\Blockchain Main\\Blockchain Miner\\pendingblocks\\block" + (blockChainLength + 1).ToString() + ".txt");
+				string lastHash = readBlockCurrent.ReadLine();
+				string skipline = readBlockCurrent.ReadLine();
+				skipline = readBlockCurrent.ReadLine();
+				string transactions = readBlockCurrent.ReadToEnd();
+				readBlockCurrent.Close();
 				Mine(lastHash, transactions, (blockChainLength + 1));
 			}
 			if (command.ToUpper() == "MINE ALL")
 			{
-				while (Directory.GetFiles("D:\\Blockchain Main\\Blockchain Miner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly).Length > 0)
+				while (Directory.GetFiles("D:\\Code\\Blockchain Main\\Blockchain Miner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly).Length > 0)
 				{
-					foreach (string oldBlock in Directory.GetFiles("D:\\Blockchain Main\\Blockchain Miner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly))
+					foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\Blockchain Miner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly))
 					{
 						try
 						{
@@ -126,7 +127,7 @@ public class clnt
 						{
 						}
 					}
-					foreach (string oldBlock in Directory.GetFiles("D:\\Blockchain Main\\Blockchain Miner\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly))
+					foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\Blockchain Miner\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly))
 					{
 						try
 						{
@@ -145,7 +146,7 @@ public class clnt
 						SyncEntireChain(1 + i);
 					}
 					Console.WriteLine((blockChainLength + 1).ToString());
-					StreamReader readBlock = new StreamReader("D:\\Blockchain Main\\Blockchain Miner\\pendingblocks\\block" + (blockChainLength + 1).ToString() + ".txt");
+					StreamReader readBlock = new StreamReader("D:\\Code\\Blockchain Main\\Blockchain Miner\\pendingblocks\\block" + (blockChainLength + 1).ToString() + ".txt");
 					string lastHash = readBlock.ReadLine();
 					string skipline = readBlock.ReadLine();
 					skipline = readBlock.ReadLine();
@@ -228,7 +229,7 @@ public class clnt
 
 			tcpclnt.Close();
 			Console.WriteLine(received.Replace("##DIVIDE$LINE##", "\n"));
-			StreamWriter writeBlock = new StreamWriter("D:\\Blockchain Main\\Blockchain Miner\\pendingblocks\\block" + whichBlock.ToString() + ".txt");
+			StreamWriter writeBlock = new StreamWriter("D:\\Code\\Blockchain Main\\Blockchain Miner\\pendingblocks\\block" + whichBlock.ToString() + ".txt");
 			writeBlock.Write(received.Replace("##DIVIDE$LINE##", "\n"));
 			writeBlock.Close();
 		}
@@ -279,7 +280,7 @@ public class clnt
 
 			tcpclnt.Close();
 			Console.WriteLine(received.Replace("##DIVIDE$LINE##", "\n"));
-			StreamWriter writeBlock = new StreamWriter("D:\\Blockchain Main\\Blockchain Miner\\blockchain\\block" + whichBlock.ToString() + ".txt");
+			StreamWriter writeBlock = new StreamWriter("D:\\Code\\Blockchain Main\\Blockchain Miner\\blockchain\\block" + whichBlock.ToString() + ".txt");
 			writeBlock.Write(received.Replace("##DIVIDE$LINE##", "\n"));
 			writeBlock.Close();
 		}
@@ -300,7 +301,7 @@ public class clnt
 	{
 		DateTime startTime = DateTime.UtcNow;
 
-		//if (!Directory.Exists("D:\\Blockchain Main\\Blockchain Miner\\pendingblocks\\block" + blockNum.ToString() + ".txt"))
+		//if (!Directory.Exists("D:\\Code\\Blockchain Main\\Blockchain Miner\\pendingblocks\\block" + blockNum.ToString() + ".txt"))
 		//{
 		//	Console.WriteLine("Unable to mine, try resyncing");
 		//	return;

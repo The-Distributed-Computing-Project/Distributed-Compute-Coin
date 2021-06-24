@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "25wktam9SPNS376uT4imTU5hliAHuabTcKMYFpKqyYQn76+3sqljY6DHfVegWtvE1pZMB6GN8zUhPDEB6YPX0A==",
+  "dgSpecHash": "8DTsE5iZHCg9hvVI1BVWoLINSwms3fPKT3oXLl/t7XIKB2WJnzL0czhX+GLM35a9l0z+002r/unLHyg/QT0t4Q==",
   "success": true,
-  "projectFilePath": "D:\\Blockchain Main\\Blockchain Client\\Blockchain Client.csproj",
+  "projectFilePath": "D:\\Code\\Blockchain Main\\Blockchain Client\\Blockchain Client.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

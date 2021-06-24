@@ -16,7 +16,7 @@ public class serv
 		Socket s = null;
 		TcpListener myList = null;
 
-		int amountOfBlocks = Directory.GetFiles("D:\\Blockchain Main\\Blockchain Server\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly).Length;
+		int amountOfBlocks = Directory.GetFiles("D:\\Code\\Blockchain Main\\Blockchain Server\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly).Length;
 		while (true)
 		{
 			try
@@ -68,7 +68,7 @@ public class serv
 
 				if (received.Split("##")[0] == ("$GETBLOCKCHAINLENGTH"))
 				{
-					if (Directory.GetFiles("D:\\Blockchain Main\\Blockchain Server\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly).Length > 0)
+					if (Directory.GetFiles("D:\\Code\\Blockchain Main\\Blockchain Server\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly).Length > 0)
 					{
 						GetBlockchainLength(myList, s);
 					}
@@ -77,7 +77,7 @@ public class serv
 
 				if (received.Split("##")[0] == ("$GETPENDINGLENGTH"))
 				{
-					if (Directory.GetFiles("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly).Length > 0)
+					if (Directory.GetFiles("D:\\Code\\Blockchain Main\\Blockchain Server\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly).Length > 0)
 					{
 						GetPendingLength(myList, s);
 					}
@@ -114,7 +114,7 @@ public class serv
 
 				for (int c = 0; c < amountOfBlocks; c++)
 				{
-					StreamReader readAll = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (c+1) + ".txt");
+					StreamReader readAll = new StreamReader("D:\\Code\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (c+1) + ".txt");
 					previousHash[c] = readAll.ReadLine();           //Gets the previous blocks hash
 					currentHash[c] = readAll.ReadLine();            //Gets the current blocks hash
 					currentNonce[c] = readAll.ReadLine();   
@@ -173,10 +173,10 @@ public class serv
 				string hashHistory = null;
 				//Reads current or most recently mined block
 
-				if(File.Exists("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (amountOfBlocks + 1) + ".txt"))
+				if(File.Exists("D:\\Code\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (amountOfBlocks + 1) + ".txt"))
 				{
-					readCurrentBlock = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (amountOfBlocks + 1) + ".txt");
-					lasthashget = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (amountOfBlocks) + ".txt");
+					readCurrentBlock = new StreamReader("D:\\Code\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (amountOfBlocks + 1) + ".txt");
+					lasthashget = new StreamReader("D:\\Code\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (amountOfBlocks) + ".txt");
 					string skipline = lasthashget.ReadLine();
 					lastHash = lasthashget.ReadLine();       //Gets the previous blocks hash
 					skipline = readCurrentBlock.ReadLine();
@@ -189,7 +189,7 @@ public class serv
 				}
 				else
 				{
-					lasthashget = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (amountOfBlocks) + ".txt");
+					lasthashget = new StreamReader("D:\\Code\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (amountOfBlocks) + ".txt");
 					string skipline = lasthashget.ReadLine();
 					lastHash = lasthashget.ReadLine();       //Gets the previous blocks hash
 
@@ -201,7 +201,7 @@ public class serv
 				ASCIIEncoding sendbak = new ASCIIEncoding();
 				s.Send(sendbak.GetBytes("\nCreated new as:" + finalHash + "\n"));
 				Console.WriteLine("\nCreated new as:" + finalHash + "\n");
-				StreamWriter sw = new StreamWriter("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (amountOfBlocks+1) + ".txt");
+				StreamWriter sw = new StreamWriter("D:\\Code\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (amountOfBlocks+1) + ".txt");
 				if (hashHistory != null)
 				{
 					sw.Write(lastHash + "\n" + finalHash + "\n\n" + hashHistory + "\n" + received.Trim().Replace("\n", ""));
@@ -238,7 +238,7 @@ public class serv
 	static void GetUserBalance(string walletAddr, TcpListener myList, Socket s)
 	{
 
-		int amountOfBlocks = Directory.GetFiles("D:\\Blockchain Main\\Blockchain Server\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly).Length;
+		int amountOfBlocks = Directory.GetFiles("D:\\Code\\Blockchain Main\\Blockchain Server\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly).Length;
 		float usersMoney = 0;
 		string[] previousHash = new string[amountOfBlocks];
 		string[] currentHash = new string[amountOfBlocks];
@@ -246,7 +246,7 @@ public class serv
 		string[] everyTransaction = new string[amountOfBlocks];
 		for (int c = 0; c < amountOfBlocks; c++)
 		{
-			StreamReader readAll = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (c + 1) + ".txt");
+			StreamReader readAll = new StreamReader("D:\\Code\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (c + 1) + ".txt");
 			previousHash[c] = readAll.ReadLine();           //Gets the previous blocks hash
 			currentHash[c] = readAll.ReadLine();            //Gets the current blocks hash
 			currentNonce[c] = readAll.ReadLine();            //Gets the current blocks hash
@@ -288,7 +288,7 @@ public class serv
 	static void GetBlockchain(int whichBlock, TcpListener myList, Socket s)
 	{
 		string[] everyTransaction = new string[4000];
-		StreamReader readAll = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + whichBlock + ".txt");
+		StreamReader readAll = new StreamReader("D:\\Code\\Blockchain Main\\Blockchain Server\\blockchain\\block" + whichBlock + ".txt");
 
 		everyTransaction[0] = readAll.ReadToEnd();
 		ASCIIEncoding sendbak = new ASCIIEncoding();
@@ -299,7 +299,7 @@ public class serv
 	static void GetPendingBlocks(int whichBlock, TcpListener myList, Socket s)
 	{
 		string[] everyTransaction = new string[4000];
-		StreamReader readAll = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + whichBlock + ".txt");
+		StreamReader readAll = new StreamReader("D:\\Code\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + whichBlock + ".txt");
 
 		everyTransaction[0] = readAll.ReadToEnd();
 		ASCIIEncoding sendbak = new ASCIIEncoding();
@@ -309,15 +309,15 @@ public class serv
 
 	static void GetBlockchainLength(TcpListener myList, Socket s)
 	{
-		int chainLength = Directory.GetFiles("D:\\Blockchain Main\\Blockchain Server\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly).Length;
+		int chainLength = Directory.GetFiles("D:\\Code\\Blockchain Main\\Blockchain Server\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly).Length;
 		ASCIIEncoding sendbak = new ASCIIEncoding();
 		s.Send(sendbak.GetBytes(chainLength.ToString()));
 	}
 
 	static void GetPendingLength(TcpListener myList, Socket s)
 	{
-		int chainLength = Directory.GetFiles("D:\\Blockchain Main\\Blockchain Server\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly).Length;
-		int pendingLength = Directory.GetFiles("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly).Length;
+		int chainLength = Directory.GetFiles("D:\\Code\\Blockchain Main\\Blockchain Server\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly).Length;
+		int pendingLength = Directory.GetFiles("D:\\Code\\Blockchain Main\\Blockchain Server\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly).Length;
 		ASCIIEncoding sendbak = new ASCIIEncoding();
 		s.Send(sendbak.GetBytes(pendingLength.ToString() + "##" + chainLength.ToString()));
 	}
@@ -327,7 +327,7 @@ public class serv
 		try
 		{
 			//Reads current block
-			StreamReader readCurrentBlock = new StreamReader("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (blockNum) + ".txt");
+			StreamReader readCurrentBlock = new StreamReader("D:\\Code\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (blockNum) + ".txt");
 			string lastHash = readCurrentBlock.ReadLine();       //Gets the previous blocks hash
 			string thisHash = readCurrentBlock.ReadLine();       //Gets the current blocks hash
 			string skipline = readCurrentBlock.ReadLine();       //Gets the current blocks hash
@@ -358,10 +358,10 @@ public class serv
 				Console.WriteLine("\nMined new block: " + finalHash + " : " + noncey);
 				ASCIIEncoding sendbak = new ASCIIEncoding();
 				s.Send(sendbak.GetBytes("\nMined new block: " + finalHash + " : " + noncey));
-				StreamWriter sw = new StreamWriter("D:\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (blockNum) + ".txt");
-				File.Delete("D:\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (blockNum) + ".txt");
+				StreamWriter sw = new StreamWriter("D:\\Code\\Blockchain Main\\Blockchain Server\\blockchain\\block" + (blockNum) + ".txt");
+				File.Delete("D:\\Code\\Blockchain Main\\Blockchain Server\\pendingblocks\\block" + (blockNum) + ".txt");
 				sw.Write(lastHash + "\n" + finalHash + "\n" + noncey + "\n" + hashHistory);
-				sw.WriteLine("\n" + 2 + "->" + rewardee);
+				sw.WriteLine(2 + "->" + rewardee);
 				sw.Close();
 			}
 		}

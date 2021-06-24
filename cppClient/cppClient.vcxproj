@@ -141,6 +141,9 @@
   <ItemGroup>
     <ClCompile Include="cppClient.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CImg.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

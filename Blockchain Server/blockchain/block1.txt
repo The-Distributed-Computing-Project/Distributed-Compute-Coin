@@ -1,6 +1,10 @@
 0000000000000000000000000000000000000000000000000000000000000000
-000069acad5bacdf80b351034fb10e442505b8030c223c6f0f83d87fe6b4d746
-26405
+0000ab077e2f03ea8720f917901212f40c11bb6a455b9c4adb12fdbdbeb488ff
+30736
 100->sam
+<<<<<<< HEAD
 10->john
 2->sam
+=======
+10->john
+>>>>>>> parent of ddba084 (Fixed blockchain edited bugs, and added GUI interface for C# build)

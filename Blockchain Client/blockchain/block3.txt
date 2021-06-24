@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 0000b9ac81e235ff01962a3c31e217199e6646ee408f279ef37d8a026df81f88
 00001d12a1a02eb98b650c75019aa0a30efb3f756f25066e2b6b3dfdf50c69bb
 18708
@@ -7,3 +8,9 @@
 18708
 2->sam
 10000->sam
+=======
+000007da0256e2abbb36e03a4137421a5f721153980dea946fc6988a6e18ed31
+00002e5d25684ebe7162fe424c319ea1845da704850918ec9096d69f60c5d5bb
+3330
+2->miner
+>>>>>>> parent of ddba084 (Fixed blockchain edited bugs, and added GUI interface for C# build)

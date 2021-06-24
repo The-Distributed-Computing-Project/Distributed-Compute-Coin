@@ -1,7 +1,10 @@
  
+<<<<<<< HEAD
  true
 50->sam->jon 
   
  true
 10000->sam->sam 
+=======
+>>>>>>> parent of ddba084 (Fixed blockchain edited bugs, and added GUI interface for C# build)
  

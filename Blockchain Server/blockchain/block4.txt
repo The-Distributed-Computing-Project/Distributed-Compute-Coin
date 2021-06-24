@@ -1,9 +1,13 @@
-000033c7ef79f4438700a0ec4ab2dba8d2bef61b12289dadab5757b27623d2b8
-0000fe2c0ccabf1e558b78eee6a283360c3dab6f2b517220ab9449f5ffa9d487
-23628
+00001d12a1a02eb98b650c75019aa0a30efb3f756f25066e2b6b3dfdf50c69bb
+0000e8bbf019bb28698571ab839da422bb5c6c58375069146e63795e520b779d
+52046
 104->sam->carl
+<<<<<<< HEAD
 2->miner
 2->sam
 2->sam
 2->sam
 2->sam
+=======
+2->miner
+>>>>>>> parent of ddba084 (Fixed blockchain edited bugs, and added GUI interface for C# build)

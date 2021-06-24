@@ -2,8 +2,12 @@
 0000ab077e2f03ea8720f917901212f40c11bb6a455b9c4adb12fdbdbeb488ff
 30736
 100->sam
+<<<<<<< HEAD
 10->john10019##710019##710019##70000000000000000000000000000000000000000000000000000000000000000
 0000ab077e2f03ea8720f917901212f40c11bb6a455b9c4adb12fdbdbeb488ff
 30736
 100->sam
 10->john
+=======
+0->john
+>>>>>>> parent of ddba084 (Fixed blockchain edited bugs, and added GUI interface for C# build)

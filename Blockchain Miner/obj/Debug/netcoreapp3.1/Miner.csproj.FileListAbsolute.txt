@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\Blockchain Main\Blockchain Miner\bin\Debug\netcoreapp3.1\Miner.exe
 D:\Blockchain Main\Blockchain Miner\bin\Debug\netcoreapp3.1\Miner.deps.json
 D:\Blockchain Main\Blockchain Miner\bin\Debug\netcoreapp3.1\Miner.runtimeconfig.json
@@ -23,3 +24,18 @@ D:\Code\Blockchain Main\Blockchain Miner\obj\Debug\netcoreapp3.1\Miner.csproj.Co
 D:\Code\Blockchain Main\Blockchain Miner\obj\Debug\netcoreapp3.1\Miner.dll
 D:\Code\Blockchain Main\Blockchain Miner\obj\Debug\netcoreapp3.1\Miner.pdb
 D:\Code\Blockchain Main\Blockchain Miner\obj\Debug\netcoreapp3.1\Miner.genruntimeconfig.cache
+=======
+D:\Blockchain Main\Blockchain Miner\bin\Debug\netcoreapp3.1\Miner.exe
+D:\Blockchain Main\Blockchain Miner\bin\Debug\netcoreapp3.1\Miner.deps.json
+D:\Blockchain Main\Blockchain Miner\bin\Debug\netcoreapp3.1\Miner.runtimeconfig.json
+D:\Blockchain Main\Blockchain Miner\bin\Debug\netcoreapp3.1\Miner.runtimeconfig.dev.json
+D:\Blockchain Main\Blockchain Miner\bin\Debug\netcoreapp3.1\Miner.dll
+D:\Blockchain Main\Blockchain Miner\bin\Debug\netcoreapp3.1\Miner.pdb
+D:\Blockchain Main\Blockchain Miner\obj\Debug\netcoreapp3.1\Miner.AssemblyInfoInputs.cache
+D:\Blockchain Main\Blockchain Miner\obj\Debug\netcoreapp3.1\Miner.AssemblyInfo.cs
+D:\Blockchain Main\Blockchain Miner\obj\Debug\netcoreapp3.1\Miner.csproj.CoreCompileInputs.cache
+D:\Blockchain Main\Blockchain Miner\obj\Debug\netcoreapp3.1\Miner.dll
+D:\Blockchain Main\Blockchain Miner\obj\Debug\netcoreapp3.1\Miner.pdb
+D:\Blockchain Main\Blockchain Miner\obj\Debug\netcoreapp3.1\Miner.genruntimeconfig.cache
+D:\Blockchain Main\Blockchain Miner\obj\Debug\netcoreapp3.1\Miner.csproj.AssemblyReference.cache
+>>>>>>> parent of ddba084 (Fixed blockchain edited bugs, and added GUI interface for C# build)

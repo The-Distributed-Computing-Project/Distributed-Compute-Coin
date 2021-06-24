@@ -1,0 +1,8 @@
+00000deb38a9376e846acc46faa63d664739ede9e8806e9a247ae227d1f79819
+000005790c6a7761fbb388683bdfbbdea730c3797ee7b70acc87f079acd1573c
+68105
+10->john->sam
+4->carl->sam
+2->miner->sam
+2->miner
+2->sam

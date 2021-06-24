@@ -1,7 +1,0 @@
- 
- true
-50->sam->jon 
-  
- true
-10000->sam->sam 
- 

@@ -1,0 +1,3 @@
+﻿  cppClient.cpp
+D:\Code\Blockchain Main\cppClient\cppClient.cpp(353,65): warning C4302: 'type cast': truncation from 'const char *' to 'char'
+  cppClient.vcxproj -> D:\Code\Blockchain Main\cppClient\Debug\cppClient.exe

@@ -1,9 +1,0 @@
-000033c7ef79f4438700a0ec4ab2dba8d2bef61b12289dadab5757b27623d2b8
-0000fe2c0ccabf1e558b78eee6a283360c3dab6f2b517220ab9449f5ffa9d487
-23628
-104->sam->carl
-2->miner
-2->sam
-2->sam
-2->sam
-2->sam

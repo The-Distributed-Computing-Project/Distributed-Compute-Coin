@@ -1,0 +1,10 @@
+00001d12a1a02eb98b650c75019aa0a30efb3f756f25066e2b6b3dfdf50c69bb
+0000907678b76d6a7bb4cfd9a349f528bc7054df023c260480cb04a6d820e821
+3639
+104->sam->carl
+2->miner
+2->sam
+2->sam
+2->sam
+2->sam2->miner
+2->sam

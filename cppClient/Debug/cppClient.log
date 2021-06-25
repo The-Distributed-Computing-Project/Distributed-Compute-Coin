@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-﻿  cppClient.cpp
-D:\Code\Blockchain Main\cppClient\cppClient.cpp(353,65): warning C4302: 'type cast': truncation from 'const char *' to 'char'
-  cppClient.vcxproj -> D:\Code\Blockchain Main\cppClient\Debug\cppClient.exe
-=======
-﻿  cppClient.cpp
-D:\Code\Blockchain Main\cppClient\cppClient.cpp(332,65): warning C4302: 'type cast': truncation from 'const char *' to 'char'
-  cppClient.vcxproj -> D:\Code\Blockchain Main\cppClient\Debug\cppClient.exe
->>>>>>> parent of ddba084 (Fixed blockchain edited bugs, and added GUI interface for C# build)
+﻿  CPPClient.cpp
+D:\Code\DC-Cryptocurrency\CPPClient\CPPClient.cpp(354,65): warning C4302: 'type cast': truncation from 'const char *' to 'char'
+  CPPClient.vcxproj -> D:\Code\DC-Cryptocurrency\CPPClient\Debug\CPPClient.exe

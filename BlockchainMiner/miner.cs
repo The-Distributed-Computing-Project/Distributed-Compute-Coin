@@ -22,6 +22,15 @@ public class clnt
 		wallet = Console.ReadLine();
 		Console.Write("Syncing with server...");
 		
+		for (int i = 1; i < pendingLength+1; i++)
+		{
+			SyncPending(blockChainLength + i);
+		}
+		for (int i = 1; i < blockChainLength+1; i++)
+		{
+			SyncEntireChain(i);
+		}
+		
 		while (true)
 		{
 			lengths = GetPendingLength();
@@ -172,8 +181,8 @@ public class clnt
 	{
 		if (whichBlock == 00)
 			whichBlock = 0;
-		try
-		{
+		//try
+		//{
 			string html = string.Empty;
 			string url = @"http://api.achillium.us.to/dcc/?query=getPendingBlock&blockNum=" + whichBlock;
 
@@ -194,25 +203,25 @@ public class clnt
 
 			File.Create("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\block" + whichBlock.ToString() + ".txt");
 			File.WriteAllText("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\block" + whichBlock.ToString() + ".txt", html);
-		}
-		catch (Exception e)
-		{
-			Console.WriteLine("Error, Try again later" + e.StackTrace);
-		}
+		//}
+		//catch (Exception e)
+		//{
+		//	Console.WriteLine("Error, Try again later" + e.StackTrace);
+		//}
 
-		int waitTime = 0;
-		while (waitTime < 10000000)
-		{
-			waitTime++;
-		}
+		//int waitTime = 0;
+		//while (waitTime < 10000000)
+		//{
+		//	waitTime++;
+		//}
 	}
 
 	static void SyncEntireChain(int whichBlock)
 	{
 		if (whichBlock == 00)
 			whichBlock = 0;
-		try
-		{
+		//try
+		//{
 			string html = string.Empty;
 			string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock;
 
@@ -226,24 +235,24 @@ public class clnt
 				html = reader.ReadToEnd();
 			}
 
-            Console.WriteLine(html);
+            		Console.WriteLine(html);
 			//StreamWriter writeBlock = new StreamWriter("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\block" + whichBlock.ToString() + ".txt");
 			//writeBlock.Write(html);
 			//writeBlock.Close();
 
 			File.Create("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\block" + whichBlock.ToString() + ".txt");
 			File.WriteAllText("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\block" + whichBlock.ToString() + ".txt", html);
-		}
-		catch (Exception e)
-		{
-			Console.WriteLine("Error, Try again later" + e.StackTrace);
-		}
+		//}
+		//catch (Exception e)
+		//{
+		//	Console.WriteLine("Error, Try again later" + e.StackTrace);
+		//}
 
-		int waitTime = 0;
-		while (waitTime < 10000000)
-		{
-			waitTime++;
-		}
+		//int waitTime = 0;
+		//while (waitTime < 10000000)
+		//{
+		//	waitTime++;
+		//}
 	}
 
 	static void Mine(string lastHash, string transactionHistory, int blockNum)

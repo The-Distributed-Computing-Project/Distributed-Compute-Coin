@@ -11,15 +11,22 @@ using System.Globalization;
 
 public class clnt
 {
-	static String wallet = null;
+	static string wallet = null;
+	static string username = null;
+	static string password = null;
 	static int pendingLength = 0;
 	static int blockChainLength = 0;
 	static int totalBlocks = 0;
 	static string lengths = null;
 	public static void Main()
 	{
-		Console.Write("Enter your wallet address : ");
-		wallet = Console.ReadLine();
+		Console.Write("Enter your username : ");
+		username = Console.ReadLine();
+		Console.Write("Enter your password : ");
+		password = Console.ReadLine();
+
+		wallet = "dcc" + sha256(username + password);
+
 		Console.Write("Syncing with server...");
 		
 		for (int i = 1; i < pendingLength+1; i++)
@@ -53,27 +60,27 @@ public class clnt
 				Help();
 			if (command.ToUpper() == "SYNC")
 			{
-				//foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly))
-				//{
-				//	try
-				//	{
-				//		File.Delete(oldBlock);
-				//	}
-				//	catch (Exception)
-				//	{
-				//	}
-				//}
-				//foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly))
-				//{
-				//	try
-				//	{
-				//		File.Delete(oldBlock);
-				//	}
-				//	catch (Exception)
-				//	{
-				//	}
-				//}
-				for (int i = 1; i < pendingLength+1; i++)
+                foreach (string oldBlock in Directory.GetFiles("../../../pendingblocks/", "*.*", SearchOption.TopDirectoryOnly))
+                {
+                    try
+                    {
+                        File.Delete(oldBlock);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+                foreach (string oldBlock in Directory.GetFiles("../../../blockchain/", "*.*", SearchOption.TopDirectoryOnly))
+                {
+                    try
+                    {
+                        File.Delete(oldBlock);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+                for (int i = 1; i < pendingLength+1; i++)
 				{
 					SyncPending(blockChainLength + i);
 				}
@@ -85,27 +92,27 @@ public class clnt
 			}
 			if (command.ToUpper() == "MINE")
 			{
-				//foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly))
-				//{
-				//	try
-				//	{
-				//		File.Delete(oldBlock);
-				//	}
-				//	catch (Exception)
-				//	{
-				//	}
-				//}
-				//foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly))
-				//{
-				//	try
-				//	{
-				//		File.Delete(oldBlock);
-				//	}
-				//	catch (Exception)
-				//	{
-				//	}
-				//}
-				for (int i = 0; i < pendingLength; i++)
+                foreach (string oldBlock in Directory.GetFiles("../../../pendingblocks/", "*.*", SearchOption.TopDirectoryOnly))
+                {
+                    try
+                    {
+                        File.Delete(oldBlock);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+                foreach (string oldBlock in Directory.GetFiles("../../../blockchain/", "*.*", SearchOption.TopDirectoryOnly))
+                {
+                    try
+                    {
+                        File.Delete(oldBlock);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+                for (int i = 0; i < pendingLength; i++)
 				{
 					SyncPending(blockChainLength + 1 + i);
 				}
@@ -114,11 +121,11 @@ public class clnt
 					SyncEntireChain(1 + i);
 				}
 				Console.WriteLine((blockChainLength + 1).ToString());
-				StreamReader readBlockCurrent = new StreamReader("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\block" + (blockChainLength + 1).ToString() + ".txt");
-				string lastHash = readBlockCurrent.ReadLine();
-				string skipline = readBlockCurrent.ReadLine();
-				skipline = readBlockCurrent.ReadLine();
-				string transactions = readBlockCurrent.ReadToEnd();
+				StreamReader readBlockCurrent = new StreamReader("../../../pendingblocks/block" + (blockChainLength + 1).ToString() + ".txt");
+				string lastHash = readBlockCurrent.ReadLine().Replace("\n", "");
+				string skipline = readBlockCurrent.ReadLine().Replace("\n", "");
+				skipline = readBlockCurrent.ReadLine().Replace("\n", "");
+				string transactions = readBlockCurrent.ReadToEnd().Replace("\n", "");
 				readBlockCurrent.Close();
 				Mine(lastHash, transactions, (blockChainLength + 1));
 			}
@@ -138,7 +145,7 @@ public class clnt
 			string lengths = "";
 
 			string html = string.Empty;
-			string url = @"http://api.achillium.us.to/dcc/?query=amountOfCompletedBlocks";
+			string url = @"http://api.achillium.us.to/dcc/?query=amountOfPendingBlocks";
 
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 			request.AutomaticDecompression = DecompressionMethods.GZip;
@@ -197,12 +204,12 @@ public class clnt
 			}
 
 			Console.WriteLine(html);
-			//StreamWriter writeBlock = new StreamWriter("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\block" + whichBlock.ToString() + ".txt");
+			//StreamWriter writeBlock = new StreamWriter("../../../pendingblocks/block" + whichBlock.ToString() + ".txt");
 			//writeBlock.Write(html);
 			//writeBlock.Close();
 
-			File.Create("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\block" + whichBlock.ToString() + ".txt");
-			File.WriteAllText("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\block" + whichBlock.ToString() + ".txt", html);
+			//File.Create("../../../pendingblocks/block" + whichBlock.ToString() + ".txt");
+			File.WriteAllText("../../../pendingblocks/block" + whichBlock.ToString() + ".txt", html);
 		//}
 		//catch (Exception e)
 		//{
@@ -236,12 +243,12 @@ public class clnt
 			}
 
             		Console.WriteLine(html);
-			//StreamWriter writeBlock = new StreamWriter("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\block" + whichBlock.ToString() + ".txt");
+			//StreamWriter writeBlock = new StreamWriter("../../../blockchain/block" + whichBlock.ToString() + ".txt");
 			//writeBlock.Write(html);
 			//writeBlock.Close();
 
-			File.Create("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\block" + whichBlock.ToString() + ".txt");
-			File.WriteAllText("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\block" + whichBlock.ToString() + ".txt", html);
+			//File.Create("../../../blockchain/block" + whichBlock.ToString() + ".txt");
+			File.WriteAllText("../../../blockchain/block" + whichBlock.ToString() + ".txt", html);
 		//}
 		//catch (Exception e)
 		//{
@@ -259,7 +266,7 @@ public class clnt
 	{
 		DateTime startTime = DateTime.UtcNow;
 
-		//if (!Directory.Exists("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\block" + blockNum.ToString() + ".txt"))
+		//if (!Directory.Exists("../../../pendingblocks/block" + blockNum.ToString() + ".txt"))
 		//{
 		//	Console.WriteLine("Unable to mine, try resyncing");
 		//	return;
@@ -277,7 +284,9 @@ public class clnt
 		try
 		{
 			string html = string.Empty;
-			string url = "http://api.achillium.us.to/dcc/?query=submitBlock&blockNum=" + blockNum + "&nonce=" + nonce + "&minedHash=" + sha256(lastHash + transactionHistory + nonce.ToString()) + "&fromAddress=dcc1f4e25f12ae7460b9f1430a5ed1858384368b70435855570cdacdc0338b708f4";
+			string url = "http://api.achillium.us.to/dcc/?query=submitBlock&blockNum=" + blockNum.ToString() + "&nonce=" + nonce.ToString() + "&minedHash=" + sha256(lastHash + transactionHistory + nonce.ToString()) + "&fromAddress=" + wallet;
+
+			//Console.WriteLine("url: " + url);
 
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 			request.AutomaticDecompression = DecompressionMethods.GZip;
@@ -298,7 +307,7 @@ public class clnt
 		}
 
 		int waitTime = 0;
-		while (waitTime < 10000000)
+		while (waitTime < 1000000000)
 		{
 			waitTime++;
 		}

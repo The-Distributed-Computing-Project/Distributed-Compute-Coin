@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "6jY+ehW7mBi8G8VzeutFUYlaP31LRm3T5olul6DZHGTHUVz2rg4/hqPfdiulEBKeONMncTPJwZGlV1ftqWJTaw==",
+  "dgSpecHash": "I5AgdGSjW3ke3ks2tkhs0Ca8mN1BCPa0/EKFww/Ip4nqygegT+DXlUsuztgWWTSoWHdc13YM/O0riWKizn1+UA==",
   "success": true,
   "projectFilePath": "D:\\Code\\DC-Cryptocurrency\\BlockchainMiner\\BlockchainMiner.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Sam\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.17\\microsoft.netcore.app.host.win-x64.3.1.17.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -28,7 +28,7 @@ public class serv
 					s.Close();
 					myList.Stop();
 				}
-				IPAddress ipAd = IPAddress.Parse("192.168.56.1");
+				IPAddress ipAd = IPAddress.Parse("192.168.0.15");
 				// use local m/c IP address, and 
 				// use the same in the client
 

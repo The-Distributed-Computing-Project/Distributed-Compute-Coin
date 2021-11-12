@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Zo7GaLAfZUDKSuYgNR3Z9fouA5RYDV4yR7Y7qgWjnfNmYMRoGZYK29GwtXMpAHGqVCrIsgvOQ5+O47ILDWVIbA==",
+  "dgSpecHash": "iqJ/P2iHpMEqpFtgWYa+JI/N9S0vttd1aGeD+QOP6w8/1gYI5jgpP7Jaz5/UNkwKEJH5Qs3z0u9hmkCgOH++kw==",
   "success": true,
   "projectFilePath": "D:\\Code\\DC-Cryptocurrency\\BlockchainServer\\BlockchainServer.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Sam\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.17\\microsoft.netcore.app.host.win-x64.3.1.17.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -12,7 +12,6 @@ using System.Globalization;
 public class clnt
 {
 	static String wallet = null;
-	static TcpClient tcpclnt = null;
 	static int pendingLength = 0;
 	static int blockChainLength = 0;
 	static int totalBlocks = 0;
@@ -45,58 +44,58 @@ public class clnt
 				Help();
 			if (command.ToUpper() == "SYNC")
 			{
-				foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly))
+				//foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly))
+				//{
+				//	try
+				//	{
+				//		File.Delete(oldBlock);
+				//	}
+				//	catch (Exception)
+				//	{
+				//	}
+				//}
+				//foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly))
+				//{
+				//	try
+				//	{
+				//		File.Delete(oldBlock);
+				//	}
+				//	catch (Exception)
+				//	{
+				//	}
+				//}
+				for (int i = 1; i < pendingLength+1; i++)
 				{
-					try
-					{
-						File.Delete(oldBlock);
-					}
-					catch (Exception)
-					{
-					}
+					SyncPending(blockChainLength + i);
 				}
-				foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly))
+				for (int i = 1; i < blockChainLength+1; i++)
 				{
-					try
-					{
-						File.Delete(oldBlock);
-					}
-					catch (Exception)
-					{
-					}
-				}
-				for (int i = 0; i < pendingLength; i++)
-				{
-					SyncPending(blockChainLength + 1 + i);
-				}
-				for (int i = 0; i < blockChainLength; i++)
-				{
-					SyncEntireChain(1 + i);
+					SyncEntireChain(i);
 				}
 				Console.Write(((char)7).ToString());
 			}
 			if (command.ToUpper() == "MINE")
 			{
-				foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly))
-				{
-					try
-					{
-						File.Delete(oldBlock);
-					}
-					catch (Exception)
-					{
-					}
-				}
-				foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly))
-				{
-					try
-					{
-						File.Delete(oldBlock);
-					}
-					catch (Exception)
-					{
-					}
-				}
+				//foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly))
+				//{
+				//	try
+				//	{
+				//		File.Delete(oldBlock);
+				//	}
+				//	catch (Exception)
+				//	{
+				//	}
+				//}
+				//foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly))
+				//{
+				//	try
+				//	{
+				//		File.Delete(oldBlock);
+				//	}
+				//	catch (Exception)
+				//	{
+				//	}
+				//}
 				for (int i = 0; i < pendingLength; i++)
 				{
 					SyncPending(blockChainLength + 1 + i);
@@ -114,48 +113,6 @@ public class clnt
 				readBlockCurrent.Close();
 				Mine(lastHash, transactions, (blockChainLength + 1));
 			}
-			if (command.ToUpper() == "MINE ALL")
-			{
-				while (Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly).Length > 0)
-				{
-					foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\", "*.*", SearchOption.TopDirectoryOnly))
-					{
-						try
-						{
-							File.Delete(oldBlock);
-						}
-						catch (Exception)
-						{
-						}
-					}
-					foreach (string oldBlock in Directory.GetFiles("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\", "*.*", SearchOption.TopDirectoryOnly))
-					{
-						try
-						{
-							File.Delete(oldBlock);
-						}
-						catch (Exception)
-						{
-						}
-					}
-					for (int i = 0; i < pendingLength; i++)
-					{
-						SyncPending(blockChainLength + 1 + i);
-					}
-					for (int i = 0; i < blockChainLength; i++)
-					{
-						SyncEntireChain(1 + i);
-					}
-					Console.WriteLine((blockChainLength + 1).ToString());
-					StreamReader readBlock = new StreamReader("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\block" + (blockChainLength + 1).ToString() + ".txt");
-					string lastHash = readBlock.ReadLine();
-					string skipline = readBlock.ReadLine();
-					skipline = readBlock.ReadLine();
-					string transactions = readBlock.ReadToEnd();
-					Mine(lastHash, transactions, (blockChainLength + 1));
-					blockChainLength += 1;
-				}
-			}
 		}
 	}
 
@@ -169,31 +126,43 @@ public class clnt
 	{
 		try
 		{
-			tcpclnt = new TcpClient();
-			tcpclnt.Connect("192.168.56.1", 8001);
+			string lengths = "";
 
-			String str = "$GETPENDINGLENGTH##";
-			Stream stm = tcpclnt.GetStream();
+			string html = string.Empty;
+			string url = @"http://api.achillium.us.to/dcc/?query=amountOfCompletedBlocks";
 
-			ASCIIEncoding asen = new ASCIIEncoding();
-			byte[] ba = asen.GetBytes(str);
+			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+			request.AutomaticDecompression = DecompressionMethods.GZip;
 
-			stm.Write(ba, 0, ba.Length);
+			using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+			using (Stream stream = response.GetResponseStream())
+			using (StreamReader reader = new StreamReader(stream))
+			{
+				html = reader.ReadToEnd();
+			}
+			lengths += html.Trim();
 
-			byte[] bb = new byte[100];
-			int k = stm.Read(bb, 0, 100);
-			string received = "";
-			for (int i = 0; i < k; i++)
-				received += Convert.ToChar(bb[i]).ToString();
 
-			if(tcpclnt.Connected)
-				tcpclnt.Close();
-			return received;
+			html = string.Empty;
+			url = @"http://api.achillium.us.to/dcc/?query=amountOfCompletedBlocks";
+
+			request = (HttpWebRequest)WebRequest.Create(url);
+			request.AutomaticDecompression = DecompressionMethods.GZip;
+
+			using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+			using (Stream stream = response.GetResponseStream())
+			using (StreamReader reader = new StreamReader(stream))
+			{
+				html = reader.ReadToEnd();
+			}
+			lengths += "##" + html.Trim();
+
+
+			Console.WriteLine(lengths);
+			return lengths;
 		}
 		catch (Exception e)
 		{
-			if (tcpclnt.Connected)
-				tcpclnt.Close();
 			Console.WriteLine("Error, Try again later" + e.StackTrace);
 			return "";
 		}
@@ -205,43 +174,29 @@ public class clnt
 			whichBlock = 0;
 		try
 		{
-			tcpclnt = new TcpClient();
-			tcpclnt.Connect("192.168.56.1", 8001);
+			string html = string.Empty;
+			string url = @"http://api.achillium.us.to/dcc/?query=getPendingBlock&blockNum=" + whichBlock;
 
-			String str = "$GETPENDINGBLOCKS##" + whichBlock;
-			Stream stm = tcpclnt.GetStream();
+			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+			request.AutomaticDecompression = DecompressionMethods.GZip;
 
-			ASCIIEncoding asen = new ASCIIEncoding();
-			byte[] ba = asen.GetBytes(str);
-
-			stm.Write(ba, 0, ba.Length);
-
-			byte[] bb = new byte[500];
-			int k = stm.Read(bb, 0, 500);
-			string received = "";
-			for (int recv = 0; recv < k; recv++)
+			using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+			using (Stream stream = response.GetResponseStream())
+			using (StreamReader reader = new StreamReader(stream))
 			{
-				try
-				{
-					received += Convert.ToChar(bb[recv]).ToString();
-				}
-				catch (Exception)
-				{
-					Console.WriteLine("==EndOfBlock==");
-				}
+				html = reader.ReadToEnd();
 			}
 
-			if (tcpclnt.Connected)
-				tcpclnt.Close();
-			Console.WriteLine(received.Replace("##DIVIDE$LINE##", "\n"));
-			StreamWriter writeBlock = new StreamWriter("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\block" + whichBlock.ToString() + ".txt");
-			writeBlock.Write(received.Replace("##DIVIDE$LINE##", "\n"));
-			writeBlock.Close();
+			Console.WriteLine(html);
+			//StreamWriter writeBlock = new StreamWriter("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\block" + whichBlock.ToString() + ".txt");
+			//writeBlock.Write(html);
+			//writeBlock.Close();
+
+			File.Create("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\block" + whichBlock.ToString() + ".txt");
+			File.WriteAllText("D:\\Code\\Blockchain Main\\BlockchainMiner\\pendingblocks\\block" + whichBlock.ToString() + ".txt", html);
 		}
 		catch (Exception e)
 		{
-			if (tcpclnt.Connected)
-				tcpclnt.Close();
 			Console.WriteLine("Error, Try again later" + e.StackTrace);
 		}
 
@@ -258,43 +213,29 @@ public class clnt
 			whichBlock = 0;
 		try
 		{
-			tcpclnt = new TcpClient();
-			tcpclnt.Connect("192.168.56.1", 8001);
+			string html = string.Empty;
+			string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock;
 
-			String str = "$GETBLOCKCHAIN##" + whichBlock;
-			Stream stm = tcpclnt.GetStream();
+			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+			request.AutomaticDecompression = DecompressionMethods.GZip;
 
-			ASCIIEncoding asen = new ASCIIEncoding();
-			byte[] ba = asen.GetBytes(str);
-
-			stm.Write(ba, 0, ba.Length);
-
-			byte[] bb = new byte[500];
-			int k = stm.Read(bb, 0, 500);
-			string received = "";
-			for (int recv = 0; recv < k; recv++)
+			using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+			using (Stream stream = response.GetResponseStream())
+			using (StreamReader reader = new StreamReader(stream))
 			{
-				try
-				{
-					received += Convert.ToChar(bb[recv]).ToString();
-				}
-				catch (Exception)
-				{
-					Console.WriteLine("==EndOfBlock==");
-				}
+				html = reader.ReadToEnd();
 			}
 
-			if (tcpclnt.Connected)
-				tcpclnt.Close();
-			Console.WriteLine(received.Replace("##DIVIDE$LINE##", "\n"));
-			StreamWriter writeBlock = new StreamWriter("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\block" + whichBlock.ToString() + ".txt");
-			writeBlock.Write(received.Replace("##DIVIDE$LINE##", "\n"));
-			writeBlock.Close();
+            Console.WriteLine(html);
+			//StreamWriter writeBlock = new StreamWriter("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\block" + whichBlock.ToString() + ".txt");
+			//writeBlock.Write(html);
+			//writeBlock.Close();
+
+			File.Create("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\block" + whichBlock.ToString() + ".txt");
+			File.WriteAllText("D:\\Code\\Blockchain Main\\BlockchainMiner\\blockchain\\block" + whichBlock.ToString() + ".txt", html);
 		}
 		catch (Exception e)
 		{
-			if (tcpclnt.Connected)
-				tcpclnt.Close();
 			Console.WriteLine("Error, Try again later" + e.StackTrace);
 		}
 
@@ -326,41 +267,24 @@ public class clnt
 
 		try
 		{
-			tcpclnt = new TcpClient();
-			tcpclnt.Connect("192.168.56.1", 8001);
+			string html = string.Empty;
+			string url = "http://api.achillium.us.to/dcc/?query=submitBlock&blockNum=" + blockNum + "&nonce=" + nonce + "&minedHash=" + sha256(lastHash + transactionHistory + nonce.ToString()) + "&fromAddress=dcc1f4e25f12ae7460b9f1430a5ed1858384368b70435855570cdacdc0338b708f4";
 
-			String str = "$SUBMITMINE##" + nonce + "##" + wallet + "##" + blockNum;
-			Stream stm = tcpclnt.GetStream();
+			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+			request.AutomaticDecompression = DecompressionMethods.GZip;
 
-			ASCIIEncoding asen = new ASCIIEncoding();
-			byte[] ba = asen.GetBytes(str);
-
-			stm.Write(ba, 0, ba.Length);
-
-			byte[] bb = new byte[500];
-			int k = stm.Read(bb, 0, 500);
-			string received = "";
-			for (int recv = 0; recv < k; recv++)
+			using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+			using (Stream stream = response.GetResponseStream())
+			using (StreamReader reader = new StreamReader(stream))
 			{
-				try
-				{
-					received += Convert.ToChar(bb[recv]).ToString();
-				}
-				catch (Exception)
-				{
-
-				}
+				html = reader.ReadToEnd();
 			}
 
-			if (tcpclnt.Connected)
-				tcpclnt.Close();
-			Console.WriteLine(received.Replace("##DIVIDE$LINE##", "\n") + " in " + (DateTime.UtcNow - startTime).ToString().Split(".")[0]);
+			Console.WriteLine(html + " in " + (DateTime.UtcNow - startTime).ToString().Split(".")[0]);
 			Console.Write(((char)7).ToString());
 		}
 		catch (Exception e)
 		{
-			if (tcpclnt.Connected)
-				tcpclnt.Close();
 			Console.WriteLine("Error, Try again later" + e.StackTrace);
 		}
 

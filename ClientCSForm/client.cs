@@ -60,7 +60,7 @@ public class clnt
 		try
 		{
 			tcpclnt = new TcpClient();
-			tcpclnt.Connect("192.168.56.1", 8001);
+			tcpclnt.Connect("192.168.0.15", 8001);
 
 			String str = "$ISTRANSACTIONREADY##" + transactionDetails;
 			Stream stm = tcpclnt.GetStream();
@@ -96,7 +96,7 @@ public class clnt
 		{
 			tcpclnt = new TcpClient();
 			Console.WriteLine("\nStarting trading dialogue...");
-			tcpclnt.Connect("192.168.56.1", 8001);
+			tcpclnt.Connect("192.168.0.1", 8001);
 
 			String str = sendAmount + "->" + wallet + "->" + recipient;
 			Stream stm = tcpclnt.GetStream();
@@ -145,7 +145,7 @@ public class clnt
 		{
 			tcpclnt = new TcpClient();
 			Console.WriteLine("\nGetting current balance...");
-			tcpclnt.Connect("192.168.56.1", 8001);
+			tcpclnt.Connect("192.168.0.15", 8001);
 
 			String str = "$GETWALLLETBALANCE##" + walletAddress;
 			Stream stm = tcpclnt.GetStream();
@@ -179,7 +179,7 @@ public class clnt
 		try
 		{
 			tcpclnt = new TcpClient();
-			tcpclnt.Connect("192.168.56.1", 8001);
+			tcpclnt.Connect("192.168.0.15", 8001);
 
 			String str = "$GETBLOCKCHAIN##" + whichBlock;
 			Stream stm = tcpclnt.GetStream();
@@ -229,7 +229,7 @@ public class clnt
 		{
 			tcpclnt = new TcpClient();
 			Console.WriteLine("\nGetting blockchain length...");
-			tcpclnt.Connect("192.168.56.1", 8001);
+			tcpclnt.Connect("192.168.0.15", 8001);
 
 			String str = "$GETBLOCKCHAINLENGTH##";
 			Stream stm = tcpclnt.GetStream();

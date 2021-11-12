@@ -11,3 +11,4 @@ D:\Code\DC-Cryptocurrency\BlockchainServer\obj\Debug\netcoreapp3.1\BlockchainSer
 D:\Code\DC-Cryptocurrency\BlockchainServer\obj\Debug\netcoreapp3.1\BlockchainServer.dll
 D:\Code\DC-Cryptocurrency\BlockchainServer\obj\Debug\netcoreapp3.1\BlockchainServer.pdb
 D:\Code\DC-Cryptocurrency\BlockchainServer\obj\Debug\netcoreapp3.1\BlockchainServer.genruntimeconfig.cache
+D:\Code\DC-Cryptocurrency\BlockchainServer\obj\Debug\netcoreapp3.1\BlockchainServer.GeneratedMSBuildEditorConfig.editorconfig

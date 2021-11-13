@@ -7,3 +7,4 @@ D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.csproj.GenerateRes
 D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.csproj.CoreCompileInputs.cache
 D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.exe
 D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.pdb
+D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.Form1.resources

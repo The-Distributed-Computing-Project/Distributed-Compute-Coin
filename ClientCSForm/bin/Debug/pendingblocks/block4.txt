@@ -1,0 +1,1 @@
+ERR: pending block number 4 is missing or bad, canceling connection

@@ -12,124 +12,52 @@ using System.Windows.Forms;
 
 public class clnt
 {
-	//public String wallet = null;
-	public TcpClient tcpclnt = null;
 	public int blockchainlength = 0;
-	public string confirmTransact = null;
-	public string transactionDetails = null;
 	public float balance;
-	public void Client(string wlt)
+	public string username;
+	public string password;
+	public string wallet;
+	public void Client(string usrn, string pswd, bool stayLoggedIn)
 	{
-		//Console.Write("Enter your wallet address : ");
-		//wallet = Console.ReadLine();
-		//Console.Write("Syncing with server...");
-		balance = GetBalance(wlt);
-		//Console.WriteLine("You have " + balance.ToString() + " Compute Credits");
-		
-		StreamReader readConfig = new StreamReader("D:\\Code\\DC-Cryptocurrency\\ClientCSForm\\config.txt");
-		confirmTransact = readConfig.ReadLine();
-		transactionDetails = readConfig.ReadLine();
-		readConfig.Close();
-		
-		if(confirmTransact == "true")
-			WaitForConfirmation();
+		username = usrn;
+		password = pswd;
+		string configFileRead = File.ReadAllText("./config.cfg");
+		if (configFileRead.Length > 4)
+		{
+			username = configFileRead.Split('\n')[0].Trim();
+			password = configFileRead.Split('\n')[1].Trim();
+		}
+		else
+		{
+			if (stayLoggedIn)
+			{
+				StreamWriter configFile = new StreamWriter("./config.cfg");
+				configFile.Write(username + "\n" + password);
+				configFile.Close();
+			}
+		}
 
-		//while (true)
-		//{
-		//	Console.Write("What do you want to do :  ");
-		//	String command = Console.ReadLine();
-		//	if (command.ToUpper() == "TRADE")
-		//		Trade();
-		//	if (command.ToUpper() == "HELP")
-		//		Help();
-		//	if (command.ToUpper() == "SYNC")
-		//	{
-		//		for (int i = 1; i < blockchainlength; i++)
-		//		{
-		//			Sync(i);
-		//		}
-		//	}
+		wallet = "dcc" + sha256(username + password);
 
-
-		//}
+		balance = GetBalance(wallet);
 	}
 	
-	public void WaitForConfirmation()
+	public void Trade(String recipient, String sendAmount)
 	{
-		Console.WriteLine("Waiting for transaction confirmation...");
-		try
+		string html = string.Empty;
+		string url = @"http://api.achillium.us.to/dcc/?query=sendToAddress&sendAmount=" + sendAmount + "&username=" + username + "&password=" + password + "&fromAddress="+wallet+"&recipientAddress=" + recipient;
+		Console.WriteLine(url);
+		HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+		request.AutomaticDecompression = DecompressionMethods.GZip;
+
+		using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+		using (Stream stream = response.GetResponseStream())
+		using (StreamReader reader = new StreamReader(stream))
 		{
-			tcpclnt = new TcpClient();
-			tcpclnt.Connect("192.168.0.15", 8001);
-
-			String str = "$ISTRANSACTIONREADY##" + transactionDetails;
-			Stream stm = tcpclnt.GetStream();
-
-			ASCIIEncoding asen = new ASCIIEncoding();
-			byte[] ba = asen.GetBytes(str);
-
-			stm.Write(ba, 0, ba.Length);
-
-			byte[] bb = new byte[500];
-			int k = stm.Read(bb, 0, 500);
-			string received = "";
-			for (int recv = 0; recv < k; recv++)
-			{
-				received += Convert.ToChar(bb[recv]).ToString();
-			}
-
-			tcpclnt.Close();
-			StreamWriter writeBlock = new StreamWriter("D:\\Code\\DC-Cryptocurrency\\ClientCSForm\\config.txt");
-			writeBlock.Write(" \n ");
-			writeBlock.Close();
+			html = reader.ReadToEnd();
 		}
-		catch (Exception e)
-		{
-			tcpclnt.Close();
-			Console.WriteLine("Error, Try again later" + e.StackTrace);
-		}
-	}
-
-	public void Trade(String recipient, String sendAmount, String wallet)
-	{
-		try
-		{
-			tcpclnt = new TcpClient();
-			Console.WriteLine("\nStarting trading dialogue...");
-			tcpclnt.Connect("192.168.0.1", 8001);
-
-			String str = sendAmount + "->" + wallet + "->" + recipient;
-			Stream stm = tcpclnt.GetStream();
-
-			ASCIIEncoding asen = new ASCIIEncoding();
-			byte[] ba = asen.GetBytes(str);
-
-			stm.Write(ba, 0, ba.Length);
-
-			byte[] bb = new byte[100];
-			int k = stm.Read(bb, 0, 100);
-			string received = "";
-			for (int i = 0; i < k; i++)
-				received += Convert.ToChar(bb[i]).ToString();
-
-			Console.WriteLine(received);
-
-			tcpclnt.Close();
-			
-			StreamWriter writeBlock = new StreamWriter("D:\\Code\\DC-Cryptocurrency\\ClientCSForm\\config.txt");
-			writeBlock.Write("true\n" + sendAmount + "->" + wallet + "->" + recipient);
-			writeBlock.Close();
-
-			balance -= float.Parse(sendAmount);
-		}
-		catch (Exception e)
-		{
-			tcpclnt.Close();
-			Console.WriteLine("Error, Try again later" + e.StackTrace);
-			return;
-		}
-
-		//Console.WriteLine("Your wallet has:  " + walletValue + " Compute Tokens");
+		balance = GetBalance(wallet);
+		Console.WriteLine(html);
 	}
 
 	public void Help()
@@ -140,121 +68,115 @@ public class clnt
 
 	public float GetBalance(string walletAddress)
 	{
-		string[] separator = { "##" };
-		try
+		string html = string.Empty;
+		string url = @"http://api.achillium.us.to/dcc/?query=getBalance&fromAddress=" + wallet + "&username=" + username + "&password=" + password;
+
+		HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+		request.AutomaticDecompression = DecompressionMethods.GZip;
+
+		using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+		using (Stream stream = response.GetResponseStream())
+		using (StreamReader reader = new StreamReader(stream))
 		{
-			tcpclnt = new TcpClient();
-			Console.WriteLine("\nGetting current balance...");
-			tcpclnt.Connect("192.168.0.15", 8001);
-
-			String str = "$GETWALLLETBALANCE##" + walletAddress;
-			Stream stm = tcpclnt.GetStream();
-
-			ASCIIEncoding asen = new ASCIIEncoding();
-			byte[] ba = asen.GetBytes(str);
-
-			stm.Write(ba, 0, ba.Length);
-
-			byte[] bb = new byte[100];
-			int k = stm.Read(bb, 0, 100);
-			string received = "";
-			for (int i = 0; i < k; i++)
-				received += Convert.ToChar(bb[i]).ToString();
-
-			tcpclnt.Close();
-
-			blockchainlength = int.Parse(received.Trim().Split(separator, System.StringSplitOptions.RemoveEmptyEntries)[1]);
-			return float.Parse(received.Trim().Split(separator, System.StringSplitOptions.RemoveEmptyEntries)[0]);
+			html = reader.ReadToEnd();
 		}
-		catch (Exception e)
-		{
-			tcpclnt.Close();
-			Console.WriteLine("Error, Try again later" + e.StackTrace);
-			return -1.0f;
-		}
+
+		Console.WriteLine(html);
+		return float.Parse(html.Trim());
 	}
 
-	public void Sync(int whichBlock)
+	//public void Sync(int whichBlock)
+	//{
+	//	try
+	//	{
+	//		tcpclnt = new TcpClient();
+	//		tcpclnt.Connect("192.168.0.15", 8001);
+
+	//		String str = "$GETBLOCKCHAIN##" + whichBlock;
+	//		Stream stm = tcpclnt.GetStream();
+
+	//		ASCIIEncoding asen = new ASCIIEncoding();
+	//		byte[] ba = asen.GetBytes(str);
+
+	//		stm.Write(ba, 0, ba.Length);
+
+	//		byte[] bb = new byte[500];
+	//		int k = stm.Read(bb, 0, 500);
+	//		string received = "";
+	//		for (int recv = 0; recv < k; recv++)
+	//		{
+	//			try
+	//			{
+	//				received += Convert.ToChar(bb[recv]).ToString();
+	//			}
+	//			catch (Exception)
+	//			{
+	//				Console.WriteLine("==EndOfBlock==");
+	//			}
+	//		}
+
+	//		tcpclnt.Close();
+	//		Console.WriteLine(received.Replace("##DIVIDE$LINE##", "\n"));
+	//		StreamWriter writeBlock = new StreamWriter("./blockchain\\block" + whichBlock + ".txt");
+	//		writeBlock.Write(received.Replace("##DIVIDE$LINE##", "\n"));
+	//		writeBlock.Close();
+	//	}
+	//	catch (Exception e)
+	//	{
+	//		tcpclnt.Close();
+	//		Console.WriteLine("Error, Try again later" + e.StackTrace);
+	//	}
+
+	//	int waitTime = 0;
+	//	while(waitTime < 10000000)
+	//	{
+	//		waitTime++;
+	//	}
+	//}
+
+	//public int GetBlockChainLength()
+	//{
+	//	try
+	//	{
+	//		tcpclnt = new TcpClient();
+	//		Console.WriteLine("\nGetting blockchain length...");
+	//		tcpclnt.Connect("192.168.0.15", 8001);
+
+	//		String str = "$GETBLOCKCHAINLENGTH##";
+	//		Stream stm = tcpclnt.GetStream();
+
+	//		ASCIIEncoding asen = new ASCIIEncoding();
+	//		byte[] ba = asen.GetBytes(str);
+
+	//		stm.Write(ba, 0, ba.Length);
+
+	//		byte[] bb = new byte[100];
+	//		int k = stm.Read(bb, 0, 100);
+	//		string received = "";
+	//		for (int i = 0; i < k; i++)
+	//			received += Convert.ToChar(bb[i]).ToString();
+
+	//		tcpclnt.Close();
+	//		return int.Parse(received.Trim());
+
+	//	}
+	//	catch (Exception e)
+	//	{
+	//		tcpclnt.Close();
+	//		Console.WriteLine("Error, Try again later" + e.StackTrace);
+	//		return 0;
+	//	}
+	//}
+
+	static string sha256(string input)
 	{
-		try
+		var crypt = new System.Security.Cryptography.SHA256Managed();
+		var hash = new System.Text.StringBuilder();
+		byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(input));
+		foreach (byte theByte in crypto)
 		{
-			tcpclnt = new TcpClient();
-			tcpclnt.Connect("192.168.0.15", 8001);
-
-			String str = "$GETBLOCKCHAIN##" + whichBlock;
-			Stream stm = tcpclnt.GetStream();
-
-			ASCIIEncoding asen = new ASCIIEncoding();
-			byte[] ba = asen.GetBytes(str);
-
-			stm.Write(ba, 0, ba.Length);
-
-			byte[] bb = new byte[500];
-			int k = stm.Read(bb, 0, 500);
-			string received = "";
-			for (int recv = 0; recv < k; recv++)
-			{
-				try
-				{
-					received += Convert.ToChar(bb[recv]).ToString();
-				}
-				catch (Exception)
-				{
-					Console.WriteLine("==EndOfBlock==");
-				}
-			}
-
-			tcpclnt.Close();
-			Console.WriteLine(received.Replace("##DIVIDE$LINE##", "\n"));
-			StreamWriter writeBlock = new StreamWriter("D:\\Code\\DC-Cryptocurrency\\ClientCSForm\\blockchain\\block" + whichBlock + ".txt");
-			writeBlock.Write(received.Replace("##DIVIDE$LINE##", "\n"));
-			writeBlock.Close();
+			hash.Append(theByte.ToString("x2"));
 		}
-		catch (Exception e)
-		{
-			tcpclnt.Close();
-			Console.WriteLine("Error, Try again later" + e.StackTrace);
-		}
-
-		int waitTime = 0;
-		while(waitTime < 10000000)
-		{
-			waitTime++;
-		}
+		return hash.ToString();
 	}
-
-	public int GetBlockChainLength()
-	{
-		try
-		{
-			tcpclnt = new TcpClient();
-			Console.WriteLine("\nGetting blockchain length...");
-			tcpclnt.Connect("192.168.0.15", 8001);
-
-			String str = "$GETBLOCKCHAINLENGTH##";
-			Stream stm = tcpclnt.GetStream();
-
-			ASCIIEncoding asen = new ASCIIEncoding();
-			byte[] ba = asen.GetBytes(str);
-
-			stm.Write(ba, 0, ba.Length);
-
-			byte[] bb = new byte[100];
-			int k = stm.Read(bb, 0, 100);
-			string received = "";
-			for (int i = 0; i < k; i++)
-				received += Convert.ToChar(bb[i]).ToString();
-
-			tcpclnt.Close();
-			return int.Parse(received.Trim());
-
-		}
-		catch (Exception e)
-		{
-			tcpclnt.Close();
-			Console.WriteLine("Error, Try again later" + e.StackTrace);
-			return 0;
-		}
-	}
-
 }

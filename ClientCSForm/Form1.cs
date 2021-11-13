@@ -7,19 +7,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Runtime.InteropServices;
 
 namespace ClientCSForm
 {
 	public partial class Form1 : Form
 	{
 		clnt clnt = new clnt();
-		string wlt = "";
+		string username;
+		string password;
+
+		[DllImport("kernel32.dll", SetLastError = true)]
+		[return: MarshalAs(UnmanagedType.Bool)]
+		static extern bool AllocConsole();
+
 		public Form1()
 		{
 			InitializeComponent();
+			AllocConsole();
 			sendToWallet.Enabled = false;
 			sendToAmount.Enabled = false;
 			sendButton.Enabled = false;
+
+			string configFileRead = File.ReadAllText("./config.cfg");
+			if (configFileRead.Length > 4)
+			{
+				username = configFileRead.Split('\n')[0].Trim();
+				password = configFileRead.Split('\n')[1].Trim();
+				usernameBox.Text = username;
+				passwordBox.Text = password;
+				tradeCover.Enabled = false;
+				clnt.Client(username, password, true);
+				walletAddr.Text = "Wallet: " + clnt.wallet;
+				computeCoins.Text = "Compute Coins: $" + clnt.balance;
+				sendToWallet.Enabled = true;
+				sendToAmount.Enabled = true;
+				sendButton.Enabled = true;
+				tradeCover.Enabled = false;
+				tradeCover.Visible = false;
+			}
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -38,7 +65,7 @@ namespace ClientCSForm
 			{
 				if(float.Parse(sendToAmount.Text) <= clnt.balance)
 				{
-					clnt.Trade(sendToWallet.Text, sendToAmount.Text, wlt);
+					clnt.Trade(sendToWallet.Text, sendToAmount.Text);
 					computeCoins.Text = "Compute Coins: $" + clnt.balance;
 				}
 				else
@@ -66,18 +93,18 @@ namespace ClientCSForm
 		{
 			if (aFRLogin.Text == "All fields must be filled" || aFRLogin.Text == "Error connecting to server")
 				aFRLogin.Text = "";
-			if (LoginWallet.TextLength > 0)
+			if (usernameBox.TextLength > 0)
 			{
-				clnt.Client(LoginWallet.Text.Trim());
+				clnt.Client(usernameBox.Text.Trim(), passwordBox.Text.Trim(), stayLoggedIn.Checked);
 				if(clnt.balance != -1.0f)
 				{
-					walletAddr.Text = "Wallet: " + LoginWallet.Text;
-					wlt = LoginWallet.Text;
+					walletAddr.Text = "Wallet: " + clnt.wallet;
 					computeCoins.Text = "Compute Coins: $" + clnt.balance;
-					LoginWallet.Text = "";
 					sendToWallet.Enabled = true;
 					sendToAmount.Enabled = true;
 					sendButton.Enabled = true;
+					tradeCover.Enabled = false;
+					tradeCover.Visible = false;
 				}
 				else
 					aFRLogin.Text = "Error connecting to server";
@@ -90,5 +117,10 @@ namespace ClientCSForm
 		{
 
 		}
-	}
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

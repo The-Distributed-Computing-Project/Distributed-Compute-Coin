@@ -20,6 +20,13 @@ public class clnt
     static string lengths = null;
     public static void Main()
     {
+        if (!File.Exists("./config.cfg"))
+        {
+            StreamWriter configFile = new StreamWriter("./config.cfg");
+            configFile.Write("");
+            configFile.Close();
+        }
+
         string configFileRead = File.ReadAllText("./config.cfg");
         if (configFileRead.Length > 4)
         {

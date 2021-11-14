@@ -14,9 +14,12 @@ public class clnt
 {
 	public int blockchainlength = 0;
 	public float balance;
+	public float pendingBalance;
 	public string username;
 	public string password;
 	public string wallet;
+	public float costPerMinute;
+
 	public void Client(string usrn, string pswd, bool stayLoggedIn)
 	{
 		username = usrn;
@@ -40,13 +43,14 @@ public class clnt
 		wallet = "dcc" + sha256(username + password);
 
 		balance = GetBalance(wallet);
+		pendingBalance = GetPendingBalance(wallet);
+		costPerMinute = GetCostPerMinute();
 	}
 	
-	public void Trade(String recipient, String sendAmount)
+	public string Trade(String recipient, float sendAmount)
 	{
 		string html = string.Empty;
 		string url = @"http://api.achillium.us.to/dcc/?query=sendToAddress&sendAmount=" + sendAmount + "&username=" + username + "&password=" + password + "&fromAddress="+wallet+"&recipientAddress=" + recipient;
-		Console.WriteLine(url);
 		HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 		request.AutomaticDecompression = DecompressionMethods.GZip;
 
@@ -58,7 +62,24 @@ public class clnt
 		}
 		balance = GetBalance(wallet);
 		Console.WriteLine(html);
+		return html.Trim();
 	}
+
+	public string UploadProgram(string fileName, float minutes, int computationLevel)
+	{
+		string baseName = fileName.Split('\\')[fileName.Split('\\').Length - 1];
+
+		string html = string.Empty;
+        string url = @"http://api.achillium.us.to/dcc/?query=uploadProgram&fileName=" + baseName + "&username=" + username + "&password=" + password + "&fromAddress=" + wallet + "&minutes=" + minutes + "&computationLevel=" + computationLevel;
+
+        System.Net.WebClient Client = new System.Net.WebClient();
+        Client.Headers.Add("Content-Type", "binary/octet-stream");
+        byte[] result = Client.UploadFile(url, "POST", fileName);
+        string s = System.Text.Encoding.UTF8.GetString(result, 0, result.Length);
+
+		Console.WriteLine(s);
+		return s.Trim(); ;
+    }
 
 	public void Help()
 	{
@@ -85,88 +106,43 @@ public class clnt
 		return float.Parse(html.Trim());
 	}
 
-	//public void Sync(int whichBlock)
-	//{
-	//	try
-	//	{
-	//		tcpclnt = new TcpClient();
-	//		tcpclnt.Connect("192.168.0.15", 8001);
+	public float GetPendingBalance(string walletAddress)
+	{
+		string html = string.Empty;
+		string url = @"http://api.achillium.us.to/dcc/?query=pendingFunds&fromAddress=" + wallet + "&username=" + username + "&password=" + password;
 
-	//		String str = "$GETBLOCKCHAIN##" + whichBlock;
-	//		Stream stm = tcpclnt.GetStream();
+		HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+		request.AutomaticDecompression = DecompressionMethods.GZip;
 
-	//		ASCIIEncoding asen = new ASCIIEncoding();
-	//		byte[] ba = asen.GetBytes(str);
+		using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+		using (Stream stream = response.GetResponseStream())
+		using (StreamReader reader = new StreamReader(stream))
+		{
+			html = reader.ReadToEnd();
+		}
 
-	//		stm.Write(ba, 0, ba.Length);
+		Console.WriteLine(html);
+		return float.Parse(html.Trim());
+	}
 
-	//		byte[] bb = new byte[500];
-	//		int k = stm.Read(bb, 0, 500);
-	//		string received = "";
-	//		for (int recv = 0; recv < k; recv++)
-	//		{
-	//			try
-	//			{
-	//				received += Convert.ToChar(bb[recv]).ToString();
-	//			}
-	//			catch (Exception)
-	//			{
-	//				Console.WriteLine("==EndOfBlock==");
-	//			}
-	//		}
+	public float GetCostPerMinute()
+	{
+		string html = string.Empty;
+		string url = @"http://api.achillium.us.to/dcc/?query=getCostPerMinute";
 
-	//		tcpclnt.Close();
-	//		Console.WriteLine(received.Replace("##DIVIDE$LINE##", "\n"));
-	//		StreamWriter writeBlock = new StreamWriter("./blockchain\\block" + whichBlock + ".txt");
-	//		writeBlock.Write(received.Replace("##DIVIDE$LINE##", "\n"));
-	//		writeBlock.Close();
-	//	}
-	//	catch (Exception e)
-	//	{
-	//		tcpclnt.Close();
-	//		Console.WriteLine("Error, Try again later" + e.StackTrace);
-	//	}
+		HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+		request.AutomaticDecompression = DecompressionMethods.GZip;
 
-	//	int waitTime = 0;
-	//	while(waitTime < 10000000)
-	//	{
-	//		waitTime++;
-	//	}
-	//}
+		using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+		using (Stream stream = response.GetResponseStream())
+		using (StreamReader reader = new StreamReader(stream))
+		{
+			html = reader.ReadToEnd();
+		}
 
-	//public int GetBlockChainLength()
-	//{
-	//	try
-	//	{
-	//		tcpclnt = new TcpClient();
-	//		Console.WriteLine("\nGetting blockchain length...");
-	//		tcpclnt.Connect("192.168.0.15", 8001);
-
-	//		String str = "$GETBLOCKCHAINLENGTH##";
-	//		Stream stm = tcpclnt.GetStream();
-
-	//		ASCIIEncoding asen = new ASCIIEncoding();
-	//		byte[] ba = asen.GetBytes(str);
-
-	//		stm.Write(ba, 0, ba.Length);
-
-	//		byte[] bb = new byte[100];
-	//		int k = stm.Read(bb, 0, 100);
-	//		string received = "";
-	//		for (int i = 0; i < k; i++)
-	//			received += Convert.ToChar(bb[i]).ToString();
-
-	//		tcpclnt.Close();
-	//		return int.Parse(received.Trim());
-
-	//	}
-	//	catch (Exception e)
-	//	{
-	//		tcpclnt.Close();
-	//		Console.WriteLine("Error, Try again later" + e.StackTrace);
-	//		return 0;
-	//	}
-	//}
+		Console.WriteLine(html);
+		return float.Parse(html.Trim());
+	}
 
 	static string sha256(string input)
 	{

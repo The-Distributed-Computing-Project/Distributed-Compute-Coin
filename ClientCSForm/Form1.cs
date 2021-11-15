@@ -32,7 +32,7 @@ namespace ClientCSForm
             sendButton.Enabled = false;
             compSliderTooltip.SetToolTip(ComputationPowerSlider, "This effects which miners this program will be run on. Accurately describing this \nhelps lower the amount of minutes required to compute the same amount of data.");
             totalMinutesTooltip.SetToolTip(TotalMinutesBox, "The amount of minutes your program will run, uninterrupted on mining computers. \nKeep in mind, these are total minutes distributed across machines. You can buy a minimum of 1 minute.");
-            zippedRustFolderTooltip.SetToolTip(SelectFileButton, "The Distributed Computing network uses programs written in Rust for ease of use. \nThese must be packaged in .ZIP files for better upload/download time and security.");
+            zippedRustFolderTooltip.SetToolTip(SelectFileButton, "The Distributed Computing network uses programs written in Rust for ease of use. \nThese must be packaged in .ZIP files for better upload/download time and security. \nEnsure this file is less than 20 MB, and you have done \"cargo clean\" in the project folder to remove uneeded files.");
             submitFileBtnTooltip.SetToolTip(submitFileButton, "In order to keep malicious or un-wanted software from entering the network and \nthe network's computers, all programs will be screened by trusted users before getting released");
 
             if (!File.Exists("./config.cfg"))
@@ -151,16 +151,38 @@ namespace ClientCSForm
                 {
                     string text = File.ReadAllText(file);
                     size = text.Length;
-                    fileLocation.Text = file;
-                    selectedFile = file;
+
+                    long fileSize = GetFileSize(file) / (1024 * 1024);
+
+                    if(fileSize > 20)
+                    {
+                        fileLocation.ForeColor = Color.Red;
+                        fileLocation.Text = "File is larger than 20MB. Try doing \"cargo clean\"";
+                    }
+                    else
+                    {
+                        fileLocation.ForeColor = Color.Gray;
+                        fileLocation.Text = file;
+                        selectedFile = file;
+                    }
+
                     EstimateCost();
-                    Console.WriteLine(fileLocation); // <-- For debugging use.
+                    Console.WriteLine(fileLocation);
                 }
                 catch (IOException)
                 {
                 }
             }
 
+        }
+
+        static long GetFileSize(string FilePath)
+        {
+            if (File.Exists(FilePath))
+            {
+                return new FileInfo(FilePath).Length;
+            }
+            return 0;
         }
 
         private void TotalMinutesBox_TextChanged(object sender, EventArgs e)

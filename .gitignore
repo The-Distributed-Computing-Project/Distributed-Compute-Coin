@@ -3,3 +3,4 @@ CPPClient/.vs/CPPClient/v16/ipch/AutoPCH/79e064bba4ed3c10/CPPCLIENT.ipch
 ClientCSForm/.vs/ClientCSForm/v16/ipch/AutoPCH/b79c35a57f301b1d/CPPCLIENT.ipch
 ClientCSForm/bin/Debug/config.cfg
 BlockchainMiner/bin/Debug/netcoreapp3.1/config.cfg
+BlockchainMiner/bin/Debug/netcoreapp3.1/programs

@@ -84,7 +84,7 @@ namespace ClientCSForm
             // 
             this.walletAddr.AutoSize = true;
             this.walletAddr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.walletAddr.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.walletAddr.Font = new System.Drawing.Font("Arial", 11.25F);
             this.walletAddr.Location = new System.Drawing.Point(13, 13);
             this.walletAddr.Name = "walletAddr";
             this.walletAddr.Size = new System.Drawing.Size(82, 24);
@@ -96,7 +96,7 @@ namespace ClientCSForm
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(1095, 315);
-            this.label1.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 17);
             this.label1.TabIndex = 1;
@@ -105,7 +105,7 @@ namespace ClientCSForm
             // computeCoins
             // 
             this.computeCoins.AutoSize = true;
-            this.computeCoins.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.computeCoins.Font = new System.Drawing.Font("Arial", 11.25F);
             this.computeCoins.Location = new System.Drawing.Point(13, 37);
             this.computeCoins.Name = "computeCoins";
             this.computeCoins.Size = new System.Drawing.Size(116, 22);
@@ -116,7 +116,7 @@ namespace ClientCSForm
             // 
             this.sendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.sendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sendButton.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.sendButton.Font = new System.Drawing.Font("Arial", 9.75F);
             this.sendButton.ForeColor = System.Drawing.SystemColors.Control;
             this.sendButton.Location = new System.Drawing.Point(35, 173);
             this.sendButton.Name = "sendButton";
@@ -146,7 +146,7 @@ namespace ClientCSForm
             this.sendToAmount.BackColor = System.Drawing.SystemColors.MenuText;
             this.sendToAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.sendToAmount.DecimalPlaces = 1;
-            this.sendToAmount.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.sendToAmount.Font = new System.Drawing.Font("Arial", 9.75F);
             this.sendToAmount.ForeColor = System.Drawing.SystemColors.Info;
             this.sendToAmount.Location = new System.Drawing.Point(14, 120);
             this.sendToAmount.Name = "sendToAmount";
@@ -158,7 +158,7 @@ namespace ClientCSForm
             this.fieldsNotFilledWarn.AutoSize = true;
             this.fieldsNotFilledWarn.ForeColor = System.Drawing.Color.Red;
             this.fieldsNotFilledWarn.Location = new System.Drawing.Point(8, 145);
-            this.fieldsNotFilledWarn.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.fieldsNotFilledWarn.Font = new System.Drawing.Font("Arial", 9.75F);
             this.fieldsNotFilledWarn.Name = "fieldsNotFilledWarn";
             this.fieldsNotFilledWarn.Size = new System.Drawing.Size(0, 17);
             this.fieldsNotFilledWarn.TabIndex = 8;
@@ -168,7 +168,7 @@ namespace ClientCSForm
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 98);
-            this.label4.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 17);
             this.label4.TabIndex = 6;
@@ -178,7 +178,7 @@ namespace ClientCSForm
             // 
             this.sendToWallet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.sendToWallet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sendToWallet.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.sendToWallet.Font = new System.Drawing.Font("Arial", 9.75F);
             this.sendToWallet.ForeColor = System.Drawing.SystemColors.Control;
             this.sendToWallet.Location = new System.Drawing.Point(11, 62);
             this.sendToWallet.MaxLength = 68;
@@ -190,7 +190,7 @@ namespace ClientCSForm
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.label3.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label3.Location = new System.Drawing.Point(12, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 17);
@@ -200,7 +200,7 @@ namespace ClientCSForm
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9.25F);
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label2.Location = new System.Drawing.Point(8, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 18);
@@ -226,7 +226,7 @@ namespace ClientCSForm
             // stayLoggedIn
             // 
             this.stayLoggedIn.AutoSize = true;
-            this.stayLoggedIn.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.stayLoggedIn.Font = new System.Drawing.Font("Arial", 9.75F);
             this.stayLoggedIn.Location = new System.Drawing.Point(17, 139);
             this.stayLoggedIn.Name = "stayLoggedIn";
             this.stayLoggedIn.Size = new System.Drawing.Size(138, 21);
@@ -238,7 +238,7 @@ namespace ClientCSForm
             // 
             this.passwordBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.passwordBox.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.passwordBox.Font = new System.Drawing.Font("Arial", 9.75F);
             this.passwordBox.ForeColor = System.Drawing.SystemColors.Control;
             this.passwordBox.Location = new System.Drawing.Point(13, 108);
             this.passwordBox.Name = "passwordBox";
@@ -249,7 +249,7 @@ namespace ClientCSForm
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.label7.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label7.Location = new System.Drawing.Point(14, 90);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 17);
@@ -261,7 +261,7 @@ namespace ClientCSForm
             this.aFRLogin.AutoSize = true;
             this.aFRLogin.ForeColor = System.Drawing.Color.Red;
             this.aFRLogin.Location = new System.Drawing.Point(60, 47);
-            this.aFRLogin.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.aFRLogin.Font = new System.Drawing.Font("Arial", 9.75F);
             this.aFRLogin.Name = "aFRLogin";
             this.aFRLogin.Size = new System.Drawing.Size(0, 17);
             this.aFRLogin.TabIndex = 12;
@@ -270,7 +270,7 @@ namespace ClientCSForm
             // 
             this.logInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.logInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logInBtn.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.logInBtn.Font = new System.Drawing.Font("Arial", 9.75F);
             this.logInBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.logInBtn.Location = new System.Drawing.Point(33, 170);
             this.logInBtn.Name = "logInBtn";
@@ -284,7 +284,7 @@ namespace ClientCSForm
             // 
             this.usernameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.usernameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.usernameBox.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.usernameBox.Font = new System.Drawing.Font("Arial", 9.75F);
             this.usernameBox.ForeColor = System.Drawing.SystemColors.Control;
             this.usernameBox.Location = new System.Drawing.Point(13, 65);
             this.usernameBox.Name = "usernameBox";
@@ -295,7 +295,7 @@ namespace ClientCSForm
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label6.Location = new System.Drawing.Point(14, 47);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 17);
@@ -306,7 +306,7 @@ namespace ClientCSForm
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 9.25F);
+            this.label5.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label5.Location = new System.Drawing.Point(10, 11);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 18);
@@ -326,7 +326,7 @@ namespace ClientCSForm
             this.SelectFileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SelectFileButton.ForeColor = System.Drawing.SystemColors.Control;
             this.SelectFileButton.Location = new System.Drawing.Point(16, 111);
-            this.SelectFileButton.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.SelectFileButton.Font = new System.Drawing.Font("Arial", 9.75F);
             this.SelectFileButton.Name = "SelectFileButton";
             this.SelectFileButton.Size = new System.Drawing.Size(124, 23);
             this.SelectFileButton.TabIndex = 7;
@@ -337,7 +337,7 @@ namespace ClientCSForm
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.label8.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label8.Location = new System.Drawing.Point(13, 139);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(106, 17);
@@ -349,7 +349,7 @@ namespace ClientCSForm
             this.TotalMinutesBox.BackColor = System.Drawing.SystemColors.MenuText;
             this.TotalMinutesBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TotalMinutesBox.DecimalPlaces = 1;
-            this.TotalMinutesBox.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.TotalMinutesBox.Font = new System.Drawing.Font("Arial", 9.75F);
             this.TotalMinutesBox.ForeColor = System.Drawing.SystemColors.Info;
             this.TotalMinutesBox.Location = new System.Drawing.Point(16, 160);
             this.TotalMinutesBox.Maximum = new decimal(new int[] {
@@ -398,7 +398,7 @@ namespace ClientCSForm
             // estimatedCostNumber
             // 
             this.estimatedCostNumber.AutoSize = true;
-            this.estimatedCostNumber.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.estimatedCostNumber.Font = new System.Drawing.Font("Arial", 9.75F);
             this.estimatedCostNumber.ForeColor = System.Drawing.Color.ForestGreen;
             this.estimatedCostNumber.Location = new System.Drawing.Point(127, 366);
             this.estimatedCostNumber.Name = "estimatedCostNumber";
@@ -409,7 +409,7 @@ namespace ClientCSForm
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.label14.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label14.Location = new System.Drawing.Point(10, 366);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(122, 17);
@@ -423,7 +423,7 @@ namespace ClientCSForm
             this.uploadErrorText.Location = new System.Drawing.Point(13, 304);
             this.uploadErrorText.Name = "uploadErrorText";
             this.uploadErrorText.Size = new System.Drawing.Size(0, 17);
-            this.uploadErrorText.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.uploadErrorText.Font = new System.Drawing.Font("Arial", 9.75F);
             this.uploadErrorText.TabIndex = 16;
             // 
             // submitFileButton
@@ -432,7 +432,7 @@ namespace ClientCSForm
             this.submitFileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.submitFileButton.ForeColor = System.Drawing.SystemColors.Control;
             this.submitFileButton.Location = new System.Drawing.Point(171, 338);
-            this.submitFileButton.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.submitFileButton.Font = new System.Drawing.Font("Arial", 9.75F);
             this.submitFileButton.Name = "submitFileButton";
             this.submitFileButton.Size = new System.Drawing.Size(103, 23);
             this.submitFileButton.TabIndex = 7;
@@ -444,7 +444,7 @@ namespace ClientCSForm
             // 
             this.learnMore.ActiveLinkColor = System.Drawing.Color.LightCoral;
             this.learnMore.AutoSize = true;
-            this.learnMore.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.learnMore.Font = new System.Drawing.Font("Arial", 9.75F);
             this.learnMore.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.learnMore.Location = new System.Drawing.Point(10, 44);
             this.learnMore.MaximumSize = new System.Drawing.Size(280, 0);
@@ -459,7 +459,7 @@ namespace ClientCSForm
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.label13.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label13.Location = new System.Drawing.Point(167, 225);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(21, 17);
@@ -469,7 +469,7 @@ namespace ClientCSForm
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.label12.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label12.Location = new System.Drawing.Point(9, 225);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(25, 17);
@@ -491,7 +491,7 @@ namespace ClientCSForm
             // fileLocation
             // 
             this.fileLocation.AutoSize = true;
-            this.fileLocation.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.fileLocation.Font = new System.Drawing.Font("Arial", 9.75F);
             this.fileLocation.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.fileLocation.Location = new System.Drawing.Point(155, 114);
             this.fileLocation.MaximumSize = new System.Drawing.Size(118, 0);
@@ -503,7 +503,7 @@ namespace ClientCSForm
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.label10.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label10.Location = new System.Drawing.Point(13, 91);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(148, 17);
@@ -513,7 +513,7 @@ namespace ClientCSForm
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.label11.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label11.Location = new System.Drawing.Point(13, 196);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(151, 17);
@@ -557,7 +557,7 @@ namespace ClientCSForm
             // pendingFunds
             // 
             this.pendingFunds.AutoSize = true;
-            this.pendingFunds.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.pendingFunds.Font = new System.Drawing.Font("Arial", 11.25F);
             this.pendingFunds.Location = new System.Drawing.Point(13, 59);
             this.pendingFunds.Name = "pendingFunds";
             this.pendingFunds.Size = new System.Drawing.Size(117, 22);
@@ -576,7 +576,7 @@ namespace ClientCSForm
             this.Controls.Add(this.computeCoins);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.walletAddr);
-            this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";

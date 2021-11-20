@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 public class clnt
 {
@@ -19,9 +20,23 @@ public class clnt
 	public string password;
 	public string wallet;
 	public float costPerMinute;
+	public http httpServ;
 
 	public void Client(string usrn, string pswd, bool stayLoggedIn)
 	{
+		Process proc = new Process();
+		proc.StartInfo.FileName = "netsh";
+		proc.StartInfo.Arguments = "http add urlacl url = http://74.78.145.2:8000/ user=Everyone";
+		Console.WriteLine(proc.StartInfo.Arguments);
+		proc.StartInfo.CreateNoWindow = true;
+		proc.StartInfo.UseShellExecute = false;
+		proc.StartInfo.RedirectStandardOutput = true;
+		proc.StartInfo.RedirectStandardError = true;
+		proc.Start();
+		
+
+		httpServ.startHttpServ();
+
 		username = usrn;
 		password = pswd;
 		string configFileRead = File.ReadAllText("./config.cfg");

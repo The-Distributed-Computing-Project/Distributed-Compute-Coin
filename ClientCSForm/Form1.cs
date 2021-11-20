@@ -27,6 +27,7 @@ namespace ClientCSForm
         {
             InitializeComponent();
             AllocConsole();
+            clnt.httpServ = new http();
             sendToWallet.Enabled = false;
             sendToAmount.Enabled = false;
             sendButton.Enabled = false;
@@ -51,7 +52,7 @@ namespace ClientCSForm
                 passwordBox.Text = password;
                 tradeCover.Enabled = false;
                 clnt.Client(username, password, true);
-                UpdateUI(); 
+                UpdateUI();
                 sendToWallet.Enabled = true;
                 sendToAmount.Enabled = true;
                 sendButton.Enabled = true;
@@ -114,7 +115,7 @@ namespace ClientCSForm
                 clnt.Client(usernameBox.Text.Trim(), passwordBox.Text.Trim(), stayLoggedIn.Checked);
                 if (clnt.balance != -1.0f)
                 {
-                    UpdateUI(); 
+                    UpdateUI();
                     sendToWallet.Enabled = true;
                     sendToAmount.Enabled = true;
                     sendButton.Enabled = true;
@@ -154,7 +155,7 @@ namespace ClientCSForm
 
                     long fileSize = GetFileSize(file) / (1024 * 1024);
 
-                    if(fileSize > 20)
+                    if (fileSize > 20)
                     {
                         fileLocation.ForeColor = Color.Red;
                         fileLocation.Text = "File is larger than 20MB. Try doing \"cargo clean\"";

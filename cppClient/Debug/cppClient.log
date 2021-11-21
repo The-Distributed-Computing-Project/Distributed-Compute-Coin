@@ -1,3 +1,0 @@
-﻿  CPPClient.cpp
-D:\Code\DC-Cryptocurrency\CPPClient\CPPClient.cpp(354,65): warning C4302: 'type cast': truncation from 'const char *' to 'char'
-  CPPClient.vcxproj -> D:\Code\DC-Cryptocurrency\CPPClient\Debug\CPPClient.exe

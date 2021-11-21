@@ -1,0 +1,9 @@
+D:\Code\DC-Cryptocurrency\ColdWallet\obj\Debug\ColdWallet.csproj.GenerateResource.cache
+D:\Code\DC-Cryptocurrency\ColdWallet\obj\Debug\ColdWallet.csproj.CoreCompileInputs.cache
+D:\Code\DC-Cryptocurrency\ColdWallet\obj\Debug\ColdWallet.Form1.resources
+D:\Code\DC-Cryptocurrency\ColdWallet\obj\Debug\ColdWallet.Properties.Resources.resources
+D:\Code\DC-Cryptocurrency\ColdWallet\bin\Debug\ColdWallet.exe.config
+D:\Code\DC-Cryptocurrency\ColdWallet\bin\Debug\ColdWallet.exe
+D:\Code\DC-Cryptocurrency\ColdWallet\bin\Debug\ColdWallet.pdb
+D:\Code\DC-Cryptocurrency\ColdWallet\obj\Debug\ColdWallet.exe
+D:\Code\DC-Cryptocurrency\ColdWallet\obj\Debug\ColdWallet.pdb

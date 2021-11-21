@@ -230,7 +230,7 @@ namespace ClientCSForm
         void UpdateUI()
         {
             clnt.Client(usernameBox.Text.Trim(), passwordBox.Text.Trim(), stayLoggedIn.Checked);
-            walletAddr.Text = "Wallet: " + clnt.wallet;
+            walletAddr.Text = clnt.wallet;
             computeCoins.Text = "Balance: $" + clnt.balance;
             pendingFunds.Text = "Pending: $" + clnt.pendingBalance;
             EstimateCost();
@@ -239,6 +239,11 @@ namespace ClientCSForm
         void EstimateCost()
         {
             estimatedCostNumber.Text = "$" + (clnt.costPerMinute + (ComputationPowerSlider.Value / 10f) * clnt.costPerMinute) * (float)TotalMinutesBox.Value;
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            UpdateUI();
         }
     }
 }

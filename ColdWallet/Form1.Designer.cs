@@ -122,6 +122,11 @@ namespace ColdWallet
             this.sendToAmount.Font = new System.Drawing.Font("Arial", 9.75F);
             this.sendToAmount.ForeColor = System.Drawing.SystemColors.Info;
             this.sendToAmount.Location = new System.Drawing.Point(14, 120);
+            this.sendToAmount.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.sendToAmount.Name = "sendToAmount";
             this.sendToAmount.Size = new System.Drawing.Size(120, 26);
             this.sendToAmount.TabIndex = 12;

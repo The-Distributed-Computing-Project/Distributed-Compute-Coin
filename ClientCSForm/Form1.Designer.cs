@@ -152,7 +152,7 @@ namespace ClientCSForm
             this.sendToAmount.ForeColor = System.Drawing.SystemColors.Info;
             this.sendToAmount.Location = new System.Drawing.Point(14, 120);
             this.sendToAmount.Maximum = new decimal(new int[] {
-            100000,
+            1000000,
             0,
             0,
             0});
@@ -322,7 +322,7 @@ namespace ClientCSForm
             // 
             // tradeCover
             // 
-            this.tradeCover.Location = new System.Drawing.Point(219, 84);
+            this.tradeCover.Location = new System.Drawing.Point(225, 89);
             this.tradeCover.Name = "tradeCover";
             this.tradeCover.Size = new System.Drawing.Size(574, 456);
             this.tradeCover.TabIndex = 6;

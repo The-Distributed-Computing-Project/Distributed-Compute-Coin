@@ -284,7 +284,7 @@ public class clnt
             }
         }
 
-        return bal;
+        return (float)Math.Truncate(bal * 10000) / 10000;
 
         //string html = string.Empty;
         //string url = @"http://api.achillium.us.to/dcc/?query=getBalance&fromAddress=" + wallet + "&username=" + username + "&password=" + password;
@@ -319,7 +319,8 @@ public class clnt
         }
 
         Console.WriteLine(html);
-        return float.Parse(html.Trim());
+
+        return (float)Math.Truncate(float.Parse(html.Trim()) * 10000) / 10000;
     }
 
     public float GetCostPerMinute()

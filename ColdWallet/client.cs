@@ -24,6 +24,10 @@ public class clnt
     public float costPerMinute;
     public http httpServ;
     internal static readonly char[] chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
+    static int pendingLength = 0;
+    static int blockChainLength = 0;
+    static int totalBlocks = 0;
+    static string lengths = null;
 
     public void Client()
     {
@@ -60,6 +64,41 @@ public class clnt
 
         wallet = "dcc" + sha256(username + password);
 
+        lengths = GetLength();
+        try
+        {
+            pendingLength = int.Parse(lengths.Split('#')[0]);
+            blockChainLength = int.Parse(lengths.Split('#')[1]);
+        }
+        catch (Exception)
+        {
+            pendingLength = 0;
+            blockChainLength = 0;
+        }
+
+        while (Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < blockChainLength)
+        {
+            SyncBlock(Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1);
+        }
+
+        if (!IsChainValid())
+        {
+            foreach (string oldBlock in Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly))
+            {
+                try
+                {
+                    File.Delete(oldBlock);
+                }
+                catch (Exception)
+                {
+                }
+            }
+            for (int i = 0; i < blockChainLength; i++)
+            {
+                SyncBlock(1 + i);
+            }
+        }
+
         balance = GetBalance(wallet);
         pendingBalance = GetPendingBalance(wallet);
         costPerMinute = GetCostPerMinute();
@@ -82,6 +121,98 @@ public class clnt
         }
 
         return result.ToString();
+    }
+
+    static string GetLength()
+    {
+        try
+        {
+            string lengths = "";
+
+            string html = string.Empty;
+            string url = @"http://api.achillium.us.to/dcc/?query=amountOfPendingBlocks";
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+            lengths += html.Trim();
+
+
+            html = string.Empty;
+            url = @"http://api.achillium.us.to/dcc/?query=amountOfCompletedBlocks";
+
+            request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+            lengths += "#" + html.Trim();
+
+            return lengths;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Error, Try again later" + e.StackTrace);
+            return "";
+        }
+    }
+
+    static void SyncBlock(int whichBlock)
+    {
+        string html = string.Empty;
+        string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock;
+
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+        request.AutomaticDecompression = DecompressionMethods.GZip;
+
+        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+        using (Stream stream = response.GetResponseStream())
+        using (StreamReader reader = new StreamReader(stream))
+        {
+            html = reader.ReadToEnd();
+        }
+
+        Console.WriteLine("Synced: " + whichBlock);
+        File.WriteAllText("./wwwdata/blockchain/block" + whichBlock.ToString() + ".txt", html);
+    }
+
+    static bool IsChainValid()
+    {
+        string[] blocks = Directory.GetFiles("./wwwdata/blockchain/", "*.txt");
+
+        for (int i = 1; i < blocks.Length; i++)
+        {
+            StreamReader readBlock = new StreamReader("./wwwdata/blockchain/block" + i + ".txt");
+            string lastHash = readBlock.ReadLine().Trim();
+            string currentHash = readBlock.ReadLine().Trim();
+            string nonce = readBlock.ReadLine().Trim();
+            string transactions = readBlock.ReadToEnd().Replace("\n", "");
+            readBlock.Close();
+
+            string nextHash = "";
+
+            readBlock = new StreamReader("./wwwdata/blockchain/block" + (i + 1) + ".txt");
+            nextHash = readBlock.ReadLine().Trim();
+            readBlock.Close();
+
+            Console.WriteLine("Validating block " + i);
+            string blockHash = sha256(lastHash + transactions + nonce);
+            if (!blockHash.StartsWith("00") || blockHash != currentHash || blockHash != nextHash)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public string Trade(String recipient, float sendAmount)
@@ -126,22 +257,50 @@ public class clnt
 
     public float GetBalance(string walletAddress)
     {
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=getBalance&fromAddress=" + wallet + "&username=" + username + "&password=" + password;
+        float bal = 0f;
+        string[] blocks = Directory.GetFiles("./wwwdata/blockchain/");
 
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.AutomaticDecompression = DecompressionMethods.GZip;
-
-        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
+        for (int i = 0; i < blocks.Length; i++)
         {
-            html = reader.ReadToEnd();
+            string[] content = File.ReadAllLines(blocks[i]);
+
+            for (int l = 3; l < content.Length; l++)
+            {
+                if (content[l].Trim().Replace("->", ">").Split('>').Length >= 3)
+                {
+                    if (content[l].Trim().Replace("->", ">").Split('>')[1] == wallet && content[l].Trim().Replace("->", ">").Split('>')[2] != wallet)
+                    {
+                        bal -= float.Parse(content[l].Trim().Replace("->", ">").Split('>')[0]);
+                    }
+                    else if (content[l].Trim().Replace("->", ">").Split('>')[2] == wallet && content[l].Trim().Replace("->", ">").Split('>')[1] != wallet)
+                    {
+                        bal += float.Parse(content[l].Trim().Replace("->", ">").Split('>')[0]);
+                    }
+                }
+                else if (content[l].Trim().Replace("->", ">").Split('>')[1] == wallet && content[l].Trim().Replace("->", ">").Split('>').Length < 3)
+                {
+                    bal += float.Parse(content[l].Trim().Replace("->", ">").Split('>')[0]);
+                }
+            }
         }
 
-        Console.WriteLine(html);
-        Console.WriteLine(url);
-        return float.Parse(html.Trim());
+        return bal;
+
+        //string html = string.Empty;
+        //string url = @"http://api.achillium.us.to/dcc/?query=getBalance&fromAddress=" + wallet + "&username=" + username + "&password=" + password;
+
+        //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+        //request.AutomaticDecompression = DecompressionMethods.GZip;
+
+        //using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+        //using (Stream stream = response.GetResponseStream())
+        //using (StreamReader reader = new StreamReader(stream))
+        //{
+        //	html = reader.ReadToEnd();
+        //}
+
+        //Console.WriteLine(html);
+        //return float.Parse(html.Trim());
     }
 
     public float GetPendingBalance(string walletAddress)

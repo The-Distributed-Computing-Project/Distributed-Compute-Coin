@@ -63,7 +63,7 @@ public class clnt
 
         while (true)
         {
-            lengths = GetPendingLength();
+            lengths = GetLength();
             mineLevel = GetMineLevel();
             try
             {
@@ -191,7 +191,7 @@ public class clnt
         GetProgram();
     }
 
-    static string GetPendingLength()
+    static string GetLength()
     {
         try
         {

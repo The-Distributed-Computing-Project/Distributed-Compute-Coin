@@ -7,15 +7,18 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NATUPNPLib;
+using Mono.Nat;
 
 public class http
 {
     HttpListener HttpServ;
     string PhpCompilerPath = "./php/php.exe";
-    string ListeningPort = "8000";
+    string ListeningPort = "9090";
 
     public string ProcessPhpPage(string phpCompilerPath, string pageFileName, string getReq)
     {
@@ -54,6 +57,15 @@ public class http
 
     public async Task StartServer()
     {
+        //NatUtility.DeviceFound += DeviceFound;
+        //NatUtility.DeviceLost += DeviceLost;
+        //NatUtility.StartDiscovery();
+
+
+
+        OpenPort(9090, Protocol.Tcp);
+
+
         HttpServ = new HttpListener();
         HttpServ.Prefixes.Add("http://192.168.0.21:" + ListeningPort + "/");
         HttpServ.Start();
@@ -111,4 +123,47 @@ public class http
 
     }
 
+
+    /// <summary>
+    /// Opens a port with the UPnP protocol.
+    /// </summary>
+    /// <param name="PortNumber">The number of the port to add.</param>
+    /// <param name="protocol">The protocol used for the port.</param>
+    public static void OpenPort(int PortNumber, Protocol protocol)
+    {
+        NATUPNPLib.UPnPNAT upnpnat = new NATUPNPLib.UPnPNAT();
+
+        NATUPNPLib.IStaticPortMappingCollection mappings = upnpnat.StaticPortMappingCollection;
+
+        if (mappings != null)
+        {
+            mappings.Add(PortNumber, protocol.ToString(), PortNumber, GetLocalIPAddress(), true, "iKiwi");
+
+            Console.WriteLine("Opened the port " + PortNumber + " with the UPnP protocol");
+        }
+    }
+
+    public static string GetLocalIPAddress()
+    {
+        var host = Dns.GetHostEntry(Dns.GetHostName());
+        foreach (var ip in host.AddressList)
+        {
+            if (ip.AddressFamily == AddressFamily.InterNetwork)
+            {
+                return ip.ToString();
+            }
+        }
+        throw new Exception("No network adapters with an IPv4 address in the system!");
+    }
+
+    private void DeviceFound(object sender, DeviceEventArgs args)
+    {
+        INatDevice device = args.Device;
+        device.CreatePortMap(new Mapping(Protocol.Tcp, 9090, 9090));
+    }
+
+    private void DeviceLost(object sender, DeviceEventArgs args)
+    {
+        INatDevice device = args.Device;
+    }
 }

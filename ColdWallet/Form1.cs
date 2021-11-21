@@ -41,7 +41,6 @@ namespace ColdWallet
                 configFile.Close();
             }
 
-            string configFileRead = File.ReadAllText("./config.cfg");
             clnt.Client();
             UpdateUI();
             sendToWallet.Enabled = true;

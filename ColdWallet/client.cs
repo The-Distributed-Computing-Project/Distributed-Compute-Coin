@@ -44,21 +44,23 @@ public class clnt
         string configFileRead = File.ReadAllText("./config.cfg");
         if (configFileRead.Length > 4)
         {
-            username = configFileRead.Split('\n')[0].Trim();
-            password = configFileRead.Split('\n')[1].Trim();
+            username = sha256(configFileRead.Split('\n')[0].Trim());
+            password = sha256(configFileRead.Split('\n')[1].Trim());
         }
         else
         {
-            username = GetUniqueKey(640);
-            password = GetUniqueKey(640);
+            string keyA = GetUniqueKey(8192);
+            string keyB = GetUniqueKey(8192);
+            username = sha256(keyA);
+            password = sha256(keyB);
 
-            Console.WriteLine(username);
-            Console.WriteLine(password);
+            Console.WriteLine(keyA);
+            Console.WriteLine(keyB);
 
             InitializeNewAddress();
 
             StreamWriter configFile = new StreamWriter("./config.cfg");
-            configFile.Write(username + "\n" + password);
+            configFile.Write(keyA + "\n" + keyB);
             configFile.Close();
         }
 

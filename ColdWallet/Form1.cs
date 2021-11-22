@@ -40,6 +40,12 @@ namespace ColdWallet
                 configFile.Write("");
                 configFile.Close();
             }
+            if (!File.Exists("./cold-wallet.dccwallet"))
+            {
+                StreamWriter configFile = new StreamWriter("./cold-wallet.dccwallet");
+                configFile.Write("");
+                configFile.Close();
+            }
 
             clnt.Client();
             UpdateUI();

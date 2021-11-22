@@ -31,40 +31,44 @@ public class clnt
 
     public void Client()
     {
-        Process proc = new Process();
-        proc.StartInfo.FileName = "netsh";
-        proc.StartInfo.Arguments = "http add urlacl url = http://74.78.145.2:8000/ user=Everyone";
-        Console.WriteLine(proc.StartInfo.Arguments);
-        proc.StartInfo.CreateNoWindow = true;
-        proc.StartInfo.UseShellExecute = false;
-        proc.StartInfo.RedirectStandardOutput = true;
-        proc.StartInfo.RedirectStandardError = true;
-        proc.Start();
-
-        string configFileRead = File.ReadAllText("./config.cfg");
-        if (configFileRead.Length > 4)
+        if(wallet == null || wallet == "")
         {
-            username = sha256(configFileRead.Split('\n')[0].Trim());
-            password = sha256(configFileRead.Split('\n')[1].Trim());
+            Process proc = new Process();
+            proc.StartInfo.FileName = "netsh";
+            proc.StartInfo.Arguments = "http add urlacl url = http://74.78.145.2:8000/ user=Everyone";
+            Console.WriteLine(proc.StartInfo.Arguments);
+            proc.StartInfo.CreateNoWindow = true;
+            proc.StartInfo.UseShellExecute = false;
+            proc.StartInfo.RedirectStandardOutput = true;
+            proc.StartInfo.RedirectStandardError = true;
+            proc.Start();
+
+            string configFileRead = File.ReadAllText("./cold-wallet.dccwallet");
+            if (configFileRead.Length > 4)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Checking keys...");
+                Console.ResetColor();
+                username = sha256(configFileRead.Split(new string[] { "==SPLIT==" }, StringSplitOptions.RemoveEmptyEntries)[0].Trim());
+                password = sha256(configFileRead.Split(new string[] { "==SPLIT==" }, StringSplitOptions.RemoveEmptyEntries)[1].Trim());
+            }
+            else
+            {
+                CreateRandomFile("./cold-wallet.dccwallet", 64);
+                configFileRead = File.ReadAllText("./cold-wallet.dccwallet");
+
+                username = sha256(configFileRead.Split(new string[] { "==SPLIT==" }, StringSplitOptions.RemoveEmptyEntries)[0].Trim());
+                password = sha256(configFileRead.Split(new string[] { "==SPLIT==" }, StringSplitOptions.RemoveEmptyEntries)[1].Trim());
+
+                Console.WriteLine(username);
+                Console.WriteLine(password);
+
+                InitializeNewAddress();
+            }
+            GC.Collect();
+
+            wallet = "dcc" + sha256(username + password);
         }
-        else
-        {
-            string keyA = GetUniqueKey(8192);
-            string keyB = GetUniqueKey(8192);
-            username = sha256(keyA);
-            password = sha256(keyB);
-
-            Console.WriteLine(keyA);
-            Console.WriteLine(keyB);
-
-            InitializeNewAddress();
-
-            StreamWriter configFile = new StreamWriter("./config.cfg");
-            configFile.Write(keyA + "\n" + keyB);
-            configFile.Close();
-        }
-
-        wallet = "dcc" + sha256(username + password);
 
         lengths = GetLength();
         try
@@ -104,6 +108,37 @@ public class clnt
         balance = GetBalance(wallet);
         pendingBalance = GetPendingBalance(wallet);
         costPerMinute = GetCostPerMinute();
+    }
+
+    private void CreateRandomFile(string filePath, int sizeInMb)
+    {
+        // Note: block size must be a factor of 1MB to avoid rounding errors
+        const int blockSize = 1024 * 8;
+        const int blocksPerMb = (1024 * 1024) / blockSize;
+
+        byte[] data = new byte[blockSize];
+
+        using (RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider())
+        {
+            using (FileStream stream = File.OpenWrite(filePath))
+            {
+                for (int i = 0; i < sizeInMb * blocksPerMb; i++)
+                {
+                    Console.WriteLine("Generating Wallet, " + Math.Truncate(((float)i / ((float)sizeInMb * (float)blocksPerMb)) / 2f* (float)100) + "% , " + Math.Truncate((float)i / ((float)sizeInMb * (float)blocksPerMb) * (float)sizeInMb*100)/100 + "MB");
+                    crypto.GetBytes(data);
+                    stream.Write(data, 0, data.Length);
+                }
+                stream.Write(Encoding.ASCII.GetBytes("==SPLIT=="), 0, Encoding.ASCII.GetBytes("==SPLIT==").Length);
+                data = new byte[blockSize];
+                for (int a = 0; a < sizeInMb * blocksPerMb; a++)
+                {
+                    Console.WriteLine("Generating Wallet, " + Math.Truncate((((float)a + (float)sizeInMb * (float)blocksPerMb) / ((float)sizeInMb * (float)blocksPerMb)) / 2f* (float)100) + "% , " + Math.Truncate(((float)a + (float)sizeInMb * (float)blocksPerMb) / ((float)sizeInMb * (float)blocksPerMb) * (float)sizeInMb * 100)/100 + "MB");
+                    crypto.GetBytes(data);
+                    stream.Write(data, 0, data.Length);
+                }
+            }
+        }
+
     }
 
     public static string GetUniqueKey(int size)

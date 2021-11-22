@@ -6,3 +6,4 @@ BlockchainMiner/bin/Debug/netcoreapp3.1/config.cfg
 BlockchainMiner/bin/Debug/netcoreapp3.1/programs
 ColdWallet/config.txt
 *.cfg
+*.dccwallet

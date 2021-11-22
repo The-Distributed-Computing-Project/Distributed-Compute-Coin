@@ -301,20 +301,20 @@ public class clnt
         {
             string[] content = File.ReadAllLines(blocks[i]);
 
-            for (int l = 3; l < content.Length; l++)
+            for (int l = 4; l < content.Length; l++)
             {
                 if (content[l].Trim().Replace("->", ">").Split('>').Length >= 3)
                 {
-                    if (content[l].Trim().Replace("->", ">").Split('>')[1] == wallet && content[l].Trim().Replace("->", ">").Split('>')[2] != wallet)
+                    if (content[l].Trim().Replace("->", ">").Split('>')[1].Split('&')[0] == wallet && content[l].Trim().Replace("->", ">").Split('>')[2].Split('&')[0] != wallet)
                     {
                         bal -= float.Parse(content[l].Trim().Replace("->", ">").Split('>')[0]);
                     }
-                    else if (content[l].Trim().Replace("->", ">").Split('>')[2] == wallet && content[l].Trim().Replace("->", ">").Split('>')[1] != wallet)
+                    else if (content[l].Trim().Replace("->", ">").Split('>')[2].Split('&')[0] == wallet && content[l].Trim().Replace("->", ">").Split('>')[1].Split('&')[0] != wallet)
                     {
                         bal += float.Parse(content[l].Trim().Replace("->", ">").Split('>')[0]);
                     }
                 }
-                else if (content[l].Trim().Replace("->", ">").Split('>')[1] == wallet && content[l].Trim().Replace("->", ">").Split('>').Length < 3)
+                else if (content[l].Trim().Replace("->", ">").Split('>')[1].Split('&')[0] == wallet && content[l].Trim().Replace("->", ">").Split('>').Length < 3)
                 {
                     bal += float.Parse(content[l].Trim().Replace("->", ">").Split('>')[0]);
                 }

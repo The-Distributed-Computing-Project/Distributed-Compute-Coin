@@ -138,6 +138,7 @@ public class clnt
                 string lastHash = readBlockCurrent.ReadLine().Replace("\n", "");
                 string skipline = readBlockCurrent.ReadLine();
                 skipline = readBlockCurrent.ReadLine();
+                skipline = readBlockCurrent.ReadLine();
                 string transactions = readBlockCurrent.ReadToEnd().Replace("\n", "");
                 readBlockCurrent.Close();
                 Mine(lastHash, transactions, (blockChainLength + 1));

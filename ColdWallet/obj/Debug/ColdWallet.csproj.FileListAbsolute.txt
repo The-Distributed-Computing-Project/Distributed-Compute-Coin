@@ -7,3 +7,4 @@ D:\Code\DC-Cryptocurrency\ColdWallet\bin\Debug\ColdWallet.exe
 D:\Code\DC-Cryptocurrency\ColdWallet\bin\Debug\ColdWallet.pdb
 D:\Code\DC-Cryptocurrency\ColdWallet\obj\Debug\ColdWallet.exe
 D:\Code\DC-Cryptocurrency\ColdWallet\obj\Debug\ColdWallet.pdb
+D:\Code\DC-Cryptocurrency\ColdWallet\obj\Debug\ColdWallet.csproj.AssemblyReference.cache

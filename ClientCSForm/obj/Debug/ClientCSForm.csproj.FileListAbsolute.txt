@@ -10,3 +10,4 @@ D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.pdb
 D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\Interop.NATUPNPLib.dll
 D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.csproj.ResolveComReference.cache
 D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Debug\Mono.Nat.dll
+D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.csproj.AssemblyReference.cache

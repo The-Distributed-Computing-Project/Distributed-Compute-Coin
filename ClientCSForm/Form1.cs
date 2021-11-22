@@ -19,6 +19,8 @@ namespace ClientCSForm
         string password;
         string selectedFile;
 
+        private List<Control> programSyncButtons = new List<Control>();
+
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AllocConsole();
@@ -244,6 +246,50 @@ namespace ClientCSForm
         private void refreshButton_Click(object sender, EventArgs e)
         {
             UpdateUI();
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    int num = ProgramList.Controls.Count;
+            //    Control prev = ProgramList.Controls[num - 1];
+
+            //    //uxMsgTxt.Text += "Adding Panel" +i.ToString() + "rn";
+            //    Panel pnl = new Panel();
+            //    pnl.Location = new Point(prev.Location.X, prev.Location.Y + 43);
+            //    pnl.BorderStyle = BorderStyle.FixedSingle;
+            //    pnl.BackColor = prev.BackColor;
+            //    pnl.Size = prev.Size;
+            //    pnl.Visible = true;
+
+            //    foreach (Control c in prev.Controls)
+            //    {
+            //        Control c2 = new Control();
+            //        if (c.GetType() == typeof(TextBox))
+            //            c2 = new TextBox();
+            //        if (c.GetType() == typeof(Label))
+            //            c2 = new Label();
+            //        if (c.GetType() == typeof(CheckBox))
+            //            c2 = new CheckBox();
+            //        if (c.GetType() == typeof(DataGridView))
+            //            c2 = new DataGridView();
+            //        if (c.GetType() == typeof(Button))
+            //        {
+            //            c2 = new Button();
+            //            programSyncButtons.Add(c2);
+            //            programSyncButtons[programSyncButtons.Count - 1].Click += delegate (object s, EventArgs a) { ProgramSyncButtonClick(s, a, i); };
+            //        }
+            //        c2.Location = c.Location;
+            //        c2.Size = c.Size;
+            //        c2.Text = c.Text;
+            //        pnl.Controls.Add(c2);
+            //    }
+
+            //    ProgramList.Controls.Add(pnl);
+            //}
         }
+
+        //private void ProgramSyncButtonClick(object sender, EventArgs e, int id)
+        //{
+        //    Console.WriteLine(id);
+        //}
     }
 }

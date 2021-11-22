@@ -25,6 +25,7 @@ public class clnt
     static int blockChainLength = 0;
     static int totalBlocks = 0;
     static string lengths = null;
+    public static List<List<string>> programsData = new List<List<string>>();
 
     public void Client(string usrn, string pswd, bool stayLoggedIn)
     {

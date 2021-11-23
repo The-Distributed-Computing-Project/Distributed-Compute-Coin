@@ -191,8 +191,18 @@ public class clnt
 
     static void Help()
     {
-        Console.WriteLine("Possible Actions:\n");
-        Console.WriteLine("mine: start mining");
+        Console.WriteLine("
+    Miner commands:
+    
+        mine [amount]
+            mines [amount] number of blocks, will only mine 1 by default if [amount] is not specified
+            
+        mineany [block number] [difficulty]
+            hashes [block number] with the given [difficulty]. this is for debugging purposes,
+            and will not actually submit the block
+            
+        help
+            displays this dialogue");
     }
 
     static void Sync()

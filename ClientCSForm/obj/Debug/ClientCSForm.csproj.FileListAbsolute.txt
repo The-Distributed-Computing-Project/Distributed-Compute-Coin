@@ -11,3 +11,5 @@ D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\Interop.NATUPNPLib.dll
 D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.csproj.ResolveComReference.cache
 D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Debug\Mono.Nat.dll
 D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.csproj.AssemblyReference.cache
+D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Debug\Newtonsoft.Json.dll
+D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Debug\Newtonsoft.Json.xml

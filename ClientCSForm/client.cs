@@ -10,6 +10,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Newtonsoft.Json;
+
+class Block
+{
+    public string LastHash { get; set; }
+    public string Hash { get; set; }
+    public string Nonce { get; set; }
+    public string Time { get; set; }
+    public string[] Transactions { get; set; }
+    public string[] TransactionTimes { get; set; }
+}
 
 public class clnt
 {
@@ -171,18 +182,20 @@ public class clnt
 
         for (int i = 1; i < blocks.Length; i++)
         {
-            StreamReader readBlock = new StreamReader("./wwwdata/blockchain/block" + i + ".txt");
-            string lastHash = readBlock.ReadLine().Trim();
-            string currentHash = readBlock.ReadLine().Trim();
-            string nonce = readBlock.ReadLine().Trim();
-            string transactions = readBlock.ReadToEnd().Replace("\n", "");
-            readBlock.Close();
+            string content = File.ReadAllText("./wwwdata/blockchain/block" + i + ".txt");
+            Block o = JsonConvert.DeserializeObject<Block>(content);
+            string[] trans = o.Transactions;
+
+            string lastHash = o.LastHash;
+            string currentHash = o.Hash;
+            string nonce = o.Nonce;
+            string transactions = JoinArrayPieces(trans);
 
             string nextHash = "";
 
-            readBlock = new StreamReader("./wwwdata/blockchain/block" + (i + 1) + ".txt");
-            nextHash = readBlock.ReadLine().Trim();
-            readBlock.Close();
+            content = File.ReadAllText("./wwwdata/blockchain/block" + (i + 1) + ".txt");
+            o = JsonConvert.DeserializeObject<Block>(content);
+            nextHash = o.Hash;
 
             Console.WriteLine("Validating block " + i);
             string blockHash = sha256(lastHash + transactions + nonce);
@@ -240,24 +253,27 @@ public class clnt
 
         for (int i = 0; i < blocks.Length; i++)
         {
-            string[] content = File.ReadAllLines(blocks[i]);
+            string content = File.ReadAllText(blocks[i]);
 
-            for (int l = 4; l < content.Length; l++)
+            Block o = JsonConvert.DeserializeObject<Block>(content);
+            string[] trans = o.Transactions;
+
+            for (int l = 0; l < trans.Length; l++)
             {
-                if (content[l].Trim().Replace("->", ">").Split('>').Length >= 3)
+                if (trans[l].Trim().Replace("->", ">").Split('>').Length >= 3)
                 {
-                    if (content[l].Trim().Replace("->", ">").Split('>')[1].Split('&')[0] == wallet && content[l].Trim().Replace("->", ">").Split('>')[2].Split('&')[0] != wallet)
+                    if (trans[l].Trim().Replace("->", ">").Split('>')[1].Split('&')[0] == wallet && trans[l].Trim().Replace("->", ">").Split('>')[2].Split('&')[0] != wallet)
                     {
-                        bal -= float.Parse(content[l].Trim().Replace("->", ">").Split('>')[0]);
+                        bal -= float.Parse(trans[l].Trim().Replace("->", ">").Split('>')[0]);
                     }
-                    else if (content[l].Trim().Replace("->", ">").Split('>')[2].Split('&')[0] == wallet && content[l].Trim().Replace("->", ">").Split('>')[1].Split('&')[0] != wallet)
+                    else if (trans[l].Trim().Replace("->", ">").Split('>')[2].Split('&')[0] == wallet && trans[l].Trim().Replace("->", ">").Split('>')[1].Split('&')[0] != wallet)
                     {
-                        bal += float.Parse(content[l].Trim().Replace("->", ">").Split('>')[0]);
+                        bal += float.Parse(trans[l].Trim().Replace("->", ">").Split('>')[0]);
                     }
                 }
-                else if (content[l].Trim().Replace("->", ">").Split('>')[1].Split('&')[0] == wallet && content[l].Trim().Replace("->", ">").Split('>').Length < 3)
+                else if (trans[l].Trim().Replace("->", ">").Split('>')[1].Split('&')[0] == wallet && trans[l].Trim().Replace("->", ">").Split('>').Length < 3)
                 {
-                    bal += float.Parse(content[l].Trim().Replace("->", ">").Split('>')[0]);
+                    bal += float.Parse(trans[l].Trim().Replace("->", ">").Split('>')[0]);
                 }
             }
         }
@@ -329,5 +345,15 @@ public class clnt
             hash.Append(theByte.ToString("x2"));
         }
         return hash.ToString();
+    }
+
+    static string JoinArrayPieces(string[] input)
+    {
+        string outStr = "";
+        foreach (string str in input)
+        {
+            outStr += str;
+        }
+        return outStr;
     }
 }

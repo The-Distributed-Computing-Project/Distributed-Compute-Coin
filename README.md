@@ -22,4 +22,4 @@ If you want to learn more, please feel free to go to [the wiki.](https://github.
         help
             displays this dialogue
     ```
-Inputting one of these commands and pressing the Enter key will execute the command. To begin mining, simply type "mine" (and a block amount, if you want to mine more than one).
+    Inputting one of these commands and pressing the Enter key will execute the command. To begin mining, simply type "mine" (and a block amount, if you want to mine more than one).

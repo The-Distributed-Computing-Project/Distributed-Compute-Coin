@@ -46,27 +46,24 @@ public class clnt
         string configFileRead = File.ReadAllText("./config.cfg");
         if (configFileRead.Length > 4)
         {
-            username = configFileRead.Split('\n')[0].Trim();
-            password = configFileRead.Split('\n')[1].Trim();
+            wallet = configFileRead.Split('\n')[0].Trim();
         }
         else
         {
-            Console.Write("Enter your username : ");
-            username = Console.ReadLine();
-            Console.Write("Enter your password : ");
-            password = Console.ReadLine();
+            Console.Write("Enter your payout wallet : ");
+            wallet = Console.ReadLine();
 
             Console.Write("Stay logged in? Y/N : ");
             string stayLoggedIn = Console.ReadLine();
             if (stayLoggedIn.ToUpper() == "Y")
             {
                 StreamWriter configFile = new StreamWriter("./config.cfg");
-                configFile.Write(username + "\n" + password);
+                configFile.Write(wallet);
                 configFile.Close();
             }
         }
 
-        wallet = "dcc" + sha256(username + password);
+        //wallet = "dcc" + sha256(username + password);
 
         while (true)
         {
@@ -98,31 +95,15 @@ public class clnt
                 Sync();
                 Console.Write(((char)7).ToString());
             }
-            if (command.ToUpper() == "MINE")
+            if (command.ToUpper().Contains("MINE"))
             {
-                foreach (string oldBlock in Directory.GetFiles("./pendingblocks/", "*.*", SearchOption.TopDirectoryOnly))
-                {
-                    try
-                    {
-                        File.Delete(oldBlock);
-                    }
-                    catch (Exception)
-                    {
-                    }
-                }
-                for (int i = 0; i < pendingLength; i++)
-                {
-                    SyncPending(blockChainLength + 1 + i);
-                }
+                int iterations = 1;
+                if (command.Split(" ").Length > 1)
+                    iterations = int.Parse(command.Split(" ")[1]);
 
-                while (Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < blockChainLength)
+                for (int i = 0; i < iterations; i++)
                 {
-                    SyncBlock(Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1);
-                }
-
-                if (!IsChainValid())
-                {
-                    foreach (string oldBlock in Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly))
+                    foreach (string oldBlock in Directory.GetFiles("./pendingblocks/", "*.*", SearchOption.TopDirectoryOnly))
                     {
                         try
                         {
@@ -132,21 +113,59 @@ public class clnt
                         {
                         }
                     }
-                    for (int i = 0; i < blockChainLength; i++)
+                    for (int s = 0; s < pendingLength; s++)
                     {
-                        SyncBlock(1 + i);
+                        SyncPending(blockChainLength + 1 + s);
                     }
+
+                    while (Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < blockChainLength)
+                    {
+                        SyncBlock(Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1);
+                    }
+
+                    if (!IsChainValid())
+                    {
+                        foreach (string oldBlock in Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly))
+                        {
+                            try
+                            {
+                                File.Delete(oldBlock);
+                            }
+                            catch (Exception)
+                            {
+                            }
+                        }
+                        for (int a = 0; a < blockChainLength; a++)
+                        {
+                            SyncBlock(1 + a);
+                        }
+                    }
+
+                    GetProgram();
+
+                    Console.WriteLine((blockChainLength + 1).ToString());
+
+                    string content = File.ReadAllText("./pendingblocks/block" + (blockChainLength + 1).ToString() + ".txt");
+                    Block o = JsonConvert.DeserializeObject<Block>(content);
+                    string transactions = JoinArrayPieces(o.Transactions);
+                    string lastHash = o.LastHash;
+                    Mine(lastHash, transactions, (blockChainLength + 1));
+
+
+                    lengths = GetLength();
+                    mineLevel = GetMineLevel();
+                    try
+                    {
+                        pendingLength = int.Parse(lengths.Split("##")[0]);
+                        blockChainLength = int.Parse(lengths.Split("##")[1]);
+                    }
+                    catch (Exception)
+                    {
+                        pendingLength = 0;
+                        blockChainLength = 0;
+                    }
+                    totalBlocks = pendingLength + blockChainLength;
                 }
-
-                GetProgram();
-
-                Console.WriteLine((blockChainLength + 1).ToString());
-
-                string content = File.ReadAllText("./pendingblocks/block" + (blockChainLength + 1).ToString() + ".txt");
-                Block o = JsonConvert.DeserializeObject<Block>(content);
-                string transactions = JoinArrayPieces(o.Transactions);
-                string lastHash = o.LastHash;
-                Mine(lastHash, transactions, (blockChainLength + 1));
             }
             if (command.ToUpper().Contains("MINEANY"))
             {
@@ -438,11 +457,9 @@ public class clnt
             string nonce = o.Nonce;
             string transactions = JoinArrayPieces(trans);
 
-            string nextHash = "";
-
             content = File.ReadAllText("./blockchain/block" + (i + 1) + ".txt");
             o = JsonConvert.DeserializeObject<Block>(content);
-            nextHash = o.Hash;
+            string nextHash = o.LastHash;
 
             Console.WriteLine("Validating block " + i);
             string blockHash = sha256(lastHash + transactions + nonce);
@@ -509,12 +526,11 @@ public class clnt
 
         DateTime startTime = DateTime.UtcNow;
 
-        StreamReader readBlock = new StreamReader("./blockchain/block" + blockNum + ".txt");
-        string lastHash = readBlock.ReadLine().Trim();
-        string currentHash = readBlock.ReadLine().Trim();
-        string nonceStr = readBlock.ReadLine().Trim();
-        string transactions = readBlock.ReadToEnd().Replace("\n", "");
-        readBlock.Close();
+        string content = File.ReadAllText("./blockchain/block" + blockNum + ".txt");
+        Block o = JsonConvert.DeserializeObject<Block>(content);
+        string transactions = JoinArrayPieces(o.Transactions);
+        string currentHash = o.Hash;
+        string lastHash = o.LastHash;
 
         //Checks Hash
         int nonce = 0;
@@ -522,9 +538,7 @@ public class clnt
         {
             nonce++;
             Console.WriteLine((DateTime.UtcNow - startTime).ToString().Split(".")[0] + " :	" + nonce.ToString() + " # " + sha256(lastHash + transactions + nonce.ToString()));
-
         }
-
 
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine(" in " + (DateTime.UtcNow - startTime).ToString().Split(".")[0]);

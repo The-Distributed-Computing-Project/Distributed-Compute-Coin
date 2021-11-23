@@ -12,3 +12,5 @@ D:\Code\DC-Cryptocurrency\BlockchainMiner\obj\Debug\netcoreapp3.1\BlockchainMine
 D:\Code\DC-Cryptocurrency\BlockchainMiner\obj\Debug\netcoreapp3.1\BlockchainMiner.genruntimeconfig.cache
 D:\Code\DC-Cryptocurrency\BlockchainMiner\obj\Debug\netcoreapp3.1\BlockchainMiner.csproj.AssemblyReference.cache
 D:\Code\DC-Cryptocurrency\BlockchainMiner\obj\Debug\netcoreapp3.1\BlockchainMiner.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\DC-Cryptocurrency\BlockchainMiner\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Code\DC-Cryptocurrency\BlockchainMiner\obj\Debug\netcoreapp3.1\BlockchainMiner.csproj.CopyComplete

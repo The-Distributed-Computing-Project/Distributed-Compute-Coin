@@ -1,6 +1,3 @@
-
-/*       Client Program      */
-
 using System;
 using System.IO;
 using System.IO.Compression;
@@ -10,7 +7,17 @@ using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Globalization;
 using System.Diagnostics;
+using Newtonsoft.Json;
 
+class Block
+{
+    public string LastHash { get; set; }
+    public string Hash { get; set; }
+    public string Nonce { get; set; }
+    public string Time { get; set; }
+    public string[] Transactions { get; set; }
+    public string[] TransactionTimes { get; set; }
+}
 public class clnt
 {
     static string wallet = null;
@@ -134,13 +141,11 @@ public class clnt
                 GetProgram();
 
                 Console.WriteLine((blockChainLength + 1).ToString());
-                StreamReader readBlockCurrent = new StreamReader("./pendingblocks/block" + (blockChainLength + 1).ToString() + ".txt");
-                string lastHash = readBlockCurrent.ReadLine().Replace("\n", "");
-                string skipline = readBlockCurrent.ReadLine();
-                skipline = readBlockCurrent.ReadLine();
-                skipline = readBlockCurrent.ReadLine();
-                string transactions = readBlockCurrent.ReadToEnd().Replace("\n", "");
-                readBlockCurrent.Close();
+
+                string content = File.ReadAllText("./pendingblocks/block" + (blockChainLength + 1).ToString() + ".txt");
+                Block o = JsonConvert.DeserializeObject<Block>(content);
+                string transactions = JoinArrayPieces(o.Transactions);
+                string lastHash = o.LastHash;
                 Mine(lastHash, transactions, (blockChainLength + 1));
             }
             if (command.ToUpper().Contains("MINEANY"))
@@ -421,34 +426,27 @@ public class clnt
     static bool IsChainValid()
     {
         string[] blocks = Directory.GetFiles("./blockchain/", "*.txt");
-        string pendingBlock = Directory.GetFiles("./pendingblocks/", "*.txt")[0];
 
-        for (int i = 1; i <= blocks.Length; i++)
+        for (int i = 1; i < blocks.Length; i++)
         {
-            StreamReader readBlock = new StreamReader("./blockchain/block" + i + ".txt");
-            string lastHash = readBlock.ReadLine().Trim();
-            string currentHash = readBlock.ReadLine().Trim();
-            string nonce = readBlock.ReadLine().Trim();
-            string transactions = readBlock.ReadToEnd().Replace("\n", "");
-            readBlock.Close();
+            string content = File.ReadAllText("./blockchain/block" + i + ".txt");
+            Block o = JsonConvert.DeserializeObject<Block>(content);
+            string[] trans = o.Transactions;
+
+            string lastHash = o.LastHash;
+            string currentHash = o.Hash;
+            string nonce = o.Nonce;
+            string transactions = JoinArrayPieces(trans);
 
             string nextHash = "";
-            if (i == blocks.Length)
-            {
-                readBlock = new StreamReader("./pendingblocks/block" + (i + 1) + ".txt");
-                nextHash = readBlock.ReadLine().Trim();
-                readBlock.Close();
-            }
-            else
-            {
-                readBlock = new StreamReader("./blockchain/block" + (i + 1) + ".txt");
-                nextHash = readBlock.ReadLine().Trim();
-                readBlock.Close();
-            }
+
+            content = File.ReadAllText("./blockchain/block" + (i + 1) + ".txt");
+            o = JsonConvert.DeserializeObject<Block>(content);
+            nextHash = o.Hash;
 
             Console.WriteLine("Validating block " + i);
             string blockHash = sha256(lastHash + transactions + nonce);
-            if(!blockHash.StartsWith("00") || blockHash != currentHash || blockHash != nextHash)
+            if (!blockHash.StartsWith("00") || blockHash != currentHash || blockHash != nextHash)
             {
                 return false;
             }
@@ -574,5 +572,14 @@ public class clnt
         return hash.ToString();
     }
 
+    static string JoinArrayPieces(string[] input)
+    {
+        string outStr = "";
+        foreach (string str in input)
+        {
+            outStr += str;
+        }
+        return outStr;
+    }
 
 }

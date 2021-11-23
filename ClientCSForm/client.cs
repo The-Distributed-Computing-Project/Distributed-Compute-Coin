@@ -206,6 +206,7 @@ public class clnt
         }
         return true;
     }
+
     public string Trade(String recipient, float sendAmount)
     {
         string html = string.Empty;
@@ -313,7 +314,15 @@ public class clnt
         }
 
         Console.WriteLine(html);
-        return (float)Math.Truncate(float.Parse(html.Trim()) * 10000) / 10000;
+        try
+        {
+            return (float)Math.Truncate(float.Parse(html.Trim()) * 10000) / 10000;
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Failed To Connect");
+            return 0;
+        }
     }
 
     public float GetCostPerMinute()
@@ -332,7 +341,15 @@ public class clnt
         }
 
         Console.WriteLine(html);
-        return float.Parse(html.Trim());
+        try
+        {
+            return float.Parse(html.Trim());
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Failed To Connect");
+            return 0;
+        }
     }
 
     static string sha256(string input)

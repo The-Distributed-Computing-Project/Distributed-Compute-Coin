@@ -22,6 +22,16 @@ class Block
     public string[] Transactions { get; set; }
     public string[] TransactionTimes { get; set; }
 }
+class WalletInfo
+{
+    public string Address { get; set; }
+    public float Balance { get; set; }
+    public float PendingBalance { get; set; }
+    public int BlockchainLength { get; set; }
+    public int PendingLength { get; set; }
+    public string MineDifficulty { get; set; }
+    public float CostPerMinute { get; set; }
+}
 public class clnt
 {
     public int blockchainlength = 0;
@@ -263,6 +273,25 @@ public class clnt
         return true;
     }
 
+    void GetInfo()
+    {
+        string html = string.Empty;
+        string url = @"http://api.achillium.us.to/dcc/?query=getWalletInfo&fromAddress=" + wallet + "&username=" + username + "&password=" + password;
+
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+        request.AutomaticDecompression = DecompressionMethods.GZip;
+
+        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+        using (Stream stream = response.GetResponseStream())
+        using (StreamReader reader = new StreamReader(stream))
+        {
+            html = reader.ReadToEnd();
+        }
+        
+        string content = html.Trim();
+        walletInfo = JsonConvert.DeserializeObject<WalletInfo>(content);
+    }
+    
     public string Trade(String recipient, float sendAmount)
     {
         string html = string.Empty;

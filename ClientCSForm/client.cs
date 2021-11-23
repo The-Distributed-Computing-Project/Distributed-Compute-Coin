@@ -49,6 +49,7 @@ public class clnt
     public static List<List<string>> programsData = new List<List<string>>();
     
     static WalletInfo walletInfo;
+    static string appURL = "dcc:" + walletInfo.Address;
 
     public void Client(string usrn, string pswd, bool stayLoggedIn)
     {

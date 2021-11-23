@@ -130,50 +130,6 @@ public class clnt
         walletInfo.Balance = GetBalance(walletInfo.Address);
     }
 
-    static string GetLength()
-    {
-        try
-        {
-            string lengths = "";
-
-            string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=amountOfPendingBlocks";
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                html = reader.ReadToEnd();
-            }
-            lengths += html.Trim();
-
-
-            html = string.Empty;
-            url = @"http://api.achillium.us.to/dcc/?query=amountOfCompletedBlocks";
-
-            request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                html = reader.ReadToEnd();
-            }
-            lengths += "#" + html.Trim();
-
-            return lengths;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("Error, Try again later" + e.StackTrace);
-            return "";
-        }
-    }
-
     static void SyncBlock(int whichBlock)
     {
         string html = string.Empty;
@@ -256,12 +212,6 @@ public class clnt
         return s.Trim(); ;
     }
 
-    public void Help()
-    {
-        Console.WriteLine("Possible Actions:\n");
-        Console.WriteLine("trade: send tokens to anybody");
-    }
-
     public float GetBalance(string walletAddress)
     {
         float bal = 0f;
@@ -297,7 +247,6 @@ public class clnt
         return (float)Math.Truncate(bal * 10000) / 10000;
     }
 
-
     WalletInfo GetInfo()
     {
         string html = string.Empty;
@@ -315,60 +264,6 @@ public class clnt
 
         string content = html.Trim();
         return JsonConvert.DeserializeObject<WalletInfo>(content);
-    }
-
-    public float GetPendingBalance(string walletAddress)
-    {
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=pendingFunds&fromAddress=" + walletInfo.Address + "&username=" + username + "&password=" + password;
-
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.AutomaticDecompression = DecompressionMethods.GZip;
-
-        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
-        {
-            html = reader.ReadToEnd();
-        }
-
-        Console.WriteLine(html);
-        try
-        {
-            return (float)Math.Truncate(float.Parse(html.Trim()) * 10000) / 10000;
-        }
-        catch (Exception)
-        {
-            Console.WriteLine("Failed To Connect");
-            return 0;
-        }
-    }
-
-    public float GetCostPerMinute()
-    {
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=getCostPerMinute";
-
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.AutomaticDecompression = DecompressionMethods.GZip;
-
-        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
-        {
-            html = reader.ReadToEnd();
-        }
-
-        Console.WriteLine(html);
-        try
-        {
-            return float.Parse(html.Trim());
-        }
-        catch (Exception)
-        {
-            Console.WriteLine("Failed To Connect");
-            return 0;
-        }
     }
 
     static string sha256(string input)

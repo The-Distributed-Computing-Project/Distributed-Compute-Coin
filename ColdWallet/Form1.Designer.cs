@@ -50,8 +50,13 @@ namespace ColdWallet
             this.pendingFunds = new System.Windows.Forms.Label();
             this.walletAddr = new System.Windows.Forms.TextBox();
             this.refreshButton = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.QRCodeWallet = new System.Windows.Forms.PictureBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sendToAmount)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QRCodeWallet)).BeginInit();
             this.SuspendLayout();
             // 
             // walletLabel
@@ -187,9 +192,9 @@ namespace ColdWallet
             // 
             // tradeCover
             // 
-            this.tradeCover.Location = new System.Drawing.Point(333, 49);
+            this.tradeCover.Location = new System.Drawing.Point(312, 79);
             this.tradeCover.Name = "tradeCover";
-            this.tradeCover.Size = new System.Drawing.Size(206, 46);
+            this.tradeCover.Size = new System.Drawing.Size(22, 16);
             this.tradeCover.TabIndex = 6;
             // 
             // compSliderTooltip
@@ -258,10 +263,40 @@ namespace ColdWallet
             this.refreshButton.UseVisualStyleBackColor = false;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.QRCodeWallet);
+            this.panel4.Controls.Add(this.label16);
+            this.panel4.Location = new System.Drawing.Point(372, 57);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(219, 253);
+            this.panel4.TabIndex = 16;
+            // 
+            // QRCodeWallet
+            // 
+            this.QRCodeWallet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.QRCodeWallet.Location = new System.Drawing.Point(18, 48);
+            this.QRCodeWallet.Name = "QRCodeWallet";
+            this.QRCodeWallet.Size = new System.Drawing.Size(185, 185);
+            this.QRCodeWallet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.QRCodeWallet.TabIndex = 1;
+            this.QRCodeWallet.TabStop = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(14, 12);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(191, 19);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Your wallet as a QR code";
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(603, 322);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.walletAddr);
             this.Controls.Add(this.tradeCover);
@@ -278,6 +313,9 @@ namespace ColdWallet
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sendToAmount)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QRCodeWallet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,6 +346,9 @@ namespace ColdWallet
         private System.Windows.Forms.Label pendingFunds;
         private System.Windows.Forms.TextBox walletAddr;
         private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox QRCodeWallet;
+        private System.Windows.Forms.Label label16;
     }
 }
 

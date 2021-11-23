@@ -361,7 +361,7 @@ namespace ClientCSForm
             // 
             this.tradeCover.Location = new System.Drawing.Point(222, 59);
             this.tradeCover.Name = "tradeCover";
-            this.tradeCover.Size = new System.Drawing.Size(822, 444);
+            this.tradeCover.Size = new System.Drawing.Size(820, 444);
             this.tradeCover.TabIndex = 6;
             // 
             // SelectFileButton

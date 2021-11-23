@@ -68,7 +68,7 @@ namespace ColdWallet
         {
             if (sendToWallet.TextLength > 0 && (float)sendToAmount.Value > 0)
             {
-                if ((float)sendToAmount.Value <= clnt.balance)
+                if ((float)sendToAmount.Value <= clnt.walletInfo.Balance)
                 {
                     string status = clnt.Trade(sendToWallet.Text, (float)sendToAmount.Value);
                     UpdateUI();
@@ -106,9 +106,10 @@ namespace ColdWallet
         void UpdateUI()
         {
             clnt.Client();
-            walletAddr.Text = clnt.wallet;
-            computeCoins.Text = "Balance: $" + clnt.balance;
-            pendingFunds.Text = "Pending: $" + clnt.pendingBalance;
+            walletAddr.Text = clnt.walletInfo.Address;
+            computeCoins.Text = "Balance: $" + clnt.walletInfo.Balance;
+            pendingFunds.Text = "Pending: $" + clnt.walletInfo.PendingBalance;
+            QRCodeWallet.Image = clnt.qrCodeAsBitmap;
         }
 
 

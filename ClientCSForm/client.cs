@@ -21,6 +21,16 @@ class Block
     public string[] Transactions { get; set; }
     public string[] TransactionTimes { get; set; }
 }
+class WalletInfo
+{
+    public string Address { get; set; }
+    public float Balance { get; set; }
+    public float PendingBalance { get; set; }
+    public int BlockchainLength { get; set; }
+    public int PendingLength { get; set; }
+    public string MineDifficulty { get; set; }
+    public float CostPerMinute { get; set; }
+}
 
 public class clnt
 {
@@ -37,6 +47,8 @@ public class clnt
     static int totalBlocks = 0;
     static string lengths = null;
     public static List<List<string>> programsData = new List<List<string>>();
+    
+    static WalletInfo walletInfo;
 
     public void Client(string usrn, string pswd, bool stayLoggedIn)
     {
@@ -280,22 +292,26 @@ public class clnt
         }
 
         return (float)Math.Truncate(bal * 10000) / 10000;
+    }
+    
+    
+    void GetInfo()
+    {
+        string html = string.Empty;
+        string url = @"http://api.achillium.us.to/dcc/?query=getWalletInfo&fromAddress=" + wallet + "&username=" + username + "&password=" + password;
 
-        //string html = string.Empty;
-        //string url = @"http://api.achillium.us.to/dcc/?query=getBalance&fromAddress=" + wallet + "&username=" + username + "&password=" + password;
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+        request.AutomaticDecompression = DecompressionMethods.GZip;
 
-        //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        //request.AutomaticDecompression = DecompressionMethods.GZip;
-
-        //using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        //using (Stream stream = response.GetResponseStream())
-        //using (StreamReader reader = new StreamReader(stream))
-        //{
-        //	html = reader.ReadToEnd();
-        //}
-
-        //Console.WriteLine(html);
-        //return float.Parse(html.Trim());
+        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+        using (Stream stream = response.GetResponseStream())
+        using (StreamReader reader = new StreamReader(stream))
+        {
+            html = reader.ReadToEnd();
+        }
+        
+        string content = html.Trim();
+        walletInfo = JsonConvert.DeserializeObject<WalletInfo>(content);
     }
 
     public float GetPendingBalance(string walletAddress)

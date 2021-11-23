@@ -50,11 +50,9 @@ public class DCCPayload : QRCoder.PayloadGenerator.Payload
 
 public class clnt
 {
-    public int blockchainlength = 0;
     public string username;
     public string password;
     public http httpServ;
-    static string lengths = null;
     public static List<List<string>> programsData = new List<List<string>>();
 
     public WalletInfo walletInfo = new WalletInfo();

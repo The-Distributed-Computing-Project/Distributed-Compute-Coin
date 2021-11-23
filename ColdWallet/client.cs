@@ -57,7 +57,6 @@ public class clnt
     public string password;
     public http httpServ;
     internal static readonly char[] chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
-    static string lengths = null;
 
     public WalletInfo walletInfo = new WalletInfo();
 

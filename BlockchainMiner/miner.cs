@@ -1,3 +1,5 @@
+/*       Client Program      */
+
 using System;
 using System.IO;
 using System.IO.Compression;
@@ -17,6 +19,16 @@ class Block
     public string Time { get; set; }
     public string[] Transactions { get; set; }
     public string[] TransactionTimes { get; set; }
+}
+class WalletInfo
+{
+    public string Address { get; set; }
+    public float Balance { get; set; }
+    public float PendingBalance { get; set; }
+    public int BlockchainLength { get; set; }
+    public int PendingLength { get; set; }
+    public string MineDifficulty { get; set; }
+    public float CostPerMinute { get; set; }
 }
 public class clnt
 {
@@ -260,6 +272,25 @@ public class clnt
         }
     }
 
+    void GetInfo()
+    {
+        string html = string.Empty;
+        string url = @"http://api.achillium.us.to/dcc/?query=getWalletInfo&fromAddress=" + wallet + "&username=" + username + "&password=" + password;
+
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+        request.AutomaticDecompression = DecompressionMethods.GZip;
+
+        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+        using (Stream stream = response.GetResponseStream())
+        using (StreamReader reader = new StreamReader(stream))
+        {
+            html = reader.ReadToEnd();
+        }
+        
+        string content = html.Trim();
+        walletInfo = JsonConvert.DeserializeObject<WalletInfo>(content);
+    }
+    
     static void GetProgram()
     {
         string[] programFiles = Directory.GetFiles("./programs/");

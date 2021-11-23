@@ -75,7 +75,7 @@ namespace ClientCSForm
         {
             if (sendToWallet.TextLength > 0 && (float)sendToAmount.Value > 0)
             {
-                if ((float)sendToAmount.Value <= clnt.balance)
+                if ((float)sendToAmount.Value <= clnt.walletInfo.Balance)
                 {
                     string status = clnt.Trade(sendToWallet.Text, (float)sendToAmount.Value);
                     UpdateUI();
@@ -115,7 +115,7 @@ namespace ClientCSForm
             if (usernameBox.TextLength > 0)
             {
                 clnt.Client(usernameBox.Text.Trim(), passwordBox.Text.Trim(), stayLoggedIn.Checked);
-                if (clnt.balance != -1.0f)
+                if (clnt.walletInfo.Balance != -1.0f)
                 {
                     UpdateUI();
                     sendToWallet.Enabled = true;
@@ -232,15 +232,16 @@ namespace ClientCSForm
         void UpdateUI()
         {
             clnt.Client(usernameBox.Text.Trim(), passwordBox.Text.Trim(), stayLoggedIn.Checked);
-            walletAddr.Text = clnt.wallet;
-            computeCoins.Text = "Balance: $" + clnt.balance;
-            pendingFunds.Text = "Pending: $" + clnt.pendingBalance;
+            walletAddr.Text = clnt.walletInfo.Address;
+            computeCoins.Text = "Balance: $" + clnt.walletInfo.Balance;
+            pendingFunds.Text = "Pending: $" + clnt.walletInfo.PendingBalance;
+            QRCodeWallet.Image = clnt.qrCodeAsBitmap;
             EstimateCost();
         }
 
         void EstimateCost()
         {
-            estimatedCostNumber.Text = "$" + (clnt.costPerMinute + (ComputationPowerSlider.Value / 10f) * clnt.costPerMinute) * (float)TotalMinutesBox.Value;
+            estimatedCostNumber.Text = "$" + (clnt.walletInfo.CostPerMinute + (ComputationPowerSlider.Value / 10f) * clnt.walletInfo.CostPerMinute) * (float)TotalMinutesBox.Value;
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -286,6 +287,7 @@ namespace ClientCSForm
             //    ProgramList.Controls.Add(pnl);
             //}
         }
+
 
         //private void ProgramSyncButtonClick(object sender, EventArgs e, int id)
         //{

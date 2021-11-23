@@ -76,31 +76,34 @@ namespace ClientCSForm
             this.walletAddr = new System.Windows.Forms.TextBox();
             this.refreshButton = new System.Windows.Forms.Button();
             this.ProgramList = new System.Windows.Forms.Panel();
-            this.ProgramStatusPanel1 = new System.Windows.Forms.Panel();
-            this.ProgramName1 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.ActiveTimeNum1 = new System.Windows.Forms.Label();
-            this.SyncDataButton1 = new System.Windows.Forms.Button();
-            this.ProgramStatusPanel2 = new System.Windows.Forms.Panel();
-            this.SyncDataButton2 = new System.Windows.Forms.Button();
-            this.ActiveTimeNum2 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.ProgramName2 = new System.Windows.Forms.Label();
-            this.ProgramStatusPanel3 = new System.Windows.Forms.Panel();
-            this.SyncDataButton3 = new System.Windows.Forms.Button();
-            this.ActiveTimeNum3 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.ProgramName3 = new System.Windows.Forms.Label();
-            this.ProgramStatusPanel4 = new System.Windows.Forms.Panel();
-            this.SyncDataButton4 = new System.Windows.Forms.Button();
-            this.ActiveTimeNum4 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.ProgramName4 = new System.Windows.Forms.Label();
             this.ProgramStatusPanel5 = new System.Windows.Forms.Panel();
             this.SyncDataButton5 = new System.Windows.Forms.Button();
             this.ActiveTimeNum5 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.ProgramName5 = new System.Windows.Forms.Label();
+            this.ProgramStatusPanel4 = new System.Windows.Forms.Panel();
+            this.SyncDataButton4 = new System.Windows.Forms.Button();
+            this.ActiveTimeNum4 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.ProgramName4 = new System.Windows.Forms.Label();
+            this.ProgramStatusPanel3 = new System.Windows.Forms.Panel();
+            this.SyncDataButton3 = new System.Windows.Forms.Button();
+            this.ActiveTimeNum3 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.ProgramName3 = new System.Windows.Forms.Label();
+            this.ProgramStatusPanel2 = new System.Windows.Forms.Panel();
+            this.SyncDataButton2 = new System.Windows.Forms.Button();
+            this.ActiveTimeNum2 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.ProgramName2 = new System.Windows.Forms.Label();
+            this.ProgramStatusPanel1 = new System.Windows.Forms.Panel();
+            this.SyncDataButton1 = new System.Windows.Forms.Button();
+            this.ActiveTimeNum1 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.ProgramName1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.QRCodeWallet = new System.Windows.Forms.PictureBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sendToAmount)).BeginInit();
             this.panel2.SuspendLayout();
@@ -108,11 +111,13 @@ namespace ClientCSForm
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ComputationPowerSlider)).BeginInit();
             this.ProgramList.SuspendLayout();
-            this.ProgramStatusPanel1.SuspendLayout();
-            this.ProgramStatusPanel2.SuspendLayout();
-            this.ProgramStatusPanel3.SuspendLayout();
-            this.ProgramStatusPanel4.SuspendLayout();
             this.ProgramStatusPanel5.SuspendLayout();
+            this.ProgramStatusPanel4.SuspendLayout();
+            this.ProgramStatusPanel3.SuspendLayout();
+            this.ProgramStatusPanel2.SuspendLayout();
+            this.ProgramStatusPanel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QRCodeWallet)).BeginInit();
             this.SuspendLayout();
             // 
             // walletLabel
@@ -356,7 +361,7 @@ namespace ClientCSForm
             // 
             this.tradeCover.Location = new System.Drawing.Point(222, 59);
             this.tradeCover.Name = "tradeCover";
-            this.tradeCover.Size = new System.Drawing.Size(574, 444);
+            this.tradeCover.Size = new System.Drawing.Size(822, 444);
             this.tradeCover.TabIndex = 6;
             // 
             // SelectFileButton
@@ -650,161 +655,57 @@ namespace ClientCSForm
             this.ProgramList.Size = new System.Drawing.Size(772, 100);
             this.ProgramList.TabIndex = 14;
             // 
-            // ProgramStatusPanel1
+            // ProgramStatusPanel5
             // 
-            this.ProgramStatusPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ProgramStatusPanel1.Controls.Add(this.SyncDataButton1);
-            this.ProgramStatusPanel1.Controls.Add(this.ActiveTimeNum1);
-            this.ProgramStatusPanel1.Controls.Add(this.label15);
-            this.ProgramStatusPanel1.Controls.Add(this.ProgramName1);
-            this.ProgramStatusPanel1.Enabled = false;
-            this.ProgramStatusPanel1.Location = new System.Drawing.Point(5, 4);
-            this.ProgramStatusPanel1.Name = "ProgramStatusPanel1";
-            this.ProgramStatusPanel1.Size = new System.Drawing.Size(730, 37);
-            this.ProgramStatusPanel1.TabIndex = 1;
-            this.ProgramStatusPanel1.Visible = false;
+            this.ProgramStatusPanel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ProgramStatusPanel5.Controls.Add(this.SyncDataButton5);
+            this.ProgramStatusPanel5.Controls.Add(this.ActiveTimeNum5);
+            this.ProgramStatusPanel5.Controls.Add(this.label26);
+            this.ProgramStatusPanel5.Controls.Add(this.ProgramName5);
+            this.ProgramStatusPanel5.Enabled = false;
+            this.ProgramStatusPanel5.Location = new System.Drawing.Point(5, 188);
+            this.ProgramStatusPanel5.Name = "ProgramStatusPanel5";
+            this.ProgramStatusPanel5.Size = new System.Drawing.Size(730, 37);
+            this.ProgramStatusPanel5.TabIndex = 7;
+            this.ProgramStatusPanel5.Visible = false;
             // 
-            // ProgramName1
+            // SyncDataButton5
             // 
-            this.ProgramName1.AutoSize = true;
-            this.ProgramName1.Location = new System.Drawing.Point(9, 8);
-            this.ProgramName1.Name = "ProgramName1";
-            this.ProgramName1.Size = new System.Drawing.Size(114, 19);
-            this.ProgramName1.TabIndex = 0;
-            this.ProgramName1.Text = "ProgramName";
+            this.SyncDataButton5.BackColor = System.Drawing.Color.Black;
+            this.SyncDataButton5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SyncDataButton5.Location = new System.Drawing.Point(648, 6);
+            this.SyncDataButton5.Name = "SyncDataButton5";
+            this.SyncDataButton5.Size = new System.Drawing.Size(75, 23);
+            this.SyncDataButton5.TabIndex = 3;
+            this.SyncDataButton5.Text = "Sync Data";
+            this.SyncDataButton5.UseVisualStyleBackColor = false;
             // 
-            // label15
+            // ActiveTimeNum5
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(307, 8);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(96, 19);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Time Active:";
+            this.ActiveTimeNum5.AutoSize = true;
+            this.ActiveTimeNum5.Location = new System.Drawing.Point(403, 8);
+            this.ActiveTimeNum5.Name = "ActiveTimeNum5";
+            this.ActiveTimeNum5.Size = new System.Drawing.Size(18, 19);
+            this.ActiveTimeNum5.TabIndex = 2;
+            this.ActiveTimeNum5.Text = "0";
             // 
-            // ActiveTimeNum1
+            // label26
             // 
-            this.ActiveTimeNum1.AutoSize = true;
-            this.ActiveTimeNum1.Location = new System.Drawing.Point(403, 8);
-            this.ActiveTimeNum1.Name = "ActiveTimeNum1";
-            this.ActiveTimeNum1.Size = new System.Drawing.Size(18, 19);
-            this.ActiveTimeNum1.TabIndex = 2;
-            this.ActiveTimeNum1.Text = "0";
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(307, 8);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(96, 19);
+            this.label26.TabIndex = 1;
+            this.label26.Text = "Time Active:";
             // 
-            // SyncDataButton1
+            // ProgramName5
             // 
-            this.SyncDataButton1.BackColor = System.Drawing.Color.Black;
-            this.SyncDataButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SyncDataButton1.Location = new System.Drawing.Point(648, 6);
-            this.SyncDataButton1.Name = "SyncDataButton1";
-            this.SyncDataButton1.Size = new System.Drawing.Size(75, 23);
-            this.SyncDataButton1.TabIndex = 3;
-            this.SyncDataButton1.Text = "Sync Data";
-            this.SyncDataButton1.UseVisualStyleBackColor = false;
-            // 
-            // ProgramStatusPanel2
-            // 
-            this.ProgramStatusPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ProgramStatusPanel2.Controls.Add(this.SyncDataButton2);
-            this.ProgramStatusPanel2.Controls.Add(this.ActiveTimeNum2);
-            this.ProgramStatusPanel2.Controls.Add(this.label17);
-            this.ProgramStatusPanel2.Controls.Add(this.ProgramName2);
-            this.ProgramStatusPanel2.Enabled = false;
-            this.ProgramStatusPanel2.Location = new System.Drawing.Point(5, 47);
-            this.ProgramStatusPanel2.Name = "ProgramStatusPanel2";
-            this.ProgramStatusPanel2.Size = new System.Drawing.Size(730, 37);
-            this.ProgramStatusPanel2.TabIndex = 4;
-            this.ProgramStatusPanel2.Visible = false;
-            // 
-            // SyncDataButton2
-            // 
-            this.SyncDataButton2.BackColor = System.Drawing.Color.Black;
-            this.SyncDataButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SyncDataButton2.Location = new System.Drawing.Point(648, 6);
-            this.SyncDataButton2.Name = "SyncDataButton2";
-            this.SyncDataButton2.Size = new System.Drawing.Size(75, 23);
-            this.SyncDataButton2.TabIndex = 3;
-            this.SyncDataButton2.Text = "Sync Data";
-            this.SyncDataButton2.UseVisualStyleBackColor = false;
-            // 
-            // ActiveTimeNum2
-            // 
-            this.ActiveTimeNum2.AutoSize = true;
-            this.ActiveTimeNum2.Location = new System.Drawing.Point(403, 8);
-            this.ActiveTimeNum2.Name = "ActiveTimeNum2";
-            this.ActiveTimeNum2.Size = new System.Drawing.Size(18, 19);
-            this.ActiveTimeNum2.TabIndex = 2;
-            this.ActiveTimeNum2.Text = "0";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(307, 8);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(96, 19);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "Time Active:";
-            // 
-            // ProgramName2
-            // 
-            this.ProgramName2.AutoSize = true;
-            this.ProgramName2.Location = new System.Drawing.Point(9, 8);
-            this.ProgramName2.Name = "ProgramName2";
-            this.ProgramName2.Size = new System.Drawing.Size(114, 19);
-            this.ProgramName2.TabIndex = 0;
-            this.ProgramName2.Text = "ProgramName";
-            // 
-            // ProgramStatusPanel3
-            // 
-            this.ProgramStatusPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ProgramStatusPanel3.Controls.Add(this.SyncDataButton3);
-            this.ProgramStatusPanel3.Controls.Add(this.ActiveTimeNum3);
-            this.ProgramStatusPanel3.Controls.Add(this.label20);
-            this.ProgramStatusPanel3.Controls.Add(this.ProgramName3);
-            this.ProgramStatusPanel3.Enabled = false;
-            this.ProgramStatusPanel3.Location = new System.Drawing.Point(5, 94);
-            this.ProgramStatusPanel3.Name = "ProgramStatusPanel3";
-            this.ProgramStatusPanel3.Size = new System.Drawing.Size(730, 37);
-            this.ProgramStatusPanel3.TabIndex = 5;
-            this.ProgramStatusPanel3.Visible = false;
-            // 
-            // SyncDataButton3
-            // 
-            this.SyncDataButton3.BackColor = System.Drawing.Color.Black;
-            this.SyncDataButton3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SyncDataButton3.Location = new System.Drawing.Point(648, 6);
-            this.SyncDataButton3.Name = "SyncDataButton3";
-            this.SyncDataButton3.Size = new System.Drawing.Size(75, 23);
-            this.SyncDataButton3.TabIndex = 3;
-            this.SyncDataButton3.Text = "Sync Data";
-            this.SyncDataButton3.UseVisualStyleBackColor = false;
-            // 
-            // ActiveTimeNum3
-            // 
-            this.ActiveTimeNum3.AutoSize = true;
-            this.ActiveTimeNum3.Location = new System.Drawing.Point(403, 8);
-            this.ActiveTimeNum3.Name = "ActiveTimeNum3";
-            this.ActiveTimeNum3.Size = new System.Drawing.Size(18, 19);
-            this.ActiveTimeNum3.TabIndex = 2;
-            this.ActiveTimeNum3.Text = "0";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(307, 8);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(96, 19);
-            this.label20.TabIndex = 1;
-            this.label20.Text = "Time Active:";
-            // 
-            // ProgramName3
-            // 
-            this.ProgramName3.AutoSize = true;
-            this.ProgramName3.Location = new System.Drawing.Point(9, 8);
-            this.ProgramName3.Name = "ProgramName3";
-            this.ProgramName3.Size = new System.Drawing.Size(114, 19);
-            this.ProgramName3.TabIndex = 0;
-            this.ProgramName3.Text = "ProgramName";
+            this.ProgramName5.AutoSize = true;
+            this.ProgramName5.Location = new System.Drawing.Point(9, 8);
+            this.ProgramName5.Name = "ProgramName5";
+            this.ProgramName5.Size = new System.Drawing.Size(114, 19);
+            this.ProgramName5.TabIndex = 0;
+            this.ProgramName5.Text = "ProgramName";
             // 
             // ProgramStatusPanel4
             // 
@@ -858,66 +759,200 @@ namespace ClientCSForm
             this.ProgramName4.TabIndex = 0;
             this.ProgramName4.Text = "ProgramName";
             // 
-            // ProgramStatusPanel5
+            // ProgramStatusPanel3
             // 
-            this.ProgramStatusPanel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ProgramStatusPanel5.Controls.Add(this.SyncDataButton5);
-            this.ProgramStatusPanel5.Controls.Add(this.ActiveTimeNum5);
-            this.ProgramStatusPanel5.Controls.Add(this.label26);
-            this.ProgramStatusPanel5.Controls.Add(this.ProgramName5);
-            this.ProgramStatusPanel5.Enabled = false;
-            this.ProgramStatusPanel5.Location = new System.Drawing.Point(5, 188);
-            this.ProgramStatusPanel5.Name = "ProgramStatusPanel5";
-            this.ProgramStatusPanel5.Size = new System.Drawing.Size(730, 37);
-            this.ProgramStatusPanel5.TabIndex = 7;
-            this.ProgramStatusPanel5.Visible = false;
+            this.ProgramStatusPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ProgramStatusPanel3.Controls.Add(this.SyncDataButton3);
+            this.ProgramStatusPanel3.Controls.Add(this.ActiveTimeNum3);
+            this.ProgramStatusPanel3.Controls.Add(this.label20);
+            this.ProgramStatusPanel3.Controls.Add(this.ProgramName3);
+            this.ProgramStatusPanel3.Enabled = false;
+            this.ProgramStatusPanel3.Location = new System.Drawing.Point(5, 94);
+            this.ProgramStatusPanel3.Name = "ProgramStatusPanel3";
+            this.ProgramStatusPanel3.Size = new System.Drawing.Size(730, 37);
+            this.ProgramStatusPanel3.TabIndex = 5;
+            this.ProgramStatusPanel3.Visible = false;
             // 
-            // SyncDataButton5
+            // SyncDataButton3
             // 
-            this.SyncDataButton5.BackColor = System.Drawing.Color.Black;
-            this.SyncDataButton5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SyncDataButton5.Location = new System.Drawing.Point(648, 6);
-            this.SyncDataButton5.Name = "SyncDataButton5";
-            this.SyncDataButton5.Size = new System.Drawing.Size(75, 23);
-            this.SyncDataButton5.TabIndex = 3;
-            this.SyncDataButton5.Text = "Sync Data";
-            this.SyncDataButton5.UseVisualStyleBackColor = false;
+            this.SyncDataButton3.BackColor = System.Drawing.Color.Black;
+            this.SyncDataButton3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SyncDataButton3.Location = new System.Drawing.Point(648, 6);
+            this.SyncDataButton3.Name = "SyncDataButton3";
+            this.SyncDataButton3.Size = new System.Drawing.Size(75, 23);
+            this.SyncDataButton3.TabIndex = 3;
+            this.SyncDataButton3.Text = "Sync Data";
+            this.SyncDataButton3.UseVisualStyleBackColor = false;
             // 
-            // ActiveTimeNum5
+            // ActiveTimeNum3
             // 
-            this.ActiveTimeNum5.AutoSize = true;
-            this.ActiveTimeNum5.Location = new System.Drawing.Point(403, 8);
-            this.ActiveTimeNum5.Name = "ActiveTimeNum5";
-            this.ActiveTimeNum5.Size = new System.Drawing.Size(18, 19);
-            this.ActiveTimeNum5.TabIndex = 2;
-            this.ActiveTimeNum5.Text = "0";
+            this.ActiveTimeNum3.AutoSize = true;
+            this.ActiveTimeNum3.Location = new System.Drawing.Point(403, 8);
+            this.ActiveTimeNum3.Name = "ActiveTimeNum3";
+            this.ActiveTimeNum3.Size = new System.Drawing.Size(18, 19);
+            this.ActiveTimeNum3.TabIndex = 2;
+            this.ActiveTimeNum3.Text = "0";
             // 
-            // label26
+            // label20
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(307, 8);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(96, 19);
-            this.label26.TabIndex = 1;
-            this.label26.Text = "Time Active:";
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(307, 8);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(96, 19);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "Time Active:";
             // 
-            // ProgramName5
+            // ProgramName3
             // 
-            this.ProgramName5.AutoSize = true;
-            this.ProgramName5.Location = new System.Drawing.Point(9, 8);
-            this.ProgramName5.Name = "ProgramName5";
-            this.ProgramName5.Size = new System.Drawing.Size(114, 19);
-            this.ProgramName5.TabIndex = 0;
-            this.ProgramName5.Text = "ProgramName";
+            this.ProgramName3.AutoSize = true;
+            this.ProgramName3.Location = new System.Drawing.Point(9, 8);
+            this.ProgramName3.Name = "ProgramName3";
+            this.ProgramName3.Size = new System.Drawing.Size(114, 19);
+            this.ProgramName3.TabIndex = 0;
+            this.ProgramName3.Text = "ProgramName";
+            // 
+            // ProgramStatusPanel2
+            // 
+            this.ProgramStatusPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ProgramStatusPanel2.Controls.Add(this.SyncDataButton2);
+            this.ProgramStatusPanel2.Controls.Add(this.ActiveTimeNum2);
+            this.ProgramStatusPanel2.Controls.Add(this.label17);
+            this.ProgramStatusPanel2.Controls.Add(this.ProgramName2);
+            this.ProgramStatusPanel2.Enabled = false;
+            this.ProgramStatusPanel2.Location = new System.Drawing.Point(5, 47);
+            this.ProgramStatusPanel2.Name = "ProgramStatusPanel2";
+            this.ProgramStatusPanel2.Size = new System.Drawing.Size(730, 37);
+            this.ProgramStatusPanel2.TabIndex = 4;
+            this.ProgramStatusPanel2.Visible = false;
+            // 
+            // SyncDataButton2
+            // 
+            this.SyncDataButton2.BackColor = System.Drawing.Color.Black;
+            this.SyncDataButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SyncDataButton2.Location = new System.Drawing.Point(648, 6);
+            this.SyncDataButton2.Name = "SyncDataButton2";
+            this.SyncDataButton2.Size = new System.Drawing.Size(75, 23);
+            this.SyncDataButton2.TabIndex = 3;
+            this.SyncDataButton2.Text = "Sync Data";
+            this.SyncDataButton2.UseVisualStyleBackColor = false;
+            // 
+            // ActiveTimeNum2
+            // 
+            this.ActiveTimeNum2.AutoSize = true;
+            this.ActiveTimeNum2.Location = new System.Drawing.Point(403, 8);
+            this.ActiveTimeNum2.Name = "ActiveTimeNum2";
+            this.ActiveTimeNum2.Size = new System.Drawing.Size(18, 19);
+            this.ActiveTimeNum2.TabIndex = 2;
+            this.ActiveTimeNum2.Text = "0";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(307, 8);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(96, 19);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Time Active:";
+            // 
+            // ProgramName2
+            // 
+            this.ProgramName2.AutoSize = true;
+            this.ProgramName2.Location = new System.Drawing.Point(9, 8);
+            this.ProgramName2.Name = "ProgramName2";
+            this.ProgramName2.Size = new System.Drawing.Size(114, 19);
+            this.ProgramName2.TabIndex = 0;
+            this.ProgramName2.Text = "ProgramName";
+            // 
+            // ProgramStatusPanel1
+            // 
+            this.ProgramStatusPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ProgramStatusPanel1.Controls.Add(this.SyncDataButton1);
+            this.ProgramStatusPanel1.Controls.Add(this.ActiveTimeNum1);
+            this.ProgramStatusPanel1.Controls.Add(this.label15);
+            this.ProgramStatusPanel1.Controls.Add(this.ProgramName1);
+            this.ProgramStatusPanel1.Enabled = false;
+            this.ProgramStatusPanel1.Location = new System.Drawing.Point(5, 4);
+            this.ProgramStatusPanel1.Name = "ProgramStatusPanel1";
+            this.ProgramStatusPanel1.Size = new System.Drawing.Size(730, 37);
+            this.ProgramStatusPanel1.TabIndex = 1;
+            this.ProgramStatusPanel1.Visible = false;
+            // 
+            // SyncDataButton1
+            // 
+            this.SyncDataButton1.BackColor = System.Drawing.Color.Black;
+            this.SyncDataButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SyncDataButton1.Location = new System.Drawing.Point(648, 6);
+            this.SyncDataButton1.Name = "SyncDataButton1";
+            this.SyncDataButton1.Size = new System.Drawing.Size(75, 23);
+            this.SyncDataButton1.TabIndex = 3;
+            this.SyncDataButton1.Text = "Sync Data";
+            this.SyncDataButton1.UseVisualStyleBackColor = false;
+            // 
+            // ActiveTimeNum1
+            // 
+            this.ActiveTimeNum1.AutoSize = true;
+            this.ActiveTimeNum1.Location = new System.Drawing.Point(403, 8);
+            this.ActiveTimeNum1.Name = "ActiveTimeNum1";
+            this.ActiveTimeNum1.Size = new System.Drawing.Size(18, 19);
+            this.ActiveTimeNum1.TabIndex = 2;
+            this.ActiveTimeNum1.Text = "0";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(307, 8);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(96, 19);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Time Active:";
+            // 
+            // ProgramName1
+            // 
+            this.ProgramName1.AutoSize = true;
+            this.ProgramName1.Location = new System.Drawing.Point(9, 8);
+            this.ProgramName1.Name = "ProgramName1";
+            this.ProgramName1.Size = new System.Drawing.Size(114, 19);
+            this.ProgramName1.TabIndex = 0;
+            this.ProgramName1.Text = "ProgramName";
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.QRCodeWallet);
+            this.panel4.Controls.Add(this.label16);
+            this.panel4.Location = new System.Drawing.Point(814, 101);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(219, 253);
+            this.panel4.TabIndex = 15;
+            // 
+            // QRCodeWallet
+            // 
+            this.QRCodeWallet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.QRCodeWallet.Location = new System.Drawing.Point(18, 48);
+            this.QRCodeWallet.Name = "QRCodeWallet";
+            this.QRCodeWallet.Size = new System.Drawing.Size(185, 185);
+            this.QRCodeWallet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.QRCodeWallet.TabIndex = 1;
+            this.QRCodeWallet.TabStop = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(14, 12);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(191, 19);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Your wallet as a QR code";
             // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(796, 624);
+            this.ClientSize = new System.Drawing.Size(1045, 624);
+            this.Controls.Add(this.tradeCover);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.ProgramList);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.walletAddr);
-            this.Controls.Add(this.tradeCover);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -940,16 +975,19 @@ namespace ClientCSForm
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ComputationPowerSlider)).EndInit();
             this.ProgramList.ResumeLayout(false);
-            this.ProgramStatusPanel1.ResumeLayout(false);
-            this.ProgramStatusPanel1.PerformLayout();
-            this.ProgramStatusPanel2.ResumeLayout(false);
-            this.ProgramStatusPanel2.PerformLayout();
-            this.ProgramStatusPanel3.ResumeLayout(false);
-            this.ProgramStatusPanel3.PerformLayout();
-            this.ProgramStatusPanel4.ResumeLayout(false);
-            this.ProgramStatusPanel4.PerformLayout();
             this.ProgramStatusPanel5.ResumeLayout(false);
             this.ProgramStatusPanel5.PerformLayout();
+            this.ProgramStatusPanel4.ResumeLayout(false);
+            this.ProgramStatusPanel4.PerformLayout();
+            this.ProgramStatusPanel3.ResumeLayout(false);
+            this.ProgramStatusPanel3.PerformLayout();
+            this.ProgramStatusPanel2.ResumeLayout(false);
+            this.ProgramStatusPanel2.PerformLayout();
+            this.ProgramStatusPanel1.ResumeLayout(false);
+            this.ProgramStatusPanel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QRCodeWallet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1031,6 +1069,9 @@ namespace ClientCSForm
         private System.Windows.Forms.Label ActiveTimeNum2;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label ProgramName2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox QRCodeWallet;
+        private System.Windows.Forms.Label label16;
     }
 }
 

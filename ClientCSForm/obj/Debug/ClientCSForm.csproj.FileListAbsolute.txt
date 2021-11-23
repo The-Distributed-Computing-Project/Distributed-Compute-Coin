@@ -13,3 +13,4 @@ D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Debug\Mono.Nat.dll
 D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.csproj.AssemblyReference.cache
 D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Debug\Newtonsoft.Json.dll
 D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Debug\Newtonsoft.Json.xml
+D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Debug\QRCoder.dll

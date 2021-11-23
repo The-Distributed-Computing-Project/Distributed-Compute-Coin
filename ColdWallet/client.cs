@@ -52,15 +52,15 @@ public class clnt
     {
         if(wallet == null || wallet == "")
         {
-            Process proc = new Process();
-            proc.StartInfo.FileName = "netsh";
-            proc.StartInfo.Arguments = "http add urlacl url = http://74.78.145.2:8000/ user=Everyone";
-            Console.WriteLine(proc.StartInfo.Arguments);
-            proc.StartInfo.CreateNoWindow = true;
-            proc.StartInfo.UseShellExecute = false;
-            proc.StartInfo.RedirectStandardOutput = true;
-            proc.StartInfo.RedirectStandardError = true;
-            proc.Start();
+            //Process proc = new Process();
+            //proc.StartInfo.FileName = "netsh";
+            //proc.StartInfo.Arguments = "http add urlacl url = http://74.78.145.2:8000/ user=Everyone";
+            //Console.WriteLine(proc.StartInfo.Arguments);
+            //proc.StartInfo.CreateNoWindow = true;
+            //proc.StartInfo.UseShellExecute = false;
+            //proc.StartInfo.RedirectStandardOutput = true;
+            //proc.StartInfo.RedirectStandardError = true;
+            //proc.Start();
 
             string configFileRead = File.ReadAllText("./cold-wallet.dccwallet");
             if (configFileRead.Length > 4)
@@ -257,11 +257,9 @@ public class clnt
             string nonce = o.Nonce;
             string transactions = JoinArrayPieces(trans);
 
-            string nextHash = "";
-
             content = File.ReadAllText("./wwwdata/blockchain/block" + (i + 1) + ".txt");
             o = JsonConvert.DeserializeObject<Block>(content);
-            nextHash = o.Hash;
+            string nextHash = o.LastHash;
 
             Console.WriteLine("Validating block " + i);
             string blockHash = sha256(lastHash + transactions + nonce);

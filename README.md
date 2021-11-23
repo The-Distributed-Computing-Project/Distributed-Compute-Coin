@@ -1,4 +1,4 @@
-# Distributed Computing Blockchain Cryptocurrency
+# Distributed Compute Coin
 A unique blockchain built in C#, with a client for trading, a host for distribution, and a miner for mining. This crypto can be bought, traded, sold, or used just like any other. What sets it apart though is how it can be used. I am implementing a system into it just like the Folding@home project with distributed computing power. Anybody will be able to submit code to be computed or hosted across the peer-to-peer network, and will pay for that using this crypto.
 
 If you want to learn more, please feel free to go to [the wiki.](https://github.com/sam-astro/DC-Blockchain-Cryptocurrency/wiki)

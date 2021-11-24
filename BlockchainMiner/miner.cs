@@ -20,16 +20,19 @@ class Block
     public string[] Transactions { get; set; }
     public string[] TransactionTimes { get; set; }
 }
+
 public class WalletInfo
 {
     public string Address { get; set; }
-    public float Balance { get; set; }
-    public float PendingBalance { get; set; }
+    public double Balance { get; set; }
+    public double PendingBalance { get; set; }
     public int BlockchainLength { get; set; }
     public int PendingLength { get; set; }
     public string MineDifficulty { get; set; }
     public float CostPerMinute { get; set; }
 }
+
+
 public class clnt
 {
     static string id = "";

@@ -23,11 +23,12 @@ class Block
     public string[] Transactions { get; set; }
     public string[] TransactionTimes { get; set; }
 }
+
 public class WalletInfo
 {
     public string Address { get; set; }
-    public float Balance { get; set; }
-    public float PendingBalance { get; set; }
+    public double Balance { get; set; }
+    public double PendingBalance { get; set; }
     public int BlockchainLength { get; set; }
     public int PendingLength { get; set; }
     public string MineDifficulty { get; set; }
@@ -210,9 +211,9 @@ public class clnt
         return s.Trim(); ;
     }
 
-    public float GetBalance(string walletAddress)
+    public double GetBalance(string walletAddress)
     {
-        float bal = 0f;
+        double bal = 0.0f;
         string[] blocks = Directory.GetFiles("./wwwdata/blockchain/");
 
         for (int i = 0; i < blocks.Length; i++)
@@ -228,21 +229,21 @@ public class clnt
                 {
                     if (trans[l].Trim().Replace("->", ">").Split('>')[1].Split('&')[0] == walletInfo.Address && trans[l].Trim().Replace("->", ">").Split('>')[2].Split('&')[0] != walletInfo.Address)
                     {
-                        bal -= float.Parse(trans[l].Trim().Replace("->", ">").Split('>')[0]);
+                        bal -= double.Parse(trans[l].Trim().Replace("->", ">").Split('>')[0]);
                     }
                     else if (trans[l].Trim().Replace("->", ">").Split('>')[2].Split('&')[0] == walletInfo.Address && trans[l].Trim().Replace("->", ">").Split('>')[1].Split('&')[0] != walletInfo.Address)
                     {
-                        bal += float.Parse(trans[l].Trim().Replace("->", ">").Split('>')[0]);
+                        bal += double.Parse(trans[l].Trim().Replace("->", ">").Split('>')[0]);
                     }
                 }
                 else if (trans[l].Trim().Replace("->", ">").Split('>')[1].Split('&')[0] == walletInfo.Address && trans[l].Trim().Replace("->", ">").Split('>').Length < 3)
                 {
-                    bal += float.Parse(trans[l].Trim().Replace("->", ">").Split('>')[0]);
+                    bal += double.Parse(trans[l].Trim().Replace("->", ">").Split('>')[0]);
                 }
             }
         }
-
-        return (float)Math.Truncate(bal * 10000) / 10000;
+        Console.WriteLine("balance:" + (double)bal);
+        return bal;
     }
 
     WalletInfo GetInfo()

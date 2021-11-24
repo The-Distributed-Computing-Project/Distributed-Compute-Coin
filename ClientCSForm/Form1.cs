@@ -233,8 +233,8 @@ namespace ClientCSForm
         {
             clnt.Client(usernameBox.Text.Trim(), passwordBox.Text.Trim(), stayLoggedIn.Checked);
             walletAddr.Text = clnt.walletInfo.Address;
-            computeCoins.Text = "Balance: $" + clnt.walletInfo.Balance;
-            pendingFunds.Text = "Pending: $" + clnt.walletInfo.PendingBalance;
+            computeCoins.Text = "Balance: $" + Math.Round(clnt.walletInfo.Balance, 4);
+            pendingFunds.Text = "Pending: $" + Math.Round(clnt.walletInfo.PendingBalance, 4);
             QRCodeWallet.Image = clnt.qrCodeAsBitmap;
             EstimateCost();
         }

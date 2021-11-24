@@ -1,0 +1,10 @@
+D:\Code\DC-Cryptocurrency\Other\Distributed-Compute-Coin-Installer\Distributed-Compute-Coin-Installer\bin\Debug\Distributed-Compute-Coin-Installer.exe.config
+D:\Code\DC-Cryptocurrency\Other\Distributed-Compute-Coin-Installer\Distributed-Compute-Coin-Installer\bin\Debug\Distributed-Compute-Coin-Installer.exe
+D:\Code\DC-Cryptocurrency\Other\Distributed-Compute-Coin-Installer\Distributed-Compute-Coin-Installer\bin\Debug\Distributed-Compute-Coin-Installer.pdb
+D:\Code\DC-Cryptocurrency\Other\Distributed-Compute-Coin-Installer\Distributed-Compute-Coin-Installer\obj\Debug\Distributed-Compute-Coin-Installer.csproj.AssemblyReference.cache
+D:\Code\DC-Cryptocurrency\Other\Distributed-Compute-Coin-Installer\Distributed-Compute-Coin-Installer\obj\Debug\Distributed_Compute_Coin_Installer.Properties.Resources.resources
+D:\Code\DC-Cryptocurrency\Other\Distributed-Compute-Coin-Installer\Distributed-Compute-Coin-Installer\obj\Debug\Distributed-Compute-Coin-Installer.csproj.GenerateResource.cache
+D:\Code\DC-Cryptocurrency\Other\Distributed-Compute-Coin-Installer\Distributed-Compute-Coin-Installer\obj\Debug\Distributed-Compute-Coin-Installer.csproj.CoreCompileInputs.cache
+D:\Code\DC-Cryptocurrency\Other\Distributed-Compute-Coin-Installer\Distributed-Compute-Coin-Installer\obj\Debug\Distributed-Compute-Coin-Installer.exe
+D:\Code\DC-Cryptocurrency\Other\Distributed-Compute-Coin-Installer\Distributed-Compute-Coin-Installer\obj\Debug\Distributed-Compute-Coin-Installer.pdb
+D:\Code\DC-Cryptocurrency\Other\Distributed-Compute-Coin-Installer\Distributed-Compute-Coin-Installer\obj\Debug\Distributed_Compute_Coin_Installer.Form1.resources

@@ -113,6 +113,8 @@ public class clnt
             qrCodeAsBitmap = qRCode.GetGraphic(20);
         }
 
+        walletInfo = GetInfo();
+        walletInfo.Balance = GetBalance(walletInfo.Address);
         while (Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < walletInfo.BlockchainLength)
         {
             SyncBlock(Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1);

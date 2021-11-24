@@ -1,0 +1,17 @@
+D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Release\ClientCSForm.exe.config
+D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Release\ClientCSForm.exe
+D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Release\ClientCSForm.pdb
+D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Release\Mono.Nat.dll
+D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Release\Newtonsoft.Json.dll
+D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Release\QRCoder.dll
+D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Release\Newtonsoft.Json.xml
+D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Release\ClientCSForm.csproj.AssemblyReference.cache
+D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Release\Interop.NATUPNPLib.dll
+D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Release\ClientCSForm.csproj.ResolveComReference.cache
+D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Release\ClientCSForm.Form1.resources
+D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Release\ClientCSForm.Properties.Resources.resources
+D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Release\ClientCSForm.csproj.GenerateResource.cache
+D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Release\ClientCSForm.csproj.CoreCompileInputs.cache
+D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Release\ClientCSForm.csproj.CopyComplete
+D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Release\ClientCSForm.exe
+D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Release\ClientCSForm.pdb

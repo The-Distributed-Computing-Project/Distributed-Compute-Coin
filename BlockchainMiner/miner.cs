@@ -179,54 +179,70 @@ public class clnt
 
     static void Sync()
     {
-        foreach (string oldBlock in Directory.GetFiles("./pendingblocks/", "*.*", SearchOption.TopDirectoryOnly))
+        try
         {
-            try
+            foreach (string oldBlock in Directory.GetFiles("./pendingblocks/", "*.*", SearchOption.TopDirectoryOnly))
             {
-                File.Delete(oldBlock);
+                try
+                {
+                    File.Delete(oldBlock);
+                }
+                catch (Exception)
+                {
+                }
             }
-            catch (Exception)
+            foreach (string oldBlock in Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly))
             {
+                try
+                {
+                    File.Delete(oldBlock);
+                }
+                catch (Exception)
+                {
+                }
             }
+            for (int i = 1; i < walletInfo.PendingLength + 1; i++)
+            {
+                SyncPending(walletInfo.BlockchainLength + i);
+            }
+            for (int i = 1; i < walletInfo.BlockchainLength + 1; i++)
+            {
+                SyncBlock(i);
+            }
+            GetProgram();
         }
-        foreach (string oldBlock in Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly))
+        catch (Exception)
         {
-            try
-            {
-                File.Delete(oldBlock);
-            }
-            catch (Exception)
-            {
-            }
+            Console.WriteLine("Failed To Connect, Exiting...");
+            throw;
         }
-        for (int i = 1; i < walletInfo.PendingLength + 1; i++)
-        {
-            SyncPending(walletInfo.BlockchainLength + i);
-        }
-        for (int i = 1; i < walletInfo.BlockchainLength + 1; i++)
-        {
-            SyncBlock(i);
-        }
-        GetProgram();
     }
 
     static WalletInfo GetInfo()
     {
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address;
-
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.AutomaticDecompression = DecompressionMethods.GZip;
-
-        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
+        try
         {
-            html = reader.ReadToEnd();
-        }
+            string html = string.Empty;
+            string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address;
 
-        string content = html.Trim();
-        return JsonConvert.DeserializeObject<WalletInfo>(content);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+
+            string content = html.Trim();
+            return JsonConvert.DeserializeObject<WalletInfo>(content);
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Failed To Connect, Exiting...");
+            throw;
+        }
     }
 
     static void GetProgram()
@@ -264,7 +280,7 @@ public class clnt
             }
         }
 
-        while(id == null || id == "")
+        try
         {
             string assignedProgram = string.Empty;
             string url = @"http://api.achillium.us.to/dcc/?query=assignProgram";
@@ -281,116 +297,144 @@ public class clnt
             {
                 assignedProgram = reader.ReadToEnd();
             }
-
             id = assignedProgram;
-        }
 
-        Console.WriteLine("./programs/" + id + ".cfg");
-        using (var client = new WebClient())
-        {
-            client.DownloadFile(@"http://api.achillium.us.to/dcc/programs/" + id + ".cfg", "./programs/" + id + ".cfg");
-            client.DownloadFile(@"http://api.achillium.us.to/dcc/programs/" + id + ".zip", "./programs/" + id + ".zip");
-        }
+            Console.WriteLine("./programs/" + id + ".cfg");
+            using (var client = new WebClient())
+            {
+                client.DownloadFile(@"http://api.achillium.us.to/dcc/programs/" + id + ".cfg", "./programs/" + id + ".cfg");
+                client.DownloadFile(@"http://api.achillium.us.to/dcc/programs/" + id + ".zip", "./programs/" + id + ".zip");
+            }
 
-        if (!Directory.Exists("./programs/" + id))
-            ZipFile.ExtractToDirectory("./programs/" + id + ".zip", "./programs/" + id);
+            if (!Directory.Exists("./programs/" + id))
+                ZipFile.ExtractToDirectory("./programs/" + id + ".zip", "./programs/" + id);
 
-        if (!File.Exists("./programs/" + id + "/Cargo.toml"))
-        {
-            Directory.Move(Directory.GetDirectories("./programs/" + id)[0], "./programs/tmpdir");
-            Directory.Delete("./programs/" + id, true);
-            Directory.Move("./programs/tmpdir", "./programs/" + id);
-        }
+            if (!File.Exists("./programs/" + id + "/Cargo.toml"))
+            {
+                Directory.Move(Directory.GetDirectories("./programs/" + id)[0], "./programs/tmpdir");
+                Directory.Delete("./programs/" + id, true);
+                Directory.Move("./programs/tmpdir", "./programs/" + id);
+            }
 
 
-        string ourHash = sha256File("./programs/" + id + ".zip");
-        string theirHash = string.Empty;
+            string ourHash = sha256File("./programs/" + id + ".zip");
+            string theirHash = string.Empty;
 
-        string hashUrl = @"http://api.achillium.us.to/dcc/?query=hashProgram&programID=" + id;
+            string hashUrl = @"http://api.achillium.us.to/dcc/?query=hashProgram&programID=" + id;
 
-        HttpWebRequest hashRequest = (HttpWebRequest)WebRequest.Create(hashUrl);
-        hashRequest.AutomaticDecompression = DecompressionMethods.GZip;
+            HttpWebRequest hashRequest = (HttpWebRequest)WebRequest.Create(hashUrl);
+            hashRequest.AutomaticDecompression = DecompressionMethods.GZip;
 
-        using (HttpWebResponse response = (HttpWebResponse)hashRequest.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
-        {
-            theirHash = reader.ReadToEnd();
-        }
+            using (HttpWebResponse response = (HttpWebResponse)hashRequest.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                theirHash = reader.ReadToEnd();
+            }
 
-        if (ourHash != theirHash)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Assigned program has been modified, re-downloading");
+            if (ourHash != theirHash)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Assigned program has been modified, re-downloading");
+                Console.ResetColor();
+                GetProgram();
+            }
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Building assigned program, wait until build window closes to start mining");
             Console.ResetColor();
-            GetProgram();
+
+            Process proc = ExecuteCommand("cargo build", "./programs/" + id + "/");
+            while (!proc.HasExited) { }
         }
-
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("Building assigned program, wait until build window closes to start mining");
-        Console.ResetColor();
-
-        Process proc = ExecuteCommand("cargo build", "./programs/" + id + "/");
-        while (!proc.HasExited) { }
+        catch (Exception)
+        {
+            Console.WriteLine("Failed To Connect, Exiting...");
+            throw;
+        }
     }
 
     static float GetProgramLifeLeft(string id)
     {
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=getProgramLifeLeft&programID=" + id;
-
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.AutomaticDecompression = DecompressionMethods.GZip;
-
-        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
+        try
         {
-            html = reader.ReadToEnd();
-        }
+            string html = string.Empty;
+            string url = @"http://api.achillium.us.to/dcc/?query=getProgramLifeLeft&programID=" + id;
 
-        if (html.Contains("ERR") || html == string.Empty || html == null)
-            return -100;
-        return float.Parse(html.Trim());
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+
+            if (html.Contains("ERR") || html == string.Empty || html == null)
+                return -100;
+            return float.Parse(html.Trim());
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Failed To Connect, Exiting...");
+            throw;
+        }
     }
 
     static void SyncPending(int whichBlock)
     {
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=getPendingBlock&blockNum=" + whichBlock;
-
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.AutomaticDecompression = DecompressionMethods.GZip;
-
-        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
+        try
         {
-            html = reader.ReadToEnd();
+            string html = string.Empty;
+            string url = @"http://api.achillium.us.to/dcc/?query=getPendingBlock&blockNum=" + whichBlock;
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+
+            Console.WriteLine("Synced pending: " + whichBlock);
+
+            File.WriteAllText("./pendingblocks/block" + whichBlock.ToString() + ".txt", html);
         }
-
-        Console.WriteLine("Synced pending: " + whichBlock);
-
-        File.WriteAllText("./pendingblocks/block" + whichBlock.ToString() + ".txt", html);
+        catch (Exception)
+        {
+            Console.WriteLine("Failed To Connect, Exiting...");
+            throw;
+        }
     }
 
     static void SyncBlock(int whichBlock)
     {
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock;
-
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.AutomaticDecompression = DecompressionMethods.GZip;
-
-        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
+        try
         {
-            html = reader.ReadToEnd();
-        }
+            string html = string.Empty;
+            string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock;
 
-        Console.WriteLine("Synced: " + whichBlock);
-        File.WriteAllText("./blockchain/block" + whichBlock.ToString() + ".txt", html);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+
+            Console.WriteLine("Synced: " + whichBlock);
+            File.WriteAllText("./blockchain/block" + whichBlock.ToString() + ".txt", html);
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Failed To Connect, Exiting...");
+            throw;
+        }
     }
 
     static bool IsChainValid()
@@ -424,49 +468,57 @@ public class clnt
 
     static void Mine(string lastHash, string transactionHistory, int blockNum)
     {
-        DateTime startTime = DateTime.UtcNow;
-
-        var watch = new System.Diagnostics.Stopwatch();
-        watch.Start();
-        Process proc = ExecuteCommand("cargo run", "./programs/" + id + "/");
-
-        //Checks Hash
-        int nonce = 0;
-        while (!sha256(lastHash + transactionHistory + nonce.ToString()).StartsWith(walletInfo.MineDifficulty))
+        try
         {
-            nonce++;
-            Console.WriteLine((DateTime.UtcNow - startTime).ToString().Split(".")[0] + " :	" + nonce.ToString() + " # " + sha256(lastHash + transactionHistory + nonce.ToString()));
+            DateTime startTime = DateTime.UtcNow;
 
-            if (proc.HasExited)
+            var watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
+            Process proc = ExecuteCommand("cargo run", "./programs/" + id + "/");
+
+            //Checks Hash
+            int nonce = 0;
+            while (!sha256(lastHash + transactionHistory + nonce.ToString()).StartsWith(walletInfo.MineDifficulty))
+            {
+                nonce++;
+                Console.WriteLine((DateTime.UtcNow - startTime).ToString().Split(".")[0] + " :	" + nonce.ToString() + " # " + sha256(lastHash + transactionHistory + nonce.ToString()));
+
+                if (proc.HasExited)
+                    watch.Stop();
+            }
+
+            if (!proc.HasExited)
+            {
+                proc.WaitForExit(10000);
+                while (!proc.HasExited) { }
                 watch.Stop();
+            }
+            Console.WriteLine(watch.ElapsedMilliseconds / 1000f);
+
+            string url = "http://api.achillium.us.to/dcc/?query=submitBlock&blockNum=" + blockNum.ToString() + "&nonce=" + nonce.ToString() + "&minedHash=" + sha256(lastHash + transactionHistory + nonce.ToString()) + "&fromAddress=" + walletInfo.Address + "&programID=" + id + "&time=" + watch.ElapsedMilliseconds / 1000f;
+
+            System.Net.WebClient Client = new System.Net.WebClient();
+            Client.Headers.Add("Content-Type", "binary/octet-stream");
+            byte[] result = Client.UploadFile(url, "POST", "./programs/" + id + "/out.txt");
+            string s = System.Text.Encoding.UTF8.GetString(result, 0, result.Length);
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine(s + " in " + (DateTime.UtcNow - startTime).ToString().Split(".")[0]);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine(url);
+            Console.ResetColor();
+            Console.Write(((char)7).ToString());
+
+            int waitTime = 0;
+            while (waitTime < 1000000000)
+            {
+                waitTime++;
+            }
         }
-
-        if (!proc.HasExited)
+        catch (Exception)
         {
-            proc.WaitForExit(10000);
-            while (!proc.HasExited) { }
-            watch.Stop();
-        }
-        Console.WriteLine(watch.ElapsedMilliseconds / 1000f);
-
-        string url = "http://api.achillium.us.to/dcc/?query=submitBlock&blockNum=" + blockNum.ToString() + "&nonce=" + nonce.ToString() + "&minedHash=" + sha256(lastHash + transactionHistory + nonce.ToString()) + "&fromAddress=" + walletInfo.Address + "&programID=" + id + "&time=" + watch.ElapsedMilliseconds / 1000f;
-
-        System.Net.WebClient Client = new System.Net.WebClient();
-        Client.Headers.Add("Content-Type", "binary/octet-stream");
-        byte[] result = Client.UploadFile(url, "POST", "./programs/" + id + "/out.txt");
-        string s = System.Text.Encoding.UTF8.GetString(result, 0, result.Length);
-
-        Console.ForegroundColor = ConsoleColor.Blue;
-        Console.WriteLine(s + " in " + (DateTime.UtcNow - startTime).ToString().Split(".")[0]);
-        Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.WriteLine(url);
-        Console.ResetColor();
-        Console.Write(((char)7).ToString());
-
-        int waitTime = 0;
-        while (waitTime < 1000000000)
-        {
-            waitTime++;
+            Console.WriteLine("Failed To Connect, Exiting...");
+            throw;
         }
     }
 

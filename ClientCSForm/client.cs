@@ -131,21 +131,29 @@ public class clnt
 
     static void SyncBlock(int whichBlock)
     {
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock;
-
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.AutomaticDecompression = DecompressionMethods.GZip;
-
-        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
+        try
         {
-            html = reader.ReadToEnd();
-        }
+            string html = string.Empty;
+            string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock;
 
-        Console.WriteLine("Synced: " + whichBlock);
-        File.WriteAllText("./wwwdata/blockchain/block" + whichBlock.ToString() + ".txt", html);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+
+            Console.WriteLine("Synced: " + whichBlock);
+            File.WriteAllText("./wwwdata/blockchain/block" + whichBlock.ToString() + ".txt", html);
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Failed To Connect, Exiting...");
+            throw;
+        }
     }
 
     static bool IsChainValid()
@@ -179,36 +187,52 @@ public class clnt
 
     public string Trade(String recipient, float sendAmount)
     {
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=sendToAddress&sendAmount=" + sendAmount + "&username=" + username + "&password=" + password + "&fromAddress=" + walletInfo.Address + "&recipientAddress=" + recipient;
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.AutomaticDecompression = DecompressionMethods.GZip;
-
-        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
+        try
         {
-            html = reader.ReadToEnd();
+            string html = string.Empty;
+            string url = @"http://api.achillium.us.to/dcc/?query=sendToAddress&sendAmount=" + sendAmount + "&username=" + username + "&password=" + password + "&fromAddress=" + walletInfo.Address + "&recipientAddress=" + recipient;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+            walletInfo.Balance = GetBalance(walletInfo.Address);
+            Console.WriteLine(html);
+            return html.Trim();
         }
-        walletInfo.Balance = GetBalance(walletInfo.Address);
-        Console.WriteLine(html);
-        return html.Trim();
+        catch (Exception)
+        {
+            Console.WriteLine("Failed To Connect, Exiting...");
+            throw;
+        }
     }
 
     public string UploadProgram(string fileName, float minutes, int computationLevel)
     {
-        string baseName = fileName.Split('\\')[fileName.Split('\\').Length - 1];
+        try
+        {
+            string baseName = fileName.Split('\\')[fileName.Split('\\').Length - 1];
 
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=uploadProgram&fileName=" + baseName + "&username=" + username + "&password=" + password + "&fromAddress=" + walletInfo.Address + "&minutes=" + minutes + "&computationLevel=" + computationLevel;
+            string html = string.Empty;
+            string url = @"http://api.achillium.us.to/dcc/?query=uploadProgram&fileName=" + baseName + "&username=" + username + "&password=" + password + "&fromAddress=" + walletInfo.Address + "&minutes=" + minutes + "&computationLevel=" + computationLevel;
 
-        System.Net.WebClient Client = new System.Net.WebClient();
-        Client.Headers.Add("Content-Type", "binary/octet-stream");
-        byte[] result = Client.UploadFile(url, "POST", fileName);
-        string s = System.Text.Encoding.UTF8.GetString(result, 0, result.Length);
+            System.Net.WebClient Client = new System.Net.WebClient();
+            Client.Headers.Add("Content-Type", "binary/octet-stream");
+            byte[] result = Client.UploadFile(url, "POST", fileName);
+            string s = System.Text.Encoding.UTF8.GetString(result, 0, result.Length);
 
-        Console.WriteLine(s);
-        return s.Trim(); ;
+            Console.WriteLine(s);
+            return s.Trim();
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Failed To Connect, Exiting...");
+            throw;
+        }
     }
 
     public double GetBalance(string walletAddress)
@@ -248,21 +272,29 @@ public class clnt
 
     WalletInfo GetInfo()
     {
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address + "&username=" + username + "&password=" + password;
-
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.AutomaticDecompression = DecompressionMethods.GZip;
-
-        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
+        try
         {
-            html = reader.ReadToEnd();
-        }
+            string html = string.Empty;
+            string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address + "&username=" + username + "&password=" + password;
 
-        string content = html.Trim();
-        return JsonConvert.DeserializeObject<WalletInfo>(content);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+
+            string content = html.Trim();
+            return JsonConvert.DeserializeObject<WalletInfo>(content);
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Failed To Connect, Exiting...");
+            throw;
+        }
     }
 
     static string sha256(string input)

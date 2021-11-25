@@ -32,6 +32,16 @@ public class WalletInfo
     public float CostPerMinute { get; set; }
 }
 
+public class ProgramConfig
+{
+    public string Zip { get; set; }
+    public double TotalMinutes { get; set; }
+    public double MinutesLeft { get; set; }
+    public int ComputationLevel { get; set; }
+    public double Cost { get; set; }
+    public bool Built { get; set; }
+}
+
 
 public class clnt
 {
@@ -39,6 +49,8 @@ public class clnt
     public static WalletInfo walletInfo = new WalletInfo();
     public static int connectionStatus = 1;
     public static string[] directoryList = new string[] { "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/programs" };
+
+    public static ProgramConfig programConfig = new ProgramConfig();
 
     public static void Main()
     {
@@ -90,7 +102,7 @@ public class clnt
             else
                 walletInfo = w;
 
-            if(connectionStatus == 1)
+            if (connectionStatus == 1)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("There are " + walletInfo.PendingLength.ToString() + " Blocks to compute");
@@ -308,6 +320,25 @@ public class clnt
         }
     }
 
+    static ProgramConfig ReadProgramConfig()
+    {
+        string content = File.ReadAllText("./wwwdata/programs/" + id + ".cfg");
+        return JsonConvert.DeserializeObject<ProgramConfig>(content);
+    }
+
+    static int WriteProgramConfig()
+    {
+        try
+        {
+            File.WriteAllText("./wwwdata/programs/" + id + ".cfg", JsonConvert.SerializeObject(programConfig));
+            return 1;
+        }
+        catch (Exception)
+        {
+            return 0;
+        }
+    }
+
     static int GetProgram()
     {
         string[] programFiles = Directory.GetFiles("./wwwdata/programs/");
@@ -319,66 +350,69 @@ public class clnt
             {
                 id = item.Split(".cfg")[0].Split("/programs/")[1];
                 life = GetProgramLifeLeft(id);
-            }
-        }
-
-        foreach (string oldProgram in Directory.GetFiles("./wwwdata/programs/", "*.*", SearchOption.TopDirectoryOnly))
-        {
-            try
-            {
-                File.Delete(oldProgram);
-            }
-            catch (Exception)
-            {
-            }
-        }
-        foreach (string oldProgram in Directory.GetDirectories("./wwwdata/programs/", "*.*", SearchOption.TopDirectoryOnly))
-        {
-            try
-            {
-                Directory.Delete(oldProgram, true);
-            }
-            catch (Exception)
-            {
+                Console.WriteLine("Program life is " + life);
             }
         }
 
         try
         {
-            string assignedProgram = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=assignProgram";
-
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("Assigning Program...");
-            Console.ResetColor();
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
+            if (life <= 0)
             {
-                assignedProgram = reader.ReadToEnd();
+                foreach (string oldProgram in Directory.GetFiles("./wwwdata/programs/", "*.*", SearchOption.TopDirectoryOnly))
+                {
+                    try
+                    {
+                        File.Delete(oldProgram);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+                foreach (string oldProgram in Directory.GetDirectories("./wwwdata/programs/", "*.*", SearchOption.TopDirectoryOnly))
+                {
+                    try
+                    {
+                        Directory.Delete(oldProgram, true);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+
+                string assignedProgram = string.Empty;
+                string url = @"http://api.achillium.us.to/dcc/?query=assignProgram";
+
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Assigning Program...");
+                Console.ResetColor();
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.AutomaticDecompression = DecompressionMethods.GZip;
+
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                using (Stream stream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    assignedProgram = reader.ReadToEnd();
+                }
+                id = assignedProgram;
+
+                Console.WriteLine("./wwwdata/programs/" + id + ".cfg");
+                using (var client = new WebClient())
+                {
+                    client.DownloadFile(@"http://api.achillium.us.to/dcc/programs/" + id + ".cfg", "./wwwdata/programs/" + id + ".cfg");
+                    client.DownloadFile(@"http://api.achillium.us.to/dcc/programs/" + id + ".zip", "./wwwdata/programs/" + id + ".zip");
+                }
+
+                if (!Directory.Exists("./wwwdata/programs/" + id))
+                    ZipFile.ExtractToDirectory("./wwwdata/programs/" + id + ".zip", "./wwwdata/programs/" + id);
+
+                if (!File.Exists("./wwwdata/programs/" + id + "/Cargo.toml"))
+                {
+                    Directory.Move(Directory.GetDirectories("./wwwdata/programs/" + id)[0], "./wwwdata/programs/tmpdir");
+                    Directory.Delete("./wwwdata/programs/" + id, true);
+                    Directory.Move("./wwwdata/programs/tmpdir", "./wwwdata/programs/" + id);
+                }
             }
-            id = assignedProgram;
-
-            Console.WriteLine("./wwwdata/programs/" + id + ".cfg");
-            using (var client = new WebClient())
-            {
-                client.DownloadFile(@"http://api.achillium.us.to/dcc/programs/" + id + ".cfg", "./wwwdata/programs/" + id + ".cfg");
-                client.DownloadFile(@"http://api.achillium.us.to/dcc/programs/" + id + ".zip", "./wwwdata/programs/" + id + ".zip");
-            }
-
-            if (!Directory.Exists("./wwwdata/programs/" + id))
-                ZipFile.ExtractToDirectory("./wwwdata/programs/" + id + ".zip", "./wwwdata/programs/" + id);
-
-            if (!File.Exists("./wwwdata/programs/" + id + "/Cargo.toml"))
-            {
-                Directory.Move(Directory.GetDirectories("./wwwdata/programs/" + id)[0], "./wwwdata/programs/tmpdir");
-                Directory.Delete("./wwwdata/programs/" + id, true);
-                Directory.Move("./wwwdata/programs/tmpdir", "./wwwdata/programs/" + id);
-            }
-
 
             string ourHash = sha256File("./wwwdata/programs/" + id + ".zip");
             string theirHash = string.Empty;
@@ -403,12 +437,19 @@ public class clnt
                 GetProgram();
             }
 
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Building assigned program, wait until it's finished to start mining");
-            Console.ResetColor();
+            programConfig = ReadProgramConfig();
 
-            Process proc = ExecuteCommand("cargo build", "./wwwdata/programs/" + id + "/");
-            while (!proc.HasExited) { }
+            if(programConfig.Built == false)
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("Building assigned program, wait until it's finished to start mining");
+                Console.ResetColor();
+
+                Process proc = ExecuteCommand("cargo build", "./wwwdata/programs/" + id + "/");
+                while (!proc.HasExited) { }
+                programConfig.Built = true;
+                WriteProgramConfig();
+            }
             return 1;
         }
         catch (Exception)
@@ -536,14 +577,28 @@ public class clnt
 
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
-            Process proc = ExecuteCommand("cargo run", "./wwwdata/programs//" + id + "/");
+            Process proc = ExecuteCommand("cargo run", "./wwwdata/programs/" + id + "/");
 
             //Checks Hash
             int nonce = 0;
-            while (!sha256(lastHash + transactionHistory + nonce.ToString()).StartsWith(walletInfo.MineDifficulty))
+            string hash = "";
+            DateTime hashStart = DateTime.Now;
+            int hashesPerSecond = 0;
+            int hashesAtStart = 0;
+            while (!hash.StartsWith(walletInfo.MineDifficulty))
             {
+                if((DateTime.Now - hashStart).TotalSeconds >= 1)
+                {
+                    hashesPerSecond = nonce - hashesAtStart;
+                    hashStart = DateTime.Now;
+                    hashesAtStart = nonce;
+                }
+
+
                 nonce++;
-                Console.WriteLine((DateTime.UtcNow - startTime).ToString().Split(".")[0] + " :	" + nonce.ToString() + " # " + sha256(lastHash + transactionHistory + nonce.ToString()));
+                hash = sha256(lastHash + transactionHistory + nonce.ToString());
+                Console.Write("\n" + (DateTime.UtcNow - startTime).ToString().Split(".")[0] + " :	" + nonce.ToString() + " # " + hash);
+                Console.Write("   " + FormatHPS(hashesPerSecond));
 
                 if (proc.HasExited)
                     watch.Stop();
@@ -619,6 +674,18 @@ public class clnt
         proc = Process.Start(ProcessInfo);
 
         return proc;
+    }
+
+    static string FormatHPS(float input)
+    {
+        if (input > 1000000000f)
+            return Math.Round(input / 1000000000f, 3).ToString() + " gH/s";
+        else if (input > 1000000f)
+            return Math.Round(input / 1000000f, 3).ToString() + " mH/s";
+        else if (input > 1000f)
+            return Math.Round(input / 1000f, 3).ToString() + " kH/s";
+        else
+            return Math.Round(input, 3).ToString() + " H/s";
     }
 
     static string sha256(string input)

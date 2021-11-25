@@ -62,8 +62,16 @@ public class clnt
 
     public static int connectionStatus = 1;
 
+    public static string[] directoryList = new string[] { "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/programs" };
+
     public void Client(string usrn, string pswd, bool stayLoggedIn)
     {
+        foreach (var dir in directoryList)
+        {
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+        }
+
         //Process proc = new Process();
         //proc.StartInfo.FileName = "netsh";
         //proc.StartInfo.Arguments = "http add urlacl url = http://192.168.0.21:9090/ user=Everyone";

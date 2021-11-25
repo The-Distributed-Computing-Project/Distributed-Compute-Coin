@@ -63,10 +63,18 @@ public class clnt
     public Bitmap qrCodeAsBitmap;
     public static int connectionStatus = 1;
 
+    public static string[] directoryList = new string[] { "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/programs" };
+
     public void Client()
     {
         if (walletInfo.Address == null || walletInfo.Address == "")
         {
+            foreach (var dir in directoryList)
+            {
+                if (!Directory.Exists(dir))
+                    Directory.CreateDirectory(dir);
+            }
+
             //Process proc = new Process();
             //proc.StartInfo.FileName = "netsh";
             //proc.StartInfo.Arguments = "http add urlacl url = http://74.78.145.2:8000/ user=Everyone";

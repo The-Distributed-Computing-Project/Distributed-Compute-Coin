@@ -38,18 +38,25 @@ public class clnt
     static string id = "";
     public static WalletInfo walletInfo = new WalletInfo();
     public static int connectionStatus = 1;
+    public static string[] directoryList = new string[] { "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/programs" };
 
     public static void Main()
     {
+        foreach (var dir in directoryList)
+        {
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+        }
+
         if (!File.Exists("./config.cfg"))
         {
             StreamWriter configFile = new StreamWriter("./config.cfg");
             configFile.Write("");
             configFile.Close();
         }
-        if (!Directory.Exists("./programs"))
+        if (!Directory.Exists("./wwwdata/programs/"))
         {
-            Directory.CreateDirectory("./programs");
+            Directory.CreateDirectory("./wwwdata/programs/");
         }
 
         string configFileRead = File.ReadAllText("./config.cfg");
@@ -129,7 +136,7 @@ public class clnt
 
                 for (int i = 0; i < iterations; i++)
                 {
-                    foreach (string oldBlock in Directory.GetFiles("./pendingblocks/", "*.*", SearchOption.TopDirectoryOnly))
+                    foreach (string oldBlock in Directory.GetFiles("./wwwdata/pendingblocks/", "*.*", SearchOption.TopDirectoryOnly))
                     {
                         try
                         {
@@ -148,9 +155,9 @@ public class clnt
                         }
                     }
 
-                    while (Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < walletInfo.BlockchainLength)
+                    while (Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < walletInfo.BlockchainLength)
                     {
-                        if (SyncBlock(Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1) == 0)
+                        if (SyncBlock(Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1) == 0)
                         {
                             ConnectionError();
                             break;
@@ -159,7 +166,7 @@ public class clnt
 
                     if (!IsChainValid())
                     {
-                        foreach (string oldBlock in Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly))
+                        foreach (string oldBlock in Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly))
                         {
                             try
                             {
@@ -187,7 +194,7 @@ public class clnt
 
                     Console.WriteLine((walletInfo.BlockchainLength + 1).ToString());
 
-                    string content = File.ReadAllText("./pendingblocks/block" + (walletInfo.BlockchainLength + 1).ToString() + ".dccblock");
+                    string content = File.ReadAllText("./wwwdata/pendingblocks/block" + (walletInfo.BlockchainLength + 1).ToString() + ".dccblock");
                     Block o = JsonConvert.DeserializeObject<Block>(content);
                     string transactions = JoinArrayPieces(o.Transactions);
                     string lastHash = o.LastHash;
@@ -238,7 +245,7 @@ public class clnt
     {
         try
         {
-            foreach (string oldBlock in Directory.GetFiles("./pendingblocks/", "*.*", SearchOption.TopDirectoryOnly))
+            foreach (string oldBlock in Directory.GetFiles("./wwwdata/pendingblocks/", "*.*", SearchOption.TopDirectoryOnly))
             {
                 try
                 {
@@ -248,7 +255,7 @@ public class clnt
                 {
                 }
             }
-            foreach (string oldBlock in Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly))
+            foreach (string oldBlock in Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly))
             {
                 try
                 {
@@ -303,7 +310,7 @@ public class clnt
 
     static int GetProgram()
     {
-        string[] programFiles = Directory.GetFiles("./programs/");
+        string[] programFiles = Directory.GetFiles("./wwwdata/programs/");
 
         float life = 0;
         foreach (string item in programFiles)
@@ -315,7 +322,7 @@ public class clnt
             }
         }
 
-        foreach (string oldProgram in Directory.GetFiles("./programs/", "*.*", SearchOption.TopDirectoryOnly))
+        foreach (string oldProgram in Directory.GetFiles("./wwwdata/programs/", "*.*", SearchOption.TopDirectoryOnly))
         {
             try
             {
@@ -325,7 +332,7 @@ public class clnt
             {
             }
         }
-        foreach (string oldProgram in Directory.GetDirectories("./programs/", "*.*", SearchOption.TopDirectoryOnly))
+        foreach (string oldProgram in Directory.GetDirectories("./wwwdata/programs/", "*.*", SearchOption.TopDirectoryOnly))
         {
             try
             {
@@ -355,25 +362,25 @@ public class clnt
             }
             id = assignedProgram;
 
-            Console.WriteLine("./programs/" + id + ".cfg");
+            Console.WriteLine("./wwwdata/programs/" + id + ".cfg");
             using (var client = new WebClient())
             {
-                client.DownloadFile(@"http://api.achillium.us.to/dcc/programs/" + id + ".cfg", "./programs/" + id + ".cfg");
-                client.DownloadFile(@"http://api.achillium.us.to/dcc/programs/" + id + ".zip", "./programs/" + id + ".zip");
+                client.DownloadFile(@"http://api.achillium.us.to/dcc/programs/" + id + ".cfg", "./wwwdata/programs/" + id + ".cfg");
+                client.DownloadFile(@"http://api.achillium.us.to/dcc/programs/" + id + ".zip", "./wwwdata/programs/" + id + ".zip");
             }
 
-            if (!Directory.Exists("./programs/" + id))
-                ZipFile.ExtractToDirectory("./programs/" + id + ".zip", "./programs/" + id);
+            if (!Directory.Exists("./wwwdata/programs/" + id))
+                ZipFile.ExtractToDirectory("./wwwdata/programs/" + id + ".zip", "./wwwdata/programs/" + id);
 
-            if (!File.Exists("./programs/" + id + "/Cargo.toml"))
+            if (!File.Exists("./wwwdata/programs/" + id + "/Cargo.toml"))
             {
-                Directory.Move(Directory.GetDirectories("./programs/" + id)[0], "./programs/tmpdir");
-                Directory.Delete("./programs/" + id, true);
-                Directory.Move("./programs/tmpdir", "./programs/" + id);
+                Directory.Move(Directory.GetDirectories("./wwwdata/programs/" + id)[0], "./wwwdata/programs/tmpdir");
+                Directory.Delete("./wwwdata/programs/" + id, true);
+                Directory.Move("./wwwdata/programs/tmpdir", "./wwwdata/programs/" + id);
             }
 
 
-            string ourHash = sha256File("./programs/" + id + ".zip");
+            string ourHash = sha256File("./wwwdata/programs/" + id + ".zip");
             string theirHash = string.Empty;
 
             string hashUrl = @"http://api.achillium.us.to/dcc/?query=hashProgram&programID=" + id;
@@ -397,10 +404,10 @@ public class clnt
             }
 
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Building assigned program, wait finished to start mining");
+            Console.WriteLine("Building assigned program, wait until it's finished to start mining");
             Console.ResetColor();
 
-            Process proc = ExecuteCommand("cargo build", "./programs/" + id + "/");
+            Process proc = ExecuteCommand("cargo build", "./wwwdata/programs/" + id + "/");
             while (!proc.HasExited) { }
             return 1;
         }
@@ -456,7 +463,7 @@ public class clnt
 
             Console.WriteLine("Synced pending: " + whichBlock);
 
-            File.WriteAllText("./pendingblocks/block" + whichBlock.ToString() + ".dccblock", html);
+            File.WriteAllText("./wwwdata/pendingblocks/block" + whichBlock.ToString() + ".dccblock", html);
             return 1;
         }
         catch (Exception)
@@ -483,7 +490,7 @@ public class clnt
             }
 
             Console.WriteLine("Synced: " + whichBlock);
-            File.WriteAllText("./blockchain/block" + whichBlock.ToString() + ".dccblock", html);
+            File.WriteAllText("./wwwdata/blockchain/block" + whichBlock.ToString() + ".dccblock", html);
             return 1;
         }
         catch (Exception)
@@ -494,11 +501,11 @@ public class clnt
 
     static bool IsChainValid()
     {
-        string[] blocks = Directory.GetFiles("./blockchain/", "*.dccblock");
+        string[] blocks = Directory.GetFiles("./wwwdata/blockchain/", "*.dccblock");
 
         for (int i = 1; i < blocks.Length; i++)
         {
-            string content = File.ReadAllText("./blockchain/block" + i + ".dccblock");
+            string content = File.ReadAllText("./wwwdata/blockchain/block" + i + ".dccblock");
             Block o = JsonConvert.DeserializeObject<Block>(content);
             string[] trans = o.Transactions;
 
@@ -507,7 +514,7 @@ public class clnt
             string nonce = o.Nonce;
             string transactions = JoinArrayPieces(trans);
 
-            content = File.ReadAllText("./blockchain/block" + (i + 1) + ".dccblock");
+            content = File.ReadAllText("./wwwdata/blockchain/block" + (i + 1) + ".dccblock");
             o = JsonConvert.DeserializeObject<Block>(content);
             string nextHash = o.LastHash;
 
@@ -529,7 +536,7 @@ public class clnt
 
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
-            Process proc = ExecuteCommand("cargo run", "./programs/" + id + "/");
+            Process proc = ExecuteCommand("cargo run", "./wwwdata/programs//" + id + "/");
 
             //Checks Hash
             int nonce = 0;
@@ -554,7 +561,7 @@ public class clnt
 
             System.Net.WebClient Client = new System.Net.WebClient();
             Client.Headers.Add("Content-Type", "binary/octet-stream");
-            byte[] result = Client.UploadFile(url, "POST", "./programs/" + id + "/out.txt");
+            byte[] result = Client.UploadFile(url, "POST", "./wwwdata/programs//" + id + "/out.txt");
             string s = System.Text.Encoding.UTF8.GetString(result, 0, result.Length);
 
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -579,7 +586,7 @@ public class clnt
 
         DateTime startTime = DateTime.UtcNow;
 
-        string content = File.ReadAllText("./blockchain/block" + blockNum + ".dccblock");
+        string content = File.ReadAllText("./wwwdata/blockchain/block" + blockNum + ".dccblock");
         Block o = JsonConvert.DeserializeObject<Block>(content);
         string transactions = JoinArrayPieces(o.Transactions);
         string currentHash = o.Hash;

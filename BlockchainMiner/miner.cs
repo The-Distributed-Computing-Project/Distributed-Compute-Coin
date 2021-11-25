@@ -37,6 +37,7 @@ public class clnt
 {
     static string id = "";
     public static WalletInfo walletInfo = new WalletInfo();
+    public static int connectionStatus = 1;
 
     public static void Main()
     {
@@ -73,21 +74,51 @@ public class clnt
 
         while (true)
         {
-            walletInfo = GetInfo();
+            WalletInfo w = GetInfo();
 
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("There are " + walletInfo.PendingLength.ToString() + " Blocks to compute");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("The difficulty is " + walletInfo.MineDifficulty.Length);
-            Console.ResetColor();
+            if (w == null)
+            {
+                ConnectionError();
+            }
+            else
+                walletInfo = w;
+
+            if(connectionStatus == 1)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("There are " + walletInfo.PendingLength.ToString() + " Blocks to compute");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("The difficulty is " + walletInfo.MineDifficulty.Length);
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("\nThere are ");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("unknown");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write(" Blocks to compute\n");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("The difficulty is unknown");
+                Console.ResetColor();
+            }
 
             Console.Write("What do you want to do :  ");
             String command = Console.ReadLine();
+
+            if (connectionStatus == 0)
+                continue;
+
             if (command.ToUpper() == "HELP")
                 Help();
             if (command.ToUpper() == "SYNC")
             {
-                Sync();
+                if (Sync() == 0)
+                {
+                    ConnectionError();
+                    continue;
+                }
                 Console.Write(((char)7).ToString());
             }
             if (command.ToUpper().Contains("MINE"))
@@ -110,12 +141,20 @@ public class clnt
                     }
                     for (int s = 0; s < walletInfo.PendingLength; s++)
                     {
-                        SyncPending(walletInfo.BlockchainLength + 1 + s);
+                        if (SyncPending(walletInfo.BlockchainLength + 1 + s) == 0)
+                        {
+                            ConnectionError();
+                            break;
+                        }
                     }
 
                     while (Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < walletInfo.BlockchainLength)
                     {
-                        SyncBlock(Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1);
+                        if (SyncBlock(Directory.GetFiles("./blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1) == 0)
+                        {
+                            ConnectionError();
+                            break;
+                        }
                     }
 
                     if (!IsChainValid())
@@ -132,11 +171,19 @@ public class clnt
                         }
                         for (int a = 0; a < walletInfo.BlockchainLength; a++)
                         {
-                            SyncBlock(1 + a);
+                            if (SyncBlock(1 + a) == 0)
+                            {
+                                ConnectionError();
+                                break;
+                            }
                         }
                     }
 
-                    GetProgram();
+                    if (GetProgram() == 0)
+                    {
+                        ConnectionError();
+                        continue;
+                    }
 
                     Console.WriteLine((walletInfo.BlockchainLength + 1).ToString());
 
@@ -144,9 +191,18 @@ public class clnt
                     Block o = JsonConvert.DeserializeObject<Block>(content);
                     string transactions = JoinArrayPieces(o.Transactions);
                     string lastHash = o.LastHash;
-                    Mine(lastHash, transactions, (walletInfo.BlockchainLength + 1));
+                    if (Mine(lastHash, transactions, (walletInfo.BlockchainLength + 1)) == 0)
+                    {
+                        ConnectionError();
+                        continue;
+                    }
 
                     walletInfo = GetInfo();
+                    if (walletInfo == null)
+                    {
+                        ConnectionError();
+                        continue;
+                    }
                 }
             }
             if (command.ToUpper().Contains("MINEANY"))
@@ -156,6 +212,7 @@ public class clnt
                     diff = command.Split(" ")[2];
                 MineAnyBlock(int.Parse(command.Split(" ")[1]), diff);
             }
+            connectionStatus = 1;
         }
     }
 
@@ -177,7 +234,7 @@ public class clnt
 ");
     }
 
-    static void Sync()
+    static int Sync()
     {
         try
         {
@@ -210,11 +267,11 @@ public class clnt
                 SyncBlock(i);
             }
             GetProgram();
+            return 1;
         }
         catch (Exception)
         {
-            Console.WriteLine("Failed To Connect, Exiting...");
-            throw;
+            return 0;
         }
     }
 
@@ -240,12 +297,11 @@ public class clnt
         }
         catch (Exception)
         {
-            Console.WriteLine("Failed To Connect, Exiting...");
-            throw;
+            return null;
         }
     }
 
-    static void GetProgram()
+    static int GetProgram()
     {
         string[] programFiles = Directory.GetFiles("./programs/");
 
@@ -346,11 +402,11 @@ public class clnt
 
             Process proc = ExecuteCommand("cargo build", "./programs/" + id + "/");
             while (!proc.HasExited) { }
+            return 1;
         }
         catch (Exception)
         {
-            Console.WriteLine("Failed To Connect, Exiting...");
-            throw;
+            return 0;
         }
     }
 
@@ -377,12 +433,11 @@ public class clnt
         }
         catch (Exception)
         {
-            Console.WriteLine("Failed To Connect, Exiting...");
-            throw;
+            return 0;
         }
     }
 
-    static void SyncPending(int whichBlock)
+    static int SyncPending(int whichBlock)
     {
         try
         {
@@ -402,15 +457,15 @@ public class clnt
             Console.WriteLine("Synced pending: " + whichBlock);
 
             File.WriteAllText("./pendingblocks/block" + whichBlock.ToString() + ".txt", html);
+            return 1;
         }
         catch (Exception)
         {
-            Console.WriteLine("Failed To Connect, Exiting...");
-            throw;
+            return 0;
         }
     }
 
-    static void SyncBlock(int whichBlock)
+    static int SyncBlock(int whichBlock)
     {
         try
         {
@@ -429,11 +484,11 @@ public class clnt
 
             Console.WriteLine("Synced: " + whichBlock);
             File.WriteAllText("./blockchain/block" + whichBlock.ToString() + ".txt", html);
+            return 1;
         }
         catch (Exception)
         {
-            Console.WriteLine("Failed To Connect, Exiting...");
-            throw;
+            return 0;
         }
     }
 
@@ -466,7 +521,7 @@ public class clnt
         return true;
     }
 
-    static void Mine(string lastHash, string transactionHistory, int blockNum)
+    static int Mine(string lastHash, string transactionHistory, int blockNum)
     {
         try
         {
@@ -514,11 +569,11 @@ public class clnt
             {
                 waitTime++;
             }
+            return 1;
         }
         catch (Exception)
         {
-            Console.WriteLine("Failed To Connect, Exiting...");
-            throw;
+            return 0;
         }
     }
 
@@ -597,5 +652,13 @@ public class clnt
             outStr += str;
         }
         return outStr;
+    }
+
+    static void ConnectionError()
+    {
+        connectionStatus = 0;
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Failed To Connect");
+        Console.ResetColor();
     }
 }

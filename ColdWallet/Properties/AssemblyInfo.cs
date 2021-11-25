@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ColdWallet")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("DCC Cold Wallet")]
+[assembly: AssemblyDescription("The secured client used to trade and securely store Compute Coin")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ColdWallet")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyProduct("Distributed Compute Coin Cold Wallet")]
+[assembly: AssemblyCopyright("Copyright Sam-Astro©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

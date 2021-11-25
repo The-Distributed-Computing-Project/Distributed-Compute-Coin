@@ -61,10 +61,11 @@ public class clnt
     public WalletInfo walletInfo = new WalletInfo();
 
     public Bitmap qrCodeAsBitmap;
+    public static int connectionStatus = 1;
 
     public void Client()
     {
-        if(walletInfo.Address == null || walletInfo.Address == "")
+        if (walletInfo.Address == null || walletInfo.Address == "")
         {
             //Process proc = new Process();
             //proc.StartInfo.FileName = "netsh";
@@ -103,6 +104,12 @@ public class clnt
 
             walletInfo.Address = "dcc" + sha256(username + password);
             walletInfo = GetInfo();
+            if (walletInfo == null)
+            {
+                walletInfo = new WalletInfo();
+                walletInfo.Address = "dcc" + sha256(username + password);
+                ConnectionError();
+            }
             walletInfo.Balance = GetBalance(walletInfo.Address);
 
             DCCPayload generator = new DCCPayload(walletInfo.Address);
@@ -111,13 +118,35 @@ public class clnt
             QRCodeData qRCodeData = qRCodeGenerator.CreateQrCode(payload, QRCodeGenerator.ECCLevel.M);
             QRCode qRCode = new QRCode(qRCodeData);
             qrCodeAsBitmap = qRCode.GetGraphic(20);
+            if (connectionStatus == 0)
+                return;
         }
 
+        walletInfo.Address = "dcc" + sha256(username + password);
         walletInfo = GetInfo();
+
+        if (walletInfo == null)
+        {
+            walletInfo = new WalletInfo();
+            walletInfo.Address = "dcc" + sha256(username + password);
+            walletInfo.Balance = GetBalance(walletInfo.Address);
+            ConnectionError();
+            return;
+        }
+        else
+            connectionStatus = 1;
+
+        if (connectionStatus == 0)
+            return;
+
         walletInfo.Balance = GetBalance(walletInfo.Address);
         while (Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < walletInfo.BlockchainLength)
         {
-            SyncBlock(Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1);
+            if (SyncBlock(Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1) == 0)
+            {
+                ConnectionError();
+                return;
+            }
         }
 
         if (!IsChainValid())
@@ -134,9 +163,14 @@ public class clnt
             }
             for (int i = 0; i < walletInfo.BlockchainLength; i++)
             {
-                SyncBlock(1 + i);
+                if (SyncBlock(1 + i) == 0)
+                {
+                    ConnectionError();
+                    return;
+                }
             }
         }
+        connectionStatus = 1;
     }
 
     private void CreateRandomFile(string filePath, int sizeInMb)
@@ -153,7 +187,7 @@ public class clnt
             {
                 for (int i = 0; i < sizeInMb * blocksPerMb; i++)
                 {
-                    Console.WriteLine("Generating Wallet, " + Math.Truncate(((float)i / ((float)sizeInMb * (float)blocksPerMb)) / 2f* (float)100) + "% , " + Math.Truncate((float)i / ((float)sizeInMb * (float)blocksPerMb) * (float)sizeInMb*100)/100 + "MB");
+                    Console.WriteLine("Generating Wallet, " + Math.Truncate(((float)i / ((float)sizeInMb * (float)blocksPerMb)) / 2f * (float)100) + "% , " + Math.Truncate((float)i / ((float)sizeInMb * (float)blocksPerMb) * (float)sizeInMb * 100) / 100 + "MB");
                     crypto.GetBytes(data);
                     stream.Write(data, 0, data.Length);
                 }
@@ -161,7 +195,7 @@ public class clnt
                 data = new byte[blockSize];
                 for (int a = 0; a < sizeInMb * blocksPerMb; a++)
                 {
-                    Console.WriteLine("Generating Wallet, " + Math.Truncate((((float)a + (float)sizeInMb * (float)blocksPerMb) / ((float)sizeInMb * (float)blocksPerMb)) / 2f* (float)100) + "% , " + Math.Truncate(((float)a + (float)sizeInMb * (float)blocksPerMb) / ((float)sizeInMb * (float)blocksPerMb) * (float)sizeInMb * 100)/100 + "MB");
+                    Console.WriteLine("Generating Wallet, " + Math.Truncate((((float)a + (float)sizeInMb * (float)blocksPerMb) / ((float)sizeInMb * (float)blocksPerMb)) / 2f * (float)100) + "% , " + Math.Truncate(((float)a + (float)sizeInMb * (float)blocksPerMb) / ((float)sizeInMb * (float)blocksPerMb) * (float)sizeInMb * 100) / 100 + "MB");
                     crypto.GetBytes(data);
                     stream.Write(data, 0, data.Length);
                 }
@@ -172,40 +206,55 @@ public class clnt
 
     WalletInfo GetInfo()
     {
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address + "&username=" + username + "&password=" + password;
-
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.AutomaticDecompression = DecompressionMethods.GZip;
-
-        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
+        try
         {
-            html = reader.ReadToEnd();
-        }
+            string html = string.Empty;
+            string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address + "&username=" + username + "&password=" + password;
 
-        string content = html.Trim();
-        return JsonConvert.DeserializeObject<WalletInfo>(content);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+
+            string content = html.Trim();
+            return JsonConvert.DeserializeObject<WalletInfo>(content);
+        }
+        catch (Exception)
+        {
+            return null;
+        }
     }
 
-    static void SyncBlock(int whichBlock)
+    static int SyncBlock(int whichBlock)
     {
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock;
-
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.AutomaticDecompression = DecompressionMethods.GZip;
-
-        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
+        try
         {
-            html = reader.ReadToEnd();
-        }
+            string html = string.Empty;
+            string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock;
 
-        Console.WriteLine("Synced: " + whichBlock);
-        File.WriteAllText("./wwwdata/blockchain/block" + whichBlock.ToString() + ".txt", html);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+
+            Console.WriteLine("Synced: " + whichBlock);
+            File.WriteAllText("./wwwdata/blockchain/block" + whichBlock.ToString() + ".txt", html);
+            return 1;
+        }
+        catch (Exception)
+        {
+            return 0;
+        }
     }
 
     static bool IsChainValid()
@@ -236,7 +285,7 @@ public class clnt
         }
         return true;
     }
-    
+
     public string Trade(String recipient, float sendAmount)
     {
         string html = string.Empty;
@@ -290,22 +339,30 @@ public class clnt
         return bal;
     }
 
-    public void InitializeNewAddress()
+    public int InitializeNewAddress()
     {
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=initializeNewAddress" + "&username=" + username + "&password=" + password;
-
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.AutomaticDecompression = DecompressionMethods.GZip;
-
-        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
+        try
         {
-            html = reader.ReadToEnd();
-        }
+            string html = string.Empty;
+            string url = @"http://api.achillium.us.to/dcc/?query=initializeNewAddress" + "&username=" + username + "&password=" + password;
 
-        Console.WriteLine(html);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+
+            Console.WriteLine(html);
+            return 1;
+        }
+        catch (Exception)
+        {
+            return 0;
+        }
     }
 
     static string sha256(string input)
@@ -328,5 +385,13 @@ public class clnt
             outStr += str;
         }
         return outStr;
+    }
+
+    static void ConnectionError()
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Failed To Connect");
+        Console.ResetColor();
+        connectionStatus = 0;
     }
 }

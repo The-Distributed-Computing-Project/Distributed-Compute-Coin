@@ -53,10 +53,14 @@ namespace ColdWallet
             this.panel4 = new System.Windows.Forms.Panel();
             this.QRCodeWallet = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.CannotConnectPanel = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sendToAmount)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QRCodeWallet)).BeginInit();
+            this.CannotConnectPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // walletLabel
@@ -292,10 +296,44 @@ namespace ColdWallet
             this.label16.TabIndex = 0;
             this.label16.Text = "Your wallet as a QR code";
             // 
+            // CannotConnectPanel
+            // 
+            this.CannotConnectPanel.Controls.Add(this.label6);
+            this.CannotConnectPanel.Controls.Add(this.label5);
+            this.CannotConnectPanel.Enabled = false;
+            this.CannotConnectPanel.Location = new System.Drawing.Point(12, 85);
+            this.CannotConnectPanel.Name = "CannotConnectPanel";
+            this.CannotConnectPanel.Size = new System.Drawing.Size(335, 225);
+            this.CannotConnectPanel.TabIndex = 17;
+            this.CannotConnectPanel.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label5.Location = new System.Drawing.Point(142, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 70);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "!";
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label6.Location = new System.Drawing.Point(20, 98);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(284, 66);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Unable to connect, check your internet";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(603, 322);
+            this.Controls.Add(this.CannotConnectPanel);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.walletAddr);
@@ -317,6 +355,8 @@ namespace ColdWallet
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QRCodeWallet)).EndInit();
+            this.CannotConnectPanel.ResumeLayout(false);
+            this.CannotConnectPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,6 +390,9 @@ namespace ColdWallet
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox QRCodeWallet;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Panel CannotConnectPanel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

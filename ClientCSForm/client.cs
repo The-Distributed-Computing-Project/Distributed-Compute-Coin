@@ -60,6 +60,8 @@ public class clnt
     //static string appURL = "dcc:" + walletInfo.Address;
     public static Bitmap qrCodeAsBitmap;
 
+    public static int connectionStatus = 1;
+
     public void Client(string usrn, string pswd, bool stayLoggedIn)
     {
         //Process proc = new Process();
@@ -78,7 +80,7 @@ public class clnt
         username = usrn;
         password = pswd;
         string configFileRead = File.ReadAllText("./config.cfg");
-        if (configFileRead.Length > 4)
+        if (configFileRead.Length > 4 && username == "")
         {
             username = configFileRead.Split('\n')[0].Trim();
             password = configFileRead.Split('\n')[1].Trim();
@@ -96,6 +98,16 @@ public class clnt
         walletInfo.Address = "dcc" + sha256(username + password);
         walletInfo = GetInfo();
 
+        if (walletInfo == null)
+        {
+            ConnectionError();
+            walletInfo = new WalletInfo();
+            walletInfo.Address = "dcc" + sha256(username + password);
+            walletInfo.Balance = GetBalance(walletInfo.Address);
+        }
+        else
+            connectionStatus = 1;
+
         DCCPayload generator = new DCCPayload(walletInfo.Address);
         string payload = generator.ToString();
         QRCodeGenerator qRCodeGenerator = new QRCodeGenerator();
@@ -103,33 +115,47 @@ public class clnt
         QRCode qRCode = new QRCode(qRCodeData);
         qrCodeAsBitmap = qRCode.GetGraphic(20);
 
-        while (Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < walletInfo.BlockchainLength)
+        if (connectionStatus == 1)
         {
-            SyncBlock(Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1);
-        }
-
-        if (!IsChainValid())
-        {
-            foreach (string oldBlock in Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly))
+            while (Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < walletInfo.BlockchainLength)
             {
-                try
+                if (SyncBlock(Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1) == 0)
                 {
-                    File.Delete(oldBlock);
-                }
-                catch (Exception)
-                {
+                    ConnectionError();
+                    return;
                 }
             }
-            for (int i = 0; i < walletInfo.BlockchainLength; i++)
-            {
-                SyncBlock(1 + i);
-            }
-        }
 
-        walletInfo.Balance = GetBalance(walletInfo.Address);
+            if (!IsChainValid())
+            {
+                foreach (string oldBlock in Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly))
+                {
+                    try
+                    {
+                        File.Delete(oldBlock);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+                for (int i = 0; i < walletInfo.BlockchainLength; i++)
+                {
+                    if (SyncBlock(1 + i) == 0)
+                    {
+                        ConnectionError();
+                        return;
+                    }
+                }
+            }
+
+            walletInfo.Balance = GetBalance(walletInfo.Address);
+        }
+        else
+            return;
+        connectionStatus = 1;
     }
 
-    static void SyncBlock(int whichBlock)
+    static int SyncBlock(int whichBlock)
     {
         try
         {
@@ -148,11 +174,11 @@ public class clnt
 
             Console.WriteLine("Synced: " + whichBlock);
             File.WriteAllText("./wwwdata/blockchain/block" + whichBlock.ToString() + ".txt", html);
+            return 1;
         }
         catch (Exception)
         {
-            Console.WriteLine("Failed To Connect, Exiting...");
-            throw;
+            return 0;
         }
     }
 
@@ -206,8 +232,7 @@ public class clnt
         }
         catch (Exception)
         {
-            Console.WriteLine("Failed To Connect, Exiting...");
-            throw;
+            return null;
         }
     }
 
@@ -230,8 +255,7 @@ public class clnt
         }
         catch (Exception)
         {
-            Console.WriteLine("Failed To Connect, Exiting...");
-            throw;
+            return null;
         }
     }
 
@@ -292,8 +316,7 @@ public class clnt
         }
         catch (Exception)
         {
-            Console.WriteLine("Failed To Connect, Exiting...");
-            throw;
+            return null;
         }
     }
 
@@ -317,5 +340,13 @@ public class clnt
             outStr += str;
         }
         return outStr;
+    }
+
+    static void ConnectionError()
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Failed To Connect");
+        Console.ResetColor();
+        connectionStatus = 0;
     }
 }

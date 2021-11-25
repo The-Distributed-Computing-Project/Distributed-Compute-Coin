@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <ApplicationIcon>D:\Code\DC-Cryptocurrency\BlockchainMiner\minericon_VoI_icon.ico</ApplicationIcon>
+    <AssemblyName>DCC Miner</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

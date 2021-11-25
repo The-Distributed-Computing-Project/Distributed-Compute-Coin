@@ -55,7 +55,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "D:\\Code\\DC-Cryptocurrency\\BlockchainMiner\\BlockchainMiner.csproj",
-      "projectName": "BlockchainMiner",
+      "projectName": "DCC Miner",
       "projectPath": "D:\\Code\\DC-Cryptocurrency\\BlockchainMiner\\BlockchainMiner.csproj",
       "packagesPath": "C:\\Users\\Sam\\.nuget\\packages\\",
       "outputPath": "D:\\Code\\DC-Cryptocurrency\\BlockchainMiner\\obj\\",

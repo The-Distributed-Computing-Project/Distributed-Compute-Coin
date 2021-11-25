@@ -47,7 +47,6 @@ namespace ColdWallet
                 configFile.Close();
             }
 
-            clnt.Client();
             UpdateUI();
             sendToWallet.Enabled = true;
             sendToAmount.Enabled = true;
@@ -70,12 +69,16 @@ namespace ColdWallet
             {
                 if ((float)sendToAmount.Value <= clnt.walletInfo.Balance)
                 {
-                    string status = clnt.Trade(sendToWallet.Text, (float)sendToAmount.Value);
                     UpdateUI();
-                    if (status.Contains("success"))
+                    if (clnt.connectionStatus == 1)
                     {
-                        fieldsNotFilledWarn.ForeColor = Color.Green;
-                        fieldsNotFilledWarn.Text = "Successfully sent";
+                        string status = clnt.Trade(sendToWallet.Text, (float)sendToAmount.Value);
+                        UpdateUI();
+                        if (status.Contains("success"))
+                        {
+                            fieldsNotFilledWarn.ForeColor = Color.Green;
+                            fieldsNotFilledWarn.Text = "Successfully sent";
+                        }
                     }
                 }
                 else
@@ -106,6 +109,16 @@ namespace ColdWallet
         void UpdateUI()
         {
             clnt.Client();
+            if (clnt.connectionStatus == 0)
+            {
+                CannotConnectPanel.Visible = true;
+                CannotConnectPanel.Enabled = true;
+            }
+            else
+            {
+                CannotConnectPanel.Visible = false;
+                CannotConnectPanel.Enabled = false;
+            }
             walletAddr.Text = clnt.walletInfo.Address;
             computeCoins.Text = "Balance: $" + Math.Round(clnt.walletInfo.Balance, 4);
             pendingFunds.Text = "Pending: $" + Math.Round(clnt.walletInfo.PendingBalance, 4);
@@ -117,5 +130,6 @@ namespace ColdWallet
         {
             UpdateUI();
         }
+
     }
 }

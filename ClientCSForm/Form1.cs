@@ -77,12 +77,16 @@ namespace ClientCSForm
             {
                 if ((float)sendToAmount.Value <= clnt.walletInfo.Balance)
                 {
-                    string status = clnt.Trade(sendToWallet.Text, (float)sendToAmount.Value);
                     UpdateUI();
-                    if (status.Contains("success"))
+                    if (clnt.connectionStatus == 1)
                     {
-                        fieldsNotFilledWarn.ForeColor = Color.Green;
-                        fieldsNotFilledWarn.Text = "Successfully sent";
+                        string status = clnt.Trade(sendToWallet.Text, (float)sendToAmount.Value);
+                        UpdateUI();
+                        if (status.Contains("success"))
+                        {
+                            fieldsNotFilledWarn.ForeColor = Color.Green;
+                            fieldsNotFilledWarn.Text = "Successfully sent";
+                        }
                     }
                 }
                 else
@@ -115,7 +119,7 @@ namespace ClientCSForm
             if (usernameBox.TextLength > 0)
             {
                 clnt.Client(usernameBox.Text.Trim(), passwordBox.Text.Trim(), stayLoggedIn.Checked);
-                if (clnt.walletInfo.Balance != -1.0f)
+                if (clnt.connectionStatus == 1)
                 {
                     UpdateUI();
                     sendToWallet.Enabled = true;
@@ -210,19 +214,23 @@ namespace ClientCSForm
             float minutes = (float)TotalMinutesBox.Value;
             int computationLevel = ComputationPowerSlider.Value;
 
-            if (selectedFile == null || selectedFile == "")
+            UpdateUI();
+            if (clnt.connectionStatus == 1)
             {
-                uploadErrorText.ForeColor = Color.Red;
-                uploadErrorText.Text = "All fields must be filled";
-            }
-            else
-            {
-                string uploadStatus = clnt.UploadProgram(file, minutes, computationLevel);
-
-                if (uploadStatus.Contains("success"))
+                if (selectedFile == null || selectedFile == "")
                 {
-                    uploadErrorText.ForeColor = Color.Green;
-                    uploadErrorText.Text = "Successfully uploaded new program";
+                    uploadErrorText.ForeColor = Color.Red;
+                    uploadErrorText.Text = "All fields must be filled";
+                }
+                else
+                {
+                    string uploadStatus = clnt.UploadProgram(file, minutes, computationLevel);
+
+                    if (uploadStatus.Contains("success"))
+                    {
+                        uploadErrorText.ForeColor = Color.Green;
+                        uploadErrorText.Text = "Successfully uploaded new program";
+                    }
                 }
             }
 
@@ -232,16 +240,28 @@ namespace ClientCSForm
         void UpdateUI()
         {
             clnt.Client(usernameBox.Text.Trim(), passwordBox.Text.Trim(), stayLoggedIn.Checked);
+
+            if (clnt.connectionStatus == 0)
+            {
+                CannotConnectPanel.Visible = true;
+                CannotConnectPanel.Enabled = true;
+            }
+            else
+            {
+                CannotConnectPanel.Visible = false;
+                CannotConnectPanel.Enabled = false;
+                EstimateCost();
+            }
             walletAddr.Text = clnt.walletInfo.Address;
             computeCoins.Text = "Balance: $" + Math.Round(clnt.walletInfo.Balance, 4);
             pendingFunds.Text = "Pending: $" + Math.Round(clnt.walletInfo.PendingBalance, 4);
             QRCodeWallet.Image = clnt.qrCodeAsBitmap;
-            EstimateCost();
         }
 
         void EstimateCost()
         {
-            estimatedCostNumber.Text = "$" + (clnt.walletInfo.CostPerMinute + (ComputationPowerSlider.Value / 10f) * clnt.walletInfo.CostPerMinute) * (float)TotalMinutesBox.Value;
+            if (clnt.connectionStatus == 1)
+                estimatedCostNumber.Text = "$" + (clnt.walletInfo.CostPerMinute + (ComputationPowerSlider.Value / 10f) * clnt.walletInfo.CostPerMinute) * (float)TotalMinutesBox.Value;
         }
 
         private void refreshButton_Click(object sender, EventArgs e)

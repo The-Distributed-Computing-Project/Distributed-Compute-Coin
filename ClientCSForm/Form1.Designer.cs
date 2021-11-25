@@ -104,6 +104,9 @@ namespace ClientCSForm
             this.panel4 = new System.Windows.Forms.Panel();
             this.QRCodeWallet = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.CannotConnectPanel = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sendToAmount)).BeginInit();
             this.panel2.SuspendLayout();
@@ -118,6 +121,7 @@ namespace ClientCSForm
             this.ProgramStatusPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QRCodeWallet)).BeginInit();
+            this.CannotConnectPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // walletLabel
@@ -944,10 +948,44 @@ namespace ClientCSForm
             this.label16.TabIndex = 0;
             this.label16.Text = "Your wallet as a QR code";
             // 
+            // CannotConnectPanel
+            // 
+            this.CannotConnectPanel.Controls.Add(this.label18);
+            this.CannotConnectPanel.Controls.Add(this.label19);
+            this.CannotConnectPanel.Enabled = false;
+            this.CannotConnectPanel.Location = new System.Drawing.Point(12, 87);
+            this.CannotConnectPanel.Name = "CannotConnectPanel";
+            this.CannotConnectPanel.Size = new System.Drawing.Size(787, 526);
+            this.CannotConnectPanel.TabIndex = 18;
+            this.CannotConnectPanel.Visible = false;
+            // 
+            // label18
+            // 
+            this.label18.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label18.Location = new System.Drawing.Point(246, 259);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(284, 66);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "Unable to connect, check your internet";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label19.Location = new System.Drawing.Point(368, 189);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(48, 70);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "!";
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(1045, 624);
+            this.Controls.Add(this.CannotConnectPanel);
             this.Controls.Add(this.tradeCover);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.ProgramList);
@@ -989,6 +1027,8 @@ namespace ClientCSForm
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QRCodeWallet)).EndInit();
+            this.CannotConnectPanel.ResumeLayout(false);
+            this.CannotConnectPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1073,6 +1113,9 @@ namespace ClientCSForm
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox QRCodeWallet;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Panel CannotConnectPanel;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
     }
 }
 

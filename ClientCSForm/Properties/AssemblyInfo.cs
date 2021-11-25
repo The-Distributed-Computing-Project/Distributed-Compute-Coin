@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ClientCSForm")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("DCC Client Wallet")]
+[assembly: AssemblyDescription("The client used to trade Compute Coin and upload computable programs")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ClientCSForm")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyProduct("Distributed Compute Coin Client Wallet")]
+[assembly: AssemblyCopyright("Copyright Sam-Astro©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

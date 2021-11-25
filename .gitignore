@@ -8,3 +8,4 @@ ColdWallet/config.txt
 *.cfg
 *.dccwallet
 *.lnk
+*.dccblock

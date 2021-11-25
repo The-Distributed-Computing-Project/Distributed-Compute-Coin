@@ -187,7 +187,7 @@ public class clnt
 
                     Console.WriteLine((walletInfo.BlockchainLength + 1).ToString());
 
-                    string content = File.ReadAllText("./pendingblocks/block" + (walletInfo.BlockchainLength + 1).ToString() + ".txt");
+                    string content = File.ReadAllText("./pendingblocks/block" + (walletInfo.BlockchainLength + 1).ToString() + ".dccblock");
                     Block o = JsonConvert.DeserializeObject<Block>(content);
                     string transactions = JoinArrayPieces(o.Transactions);
                     string lastHash = o.LastHash;
@@ -397,7 +397,7 @@ public class clnt
             }
 
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Building assigned program, wait until build window closes to start mining");
+            Console.WriteLine("Building assigned program, wait finished to start mining");
             Console.ResetColor();
 
             Process proc = ExecuteCommand("cargo build", "./programs/" + id + "/");
@@ -456,7 +456,7 @@ public class clnt
 
             Console.WriteLine("Synced pending: " + whichBlock);
 
-            File.WriteAllText("./pendingblocks/block" + whichBlock.ToString() + ".txt", html);
+            File.WriteAllText("./pendingblocks/block" + whichBlock.ToString() + ".dccblock", html);
             return 1;
         }
         catch (Exception)
@@ -483,7 +483,7 @@ public class clnt
             }
 
             Console.WriteLine("Synced: " + whichBlock);
-            File.WriteAllText("./blockchain/block" + whichBlock.ToString() + ".txt", html);
+            File.WriteAllText("./blockchain/block" + whichBlock.ToString() + ".dccblock", html);
             return 1;
         }
         catch (Exception)
@@ -494,11 +494,11 @@ public class clnt
 
     static bool IsChainValid()
     {
-        string[] blocks = Directory.GetFiles("./blockchain/", "*.txt");
+        string[] blocks = Directory.GetFiles("./blockchain/", "*.dccblock");
 
         for (int i = 1; i < blocks.Length; i++)
         {
-            string content = File.ReadAllText("./blockchain/block" + i + ".txt");
+            string content = File.ReadAllText("./blockchain/block" + i + ".dccblock");
             Block o = JsonConvert.DeserializeObject<Block>(content);
             string[] trans = o.Transactions;
 
@@ -507,7 +507,7 @@ public class clnt
             string nonce = o.Nonce;
             string transactions = JoinArrayPieces(trans);
 
-            content = File.ReadAllText("./blockchain/block" + (i + 1) + ".txt");
+            content = File.ReadAllText("./blockchain/block" + (i + 1) + ".dccblock");
             o = JsonConvert.DeserializeObject<Block>(content);
             string nextHash = o.LastHash;
 
@@ -564,11 +564,6 @@ public class clnt
             Console.ResetColor();
             Console.Write(((char)7).ToString());
 
-            int waitTime = 0;
-            while (waitTime < 1000000000)
-            {
-                waitTime++;
-            }
             return 1;
         }
         catch (Exception)
@@ -584,7 +579,7 @@ public class clnt
 
         DateTime startTime = DateTime.UtcNow;
 
-        string content = File.ReadAllText("./blockchain/block" + blockNum + ".txt");
+        string content = File.ReadAllText("./blockchain/block" + blockNum + ".dccblock");
         Block o = JsonConvert.DeserializeObject<Block>(content);
         string transactions = JoinArrayPieces(o.Transactions);
         string currentHash = o.Hash;
@@ -611,6 +606,7 @@ public class clnt
         ProcessInfo = new ProcessStartInfo("cmd.exe", "/c " + command);
         ProcessInfo.WorkingDirectory = directory;
         ProcessInfo.CreateNoWindow = true;
+        ProcessInfo.WindowStyle = ProcessWindowStyle.Hidden;
         ProcessInfo.UseShellExecute = true;
 
         proc = Process.Start(ProcessInfo);

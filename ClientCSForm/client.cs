@@ -173,7 +173,7 @@ public class clnt
             }
 
             Console.WriteLine("Synced: " + whichBlock);
-            File.WriteAllText("./wwwdata/blockchain/block" + whichBlock.ToString() + ".txt", html);
+            File.WriteAllText("./wwwdata/blockchain/block" + whichBlock.ToString() + ".dccblock", html);
             return 1;
         }
         catch (Exception)
@@ -184,11 +184,11 @@ public class clnt
 
     static bool IsChainValid()
     {
-        string[] blocks = Directory.GetFiles("./wwwdata/blockchain/", "*.txt");
+        string[] blocks = Directory.GetFiles("./wwwdata/blockchain/", "*.dccblock");
 
         for (int i = 1; i < blocks.Length; i++)
         {
-            string content = File.ReadAllText("./wwwdata/blockchain/block" + i + ".txt");
+            string content = File.ReadAllText("./wwwdata/blockchain/block" + i + ".dccblock");
             Block o = JsonConvert.DeserializeObject<Block>(content);
             string[] trans = o.Transactions;
 
@@ -197,7 +197,7 @@ public class clnt
             string nonce = o.Nonce;
             string transactions = JoinArrayPieces(trans);
 
-            content = File.ReadAllText("./wwwdata/blockchain/block" + (i + 1) + ".txt");
+            content = File.ReadAllText("./wwwdata/blockchain/block" + (i + 1) + ".dccblock");
             o = JsonConvert.DeserializeObject<Block>(content);
             string nextHash = o.LastHash;
 

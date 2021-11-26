@@ -13,3 +13,4 @@ D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\DCC Client Wallet.csproj.Genera
 D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\DCC Client Wallet.csproj.CoreCompileInputs.cache
 D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\DCC Client Wallet.exe
 D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\DCC Client Wallet.pdb
+D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\DCC Client Wallet.csproj.AssemblyReference.cache

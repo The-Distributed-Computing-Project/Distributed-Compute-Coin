@@ -14,14 +14,23 @@ using System.Diagnostics;
 using Newtonsoft.Json;
 using QRCoder;
 
-class Block
+public class Block
 {
+    public string Version { get; set; }
     public string LastHash { get; set; }
     public string Hash { get; set; }
     public string Nonce { get; set; }
     public string Time { get; set; }
     public string[] Transactions { get; set; }
     public string[] TransactionTimes { get; set; }
+
+
+    public static BlockchainUpgrader upgrader = new BlockchainUpgrader();
+
+    public void Upgrade(string toVersion)
+    {
+        upgrader.Upgrade(this, toVersion);
+    }
 }
 
 public class WalletInfo
@@ -63,6 +72,9 @@ public class clnt
     public static int connectionStatus = 1;
 
     public static string[] directoryList = new string[] { "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/programs" };
+
+    public static string blockVersion = "v0.01alpha-coin";
+    
 
     public void Client(string usrn, string pswd, bool stayLoggedIn)
     {
@@ -200,6 +212,12 @@ public class clnt
             Block o = JsonConvert.DeserializeObject<Block>(content);
             string[] trans = o.Transactions;
 
+            if (o.Version == null || o.Version == "" || o.Version != blockVersion)
+            {
+                o.Upgrade(blockVersion);
+                File.WriteAllText("./wwwdata/blockchain/block" + i + ".dccblock", JsonConvert.SerializeObject(o));
+            }
+
             string lastHash = o.LastHash;
             string currentHash = o.Hash;
             string nonce = o.Nonce;
@@ -208,6 +226,12 @@ public class clnt
             content = File.ReadAllText("./wwwdata/blockchain/block" + (i + 1) + ".dccblock");
             o = JsonConvert.DeserializeObject<Block>(content);
             string nextHash = o.LastHash;
+
+            if (o.Version == null || o.Version == "" || o.Version != blockVersion)
+            {
+                o.Upgrade(blockVersion);
+                File.WriteAllText("./wwwdata/blockchain/block" + (i + 1) + ".dccblock", JsonConvert.SerializeObject(o));
+            }
 
             Console.WriteLine("Validating block " + i);
             string blockHash = sha256(lastHash + transactions + nonce);

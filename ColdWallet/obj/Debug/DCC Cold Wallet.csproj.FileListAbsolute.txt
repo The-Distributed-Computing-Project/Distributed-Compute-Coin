@@ -10,3 +10,4 @@ D:\Code\DC-Cryptocurrency\ColdWallet\obj\Debug\DCC Cold Wallet.csproj.GenerateRe
 D:\Code\DC-Cryptocurrency\ColdWallet\obj\Debug\DCC Cold Wallet.csproj.CoreCompileInputs.cache
 D:\Code\DC-Cryptocurrency\ColdWallet\obj\Debug\DCC Cold Wallet.exe
 D:\Code\DC-Cryptocurrency\ColdWallet\obj\Debug\DCC Cold Wallet.pdb
+D:\Code\DC-Cryptocurrency\ColdWallet\obj\Debug\DCC Cold Wallet.csproj.AssemblyReference.cache

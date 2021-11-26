@@ -65,8 +65,8 @@ public class clnt
     public http httpServ;
     public static List<List<string>> programsData = new List<List<string>>();
 
-    public WalletInfo walletInfo = new WalletInfo();
-    //static string appURL = "dcc:" + walletInfo.Address;
+    public static WalletInfo walletInfo = new WalletInfo();
+    
     public static Bitmap qrCodeAsBitmap;
 
     public static int connectionStatus = 1;
@@ -79,23 +79,8 @@ public class clnt
     public void Client(string usrn, string pswd, bool stayLoggedIn)
     {
         foreach (var dir in directoryList)
-        {
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
-        }
-
-        //Process proc = new Process();
-        //proc.StartInfo.FileName = "netsh";
-        //proc.StartInfo.Arguments = "http add urlacl url = http://192.168.0.21:9090/ user=Everyone";
-        //Console.WriteLine(proc.StartInfo.Arguments);
-        //proc.StartInfo.CreateNoWindow = true;
-        //proc.StartInfo.UseShellExecute = false;
-        //proc.StartInfo.RedirectStandardOutput = true;
-        //proc.StartInfo.RedirectStandardError = true;
-        //proc.Start();
-
-
-        //httpServ.startHttpServ();
 
         username = usrn;
         password = pswd;
@@ -137,15 +122,6 @@ public class clnt
 
         if (connectionStatus == 1)
         {
-            while (Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < walletInfo.BlockchainLength)
-            {
-                if (SyncBlock(Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1) == 0)
-                {
-                    ConnectionError();
-                    return;
-                }
-            }
-
             if (!IsChainValid())
             {
                 foreach (string oldBlock in Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly))
@@ -180,7 +156,7 @@ public class clnt
         try
         {
             string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock;
+            string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock + "&Version=" + blockVersion;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.AutomaticDecompression = DecompressionMethods.GZip;
@@ -204,6 +180,15 @@ public class clnt
 
     static bool IsChainValid()
     {
+        while (Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < walletInfo.BlockchainLength)
+        {
+            if (SyncBlock(Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1) == 0)
+            {
+                ConnectionError();
+                break;
+            }
+        }
+
         string[] blocks = Directory.GetFiles("./wwwdata/blockchain/", "*.dccblock");
 
         for (int i = 1; i < blocks.Length; i++)
@@ -248,7 +233,7 @@ public class clnt
         try
         {
             string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=sendToAddress&sendAmount=" + sendAmount + "&username=" + username + "&password=" + password + "&fromAddress=" + walletInfo.Address + "&recipientAddress=" + recipient;
+            string url = @"http://api.achillium.us.to/dcc/?query=sendToAddress&sendAmount=" + sendAmount + "&username=" + username + "&password=" + password + "&fromAddress=" + walletInfo.Address + "&recipientAddress=" + recipient + "&Version=" + blockVersion;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.AutomaticDecompression = DecompressionMethods.GZip;
 
@@ -275,7 +260,7 @@ public class clnt
             string baseName = fileName.Split('\\')[fileName.Split('\\').Length - 1];
 
             string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=uploadProgram&fileName=" + baseName + "&username=" + username + "&password=" + password + "&fromAddress=" + walletInfo.Address + "&minutes=" + minutes + "&computationLevel=" + computationLevel;
+            string url = @"http://api.achillium.us.to/dcc/?query=uploadProgram&fileName=" + baseName + "&username=" + username + "&password=" + password + "&fromAddress=" + walletInfo.Address + "&minutes=" + minutes + "&computationLevel=" + computationLevel + "&Version=" + blockVersion;
 
             System.Net.WebClient Client = new System.Net.WebClient();
             Client.Headers.Add("Content-Type", "binary/octet-stream");
@@ -331,7 +316,7 @@ public class clnt
         try
         {
             string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address + "&username=" + username + "&password=" + password;
+            string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address + "&username=" + username + "&password=" + password + "&Version=" + blockVersion;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.AutomaticDecompression = DecompressionMethods.GZip;

@@ -67,7 +67,7 @@ public class clnt
     public http httpServ;
     internal static readonly char[] chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
 
-    public WalletInfo walletInfo = new WalletInfo();
+    public static WalletInfo walletInfo = new WalletInfo();
 
     public Bitmap qrCodeAsBitmap;
     public static int connectionStatus = 1;
@@ -82,20 +82,8 @@ public class clnt
         if (walletInfo.Address == null || walletInfo.Address == "")
         {
             foreach (var dir in directoryList)
-            {
                 if (!Directory.Exists(dir))
                     Directory.CreateDirectory(dir);
-            }
-
-            //Process proc = new Process();
-            //proc.StartInfo.FileName = "netsh";
-            //proc.StartInfo.Arguments = "http add urlacl url = http://74.78.145.2:8000/ user=Everyone";
-            //Console.WriteLine(proc.StartInfo.Arguments);
-            //proc.StartInfo.CreateNoWindow = true;
-            //proc.StartInfo.UseShellExecute = false;
-            //proc.StartInfo.RedirectStandardOutput = true;
-            //proc.StartInfo.RedirectStandardError = true;
-            //proc.Start();
 
             string configFileRead = File.ReadAllText("./cold-wallet.dccwallet");
             if (configFileRead.Length > 4)
@@ -160,14 +148,6 @@ public class clnt
             return;
 
         walletInfo.Balance = GetBalance(walletInfo.Address);
-        while (Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < walletInfo.BlockchainLength)
-        {
-            if (SyncBlock(Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1) == 0)
-            {
-                ConnectionError();
-                return;
-            }
-        }
 
         if (!IsChainValid())
         {
@@ -229,7 +209,7 @@ public class clnt
         try
         {
             string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address + "&username=" + username + "&password=" + password;
+            string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address + "&username=" + username + "&password=" + password + "&Version=" + blockVersion;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.AutomaticDecompression = DecompressionMethods.GZip;
@@ -255,7 +235,7 @@ public class clnt
         try
         {
             string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock;
+            string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock + "&Version=" + blockVersion;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.AutomaticDecompression = DecompressionMethods.GZip;
@@ -279,6 +259,15 @@ public class clnt
 
     static bool IsChainValid()
     {
+        while (Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < walletInfo.BlockchainLength)
+        {
+            if (SyncBlock(Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1) == 0)
+            {
+                ConnectionError();
+                break;
+            }
+        }
+
         string[] blocks = Directory.GetFiles("./wwwdata/blockchain/", "*.dccblock");
 
         for (int i = 1; i < blocks.Length; i++)
@@ -321,7 +310,7 @@ public class clnt
     public string Trade(String recipient, float sendAmount)
     {
         string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=sendToAddress&sendAmount=" + sendAmount + "&username=" + username + "&password=" + password + "&fromAddress=" + walletInfo.Address + "&recipientAddress=" + recipient;
+        string url = @"http://api.achillium.us.to/dcc/?query=sendToAddress&sendAmount=" + sendAmount + "&username=" + username + "&password=" + password + "&fromAddress=" + walletInfo.Address + "&recipientAddress=" + recipient + "&Version=" + blockVersion;
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
         request.AutomaticDecompression = DecompressionMethods.GZip;
 
@@ -376,7 +365,7 @@ public class clnt
         try
         {
             string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=initializeNewAddress" + "&username=" + username + "&password=" + password;
+            string url = @"http://api.achillium.us.to/dcc/?query=initializeNewAddress" + "&username=" + username + "&password=" + password + "&Version=" + blockVersion;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.AutomaticDecompression = DecompressionMethods.GZip;

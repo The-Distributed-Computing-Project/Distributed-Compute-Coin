@@ -67,10 +67,8 @@ public class clnt
     public static void Main()
     {
         foreach (var dir in directoryList)
-        {
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
-        }
 
         if (!File.Exists("./config.cfg"))
         {
@@ -173,15 +171,6 @@ public class clnt
                     for (int s = 0; s < walletInfo.PendingLength; s++)
                     {
                         if (SyncPending(walletInfo.BlockchainLength + 1 + s) == 0)
-                        {
-                            ConnectionError();
-                            break;
-                        }
-                    }
-
-                    while (Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < walletInfo.BlockchainLength)
-                    {
-                        if (SyncBlock(Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1) == 0)
                         {
                             ConnectionError();
                             break;
@@ -311,7 +300,7 @@ public class clnt
         try
         {
             string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address;
+            string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address + "&Version=" + blockVersion;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.AutomaticDecompression = DecompressionMethods.GZip;
@@ -392,7 +381,7 @@ public class clnt
                 }
 
                 string assignedProgram = string.Empty;
-                string url = @"http://api.achillium.us.to/dcc/?query=assignProgram";
+                string url = @"http://api.achillium.us.to/dcc/?query=assignProgram" + "&Version=" + blockVersion;
 
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("Assigning Program...");
@@ -429,7 +418,7 @@ public class clnt
             string ourHash = sha256File("./wwwdata/programs/" + id + ".zip");
             string theirHash = string.Empty;
 
-            string hashUrl = @"http://api.achillium.us.to/dcc/?query=hashProgram&programID=" + id;
+            string hashUrl = @"http://api.achillium.us.to/dcc/?query=hashProgram&programID=" + id + "&Version=" + blockVersion;
 
             HttpWebRequest hashRequest = (HttpWebRequest)WebRequest.Create(hashUrl);
             hashRequest.AutomaticDecompression = DecompressionMethods.GZip;
@@ -475,7 +464,7 @@ public class clnt
         try
         {
             string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getProgramLifeLeft&programID=" + id;
+            string url = @"http://api.achillium.us.to/dcc/?query=getProgramLifeLeft&programID=" + id + "&Version=" + blockVersion;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.AutomaticDecompression = DecompressionMethods.GZip;
@@ -502,7 +491,7 @@ public class clnt
         try
         {
             string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getPendingBlock&blockNum=" + whichBlock;
+            string url = @"http://api.achillium.us.to/dcc/?query=getPendingBlock&blockNum=" + whichBlock + "&Version=" + blockVersion;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.AutomaticDecompression = DecompressionMethods.GZip;
@@ -530,7 +519,7 @@ public class clnt
         try
         {
             string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock;
+            string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock + "&Version=" + blockVersion;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.AutomaticDecompression = DecompressionMethods.GZip;
@@ -554,6 +543,15 @@ public class clnt
 
     static bool IsChainValid()
     {
+        while (Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < walletInfo.BlockchainLength)
+        {
+            if (SyncBlock(Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1) == 0)
+            {
+                ConnectionError();
+                break;
+            }
+        }
+
         string[] blocks = Directory.GetFiles("./wwwdata/blockchain/", "*.dccblock");
 
         for (int i = 1; i < blocks.Length; i++)
@@ -595,6 +593,23 @@ public class clnt
 
     static int Mine(string lastHash, string transactionHistory, int blockNum)
     {
+        //Console.Clear();
+        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("Mining ");
+        Console.BackgroundColor = ConsoleColor.DarkRed;
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("block " + blockNum);
+        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write(" at difficulty ");
+        Console.BackgroundColor = ConsoleColor.DarkRed;
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write(walletInfo.MineDifficulty);
+        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write(" :\n");
+        Console.ResetColor();
         try
         {
             DateTime startTime = DateTime.UtcNow;
@@ -616,13 +631,14 @@ public class clnt
                     hashesPerSecond = nonce - hashesAtStart;
                     hashStart = DateTime.Now;
                     hashesAtStart = nonce;
+
+                    Console.Write("\r" + (DateTime.UtcNow - startTime).ToString().Split(".")[0] + " :	" + nonce.ToString() + " # " + hash);
+                    Console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
                 }
 
 
                 nonce++;
                 hash = sha256(lastHash + transactionHistory + nonce.ToString());
-                Console.Write("\n" + (DateTime.UtcNow - startTime).ToString().Split(".")[0] + " :	" + nonce.ToString() + " # " + hash);
-                Console.Write("   " + FormatHPS(hashesPerSecond));
 
                 if (proc.HasExited)
                     watch.Stop();
@@ -634,9 +650,10 @@ public class clnt
                 while (!proc.HasExited) { }
                 watch.Stop();
             }
-            Console.WriteLine(watch.ElapsedMilliseconds / 1000f);
 
-            string url = "http://api.achillium.us.to/dcc/?query=submitBlock&blockNum=" + blockNum.ToString() + "&nonce=" + nonce.ToString() + "&minedHash=" + sha256(lastHash + transactionHistory + nonce.ToString()) + "&fromAddress=" + walletInfo.Address + "&programID=" + id + "&time=" + watch.ElapsedMilliseconds / 1000f;
+            Console.Clear();
+
+            string url = "http://api.achillium.us.to/dcc/?query=submitBlock&blockNum=" + blockNum.ToString() + "&nonce=" + nonce.ToString() + "&minedHash=" + sha256(lastHash + transactionHistory + nonce.ToString()) + "&fromAddress=" + walletInfo.Address + "&programID=" + id + "&time=" + watch.ElapsedMilliseconds / 1000f + "&Version=" + blockVersion;
 
             System.Net.WebClient Client = new System.Net.WebClient();
             Client.Headers.Add("Content-Type", "binary/octet-stream");
@@ -645,10 +662,7 @@ public class clnt
 
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(s + " in " + (DateTime.UtcNow - startTime).ToString().Split(".")[0]);
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine(url);
             Console.ResetColor();
-            Console.Write(((char)7).ToString());
 
             return 1;
         }

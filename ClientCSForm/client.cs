@@ -58,6 +58,48 @@ public class DCCPayload : QRCoder.PayloadGenerator.Payload
     }
 }
 
+public class Http
+{
+    public string blockVersion { get; set; }
+
+    public string StartHttpWebRequest(string URL, string[] args_vals)
+    {
+        string html = string.Empty;
+
+        string url = URL;
+        for (int i = 0; i < args_vals.Length; i++)
+        {
+            if (i > 0)
+                url += "&";
+            url += args_vals[i];
+        }
+        url += "&Version=" + blockVersion;
+
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+        request.AutomaticDecompression = DecompressionMethods.GZip;
+
+        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+        using (Stream stream = response.GetResponseStream())
+        using (StreamReader reader = new StreamReader(stream))
+        {
+            html = reader.ReadToEnd();
+        }
+
+        return html;
+    }
+}
+
+public class ProgramConfig
+{
+    public string Zip { get; set; }
+    public double TotalMinutes { get; set; }
+    public string Author { get; set; }
+    public double MinutesLeft { get; set; }
+    public int ComputationLevel { get; set; }
+    public double Cost { get; set; }
+    public bool Built { get; set; }
+}
+
 public class clnt
 {
     public string username;
@@ -66,15 +108,16 @@ public class clnt
     public static List<List<string>> programsData = new List<List<string>>();
 
     public static WalletInfo walletInfo = new WalletInfo();
-    
+
     public static Bitmap qrCodeAsBitmap;
 
     public static int connectionStatus = 1;
 
-    public static string[] directoryList = new string[] { "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/programs" };
+    public static string[] directoryList = new string[] { "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/programs", "./wwwdata/pendingprograms" };
 
     public static string blockVersion = "v0.01alpha-coin";
-    
+
+    public static List<ProgramConfig> ownedPrograms = new List<ProgramConfig>();
 
     public void Client(string usrn, string pswd, bool stayLoggedIn)
     {
@@ -148,6 +191,7 @@ public class clnt
         }
         else
             return;
+        GetPrograms();
         connectionStatus = 1;
     }
 
@@ -155,18 +199,10 @@ public class clnt
     {
         try
         {
-            string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock + "&Version=" + blockVersion;
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                html = reader.ReadToEnd();
-            }
+            Http http = new Http();
+            http.blockVersion = blockVersion;
+            string[] args = new string[] { "query=getBlock", "blockNum=" + whichBlock };
+            string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
             Console.WriteLine("Synced: " + whichBlock);
             File.WriteAllText("./wwwdata/blockchain/block" + whichBlock.ToString() + ".dccblock", html);
@@ -232,17 +268,11 @@ public class clnt
     {
         try
         {
-            string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=sendToAddress&sendAmount=" + sendAmount + "&username=" + username + "&password=" + password + "&fromAddress=" + walletInfo.Address + "&recipientAddress=" + recipient + "&Version=" + blockVersion;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
+            Http http = new Http();
+            http.blockVersion = blockVersion;
+            string[] args = new string[] { "query=sendToAddress", "sendAmount=" + sendAmount, "username=" + username, "password=" + password, "fromAddress=" + walletInfo.Address, "recipientAddress=" + recipient };
+            string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                html = reader.ReadToEnd();
-            }
             walletInfo.Balance = GetBalance(walletInfo.Address);
             Console.WriteLine(html);
             return html.Trim();
@@ -273,6 +303,86 @@ public class clnt
         catch (Exception)
         {
             return null;
+        }
+    }
+
+    static ProgramConfig ReadProgramConfig(string dir)
+    {
+        string content = File.ReadAllText(dir);
+        return JsonConvert.DeserializeObject<ProgramConfig>(content);
+    }
+
+    static int GetPrograms()
+    {
+        string[] programFiles = Directory.GetFiles("./wwwdata/programs/");
+        string[] pendingProgramFiles = Directory.GetFiles("./wwwdata/pendingprograms/");
+        ownedPrograms = new List<ProgramConfig>();
+
+        try
+        {
+            Http http = new Http();
+            http.blockVersion = blockVersion;
+            string[] args = new string[] { "query=getAllPrograms" };
+            string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
+
+            string[] ids = html.TrimEnd().Split('\n');
+
+            //foreach (string oldProgram in Directory.GetFiles("./wwwdata/programs/", "*.*", SearchOption.TopDirectoryOnly))
+            //{
+            //    try
+            //    {
+            //        File.Delete(oldProgram);
+            //    }
+            //    catch (Exception)
+            //    {
+            //    }
+            //}
+            //foreach (string oldProgram in Directory.GetDirectories("./wwwdata/programs/", "*.*", SearchOption.TopDirectoryOnly))
+            //{
+            //    try
+            //    {
+            //        Directory.Delete(oldProgram, true);
+            //    }
+            //    catch (Exception)
+            //    {
+            //    }
+            //}
+
+            foreach (string id in ids)
+            {
+                using (var client = new WebClient())
+                {
+                    client.DownloadFile(@"http://api.achillium.us.to/dcc/programs/" + id + ".cfg", "./wwwdata/pendingprograms/" + id + ".cfg");
+
+                    Console.WriteLine(File.ReadAllText("./wwwdata/pendingprograms/" + id + ".cfg"));
+                    ProgramConfig prog = ReadProgramConfig("./wwwdata/pendingprograms/" + id + ".cfg");
+                    ownedPrograms.Add(prog);
+
+                    if (prog.Author == walletInfo.Address)
+                    {
+                        File.Move("./wwwdata/pendingprograms/" + id + ".cfg", "./wwwdata/programs/" + id + ".cfg");
+                        File.Delete("./wwwdata/pendingprograms/" + id + ".cfg");
+                        Directory.CreateDirectory("./wwwdata/programs/" + id + "-out");
+
+                        Http http1 = new Http();
+                        http1.blockVersion = blockVersion;
+                        string[] args1 = new string[] { "query=getProgramOutputDataLength", "programID=" + prog.Zip.Split('.')[0] };
+                        string html1 = http1.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args1);
+
+                        int dataLength = int.Parse(html1.Trim());
+                        for (int i = 1; i <= dataLength; i++)
+                        {
+                            client.DownloadFile(@"http://api.achillium.us.to/dcc/programs/" + id + "-out/out" + i + ".txt", "./wwwdata/programs/" + id + "-out/out" + i + ".txt");
+                        }
+                    }
+                }
+            }
+
+            return 1;
+        }
+        catch (Exception)
+        {
+            return 0;
         }
     }
 
@@ -315,18 +425,10 @@ public class clnt
     {
         try
         {
-            string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address + "&username=" + username + "&password=" + password + "&Version=" + blockVersion;
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                html = reader.ReadToEnd();
-            }
+            Http http = new Http();
+            http.blockVersion = blockVersion;
+            string[] args = new string[] { "query=getInfo", "fromAddress=" + walletInfo.Address, "username=" + username, "password=" + password };
+            string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
             string content = html.Trim();
             return JsonConvert.DeserializeObject<WalletInfo>(content);

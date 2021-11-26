@@ -256,6 +256,76 @@ namespace ClientCSForm
             computeCoins.Text = "Balance: $" + Math.Round(clnt.walletInfo.Balance, 4);
             pendingFunds.Text = "Pending: $" + Math.Round(clnt.walletInfo.PendingBalance, 4);
             QRCodeWallet.Image = clnt.qrCodeAsBitmap;
+
+            for (int i = 0; i < 5; i++)
+            {
+                if (i < clnt.ownedPrograms.Count())
+                {
+                    if (i == 0)
+                    {
+                        ProgramStatusPanel1.Visible = true;
+                        ProgramName1.Text = clnt.ownedPrograms[i].Zip;
+                        ActiveTimeNum1.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
+                    }
+                    if (i == 1)
+                    {
+                        ProgramStatusPanel2.Visible = true;
+                        ProgramName2.Text = clnt.ownedPrograms[i].Zip;
+                        ActiveTimeNum2.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
+                    }
+                    if (i == 2)
+                    {
+                        ProgramStatusPanel3.Visible = true;
+                        ProgramName3.Text = clnt.ownedPrograms[i].Zip;
+                        ActiveTimeNum3.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
+                    }
+                    if (i == 3)
+                    {
+                        ProgramStatusPanel4.Visible = true;
+                        ProgramName4.Text = clnt.ownedPrograms[i].Zip;
+                        ActiveTimeNum4.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
+                    }
+                    if (i == 4)
+                    {
+                        ProgramStatusPanel5.Visible = true;
+                        ProgramName5.Text = clnt.ownedPrograms[i].Zip;
+                        ActiveTimeNum5.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
+                    }
+                }
+                else
+                {
+                    if (i == 0)
+                    {
+                        ProgramStatusPanel1.Visible = false;
+                        ProgramName1.Text = clnt.ownedPrograms[i].Zip;
+                        ActiveTimeNum1.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
+                    }
+                    if (i == 1)
+                    {
+                        ProgramStatusPanel2.Visible = false;
+                        ProgramName2.Text = clnt.ownedPrograms[i].Zip;
+                        ActiveTimeNum2.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
+                    }
+                    if (i == 2)
+                    {
+                        ProgramStatusPanel3.Visible = false;
+                        ProgramName3.Text = clnt.ownedPrograms[i].Zip;
+                        ActiveTimeNum3.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
+                    }
+                    if (i == 3)
+                    {
+                        ProgramStatusPanel4.Visible = false;
+                        ProgramName4.Text = clnt.ownedPrograms[i].Zip;
+                        ActiveTimeNum4.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
+                    }
+                    if (i == 4)
+                    {
+                        ProgramStatusPanel5.Visible = false;
+                        ProgramName5.Text = clnt.ownedPrograms[i].Zip;
+                        ActiveTimeNum5.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
+                    }
+                }
+            }
         }
 
         void EstimateCost()

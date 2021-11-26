@@ -666,7 +666,6 @@ namespace ClientCSForm
             this.ProgramStatusPanel5.Controls.Add(this.ActiveTimeNum5);
             this.ProgramStatusPanel5.Controls.Add(this.label26);
             this.ProgramStatusPanel5.Controls.Add(this.ProgramName5);
-            this.ProgramStatusPanel5.Enabled = false;
             this.ProgramStatusPanel5.Location = new System.Drawing.Point(5, 188);
             this.ProgramStatusPanel5.Name = "ProgramStatusPanel5";
             this.ProgramStatusPanel5.Size = new System.Drawing.Size(730, 37);
@@ -718,7 +717,6 @@ namespace ClientCSForm
             this.ProgramStatusPanel4.Controls.Add(this.ActiveTimeNum4);
             this.ProgramStatusPanel4.Controls.Add(this.label23);
             this.ProgramStatusPanel4.Controls.Add(this.ProgramName4);
-            this.ProgramStatusPanel4.Enabled = false;
             this.ProgramStatusPanel4.Location = new System.Drawing.Point(5, 141);
             this.ProgramStatusPanel4.Name = "ProgramStatusPanel4";
             this.ProgramStatusPanel4.Size = new System.Drawing.Size(730, 37);
@@ -770,7 +768,6 @@ namespace ClientCSForm
             this.ProgramStatusPanel3.Controls.Add(this.ActiveTimeNum3);
             this.ProgramStatusPanel3.Controls.Add(this.label20);
             this.ProgramStatusPanel3.Controls.Add(this.ProgramName3);
-            this.ProgramStatusPanel3.Enabled = false;
             this.ProgramStatusPanel3.Location = new System.Drawing.Point(5, 94);
             this.ProgramStatusPanel3.Name = "ProgramStatusPanel3";
             this.ProgramStatusPanel3.Size = new System.Drawing.Size(730, 37);
@@ -822,7 +819,6 @@ namespace ClientCSForm
             this.ProgramStatusPanel2.Controls.Add(this.ActiveTimeNum2);
             this.ProgramStatusPanel2.Controls.Add(this.label17);
             this.ProgramStatusPanel2.Controls.Add(this.ProgramName2);
-            this.ProgramStatusPanel2.Enabled = false;
             this.ProgramStatusPanel2.Location = new System.Drawing.Point(5, 47);
             this.ProgramStatusPanel2.Name = "ProgramStatusPanel2";
             this.ProgramStatusPanel2.Size = new System.Drawing.Size(730, 37);
@@ -874,7 +870,6 @@ namespace ClientCSForm
             this.ProgramStatusPanel1.Controls.Add(this.ActiveTimeNum1);
             this.ProgramStatusPanel1.Controls.Add(this.label15);
             this.ProgramStatusPanel1.Controls.Add(this.ProgramName1);
-            this.ProgramStatusPanel1.Enabled = false;
             this.ProgramStatusPanel1.Location = new System.Drawing.Point(5, 4);
             this.ProgramStatusPanel1.Name = "ProgramStatusPanel1";
             this.ProgramStatusPanel1.Size = new System.Drawing.Size(730, 37);
@@ -955,7 +950,7 @@ namespace ClientCSForm
             this.CannotConnectPanel.Enabled = false;
             this.CannotConnectPanel.Location = new System.Drawing.Point(12, 87);
             this.CannotConnectPanel.Name = "CannotConnectPanel";
-            this.CannotConnectPanel.Size = new System.Drawing.Size(787, 526);
+            this.CannotConnectPanel.Size = new System.Drawing.Size(787, 402);
             this.CannotConnectPanel.TabIndex = 18;
             this.CannotConnectPanel.Visible = false;
             // 

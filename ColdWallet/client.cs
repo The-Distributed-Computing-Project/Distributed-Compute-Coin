@@ -59,6 +59,37 @@ public class DCCPayload : QRCoder.PayloadGenerator.Payload
     }
 }
 
+public class Http
+{
+    public string blockVersion { get; set; }
+
+    public string StartHttpWebRequest(string URL, string[] args_vals)
+    {
+        string html = string.Empty;
+
+        string url = URL;
+        for (int i = 0; i < args_vals.Length; i++)
+        {
+            if (i > 0)
+                url += "&";
+            url += args_vals[i];
+        }
+        url += "&Version=" + blockVersion;
+
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+        request.AutomaticDecompression = DecompressionMethods.GZip;
+
+        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+        using (Stream stream = response.GetResponseStream())
+        using (StreamReader reader = new StreamReader(stream))
+        {
+            html = reader.ReadToEnd();
+        }
+
+        return html;
+    }
+}
+
 
 public class clnt
 {
@@ -208,18 +239,10 @@ public class clnt
     {
         try
         {
-            string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address + "&username=" + username + "&password=" + password + "&Version=" + blockVersion;
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                html = reader.ReadToEnd();
-            }
+            Http http = new Http();
+            http.blockVersion = blockVersion;
+            string[] args = new string[] { "query=getInfo", "fromAddress=" + walletInfo.Address, "username=" + username, "password=" + password };
+            string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
             string content = html.Trim();
             return JsonConvert.DeserializeObject<WalletInfo>(content);
@@ -234,18 +257,10 @@ public class clnt
     {
         try
         {
-            string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock + "&Version=" + blockVersion;
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                html = reader.ReadToEnd();
-            }
+            Http http = new Http();
+            http.blockVersion = blockVersion;
+            string[] args = new string[] { "query=getBlock", "blockNum=" + whichBlock };
+            string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
             Console.WriteLine("Synced: " + whichBlock);
             File.WriteAllText("./wwwdata/blockchain/block" + whichBlock.ToString() + ".dccblock", html);
@@ -309,17 +324,11 @@ public class clnt
 
     public string Trade(String recipient, float sendAmount)
     {
-        string html = string.Empty;
-        string url = @"http://api.achillium.us.to/dcc/?query=sendToAddress&sendAmount=" + sendAmount + "&username=" + username + "&password=" + password + "&fromAddress=" + walletInfo.Address + "&recipientAddress=" + recipient + "&Version=" + blockVersion;
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.AutomaticDecompression = DecompressionMethods.GZip;
+        Http http = new Http();
+        http.blockVersion = blockVersion;
+        string[] args = new string[] { "query=sendToAddress", "sendAmount=" + sendAmount, "username=" + username, "password=" + password, "fromAddress=" + walletInfo.Address, "recipientAddress=" + recipient };
+        string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
-        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-        using (Stream stream = response.GetResponseStream())
-        using (StreamReader reader = new StreamReader(stream))
-        {
-            html = reader.ReadToEnd();
-        }
         walletInfo.Balance = GetBalance(walletInfo.Address);
         Console.WriteLine(html);
         return html.Trim();
@@ -364,18 +373,10 @@ public class clnt
     {
         try
         {
-            string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=initializeNewAddress" + "&username=" + username + "&password=" + password + "&Version=" + blockVersion;
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                html = reader.ReadToEnd();
-            }
+            Http http = new Http();
+            http.blockVersion = blockVersion;
+            string[] args = new string[] { "query=initializeNewAddress", "username=" + username, "password=" + password };
+            string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
             Console.WriteLine(html);
             return 1;

@@ -45,10 +45,42 @@ public class ProgramConfig
 {
     public string Zip { get; set; }
     public double TotalMinutes { get; set; }
+    public string Author { get; set; }
     public double MinutesLeft { get; set; }
     public int ComputationLevel { get; set; }
     public double Cost { get; set; }
     public bool Built { get; set; }
+}
+
+public class Http
+{
+    public string blockVersion { get; set; }
+
+    public string StartHttpWebRequest(string URL, string[] args_vals)
+    {
+        string html = string.Empty;
+
+        string url = URL;
+        for (int i = 0; i < args_vals.Length; i++)
+        {
+            if (i > 0)
+                url += "&";
+            url += args_vals[i];
+        }
+        url += "&Version=" + blockVersion;
+
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+        request.AutomaticDecompression = DecompressionMethods.GZip;
+
+        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+        using (Stream stream = response.GetResponseStream())
+        using (StreamReader reader = new StreamReader(stream))
+        {
+            html = reader.ReadToEnd();
+        }
+
+        return html;
+    }
 }
 
 
@@ -299,18 +331,10 @@ public class clnt
     {
         try
         {
-            string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getInfo&fromAddress=" + walletInfo.Address + "&Version=" + blockVersion;
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                html = reader.ReadToEnd();
-            }
+            Http http = new Http();
+            http.blockVersion = blockVersion;
+            string[] args = new string[] { "query=getInfo", "fromAddress=" + walletInfo.Address };
+            string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
             string content = html.Trim();
             return JsonConvert.DeserializeObject<WalletInfo>(content);
@@ -380,21 +404,15 @@ public class clnt
                     }
                 }
 
-                string assignedProgram = string.Empty;
-                string url = @"http://api.achillium.us.to/dcc/?query=assignProgram" + "&Version=" + blockVersion;
+                Http http = new Http();
+                http.blockVersion = blockVersion;
+                string[] args = new string[] { "query=assignProgram" };
+                string assignedProgram = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("Assigning Program...");
                 Console.ResetColor();
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                request.AutomaticDecompression = DecompressionMethods.GZip;
 
-                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-                using (Stream stream = response.GetResponseStream())
-                using (StreamReader reader = new StreamReader(stream))
-                {
-                    assignedProgram = reader.ReadToEnd();
-                }
                 id = assignedProgram;
 
                 Console.WriteLine("./wwwdata/programs/" + id + ".cfg");
@@ -416,19 +434,11 @@ public class clnt
             }
 
             string ourHash = sha256File("./wwwdata/programs/" + id + ".zip");
-            string theirHash = string.Empty;
 
-            string hashUrl = @"http://api.achillium.us.to/dcc/?query=hashProgram&programID=" + id + "&Version=" + blockVersion;
-
-            HttpWebRequest hashRequest = (HttpWebRequest)WebRequest.Create(hashUrl);
-            hashRequest.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)hashRequest.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                theirHash = reader.ReadToEnd();
-            }
+            Http http1 = new Http();
+            http1.blockVersion = blockVersion;
+            string[] args1 = new string[] { "query=hashProgram", "programID=" + id };
+            string theirHash = http1.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args1);
 
             if (ourHash != theirHash)
             {
@@ -440,7 +450,7 @@ public class clnt
 
             programConfig = ReadProgramConfig();
 
-            if(programConfig.Built == false)
+            if (programConfig.Built == false)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("Building assigned program, wait until it's finished to start mining");
@@ -463,18 +473,10 @@ public class clnt
     {
         try
         {
-            string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getProgramLifeLeft&programID=" + id + "&Version=" + blockVersion;
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                html = reader.ReadToEnd();
-            }
+            Http http = new Http();
+            http.blockVersion = blockVersion;
+            string[] args = new string[] { "query=getProgramLifeLeft", "programID=" + id };
+            string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
             if (html.Contains("ERR") || html == string.Empty || html == null)
                 return -100;
@@ -490,21 +492,12 @@ public class clnt
     {
         try
         {
-            string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getPendingBlock&blockNum=" + whichBlock + "&Version=" + blockVersion;
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                html = reader.ReadToEnd();
-            }
+            Http http = new Http();
+            http.blockVersion = blockVersion;
+            string[] args = new string[] { "query=getPendingBlock", "blockNum=" + whichBlock };
+            string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
             Console.WriteLine("Synced pending: " + whichBlock);
-
             File.WriteAllText("./wwwdata/pendingblocks/block" + whichBlock.ToString() + ".dccblock", html);
             return 1;
         }
@@ -518,18 +511,10 @@ public class clnt
     {
         try
         {
-            string html = string.Empty;
-            string url = @"http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + whichBlock + "&Version=" + blockVersion;
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                html = reader.ReadToEnd();
-            }
+            Http http = new Http();
+            http.blockVersion = blockVersion;
+            string[] args = new string[] { "query=getBlock", "blockNum=" + whichBlock };
+            string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
             Console.WriteLine("Synced: " + whichBlock);
             File.WriteAllText("./wwwdata/blockchain/block" + whichBlock.ToString() + ".dccblock", html);
@@ -608,8 +593,9 @@ public class clnt
         Console.Write(walletInfo.MineDifficulty);
         Console.BackgroundColor = ConsoleColor.DarkMagenta;
         Console.ForegroundColor = ConsoleColor.White;
-        Console.Write(" :\n");
+        Console.Write(" :");
         Console.ResetColor();
+        Console.Write("\n");
         try
         {
             DateTime startTime = DateTime.UtcNow;
@@ -626,7 +612,7 @@ public class clnt
             int hashesAtStart = 0;
             while (!hash.StartsWith(walletInfo.MineDifficulty))
             {
-                if((DateTime.Now - hashStart).TotalSeconds >= 1)
+                if ((DateTime.Now - hashStart).TotalSeconds >= 1)
                 {
                     hashesPerSecond = nonce - hashesAtStart;
                     hashStart = DateTime.Now;

@@ -297,32 +297,22 @@ namespace ClientCSForm
                     if (i == 0)
                     {
                         ProgramStatusPanel1.Visible = false;
-                        ProgramName1.Text = clnt.ownedPrograms[i].Zip;
-                        ActiveTimeNum1.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
                     }
                     if (i == 1)
                     {
                         ProgramStatusPanel2.Visible = false;
-                        ProgramName2.Text = clnt.ownedPrograms[i].Zip;
-                        ActiveTimeNum2.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
                     }
                     if (i == 2)
                     {
                         ProgramStatusPanel3.Visible = false;
-                        ProgramName3.Text = clnt.ownedPrograms[i].Zip;
-                        ActiveTimeNum3.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
                     }
                     if (i == 3)
                     {
                         ProgramStatusPanel4.Visible = false;
-                        ProgramName4.Text = clnt.ownedPrograms[i].Zip;
-                        ActiveTimeNum4.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
                     }
                     if (i == 4)
                     {
                         ProgramStatusPanel5.Visible = false;
-                        ProgramName5.Text = clnt.ownedPrograms[i].Zip;
-                        ActiveTimeNum5.Text = clnt.ownedPrograms[i].MinutesLeft.ToString();
                     }
                 }
             }

@@ -13,3 +13,6 @@ D:\Code\DC-Cryptocurrency\BlockchainMiner\bin\Debug\netcoreapp3.1\DCC Miner.dll
 D:\Code\DC-Cryptocurrency\BlockchainMiner\bin\Debug\netcoreapp3.1\DCC Miner.pdb
 D:\Code\DC-Cryptocurrency\BlockchainMiner\obj\Debug\netcoreapp3.1\DCC Miner.dll
 D:\Code\DC-Cryptocurrency\BlockchainMiner\obj\Debug\netcoreapp3.1\DCC Miner.pdb
+D:\Code\DC-Cryptocurrency\BlockchainMiner\bin\Debug\netcoreapp3.1\System.ComponentModel.Composition.dll
+D:\Code\DC-Cryptocurrency\BlockchainMiner\bin\Debug\netcoreapp3.1\udtsharp.dll
+D:\Code\DC-Cryptocurrency\BlockchainMiner\obj\Debug\netcoreapp3.1\BlockchainMiner.csproj.CopyComplete

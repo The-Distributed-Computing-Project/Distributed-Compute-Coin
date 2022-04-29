@@ -54,7 +54,7 @@ public class ProgramConfig
 
 public class Http
 {
-    public string blockVersion { get; set; }
+    public static string blockVersion { get; set; };
 
     public string StartHttpWebRequest(string URL, string[] args_vals)
     {
@@ -82,6 +82,7 @@ public class Http
         return html;
     }
 }
+
 
 
 public class clnt

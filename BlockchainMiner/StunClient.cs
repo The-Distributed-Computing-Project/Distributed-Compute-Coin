@@ -2,6 +2,7 @@
 using System.Net.Sockets;
 using System.Net;
 using System.Text;
+using ExtensionMethods;
 
 /// <summary>
 /// This enum specifies STUN message type.

@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Collections.Generic;
 using System.Net;
 using UdtSharp;
+using ExtensionMethods;
 
 
 public class P2P
@@ -11,22 +12,9 @@ public class P2P
     public string blockVersion { get; set; }
     static string p2pURL = "http://api.achillium.us.to/dcc/p2pconn.php?";
 
-    static void P2PConnect(string[] args)
+    public string Connect(string url)
     {
-        CommandLineArguments cla = CommandLineArguments.Parse(args);
-
-        if (cla == null || (!cla.Sender && !cla.Receiver))
-        {
-            CommandLineArguments.ShowUsage();
-            Environment.Exit(1);
-            return;
-        }
-        else if (cla.Sender && String.IsNullOrEmpty(cla.Data))
-        {
-            CommandLineArguments.ShowUsage();
-            Environment.Exit(1);
-            return;
-        }
+        SessionSettings session = new SessionSettings();
 
         string remoteIp;
         int remotePort;
@@ -38,36 +26,49 @@ public class P2P
 
         try
         {
-            if (cla.LocalPort != -1)
+            if (session.LocalPort != -1)
             {
-                Console.WriteLine("Using local port: {0}", cla.LocalPort);
+                ConsoleEx.WriteLine("Using local port: " + session.LocalPort, ConsoleEx.Network());
             }
             else
             {
-                cla.LocalPort = 0;
+                session.LocalPort = 0;
+            }
+            socket.Bind(new IPEndPoint(IPAddress.Any, session.LocalPort));
+
+            P2pEndPoint p2pEndPoint;
+            while (true)
+            {
+                try
+                {
+                    p2pEndPoint = GetExternalEndPoint(socket);
+                    break;
+                }
+                catch (Exception)
+                {
+                    ConsoleEx.WriteLine("Failed to connect to Stun server", ConsoleEx.Error());
+                    continue;
+                }
             }
 
-            socket.Bind(new IPEndPoint(IPAddress.Any, cla.LocalPort));
-
-            P2pEndPoint p2pEndPoint = GetExternalEndPoint(socket);
-
             if (p2pEndPoint == null)
-                return;
+                return "";
 
-            Console.WriteLine("IP at: {0}", p2pEndPoint.External.ToString());
-            Console.WriteLine("Connecting to server at: {0}", p2pURL);
-            Console.WriteLine();
+            ConsoleEx.WriteLine("IP at: " + p2pEndPoint.External.ToString(), ConsoleEx.Network());
+            ConsoleEx.WriteLine("Connecting to server at: " + p2pURL, ConsoleEx.Network());
+            ConsoleEx.WriteLine();
 
             httpStatus = http.StartHttpWebRequest(p2pURL, new string[] {
                 "query=AskForConnection",
-                "ip_port=" + p2pEndPoint.External.ToString()
+                "ip_port=" + p2pEndPoint.External.ToString(),
+                "last_tried_ip_port=none"
             });
-            Console.WriteLine(httpStatus);
+            ConsoleEx.WriteLine(httpStatus, ConsoleEx.Network());
 
-            Console.WriteLine();
+            ConsoleEx.WriteLine();
 
             string last_tried_ip_port = "";
-            for (int attempt = 0; attempt < 9; attempt++)
+            while (true)
             {
                 httpStatus = http.StartHttpWebRequest(p2pURL, new string[] {
                     "query=WaitForConnection",
@@ -75,54 +76,108 @@ public class P2P
                     "last_tried_ip_port=" + last_tried_ip_port
                 });
 
-                if (httpStatus.Contains("waiting")) { return; }
+                if (httpStatus == "" || httpStatus.Contains("waiting") || httpStatus.Contains(p2pEndPoint.External.ToString()))
+                {
+                    DateTime now = InternetTime.Get();
+
+                    int sleepTimeToSync = SleepTime(now);
+
+                    ConsoleEx.WriteLine("[" + now.ToLongTimeString() + "] - Waiting " + sleepTimeToSync + " sec to look for a new peer", ConsoleEx.Network());
+                    System.Threading.Thread.Sleep(sleepTimeToSync * 1000);
+                    continue;
+                }
 
                 last_tried_ip_port = httpStatus;
 
-                for (int connectionAttempt = 0; connectionAttempt < 3; connectionAttempt++)
+                string peer = httpStatus;
+
+                // try again to connect to external to "reopen" port
+                //GetExternalEndPoint(socket);
+
+                try
                 {
-                    string peer = httpStatus;
-
-                    // try again to connect to external to "reopen" port
-                    GetExternalEndPoint(socket);
-
                     ParseRemoteAddr(peer, out remoteIp, out remotePort);
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
 
-                    UdtSocket connection = PeerConnect(socket, remoteIp, remotePort);
+                UdtSocket connection = PeerConnect(socket, remoteIp, remotePort);
 
-                    if (connection == null)
+                //if (connection == null)
+                //{
+                //    ConsoleEx.WriteLine("Failed to establish P2P conn to " + remoteIp + ", retrying " + (2 - connectionAttempt) + " more times...", ConsoleEx.Error());
+                //    continue;
+                //}
+
+                try
+                {
+                    using (var netStream = new UdtNetworkStream(connection))
+                    using (var writer = new BinaryWriter(netStream))
+                    using (var reader = new BinaryReader(netStream))
                     {
-                        Console.Error.WriteLine("Failed to establish P2P conn to {0}, retrying " + (2 - connectionAttempt) + " more times...", remoteIp);
-                        continue;
-                    }
+                        int blockchainLength = Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length;
+                        writer.Write(blockchainLength);
+                        int peerBlockchainLength = reader.ReadInt32();
 
-                    try
-                    {
-                        using (var netStream = new UdtNetworkStream(connection))
-                        using (var writer = new BinaryWriter(netStream))
-                        using (var reader = new BinaryReader(netStream))
+                        ConsoleEx.WriteLine("Your blockchain length: " + blockchainLength, ConsoleEx.Network());
+                        ConsoleEx.WriteLine("Peer blockchain length: " + peerBlockchainLength, ConsoleEx.Network());
+
+                        while (true)
                         {
-                            int blockchainLength = Directory.GetFiles("./wwwdata/pendingblocks/", "*.*", SearchOption.TopDirectoryOnly).Length;
-                            writer.Write(blockchainLength);
-                            int peerBlockchainLength = reader.ReadInt32();
-
-                            Console.WriteLine("Your blockchain length: " + blockchainLength);
-                            Console.WriteLine("Peer blockchain length: " + peerBlockchainLength);
+                            httpStatus = http.StartHttpWebRequest(p2pURL, new string[] {
+                                "query=IsStarterOfConnection",
+                                "ip_port=" + p2pEndPoint.External.ToString(),
+                                "last_tried_ip_port=" + last_tried_ip_port
+                            }).Trim();
+                            if (httpStatus == "yes" || httpStatus == "no")
+                                break;
                         }
 
-
-                        //if (cla.Sender)
-                        //{
-                        //    Sender.Run(connection, cla.Data, cla.Verbose);
-                        //    return;
-                        //}
-
-                        //Receiver.Run(connection);
+                        if (httpStatus == "yes")
+                        {
+                            //// If the url contains a page address
+                            //if (url != "")
+                            //{
+                            ConsoleEx.WriteLine("sent: " + last_tried_ip_port + url, ConsoleEx.Network());
+                            writer.Write(url);
+                            string s = reader.ReadString();
+                            ConsoleEx.WriteLine("got: " + s, ConsoleEx.Network());
+                            return s;
+                            //}
+                        }
+                        else
+                        {
+                            string str = reader.ReadString();
+                            if (str.Contains("php"))
+                            {
+                                PHPServ serv = new PHPServ();
+                                string s = serv.Serve(str);
+                                ConsoleEx.WriteLine("php-out: " + s, ConsoleEx.Network());
+                                writer.Write(s);
+                            }
+                        }
                     }
-                    finally
-                    {
-                        connection.Close();
-                    }
+
+
+                    //if (session.Sender)
+                    //{
+                    //    Sender.Run(connection, session.Data, session.Verbose);
+                    //    return;
+                    //}
+
+                    //Receiver.Run(connection);
+                    break;
+                }
+                finally
+                {
+                    httpStatus = http.StartHttpWebRequest(p2pURL, new string[] {
+                        "query=SucceededConnection",
+                        "ip_port=" + p2pEndPoint.External.ToString(),
+                        "last_tried_ip_port=none"
+                    });
+                    connection.Close();
                 }
             }
         }
@@ -130,9 +185,11 @@ public class P2P
         {
             socket.Close();
         }
+
+        return "";
     }
 
-    class CommandLineArguments
+    class SessionSettings
     {
         internal bool Sender = false;
 
@@ -143,48 +200,6 @@ public class P2P
         internal int LocalPort = -1;
 
         internal bool Verbose = false;
-
-        static internal CommandLineArguments Parse(string[] args)
-        {
-            CommandLineArguments result = new CommandLineArguments();
-
-            int i = 0;
-
-            while (i < args.Length)
-            {
-                string arg = args[i++];
-
-                switch (arg)
-                {
-                    case "sender":
-                        result.Sender = true;
-                        break;
-                    case "receiver":
-                        result.Receiver = true;
-                        break;
-                    case "--verbose":
-                        result.Verbose = true;
-                        break;
-                    case "--data":
-                        if (args.Length == i) return null;
-                        result.Data = args[i++];
-                        break;
-                    case "--localport":
-                        if (args.Length == i) return null;
-                        result.LocalPort = int.Parse(args[i++]);
-                        break;
-                    case "help":
-                        return null;
-                }
-            }
-
-            return result;
-        }
-
-        static internal void ShowUsage()
-        {
-            Console.WriteLine("p2pcopy [receiver|sender --data data_to_send]");
-        }
     }
 
     static void ParseRemoteAddr(string addr, out string remoteIp, out int port)
@@ -199,6 +214,59 @@ public class P2P
     {
         internal IPEndPoint External;
         internal IPEndPoint Internal;
+    }
+
+    static int SleepTime(DateTime now)
+    {
+        List<int> seconds = new List<int>() { 10, 20, 30, 40, 50, 60 };
+
+        int next = seconds.Find(x => x > now.Second);
+
+        return next - now.Second;
+    }
+
+    static UdtSocket PeerConnect(Socket socket, string remoteAddr, int remotePort)
+    {
+        bool bConnected = false;
+        int retry = 0;
+
+        UdtSocket client = null;
+
+        while (!bConnected && retry < 11)
+        {
+            try
+            {
+                //DateTime now = InternetTime.Get();
+
+                //int sleepTimeToSync = SleepTime(now);
+
+                //ConsoleEx.WriteLine("[" + now.ToLongTimeString() + "] - Waiting " + sleepTimeToSync + " sec to sync with other peer", ConsoleEx.Network());
+                //System.Threading.Thread.Sleep(sleepTimeToSync * 1000);
+
+                //GetExternalEndPoint(socket);
+
+                if (client != null)
+                    client.Close();
+
+                client = new UdtSocket(socket.AddressFamily, socket.SocketType);
+                client.Bind(socket);
+
+                ConsoleEx.WriteLine("\r" + retry + " - Trying to connect to " + remoteAddr + ":" + remotePort + ".  ", ConsoleEx.Network());
+                retry++;
+
+                client.Connect(new IPEndPoint(IPAddress.Parse(remoteAddr), remotePort));
+
+                ConsoleEx.WriteLine("Connected successfully to " + remoteAddr + ":" + remotePort);
+
+                bConnected = true;
+            }
+            catch (Exception e)
+            {
+                //ConsoleEx.Write(e.Message.Replace(Environment.NewLine, ". "));
+            }
+        }
+
+        return client;
     }
 
     static P2pEndPoint GetExternalEndPoint(Socket socket)
@@ -473,7 +541,7 @@ public class P2P
         stunServers.Add(new Tuple<string, int>("stun4.l.google.com", 19302));
         stunServers.Add(new Tuple<string, int>("stunserver.org", 3478));
 
-        Console.WriteLine("Contacting STUN servers to obtain your IP");
+        ConsoleEx.WriteLine("Contacting STUN servers to obtain your IP", ConsoleEx.Network());
         foreach (Tuple<string, int> server in stunServers)
         {
             string host = server.Item1;
@@ -487,7 +555,7 @@ public class P2P
                 continue;
             }
 
-            Console.WriteLine("Your firewall is {0}", externalEndPoint.NetType.ToString());
+            ConsoleEx.WriteLine("Your firewall is " + externalEndPoint.NetType.ToString(), ConsoleEx.Network());
 
             return new P2pEndPoint()
             {
@@ -496,64 +564,7 @@ public class P2P
             };
         }
 
-        Console.WriteLine("Could not find a working STUN server");
+        ConsoleEx.WriteLine("Could not find a working STUN server", ConsoleEx.Error());
         return null;
-    }
-
-
-    static int SleepTime(DateTime now)
-    {
-        List<int> seconds = new List<int>() { 10, 20, 30, 40, 50, 60 };
-
-        int next = seconds.Find(x => x > now.Second);
-
-        return next - now.Second;
-    }
-
-    static UdtSocket PeerConnect(Socket socket, string remoteAddr, int remotePort)
-    {
-        bool bConnected = false;
-        int retry = 0;
-
-        UdtSocket client = null;
-
-        while (!bConnected)
-        {
-            try
-            {
-                DateTime now = InternetTime.Get();
-
-                int sleepTimeToSync = SleepTime(now);
-
-                Console.WriteLine("[{0}] - Waiting {1} sec to sync with other peer",
-                    now.ToLongTimeString(),
-                    sleepTimeToSync);
-                System.Threading.Thread.Sleep(sleepTimeToSync * 1000);
-
-                GetExternalEndPoint(socket);
-
-                if (client != null)
-                    client.Close();
-
-                client = new UdtSocket(socket.AddressFamily, socket.SocketType);
-                client.Bind(socket);
-
-                Console.Write("\r{0} - Trying to connect to {1}:{2}.  ",
-                    retry++, remoteAddr, remotePort);
-
-                client.Connect(new IPEndPoint(IPAddress.Parse(remoteAddr), remotePort));
-
-                Console.WriteLine("Connected successfully to {0}:{1}",
-                    remoteAddr, remotePort);
-
-                bConnected = true;
-            }
-            catch (Exception e)
-            {
-                Console.Write(e.Message.Replace(Environment.NewLine, ". "));
-            }
-        }
-
-        return client;
     }
 }

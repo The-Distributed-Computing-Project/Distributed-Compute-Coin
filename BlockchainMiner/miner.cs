@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using System.Globalization;
 using System.Diagnostics;
 using Newtonsoft.Json;
+using ExtensionMethods;
 
 public class Block
 {
@@ -54,7 +55,7 @@ public class ProgramConfig
 
 public class Http
 {
-    public static string blockVersion { get; set; };
+    public string blockVersion { get; set; }
 
     public string StartHttpWebRequest(string URL, string[] args_vals)
     {
@@ -67,7 +68,8 @@ public class Http
                 url += "&";
             url += args_vals[i];
         }
-        url += "&Version=" + blockVersion;
+        if (blockVersion != null && blockVersion != "")
+            url += "&Version=" + blockVersion;
 
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
         request.AutomaticDecompression = DecompressionMethods.GZip;
@@ -78,6 +80,8 @@ public class Http
         {
             html = reader.ReadToEnd();
         }
+
+        ConsoleEx.WriteLine(html, ConsoleEx.Debug());
 
         return html;
     }
@@ -95,6 +99,9 @@ public class clnt
     public static ProgramConfig programConfig = new ProgramConfig();
 
     public static string blockVersion = "v0.01alpha-coin";
+
+    public static PHPServ phpserv = new PHPServ();
+    public static P2P p2p = new P2P();
 
 
     public static void Main()
@@ -133,6 +140,9 @@ public class clnt
                 configFile.Close();
             }
         }
+
+        //phpserv.StartServer();
+        //p2p.Connect("");
 
         while (true)
         {
@@ -330,20 +340,22 @@ public class clnt
 
     static WalletInfo GetInfo()
     {
-        try
-        {
-            Http http = new Http();
-            http.blockVersion = blockVersion;
-            string[] args = new string[] { "query=getInfo", "fromAddress=" + walletInfo.Address };
-            string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
+        string html = p2p.Connect("index.php?query=getInfo&fromAddress=" + walletInfo.Address).Trim();
+        return JsonConvert.DeserializeObject<WalletInfo>(html);
+        //try
+        //{
+        //    Http http = new Http();
+        //    http.blockVersion = blockVersion;
+        //    string[] args = new string[] { "query=getInfo", "fromAddress=" + walletInfo.Address };
+        //    string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
-            string content = html.Trim();
-            return JsonConvert.DeserializeObject<WalletInfo>(content);
-        }
-        catch (Exception)
-        {
-            return null;
-        }
+        //    string content = html.Trim();
+        //    return JsonConvert.DeserializeObject<WalletInfo>(content);
+        //}
+        //catch (Exception)
+        //{
+        //    return null;
+        //}
     }
 
     static ProgramConfig ReadProgramConfig()

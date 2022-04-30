@@ -1,9 +1,0 @@
-D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Debug\ClientCSForm.exe.config
-D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Debug\ClientCSForm.exe
-D:\Code\DC-Cryptocurrency\ClientCSForm\bin\Debug\ClientCSForm.pdb
-D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.Form1.resources
-D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.Properties.Resources.resources
-D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.csproj.GenerateResource.cache
-D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.csproj.CoreCompileInputs.cache
-D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.exe
-D:\Code\DC-Cryptocurrency\ClientCSForm\obj\Debug\ClientCSForm.pdb

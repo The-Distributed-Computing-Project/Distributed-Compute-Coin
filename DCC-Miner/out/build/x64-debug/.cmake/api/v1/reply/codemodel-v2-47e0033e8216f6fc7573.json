@@ -29,7 +29,7 @@
 					"jsonFile" : "directory-DCC-Miner-Debug-4c0abc660a60b222705e.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.8"
+						"string" : "3.0"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
@@ -209,7 +209,7 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "DCC-Miner::@7c9fba58f9b8b12f7bc5",
-					"jsonFile" : "target-DCC-Miner-Debug-76c7e0b18a8a663cc002.json",
+					"jsonFile" : "target-DCC-Miner-Debug-45f80e52523abdf86e63.json",
 					"name" : "DCC-Miner",
 					"projectIndex" : 0
 				},

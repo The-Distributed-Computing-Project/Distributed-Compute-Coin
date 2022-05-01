@@ -48,33 +48,6 @@ namespace fs = std::filesystem;
 //	bool Built;
 //};
 
-class Http
-{
-public:
-	string blockVersion = "";
-
-	string StartHttpWebRequest(string URL, vector<string> args_vals)
-	{
-		string html = "";
-
-		string url = URL;
-		for (int i = 0; i < args_vals.size(); i++)
-		{
-			if (i > 0)
-				url += "&";
-			url += args_vals.at(i);
-		}
-		if (blockVersion != "")
-			url += "&Version=" + blockVersion;
-
-		auto response = cpr::Get(cpr::Url{ url });
-		html = response.text;
-
-		Console().WriteLine(html, Console().Debug());
-
-		return html;
-	}
-};
 
 
 string id = "";
@@ -117,10 +90,12 @@ int main()
 	}
 	else
 	{
-		Console().Write("Enter your payout wallet : ", Console().Mining());
+		Console().WriteDialogueAuthor(Console().Mining());
+		Console().Write("Enter your payout wallet : ");
 		walletInfo["Address"] = Console().ReadLine();
 
-		Console().Write("Stay logged in? Y/N : ", Console().Mining());
+		Console().WriteDialogueAuthor(Console().Mining());
+		Console().Write("Stay logged in? Y/N : ");
 		string stayLoggedIn = Console().ReadLine();
 		if (ToUpper(stayLoggedIn) == "Y")
 		{
@@ -260,10 +235,19 @@ int main()
 		}
 		if (SplitString(ToUpper(command), " ")[0] == "--MINEANY" || SplitString(ToUpper(command), " ")[0] == "-MA")
 		{
+			std::ifstream blockFile("./wwwdata/pendingblocks/block" + to_string(walletInfo["BlockchainLength"] + 1) + ".dccblock");
+			std::stringstream blockBuffer;
+			blockBuffer << blockFile.rdbuf();
+			string content = blockBuffer.str();
+
+			json o = json::parse(content);
+			string transactions = JoinArrayPieces((string[])o["Transactions"]);
+			string lastHash = o["LastHash"];
+
 			string diff = "";
 			if (SplitString(command, " ").size() == 3)
 				diff = SplitString(command, " ")[2];
-			MineAnyBlock(stoi(SplitString(command, " ")[1]), diff);
+			MineAnyBlock(lastHash, transactions, stoi(SplitString(command, " ")[1]), diff);
 		}
 		connectionStatus = 1;
 	}
@@ -462,7 +446,9 @@ static int GetProgram()
 		{
 			Console().WriteLine("Building assigned program, wait until it's finished to start mining", Console().Mining());
 
+			Console().WriteLine("Compiling program... ", Console().Rust());
 			ExecuteCommand(("cargo build ./wwwdata/programs/" + id + "/").c_str());
+			Console().WriteLine("Done Compiling", Console().Rust());
 
 			programConfig["Built"] = true;
 			WriteProgramConfig();
@@ -475,18 +461,18 @@ static int GetProgram()
 	}
 }
 
-static float GetProgramLifeLeft(string id)
+float GetProgramLifeLeft(string id)
 {
 	try
 	{
-		Http http = new Http();
+		Http http;
 		http.blockVersion = blockVersion;
-		string[] args = new string[]{ "query=getProgramLifeLeft", "programID=" + id };
+		vector<string> args = { "query=getProgramLifeLeft", "programID=" + id };
 		string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
-		if (html.Contains("ERR") || html == string.Empty || html == null)
+		if (html.find("ERR") != std::string::npos || html == "")
 			return -100;
-		return float.Parse(html.Trim());
+		return stof(trim(html));
 	}
 	catch (const std::exception&)
 	{
@@ -494,17 +480,21 @@ static float GetProgramLifeLeft(string id)
 	}
 }
 
-static int SyncPending(int whichBlock)
+int SyncPending(int whichBlock)
 {
 	try
 	{
-		Http http = new Http();
-		http.blockVersion = blockVersion;
-		string[] args = new string[]{ "query=getPendingBlock", "blockNum=" + whichBlock };
-		string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
+		//Http http;
+		//http.blockVersion = blockVersion;
+		//vector<string> args = { "query=getPendingBlock", "blockNum=" + whichBlock };
+		//string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
-		Console().WriteLine("Synced pending: " + whichBlock);
-		File.WriteAllText("./wwwdata/pendingblocks/block" + whichBlock.ToString() + ".dccblock", html);
+		//Console().WriteLine("Synced pending: " + whichBlock, Console().Mining());
+		//File.WriteAllText("./wwwdata/pendingblocks/block" + to_string(whichBlock) + ".dccblock", html);
+		DownloadFile("http://api.achillium.us.to/dcc/?query=getPendingBlock&blockNum=" + to_string(whichBlock) + "&Version=" + blockVersion,
+			"./wwwdata/pendingblocks/block" + to_string(whichBlock) + ".dccblock",
+			true);
+
 		return 1;
 	}
 	catch (const std::exception&)
@@ -513,56 +503,22 @@ static int SyncPending(int whichBlock)
 	}
 }
 
-int DownloadFile(string url, string saveAs) {
-	CURL* curl;
-	FILE* fp;
-	CURLcode res;
-	curl = curl_easy_init();
-	if (curl)
-	{
-		fp = fopen(saveAs.c_str(), "wb");
-		curl_easy_setopt(curl, CURLOPT_URL, url);
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, NULL);
-		curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
-		res = curl_easy_perform(curl);
-		curl_easy_cleanup(curl);
-		fclose(fp);
-	}
-	return 0;
-}
-int DownloadFile(string url, string saveAs, bool printStatus) {
-	CURL* curl;
-	FILE* fp;
-	CURLcode res;
-	curl = curl_easy_init();
-	if (curl)
-	{
-		if (printStatus)
-			Console().Write("Downloading from: \"" + url + "\" ...\r", Console().Network());
-		fp = fopen(saveAs.c_str(), "wb");
-		curl_easy_setopt(curl, CURLOPT_URL, url);
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, NULL);
-		curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
-		res = curl_easy_perform(curl);
-		curl_easy_cleanup(curl);
-		fclose(fp);
-		if (printStatus)
-			Console().Write("Downloading from: \"" + url + "\" Done\n", Console().Network());
-	}
-	return 0;
-}
-
-static int SyncBlock(int whichBlock)
+int SyncBlock(int whichBlock)
 {
 	try
 	{
-		Http http = new Http();
-		http.blockVersion = blockVersion;
-		string[] args = new string[]{ "query=getBlock", "blockNum=" + whichBlock };
-		string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
+		//Http http;
+		//http.blockVersion = blockVersion;
+		//vector<string> args = { "query=getBlock", "blockNum=" + whichBlock };
+		//string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
-		Console().WriteLine("Synced: " + whichBlock);
-		File.WriteAllText("./wwwdata/blockchain/block" + whichBlock.ToString() + ".dccblock", html);
+		//Console().WriteLine("Synced: " + whichBlock);
+		//File.WriteAllText("./wwwdata/blockchain/block" + to_string(whichBlock) + ".dccblock", html);
+
+		DownloadFile("http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + to_string(whichBlock) + "&Version=" + blockVersion,
+			"./wwwdata/blockchain/block" + to_string(whichBlock) + ".dccblock",
+			true);
+
 		return 1;
 	}
 	catch (const std::exception&)
@@ -571,49 +527,70 @@ static int SyncBlock(int whichBlock)
 	}
 }
 
-static bool IsChainValid()
+bool IsChainValid()
 {
-	while (Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length < walletInfo.BlockchainLength)
+	while (FileCount("./wwwdata/blockchain/") < walletInfo["BlockchainLength"])
 	{
-		if (SyncBlock(Directory.GetFiles("./wwwdata/blockchain/", "*.*", SearchOption.TopDirectoryOnly).Length + 1) == 0)
+		if (SyncBlock(FileCount("./wwwdata/blockchain/") + 1) == 0)
 		{
 			ConnectionError();
 			break;
 		}
 	}
 
-	string[] blocks = Directory.GetFiles("./wwwdata/blockchain/", "*.dccblock");
+	int chainLength = FileCount("./wwwdata/blockchain/");
 
-	for (int i = 1; i < blocks.Length; i++)
+	for (int i = 1; i < chainLength; i++)
 	{
-		string content = File.ReadAllText("./wwwdata/blockchain/block" + i + ".dccblock");
-		Block o = JsonConvert.DeserializeObject<Block>(content);
-		string[] trans = o.Transactions;
+		std::ifstream t("./wwwdata/blockchain/block" + to_string(i) + ".dccblock");
+		std::stringstream buffer;
+		buffer << t.rdbuf();
+		string content = buffer.str();
 
-		if (o.Version == null || o.Version == "" || o.Version != blockVersion)
+		json o = json::parse(content);
+		string trans[] = { o["Transactions"] };
+
+		if (o["Version"] == nullptr || o["Version"] == "" || o["Version"] != blockVersion)
 		{
-			o.Upgrade(blockVersion);
-			File.WriteAllText("./wwwdata/blockchain/block" + i + ".dccblock", JsonConvert.SerializeObject(o));
+			UpgradeBlock(o, blockVersion);
+			ofstream blockFile("./wwwdata/blockchain/block" + to_string(i) + ".dccblock");
+			if (blockFile.is_open())
+			{
+				blockFile << o.dump();
+				blockFile.close();
+			}
 		}
 
-		string lastHash = o.LastHash;
-		string currentHash = o.Hash;
-		string nonce = o.Nonce;
+		string lastHash = o["LastHash"];
+		string currentHash = o["Hash"];
+		string nonce = o["Nonce"];
 		string transactions = JoinArrayPieces(trans);
 
-		content = File.ReadAllText("./wwwdata/blockchain/block" + (i + 1) + ".dccblock");
-		o = JsonConvert.DeserializeObject<Block>(content);
-		string nextHash = o.LastHash;
 
-		if (o.Version == null || o.Version == "" || o.Version != blockVersion)
+		std::ifstream td("./wwwdata/blockchain/block" + to_string(i + 1) + ".dccblock");
+		std::stringstream bufferd;
+		bufferd << td.rdbuf();
+		string nextBlockText = bufferd.str();
+		o = json::parse(nextBlockText);
+
+		string nextHash = o["LastHash"];
+
+		if (o["Version"] == nullptr || o["Version"] == "" || o["Version"] != blockVersion)
 		{
-			o.Upgrade(blockVersion);
-			File.WriteAllText("./wwwdata/blockchain/block" + (i + 1) + ".dccblock", JsonConvert.SerializeObject(o));
+			UpgradeBlock(o, blockVersion);
+			ofstream blockFile("./wwwdata/blockchain/block" + to_string(i + 1) + ".dccblock");
+			if (blockFile.is_open())
+			{
+				blockFile << o.dump();
+				blockFile.close();
+			}
 		}
 
-		Console().WriteLine("Validating block " + i);
-		string blockHash = sha256(lastHash + transactions + nonce);
-		if (!blockHash.StartsWith("00") || blockHash != currentHash || blockHash != nextHash)
+		Console().WriteLine("Validating block: " + i, Console().BlockChecker());
+		char sha256OutBuffer[65];
+		sha256_string((char*)(lastHash + transactions + nonce).c_str(), sha256OutBuffer);
+		string blockHash = sha256OutBuffer;
+		if ((blockHash[0] != '0' && blockHash[1] != '0') || blockHash != currentHash || blockHash != nextHash)
 		{
 			return false;
 		}
@@ -623,77 +600,64 @@ static bool IsChainValid()
 
 static int Mine(string lastHash, string transactionHistory, int blockNum)
 {
-	//Console().Clear();
-	Console().BackgroundColor = ConsoleColor.DarkMagenta;
-	Console().ForegroundColor = ConsoleColor.White;
+	Console().WriteDialogueAuthor(Console().Mining());
 	Console().Write("Mining ");
-	Console().BackgroundColor = ConsoleColor.DarkRed;
-	Console().ForegroundColor = ConsoleColor.White;
-	Console().Write("block " + blockNum);
-	Console().BackgroundColor = ConsoleColor.DarkMagenta;
-	Console().ForegroundColor = ConsoleColor.White;
+	Console().Write("block " + blockNum, Console().whiteBGColor, Console().blackFGColor);
 	Console().Write(" at difficulty ");
-	Console().BackgroundColor = ConsoleColor.DarkRed;
-	Console().ForegroundColor = ConsoleColor.White;
-	Console().Write(walletInfo.MineDifficulty);
-	Console().BackgroundColor = ConsoleColor.DarkMagenta;
-	Console().ForegroundColor = ConsoleColor.White;
+	Console().Write(walletInfo["MineDifficulty"], Console().whiteBGColor, Console().blackFGColor);
 	Console().Write(" :");
-	Console().ResetColor();
 	Console().Write("\n");
 	try
 	{
-		DateTime startTime = DateTime.UtcNow;
+		auto startTime = std::chrono::steady_clock::now();
+		std::cout << "Elapsed(ms)=" << since(startTime).count() << std::endl;
 
-		var watch = new System.Diagnostics.Stopwatch();
-		watch.Start();
-		ExecuteCommand(("cargo run ./wwwdata/programs/" + id + "/").c_str());
+		Console().WriteLine("Starting program... ", Console().Rust());
+		boost::process::child cargoProc = ExecuteAsync("cargo run ./wwwdata/programs/" + id + "/");
 
 		//Checks Hash
 		int nonce = 0;
 		string hash = "";
-		DateTime hashStart = DateTime.Now;
+		auto hashStart = std::chrono::steady_clock::now();
 		int hashesPerSecond = 0;
 		int hashesAtStart = 0;
-		while (!hash.StartsWith(walletInfo.MineDifficulty))
+		while (!StringStartsWith(hash, walletInfo["MineDifficulty"]))
 		{
-			if ((DateTime.Now - hashStart).TotalSeconds >= 1)
+			if (since(startTime).count() * 1000 >= 1)
 			{
 				hashesPerSecond = nonce - hashesAtStart;
-				hashStart = DateTime.Now;
+				hashStart = std::chrono::steady_clock::now();
 				hashesAtStart = nonce;
 
-				Console().Write("\r" + (DateTime.UtcNow - startTime).ToString().Split(".")[0] + " :	" + nonce.ToString() + " # " + hash);
+				Console().Write("\r" + to_string(std::round(since(startTime).count() * 1000)) + " :	" + to_string(nonce) + " # " + hash);
 				Console().Write("   " + FormatHPS(hashesPerSecond) + "            ");
 			}
 
 
 			nonce++;
-			hash = sha256(lastHash + transactionHistory + nonce.ToString());
+			char sha256OutBuffer[65];
+			sha256_string((char*)(lastHash + transactionHistory + to_string(nonce)).c_str(), sha256OutBuffer);
+			hash = sha256OutBuffer;
 
-			if (proc.HasExited)
-				watch.Stop();
+			if (!cargoProc.running())
+				break;
 		}
 
-		if (!proc.HasExited)
+		if (cargoProc.running())
 		{
-			proc.WaitForExit(10000);
-			while (!proc.HasExited) {}
-			watch.Stop();
+			cargoProc.wait();
 		}
 
-		Console().Clear();
+		//Console().Clear();
 
-		string url = "http://api.achillium.us.to/dcc/?query=submitBlock&blockNum=" + blockNum.ToString() + "&nonce=" + nonce.ToString() + "&minedHash=" + sha256(lastHash + transactionHistory + nonce.ToString()) + "&fromAddress=" + walletInfo.Address + "&programID=" + id + "&time=" + watch.ElapsedMilliseconds / 1000f + "&Version=" + blockVersion;
+		char sha256OutBuffer[65];
+		sha256_string((char*)(lastHash + transactionHistory + to_string(nonce)).c_str(), sha256OutBuffer);
+		hash = sha256OutBuffer;
+		string url = "http://api.achillium.us.to/dcc/?query=submitBlock&blockNum=" + to_string(blockNum) + "&nonce=" + to_string(nonce) + "&minedHash=" + hash + "&fromAddress=" + (string)walletInfo["Address"] + "&programID=" + id + "&time=" + to_string(since(startTime).count() / 1000.0f) + "&Version=" + blockVersion;
 
-		System.Net.WebClient Client = new System.Net.WebClient();
-		Client.Headers.Add("Content-Type", "binary/octet-stream");
-		byte[] result = Client.UploadFile(url, "POST", "./wwwdata/programs//" + id + "/out.txt");
-		string s = System.Text.Encoding.UTF8.GetString(result, 0, result.Length);
+		string s = UploadFile(url, "./wwwdata/programs//" + id + "/out.txt");
 
-		Console().ForegroundColor = ConsoleColor.Blue;
-		Console().WriteLine(s + " in " + (DateTime.UtcNow - startTime).ToString().Split(".")[0]);
-		Console().ResetColor();
+		Console().WriteLine(s + " in " + to_string(std::round(since(startTime).count() * 1000)) + " s.", Console().Mining());
 
 		return 1;
 	}
@@ -703,30 +667,49 @@ static int Mine(string lastHash, string transactionHistory, int blockNum)
 	}
 }
 
-static void MineAnyBlock(int blockNum, string difficulty)
+static int MineAnyBlock(string lastHash, string transactionHistory, int blockNum, string difficulty)
 {
-	if (difficulty == null || difficulty == "")
-		difficulty = walletInfo.MineDifficulty;
+	if (difficulty == "")
+		difficulty = walletInfo["MineDifficulty"];
 
-	DateTime startTime = DateTime.UtcNow;
+	auto startTime = std::chrono::steady_clock::now();
 
-	string content = File.ReadAllText("./wwwdata/blockchain/block" + blockNum + ".dccblock");
-	Block o = JsonConvert.DeserializeObject<Block>(content);
-	string transactions = JoinArrayPieces(o.Transactions);
-	string currentHash = o.Hash;
-	string lastHash = o.LastHash;
+	std::ifstream td("./wwwdata/blockchain/block" + to_string(blockNum) + ".dccblock");
+	std::stringstream bufferd;
+	bufferd << td.rdbuf();
+	string nextBlockText = bufferd.str();
+	json o = json::parse(nextBlockText);
+
+	string transactions = JoinArrayPieces((string[])o["Transactions"]);
+	string currentHash = o["Hash"];
+	string lastHash = o["LastHash"];
 
 	//Checks Hash
 	int nonce = 0;
-	while (!sha256(lastHash + transactions + nonce.ToString()).StartsWith(difficulty))
+	string hash = "";
+	auto hashStart = std::chrono::steady_clock::now();
+	int hashesPerSecond = 0;
+	int hashesAtStart = 0;
+	while (!StringStartsWith(hash, difficulty))
 	{
+		if (since(startTime).count() * 1000 >= 1)
+		{
+			hashesPerSecond = nonce - hashesAtStart;
+			hashStart = std::chrono::steady_clock::now();
+			hashesAtStart = nonce;
+
+			Console().Write("\r" + to_string(std::round(since(startTime).count() * 1000)) + " :	" + to_string(nonce) + " # " + hash);
+			Console().Write("   " + FormatHPS(hashesPerSecond) + "            ");
+		}
+
+
 		nonce++;
-		Console().WriteLine((DateTime.UtcNow - startTime).ToString().Split(".")[0] + " :	" + nonce.ToString() + " # " + sha256(lastHash + transactions + nonce.ToString()));
+		char sha256OutBuffer[65];
+		sha256_string((char*)(lastHash + transactionHistory + to_string(nonce)).c_str(), sha256OutBuffer);
+		hash = sha256OutBuffer;
 	}
 
-	Console().ForegroundColor = ConsoleColor.Blue;
-	Console().WriteLine(" in " + (DateTime.UtcNow - startTime).ToString().Split(".")[0]);
-	Console().ResetColor();
+	Console().WriteLine("Debug mined in " + to_string(std::round(since(startTime).count() * 1000)) + " s.", Console().Mining());
 }
 
 //static Process ExecuteCommand(string command, string directory)
@@ -747,48 +730,22 @@ static void MineAnyBlock(int blockNum, string difficulty)
 
 static string FormatHPS(float input)
 {
-	if (input > 1000000000f)
-		return Math.Round(input / 1000000000f, 3).ToString() + " gH/s";
-	else if (input > 1000000f)
-		return Math.Round(input / 1000000f, 3).ToString() + " mH/s";
-	else if (input > 1000f)
-		return Math.Round(input / 1000f, 3).ToString() + " kH/s";
+	if (input > 1000000000.0f)
+		return to_string(round(input / 1000000000.0f, 3)) + " gH/s";
+	else if (input > 1000000.0f)
+		return to_string(round(input / 1000000.0f, 3)) + " mH/s";
+	else if (input > 1000.0f)
+		return to_string(round(input / 1000.0f, 3)) + " kH/s";
 	else
-		return Math.Round(input, 3).ToString() + " H/s";
-}
-
-static string sha256(string input)
-{
-	var crypt = new System.Security.Cryptography.SHA256Managed();
-	var hash = new System.Text.StringBuilder();
-	byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(input));
-	foreach(byte theByte in crypto)
-	{
-		hash.Append(theByte.ToString("x2"));
-	}
-	return hash.ToString();
-}
-
-static string sha256File(string fileLocation)
-{
-	byte[] fileBytes = File.ReadAllBytes(fileLocation);
-
-	var crypt = new System.Security.Cryptography.SHA256Managed();
-	var hash = new System.Text.StringBuilder();
-	byte[] crypto = crypt.ComputeHash(fileBytes);
-	foreach(byte theByte in crypto)
-	{
-		hash.Append(theByte.ToString("x2"));
-	}
-	return hash.ToString();
+		return to_string(round(input, 3)) + " H/s";
 }
 
 static string JoinArrayPieces(string input[])
 {
 	string outStr = "";
-	for (string str : input)
+	for (int i = 0; i < sizeof(input) / sizeof(input[0]); i++)
 	{
-		outStr += str;
+		outStr += input[i];
 	}
 	return outStr;
 }
@@ -842,7 +799,7 @@ static inline string ToUpper(string s) {
 }
 
 std::string ExecuteCommand(const char* cmd) {
-	Console().WriteLine("Rust Compiler: ", Console().Compiler());
+	//Console().WriteLine("Rust Compiler: ", Console().Rust());
 
 	std::array<char, 128> buffer;
 	std::string result;
@@ -854,8 +811,74 @@ std::string ExecuteCommand(const char* cmd) {
 		result += buffer.data();
 		cout << buffer.data();
 	}
-	Console().WriteLine("Done Compiling", Console().Compiler());
-	return result;
+
+	//STARTUPINFO sinfo = { 0 };
+	//PROCESS_INFORMATION pinfo = { 0 };
+	//if (!CreateProcess(cmd, buf, NULL, NULL, FALSE, 0, NULL, NULL, &sinfo, &pinfo)) {
+	//	Fail("Could not launch Vim");
+	//}
+	//if (WaitForSingleObject(pinfo.hProcess, INFINITE) == WAIT_FAILED) {
+	//	Fail("WaitForSingleObject");
+	//}
+
+	//system(("start " + (string)(cmd)).c_str());
+	//Console().WriteLine("Done Compiling", Console().Rust());
+	return "";
+}
+
+boost::process::child ExecuteAsync(string cmd) {
+	namespace bp = boost::process;
+	vector<string> splitCommand = SplitString(cmd, " ");
+	string command = splitCommand[0];
+	string args;
+	for (int i = 0; i < sizeof(splitCommand) / sizeof(splitCommand[0]); i++)
+	{
+		args += splitCommand[i];
+	}
+	bp::child c(bp::search_path(cmd), args);
+
+	std::cout << c.id() << std::endl;
+	// ... do something with ID ...
+
+	return c;
+	//c.wait();
+}
+
+
+json UpgradeBlock(json b, string toVersion)
+{
+	Console().WriteLine("Upgrading block to version " + toVersion, Console().BlockChecker());
+
+	if (toVersion == "v0.01alpha-coin")
+	{
+		b["Version"] = toVersion;
+	}
+
+	return b;
+}
+
+double round(float value, int decimal_places) {
+	const double multiplier = std::pow(10.0, decimal_places);
+	return std::round(value * multiplier) / multiplier;
+}
+
+template <
+	class result_t = std::chrono::milliseconds,
+	class clock_t = std::chrono::steady_clock,
+	class duration_t = std::chrono::milliseconds
+>
+auto since(std::chrono::time_point<clock_t, duration_t> const& start)
+{
+	return std::chrono::duration_cast<result_t>(clock_t::now() - start);
+}
+
+bool StringStartsWith(string str, string substr) {
+	for (int i = 0; i < substr.length(); i++)
+	{
+		if (str[i] != substr[i])
+			return false;
+	}
+	return true;
 }
 
 //bool isAccessibleDir(string pathname)

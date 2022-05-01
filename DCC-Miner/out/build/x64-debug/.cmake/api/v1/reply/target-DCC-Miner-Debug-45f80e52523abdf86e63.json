@@ -15,6 +15,7 @@
 		[
 			"add_executable",
 			"target_link_libraries",
+			"include_directories",
 			"set_property"
 		],
 		"files" : 
@@ -45,7 +46,19 @@
 				"parent" : 0
 			},
 			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 36,
+				"parent" : 0
+			},
+			{
 				"command" : 2,
+				"file" : 0,
+				"line" : 34,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
 				"file" : 0,
 				"line" : 10,
 				"parent" : 0
@@ -66,6 +79,10 @@
 			],
 			"includes" : 
 			[
+				{
+					"backtrace" : 5,
+					"path" : "D:/Code/boost"
+				},
 				{
 					"backtrace" : 2,
 					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/cpr-src/include"
@@ -89,7 +106,7 @@
 			{
 				"backtraces" : 
 				[
-					4
+					6
 				],
 				"standard" : "20"
 			},
@@ -97,8 +114,8 @@
 			[
 				0,
 				2,
-				3,
-				5
+				4,
+				6
 			]
 		}
 	],
@@ -106,11 +123,11 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "cpr::@c4b08663df96993e8225"
+			"id" : "libcurl::@7349aeacaff41deceb36"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "libcurl::@7349aeacaff41deceb36"
+			"id" : "cpr::@c4b08663df96993e8225"
 		}
 	],
 	"id" : "DCC-Miner::@7c9fba58f9b8b12f7bc5",
@@ -134,6 +151,11 @@
 			{
 				"backtrace" : 3,
 				"fragment" : "\"C:\\Program Files\\OpenSSL-Win64\\lib\\VC\\libssl64MDd.lib\"",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "m.lib",
 				"role" : "libraries"
 			},
 			{
@@ -182,8 +204,8 @@
 			[
 				0,
 				2,
-				3,
-				5
+				4,
+				6
 			]
 		},
 		{
@@ -191,14 +213,14 @@
 			"sourceIndexes" : 
 			[
 				1,
-				4
+				3
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				6
+				5
 			]
 		}
 	],
@@ -214,12 +236,6 @@
 			"backtrace" : 1,
 			"path" : "DCC-Miner/Main.h",
 			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "DCC-Miner/BlockUpgrader.cpp",
-			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
@@ -242,6 +258,12 @@
 			"backtrace" : 1,
 			"path" : "DCC-Miner/extlibs/elzip",
 			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/Network.cpp",
+			"sourceGroupIndex" : 0
 		}
 	],
 	"type" : "EXECUTABLE"

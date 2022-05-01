@@ -10,6 +10,8 @@
 #include <locale>
 #include "extlibs/elzip/elzip.hpp"
 #include <openssl/sha.h>
+#include <sys/types.h>
+#include <dirent.h>
 
 int ExtractZip(std::string path, std::string saveAs)
 {
@@ -66,4 +68,20 @@ int sha256_file(char* path, char outputBuffer[65])
     fclose(file);
     free(buffer);
     return 0;
+}
+
+int FileCount(std::string dir)
+{
+    auto dirIter = std::filesystem::directory_iterator(dir);
+    int fileCount = 0;
+
+    for (auto& entry : dirIter)
+    {
+        if (entry.is_regular_file())
+        {
+            ++fileCount;
+        }
+    }
+
+    return fileCount;
 }

@@ -1,0 +1,21 @@
+# ninja log v5
+1	225	6730676074535873	curl-populate-prefix/src/curl-populate-stamp/curl-populate-mkdir	93952adc94813708
+9663	9726	6730676169566227	curl-populate-prefix/src/curl-populate-stamp/curl-populate-update	74fbd9064c3f955b
+1	225	6730676074535873	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-mkdir	93952adc94813708
+225	9663	6730676168906236	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-download	315bfc00ee8b4c77
+225	9663	6730676168906236	curl-populate-prefix/src/curl-populate-stamp/curl-populate-download	315bfc00ee8b4c77
+10051	10142	6730676173686230	curl-populate-prefix/src/curl-populate-stamp/curl-populate-done	c496d0a1d7c0693c
+9663	9726	6730676169566227	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-update	74fbd9064c3f955b
+9727	9791	6730676170186224	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-patch	537221ef2919d1f1
+9727	9791	6730676170186224	curl-populate-prefix/src/curl-populate-stamp/curl-populate-patch	537221ef2919d1f1
+9984	10050	6730676172776232	curl-populate-prefix/src/curl-populate-stamp/curl-populate-test	c9ba0e9953bd6f1
+9791	9858	6730676170856232	curl-populate-prefix/src/curl-populate-stamp/curl-populate-configure	edbee0941f5092a9
+9858	9920	6730676171486237	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-build	b8e5f2eb1212bf8c
+9791	9858	6730676170856232	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-configure	edbee0941f5092a9
+9858	9920	6730676171486237	curl-populate-prefix/src/curl-populate-stamp/curl-populate-build	b8e5f2eb1212bf8c
+9921	9984	6730676172126236	curl-populate-prefix/src/curl-populate-stamp/curl-populate-install	aef3901839c7a45e
+9921	9984	6730676172126236	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-install	aef3901839c7a45e
+10051	10142	6730676173686230	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/curl-subbuild/CMakeFiles/curl-populate-complete	c496d0a1d7c0693c
+9984	10050	6730676172776232	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-test	c9ba0e9953bd6f1
+10051	10142	6730676173686230	CMakeFiles/curl-populate-complete	c496d0a1d7c0693c
+10051	10142	6730676173686230	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-done	c496d0a1d7c0693c

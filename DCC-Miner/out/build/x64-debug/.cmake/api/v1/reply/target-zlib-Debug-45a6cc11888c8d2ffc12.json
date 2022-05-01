@@ -1,0 +1,1141 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "zlib.dll"
+		},
+		{
+			"path" : "_deps/zlib-build/zlib.lib"
+		},
+		{
+			"path" : "zlib.pdb"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"install",
+			"add_definitions",
+			"cpr_option",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"out/build/x64-debug/_deps/zlib-src/CMakeLists.txt",
+			"out/build/x64-debug/_deps/cpr-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 985,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 1088,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 29,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 365,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 309,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 286,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 137,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 775,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 768,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 824,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 805,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 798,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 788,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 794,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 817,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 129,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 488,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 487,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 995,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "CPR_ENABLE_SSL"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "NO_FSEEKO"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "UNALIGNED64_OK"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "UNALIGNED_OK"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "WITH_GZFILEOP"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "X86_AVX2"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "X86_AVX2_ADLER32"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "X86_AVX_CHUNKSET"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "X86_FEATURES"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "X86_PCLMULQDQ_CRC"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "X86_SSE2"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "X86_SSE2_CHUNKSET"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "X86_SSE2_SLIDEHASH"
+				},
+				{
+					"backtrace" : 14,
+					"define" : "X86_SSE42_CMP_STR"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "X86_SSE42_CRC_HASH"
+				},
+				{
+					"backtrace" : 16,
+					"define" : "X86_SSE42_CRC_INTRIN"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "X86_SSSE3"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "X86_SSSE3_ADLER32"
+				},
+				{
+					"backtrace" : 18,
+					"define" : "ZLIB_COMPAT"
+				},
+				{
+					"define" : "ZLIB_DLL"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "_CRT_NONSTDC_NO_DEPRECATE"
+				},
+				{
+					"backtrace" : 20,
+					"define" : "_CRT_SECURE_NO_DEPRECATE"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 21,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/zlib-build"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/zlib-src"
+				}
+			],
+			"language" : "C",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "99"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				22,
+				29,
+				30,
+				58,
+				59,
+				60
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG"
+				},
+				{
+					"fragment" : " "
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "CPR_ENABLE_SSL"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "NO_FSEEKO"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "UNALIGNED64_OK"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "UNALIGNED_OK"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "WITH_GZFILEOP"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "X86_AVX2"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "X86_AVX2_ADLER32"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "X86_AVX_CHUNKSET"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "X86_FEATURES"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "X86_PCLMULQDQ_CRC"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "X86_SSE2"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "X86_SSE2_CHUNKSET"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "X86_SSE2_SLIDEHASH"
+				},
+				{
+					"backtrace" : 14,
+					"define" : "X86_SSE42_CMP_STR"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "X86_SSE42_CRC_HASH"
+				},
+				{
+					"backtrace" : 16,
+					"define" : "X86_SSE42_CRC_INTRIN"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "X86_SSSE3"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "X86_SSSE3_ADLER32"
+				},
+				{
+					"backtrace" : 18,
+					"define" : "ZLIB_COMPAT"
+				},
+				{
+					"define" : "ZLIB_DLL"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "_CRT_NONSTDC_NO_DEPRECATE"
+				},
+				{
+					"backtrace" : 20,
+					"define" : "_CRT_SECURE_NO_DEPRECATE"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 21,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/zlib-build"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/zlib-src"
+				}
+			],
+			"language" : "C",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "99"
+			},
+			"sourceIndexes" : 
+			[
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				31
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG"
+				},
+				{
+					"fragment" : "   "
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "CPR_ENABLE_SSL"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "NO_FSEEKO"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "UNALIGNED64_OK"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "UNALIGNED_OK"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "WITH_GZFILEOP"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "X86_AVX2"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "X86_AVX2_ADLER32"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "X86_AVX_CHUNKSET"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "X86_FEATURES"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "X86_PCLMULQDQ_CRC"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "X86_SSE2"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "X86_SSE2_CHUNKSET"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "X86_SSE2_SLIDEHASH"
+				},
+				{
+					"backtrace" : 14,
+					"define" : "X86_SSE42_CMP_STR"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "X86_SSE42_CRC_HASH"
+				},
+				{
+					"backtrace" : 16,
+					"define" : "X86_SSE42_CRC_INTRIN"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "X86_SSSE3"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "X86_SSSE3_ADLER32"
+				},
+				{
+					"backtrace" : 18,
+					"define" : "ZLIB_COMPAT"
+				},
+				{
+					"define" : "ZLIB_DLL"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "_CRT_NONSTDC_NO_DEPRECATE"
+				},
+				{
+					"backtrace" : 20,
+					"define" : "_CRT_SECURE_NO_DEPRECATE"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 21,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/zlib-build"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/zlib-src"
+				}
+			],
+			"language" : "C",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "99"
+			},
+			"sourceIndexes" : 
+			[
+				32
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-DWIN32 -D_DEBUG"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "CPR_ENABLE_SSL"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "NO_FSEEKO"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "UNALIGNED64_OK"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "UNALIGNED_OK"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "WITH_GZFILEOP"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "X86_AVX2"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "X86_AVX2_ADLER32"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "X86_AVX_CHUNKSET"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "X86_FEATURES"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "X86_PCLMULQDQ_CRC"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "X86_SSE2"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "X86_SSE2_CHUNKSET"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "X86_SSE2_SLIDEHASH"
+				},
+				{
+					"backtrace" : 14,
+					"define" : "X86_SSE42_CMP_STR"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "X86_SSE42_CRC_HASH"
+				},
+				{
+					"backtrace" : 16,
+					"define" : "X86_SSE42_CRC_INTRIN"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "X86_SSSE3"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "X86_SSSE3_ADLER32"
+				},
+				{
+					"backtrace" : 18,
+					"define" : "ZLIB_COMPAT"
+				},
+				{
+					"define" : "ZLIB_DLL"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "_CRT_NONSTDC_NO_DEPRECATE"
+				},
+				{
+					"backtrace" : 20,
+					"define" : "_CRT_SECURE_NO_DEPRECATE"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 21,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/zlib-build"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/zlib-src"
+				}
+			],
+			"language" : "RC",
+			"sourceIndexes" : 
+			[
+				33
+			]
+		}
+	],
+	"id" : "zlib::@c9556b0b6bf47963f9da",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug/lib"
+			},
+			{
+				"backtrace" : 2,
+				"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug/bin"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/machine:x64 /debug /INCREMENTAL",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "C"
+	},
+	"name" : "zlib",
+	"nameOnDisk" : "zlib.dll",
+	"paths" : 
+	{
+		"build" : "_deps/zlib-build",
+		"source" : "out/build/x64-debug/_deps/zlib-src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				58,
+				59,
+				60
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				20,
+				21,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/adler32.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/chunkset.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/compare258.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/compress.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/crc32.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/crc32_comb.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/deflate.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/deflate_fast.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/deflate_medium.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/deflate_quick.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/deflate_slow.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/functable.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/infback.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/inffast.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/inflate.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/inftrees.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/insert_string.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/trees.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/uncompr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/zutil.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/arch/x86/x86.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/fallback_builtins.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/arch/x86/x86.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/arch/x86/slide_avx.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/arch/x86/chunkset_avx.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/arch/x86/compare258_avx.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/arch/x86/adler32_avx.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/arch/x86/insert_string_sse.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/arch/x86/compare258_sse.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/arch/x86/chunkset_sse.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/arch/x86/slide_sse.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/arch/x86/adler32_ssse3.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 2,
+			"path" : "out/build/x64-debug/_deps/zlib-src/arch/x86/crc_folding.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 3,
+			"path" : "out/build/x64-debug/_deps/zlib-src/win32/zlib1.rc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-build/zconf.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/zlib.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/adler32_p.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/chunkset_tpl.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/crc32_p.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/crc32_tbl.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/crc32_comb_tbl.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/deflate.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/deflate_p.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/functable.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/inffast.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/inffixed_tbl.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/inflate.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/inflate_p.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/inftrees.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/insert_string_tpl.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/match_tpl.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/trees.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/trees_emit.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/trees_tbl.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/zbuild.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/zendian.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/zutil.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "out/build/x64-debug/_deps/zlib-src/gzguts.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/gzlib.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/gzread.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "out/build/x64-debug/_deps/zlib-src/gzwrite.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "SHARED_LIBRARY"
+}

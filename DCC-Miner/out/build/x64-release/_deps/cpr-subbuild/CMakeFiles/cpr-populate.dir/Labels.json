@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/cpr-subbuild/CMakeFiles/cpr-populate"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/cpr-subbuild/CMakeFiles/cpr-populate.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/cpr-subbuild/CMakeFiles/cpr-populate-complete.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-build.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-configure.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-download.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-install.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-patch.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-test.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"cpr-populate"
+		],
+		"name" : "cpr-populate"
+	}
+}

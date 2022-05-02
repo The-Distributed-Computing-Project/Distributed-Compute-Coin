@@ -107,7 +107,7 @@ int main()
 
 	if (!fs::exists("./config.cfg"))
 	{
-		ofstream configFile("./config.cfg");
+		std::ofstream configFile("./config.cfg");
 		if (configFile.is_open())
 		{
 			configFile << "";
@@ -136,7 +136,7 @@ int main()
 		std::string stayLoggedIn = console.ReadLine();
 		if (ToUpper(stayLoggedIn) == "Y")
 		{
-			ofstream configFile("./config.cfg");
+			std::ofstream configFile("./config.cfg");
 			if (configFile.is_open())
 			{
 				configFile << walletInfo["Address"];
@@ -150,7 +150,7 @@ int main()
 
 	// Get public IP address and PORT
 	Http http;
-	vector<std::string> args;
+	std::vector<std::string> args;
 	std::string ipPortCombo = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/ipget.php", args);
 	endpointAddr = SplitString(ipPortCombo, ":")[0];
 	endpointPort = SplitString(ipPortCombo, ":")[1];
@@ -257,7 +257,7 @@ int main()
 
 				console.WriteLine("Blockchain length: " + (walletInfo["BlockchainLength"] + 1), console.Mining());
 
-				std::ifstream blockFile("./wwwdata/pendingblocks/block" + to_string(walletInfo["BlockchainLength"] + 1) + ".dccblock");
+				std::ifstream blockFile("./wwwdata/pendingblocks/block" + std::to_string(walletInfo["BlockchainLength"] + 1) + ".dccblock");
 				std::stringstream blockBuffer;
 				blockBuffer << blockFile.rdbuf();
 				std::string content = blockBuffer.str();
@@ -363,7 +363,7 @@ json GetInfo()
 
 	Http http;
 	http.blockVersion = blockVersion;
-	vector<std::string> args = { "query=getInfo", "fromAddress=" + walletInfo["Address"] };
+	std::vector<std::string> args = { "query=getInfo", "fromAddress=" + walletInfo["Address"] };
 	std::string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 	return json::parse(html);
 
@@ -400,7 +400,7 @@ int WriteProgramConfig()
 {
 	try
 	{
-		ofstream configFile("./wwwdata/programs/" + id + ".cfg");
+		std::ofstream configFile("./wwwdata/programs/" + id + ".cfg");
 		if (configFile.is_open())
 		{
 			configFile << programConfig.dump();
@@ -423,7 +423,7 @@ int GetProgram()
 		{
 			id = SplitString(SplitString((item.path()).string(), ".cfg")[0], "/programs/")[1];
 			life = GetProgramLifeLeft(id);
-			console.WriteLine("Program life is " + to_string(life));
+			console.WriteLine("Program life is " + std::to_string(life));
 		}
 	}
 
@@ -455,7 +455,7 @@ int GetProgram()
 
 			Http http;
 			http.blockVersion = blockVersion;
-			vector<std::string> args = { "query=assignProgram" };
+			std::vector<std::string> args = { "query=assignProgram" };
 			std::string assignedProgram = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
 			console.WriteLine("Assigning Program...", console.Network());
@@ -486,7 +486,7 @@ int GetProgram()
 
 		Http http1;
 		http1.blockVersion = blockVersion;
-		vector<std::string> args1 = { "query=hashProgram", "programID=" + id };
+		std::vector<std::string> args1 = { "query=hashProgram", "programID=" + id };
 		std::string theirHash = http1.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args1);
 
 		if (ourHash != theirHash)
@@ -522,7 +522,7 @@ float GetProgramLifeLeft(std::string id)
 	{
 		Http http;
 		http.blockVersion = blockVersion;
-		vector<std::string> args = { "query=getProgramLifeLeft", "programID=" + id };
+		std::vector<std::string> args = { "query=getProgramLifeLeft", "programID=" + id };
 		std::string html = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
 		if (html.find("ERR") != std::string::npos || html == "")
@@ -548,8 +548,8 @@ int SyncPending(int whichBlock)
 
 		//console.WriteLine("Synced pending: " + whichBlock, console.Mining());
 		//File.WriteAllText("./wwwdata/pendingblocks/block" + to_string(whichBlock) + ".dccblock", html);
-		DownloadFile("http://api.achillium.us.to/dcc/?query=getPendingBlock&blockNum=" + to_string(whichBlock) + "&Version=" + blockVersion,
-			"./wwwdata/pendingblocks/block" + to_string(whichBlock) + ".dccblock",
+		DownloadFile("http://api.achillium.us.to/dcc/?query=getPendingBlock&blockNum=" + std::to_string(whichBlock) + "&Version=" + blockVersion,
+			"./wwwdata/pendingblocks/block" + std::to_string(whichBlock) + ".dccblock",
 			true);
 
 		return 1;
@@ -572,8 +572,8 @@ int SyncBlock(int whichBlock)
 		//console.WriteLine("Synced: " + whichBlock);
 		//File.WriteAllText("./wwwdata/blockchain/block" + to_string(whichBlock) + ".dccblock", html);
 
-		DownloadFile("http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + to_string(whichBlock) + "&Version=" + blockVersion,
-			"./wwwdata/blockchain/block" + to_string(whichBlock) + ".dccblock",
+		DownloadFile("http://api.achillium.us.to/dcc/?query=getBlock&blockNum=" + std::to_string(whichBlock) + "&Version=" + blockVersion,
+			"./wwwdata/blockchain/block" + std::to_string(whichBlock) + ".dccblock",
 			true);
 
 		return 1;
@@ -599,7 +599,7 @@ bool IsChainValid()
 
 	for (int i = 1; i < chainLength; i++)
 	{
-		std::ifstream t("./wwwdata/blockchain/block" + to_string(i) + ".dccblock");
+		std::ifstream t("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 		std::stringstream buffer;
 		buffer << t.rdbuf();
 		std::string content = buffer.str();
@@ -610,7 +610,7 @@ bool IsChainValid()
 		if (o["Version"] == nullptr || o["Version"] == "" || o["Version"] != blockVersion)
 		{
 			UpgradeBlock(o, blockVersion);
-			ofstream blockFile("./wwwdata/blockchain/block" + to_string(i) + ".dccblock");
+			std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 			if (blockFile.is_open())
 			{
 				blockFile << o.dump();
@@ -624,7 +624,7 @@ bool IsChainValid()
 		std::string transactions = JoinArrayPieces(trans);
 
 
-		std::ifstream td("./wwwdata/blockchain/block" + to_string(i + 1) + ".dccblock");
+		std::ifstream td("./wwwdata/blockchain/block" + std::to_string(i + 1) + ".dccblock");
 		std::stringstream bufferd;
 		bufferd << td.rdbuf();
 		std::string nextBlockText = bufferd.str();
@@ -635,7 +635,7 @@ bool IsChainValid()
 		if (o["Version"] == nullptr || o["Version"] == "" || o["Version"] != blockVersion)
 		{
 			UpgradeBlock(o, blockVersion);
-			ofstream blockFile("./wwwdata/blockchain/block" + to_string(i + 1) + ".dccblock");
+			std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i + 1) + ".dccblock");
 			if (blockFile.is_open())
 			{
 				blockFile << o.dump();
@@ -686,14 +686,14 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 				hashStart = std::chrono::steady_clock::now();
 				hashesAtStart = nonce;
 
-				console.Write("\r" + to_string(std::round(since(startTime).count() * 1000)) + " :	" + to_string(nonce) + " # " + hash);
+				console.Write("\r" + std::to_string(std::round(since(startTime).count() * 1000)) + " :	" + std::to_string(nonce) + " # " + hash);
 				console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
 			}
 
 
 			nonce++;
 			char sha256OutBuffer[65];
-			sha256_string((char*)(lastHash + transactionHistory + to_string(nonce)).c_str(), sha256OutBuffer);
+			sha256_string((char*)(lastHash + transactionHistory + std::to_string(nonce)).c_str(), sha256OutBuffer);
 			hash = sha256OutBuffer;
 
 			if (!cargoProc.running())
@@ -708,13 +708,13 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 		//console.Clear();
 
 		char sha256OutBuffer[65];
-		sha256_string((char*)(lastHash + transactionHistory + to_string(nonce)).c_str(), sha256OutBuffer);
+		sha256_string((char*)(lastHash + transactionHistory + std::to_string(nonce)).c_str(), sha256OutBuffer);
 		hash = sha256OutBuffer;
-		std::string url = "http://api.achillium.us.to/dcc/?query=submitBlock&blockNum=" + to_string(blockNum) + "&nonce=" + to_string(nonce) + "&minedHash=" + hash + "&fromAddress=" + (string)walletInfo["Address"] + "&programID=" + id + "&time=" + to_string(since(startTime).count() / 1000.0f) + "&Version=" + blockVersion;
+		std::string url = "http://api.achillium.us.to/dcc/?query=submitBlock&blockNum=" + std::to_string(blockNum) + "&nonce=" + std::to_string(nonce) + "&minedHash=" + hash + "&fromAddress=" + (std::string)walletInfo["Address"] + "&programID=" + id + "&time=" + std::to_string(since(startTime).count() / 1000.0f) + "&Version=" + blockVersion;
 
 		std::string s = UploadFile(url, "./wwwdata/programs//" + id + "/out.txt");
 
-		console.WriteLine(s + " in " + to_string(std::round(since(startTime).count() * 1000)) + " s.", console.Mining());
+		console.WriteLine(s + " in " + std::to_string(std::round(since(startTime).count() * 1000)) + " s.", console.Mining());
 
 		return 1;
 	}
@@ -731,7 +731,7 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 
 	auto startTime = std::chrono::steady_clock::now();
 
-	std::ifstream td("./wwwdata/blockchain/block" + to_string(blockNum) + ".dccblock");
+	std::ifstream td("./wwwdata/blockchain/block" + std::to_string(blockNum) + ".dccblock");
 	std::stringstream bufferd;
 	bufferd << td.rdbuf();
 	std::string nextBlockText = bufferd.str();
@@ -755,18 +755,18 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 			hashStart = std::chrono::steady_clock::now();
 			hashesAtStart = nonce;
 
-			console.Write("\r" + to_string(std::round(since(startTime).count() * 1000)) + " :	" + to_string(nonce) + " # " + hash);
+			console.Write("\r" + std::to_string(std::round(since(startTime).count() * 1000)) + " :	" + std::to_string(nonce) + " # " + hash);
 			console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
 		}
 
 
 		nonce++;
 		char sha256OutBuffer[65];
-		sha256_string((char*)(lastHash + transactions + to_string(nonce)).c_str(), sha256OutBuffer);
+		sha256_string((char*)(lastHash + transactions + std::to_string(nonce)).c_str(), sha256OutBuffer);
 		hash = sha256OutBuffer;
 	}
 
-	console.WriteLine("Debug mined in " + to_string(std::round(since(startTime).count() * 1000)) + " s.", console.Mining());
+	console.WriteLine("Debug mined in " + std::to_string(std::round(since(startTime).count() * 1000)) + " s.", console.Mining());
 
 	return 0;
 }
@@ -805,7 +805,7 @@ std::string ExecuteCommand(const char* cmd)
 	}
 	while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
 		result += buffer.data();
-		cout << buffer.data();
+		std::cout << buffer.data();
 	}
 
 	//STARTUPINFO sinfo = { 0 };
@@ -825,7 +825,7 @@ std::string ExecuteCommand(const char* cmd)
 boost::process::child ExecuteAsync(std::string cmd)
 {
 	namespace bp = boost::process;
-	vector<std::string> splitCommand = SplitString(cmd, " ");
+	std::vector<std::string> splitCommand = SplitString(cmd, " ");
 	std::string command = splitCommand[0];
 	std::string args;
 	for (int i = 0; i < sizeof(splitCommand) / sizeof(splitCommand[0]); i++)
@@ -857,13 +857,13 @@ json UpgradeBlock(json b, std::string toVersion)
 std::string FormatHPS(float input)
 {
 	if (input > 1000000000.0f)
-		return to_string(round(input / 1000000000.0f, 3)) + " gH/s";
+		return std::to_string(round(input / 1000000000.0f, 3)) + " gH/s";
 	else if (input > 1000000.0f)
-		return to_string(round(input / 1000000.0f, 3)) + " mH/s";
+		return std::to_string(round(input / 1000000.0f, 3)) + " mH/s";
 	else if (input > 1000.0f)
-		return to_string(round(input / 1000.0f, 3)) + " kH/s";
+		return std::to_string(round(input / 1000.0f, 3)) + " kH/s";
 	else
-		return to_string(round(input, 3)) + " H/s";
+		return std::to_string(round(input, 3)) + " H/s";
 }
 
 double round(float value, int decimal_places)

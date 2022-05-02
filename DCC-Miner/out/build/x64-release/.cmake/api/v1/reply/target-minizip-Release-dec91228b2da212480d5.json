@@ -1,0 +1,374 @@
+{
+	"archive" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/machine:x64",
+				"role" : "flags"
+			}
+		]
+	},
+	"artifacts" : 
+	[
+		{
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/libminizip.lib"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"install",
+			"target_link_libraries",
+			"add_compile_options",
+			"target_compile_definitions",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"DCC-Miner/extlibs/elzip/extlibs/minizip/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 698,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 733,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 720,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 667,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 722,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 723,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "/Ox"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "/Os"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "HAVE_INTTYPES_H"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "HAVE_STDINT_H"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "HAVE_ZLIB"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "MZ_ZIP_NO_CRYPTO"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "MZ_ZIP_NO_ENCRYPTION"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "NO_FSEEKO"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "_CRT_SECURE_NO_DEPRECATE"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/extlibs/minizip/lib/zlib"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/zlib-build"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/extlibs/minizip"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "zlibstatic::@c9556b0b6bf47963f9da"
+		}
+	],
+	"id" : "minizip::@6fb8e7a9e293dcc904a7",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "lib"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-release"
+		}
+	},
+	"name" : "minizip",
+	"nameOnDisk" : "libminizip.lib",
+	"paths" : 
+	{
+		"build" : "DCC-Miner/extlibs/elzip/extlibs/minizip",
+		"source" : "DCC-Miner/extlibs/elzip/extlibs/minizip"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_crypt.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_os.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_strm.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_strm_buf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_strm_mem.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_strm_split.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_zip.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_zip_rw.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_strm_zlib.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_os_win32.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_strm_os_win32.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_compat.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_os.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_crypt.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_strm.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_strm_buf.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_strm_mem.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_strm_split.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_strm_os.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_zip.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_zip_rw.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_strm_zlib.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/mz_compat.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/zip.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip/extlibs/minizip/unzip.h",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

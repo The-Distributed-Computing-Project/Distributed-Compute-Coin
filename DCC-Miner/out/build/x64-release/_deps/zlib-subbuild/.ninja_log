@@ -1,0 +1,21 @@
+# ninja log v5
+1	227	6732331821209534	zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-mkdir	e0ffb5507a490c79
+1	227	6732331821209534	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-mkdir	e0ffb5507a490c79
+228	4854	6732331867462564	zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-download	448e292082094c18
+228	4854	6732331867462564	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-download	448e292082094c18
+4854	6320	0	zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-update	260f15e62b293e16
+4854	6320	0	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-update	260f15e62b293e16
+6388	6496	6732331883901110	zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-patch	71ce8d0e1962c315
+6388	6496	6732331883901110	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-patch	71ce8d0e1962c315
+6496	6566	6732331884591118	zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-configure	51956138e125a014
+6496	6566	6732331884591118	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-configure	51956138e125a014
+6567	6658	6732331885351133	zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-build	22de42bf5bf4a17c
+6567	6658	6732331885351133	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-build	22de42bf5bf4a17c
+6659	6734	6732331886261150	zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-install	b09facccdf61d279
+6659	6734	6732331886261150	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-install	b09facccdf61d279
+6734	6797	6732331886911113	zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-test	1eac439b89a9c8cc
+6734	6797	6732331886911113	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-test	1eac439b89a9c8cc
+6797	6888	6732331887811113	CMakeFiles/zlib-populate-complete	4f099d48123f9305
+6797	6888	6732331887811113	zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-done	4f099d48123f9305
+6797	6888	6732331887811113	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/zlib-subbuild/CMakeFiles/zlib-populate-complete	4f099d48123f9305
+6797	6888	6732331887811113	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-release/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-done	4f099d48123f9305

@@ -1,0 +1,14 @@
+prefix=D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-release
+exec_prefix=D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-release
+libdir=D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-release/lib
+sharedlibdir=D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-release/lib
+includedir=D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-release/include
+
+Name: minizip
+Description: Minizip zip file manipulation library
+Version: 3.0.3
+
+Requires: zlib
+Libs: -L${libdir} -L${sharedlibdir} -lminizip
+Libs.private:
+Cflags: -I${includedir}

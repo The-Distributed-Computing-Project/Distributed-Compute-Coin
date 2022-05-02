@@ -2,8 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\DCC-Miner",
+    "\\DCC-Miner\\curl",
+    "\\DCC-Miner\\curl\\lib",
     "\\DCC-Miner\\extlibs",
-    "\\DCC-Miner\\extlibs\\elzip"
+    "\\DCC-Miner\\extlibs\\curl",
+    "\\DCC-Miner\\extlibs\\curl\\lib",
+    "\\DCC-Miner\\include",
+    "\\DCC-Miner\\include\\lib"
   ],
   "SelectedNode": "\\DCC-Miner\\Main.cpp",
   "PreviewInSolutionExplorer": false

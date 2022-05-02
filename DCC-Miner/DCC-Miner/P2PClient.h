@@ -2,7 +2,7 @@
 #define p2pclient_h
 
 #include <string>
-using namespace std;
+//using namespace std;
 //
 //std::string NormalizedIPString(SOCKADDR_IN addr);
 //

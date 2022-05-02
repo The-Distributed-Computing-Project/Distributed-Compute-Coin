@@ -38,3 +38,40 @@ set(Boost_USE_STATIC_RUNTIME OFF)
 FIND_PACKAGE(Boost 1.78.0 COMPONENTS program_options) 
 include_directories(${Boost_INCLUDE_DIRS}) 
 target_link_libraries(DCC-Miner ${Boost_LIBRARIES} OpenSSL::SSL cpr::cpr elzip)
+
+
+#find_package(CURL REQUIRED) 
+#add_executable (DCC-Miner convert.cpp)
+#include_directories(${CURL_INCLUDE_DIR})
+#target_link_libraries(DCC-Miner ${CURL_LIBRARIES})
+
+set(CURL_INCLUDE_DIR include/include)
+set(CURL_LIBRARY include/lib/libcurl_a_debug)
+
+add_definitions(-DCURL_STATICLIB)
+
+find_package(CURL REQUIRED)
+include_directories(${CURL_INCLUDE_DIR})
+
+target_link_libraries(DCC-Miner ${CURL_LIBRARY})
+
+# find_package(CURL REQUIRED)
+# if (WIN32)
+#   list(LENGTH CURL_LIBRARY CURL_LIBRARY_LENGTH)
+#   if (CURL_LIBRARY_LENGTH EQUAL 1)
+#     set(CURL_LIBRARY_DEBUG_LIB   ${CURL_LIBRARY})
+#      set(CURL_LIBRARY_RELEASE_LIB ${CURL_LIBRARY_DEBUG_LIB}/../../../lib/libcurl.lib)
+#       get_filename_component(CURL_LIBRARY_RELEASE_LIB ${CURL_LIBRARY_RELEASE_LIB} REALPATH)
+#       unset(CURL_LIBRARY CACHE)
+#       unset(CURL_LIBRARY)
+#       unset(CURL_LIBRARIES  CACHE)
+#       unset(CURL_LIBRARIES)
+#       set(CURL_LIBRARY "debug;${CURL_LIBRARY_DEBUG_LIB};optimized;${CURL_LIBRARY_RELEASE_LIB}")
+#       set(CURL_LIBRARIES ${CURL_LIBRARY})
+#   endif()
+# endif()
+
+#add_library(elzip SHARED IMPORTED)
+#set_target_properties(elzip PROPERTIES
+#    IMPORTED_LOCATION "extlibs/zlib1.dll"
+#)

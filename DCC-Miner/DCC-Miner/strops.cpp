@@ -3,7 +3,7 @@
 #include <vector>
 #include "strops.h"
 
-using namespace std;
+//using namespace std;
 
 //string JoinArrayPieces(string input[]);
 //vector<string> SplitString(string str, string delim);
@@ -25,7 +25,7 @@ std::string JoinArrayPieces(std::string input[])
 
 std::vector<std::string> SplitString(std::string str, std::string delim)
 {
-	vector<std::string> words{};
+	std::vector<std::string> words{};
 
 	size_t pos = 0;
 	while ((pos = str.find(delim)) != std::string::npos) {

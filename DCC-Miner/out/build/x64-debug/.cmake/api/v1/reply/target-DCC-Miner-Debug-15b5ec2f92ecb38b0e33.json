@@ -1,0 +1,375 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "DCC-Miner/DCC-Miner.exe"
+		},
+		{
+			"path" : "DCC-Miner/DCC-Miner.pdb"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"target_link_libraries",
+			"add_definitions",
+			"include_directories",
+			"set_property"
+		],
+		"files" : 
+		[
+			"DCC-Miner/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 40,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 56,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 51,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 39,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 54,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1"
+				},
+				{
+					"fragment" : "-std:c++20"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 4,
+					"define" : "CURL_STATICLIB"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 5,
+					"path" : "D:/Code/boost"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/include/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/cpr-src/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/cpr-build/cpr_generated_includes"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/curl-src/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/include/elzip"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/extlibs"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/extlibs/minizip"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "C:/Program Files/OpenSSL-Win64/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					7
+				],
+				"standard" : "20"
+			},
+			"sourceIndexes" : 
+			[
+				3,
+				5,
+				7,
+				9,
+				11,
+				13
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "minizip::@6fb8e7a9e293dcc904a7"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "elzip::@19691fce201f55d1b6e9"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "libcurl::@7349aeacaff41deceb36"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "zlib::@c9556b0b6bf47963f9da"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "cpr::@c4b08663df96993e8225"
+		}
+	],
+	"id" : "DCC-Miner::@7c9fba58f9b8b12f7bc5",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:console",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "\"C:\\Program Files\\OpenSSL-Win64\\lib\\VC\\libssl64MDd.lib\"",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "_deps\\cpr-build\\cpr\\cpr.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "DCC-Miner\\extlibs\\elzip\\elzip.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "include/lib/libcurl_a_debug.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "\"C:\\Program Files\\OpenSSL-Win64\\lib\\VC\\libcrypto64MDd.lib\"",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "_deps\\curl-build\\lib\\libcurl-d_imp.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "winmm.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "ws2_32.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "advapi32.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "crypt32.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "DCC-Miner\\extlibs\\elzip\\extlibs\\minizip\\libminizip.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "_deps\\zlib-build\\zlib.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "DCC-Miner",
+	"nameOnDisk" : "DCC-Miner.exe",
+	"paths" : 
+	{
+		"build" : "DCC-Miner",
+		"source" : "DCC-Miner"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1,
+				2,
+				4,
+				6,
+				8,
+				10,
+				12
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				3,
+				5,
+				7,
+				9,
+				11,
+				13
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/extlibs/elzip",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/json.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/Main.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/Main.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/Console.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/Console.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/FileManip.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/FileManip.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/Network.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/Network.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/strops.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/strops.cpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DCC-Miner/P2PClient.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "DCC-Miner/P2PClient.cpp",
+			"sourceGroupIndex" : 2
+		}
+	],
+	"type" : "EXECUTABLE"
+}

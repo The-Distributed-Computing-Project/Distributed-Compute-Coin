@@ -2,42 +2,40 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Console.cpp"
+#include "Console.h"
+//#include "P2PClient.cpp"
 #include <Urlmon.h>
 #include <curl/curl.h>
-#include <cpr/cpr.h>
-using namespace std;
 
+#include "Network.h"
+#include "Console.h"
 
-class Http
+//using namespace std;
+
+//std::string Http::StartHttpWebRequest(std::string URL, vector<std::string> args_vals)
+//{
+//	std::string html = "";
+//
+//	std::string url = URL;
+//	for (int i = 0; i < args_vals.size(); i++)
+//	{
+//		if (i > 0)
+//			url += "&";
+//		url += args_vals.at(i);
+//	}
+//	if (blockVersion != "")
+//		url += "&Version=" + blockVersion;
+//
+//	auto response = cpr::Get(cpr::Url{ url });
+//	html = response.text;
+//
+//	Console().WriteLine(html, Console().Debug());
+//
+//	return html;
+//}
+
+int DownloadFile(std::string url, std::string saveAs)
 {
-public:
-	string blockVersion = "";
-
-	string StartHttpWebRequest(string URL, vector<string> args_vals)
-	{
-		string html = "";
-
-		string url = URL;
-		for (int i = 0; i < args_vals.size(); i++)
-		{
-			if (i > 0)
-				url += "&";
-			url += args_vals.at(i);
-		}
-		if (blockVersion != "")
-			url += "&Version=" + blockVersion;
-		
-		auto response = cpr::Get(cpr::Url{ url });
-		html = response.text;
-
-		Console().WriteLine(html, Console().Debug());
-
-		return html;
-	}
-};
-
-int DownloadFile(string url, string saveAs) {
 	CURL* curl;
 	FILE* fp;
 	CURLcode res;
@@ -54,7 +52,8 @@ int DownloadFile(string url, string saveAs) {
 	}
 	return 0;
 }
-int DownloadFile(string url, string saveAs, bool printStatus) {
+int DownloadFile(std::string url, std::string saveAs, bool printStatus)
+{
 	CURL* curl;
 	FILE* fp;
 	CURLcode res;
@@ -76,7 +75,7 @@ int DownloadFile(string url, string saveAs, bool printStatus) {
 	return 0;
 }
 
-string UploadFile(string url, string filePath)
+std::string UploadFile(std::string url, std::string filePath)
 {
 	cpr::Response r = cpr::Post(cpr::Url{ url },
 		cpr::Multipart{ {"file", cpr::File{filePath}} });
@@ -122,3 +121,8 @@ string UploadFile(string url, string filePath)
 
 	//curl_easy_cleanup(curl);
 }
+
+//string GetPeerAddress()
+//{
+//
+//}

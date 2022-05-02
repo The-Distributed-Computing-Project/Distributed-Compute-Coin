@@ -1,21 +1,25 @@
 
 #include <iostream>
-#include "Console.cpp"
+//#include "Console.cpp"
 #include <string>
 #include <vector>
 #include <filesystem>
 #include <fstream>
-#include <algorithm> 
-#include <cctype>
-#include <locale>
-#include "extlibs/elzip/elzip.hpp"
-#include <openssl/sha.h>
-#include <sys/types.h>
-#include <dirent.h>
+#include "FileManip.h"
+
+//#include <dirent.h>
 
 int ExtractZip(std::string path, std::string saveAs)
 {
-	elz::extractZip(path, saveAs);
+    try
+    {
+        elz::extractZip(path, saveAs);
+    }
+    catch (const std::exception&)
+    {
+        return 1;
+    }
+    return 0;
 }
 
 void sha256_hash_string(unsigned char hash[SHA256_DIGEST_LENGTH], char outputBuffer[65])

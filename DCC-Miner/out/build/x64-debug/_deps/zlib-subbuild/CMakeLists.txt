@@ -21,8 +21,8 @@ set_property(GLOBAL PROPERTY _CMAKE_FindGit_GIT_EXECUTABLE_VERSION
 
 include(ExternalProject)
 ExternalProject_Add(zlib-populate
-                     "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/zlib-ng/zlib-ng" "GIT_TAG" "2.0.5"
-                    SOURCE_DIR          "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/zlib-src"
+                     "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/madler/zlib" "GIT_TAG" "master"
+                    SOURCE_DIR          "D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/extlibs/minizip/lib/zlib"
                     BINARY_DIR          "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/zlib-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""

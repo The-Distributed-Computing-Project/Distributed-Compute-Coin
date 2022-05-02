@@ -34,6 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
+  include("D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/DCC-Miner/extlibs/elzip/cmake_install.cmake")
   include("D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/cpr-build/cmake_install.cmake")
 
 endif()

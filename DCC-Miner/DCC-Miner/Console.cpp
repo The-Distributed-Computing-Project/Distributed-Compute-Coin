@@ -2,141 +2,99 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "Console.h"
 
-class Console
+std::string Console::colorText(std::string name, std::string color) {
+	return color + name + resetColor;
+}
+std::string Console::colorText(std::string name, std::string fgColor, std::string bgColor) {
+	return fgColor + bgColor + name + resetColor;
+}
+
+std::string Console::Network()
 {
-public:
-	// Foreground colors
-	const std::string blackFGColor = "\x1B[30m";
-	const std::string redFGColor = "\x1B[31m";
-	const std::string greenFGColor = "\x1B[32m";
-	const std::string yellowFGColor = "\x1B[33m";
-	const std::string blueFGColor = "\x1B[34m";
-	const std::string magentaFGColor = "\x1B[35m";
-	const std::string cyanFGColor = "\x1B[36m";
-	const std::string whiteFGColor = "\x1B[37m";
-	const std::string brightBlackFGColor = "\x1B[90m";
-	const std::string brightRedFGColor = "\x1B[91m";
-	const std::string brightGreenFGColor = "\x1B[92m";
-	const std::string brightYellowFGColor = "\x1B[93m";
-	const std::string brightBlueFGColor = "\x1B[94m";
-	const std::string brightMagentaFGColor = "\x1B[95m";
-	const std::string brightCyanFGColor = "\x1B[96m";
-	const std::string brightWhiteFGColor = "\x1B[97m";
+	return Console::colorText("Network", cyanFGColor);
+}
+std::string Console::NetworkError()
+{
+	return Console::colorText("Network-Error", redFGColor);
+}
+std::string Console::Mining()
+{
+	return Console::colorText("Mining", greenFGColor);
+}
+std::string Console::MiningError()
+{
+	return Console::colorText("Mining-Error", redFGColor);
+}
+std::string Console::Rust()
+{
+	return Console::colorText("Rust", magentaFGColor);
+}
+std::string Console::CompilerError()
+{
+	return Console::colorText("Rust-Error", redFGColor);
+}
+std::string Console::BlockChecker()
+{
+	return Console::colorText("Block-Checker", blackFGColor, cyanBGColor);
+}
+std::string Console::Debug()
+{
+	return Console::colorText("Debug", yellowFGColor);
+}
+std::string Console::Error()
+{
+	return Console::colorText("Error", redFGColor);
+}
 
-	//Background colors
-	const std::string blackBGColor = "\x1B[40m";
-	const std::string redBGColor = "\x1B[41m";
-	const std::string greenBGColor = "\x1B[42m";
-	const std::string yellowBGColor = "\x1B[43m";
-	const std::string blueBGColor = "\x1B[44m";
-	const std::string magentaBGColor = "\x1B[45m";
-	const std::string cyanBGColor = "\x1B[46m";
-	const std::string whiteBGColor = "\x1B[47m";
-	const std::string brightBlackBGColor = "\x1B[100m";
-	const std::string brightRedBGColor = "\x1B[101m";
-	const std::string brightGreenBGColor = "\x1B[102m";
-	const std::string brightYellowBGColor = "\x1B[103m";
-	const std::string brightBlueBGColor = "\x1B[104m";
-	const std::string brightMagentaBGColor = "\x1B[105m";
-	const std::string brightCyanBGColor = "\x1B[106m";
-	const std::string brightWhiteBGColor = "\x1B[107m";
-	
-	// Reset colors
-	const std::string resetColor = "\033[0m";
+void Console::WriteLine()
+{
+	std::cout << std::endl;
+}
+void Console::WriteLine(std::string message)
+{
+	std::cout << message << std::endl;
+}
+void Console::WriteLine(std::string message, std::string coloredType)
+{
+	Console::Write(colorText("[", yellowFGColor));
+	Console::Write(coloredType);
+	Console::Write(colorText("]  - ", yellowFGColor));
 
-	std::string colorText(std::string name, std::string color) {
-		return color + name + resetColor;
-	}
-	std::string colorText(std::string name, std::string fgColor, std::string bgColor) {
-		return fgColor + bgColor + name + resetColor;
-	}
+	Console::WriteLine(message);
+}
 
-	std::string Network()
-	{
-		return colorText("Network", cyanFGColor);
-	}
-	std::string NetworkError()
-	{
-		return colorText("Network-Error", redFGColor);
-	}
-	std::string Mining()
-	{
-		return colorText("Mining", greenFGColor);
-	}
-	std::string MiningError()
-	{
-		return colorText("Mining-Error", redFGColor);
-	}
-	std::string Rust()
-	{
-		return colorText("Rust", magentaFGColor);
-	}
-	std::string CompilerError()
-	{
-		return colorText("Rust-Error", redFGColor);
-	}
-	std::string BlockChecker()
-	{
-		return colorText("Block-Checker", blackFGColor, cyanBGColor);
-	}
-	std::string Debug()
-	{
-		return colorText("Debug", yellowFGColor);
-	}
-	std::string Error()
-	{
-		return colorText("Error", redFGColor);
-	}
+void Console::Write()
+{
+	std::cout;
+}
+void Console::Write(std::string message)
+{
+	std::cout << message;
+}
+void Console::Write(std::string message, std::string color)
+{
+	Console::Write(colorText("[", yellowFGColor));
+	Console::Write(colorText(message, color));
+	Console::Write(colorText("]  - ", yellowFGColor));
+}
+void Console::Write(std::string message, std::string fgColor, std::string bgColor)
+{
+	Console::Write(colorText("[", yellowFGColor));
+	Console::Write(colorText(message, fgColor, bgColor));
+	Console::Write(colorText("]  - ", yellowFGColor));
+}
+void Console::WriteDialogueAuthor(std::string coloredType)
+{
+	Console::Write(colorText("[", yellowFGColor));
+	Console::Write(coloredType);
+	Console::Write(colorText("]  - ", yellowFGColor));
+}
 
-	void WriteLine()
-	{
-		std::cout << std::endl;
-	}
-	void WriteLine(std::string message)
-	{
-		std::cout << message << std::endl;
-	}
-	void WriteLine(std::string message, std::string coloredType)
-	{
-		Write(colorText("[", yellowFGColor));
-		Write(coloredType);
-		Write(colorText("]  - ", yellowFGColor));
-
-		WriteLine(message);
-	}
-
-	void Write()
-	{
-		std::cout;
-	}
-	void Write(std::string message)
-	{
-		std::cout << message;
-	}
-	void Write(std::string message, std::string color)
-	{
-		Write(colorText("[", yellowFGColor));
-		Write(colorText(message, color));
-		Write(colorText("]  - ", yellowFGColor));
-	}
-	void Write(std::string message, std::string fgColor, std::string bgColor)
-	{
-		Write(colorText("[", yellowFGColor));
-		Write(colorText(message, fgColor, bgColor));
-		Write(colorText("]  - ", yellowFGColor));
-	}
-	void WriteDialogueAuthor(std::string coloredType)
-	{
-		Write(colorText("[", yellowFGColor));
-		Write(coloredType);
-		Write(colorText("]  - ", yellowFGColor));
-	}
-
-	std::string ReadLine()
-	{
-		std::string s;
-		std::cin >> s;
-		return s;
-	}
-};
+std::string Console::ReadLine()
+{
+	std::string s;
+	std::cin >> s;
+	return s;
+}

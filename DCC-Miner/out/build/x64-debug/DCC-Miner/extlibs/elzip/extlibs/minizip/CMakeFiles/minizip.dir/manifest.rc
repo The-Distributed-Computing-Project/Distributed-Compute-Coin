@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+2 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/DCC-Miner/extlibs/elzip/extlibs/minizip/CMakeFiles/minizip.dir/embed.manifest"

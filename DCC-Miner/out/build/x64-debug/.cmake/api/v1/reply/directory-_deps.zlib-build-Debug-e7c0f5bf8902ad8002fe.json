@@ -1,0 +1,119 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"DCC-Miner/extlibs/elzip/extlibs/minizip/lib/zlib/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 214,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 220,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 223,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 226,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/zlib-build/zlib.lib"
+			],
+			"targetId" : "zlib::@c9556b0b6bf47963f9da",
+			"targetIndex" : 8,
+			"targetIsImportLibrary" : true,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"_deps/zlib-build/zlib.dll"
+			],
+			"targetId" : "zlib::@c9556b0b6bf47963f9da",
+			"targetIndex" : 8,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/zlib-build/zlibstaticd.lib"
+			],
+			"targetId" : "zlibstatic::@c9556b0b6bf47963f9da",
+			"targetIndex" : 9,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				"out/build/x64-debug/_deps/zlib-build/zconf.h",
+				"DCC-Miner/extlibs/elzip/extlibs/minizip/lib/zlib/zlib.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "share/man/man3",
+			"paths" : 
+			[
+				"DCC-Miner/extlibs/elzip/extlibs/minizip/lib/zlib/zlib.3"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug/share/pkgconfig",
+			"paths" : 
+			[
+				"out/build/x64-debug/_deps/zlib-build/zlib.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/zlib-build",
+		"source" : "DCC-Miner/extlibs/elzip/extlibs/minizip/lib/zlib"
+	}
+}

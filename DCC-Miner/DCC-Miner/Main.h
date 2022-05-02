@@ -1,13 +1,10 @@
-﻿
-#pragma once
+﻿#ifndef Main_h
+#define Main_h
+
 
 #include <iostream>
-#include "Console.cpp"
 #include "json.hpp"
-#include "FileManip.cpp"
-#include "Network.cpp"
-#include "P2Pmain.cpp"
-#include <string>
+//#include <string>
 #include <vector>
 #include <filesystem>
 #include <fstream>
@@ -21,3 +18,11 @@
 #include <stdio.h>
 #include <chrono>
 #include <boost/process.hpp>
+
+#include "FileManip.h"
+#include "Network.h"
+#include "Console.h"
+#include "P2PClient.h"
+#include "strops.h"
+
+#endif

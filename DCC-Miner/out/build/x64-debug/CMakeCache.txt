@@ -14,8 +14,11 @@
 # EXTERNAL cache entries
 ########################
 
-//Installation directory for executables
-BIN_INSTALL_DIR:PATH=D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug/bin
+//Enable building amd64 assembly implementation
+AMD64:BOOL=OFF
+
+//Enable building i686 assembly implementation
+ASM686:BOOL=OFF
 
 //Build shared libraries
 BUILD_SHARED_LIBS:BOOL=ON
@@ -35,14 +38,12 @@ Boost_PROGRAM_OPTIONS_LIBRARY_DEBUG:FILEPATH=Boost_PROGRAM_OPTIONS_LIBRARY_DEBUG
 //Boost program_options library (release)
 Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE:FILEPATH=Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE-NOTFOUND
 
-//Boost system library (debug)
-Boost_SYSTEM_LIBRARY_DEBUG:FILEPATH=Boost_SYSTEM_LIBRARY_DEBUG-NOTFOUND
-
-//Boost system library (release)
-Boost_SYSTEM_LIBRARY_RELEASE:FILEPATH=Boost_SYSTEM_LIBRARY_RELEASE-NOTFOUND
-
 //Path to a program.
 CMAKE_AR:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.32.31326/bin/Hostx64/x64/lib.exe
+
+//For backwards compatibility, what version of CMake commands and
+// syntax should this version of CMake try to support.
+CMAKE_BACKWARDS_COMPATIBILITY:STRING=2.4
 
 //No help, variable specified on the command line.
 CMAKE_BUILD_TYPE:STRING=Debug
@@ -197,16 +198,16 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_NAME:STATIC=DCC-Miner
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=1.8.2
+CMAKE_PROJECT_VERSION:STATIC=3.0.3
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=3
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_MINOR:STATIC=8
+CMAKE_PROJECT_VERSION_MINOR:STATIC=0
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_PATCH:STATIC=2
+CMAKE_PROJECT_VERSION_PATCH:STATIC=3
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_TWEAK:STATIC=
@@ -527,6 +528,12 @@ DCC-Miner_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 DCC-Miner_SOURCE_DIR:STATIC=D:/Code/DC-Cryptocurrency/DCC-Miner
 
+//Use this to exclude internal minizip copy.
+ELZIP_EXCLUDE_MINIZIP:BOOL=OFF
+
+//includes tests for 11Zip.
+ELZIP_TESTS:BOOL=OFF
+
 //Set to ON to enable c-ares support
 ENABLE_ARES:BOOL=OFF
 
@@ -552,6 +559,9 @@ ENABLE_UNICODE:BOOL=OFF
 
 //Define if you want Unix domain sockets support
 ENABLE_UNIX_SOCKETS:BOOL=ON
+
+//Single output directory for building all executables.
+EXECUTABLE_OUTPUT_PATH:PATH=
 
 //Directory under which to collect all populated content
 FETCHCONTENT_BASE_DIR:PATH=D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps
@@ -590,14 +600,29 @@ FETCHCONTENT_UPDATES_DISCONNECTED_ZLIB:BOOL=OFF
 //Git command line client
 GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/cmd/git.exe
 
-//Installation directory for headers
-INC_INSTALL_DIR:PATH=D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug/include
+//Installation directory for executables
+INSTALL_BIN_DIR:PATH=bin
 
-//Copy minigzip and minideflate during install
-INSTALL_UTILS:BOOL=OFF
+//Installation directory for cmake files.
+INSTALL_CMAKE_DIR:PATH=lib/cmake/minizip
+
+//Installation directory for headers
+INSTALL_INC_DIR:PATH=include
+
+//Installation directory for libraries
+INSTALL_LIB_DIR:PATH=lib
+
+//Installation directory for manual pages
+INSTALL_MAN_DIR:PATH=share/man
+
+//Installation directory for pkgconfig (.pc) files
+INSTALL_PKGCONFIG_DIR:PATH=D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug/share/pkgconfig
 
 //Basename of the curl library
 LIBCURL_OUTPUT_NAME:STRING=libcurl
+
+//Single output directory for building all libraries.
+LIBRARY_OUTPUT_PATH:PATH=
 
 //Path to a file.
 LIBSSH2_INCLUDE_DIR:PATH=C:/Strawberry/c/include
@@ -611,11 +636,44 @@ LIB_EAY_DEBUG:FILEPATH=C:/Program Files/OpenSSL-Win64/lib/VC/libcrypto64MDd.lib
 //Path to a library.
 LIB_EAY_RELEASE:FILEPATH=C:/Program Files/OpenSSL-Win64/lib/VC/libcrypto64MD.lib
 
-//Installation directory for libraries
-LIB_INSTALL_DIR:PATH=D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug/lib
-
 //Path to a program.
 MSYS_CMD:FILEPATH=MSYS_CMD-NOTFOUND
+
+//Builds minizip fuzzer executables
+MZ_BUILD_FUZZ_TESTS:BOOL=OFF
+
+//Builds minizip test executable
+MZ_BUILD_TESTS:BOOL=OFF
+
+//Builds minizip unit test project
+MZ_BUILD_UNIT_TESTS:BOOL=OFF
+
+//Builds with code coverage flags
+MZ_CODE_COVERAGE:BOOL=OFF
+
+//Only support compression
+MZ_COMPRESS_ONLY:BOOL=OFF
+
+//Only support decompression
+MZ_DECOMPRESS_ONLY:BOOL=OFF
+
+//Builds using posix 32-bit file api
+MZ_FILE32_API:BOOL=OFF
+
+//Enables fetching third-party libraries always
+MZ_FORCE_FETCH_LIBS:BOOL=OFF
+
+//Enable libbsd crypto random
+MZ_LIBBSD:BOOL=OFF
+
+//Enables Apple compression
+MZ_LIBCOMP:BOOL=OFF
+
+//Enables OpenSSL for encryption
+MZ_OPENSSL:BOOL=OFF
+
+//Project name suffix for package managers
+MZ_PROJECT_SUFFIX:STRING=
 
 //Path to a file.
 OPENSSL_INCLUDE_DIR:PATH=C:/Program Files/OpenSSL-Win64/include
@@ -625,9 +683,6 @@ PERL_EXECUTABLE:FILEPATH=C:/Strawberry/perl/bin/perl.exe
 
 //Enable picky compiler options
 PICKY_COMPILER:BOOL=ON
-
-//Installation directory for pkgconfig (.pc) files
-PKGCONFIG_INSTALL_DIR:PATH=D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug/lib/pkgconfig
 
 //Path to a file.
 RANDOM_FILE:FILEPATH=RANDOM_FILE-NOTFOUND
@@ -653,58 +708,6 @@ USE_QUICHE:BOOL=OFF
 //Use WinIDN for IDN support
 USE_WIN32_IDN:BOOL=OFF
 
-//Build with AVX2
-WITH_AVX2:BOOL=ON
-
-//Enable code coverage reporting
-WITH_CODE_COVERAGE:BOOL=OFF
-
-//Build test/fuzz
-WITH_FUZZERS:BOOL=OFF
-
-//Compile with support for gzFile related functions
-WITH_GZFILEOP:BOOL=ON
-
-//Build with zero fill for inflate invalid distances
-WITH_INFLATE_ALLOW_INVALID_DIST:BOOL=OFF
-
-//Build with strict inflate distance checking
-WITH_INFLATE_STRICT:BOOL=OFF
-
-//Build with project maintainer warnings
-WITH_MAINTAINER_WARNINGS:BOOL=OFF
-
-//Instruct the compiler to use the full instruction set on this
-// host (gcc/clang -march=native)
-WITH_NATIVE_INSTRUCTIONS:BOOL=OFF
-
-//Use new strategies
-WITH_NEW_STRATEGIES:BOOL=ON
-
-//Build with optimisation
-WITH_OPTIM:BOOL=ON
-
-//Build with PCLMULQDQ
-WITH_PCLMULQDQ:BOOL=ON
-
-//Enable sanitizer support
-WITH_SANITIZER:STRING=AUTO
-
-//Build with SSE2
-WITH_SSE2:BOOL=ON
-
-//Build with SSE4
-WITH_SSE4:BOOL=ON
-
-//Build with SSSE3
-WITH_SSSE3:BOOL=ON
-
-//Support unaligned reads on platforms that support it
-WITH_UNALIGNED:BOOL=ON
-
-//Dual link tests against system zlib
-ZLIB_DUAL_LINK:BOOL=OFF
-
 //Path to a file.
 ZLIB_INCLUDE_DIR:PATH=C:/Strawberry/c/include
 
@@ -724,13 +727,31 @@ cpr_IS_TOP_LEVEL:STATIC=OFF
 cpr_SOURCE_DIR:STATIC=D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/cpr-src
 
 //Value Computed by CMake
+elzip_BINARY_DIR:STATIC=D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/DCC-Miner/extlibs/elzip
+
+//Value Computed by CMake
+elzip_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+elzip_SOURCE_DIR:STATIC=D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip
+
+//Value Computed by CMake
+minizip_BINARY_DIR:STATIC=D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/DCC-Miner/extlibs/elzip/extlibs/minizip
+
+//Value Computed by CMake
+minizip_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+minizip_SOURCE_DIR:STATIC=D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/extlibs/minizip
+
+//Value Computed by CMake
 zlib_BINARY_DIR:STATIC=D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/zlib-build
 
 //Value Computed by CMake
 zlib_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-zlib_SOURCE_DIR:STATIC=D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/zlib-src
+zlib_SOURCE_DIR:STATIC=D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/extlibs/minizip/lib/zlib
 
 
 ########################
@@ -759,10 +780,6 @@ Boost_INCLUDE_DIR-ADVANCED:INTERNAL=1
 Boost_PROGRAM_OPTIONS_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE
 Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: Boost_SYSTEM_LIBRARY_DEBUG
-Boost_SYSTEM_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: Boost_SYSTEM_LIBRARY_RELEASE
-Boost_SYSTEM_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
 //STRINGS property for variable: CMAKE_BUILD_TYPE
@@ -908,7 +925,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MT
 CMAKE_MT-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //noop for ranlib
@@ -1062,22 +1079,12 @@ HAVE_ALARM:INTERNAL=
 HAVE_ARPA_TFTP_H:INTERNAL=
 //Have include windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h
 HAVE_ASSERT_H:INTERNAL=1
-//Test HAVE_ATTRIBUTE_VISIBILITY_HIDDEN
-HAVE_ATTRIBUTE_VISIBILITY_HIDDEN:INTERNAL=
-//Test HAVE_ATTRIBUTE_VISIBILITY_INTERNAL
-HAVE_ATTRIBUTE_VISIBILITY_INTERNAL:INTERNAL=
-//Test HAVE_AVX2_INTRIN
-HAVE_AVX2_INTRIN:INTERNAL=1
 //Have symbol basename
 HAVE_BASENAME:INTERNAL=
 //Curl test 
 HAVE_BOOL_T:INTERNAL=1
 //Curl test 
 HAVE_BUILTIN_AVAILABLE:INTERNAL=
-//Test HAVE_BUILTIN_CTZ
-HAVE_BUILTIN_CTZ:INTERNAL=
-//Test HAVE_BUILTIN_CTZLL
-HAVE_BUILTIN_CTZLL:INTERNAL=
 //Curl test 
 HAVE_CLOCK_GETTIME_MONOTONIC:INTERNAL=
 //Have include windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h
@@ -1120,6 +1127,8 @@ HAVE_IFADDRS_H:INTERNAL=
 HAVE_IF_NAMETOINDEX:INTERNAL=
 //Have symbol inet_pton
 HAVE_INET_PTON:INTERNAL=1
+//Have include inttypes.h
+HAVE_INTTYPES_H:INTERNAL=1
 //Have symbol ioctl
 HAVE_IOCTL:INTERNAL=
 //Curl test 
@@ -1152,12 +1161,8 @@ HAVE_MACH_ABSOLUTE_TIME:INTERNAL=
 HAVE_MSG_NOSIGNAL:INTERNAL=
 //Have includes windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;locale.h;netinet/tcp.h
 HAVE_NETINET_TCP_H:INTERNAL=
-//Test HAVE_NO_INTERPOSITION
-HAVE_NO_INTERPOSITION:INTERNAL=
 //Result of TRY_COMPILE
 HAVE_OFF64_T:INTERNAL=FALSE
-//Test HAVE_PCLMULQDQ_INTRIN
-HAVE_PCLMULQDQ_INTRIN:INTERNAL=1
 //Have includes windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;locale.h;pem.h
 HAVE_PEM_H:INTERNAL=
 //Have symbol pipe
@@ -1170,8 +1175,6 @@ HAVE_POLL_FINE_COMPILED:INTERNAL=FALSE
 HAVE_POLL_H:INTERNAL=
 //Curl test 
 HAVE_POSIX_STRERROR_R:INTERNAL=
-//Test HAVE_PTRDIFF_T
-HAVE_PTRDIFF_T:INTERNAL=1
 //Have symbol setlocale
 HAVE_SETLOCALE:INTERNAL=1
 //Have symbol setmode
@@ -1212,18 +1215,8 @@ HAVE_SIZEOF_TIME_T:INTERNAL=TRUE
 HAVE_SIZEOF___INT64:INTERNAL=TRUE
 //Curl test 
 HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID:INTERNAL=
-//Test HAVE_SSE2_INTRIN
-HAVE_SSE2_INTRIN:INTERNAL=1
-//Test HAVE_SSE42CMPSTR_INTRIN
-HAVE_SSE42CMPSTR_INTRIN:INTERNAL=1
-//Test HAVE_SSE42CRC_INLINE_ASM
-HAVE_SSE42CRC_INLINE_ASM:INTERNAL=
-//Test HAVE_SSE42CRC_INTRIN
-HAVE_SSE42CRC_INTRIN:INTERNAL=1
 //Have includes windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;locale.h;setjmp.h;signal.h;ssl.h
 HAVE_SSL_H:INTERNAL=
-//Test HAVE_SSSE3_INTRIN
-HAVE_SSSE3_INTRIN:INTERNAL=1
 //Have include windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;locale.h;setjmp.h;signal.h;stdbool.h
 HAVE_STDBOOL_H:INTERNAL=1
 //Have include stddef.h
@@ -1232,8 +1225,6 @@ HAVE_STDDEF_H:INTERNAL=1
 HAVE_STDINT_H:INTERNAL=1
 //Have include windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h
 HAVE_STDIO_H:INTERNAL=1
-//Have function strerror
-HAVE_STRERROR:INTERNAL=1
 //Have symbol strerror_r
 HAVE_STRERROR_R:INTERNAL=
 //Have symbol strncmpi
@@ -1250,8 +1241,6 @@ HAVE_SYS_FILIO_H:INTERNAL=
 HAVE_SYS_IOCTL_H:INTERNAL=
 //Have includes windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/resource.h
 HAVE_SYS_RESOURCE_H:INTERNAL=
-//Have include sys/sdt.h
-HAVE_SYS_SDT_H:INTERNAL=
 //Have include sys/types.h
 HAVE_SYS_TYPES_H:INTERNAL=1
 //Have includes windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/uio.h
@@ -1262,8 +1251,6 @@ HAVE_SYS_UN_H:INTERNAL=
 HAVE_SYS_UTSNAME_H:INTERNAL=
 //Have includes windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;sys/xattr.h
 HAVE_SYS_XATTR_H:INTERNAL=
-//Have include unistd.h
-HAVE_UNISTD_H:INTERNAL=
 //Have symbol usleep
 HAVE_USLEEP:INTERNAL=
 //Have symbol utimes
@@ -1280,19 +1267,13 @@ HAVE_WINDOWS_H:INTERNAL=1
 HAVE_WINSOCK2_H:INTERNAL=1
 //Have include windows.h;ws2tcpip.h
 HAVE_WS2TCPIP_H:INTERNAL=1
-//Result of TRY_COMPILE
-HAVE__OFF64_T:INTERNAL=FALSE
 //Have symbol _strtoi64
 HAVE__STRTOI64:INTERNAL=1
-//Result of TRY_COMPILE
-HAVE___OFF64_T:INTERNAL=FALSE
 //ADVANCED property for variable: HTTP_ONLY
 HTTP_ONLY-ADVANCED:INTERNAL=1
 //disables all protocols except HTTP (This overrides all CURL_DISABLE_*
 // options)
 HTTP_ONLY:INTERNAL=ON
-//ADVANCED property for variable: INSTALL_UTILS
-INSTALL_UTILS-ADVANCED:INTERNAL=1
 //Test LEAK_SANITIZER_AVAILABLE
 LEAK_SANITIZER_AVAILABLE:INTERNAL=
 //ADVANCED property for variable: LIBSSH2_INCLUDE_DIR
@@ -1301,6 +1282,10 @@ LIBSSH2_INCLUDE_DIR-ADVANCED:INTERNAL=1
 LIBSSH2_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MSYS_CMD
 MSYS_CMD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MZ_FILE32_API
+MZ_FILE32_API-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MZ_PROJECT_SUFFIX
+MZ_PROJECT_SUFFIX-ADVANCED:INTERNAL=1
 //CHECK_TYPE_SIZE: off64_t unknown
 OFF64_T:INTERNAL=
 //ADVANCED property for variable: OPENSSL_INCLUDE_DIR
@@ -1346,29 +1331,7 @@ THREAD_SANITIZER_AVAILABLE_EXITCODE:INTERNAL=0
 UNDEFINED_BEHAVIOUR_SANITIZER_AVAILABLE:INTERNAL=
 //Have symbol CryptAcquireContext
 USE_WINCRYPT:INTERNAL=1
-//ADVANCED property for variable: WITH_AVX2
-WITH_AVX2-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: WITH_INFLATE_ALLOW_INVALID_DIST
-WITH_INFLATE_ALLOW_INVALID_DIST-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: WITH_INFLATE_STRICT
-WITH_INFLATE_STRICT-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: WITH_PCLMULQDQ
-WITH_PCLMULQDQ-ADVANCED:INTERNAL=1
-//STRINGS property for variable: WITH_SANITIZER
-WITH_SANITIZER-STRINGS:INTERNAL=Memory;Address;Undefined;Thread
-//ADVANCED property for variable: WITH_SSE2
-WITH_SSE2-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: WITH_SSE4
-WITH_SSE4-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: WITH_SSSE3
-WITH_SSSE3-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: WITH_UNALIGNED
-WITH_UNALIGNED-ADVANCED:INTERNAL=1
-//Compile with zlib compatible API
 ZLIB_COMPAT:INTERNAL=ON
-//ADVANCED property for variable: ZLIB_DUAL_LINK
-ZLIB_DUAL_LINK-ADVANCED:INTERNAL=1
-//Build test binaries
 ZLIB_ENABLE_TESTS:INTERNAL=OFF
 //ADVANCED property for variable: ZLIB_INCLUDE_DIR
 ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
@@ -1376,6 +1339,8 @@ ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
 ZLIB_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ZLIB_LIBRARY_RELEASE
 ZLIB_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//Have include unistd.h
+Z_HAVE_UNISTD_H:INTERNAL=
 //Last used Boost_ADDITIONAL_VERSIONS value.
 _Boost_ADDITIONAL_VERSIONS_LAST:INTERNAL=1.78.0;1.78
 //Components requested for this build tree.
@@ -1392,10 +1357,6 @@ _Boost_USE_STATIC_LIBS_LAST:INTERNAL=OFF
 _Boost_USE_STATIC_RUNTIME_LAST:INTERNAL=OFF
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug
-//CHECK_TYPE_SIZE: _off64_t unknown
-_OFF64_T:INTERNAL=
-//CHECK_TYPE_SIZE: __off64_t unknown
-__OFF64_T:INTERNAL=
 //Arguments for recv
 curl_cv_func_recv_args:INTERNAL=SOCKET,char *,int,int,int
 //Test curl_cv_func_recv_test

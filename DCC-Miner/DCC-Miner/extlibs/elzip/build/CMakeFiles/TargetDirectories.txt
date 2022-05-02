@@ -1,0 +1,14 @@
+/mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/build/CMakeFiles/install/strip.dir
+/mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/build/CMakeFiles/install.dir
+/mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/build/CMakeFiles/list_install_components.dir
+/mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/build/CMakeFiles/rebuild_cache.dir
+/mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/build/CMakeFiles/edit_cache.dir
+/mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/build/CMakeFiles/install/local.dir
+/mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/build/CMakeFiles/elzip.dir
+/mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/build/extlibs/minizip/CMakeFiles/install/strip.dir
+/mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/build/extlibs/minizip/CMakeFiles/install/local.dir
+/mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/build/extlibs/minizip/CMakeFiles/install.dir
+/mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/build/extlibs/minizip/CMakeFiles/list_install_components.dir
+/mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/build/extlibs/minizip/CMakeFiles/rebuild_cache.dir
+/mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/build/extlibs/minizip/CMakeFiles/edit_cache.dir
+/mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/build/extlibs/minizip/CMakeFiles/minizip.dir

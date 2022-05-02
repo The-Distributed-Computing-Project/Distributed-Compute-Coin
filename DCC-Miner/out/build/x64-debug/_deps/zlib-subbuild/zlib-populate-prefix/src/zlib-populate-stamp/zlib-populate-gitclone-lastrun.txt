@@ -1,3 +1,3 @@
-repository='https://github.com/zlib-ng/zlib-ng'
+repository='https://github.com/madler/zlib'
 module=''
 tag='origin'

@@ -48,8 +48,8 @@ CMAKE_BACKWARDS_COMPATIBILITY:STRING=2.4
 //No help, variable specified on the command line.
 CMAKE_BUILD_TYPE:STRING=Debug
 
-//No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:STRING=cl.exe
+//CXX compiler
+CMAKE_CXX_COMPILER:STRING=C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.32.31326/bin/Hostx64/x64/cl.exe
 
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /W3 /GR /EHsc
@@ -69,8 +69,8 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/MD /Zi /O2 /Ob1 /DNDEBUG
 //Libraries linked by default with all C++ applications.
 CMAKE_CXX_STANDARD_LIBRARIES:STRING=kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
 
-//No help, variable specified on the command line.
-CMAKE_C_COMPILER:STRING=cl.exe
+//C compiler
+CMAKE_C_COMPILER:STRING=C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.32.31326/bin/Hostx64/x64/cl.exe
 
 //Flags used by the C compiler during all build types.
 CMAKE_C_FLAGS:STRING=/DWIN32 /D_WINDOWS /W3
@@ -1077,7 +1077,7 @@ DETECT_SSL_BACKEND:INTERNAL=ON
 //ADVANCED property for variable: ENABLE_IPV6
 ENABLE_IPV6-ADVANCED:INTERNAL=1
 //Details about finding CURL
-FIND_PACKAGE_MESSAGE_DETAILS_CURL:INTERNAL=[include/lib/libcurl_a_debug][include/include][c ][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_CURL:INTERNAL=[C:\curl][C:\curl\include][c ][v7.83.0()]
 //Details about finding OpenSSL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[optimized;C:/Program Files/OpenSSL-Win64/lib/VC/libcrypto64MD.lib;debug;C:/Program Files/OpenSSL-Win64/lib/VC/libcrypto64MDd.lib][C:/Program Files/OpenSSL-Win64/include][c ][v3.0.2()]
 //Details about finding Perl

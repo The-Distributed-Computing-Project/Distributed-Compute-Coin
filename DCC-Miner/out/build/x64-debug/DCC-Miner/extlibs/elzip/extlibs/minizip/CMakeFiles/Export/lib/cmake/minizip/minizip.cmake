@@ -16,7 +16,7 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 set(_targetsDefined)
 set(_targetsNotDefined)
 set(_expectedTargets)
-foreach(_expectedTarget MINIZIP::minizip MINIZIP::zlib)
+foreach(_expectedTarget MINIZIP::minizip MINIZIP::zlibstatic)
   list(APPEND _expectedTargets ${_expectedTarget})
   if(NOT TARGET ${_expectedTarget})
     list(APPEND _targetsNotDefined ${_expectedTarget})
@@ -51,17 +51,17 @@ if(_IMPORT_PREFIX STREQUAL "/")
 endif()
 
 # Create imported target MINIZIP::minizip
-add_library(MINIZIP::minizip SHARED IMPORTED)
+add_library(MINIZIP::minizip STATIC IMPORTED)
 
 set_target_properties(MINIZIP::minizip PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "MINIZIP::zlib"
+  INTERFACE_LINK_LIBRARIES "MINIZIP::zlibstatic"
 )
 
-# Create imported target MINIZIP::zlib
-add_library(MINIZIP::zlib SHARED IMPORTED)
+# Create imported target MINIZIP::zlibstatic
+add_library(MINIZIP::zlibstatic STATIC IMPORTED)
 
-set_target_properties(MINIZIP::zlib PROPERTIES
+set_target_properties(MINIZIP::zlibstatic PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
 )
 

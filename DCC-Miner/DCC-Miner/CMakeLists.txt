@@ -9,7 +9,7 @@ add_executable (DCC-Miner "extlibs/elzip" "json.hpp" "Main.h" "Main.cpp" "Consol
 
 
 add_subdirectory(extlibs/elzip) # Path to the 11zip
-#target_link_libraries(DCC-Miner elzip)
+target_link_libraries(DCC-Miner elzip)
 
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
@@ -37,7 +37,6 @@ set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF) 
 FIND_PACKAGE(Boost 1.78.0 COMPONENTS program_options) 
 include_directories(${Boost_INCLUDE_DIRS}) 
-target_link_libraries(DCC-Miner ${Boost_LIBRARIES} OpenSSL::SSL cpr::cpr elzip)
 
 
 #find_package(CURL REQUIRED) 
@@ -45,15 +44,18 @@ target_link_libraries(DCC-Miner ${Boost_LIBRARIES} OpenSSL::SSL cpr::cpr elzip)
 #include_directories(${CURL_INCLUDE_DIR})
 #target_link_libraries(DCC-Miner ${CURL_LIBRARIES})
 
-set(CURL_INCLUDE_DIR include/include)
-set(CURL_LIBRARY include/lib/libcurl_a_debug)
+set(CURL_INCLUDE_DIR "C:\\curl\\include")
+set(CURL_LIBRARY "C:\\curl")
 
 add_definitions(-DCURL_STATICLIB)
 
 find_package(CURL REQUIRED)
 include_directories(${CURL_INCLUDE_DIR})
 
-target_link_libraries(DCC-Miner ${CURL_LIBRARY})
+target_link_libraries(DCC-Miner ${CURL_LIBRARY} ${Boost_LIBRARIES} OpenSSL::SSL cpr::cpr elzip)
+
+#set(ELZIP_LIBRARY include/lib/libcurl_a_debug)
+#target_link_libraries(DCC-Miner )
 
 # find_package(CURL REQUIRED)
 # if (WIN32)

@@ -10,8 +10,6 @@
 #include "Network.h"
 #include "Console.h"
 
-Console console;
-
 //using namespace std;
 
 //std::string Http::StartHttpWebRequest(std::string URL, vector<std::string> args_vals)
@@ -56,6 +54,8 @@ int DownloadFile(std::string url, std::string saveAs)
 }
 int DownloadFile(std::string url, std::string saveAs, bool printStatus)
 {
+	Console console;
+	
 	CURL* curl;
 	FILE* fp;
 	CURLcode res;

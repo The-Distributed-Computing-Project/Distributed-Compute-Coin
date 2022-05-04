@@ -57,23 +57,23 @@ namespace fs = std::filesystem;
 
 
 void Help();
-int Sync();
 json GetInfo();
 json ReadProgramConfig();
+json UpgradeBlock(json b, std::string toVersion);
 int WriteProgramConfig();
 int GetProgram();
-float GetProgramLifeLeft(std::string id);
+int Sync();
 int SyncPending(int whichBlock);
 int SyncBlock(int whichBlock);
-bool IsChainValid();
 int Mine(std::string lastHash, std::string transactionHistory, int blockNum);
 int MineAnyBlock(int blockNum, std::string difficulty);
+float GetProgramLifeLeft(std::string id);
+double round(float value, int decimal_places);
+bool IsChainValid();
 void ConnectionError();
 std::string ExecuteCommand(const char* cmd);
-boost::process::child ExecuteAsync(std::string cmd);
-json UpgradeBlock(json b, std::string toVersion);
 std::string FormatHPS(float input);
-double round(float value, int decimal_places);
+boost::process::child ExecuteAsync(std::string cmd);
 
 
 template <
@@ -89,11 +89,11 @@ auto since(std::chrono::time_point<clock_t, duration_t> const& start)
 
 
 std::string id = "";
-json walletInfo;
 int connectionStatus = 1;
 const std::string directoryList[] = { "./wwwdata", "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/programs" };
 
 json programConfig;
+json walletInfo;
 
 const std::string blockVersion = "v0.01alpha-coin";
 
@@ -198,7 +198,7 @@ int main()
 		else
 			walletInfo = w;
 
-		if (connectionStatus == 1)
+		if (connectionStatus == 1 && !w.is_null())
 		{
 			console.Mining();
 			console.WriteLine("There are " + (std::string)walletInfo["PendingLength"] + " Blocks to compute");
@@ -220,7 +220,11 @@ int main()
 		std::string command = console.ReadLine();
 
 		if (connectionStatus == 0)
+		{
+			console.NetworkError();
+			console.WriteLine("Not connected, no commands will work."); // I'll change this to allow for offline commands in the future
 			continue;
+		}
 
 		if (SplitString(ToUpper(command), " ")[0] == "--HELP" || SplitString(ToUpper(command), " ")[0] == "-H")
 			Help();

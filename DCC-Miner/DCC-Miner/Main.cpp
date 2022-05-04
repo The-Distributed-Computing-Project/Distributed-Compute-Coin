@@ -108,16 +108,19 @@ Console console;
 
 int main()
 {
-	console.WriteLine("Started", console.Debug());
+	console.Debug();
+	console.WriteLine("Started");
 	//console.WriteLine("Error Code " + std::to_string(ec), console.Debug());
 
 	for (std::string dir : directoryList)
 		if (!fs::is_directory(dir) || !fs::exists(dir)) {
-			console.WriteLine("Creating " + dir, console.Debug());
+			console.Debug();
+			console.WriteLine("Creating " + dir);
 			fs::create_directory(dir);
 		}
 
-	console.WriteLine("Checking config.cfg", console.Debug());
+	console.Debug();
+	console.WriteLine("Checking config.cfg");
 	if (!fs::exists("./config.cfg"))
 	{
 		std::ofstream configFile("./config.cfg");
@@ -140,11 +143,13 @@ int main()
 	}
 	else
 	{
-		console.WriteDialogueAuthor(console.Mining());
+		console.Mining();
+		//console.WriteDialogueAuthor(console.Mining());
 		console.Write("Enter your payout wallet : ");
 		walletInfo["Address"] = console.ReadLine();
 
-		console.WriteDialogueAuthor(console.Mining());
+		console.Mining();
+		//console.WriteDialogueAuthor(console.Mining());
 		console.Write("Stay logged in? Y/N : ");
 		std::string stayLoggedIn = console.ReadLine();
 		if (ToUpper(stayLoggedIn) == "Y")
@@ -172,12 +177,14 @@ int main()
 	}
 	else
 	{
-		console.ExitError("Could not obtain public IP", console.NetworkError());
+		console.NetworkError();
+		console.ExitError("Could not obtain public IP");
 		return 1;
 	}
 
 
-	console.WriteLine("Starting P2P with: " + ipPortCombo, console.Debug());
+	console.Debug();
+	console.WriteLine("Starting P2P with: " + ipPortCombo);
 	StartP2P(endpointAddr, endpointPort);
 
 	while (true)
@@ -193,15 +200,20 @@ int main()
 
 		if (connectionStatus == 1)
 		{
-			console.WriteLine("There are " + (std::string)walletInfo["PendingLength"] + " Blocks to compute", console.Mining());
-			console.WriteLine("The difficulty is " + ((std::string)walletInfo["MineDifficulty"]).size(), console.Mining());
+			console.Mining();
+			console.WriteLine("There are " + (std::string)walletInfo["PendingLength"] + " Blocks to compute");
+			console.Mining();
+			console.WriteLine("The difficulty is " + ((std::string)walletInfo["MineDifficulty"]).size());
 		}
 		else
 		{
-			console.WriteLine("Failed to connect", console.NetworkError());
+			console.NetworkError();
+			console.WriteLine("Failed to connect");
 
-			console.WriteLine("There are UNKNOWN Blocks to compute", console.MiningError());
-			console.WriteLine("The difficulty is UNKNOWN", console.MiningError());
+			console.MiningError();
+			console.WriteLine("There are UNKNOWN Blocks to compute");
+			console.MiningError();
+			console.WriteLine("The difficulty is UNKNOWN");
 		}
 
 		console.Write("DCC >  ");

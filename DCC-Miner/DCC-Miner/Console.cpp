@@ -1,14 +1,34 @@
 
+#if defined(__unix__)
+#define UNIX true
+#define WINDOWS false
+#elif defined(_MSC_VER)
+#define UNIX false
+#define WINDOWS true
+#endif
+
+
 #include <iostream>
 #include <string>
 #include <vector>
 #include "Console.h"
+#include "include/color.hpp"
 
 std::string Console::colorText(std::string name, std::string color) {
 	return color + name + resetColor;
 }
-std::string Console::colorText(std::string name, std::string fgColor, std::string bgColor) {
+std::string Console::colorText(std::string name, std::string fgColor, std::string bgColor)
+{
+#if WINDOWS
+	auto fg = dye::white(name);
+	if (fgColor == blackFGColor)
+		fg = dye::black(name);
+	else if (fgColor == redFGColor)
+		fg = dye::black(name);
+	return fg;
+#else
 	return fgColor + bgColor + name + resetColor;
+#endif
 }
 
 std::string Console::Network()
@@ -97,4 +117,13 @@ std::string Console::ReadLine()
 	std::string s;
 	std::cin >> s;
 	return s;
+}
+
+void Console::ExitError(std::string errMessage, std::string coloredType)
+{
+	Console console;
+	console.WriteLine(errMessage, coloredType);
+	std::cout << "Press Enter to Continue";
+	std::cin.ignore();
+	exit(1);
 }

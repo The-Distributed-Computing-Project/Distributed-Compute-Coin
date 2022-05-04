@@ -25,13 +25,19 @@ std::string JoinArrayPieces(std::string input[])
 
 std::vector<std::string> SplitString(std::string str, std::string delim)
 {
-	std::vector<std::string> words{};
+	std::vector<std::string> words;
 
-	size_t pos = 0;
-	while ((pos = str.find(delim)) != std::string::npos) {
-		words.push_back(str.substr(0, pos));
-		str.erase(0, pos + delim.length());
+	size_t last = 0;
+	size_t next = 0;
+	while ((next = str.find(delim, last)) != std::string::npos)
+	{
+		//cout << s.substr(last, next - last) << endl;  
+		words.push_back(str.substr(last, next - last));
+		last = next + 1;
 	}
+	//cout << s.substr(last) << endl;
+	words.push_back(str.substr(last));
+
 	//for (const auto& str : words) {
 	//	cout << str << endl;
 	//}

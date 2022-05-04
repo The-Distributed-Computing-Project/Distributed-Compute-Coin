@@ -5,6 +5,7 @@
 #include <thread>
 #include "strops.h"
 #include "P2PClient.h"
+#include "Console.h"
 
 #pragma comment(lib,"ws2_32.lib")
 
@@ -15,6 +16,7 @@ char buffer[BUFFERLENGTH];
 SOCKET localSocket;
 SOCKADDR_IN otherAddr;
 int otherSize;
+//Console console;
 
 std::string NormalizedIPString(SOCKADDR_IN addr) {
 	char host[16];
@@ -56,6 +58,10 @@ void TaskRec() {
 
 int StartP2P(std::string addr, std::string port)
 {	
+	Console console;
+
+	console.WriteLine("Starting P2P Client", console.Network());
+
 	WSADATA wsaData;
 	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
 		return 0;
@@ -93,7 +99,8 @@ int StartP2P(std::string addr, std::string port)
 	std::string endpoint;
 
 	std::string otherIpPort;
-	std::cout << "Peer IP:PORT > ";  std::cin >> otherIpPort;
+	std::cout << "Peer IP:PORT > "; 
+	std::cin >> otherIpPort;
 
 	SOCKADDR_IN testOtherIpPort;
 	testOtherIpPort.sin_port = htons(stoi(SplitString(otherIpPort, ":")[1]));

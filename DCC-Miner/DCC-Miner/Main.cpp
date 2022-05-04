@@ -1,5 +1,12 @@
-﻿// DCC-Miner.cpp : Defines the entry point for the application.
-//
+﻿// DCC-Miner.cpp
+
+#if defined(__unix__)
+#define UNIX true
+#define WINDOWS false
+#elif defined(_MSC_VER)
+#define UNIX false
+#define WINDOWS true
+#endif
 
 #include "Main.h"
 
@@ -84,7 +91,7 @@ auto since(std::chrono::time_point<clock_t, duration_t> const& start)
 std::string id = "";
 json walletInfo;
 int connectionStatus = 1;
-const std::string directoryList[] = { "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/programs" };
+const std::string directoryList[] = { "./wwwdata", "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/programs" };
 
 json programConfig;
 
@@ -101,10 +108,16 @@ Console console;
 
 int main()
 {
-	for (std::string dir : directoryList)
-		if (!fs::is_directory(dir) || !fs::exists(dir))
-			fs::create_directory(dir);
+	console.WriteLine("Started", console.Debug());
+	//console.WriteLine("Error Code " + std::to_string(ec), console.Debug());
 
+	for (std::string dir : directoryList)
+		if (!fs::is_directory(dir) || !fs::exists(dir)) {
+			console.WriteLine("Creating " + dir, console.Debug());
+			fs::create_directory(dir);
+		}
+
+	console.WriteLine("Checking config.cfg", console.Debug());
 	if (!fs::exists("./config.cfg"))
 	{
 		std::ofstream configFile("./config.cfg");
@@ -152,9 +165,19 @@ int main()
 	Http http;
 	std::vector<std::string> args;
 	std::string ipPortCombo = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/ipget.php", args);
-	endpointAddr = SplitString(ipPortCombo, ":")[0];
-	endpointPort = SplitString(ipPortCombo, ":")[1];
+	if (ipPortCombo != "")
+	{
+		endpointAddr = SplitString(ipPortCombo, ":")[0];
+		endpointPort = SplitString(ipPortCombo, ":")[1];
+	}
+	else
+	{
+		console.ExitError("Could not obtain public IP", console.NetworkError());
+		return 1;
+	}
 
+
+	console.WriteLine("Starting P2P with: " + ipPortCombo, console.Debug());
 	StartP2P(endpointAddr, endpointPort);
 
 	while (true)

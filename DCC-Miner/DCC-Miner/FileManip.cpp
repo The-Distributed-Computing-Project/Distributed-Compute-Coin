@@ -11,14 +11,14 @@
 
 int ExtractZip(std::string path, std::string saveAs)
 {
-    try
-    {
-        elz::extractZip(path, saveAs);
-    }
-    catch (const std::exception&)
-    {
-        return 1;
-    }
+    //try
+    //{
+    //    elz::extractZip(path, saveAs);
+    //}
+    //catch (const std::exception&)
+    //{
+    //    return 1;
+    //}
     return 0;
 }
 

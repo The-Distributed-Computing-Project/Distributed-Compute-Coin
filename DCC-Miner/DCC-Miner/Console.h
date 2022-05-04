@@ -68,6 +68,8 @@ public:
 
 	std::string ReadLine();
 
+	void ExitError(std::string errMessage, std::string coloredType);
+
 	//Console();
 };
 

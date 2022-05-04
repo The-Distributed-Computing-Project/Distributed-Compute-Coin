@@ -1,5 +1,6 @@
-## Servers are currently offline
-> Maintenance calls! Sorry, but due to P2P (peer-to-peer) networking not being implemented yet, DCC will not work without it's server. You are still free to use this code and the programs, but they will simply fail to connect. Sorry for any inconvenience this may cause you.
+## Working on:
+* P2P Networking, allowing people to use clients independently of a server. **The server is often down**, due to development, and since P2P is still in progress, the clients basically don't work.
+* Moving from C# to C++. It is currently in a windows-only state, so my goal is to have it be more cross-platform, for linux and mac, and also be lower-level for performance.
 
 # Distributed Compute Coin
 A unique blockchain built in C#, with a client for trading, a host for distribution, and a miner for mining. This crypto can be bought, traded, sold, or used just like any other. What sets it apart though is how it can be used. It is based on sharing mining hardware with developers to run their programs better and compute a lot of data, quickly. Anybody can submit code to be run across the peer-to-peer network, and will pay for that using this crypto.

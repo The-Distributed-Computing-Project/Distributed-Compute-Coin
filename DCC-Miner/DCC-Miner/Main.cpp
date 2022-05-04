@@ -1,4 +1,4 @@
-﻿// DCC-Miner.cpp
+// DCC-Miner.cpp
 
 #if defined(__unix__)
 #define UNIX true
@@ -249,7 +249,8 @@ int main()
 					}
 					catch (const std::exception&)
 					{
-						console.WriteLine("Error removing \"" + oldBlock.path().string() + "\"", console.Error());
+						console.Error();
+						console.WriteLine("Error removing \"" + oldBlock.path().string() + "\"");
 					}
 				}
 				for (int s = 0; s < walletInfo["PendingLength"]; s++)
@@ -271,7 +272,8 @@ int main()
 						}
 						catch (const std::exception&)
 						{
-							console.WriteLine("Error removing \"" + oldBlock.path().string() + "\"", console.Error());
+							console.Error();
+							console.WriteLine("Error removing \"" + oldBlock.path().string() + "\"");
 						}
 					}
 					for (int a = 0; a < walletInfo["BlockchainLength"]; a++)
@@ -290,7 +292,8 @@ int main()
 					continue;
 				}
 
-				console.WriteLine("Blockchain length: " + (walletInfo["BlockchainLength"] + 1), console.Mining());
+				console.Mining();
+				console.WriteLine("Blockchain length: " + (walletInfo["BlockchainLength"] + 1));
 
 				std::ifstream blockFile("./wwwdata/pendingblocks/block" + std::to_string(walletInfo["BlockchainLength"] + 1) + ".dccblock");
 				std::stringstream blockBuffer;
@@ -362,7 +365,8 @@ int Sync()
 			}
 			catch (const std::exception&)
 			{
-				console.WriteLine("Error removing \"" + oldBlock.path().string() + "\"", console.Error());
+				console.Error();
+				console.WriteLine("Error removing \"" + oldBlock.path().string() + "\"");
 			}
 		}
 		for (auto oldBlock : fs::directory_iterator("./wwwdata/blockchain/"))
@@ -373,7 +377,8 @@ int Sync()
 			}
 			catch (const std::exception&)
 			{
-				console.WriteLine("Error removing \"" + oldBlock.path().string() + "\"", console.Error());
+				console.Error();
+				console.WriteLine("Error removing \"" + oldBlock.path().string() + "\"");
 			}
 		}
 		for (int i = 1; i < walletInfo["PendingLength"] + 1; i++)
@@ -395,7 +400,6 @@ int Sync()
 
 json GetInfo()
 {
-
 	Http http;
 	http.blockVersion = blockVersion;
 	std::vector<std::string> args = { "query=getInfo", "fromAddress=" + walletInfo["Address"] };
@@ -458,6 +462,7 @@ int GetProgram()
 		{
 			id = SplitString(SplitString((item.path()).string(), ".cfg")[0], "/programs/")[1];
 			life = GetProgramLifeLeft(id);
+			console.Mining();
 			console.WriteLine("Program life is " + std::to_string(life));
 		}
 	}
@@ -474,7 +479,8 @@ int GetProgram()
 				}
 				catch (const std::exception&)
 				{
-					console.WriteLine("Error removing \"" + oldProgram.path().string() + "\"", console.Error());
+					console.Error();
+					console.WriteLine("Error removing \"" + oldProgram.path().string() + "\"");
 				}
 			}
 			//foreach(string oldProgram in Directory.GetDirectories("./wwwdata/programs/", "*.*", SearchOption.TopDirectoryOnly))
@@ -493,11 +499,13 @@ int GetProgram()
 			std::vector<std::string> args = { "query=assignProgram" };
 			std::string assignedProgram = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/?", args);
 
-			console.WriteLine("Assigning Program...", console.Network());
+			console.Network();
+			console.WriteLine("Assigning Program...");
 
 			id = assignedProgram;
 
-			console.WriteLine("./wwwdata/programs/" + id + ".cfg", console.Network());
+			console.Network();
+			console.WriteLine("./wwwdata/programs/" + id + ".cfg");
 
 			DownloadFile("http://api.achillium.us.to/dcc/programs/" + id + ".cfg", "./wwwdata/programs/" + id + ".cfg", true);
 			DownloadFile("http://api.achillium.us.to/dcc/programs/" + id + ".zip", "./wwwdata/programs/" + id + ".zip", true);
@@ -526,7 +534,8 @@ int GetProgram()
 
 		if (ourHash != theirHash)
 		{
-			console.WriteLine("Assigned program has been modified, re-downloading...", console.MiningError());
+			console.MiningError();
+			console.WriteLine("Assigned program has been modified, re-downloading...");
 			GetProgram();
 		}
 
@@ -534,11 +543,14 @@ int GetProgram()
 
 		if (programConfig["Built"] == false)
 		{
-			console.WriteLine("Building assigned program, wait until it's finished to start mining", console.Mining());
+			console.Mining();
+			console.WriteLine("Building assigned program, wait until it's finished to start mining");
 
-			console.WriteLine("Compiling program... ", console.Rust());
+			console.Rust();
+			console.WriteLine("Compiling program... ");
 			ExecuteCommand(("cargo build ./wwwdata/programs/" + id + "/").c_str());
-			console.WriteLine("Done Compiling", console.Rust());
+			console.Rust();
+			console.WriteLine("Done Compiling");
 
 			programConfig["Built"] = true;
 			WriteProgramConfig();
@@ -678,7 +690,8 @@ bool IsChainValid()
 			}
 		}
 
-		console.WriteLine("Validating block: " + i, console.BlockChecker());
+		console.BlockChecker();
+		console.WriteLine("Validating block: " + i);
 		char sha256OutBuffer[65];
 		sha256_string((char*)(lastHash + transactions + nonce).c_str(), sha256OutBuffer);
 		std::string blockHash = sha256OutBuffer;
@@ -692,7 +705,7 @@ bool IsChainValid()
 
 int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 {
-	console.WriteDialogueAuthor(console.Mining());
+	console.Mining();
 	console.Write("Mining ");
 	console.Write("block " + blockNum, console.whiteBGColor, console.blackFGColor);
 	console.Write(" at difficulty ");
@@ -704,7 +717,8 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 		auto startTime = std::chrono::steady_clock::now();
 		std::cout << "Elapsed(ms)=" << since(startTime).count() << std::endl;
 
-		console.WriteLine("Starting program... ", console.Rust());
+		console.Rust();
+		console.WriteLine("Starting program... ");
 		boost::process::child cargoProc = ExecuteAsync("cargo run ./wwwdata/programs/" + id + "/");
 
 		//Checks Hash
@@ -749,7 +763,8 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 
 		std::string s = UploadFile(url, "./wwwdata/programs//" + id + "/out.txt");
 
-		console.WriteLine(s + " in " + std::to_string(std::round(since(startTime).count() * 1000)) + " s.", console.Mining());
+		console.Mining();
+		console.WriteLine(s + " in " + std::to_string(std::round(since(startTime).count() * 1000)) + " s.");
 
 		return 1;
 	}
@@ -801,7 +816,8 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 		hash = sha256OutBuffer;
 	}
 
-	console.WriteLine("Debug mined in " + std::to_string(std::round(since(startTime).count() * 1000)) + " s.", console.Mining());
+	console.Mining();
+	console.WriteLine("Debug mined in " + std::to_string(std::round(since(startTime).count() * 1000)) + " s.");
 
 	return 0;
 }
@@ -825,7 +841,8 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 void ConnectionError()
 {
 	connectionStatus = 0;
-	console.WriteLine(console.colorText("Failed To Connect", console.NetworkError()));
+	console.NetworkError();
+	console.WriteLine(console.colorText("Failed To Connect"));
 }
 
 std::string ExecuteCommand(const char* cmd)
@@ -879,7 +896,8 @@ boost::process::child ExecuteAsync(std::string cmd)
 
 json UpgradeBlock(json b, std::string toVersion)
 {
-	console.WriteLine("Upgrading block to version " + toVersion, console.BlockChecker());
+	console.BlockChecker();
+	console.WriteLine("Upgrading block to version " + toVersion);
 
 	if (toVersion == "v0.01alpha-coin")
 	{

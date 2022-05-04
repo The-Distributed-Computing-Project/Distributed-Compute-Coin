@@ -45,6 +45,8 @@ public:
 
 	std::string colorText(std::string name, std::string color);
 	std::string colorText(std::string name, std::string fgColor, std::string bgColor);
+	
+	void PrintColored();
 
 	std::string Network();
 	std::string NetworkError();

@@ -10,6 +10,8 @@
 #include "Network.h"
 #include "Console.h"
 
+Console console;
+
 //using namespace std;
 
 //std::string Http::StartHttpWebRequest(std::string URL, vector<std::string> args_vals)
@@ -61,7 +63,10 @@ int DownloadFile(std::string url, std::string saveAs, bool printStatus)
 	if (curl)
 	{
 		if (printStatus)
-			Console().Write("Downloading from: \"" + url + "\" ...\r", Console().Network());
+		{
+			console.Network();
+			console.Write("Downloading from: \"" + url + "\" ...\r");
+		}
 		fp = fopen(saveAs.c_str(), "wb");
 		curl_easy_setopt(curl, CURLOPT_URL, url);
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, NULL);
@@ -70,7 +75,10 @@ int DownloadFile(std::string url, std::string saveAs, bool printStatus)
 		curl_easy_cleanup(curl);
 		fclose(fp);
 		if (printStatus)
-			Console().Write("Downloading from: \"" + url + "\" Done\n", Console().Network());
+		{
+			console.Network();
+			console.Write("Downloading from: \"" + url + "\" Done.\r");
+		}
 	}
 	return 0;
 }

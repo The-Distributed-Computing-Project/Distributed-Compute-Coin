@@ -62,11 +62,9 @@ int DownloadFile(std::string url, std::string saveAs, bool printStatus)
 	curl = curl_easy_init();
 	if (curl)
 	{
-		if (printStatus)
-		{
-			console.Network();
-			console.Write("Downloading from: \"" + url + "\" ...\r");
-		}
+		console.Network();
+		console.Write("Downloading from: \"" + url + "\" ...\r");
+		
 		fp = fopen(saveAs.c_str(), "wb");
 		curl_easy_setopt(curl, CURLOPT_URL, url);
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, NULL);
@@ -74,11 +72,9 @@ int DownloadFile(std::string url, std::string saveAs, bool printStatus)
 		res = curl_easy_perform(curl);
 		curl_easy_cleanup(curl);
 		fclose(fp);
-		if (printStatus)
-		{
-			console.Network();
-			console.Write("Downloading from: \"" + url + "\" Done.\r");
-		}
+		
+		console.Network();
+		console.Write("Downloading from: \"" + url + "\" Done.\r");
 	}
 	return 0;
 }

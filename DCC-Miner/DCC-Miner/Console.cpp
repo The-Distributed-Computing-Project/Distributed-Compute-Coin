@@ -154,10 +154,10 @@ std::string Console::ReadLine()
 	return s;
 }
 
-void Console::ExitError(std::string errMessage, std::string coloredType)
+void Console::ExitError(std::string errMessage)
 {
 	Console console;
-	console.WriteLine(errMessage, coloredType);
+	console.WriteLine(errMessage);
 	std::cout << "Press Enter to Continue";
 	std::cin.ignore();
 	exit(1);

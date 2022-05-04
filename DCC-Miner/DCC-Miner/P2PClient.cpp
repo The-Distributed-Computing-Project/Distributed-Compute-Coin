@@ -60,7 +60,8 @@ int StartP2P(std::string addr, std::string port)
 {	
 	Console console;
 
-	console.WriteLine("Starting P2P Client", console.Network());
+	console.Network();
+	console.WriteLine("Starting P2P Client");
 
 	WSADATA wsaData;
 	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {

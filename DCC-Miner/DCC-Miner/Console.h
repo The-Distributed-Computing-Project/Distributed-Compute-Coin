@@ -46,21 +46,22 @@ public:
 	std::string colorText(std::string name, std::string color);
 	std::string colorText(std::string name, std::string fgColor, std::string bgColor);
 	
-	void PrintColored();
+	void Console::PrintColored(std::string text, std::string fgColor, std::string bgColor);
 
-	std::string Network();
-	std::string NetworkError();
-	std::string Mining();
-	std::string MiningError();
-	std::string Rust();
-	std::string CompilerError();
-	std::string BlockChecker();
-	std::string Debug();
-	std::string Error();
+	void NetworkPrint();
+	void NetworkErrorPrint();
+	void MiningPrint();
+	void MiningErrorPrint();
+	void RustPrint();
+	void CompilerErrorPrint();
+	void BlockCheckerPrint();
+	void DebugPrint();
+	void ErrorPrint();
 
 	void WriteLine();
 	void WriteLine(std::string message);
 	void WriteLine(std::string message, std::string coloredType);
+	void WriteLine(std::string message, std::string fgColor, std::string bgColor);
 
 	void Write();
 	void Write(std::string message);
@@ -70,7 +71,7 @@ public:
 
 	std::string ReadLine();
 
-	void ExitError(std::string errMessage, std::string coloredType);
+	void ExitError(std::string errMessage);
 
 	//Console();
 };

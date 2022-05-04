@@ -31,41 +31,85 @@ std::string Console::colorText(std::string name, std::string fgColor, std::strin
 #endif
 }
 
-std::string Console::Network()
+void Console::PrintColored(std::string text, std::string fgColor, std::string bgColor)
 {
-	return Console::colorText("Network", cyanFGColor);
+#if WINDOWS
+	auto fg = dye::white(text);
+	if (fgColor == blackFGColor)
+		fg = dye::black(text);
+	else if (fgColor == redFGColor)
+		fg = dye::black(text);
+	else if (fgColor == greenFGColor)
+		fg = dye::green(text);
+	else if (fgColor == yellowFGColor)
+		fg = dye::yellow(text);
+	else if (fgColor == blueFGColor)
+		fg = dye::blue(text);
+	else if (fgColor == magentaFGColor)
+		fg = dye::magenta(text);
+	else if (fgColor == cyanFGColor)
+		fg = dye::cyan(text);
+	else if (fgColor == whiteFGColor)
+		fg = dye::white(text);
+	std::cout << fg;
+#else
+	cout << fgColor + bgColor + name + resetColor;
+#endif
 }
-std::string Console::NetworkError()
+
+void Console::NetworkPrint()
 {
-	return Console::colorText("Network-Error", redFGColor);
+	Console::PrintColored("[", yellowFGColor, "");
+	Console::PrintColored("Network", cyanFGColor, "");
+	Console::PrintColored("]  - ", yellowFGColor, "");
 }
-std::string Console::Mining()
+void Console::NetworkErrorPrint()
 {
-	return Console::colorText("Mining", greenFGColor);
+	Console::PrintColored("[", yellowFGColor, "");
+	Console::PrintColored("Network-Error", redFGColor, "");
+	Console::PrintColored("]  - ", yellowFGColor, "");
 }
-std::string Console::MiningError()
+void Console::MiningPrint()
 {
-	return Console::colorText("Mining-Error", redFGColor);
+	Console::PrintColored("[", yellowFGColor, "");
+	Console::PrintColored("Mining", greenFGColor, "");
+	Console::PrintColored("]  - ", yellowFGColor, "");
 }
-std::string Console::Rust()
+void Console::MiningErrorPrint()
 {
-	return Console::colorText("Rust", magentaFGColor);
+	Console::PrintColored("[", yellowFGColor, "");
+	Console::PrintColored("Mining-Error", redFGColor, "");
+	Console::PrintColored("]  - ", yellowFGColor, "");
 }
-std::string Console::CompilerError()
+void Console::RustPrint()
 {
-	return Console::colorText("Rust-Error", redFGColor);
+	Console::PrintColored("[", yellowFGColor, "");
+	Console::PrintColored("Rust", magentaFGColor, "");
+	Console::PrintColored("]  - ", yellowFGColor, "");
 }
-std::string Console::BlockChecker()
+void Console::CompilerErrorPrint()
 {
-	return Console::colorText("Block-Checker", blackFGColor, cyanBGColor);
+	Console::PrintColored("[", yellowFGColor, "");
+	Console::PrintColored("Rust-Error", redFGColor, "");
+	Console::PrintColored("]  - ", yellowFGColor, "");
 }
-std::string Console::Debug()
+void Console::BlockCheckerPrint()
 {
-	return Console::colorText("Debug", yellowFGColor);
+	Console::PrintColored("[", yellowFGColor, "");
+	Console::PrintColored("Block-Checker", blackFGColor, cyanBGColor);
+	Console::PrintColored("]  - ", yellowFGColor, "");
 }
-std::string Console::Error()
+void Console::DebugPrint()
 {
-	return Console::colorText("Error", redFGColor);
+	Console::PrintColored("[", yellowFGColor, "");
+	Console::PrintColored("Debug", yellowFGColor, "");
+	Console::PrintColored("]  - ", yellowFGColor, "");
+}
+void Console::ErrorPrint()
+{
+	Console::PrintColored("[", yellowFGColor, "");
+	Console::PrintColored("Error", redFGColor, "");
+	Console::PrintColored("]  - ", yellowFGColor, "");
 }
 
 void Console::WriteLine()
@@ -76,13 +120,10 @@ void Console::WriteLine(std::string message)
 {
 	std::cout << message << std::endl;
 }
-void Console::WriteLine(std::string message, std::string coloredType)
+void Console::WriteLine(std::string message, std::string fgColor, std::string bgColor)
 {
-	Console::Write(colorText("[", yellowFGColor));
-	Console::Write(coloredType);
-	Console::Write(colorText("]  - ", yellowFGColor));
-
-	Console::WriteLine(message);
+	Console::PrintColored(message, fgColor, bgColor);
+	Console::WriteLine();
 }
 
 void Console::Write()
@@ -95,22 +136,16 @@ void Console::Write(std::string message)
 }
 void Console::Write(std::string message, std::string color)
 {
-	Console::Write(colorText("[", yellowFGColor));
-	Console::Write(colorText(message, color));
-	Console::Write(colorText("]  - ", yellowFGColor));
+	Console::PrintColored(message, color, "");
 }
 void Console::Write(std::string message, std::string fgColor, std::string bgColor)
 {
-	Console::Write(colorText("[", yellowFGColor));
-	Console::Write(colorText(message, fgColor, bgColor));
-	Console::Write(colorText("]  - ", yellowFGColor));
+	Console::PrintColored(message, fgColor, bgColor);
 }
-void Console::WriteDialogueAuthor(std::string coloredType)
-{
-	Console::Write(colorText("[", yellowFGColor));
-	Console::Write(coloredType);
-	Console::Write(colorText("]  - ", yellowFGColor));
-}
+//void Console::WriteDialogueAuthor(std::string coloredType)
+//{
+//	Console::PrintColored(coloredType, "", "");
+//}
 
 std::string Console::ReadLine()
 {

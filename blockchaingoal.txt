@@ -1,0 +1,10 @@
+hiddenPassword = privateKey
+senderAddr = publicKey
+
+
+// Sending
+signature = encryptWithPrivateKey(senderAddr + receiverAddr + amount, hiddenPassword)
+senderAddr, receiverAddr, amount, signature
+
+// Checking
+if(signature == decryptWithPublicKey(signiature, senderAddr))

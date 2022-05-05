@@ -8,9 +8,13 @@
 #include "RequestParser.h"
 #include "strops.h"
 
-std::string Parse(std::string url)
+string BLOCKCHAIN_DIR = "./wwwdata/blockchain";
+string PENDING_BLOCKCHAIN_DIR = "./wwwdata/pendingblocks";
+
+std::string RequestParser::Parse(std::string url)
 {
 	// Create easily accessible map of all name/value pairs.
+	// 	ex. {"query", "buy"}
 	std::map<std::string, std::string> argValMap;
 	std::vector<std::string> args = SplitString(url, "&");
 	for (int i = 0; i < args.size(); i++)

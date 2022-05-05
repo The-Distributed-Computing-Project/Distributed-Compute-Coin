@@ -5,6 +5,8 @@
 
 class P2P
 {
+private:
+  SOCKET localSocket;
 public:
   //using namespace std;
   //
@@ -13,6 +15,9 @@ public:
   //void TaskRec();
   bool CONNECTED_TO_PEER = false;
 
+  std::string NormalizedIPString(SOCKADDR_IN addr);
+  void TaskRec(unsigned int update_interval_millisecs);
+  int SafeSend(SOCKET s, char* buf, int buflen);
   int StartP2P(std::string addr, std::string port);
 };
 

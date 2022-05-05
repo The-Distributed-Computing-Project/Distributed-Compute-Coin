@@ -105,12 +105,12 @@ build install\local: phony CMakeFiles\install\local.util
 #############################################
 # Order-only phony target for DCC-Miner
 
-build cmake_object_order_depends_target_DCC-Miner: phony || cmake_object_order_depends_target_cpr cmake_object_order_depends_target_elzip cmake_object_order_depends_target_libcurl cmake_object_order_depends_target_minizip cmake_object_order_depends_target_zlibstatic
+build cmake_object_order_depends_target_DCC-Miner: phony || cmake_object_order_depends_target_cpr cmake_object_order_depends_target_libcurl
 
 build DCC-Miner\CMakeFiles\DCC-Miner.dir\Main.cpp.obj: CXX_COMPILER__DCC-Miner_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp || cmake_object_order_depends_target_DCC-Miner
   DEFINES = -DCURL_STATICLIB
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Code\boost -IC:\curl\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include\elzip -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-src\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build\cpr_generated_includes -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include -external:I "C:\Program Files\OpenSSL-Win64\include" -external:W0
+  INCLUDES = -ID:\Code\boost -IC:\curl\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-src\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build\cpr_generated_includes -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include -external:I "C:\Program Files\OpenSSL-Win64\include" -external:W0
   OBJECT_DIR = DCC-Miner\CMakeFiles\DCC-Miner.dir
   OBJECT_FILE_DIR = DCC-Miner\CMakeFiles\DCC-Miner.dir
   TARGET_COMPILE_PDB = DCC-Miner\CMakeFiles\DCC-Miner.dir\
@@ -119,7 +119,7 @@ build DCC-Miner\CMakeFiles\DCC-Miner.dir\Main.cpp.obj: CXX_COMPILER__DCC-Miner_D
 build DCC-Miner\CMakeFiles\DCC-Miner.dir\Console.cpp.obj: CXX_COMPILER__DCC-Miner_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Console.cpp || cmake_object_order_depends_target_DCC-Miner
   DEFINES = -DCURL_STATICLIB
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Code\boost -IC:\curl\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include\elzip -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-src\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build\cpr_generated_includes -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include -external:I "C:\Program Files\OpenSSL-Win64\include" -external:W0
+  INCLUDES = -ID:\Code\boost -IC:\curl\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-src\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build\cpr_generated_includes -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include -external:I "C:\Program Files\OpenSSL-Win64\include" -external:W0
   OBJECT_DIR = DCC-Miner\CMakeFiles\DCC-Miner.dir
   OBJECT_FILE_DIR = DCC-Miner\CMakeFiles\DCC-Miner.dir
   TARGET_COMPILE_PDB = DCC-Miner\CMakeFiles\DCC-Miner.dir\
@@ -128,7 +128,7 @@ build DCC-Miner\CMakeFiles\DCC-Miner.dir\Console.cpp.obj: CXX_COMPILER__DCC-Mine
 build DCC-Miner\CMakeFiles\DCC-Miner.dir\FileManip.cpp.obj: CXX_COMPILER__DCC-Miner_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\FileManip.cpp || cmake_object_order_depends_target_DCC-Miner
   DEFINES = -DCURL_STATICLIB
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Code\boost -IC:\curl\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include\elzip -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-src\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build\cpr_generated_includes -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include -external:I "C:\Program Files\OpenSSL-Win64\include" -external:W0
+  INCLUDES = -ID:\Code\boost -IC:\curl\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-src\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build\cpr_generated_includes -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include -external:I "C:\Program Files\OpenSSL-Win64\include" -external:W0
   OBJECT_DIR = DCC-Miner\CMakeFiles\DCC-Miner.dir
   OBJECT_FILE_DIR = DCC-Miner\CMakeFiles\DCC-Miner.dir
   TARGET_COMPILE_PDB = DCC-Miner\CMakeFiles\DCC-Miner.dir\
@@ -137,7 +137,7 @@ build DCC-Miner\CMakeFiles\DCC-Miner.dir\FileManip.cpp.obj: CXX_COMPILER__DCC-Mi
 build DCC-Miner\CMakeFiles\DCC-Miner.dir\Network.cpp.obj: CXX_COMPILER__DCC-Miner_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Network.cpp || cmake_object_order_depends_target_DCC-Miner
   DEFINES = -DCURL_STATICLIB
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Code\boost -IC:\curl\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include\elzip -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-src\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build\cpr_generated_includes -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include -external:I "C:\Program Files\OpenSSL-Win64\include" -external:W0
+  INCLUDES = -ID:\Code\boost -IC:\curl\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-src\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build\cpr_generated_includes -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include -external:I "C:\Program Files\OpenSSL-Win64\include" -external:W0
   OBJECT_DIR = DCC-Miner\CMakeFiles\DCC-Miner.dir
   OBJECT_FILE_DIR = DCC-Miner\CMakeFiles\DCC-Miner.dir
   TARGET_COMPILE_PDB = DCC-Miner\CMakeFiles\DCC-Miner.dir\
@@ -146,7 +146,7 @@ build DCC-Miner\CMakeFiles\DCC-Miner.dir\Network.cpp.obj: CXX_COMPILER__DCC-Mine
 build DCC-Miner\CMakeFiles\DCC-Miner.dir\strops.cpp.obj: CXX_COMPILER__DCC-Miner_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp || cmake_object_order_depends_target_DCC-Miner
   DEFINES = -DCURL_STATICLIB
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Code\boost -IC:\curl\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include\elzip -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-src\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build\cpr_generated_includes -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include -external:I "C:\Program Files\OpenSSL-Win64\include" -external:W0
+  INCLUDES = -ID:\Code\boost -IC:\curl\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-src\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build\cpr_generated_includes -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include -external:I "C:\Program Files\OpenSSL-Win64\include" -external:W0
   OBJECT_DIR = DCC-Miner\CMakeFiles\DCC-Miner.dir
   OBJECT_FILE_DIR = DCC-Miner\CMakeFiles\DCC-Miner.dir
   TARGET_COMPILE_PDB = DCC-Miner\CMakeFiles\DCC-Miner.dir\
@@ -155,7 +155,7 @@ build DCC-Miner\CMakeFiles\DCC-Miner.dir\strops.cpp.obj: CXX_COMPILER__DCC-Miner
 build DCC-Miner\CMakeFiles\DCC-Miner.dir\P2PClient.cpp.obj: CXX_COMPILER__DCC-Miner_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp || cmake_object_order_depends_target_DCC-Miner
   DEFINES = -DCURL_STATICLIB
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Code\boost -IC:\curl\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include\elzip -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-src\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build\cpr_generated_includes -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include -external:I "C:\Program Files\OpenSSL-Win64\include" -external:W0
+  INCLUDES = -ID:\Code\boost -IC:\curl\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-src\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build\cpr_generated_includes -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include -external:I "C:\Program Files\OpenSSL-Win64\include" -external:W0
   OBJECT_DIR = DCC-Miner\CMakeFiles\DCC-Miner.dir
   OBJECT_FILE_DIR = DCC-Miner\CMakeFiles\DCC-Miner.dir
   TARGET_COMPILE_PDB = DCC-Miner\CMakeFiles\DCC-Miner.dir\
@@ -169,10 +169,10 @@ build DCC-Miner\CMakeFiles\DCC-Miner.dir\P2PClient.cpp.obj: CXX_COMPILER__DCC-Mi
 #############################################
 # Link the executable DCC-Miner\DCC-Miner.exe
 
-build DCC-Miner\DCC-Miner.exe: CXX_EXECUTABLE_LINKER__DCC-Miner_Debug DCC-Miner\CMakeFiles\DCC-Miner.dir\Main.cpp.obj DCC-Miner\CMakeFiles\DCC-Miner.dir\Console.cpp.obj DCC-Miner\CMakeFiles\DCC-Miner.dir\FileManip.cpp.obj DCC-Miner\CMakeFiles\DCC-Miner.dir\Network.cpp.obj DCC-Miner\CMakeFiles\DCC-Miner.dir\strops.cpp.obj DCC-Miner\CMakeFiles\DCC-Miner.dir\P2PClient.cpp.obj | DCC-Miner\extlibs\elzip\elzip.lib C$:\Program$ Files\OpenSSL-Win64\lib\VC\libssl64MDd.lib _deps\cpr-build\cpr\cpr.lib DCC-Miner\extlibs\elzip\elzip.lib DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.lib _deps\zlib-build\zlibstaticd.lib C$:\Program$ Files\OpenSSL-Win64\lib\VC\libcrypto64MDd.lib _deps\curl-build\lib\libcurl-d_imp.lib || DCC-Miner\extlibs\elzip\elzip.lib DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.lib _deps\zlib-build\zlibstaticd.lib cpr.dll libcurl-d.dll
+build DCC-Miner\DCC-Miner.exe: CXX_EXECUTABLE_LINKER__DCC-Miner_Debug DCC-Miner\CMakeFiles\DCC-Miner.dir\Main.cpp.obj DCC-Miner\CMakeFiles\DCC-Miner.dir\Console.cpp.obj DCC-Miner\CMakeFiles\DCC-Miner.dir\FileManip.cpp.obj DCC-Miner\CMakeFiles\DCC-Miner.dir\Network.cpp.obj DCC-Miner\CMakeFiles\DCC-Miner.dir\strops.cpp.obj DCC-Miner\CMakeFiles\DCC-Miner.dir\P2PClient.cpp.obj | C$:\Program$ Files\OpenSSL-Win64\lib\VC\libssl64MDd.lib _deps\cpr-build\cpr\cpr.lib C$:\Program$ Files\OpenSSL-Win64\lib\VC\libcrypto64MDd.lib _deps\curl-build\lib\libcurl-d_imp.lib || cpr.dll libcurl-d.dll
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
-  LINK_LIBRARIES = DCC-Miner\extlibs\elzip\elzip.lib  "C:\Program Files\OpenSSL-Win64\lib\VC\libssl64MDd.lib"  _deps\cpr-build\cpr\cpr.lib  DCC-Miner\extlibs\elzip\elzip.lib  DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.lib  _deps\zlib-build\zlibstaticd.lib  "C:\Program Files\OpenSSL-Win64\lib\VC\libcrypto64MDd.lib"  _deps\curl-build\lib\libcurl-d_imp.lib  winmm.lib  ws2_32.lib  advapi32.lib  crypt32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  LINK_LIBRARIES = "C:\Program Files\OpenSSL-Win64\lib\VC\libssl64MDd.lib"  _deps\cpr-build\cpr\cpr.lib  "C:\Program Files\OpenSSL-Win64\lib\VC\libcrypto64MDd.lib"  _deps\curl-build\lib\libcurl-d_imp.lib  winmm.lib  ws2_32.lib  advapi32.lib  crypt32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
   OBJECT_DIR = DCC-Miner\CMakeFiles\DCC-Miner.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -239,306 +239,62 @@ build DCC-Miner\install\local: phony DCC-Miner\CMakeFiles\install\local.util
 # D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/CMakeLists.txt
 # =============================================================================
 
-# =============================================================================
-# Object build statements for STATIC_LIBRARY target elzip
-
-
-#############################################
-# Order-only phony target for elzip
-
-build cmake_object_order_depends_target_elzip: phony || cmake_object_order_depends_target_minizip cmake_object_order_depends_target_zlibstatic
-
-build DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir\src\elzip.cpp.obj: CXX_COMPILER__elzip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\src\elzip.cpp || cmake_object_order_depends_target_elzip
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include\elzip -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\src -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir\src
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir\elzip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\elzip.pdb
-
-build DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir\src\unzipper.cpp.obj: CXX_COMPILER__elzip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\src\unzipper.cpp || cmake_object_order_depends_target_elzip
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include\elzip -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\src -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir\src
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir\elzip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\elzip.pdb
-
-build DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir\src\zipper.cpp.obj: CXX_COMPILER__elzip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\src\zipper.cpp || cmake_object_order_depends_target_elzip
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\include\elzip -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\src -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir\src
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir\elzip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\elzip.pdb
-
-
-# =============================================================================
-# Link build statements for STATIC_LIBRARY target elzip
-
-
-#############################################
-# Link the static library DCC-Miner\extlibs\elzip\elzip.lib
-
-build DCC-Miner\extlibs\elzip\elzip.lib: CXX_STATIC_LIBRARY_LINKER__elzip_Debug DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir\src\elzip.cpp.obj DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir\src\unzipper.cpp.obj DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir\src\zipper.cpp.obj || DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.lib _deps\zlib-build\zlibstaticd.lib
-  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
-  LINK_FLAGS = /machine:x64
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\CMakeFiles\elzip.dir\elzip.pdb
-  TARGET_FILE = DCC-Miner\extlibs\elzip\elzip.lib
-  TARGET_PDB = DCC-Miner\extlibs\elzip\elzip.pdb
-
 
 #############################################
 # Utility command for edit_cache
 
-build DCC-Miner\extlibs\elzip\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\DCC-Miner\extlibs\elzip && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+build _deps\cpr-build\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
-build DCC-Miner\extlibs\elzip\edit_cache: phony DCC-Miner\extlibs\elzip\CMakeFiles\edit_cache.util
+build _deps\cpr-build\edit_cache: phony _deps\cpr-build\CMakeFiles\edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build DCC-Miner\extlibs\elzip\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\DCC-Miner\extlibs\elzip && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SD:\Code\DC-Cryptocurrency\DCC-Miner -BD:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug"
+build _deps\cpr-build\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SD:\Code\DC-Cryptocurrency\DCC-Miner -BD:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build DCC-Miner\extlibs\elzip\rebuild_cache: phony DCC-Miner\extlibs\elzip\CMakeFiles\rebuild_cache.util
+build _deps\cpr-build\rebuild_cache: phony _deps\cpr-build\CMakeFiles\rebuild_cache.util
 
 
 #############################################
 # Utility command for list_install_components
 
-build DCC-Miner\extlibs\elzip\list_install_components: phony
+build _deps\cpr-build\list_install_components: phony
 
 
 #############################################
 # Utility command for install
 
-build DCC-Miner\extlibs\elzip\CMakeFiles\install.util: CUSTOM_COMMAND DCC-Miner\extlibs\elzip\all
-  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\DCC-Miner\extlibs\elzip && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -P cmake_install.cmake"
+build _deps\cpr-build\CMakeFiles\install.util: CUSTOM_COMMAND _deps\cpr-build\all
+  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -P cmake_install.cmake"
   DESC = Install the project...
   pool = console
   restat = 1
 
-build DCC-Miner\extlibs\elzip\install: phony DCC-Miner\extlibs\elzip\CMakeFiles\install.util
+build _deps\cpr-build\install: phony _deps\cpr-build\CMakeFiles\install.util
 
 
 #############################################
 # Utility command for install/local
 
-build DCC-Miner\extlibs\elzip\CMakeFiles\install\local.util: CUSTOM_COMMAND DCC-Miner\extlibs\elzip\all
-  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\DCC-Miner\extlibs\elzip && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+build _deps\cpr-build\CMakeFiles\install\local.util: CUSTOM_COMMAND _deps\cpr-build\all
+  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
   DESC = Installing only the local directory...
   pool = console
   restat = 1
 
-build DCC-Miner\extlibs\elzip\install\local: phony DCC-Miner\extlibs\elzip\CMakeFiles\install\local.util
+build _deps\cpr-build\install\local: phony _deps\cpr-build\CMakeFiles\install\local.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/CMakeLists.txt
-# =============================================================================
-
-# =============================================================================
-# Object build statements for STATIC_LIBRARY target minizip
-
-
-#############################################
-# Order-only phony target for minizip
-
-build cmake_object_order_depends_target_minizip: phony || cmake_object_order_depends_target_zlibstatic
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_crypt.c.obj: C_COMPILER__minizip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\mz_crypt.c || cmake_object_order_depends_target_minizip
-  DEFINES = -DHAVE_INTTYPES_H -DHAVE_STDINT_H -DHAVE_ZLIB -DMZ_ZIP_NO_CRYPTO -DMZ_ZIP_NO_ENCRYPTION -DNO_FSEEKO -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /Zi /Od /W3
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\minizip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.pdb
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_os.c.obj: C_COMPILER__minizip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\mz_os.c || cmake_object_order_depends_target_minizip
-  DEFINES = -DHAVE_INTTYPES_H -DHAVE_STDINT_H -DHAVE_ZLIB -DMZ_ZIP_NO_CRYPTO -DMZ_ZIP_NO_ENCRYPTION -DNO_FSEEKO -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /Zi /Od /W3
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\minizip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.pdb
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_strm.c.obj: C_COMPILER__minizip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\mz_strm.c || cmake_object_order_depends_target_minizip
-  DEFINES = -DHAVE_INTTYPES_H -DHAVE_STDINT_H -DHAVE_ZLIB -DMZ_ZIP_NO_CRYPTO -DMZ_ZIP_NO_ENCRYPTION -DNO_FSEEKO -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /Zi /Od /W3
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\minizip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.pdb
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_strm_buf.c.obj: C_COMPILER__minizip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\mz_strm_buf.c || cmake_object_order_depends_target_minizip
-  DEFINES = -DHAVE_INTTYPES_H -DHAVE_STDINT_H -DHAVE_ZLIB -DMZ_ZIP_NO_CRYPTO -DMZ_ZIP_NO_ENCRYPTION -DNO_FSEEKO -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /Zi /Od /W3
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\minizip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.pdb
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_strm_mem.c.obj: C_COMPILER__minizip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\mz_strm_mem.c || cmake_object_order_depends_target_minizip
-  DEFINES = -DHAVE_INTTYPES_H -DHAVE_STDINT_H -DHAVE_ZLIB -DMZ_ZIP_NO_CRYPTO -DMZ_ZIP_NO_ENCRYPTION -DNO_FSEEKO -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /Zi /Od /W3
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\minizip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.pdb
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_strm_split.c.obj: C_COMPILER__minizip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\mz_strm_split.c || cmake_object_order_depends_target_minizip
-  DEFINES = -DHAVE_INTTYPES_H -DHAVE_STDINT_H -DHAVE_ZLIB -DMZ_ZIP_NO_CRYPTO -DMZ_ZIP_NO_ENCRYPTION -DNO_FSEEKO -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /Zi /Od /W3
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\minizip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.pdb
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_zip.c.obj: C_COMPILER__minizip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\mz_zip.c || cmake_object_order_depends_target_minizip
-  DEFINES = -DHAVE_INTTYPES_H -DHAVE_STDINT_H -DHAVE_ZLIB -DMZ_ZIP_NO_CRYPTO -DMZ_ZIP_NO_ENCRYPTION -DNO_FSEEKO -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /Zi /Od /W3
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\minizip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.pdb
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_zip_rw.c.obj: C_COMPILER__minizip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\mz_zip_rw.c || cmake_object_order_depends_target_minizip
-  DEFINES = -DHAVE_INTTYPES_H -DHAVE_STDINT_H -DHAVE_ZLIB -DMZ_ZIP_NO_CRYPTO -DMZ_ZIP_NO_ENCRYPTION -DNO_FSEEKO -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /Zi /Od /W3
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\minizip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.pdb
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_strm_zlib.c.obj: C_COMPILER__minizip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\mz_strm_zlib.c || cmake_object_order_depends_target_minizip
-  DEFINES = -DHAVE_INTTYPES_H -DHAVE_STDINT_H -DHAVE_ZLIB -DMZ_ZIP_NO_CRYPTO -DMZ_ZIP_NO_ENCRYPTION -DNO_FSEEKO -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /Zi /Od /W3
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\minizip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.pdb
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_os_win32.c.obj: C_COMPILER__minizip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\mz_os_win32.c || cmake_object_order_depends_target_minizip
-  DEFINES = -DHAVE_INTTYPES_H -DHAVE_STDINT_H -DHAVE_ZLIB -DMZ_ZIP_NO_CRYPTO -DMZ_ZIP_NO_ENCRYPTION -DNO_FSEEKO -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /Zi /Od /W3
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\minizip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.pdb
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_strm_os_win32.c.obj: C_COMPILER__minizip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\mz_strm_os_win32.c || cmake_object_order_depends_target_minizip
-  DEFINES = -DHAVE_INTTYPES_H -DHAVE_STDINT_H -DHAVE_ZLIB -DMZ_ZIP_NO_CRYPTO -DMZ_ZIP_NO_ENCRYPTION -DNO_FSEEKO -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /Zi /Od /W3
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\minizip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.pdb
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_compat.c.obj: C_COMPILER__minizip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\mz_compat.c || cmake_object_order_depends_target_minizip
-  DEFINES = -DHAVE_INTTYPES_H -DHAVE_STDINT_H -DHAVE_ZLIB -DMZ_ZIP_NO_CRYPTO -DMZ_ZIP_NO_ENCRYPTION -DNO_FSEEKO -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /Zi /Od /W3
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  OBJECT_FILE_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\minizip.pdb
-  TARGET_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.pdb
-
-
-# =============================================================================
-# Link build statements for STATIC_LIBRARY target minizip
-
-
-#############################################
-# Link the static library DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.lib
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.lib: C_STATIC_LIBRARY_LINKER__minizip_Debug DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_crypt.c.obj DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_os.c.obj DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_strm.c.obj DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_strm_buf.c.obj DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_strm_mem.c.obj DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_strm_split.c.obj DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_zip.c.obj DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_zip_rw.c.obj DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_strm_zlib.c.obj DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_os_win32.c.obj DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_strm_os_win32.c.obj DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\mz_compat.c.obj || _deps\zlib-build\zlibstaticd.lib
-  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  LINK_FLAGS = /machine:x64
-  OBJECT_DIR = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\minizip.dir\minizip.pdb
-  TARGET_FILE = DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.lib
-  TARGET_PDB = DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.pdb
-
-
-#############################################
-# Utility command for edit_cache
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\DCC-Miner\extlibs\elzip\extlibs\minizip && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\edit_cache: phony DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\DCC-Miner\extlibs\elzip\extlibs\minizip && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SD:\Code\DC-Cryptocurrency\DCC-Miner -BD:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\rebuild_cache: phony DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\rebuild_cache.util
-
-
-#############################################
-# Utility command for list_install_components
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\list_install_components: phony
-
-
-#############################################
-# Utility command for install
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\install.util: CUSTOM_COMMAND DCC-Miner\extlibs\elzip\extlibs\minizip\all
-  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\DCC-Miner\extlibs\elzip\extlibs\minizip && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -P cmake_install.cmake"
-  DESC = Install the project...
-  pool = console
-  restat = 1
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\install: phony DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\install.util
-
-
-#############################################
-# Utility command for install/local
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\install\local.util: CUSTOM_COMMAND DCC-Miner\extlibs\elzip\extlibs\minizip\all
-  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\DCC-Miner\extlibs\elzip\extlibs\minizip && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
-  DESC = Installing only the local directory...
-  pool = console
-  restat = 1
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\install\local: phony DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeFiles\install\local.util
-
-# =============================================================================
-# Write statements declared in CMakeLists.txt:
-# D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/extlibs/elzip/extlibs/minizip/CMakeLists.txt
+# D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/cpr-src/cmake/zlib_external.cmake
 # =============================================================================
 
 # =============================================================================
@@ -550,150 +306,321 @@ build DCC-Miner\extlibs\elzip\extlibs\minizip\install\local: phony DCC-Miner\ext
 
 build cmake_object_order_depends_target_zlib: phony || _deps\zlib-build\CMakeFiles\zlib.dir
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\adler32.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\adler32.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\adler32.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\adler32.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\compress.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\compress.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\chunkset.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\chunkset.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\crc32.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\crc32.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\compare258.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\compare258.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\deflate.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\deflate.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\compress.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\compress.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\gzclose.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\gzclose.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\crc32.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\crc32.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\gzlib.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\gzlib.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\crc32_comb.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\crc32_comb.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\gzread.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\gzread.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\deflate.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\deflate.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\gzwrite.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\gzwrite.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\deflate_fast.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\deflate_fast.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\inflate.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\inflate.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\deflate_medium.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\deflate_medium.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\infback.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\infback.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\deflate_quick.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\deflate_quick.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\inftrees.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\inftrees.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\deflate_slow.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\deflate_slow.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\inffast.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\inffast.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\functable.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\functable.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\trees.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\trees.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\infback.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\infback.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\uncompr.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\uncompr.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\inffast.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\inffast.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\zutil.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\zutil.c || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
+build _deps\zlib-build\CMakeFiles\zlib.dir\inflate.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\inflate.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
 
-build _deps\zlib-build\CMakeFiles\zlib.dir\win32\zlib1.res: RC_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\win32\zlib1.rc || cmake_object_order_depends_target_zlib
-  DEFINES = -DNO_FSEEKO -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  DEP_FILE = _deps\zlib-build\CMakeFiles\zlib.dir\win32\zlib1.res.d
+build _deps\zlib-build\CMakeFiles\zlib.dir\inftrees.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\inftrees.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\insert_string.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\insert_string.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\trees.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\trees.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\uncompr.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\uncompr.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\zutil.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\zutil.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\x86.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\arch\x86\x86.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\slide_avx.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\arch\x86\slide_avx.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\chunkset_avx.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\arch\x86\chunkset_avx.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\compare258_avx.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\arch\x86\compare258_avx.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\adler32_avx.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\arch\x86\adler32_avx.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\insert_string_sse.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\arch\x86\insert_string_sse.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\compare258_sse.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\arch\x86\compare258_sse.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\chunkset_sse.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\arch\x86\chunkset_sse.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\slide_sse.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\arch\x86\slide_sse.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\adler32_ssse3.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\arch\x86\adler32_ssse3.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\crc_folding.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\arch\x86\crc_folding.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\win32\zlib1.rc.res: RC_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\win32\zlib1.rc || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  DEP_FILE = _deps\zlib-build\CMakeFiles\zlib.dir\win32\zlib1.rc.res.d
   FLAGS = -DWIN32 -D_DEBUG
-  INCLUDES = -I D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -I D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -I D:\Code\DC-Cryptocurrency\DCC-Miner
+  INCLUDES = -I D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -I D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir\win32
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\gzlib.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\gzlib.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\gzread.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\gzread.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
+
+build _deps\zlib-build\CMakeFiles\zlib.dir\gzwrite.c.obj: C_COMPILER__zlib_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src\gzwrite.c || cmake_object_order_depends_target_zlib
+  DEFINES = -DCPR_ENABLE_SSL -DNO_FSEEKO -DUNALIGNED64_OK -DUNALIGNED_OK -DWITH_GZFILEOP -DX86_AVX2 -DX86_AVX2_ADLER32 -DX86_AVX_CHUNKSET -DX86_FEATURES -DX86_PCLMULQDQ_CRC -DX86_SSE2 -DX86_SSE2_CHUNKSET -DX86_SSE2_SLIDEHASH -DX86_SSE42_CMP_STR -DX86_SSE42_CRC_HASH -DX86_SSE42_CRC_INTRIN -DX86_SSSE3 -DX86_SSSE3_ADLER32 -DZLIB_COMPAT -DZLIB_DLL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-src
+  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
+  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
+  TARGET_PDB = zlib.pdb
 
 
 # =============================================================================
@@ -701,258 +628,20 @@ build _deps\zlib-build\CMakeFiles\zlib.dir\win32\zlib1.res: RC_COMPILER__zlib_De
 
 
 #############################################
-# Link the shared library _deps\zlib-build\zlib.dll
+# Link the shared library zlib.dll
 
-build _deps\zlib-build\zlib.dll _deps\zlib-build\zlib.lib: C_SHARED_LIBRARY_LINKER__zlib_Debug _deps\zlib-build\CMakeFiles\zlib.dir\adler32.obj _deps\zlib-build\CMakeFiles\zlib.dir\compress.obj _deps\zlib-build\CMakeFiles\zlib.dir\crc32.obj _deps\zlib-build\CMakeFiles\zlib.dir\deflate.obj _deps\zlib-build\CMakeFiles\zlib.dir\gzclose.obj _deps\zlib-build\CMakeFiles\zlib.dir\gzlib.obj _deps\zlib-build\CMakeFiles\zlib.dir\gzread.obj _deps\zlib-build\CMakeFiles\zlib.dir\gzwrite.obj _deps\zlib-build\CMakeFiles\zlib.dir\inflate.obj _deps\zlib-build\CMakeFiles\zlib.dir\infback.obj _deps\zlib-build\CMakeFiles\zlib.dir\inftrees.obj _deps\zlib-build\CMakeFiles\zlib.dir\inffast.obj _deps\zlib-build\CMakeFiles\zlib.dir\trees.obj _deps\zlib-build\CMakeFiles\zlib.dir\uncompr.obj _deps\zlib-build\CMakeFiles\zlib.dir\zutil.obj _deps\zlib-build\CMakeFiles\zlib.dir\win32\zlib1.res
-  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL
+build zlib.dll _deps\zlib-build\zlib.lib: C_SHARED_LIBRARY_LINKER__zlib_Debug _deps\zlib-build\CMakeFiles\zlib.dir\adler32.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\chunkset.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\compare258.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\compress.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\crc32.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\crc32_comb.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\deflate.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\deflate_fast.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\deflate_medium.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\deflate_quick.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\deflate_slow.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\functable.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\infback.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\inffast.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\inflate.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\inftrees.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\insert_string.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\trees.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\uncompr.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\zutil.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\x86.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\slide_avx.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\chunkset_avx.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\compare258_avx.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\adler32_avx.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\insert_string_sse.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\compare258_sse.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\chunkset_sse.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\slide_sse.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\adler32_ssse3.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\arch\x86\crc_folding.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\win32\zlib1.rc.res _deps\zlib-build\CMakeFiles\zlib.dir\gzlib.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\gzread.c.obj _deps\zlib-build\CMakeFiles\zlib.dir\gzwrite.c.obj
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /W3  /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL  /DEF:_deps\zlib-build\CMakeFiles\zlib.dir\.\exports.def
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
   OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlib.dir
   POST_BUILD = cd .
-  PRE_LINK = cd .
+  PRE_LINK = cmd.exe /C ""C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E __create_def D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build\CMakeFiles\zlib.dir\.\exports.def D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build\CMakeFiles\zlib.dir\.\exports.def.objs && cd D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug"
   RESTAT = 1
   TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlib.dir\
-  TARGET_FILE = _deps\zlib-build\zlib.dll
+  TARGET_FILE = zlib.dll
   TARGET_IMPLIB = _deps\zlib-build\zlib.lib
-  TARGET_PDB = _deps\zlib-build\zlib.pdb
-
-# =============================================================================
-# Object build statements for STATIC_LIBRARY target zlibstatic
-
-
-#############################################
-# Order-only phony target for zlibstatic
-
-build cmake_object_order_depends_target_zlibstatic: phony || _deps\zlib-build\CMakeFiles\zlibstatic.dir
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\adler32.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\adler32.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\compress.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\compress.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\crc32.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\crc32.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\deflate.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\deflate.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\gzclose.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\gzclose.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\gzlib.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\gzlib.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\gzread.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\gzread.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\gzwrite.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\gzwrite.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\inflate.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\inflate.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\infback.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\infback.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\inftrees.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\inftrees.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\inffast.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\inffast.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\trees.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\trees.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\uncompr.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\uncompr.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-build _deps\zlib-build\CMakeFiles\zlibstatic.dir\zutil.obj: C_COMPILER__zlibstatic_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\zutil.c || cmake_object_order_depends_target_zlibstatic
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-
-# =============================================================================
-# Link build statements for STATIC_LIBRARY target zlibstatic
-
-
-#############################################
-# Link the static library _deps\zlib-build\zlibstaticd.lib
-
-build _deps\zlib-build\zlibstaticd.lib: C_STATIC_LIBRARY_LINKER__zlibstatic_Debug _deps\zlib-build\CMakeFiles\zlibstatic.dir\adler32.obj _deps\zlib-build\CMakeFiles\zlibstatic.dir\compress.obj _deps\zlib-build\CMakeFiles\zlibstatic.dir\crc32.obj _deps\zlib-build\CMakeFiles\zlibstatic.dir\deflate.obj _deps\zlib-build\CMakeFiles\zlibstatic.dir\gzclose.obj _deps\zlib-build\CMakeFiles\zlibstatic.dir\gzlib.obj _deps\zlib-build\CMakeFiles\zlibstatic.dir\gzread.obj _deps\zlib-build\CMakeFiles\zlibstatic.dir\gzwrite.obj _deps\zlib-build\CMakeFiles\zlibstatic.dir\inflate.obj _deps\zlib-build\CMakeFiles\zlibstatic.dir\infback.obj _deps\zlib-build\CMakeFiles\zlibstatic.dir\inftrees.obj _deps\zlib-build\CMakeFiles\zlibstatic.dir\inffast.obj _deps\zlib-build\CMakeFiles\zlibstatic.dir\trees.obj _deps\zlib-build\CMakeFiles\zlibstatic.dir\uncompr.obj _deps\zlib-build\CMakeFiles\zlibstatic.dir\zutil.obj
-  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  LINK_FLAGS = /machine:x64
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\zlibstatic.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\zlibstatic.dir\zlibstatic.pdb
-  TARGET_FILE = _deps\zlib-build\zlibstaticd.lib
-  TARGET_PDB = _deps\zlib-build\zlibstaticd.pdb
-
-# =============================================================================
-# Object build statements for EXECUTABLE target example
-
-
-#############################################
-# Order-only phony target for example
-
-build cmake_object_order_depends_target_example: phony || cmake_object_order_depends_target_zlib
-
-build _deps\zlib-build\CMakeFiles\example.dir\test\example.obj: C_COMPILER__example_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\test\example.c || cmake_object_order_depends_target_example
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\example.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\example.dir\test
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\example.dir\
-  TARGET_PDB = _deps\zlib-build\example.pdb
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target example
-
-
-#############################################
-# Link the executable _deps\zlib-build\example.exe
-
-build _deps\zlib-build\example.exe: C_EXECUTABLE_LINKER__example_Debug _deps\zlib-build\CMakeFiles\example.dir\test\example.obj | _deps\zlib-build\zlib.lib || _deps\zlib-build\zlib.dll
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
-  LINK_LIBRARIES = _deps\zlib-build\zlib.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\example.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\example.dir\
-  TARGET_FILE = _deps\zlib-build\example.exe
-  TARGET_IMPLIB = _deps\zlib-build\example.lib
-  TARGET_PDB = _deps\zlib-build\example.pdb
-
-# =============================================================================
-# Object build statements for EXECUTABLE target minigzip
-
-
-#############################################
-# Order-only phony target for minigzip
-
-build cmake_object_order_depends_target_minigzip: phony || cmake_object_order_depends_target_zlib
-
-build _deps\zlib-build\CMakeFiles\minigzip.dir\test\minigzip.obj: C_COMPILER__minigzip_Debug D$:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\test\minigzip.c || cmake_object_order_depends_target_minigzip
-  DEFINES = -DNO_FSEEKO -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -ID:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\zlib-build -ID:\Code\DC-Cryptocurrency\DCC-Miner
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\minigzip.dir
-  OBJECT_FILE_DIR = _deps\zlib-build\CMakeFiles\minigzip.dir\test
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\minigzip.dir\
-  TARGET_PDB = _deps\zlib-build\minigzip.pdb
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target minigzip
-
-
-#############################################
-# Link the executable _deps\zlib-build\minigzip.exe
-
-build _deps\zlib-build\minigzip.exe: C_EXECUTABLE_LINKER__minigzip_Debug _deps\zlib-build\CMakeFiles\minigzip.dir\test\minigzip.obj | _deps\zlib-build\zlib.lib || _deps\zlib-build\zlib.dll
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
-  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
-  LINK_LIBRARIES = _deps\zlib-build\zlib.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
-  OBJECT_DIR = _deps\zlib-build\CMakeFiles\minigzip.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = _deps\zlib-build\CMakeFiles\minigzip.dir\
-  TARGET_FILE = _deps\zlib-build\minigzip.exe
-  TARGET_IMPLIB = _deps\zlib-build\minigzip.lib
-  TARGET_PDB = _deps\zlib-build\minigzip.pdb
+  TARGET_PDB = zlib.pdb
 
 
 #############################################
@@ -1006,64 +695,6 @@ build _deps\zlib-build\CMakeFiles\install\local.util: CUSTOM_COMMAND _deps\zlib-
   restat = 1
 
 build _deps\zlib-build\install\local: phony _deps\zlib-build\CMakeFiles\install\local.util
-
-# =============================================================================
-# Write statements declared in CMakeLists.txt:
-# D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/CMakeLists.txt
-# =============================================================================
-
-
-#############################################
-# Utility command for edit_cache
-
-build _deps\cpr-build\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build _deps\cpr-build\edit_cache: phony _deps\cpr-build\CMakeFiles\edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build _deps\cpr-build\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SD:\Code\DC-Cryptocurrency\DCC-Miner -BD:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build _deps\cpr-build\rebuild_cache: phony _deps\cpr-build\CMakeFiles\rebuild_cache.util
-
-
-#############################################
-# Utility command for list_install_components
-
-build _deps\cpr-build\list_install_components: phony
-
-
-#############################################
-# Utility command for install
-
-build _deps\cpr-build\CMakeFiles\install.util: CUSTOM_COMMAND _deps\cpr-build\all
-  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -P cmake_install.cmake"
-  DESC = Install the project...
-  pool = console
-  restat = 1
-
-build _deps\cpr-build\install: phony _deps\cpr-build\CMakeFiles\install.util
-
-
-#############################################
-# Utility command for install/local
-
-build _deps\cpr-build\CMakeFiles\install\local.util: CUSTOM_COMMAND _deps\cpr-build\all
-  COMMAND = cmd.exe /C "cd /D D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\cpr-build && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
-  DESC = Installing only the local directory...
-  pool = console
-  restat = 1
-
-build _deps\cpr-build\install\local: phony _deps\cpr-build\CMakeFiles\install\local.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -2938,33 +2569,11 @@ build DCC-Miner.exe: phony DCC-Miner\DCC-Miner.exe
 
 build cpr: phony cpr.dll
 
-build elzip: phony DCC-Miner\extlibs\elzip\elzip.lib
-
-build elzip.lib: phony DCC-Miner\extlibs\elzip\elzip.lib
-
-build example: phony _deps\zlib-build\example.exe
-
-build example.exe: phony _deps\zlib-build\example.exe
-
 build libcurl: phony libcurl-d.dll
-
-build libminizip.lib: phony DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.lib
-
-build minigzip: phony _deps\zlib-build\minigzip.exe
-
-build minigzip.exe: phony _deps\zlib-build\minigzip.exe
-
-build minizip: phony DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.lib
 
 build uninstall: phony _deps\curl-build\uninstall
 
-build zlib: phony _deps\zlib-build\zlib.dll
-
-build zlib.dll: phony _deps\zlib-build\zlib.dll
-
-build zlibstatic: phony _deps\zlib-build\zlibstaticd.lib
-
-build zlibstaticd.lib: phony _deps\zlib-build\zlibstaticd.lib
+build zlib: phony zlib.dll
 
 # =============================================================================
 # Folder targets.
@@ -2981,28 +2590,14 @@ build all: phony DCC-Miner\all
 #############################################
 # Folder: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/DCC-Miner
 
-build DCC-Miner\all: phony DCC-Miner\DCC-Miner.exe DCC-Miner\extlibs\elzip\all _deps\cpr-build\all
-
-# =============================================================================
-
-#############################################
-# Folder: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/DCC-Miner/extlibs/elzip
-
-build DCC-Miner\extlibs\elzip\all: phony DCC-Miner\extlibs\elzip\elzip.lib
-
-# =============================================================================
-
-#############################################
-# Folder: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/DCC-Miner/extlibs/elzip/extlibs/minizip
-
-build DCC-Miner\extlibs\elzip\extlibs\minizip\all: phony DCC-Miner\extlibs\elzip\extlibs\minizip\libminizip.lib
+build DCC-Miner\all: phony DCC-Miner\DCC-Miner.exe _deps\cpr-build\all
 
 # =============================================================================
 
 #############################################
 # Folder: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/cpr-build
 
-build _deps\cpr-build\all: phony _deps\curl-build\all _deps\cpr-build\cpr\all _deps\cpr-build\include\all
+build _deps\cpr-build\all: phony _deps\zlib-build\all _deps\curl-build\all _deps\cpr-build\cpr\all _deps\cpr-build\include\all
 
 # =============================================================================
 
@@ -3037,7 +2632,7 @@ build _deps\curl-build\lib\all: phony libcurl-d.dll
 #############################################
 # Folder: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/_deps/zlib-build
 
-build _deps\zlib-build\all: phony _deps\zlib-build\zlib.dll _deps\zlib-build\zlibstaticd.lib _deps\zlib-build\example.exe _deps\zlib-build\minigzip.exe
+build _deps\zlib-build\all: phony zlib.dll
 
 # =============================================================================
 # Built-in targets
@@ -3046,14 +2641,14 @@ build _deps\zlib-build\all: phony _deps\zlib-build\zlib.dll _deps\zlib-build\zli
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ..\..\..\CMakeLists.txt ..\..\..\DCC-Miner\CMakeLists.txt ..\..\..\DCC-Miner\extlibs\elzip\CMakeLists.txt ..\..\..\DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeLists.txt ..\..\..\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\CMakeLists.txt ..\..\..\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\zconf.h.cmakein ..\..\..\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\zlib.pc.cmakein ..\..\..\DCC-Miner\extlibs\elzip\extlibs\minizip\minizip.pc.cmakein C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\BasicConfigVersion-SameMajorVersion.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCCompiler.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCCompilerABI.c C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCXXCompiler.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCXXCompilerABI.cpp C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCompilerIdDetection.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeConfigurableFile.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDependentOption.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineCXXCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineCompileFeatures.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineCompilerABI.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineCompilerId.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineRCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeFindBinUtils.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeParseImplicitIncludeInfo.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeParseImplicitLinkInfo.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeParseLibraryArchitecture.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakePushCheckState.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeRCCompiler.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystem.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeTestCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeTestCXXCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeTestCompilerCommon.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeTestRCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCCompilerFlag.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCSourceRuns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCXXCompilerFlag.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCXXSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCXXSourceRuns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckFunctionExists.c C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckFunctionExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckIncludeFile.c.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckIncludeFile.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckIncludeFileCXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckIncludeFiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckLibraryExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckStructHasMember.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckSymbolExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckTypeSize.c.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckTypeSize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\ADSP-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\ARMCC-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\ARMClang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\AppleClang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Borland-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Bruce-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Clang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Clang-DetermineCompilerInternal.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Compaq-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Cray-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Embarcadero-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Fujitsu-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\GHS-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\GNU-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\HP-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\HP-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\IAR-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Intel-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\NVHPC-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\NVIDIA-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\PGI-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\PathScale-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\SCO-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\SDCC-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\SunPro-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\TI-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Watcom-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\XL-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\XL-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\XLClang-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\zOS-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FeatureSummary.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FetchContent.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FetchContent\CMakeLists.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindBoost.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindCURL.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindCygwin.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindGit.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindMsys.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindOpenSSL.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPerl.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPkgConfig.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindThreads.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindZLIB.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\GNUInstallDirs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Internal\CheckCompilerFlag.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Internal\CheckSourceRuns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Internal\FeatureTesting.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-Determine-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\SelectLibraryConfigurations.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.22.22040401-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.22.22040401-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.22.22040401-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.22.22040401-MSVC_2\CMakeSystem.cmake CMakeFiles\CheckIncludeFiles\HAVE_ARPA_TFTP_H.c CMakeFiles\CheckIncludeFiles\HAVE_ASSERT_H.c CMakeFiles\CheckIncludeFiles\HAVE_ERRNO_H.c CMakeFiles\CheckIncludeFiles\HAVE_IDN2_H.c CMakeFiles\CheckIncludeFiles\HAVE_IFADDRS_H.c CMakeFiles\CheckIncludeFiles\HAVE_KRB_H.c CMakeFiles\CheckIncludeFiles\HAVE_LIBGEN_H.c CMakeFiles\CheckIncludeFiles\HAVE_LOCALE_H.c CMakeFiles\CheckIncludeFiles\HAVE_NETINET_TCP_H.c CMakeFiles\CheckIncludeFiles\HAVE_PEM_H.c CMakeFiles\CheckIncludeFiles\HAVE_POLL_H.c CMakeFiles\CheckIncludeFiles\HAVE_SSL_H.c CMakeFiles\CheckIncludeFiles\HAVE_STDBOOL_H.c CMakeFiles\CheckIncludeFiles\HAVE_STDIO_H.c CMakeFiles\CheckIncludeFiles\HAVE_STROPTS_H.c CMakeFiles\CheckIncludeFiles\HAVE_SYS_FILIO_H.c CMakeFiles\CheckIncludeFiles\HAVE_SYS_IOCTL_H.c CMakeFiles\CheckIncludeFiles\HAVE_SYS_RESOURCE_H.c CMakeFiles\CheckIncludeFiles\HAVE_SYS_UIO_H.c CMakeFiles\CheckIncludeFiles\HAVE_SYS_UN_H.c CMakeFiles\CheckIncludeFiles\HAVE_SYS_UTSNAME_H.c CMakeFiles\CheckIncludeFiles\HAVE_SYS_XATTR_H.c CMakeFiles\CheckIncludeFiles\HAVE_WINCRYPT_H.c CMakeFiles\CheckIncludeFiles\HAVE_WINDOWS_H.c CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK2_H.c CMakeFiles\CheckIncludeFiles\HAVE_WS2TCPIP_H.c CMakeFiles\CheckTypeSize\OFF64_T.c CMakeFiles\CheckTypeSize\SIZEOF_ADDRESS_FAMILY.c CMakeFiles\CheckTypeSize\SIZEOF_CURL_OFF_T.c CMakeFiles\CheckTypeSize\SIZEOF_INT.c CMakeFiles\CheckTypeSize\SIZEOF_LONG.c CMakeFiles\CheckTypeSize\SIZEOF_LONG_LONG.c CMakeFiles\CheckTypeSize\SIZEOF_OFF_T.c CMakeFiles\CheckTypeSize\SIZEOF_SA_FAMILY_T.c CMakeFiles\CheckTypeSize\SIZEOF_SHORT.c CMakeFiles\CheckTypeSize\SIZEOF_SIZE_T.c CMakeFiles\CheckTypeSize\SIZEOF_SSIZE_T.c CMakeFiles\CheckTypeSize\SIZEOF_STRUCT_SOCKADDR_STORAGE.c CMakeFiles\CheckTypeSize\SIZEOF_TIME_T.c CMakeFiles\CheckTypeSize\SIZEOF___INT64.c _deps\cpr-src\CMakeLists.txt _deps\cpr-src\cmake\clear_variable.cmake _deps\cpr-src\cmake\code_coverage.cmake _deps\cpr-src\cmake\cprver.h.in _deps\cpr-src\cmake\sanitizer.cmake _deps\cpr-src\cmake\zlib_external.cmake _deps\cpr-src\cpr\CMakeLists.txt _deps\cpr-src\include\CMakeLists.txt _deps\curl-build\lib\Makefile.inc.cmake _deps\curl-src\CMakeLists.txt _deps\curl-src\CMake\CurlSymbolHiding.cmake _deps\curl-src\CMake\CurlTests.c _deps\curl-src\CMake\FindLibSSH2.cmake _deps\curl-src\CMake\Macros.cmake _deps\curl-src\CMake\OtherTests.cmake _deps\curl-src\CMake\Platforms\WindowsCache.cmake _deps\curl-src\CMake\Utilities.cmake _deps\curl-src\CMake\cmake_uninstall.cmake.in _deps\curl-src\CMake\curl-config.cmake.in _deps\curl-src\curl-config.in _deps\curl-src\lib\CMakeLists.txt _deps\curl-src\lib\Makefile.inc _deps\curl-src\lib\curl_config.h.cmake _deps\curl-src\libcurl.pc.in
+build build.ninja: RERUN_CMAKE | ..\..\..\CMakeLists.txt ..\..\..\DCC-Miner\CMakeLists.txt C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\BasicConfigVersion-SameMajorVersion.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDependentOption.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakePushCheckState.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCCompilerFlag.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCSourceRuns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCXXCompilerFlag.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCXXSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCXXSourceRuns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckFunctionExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckIncludeFile.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckIncludeFileCXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckIncludeFiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckLibraryExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckStructHasMember.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckSymbolExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckTypeSize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FeatureSummary.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FetchContent.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FetchContent\CMakeLists.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindBoost.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindCURL.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindCygwin.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindGit.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindMsys.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindOpenSSL.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPerl.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPkgConfig.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindThreads.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindZLIB.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\GNUInstallDirs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Internal\CheckCompilerFlag.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Internal\CheckSourceRuns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\SelectLibraryConfigurations.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.22.22040401-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.22.22040401-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.22.22040401-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.22.22040401-MSVC_2\CMakeSystem.cmake _deps\cpr-src\CMakeLists.txt _deps\cpr-src\cmake\clear_variable.cmake _deps\cpr-src\cmake\code_coverage.cmake _deps\cpr-src\cmake\cprver.h.in _deps\cpr-src\cmake\sanitizer.cmake _deps\cpr-src\cmake\zlib_external.cmake _deps\cpr-src\cpr\CMakeLists.txt _deps\cpr-src\include\CMakeLists.txt _deps\curl-build\lib\Makefile.inc.cmake _deps\curl-src\CMakeLists.txt _deps\curl-src\CMake\CurlSymbolHiding.cmake _deps\curl-src\CMake\FindLibSSH2.cmake _deps\curl-src\CMake\Macros.cmake _deps\curl-src\CMake\OtherTests.cmake _deps\curl-src\CMake\Platforms\WindowsCache.cmake _deps\curl-src\CMake\Utilities.cmake _deps\curl-src\CMake\cmake_uninstall.cmake.in _deps\curl-src\CMake\curl-config.cmake.in _deps\curl-src\curl-config.in _deps\curl-src\lib\CMakeLists.txt _deps\curl-src\lib\Makefile.inc _deps\curl-src\lib\curl_config.h.cmake _deps\curl-src\libcurl.pc.in _deps\zlib-build\zconf.h.cmakein _deps\zlib-src\CMakeLists.txt _deps\zlib-src\cmake\detect-arch.cmake _deps\zlib-src\cmake\detect-coverage.cmake _deps\zlib-src\cmake\detect-install-dirs.cmake _deps\zlib-src\cmake\detect-sanitizer.cmake _deps\zlib-src\zlib.pc.cmakein
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ..\..\..\CMakeLists.txt ..\..\..\DCC-Miner\CMakeLists.txt ..\..\..\DCC-Miner\extlibs\elzip\CMakeLists.txt ..\..\..\DCC-Miner\extlibs\elzip\extlibs\minizip\CMakeLists.txt ..\..\..\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\CMakeLists.txt ..\..\..\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\zconf.h.cmakein ..\..\..\DCC-Miner\extlibs\elzip\extlibs\minizip\lib\zlib\zlib.pc.cmakein ..\..\..\DCC-Miner\extlibs\elzip\extlibs\minizip\minizip.pc.cmakein C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\BasicConfigVersion-SameMajorVersion.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCCompiler.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCCompilerABI.c C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCXXCompiler.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCXXCompilerABI.cpp C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCompilerIdDetection.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeConfigurableFile.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDependentOption.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineCXXCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineCompileFeatures.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineCompilerABI.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineCompilerId.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineRCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDetermineSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeFindBinUtils.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeParseImplicitIncludeInfo.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeParseImplicitLinkInfo.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeParseLibraryArchitecture.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakePushCheckState.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeRCCompiler.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystem.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeTestCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeTestCXXCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeTestCompilerCommon.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeTestRCCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCCompilerFlag.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCSourceRuns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCXXCompilerFlag.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCXXSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCXXSourceRuns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckFunctionExists.c C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckFunctionExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckIncludeFile.c.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckIncludeFile.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckIncludeFileCXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckIncludeFiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckLibraryExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckStructHasMember.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckSymbolExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckTypeSize.c.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckTypeSize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\ADSP-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\ARMCC-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\ARMClang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\AppleClang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Borland-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Bruce-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Clang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Clang-DetermineCompilerInternal.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Compaq-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Cray-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Embarcadero-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Fujitsu-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\GHS-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\GNU-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\HP-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\HP-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\IAR-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Intel-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\NVHPC-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\NVIDIA-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\PGI-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\PathScale-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\SCO-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\SDCC-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\SunPro-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\TI-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\Watcom-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\XL-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\XL-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\XLClang-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\zOS-C-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FeatureSummary.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FetchContent.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FetchContent\CMakeLists.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindBoost.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindCURL.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindCygwin.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindGit.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindMsys.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindOpenSSL.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPerl.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPkgConfig.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindThreads.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindZLIB.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\GNUInstallDirs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Internal\CheckCompilerFlag.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Internal\CheckSourceRuns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Internal\FeatureTesting.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-Determine-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\SelectLibraryConfigurations.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.22.22040401-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.22.22040401-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.22.22040401-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.22.22040401-MSVC_2\CMakeSystem.cmake CMakeFiles\CheckIncludeFiles\HAVE_ARPA_TFTP_H.c CMakeFiles\CheckIncludeFiles\HAVE_ASSERT_H.c CMakeFiles\CheckIncludeFiles\HAVE_ERRNO_H.c CMakeFiles\CheckIncludeFiles\HAVE_IDN2_H.c CMakeFiles\CheckIncludeFiles\HAVE_IFADDRS_H.c CMakeFiles\CheckIncludeFiles\HAVE_KRB_H.c CMakeFiles\CheckIncludeFiles\HAVE_LIBGEN_H.c CMakeFiles\CheckIncludeFiles\HAVE_LOCALE_H.c CMakeFiles\CheckIncludeFiles\HAVE_NETINET_TCP_H.c CMakeFiles\CheckIncludeFiles\HAVE_PEM_H.c CMakeFiles\CheckIncludeFiles\HAVE_POLL_H.c CMakeFiles\CheckIncludeFiles\HAVE_SSL_H.c CMakeFiles\CheckIncludeFiles\HAVE_STDBOOL_H.c CMakeFiles\CheckIncludeFiles\HAVE_STDIO_H.c CMakeFiles\CheckIncludeFiles\HAVE_STROPTS_H.c CMakeFiles\CheckIncludeFiles\HAVE_SYS_FILIO_H.c CMakeFiles\CheckIncludeFiles\HAVE_SYS_IOCTL_H.c CMakeFiles\CheckIncludeFiles\HAVE_SYS_RESOURCE_H.c CMakeFiles\CheckIncludeFiles\HAVE_SYS_UIO_H.c CMakeFiles\CheckIncludeFiles\HAVE_SYS_UN_H.c CMakeFiles\CheckIncludeFiles\HAVE_SYS_UTSNAME_H.c CMakeFiles\CheckIncludeFiles\HAVE_SYS_XATTR_H.c CMakeFiles\CheckIncludeFiles\HAVE_WINCRYPT_H.c CMakeFiles\CheckIncludeFiles\HAVE_WINDOWS_H.c CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK2_H.c CMakeFiles\CheckIncludeFiles\HAVE_WS2TCPIP_H.c CMakeFiles\CheckTypeSize\OFF64_T.c CMakeFiles\CheckTypeSize\SIZEOF_ADDRESS_FAMILY.c CMakeFiles\CheckTypeSize\SIZEOF_CURL_OFF_T.c CMakeFiles\CheckTypeSize\SIZEOF_INT.c CMakeFiles\CheckTypeSize\SIZEOF_LONG.c CMakeFiles\CheckTypeSize\SIZEOF_LONG_LONG.c CMakeFiles\CheckTypeSize\SIZEOF_OFF_T.c CMakeFiles\CheckTypeSize\SIZEOF_SA_FAMILY_T.c CMakeFiles\CheckTypeSize\SIZEOF_SHORT.c CMakeFiles\CheckTypeSize\SIZEOF_SIZE_T.c CMakeFiles\CheckTypeSize\SIZEOF_SSIZE_T.c CMakeFiles\CheckTypeSize\SIZEOF_STRUCT_SOCKADDR_STORAGE.c CMakeFiles\CheckTypeSize\SIZEOF_TIME_T.c CMakeFiles\CheckTypeSize\SIZEOF___INT64.c _deps\cpr-src\CMakeLists.txt _deps\cpr-src\cmake\clear_variable.cmake _deps\cpr-src\cmake\code_coverage.cmake _deps\cpr-src\cmake\cprver.h.in _deps\cpr-src\cmake\sanitizer.cmake _deps\cpr-src\cmake\zlib_external.cmake _deps\cpr-src\cpr\CMakeLists.txt _deps\cpr-src\include\CMakeLists.txt _deps\curl-build\lib\Makefile.inc.cmake _deps\curl-src\CMakeLists.txt _deps\curl-src\CMake\CurlSymbolHiding.cmake _deps\curl-src\CMake\CurlTests.c _deps\curl-src\CMake\FindLibSSH2.cmake _deps\curl-src\CMake\Macros.cmake _deps\curl-src\CMake\OtherTests.cmake _deps\curl-src\CMake\Platforms\WindowsCache.cmake _deps\curl-src\CMake\Utilities.cmake _deps\curl-src\CMake\cmake_uninstall.cmake.in _deps\curl-src\CMake\curl-config.cmake.in _deps\curl-src\curl-config.in _deps\curl-src\lib\CMakeLists.txt _deps\curl-src\lib\Makefile.inc _deps\curl-src\lib\curl_config.h.cmake _deps\curl-src\libcurl.pc.in: phony
+build ..\..\..\CMakeLists.txt ..\..\..\DCC-Miner\CMakeLists.txt C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\BasicConfigVersion-SameMajorVersion.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeDependentOption.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakePushCheckState.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCCompilerFlag.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCSourceRuns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCXXCompilerFlag.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCXXSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckCXXSourceRuns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckFunctionExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckIncludeFile.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckIncludeFileCXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckIncludeFiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckLibraryExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckStructHasMember.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckSymbolExists.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\CheckTypeSize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FeatureSummary.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FetchContent.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FetchContent\CMakeLists.cmake.in C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindBoost.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindCURL.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindCygwin.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindGit.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindMsys.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindOpenSSL.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPerl.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindPkgConfig.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindThreads.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\FindZLIB.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\GNUInstallDirs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Internal\CheckCompilerFlag.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Internal\CheckSourceRuns.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\SelectLibraryConfigurations.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.22\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.22.22040401-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.22.22040401-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.22.22040401-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.22.22040401-MSVC_2\CMakeSystem.cmake _deps\cpr-src\CMakeLists.txt _deps\cpr-src\cmake\clear_variable.cmake _deps\cpr-src\cmake\code_coverage.cmake _deps\cpr-src\cmake\cprver.h.in _deps\cpr-src\cmake\sanitizer.cmake _deps\cpr-src\cmake\zlib_external.cmake _deps\cpr-src\cpr\CMakeLists.txt _deps\cpr-src\include\CMakeLists.txt _deps\curl-build\lib\Makefile.inc.cmake _deps\curl-src\CMakeLists.txt _deps\curl-src\CMake\CurlSymbolHiding.cmake _deps\curl-src\CMake\FindLibSSH2.cmake _deps\curl-src\CMake\Macros.cmake _deps\curl-src\CMake\OtherTests.cmake _deps\curl-src\CMake\Platforms\WindowsCache.cmake _deps\curl-src\CMake\Utilities.cmake _deps\curl-src\CMake\cmake_uninstall.cmake.in _deps\curl-src\CMake\curl-config.cmake.in _deps\curl-src\curl-config.in _deps\curl-src\lib\CMakeLists.txt _deps\curl-src\lib\Makefile.inc _deps\curl-src\lib\curl_config.h.cmake _deps\curl-src\libcurl.pc.in _deps\zlib-build\zconf.h.cmakein _deps\zlib-src\CMakeLists.txt _deps\zlib-src\cmake\detect-arch.cmake _deps\zlib-src\cmake\detect-coverage.cmake _deps\zlib-src\cmake\detect-install-dirs.cmake _deps\zlib-src\cmake\detect-sanitizer.cmake _deps\zlib-src\zlib.pc.cmakein: phony
 
 
 #############################################

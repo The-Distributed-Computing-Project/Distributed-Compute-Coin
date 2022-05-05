@@ -1,2 +1,0 @@
-/usr/bin/ar qc libelzip.a  CMakeFiles/elzip.dir/src/elzip.cpp.o CMakeFiles/elzip.dir/src/unzipper.cpp.o CMakeFiles/elzip.dir/src/zipper.cpp.o
-/usr/bin/ranlib libelzip.a

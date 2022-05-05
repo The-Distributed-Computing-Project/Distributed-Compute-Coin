@@ -27,7 +27,8 @@ public:
 		auto response = cpr::Get(cpr::Url{ url });
 		html = response.text;
 
-		console.WriteLine(html, console.Debug());
+		console.DebugPrint();
+		console.WriteLine(html);
 
 		return html;
 	}

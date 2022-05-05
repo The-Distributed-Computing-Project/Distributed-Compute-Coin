@@ -3,11 +3,9 @@
     "",
     "\\DCC-Miner",
     "\\DCC-Miner\\extlibs",
-    "\\DCC-Miner\\extlibs\\elzip",
-    "\\DCC-Miner\\extlibs\\elzip\\extlibs",
-    "\\DCC-Miner\\extlibs\\elzip\\extlibs\\minizip",
+    "\\DCC-Miner\\include",
     "\\DCC-Miner\\lib"
   ],
-  "SelectedNode": "\\DCC-Miner\\Console.cpp",
+  "SelectedNode": "\\DCC-Miner\\Main.cpp",
   "PreviewInSolutionExplorer": false
 }

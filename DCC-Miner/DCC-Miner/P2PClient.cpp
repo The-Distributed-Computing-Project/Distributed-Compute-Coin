@@ -6,6 +6,8 @@
 #include "strops.h"
 #include "P2PClient.h"
 #include "Console.h"
+#include <boost/process.hpp>
+#include <chrono>
 
 #pragma comment(lib,"ws2_32.lib")
 
@@ -39,28 +41,62 @@ std::string NormalizedIPString(SOCKADDR_IN addr) {
 	return res;
 }
 
-void TaskRec() {
-	while (true) {
+void TaskRec(unsigned int update_interval_millisecs) {
+	Console console;
+	while (true)
+	{
+		//const auto wait_duration = std::chrono::milliseconds(update_interval_millisecs);
+
 		SOCKADDR_IN remoteAddr;
 		int	remoteAddrLen = sizeof(remoteAddr);
 
+		console.NetworkPrint();
+		console.WriteLine("Checking for requests...");
 		int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
+		//console.WriteLine("Checked, parsing " + iResult);
 
 		if (iResult > 0) {
+			console.NetworkPrint();
+			console.WriteLine(NormalizedIPString(remoteAddr) + " -> " + std::string(buffer, buffer + iResult));
 			std::cout << NormalizedIPString(remoteAddr) << " -> " << std::string(buffer, buffer + iResult) << std::endl;
 		}
 		else {
-			std::cout << "Error: Peer closed." << std::endl;
-			break;
+			console.NetworkErrorPrint();
+			console.WriteLine("Error: Peer closed.");
+			//std::cout << "Error: Peer closed." << std::endl;
+			//break;
 		}
+
+		//std::this_thread::sleep_for(wait_duration);
 	}
+}
+
+int SafeSend(SOCKET s, char* buf, int buflen)
+{
+	int sendlen = 0;
+	int totalsend = 0;
+	int remaining = buflen;
+
+	while (sendlen != buflen)
+	{
+		sendlen = send(s, &buf[totalsend], remaining, 0);
+
+		if (sendlen == SOCKET_ERROR)
+		{
+			return SOCKET_ERROR;
+		}
+
+		totalsend = totalsend + sendlen;
+		remaining = sendlen - totalsend;
+	}
+	return 0;
 }
 
 int StartP2P(std::string addr, std::string port)
 {	
 	Console console;
 
-	console.Network();
+	console.NetworkPrint();
 	console.WriteLine("Starting P2P Client");
 
 	WSADATA wsaData;
@@ -80,11 +116,20 @@ int StartP2P(std::string addr, std::string port)
 	SOCKADDR_IN clientAddr;
 	clientAddr.sin_port = htons(stoi(port));
 	clientAddr.sin_family = AF_INET;
-	clientAddr.sin_addr.s_addr = inet_addr(addr.c_str());
+	clientAddr.sin_addr.s_addr = INADDR_ANY;
 
-	//if (bind(localSocket, (LPSOCKADDR)&clientAddr, sizeof(clientAddr)) == SOCKET_ERROR) {
-	//	return 0;
-	//}
+	//		address.sin_family = AF_INET;
+	//		address.sin_addr.s_addr = INADDR_ANY;
+	//		address.sin_port = htons(port);
+
+	if (bind(localSocket, (LPSOCKADDR)&clientAddr, sizeof(clientAddr)) == SOCKET_ERROR)
+	{
+		console.ErrorPrint();
+		console.WriteLine("Failed to bind socket");
+		closesocket(localSocket);
+		WSACleanup();
+		return 0;
+	}
 
 	int val = 64 * 1024;
 	setsockopt(localSocket, SOL_SOCKET, SO_SNDBUF, (char*)&val, sizeof(val));
@@ -100,39 +145,53 @@ int StartP2P(std::string addr, std::string port)
 	std::string endpoint;
 
 	std::string otherIpPort;
-	std::cout << "Peer IP:PORT > "; 
+	std::cout << "Peer IP:PORT combo > "; 
 	std::cin >> otherIpPort;
 
-	SOCKADDR_IN testOtherIpPort;
-	testOtherIpPort.sin_port = htons(stoi(SplitString(otherIpPort, ":")[1]));
-	testOtherIpPort.sin_family = AF_INET;
-	testOtherIpPort.sin_addr.s_addr = inet_addr(SplitString(otherIpPort, ":")[0].c_str());
-	int testOtherIpPortSize = sizeof(testOtherIpPort);
+	std::cout << "get ip is: " << NormalizedIPString(clientAddr) << std::endl;
 
-	sendto(localSocket, otherIpPort.c_str(), otherIpPort.length(), 0, (sockaddr*)&testOtherIpPort, testOtherIpPortSize);
-	Sleep(500);
+	//SOCKADDR_IN testOtherIpPort;
+	//testOtherIpPort.sin_port = htons(stoi(SplitString(otherIpPort, ":")[1]));
+	//testOtherIpPort.sin_family = AF_INET;
+	//testOtherIpPort.sin_addr.s_addr = inet_addr(SplitString(otherIpPort, ":")[0].c_str());
+	//int testOtherIpPortSize = sizeof(testOtherIpPort);
 
-	while (notFound) {
-		SOCKADDR_IN remoteAddr;
-		int	remoteAddrLen = sizeof(remoteAddr);
+	/*if(SplitString(otherIpPort, ":").size()>=3)
+	{
+		console.NetworkPrint();
+		console.WriteLine("Attempting to contact " + otherIpPort);
+		sendto(localSocket, otherIpPort.c_str(), otherIpPort.length(), 0, (sockaddr*)&testOtherIpPort, testOtherIpPortSize);
+		Sleep(500);
+		console.NetworkPrint();
+		console.WriteLine("Sent, waiting for response...");
+	}*/
 
-		int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
+	//while (notFound) {
+	//	SOCKADDR_IN remoteAddr;
+	//	int	remoteAddrLen = sizeof(remoteAddr);
 
-		if (iResult > 0) {
-			endpoint = std::string(buffer, buffer + iResult);
+	//	int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
 
-			std::cout << "Peer-to-peer Endpoint: " << endpoint << std::endl;
+	//	if (iResult > 0) {
+	//		endpoint = std::string(buffer, buffer + iResult);
 
-			notFound = false;
-		}
-		else {
+	//		//std::cout << "Peer-to-peer Endpoint: " << endpoint << std::endl;
+	//		console.NetworkPrint();
+	//		console.WriteLine("Found Peer-to-peer Endpoint: " + endpoint);
 
-			std::cout << WSAGetLastError();
-		}
-	}
+	//		notFound = false;
+	//	}
+	//	else {
 
-	std::string host = endpoint.substr(0, endpoint.find(':'));
-	int otherPort = stoi(endpoint.substr(endpoint.find(':') + 1));
+	//		console.NetworkErrorPrint();
+	//		std::cout << WSAGetLastError();
+	//		console.WriteLine();
+	//	}
+	//}
+	endpoint = otherIpPort;
+
+	std::string host = SplitString(otherIpPort, ":")[0];
+	int otherPort = stoi(SplitString(otherIpPort, ":")[1]);
 	
 	otherAddr.sin_port = htons(otherPort);
 	otherAddr.sin_family = AF_INET;
@@ -140,12 +199,20 @@ int StartP2P(std::string addr, std::string port)
 
 	otherSize = sizeof(otherAddr);
 
-	std::thread t1(TaskRec);
+	const unsigned int update_interval = 50; // update after every 50 milliseconds
+	std::thread t1(TaskRec, update_interval);
 
 	while (true) {
 		std::string msg = "Hello world!";
+		char* msgConvert = (char*)msg.c_str();
+		//int err = SafeSend(localSocket, msgConvert, msg.length());
+		//std::cout << err << std::endl;
+		
 		sendto(localSocket, msg.c_str(), msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-		Sleep(500);
+		Sleep(1000);
+
+		console.NetworkPrint();
+		console.WriteLine("Sending: " + msg);
 	}
 
 	getchar();

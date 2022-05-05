@@ -62,7 +62,7 @@ int DownloadFile(std::string url, std::string saveAs, bool printStatus)
 	curl = curl_easy_init();
 	if (curl)
 	{
-		console.Network();
+		console.NetworkPrint();
 		console.Write("Downloading from: \"" + url + "\" ...\r");
 		
 		fp = fopen(saveAs.c_str(), "wb");
@@ -73,7 +73,7 @@ int DownloadFile(std::string url, std::string saveAs, bool printStatus)
 		curl_easy_cleanup(curl);
 		fclose(fp);
 		
-		console.Network();
+		console.NetworkPrint();
 		console.Write("Downloading from: \"" + url + "\" Done.\r");
 	}
 	return 0;

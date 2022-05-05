@@ -1,0 +1,106 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"out/build/x64-debug/_deps/zlib-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1088,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1094,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1096,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1100,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug/lib",
+			"paths" : 
+			[
+				"_deps/zlib-build/zlib.lib"
+			],
+			"targetId" : "zlib::@c9556b0b6bf47963f9da",
+			"targetIndex" : 4,
+			"targetIsImportLibrary" : true,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug/bin",
+			"paths" : 
+			[
+				"zlib.dll"
+			],
+			"targetId" : "zlib::@c9556b0b6bf47963f9da",
+			"targetIndex" : 4,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug/include",
+			"paths" : 
+			[
+				"out/build/x64-debug/_deps/zlib-src/zlib.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug/include",
+			"paths" : 
+			[
+				"out/build/x64-debug/_deps/zlib-build/zconf.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug/lib/pkgconfig",
+			"paths" : 
+			[
+				"out/build/x64-debug/_deps/zlib-build/zlib.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/zlib-build",
+		"source" : "out/build/x64-debug/_deps/zlib-src"
+	}
+}

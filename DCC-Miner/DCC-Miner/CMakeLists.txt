@@ -5,11 +5,11 @@ cmake_minimum_required (VERSION 3.0 FATAL_ERROR)
 
 
 # Add source to this project's executable.
-add_executable (DCC-Miner "extlibs/elzip" "json.hpp" "Main.h" "Main.cpp" "Console.h" "Console.cpp" "FileManip.h" "FileManip.cpp" "Network.h" "Network.cpp" "strops.h" "strops.cpp" "P2PClient.h" "P2PClient.cpp" "Network.h" "Network.cpp")
+add_executable (DCC-Miner "json.hpp" "Main.h" "Main.cpp" "Console.h" "Console.cpp" "FileManip.h" "FileManip.cpp" "Network.h" "Network.cpp" "strops.h" "strops.cpp" "P2PClient.h" "P2PClient.cpp" "Network.h" "Network.cpp")
 
 
-add_subdirectory(extlibs/elzip) # Path to the 11zip
-target_link_libraries(DCC-Miner elzip)
+#add_subdirectory(extlibs/elzip) # Path to the 11zip
+#target_link_libraries(DCC-Miner elzip)
 
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
@@ -52,7 +52,7 @@ add_definitions(-DCURL_STATICLIB)
 find_package(CURL REQUIRED)
 include_directories(${CURL_INCLUDE_DIR})
 
-target_link_libraries(DCC-Miner ${CURL_LIBRARY} ${Boost_LIBRARIES} OpenSSL::SSL cpr::cpr elzip)
+target_link_libraries(DCC-Miner ${CURL_LIBRARY} ${Boost_LIBRARIES} OpenSSL::SSL cpr::cpr)
 
 #set(ELZIP_LIBRARY include/lib/libcurl_a_debug)
 #target_link_libraries(DCC-Miner )

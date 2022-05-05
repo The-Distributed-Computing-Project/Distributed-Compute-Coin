@@ -1,284 +1,9 @@
-Determining size of off64_t failed with the following output:
-Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_d4fc3 && [1/2] Building C object CMakeFiles\cmTC_d4fc3.dir\OFF64_T.c.obj
-FAILED: CMakeFiles/cmTC_d4fc3.dir/OFF64_T.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_d4fc3.dir\OFF64_T.c.obj /FdCMakeFiles\cmTC_d4fc3.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(29): error C2065: 'off64_t': undeclared identifier
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(30): error C2065: 'off64_t': undeclared identifier
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(31): error C2065: 'off64_t': undeclared identifier
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(32): error C2065: 'off64_t': undeclared identifier
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(33): error C2065: 'off64_t': undeclared identifier
-ninja: build stopped: subcommand failed.
-
-
-D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CheckTypeSize/OFF64_T.c:
-#include <sys/types.h>
-#include <stdint.h>
-#include <stddef.h>
-
-
-#undef KEY
-#if defined(__i386)
-# define KEY '_','_','i','3','8','6'
-#elif defined(__x86_64)
-# define KEY '_','_','x','8','6','_','6','4'
-#elif defined(__PPC64__)
-# define KEY '_','_','P','P','C','6','4','_','_'
-#elif defined(__ppc64__)
-# define KEY '_','_','p','p','c','6','4','_','_'
-#elif defined(__PPC__)
-# define KEY '_','_','P','P','C','_','_'
-#elif defined(__ppc__)
-# define KEY '_','_','p','p','c','_','_'
-#elif defined(__aarch64__)
-# define KEY '_','_','a','a','r','c','h','6','4','_','_'
-#elif defined(__ARM_ARCH_7A__)
-# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
-#elif defined(__ARM_ARCH_7S__)
-# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
-#endif
-
-#define SIZE (sizeof(off64_t))
-static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
-  ('0' + ((SIZE / 10000)%10)),
-  ('0' + ((SIZE / 1000)%10)),
-  ('0' + ((SIZE / 100)%10)),
-  ('0' + ((SIZE / 10)%10)),
-  ('0' +  (SIZE    % 10)),
-  ']',
-#ifdef KEY
-  ' ','k','e','y','[', KEY, ']',
-#endif
-  '\0'};
-
-#ifdef __CLASSIC_C__
-int main(argc, argv) int argc; char *argv[];
-#else
-int main(int argc, char *argv[])
-#endif
-{
-  int require = 0;
-  require += info_size[argc];
-  (void)argv;
-  return require;
-}
-
-
-Determining if the function fseeko exists failed with the following output:
-Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_3f3f1 && [1/2] Building C object CMakeFiles\cmTC_3f3f1.dir\CheckFunctionExists.c.obj
-[2/2] Linking C executable cmTC_3f3f1.exe
-FAILED: cmTC_3f3f1.exe 
-cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_3f3f1.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_3f3f1.dir\CheckFunctionExists.c.obj  /out:cmTC_3f3f1.exe /implib:cmTC_3f3f1.lib /pdb:cmTC_3f3f1.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_3f3f1.dir\CheckFunctionExists.c.obj /out:cmTC_3f3f1.exe /implib:cmTC_3f3f1.lib /pdb:cmTC_3f3f1.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_3f3f1.dir/intermediate.manifest CMakeFiles\cmTC_3f3f1.dir/manifest.res" failed (exit code 1120) with the following output:
-CheckFunctionExists.c.obj : error LNK2019: unresolved external symbol fseeko referenced in function main
-cmTC_3f3f1.exe : fatal error LNK1120: 1 unresolved externals
-ninja: build stopped: subcommand failed.
-
-
-
-Determining size of off64_t failed with the following output:
-Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_f9d37 && [1/2] Building C object CMakeFiles\cmTC_f9d37.dir\OFF64_T.c.obj
-FAILED: CMakeFiles/cmTC_f9d37.dir/OFF64_T.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_f9d37.dir\OFF64_T.c.obj /FdCMakeFiles\cmTC_f9d37.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(29): error C2065: 'off64_t': undeclared identifier
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(30): error C2065: 'off64_t': undeclared identifier
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(31): error C2065: 'off64_t': undeclared identifier
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(32): error C2065: 'off64_t': undeclared identifier
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(33): error C2065: 'off64_t': undeclared identifier
-ninja: build stopped: subcommand failed.
-
-
-D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CheckTypeSize/OFF64_T.c:
-#include <sys/types.h>
-#include <stdint.h>
-#include <stddef.h>
-
-
-#undef KEY
-#if defined(__i386)
-# define KEY '_','_','i','3','8','6'
-#elif defined(__x86_64)
-# define KEY '_','_','x','8','6','_','6','4'
-#elif defined(__PPC64__)
-# define KEY '_','_','P','P','C','6','4','_','_'
-#elif defined(__ppc64__)
-# define KEY '_','_','p','p','c','6','4','_','_'
-#elif defined(__PPC__)
-# define KEY '_','_','P','P','C','_','_'
-#elif defined(__ppc__)
-# define KEY '_','_','p','p','c','_','_'
-#elif defined(__aarch64__)
-# define KEY '_','_','a','a','r','c','h','6','4','_','_'
-#elif defined(__ARM_ARCH_7A__)
-# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
-#elif defined(__ARM_ARCH_7S__)
-# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
-#endif
-
-#define SIZE (sizeof(off64_t))
-static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
-  ('0' + ((SIZE / 10000)%10)),
-  ('0' + ((SIZE / 1000)%10)),
-  ('0' + ((SIZE / 100)%10)),
-  ('0' + ((SIZE / 10)%10)),
-  ('0' +  (SIZE    % 10)),
-  ']',
-#ifdef KEY
-  ' ','k','e','y','[', KEY, ']',
-#endif
-  '\0'};
-
-#ifdef __CLASSIC_C__
-int main(argc, argv) int argc; char *argv[];
-#else
-int main(int argc, char *argv[])
-#endif
-{
-  int require = 0;
-  require += info_size[argc];
-  (void)argv;
-  return require;
-}
-
-
-Determining if the function fseeko exists failed with the following output:
-Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_8ae91 && [1/2] Building C object CMakeFiles\cmTC_8ae91.dir\CheckFunctionExists.c.obj
-[2/2] Linking C executable cmTC_8ae91.exe
-FAILED: cmTC_8ae91.exe 
-cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_8ae91.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_8ae91.dir\CheckFunctionExists.c.obj  /out:cmTC_8ae91.exe /implib:cmTC_8ae91.lib /pdb:cmTC_8ae91.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_8ae91.dir\CheckFunctionExists.c.obj /out:cmTC_8ae91.exe /implib:cmTC_8ae91.lib /pdb:cmTC_8ae91.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_8ae91.dir/intermediate.manifest CMakeFiles\cmTC_8ae91.dir/manifest.res" failed (exit code 1120) with the following output:
-CheckFunctionExists.c.obj : error LNK2019: unresolved external symbol fseeko referenced in function main
-cmTC_8ae91.exe : fatal error LNK1120: 1 unresolved externals
-ninja: build stopped: subcommand failed.
-
-
-
-Determining if the include file unistd.h exists failed with the following output:
-Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_d9cf9 && [1/2] Building C object CMakeFiles\cmTC_d9cf9.dir\CheckIncludeFile.c.obj
-FAILED: CMakeFiles/cmTC_d9cf9.dir/CheckIncludeFile.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_d9cf9.dir\CheckIncludeFile.c.obj /FdCMakeFiles\cmTC_d9cf9.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory
-ninja: build stopped: subcommand failed.
-
-
-
 Performing C++ SOURCE FILE Test LEAK_SANITIZER_AVAILABLE failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_1b8e1 && [1/2] Building CXX object CMakeFiles\cmTC_1b8e1.dir\src.cxx.obj
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_20f82 && [1/2] Building CXX object CMakeFiles\cmTC_20f82.dir\src.cxx.obj
 cl : Command line warning D9002 : ignoring unknown option '-fsanitize=leak'
-[2/2] Linking CXX executable cmTC_1b8e1.exe
-
-
-Source file was:
-int main() { return 0; }
-Determining size of off64_t failed with the following output:
-Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_77b18 && [1/2] Building C object CMakeFiles\cmTC_77b18.dir\OFF64_T.c.obj
-FAILED: CMakeFiles/cmTC_77b18.dir/OFF64_T.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_77b18.dir\OFF64_T.c.obj /FdCMakeFiles\cmTC_77b18.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(29): error C2065: 'off64_t': undeclared identifier
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(30): error C2065: 'off64_t': undeclared identifier
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(31): error C2065: 'off64_t': undeclared identifier
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(32): error C2065: 'off64_t': undeclared identifier
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(33): error C2065: 'off64_t': undeclared identifier
-ninja: build stopped: subcommand failed.
-
-
-D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CheckTypeSize/OFF64_T.c:
-#include <sys/types.h>
-#include <stdint.h>
-#include <stddef.h>
-
-
-#undef KEY
-#if defined(__i386)
-# define KEY '_','_','i','3','8','6'
-#elif defined(__x86_64)
-# define KEY '_','_','x','8','6','_','6','4'
-#elif defined(__PPC64__)
-# define KEY '_','_','P','P','C','6','4','_','_'
-#elif defined(__ppc64__)
-# define KEY '_','_','p','p','c','6','4','_','_'
-#elif defined(__PPC__)
-# define KEY '_','_','P','P','C','_','_'
-#elif defined(__ppc__)
-# define KEY '_','_','p','p','c','_','_'
-#elif defined(__aarch64__)
-# define KEY '_','_','a','a','r','c','h','6','4','_','_'
-#elif defined(__ARM_ARCH_7A__)
-# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
-#elif defined(__ARM_ARCH_7S__)
-# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
-#endif
-
-#define SIZE (sizeof(off64_t))
-static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
-  ('0' + ((SIZE / 10000)%10)),
-  ('0' + ((SIZE / 1000)%10)),
-  ('0' + ((SIZE / 100)%10)),
-  ('0' + ((SIZE / 10)%10)),
-  ('0' +  (SIZE    % 10)),
-  ']',
-#ifdef KEY
-  ' ','k','e','y','[', KEY, ']',
-#endif
-  '\0'};
-
-#ifdef __CLASSIC_C__
-int main(argc, argv) int argc; char *argv[];
-#else
-int main(int argc, char *argv[])
-#endif
-{
-  int require = 0;
-  require += info_size[argc];
-  (void)argv;
-  return require;
-}
-
-
-Determining if the function fseeko exists failed with the following output:
-Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_22c9c && [1/2] Building C object CMakeFiles\cmTC_22c9c.dir\CheckFunctionExists.c.obj
-[2/2] Linking C executable cmTC_22c9c.exe
-FAILED: cmTC_22c9c.exe 
-cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_22c9c.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_22c9c.dir\CheckFunctionExists.c.obj  /out:cmTC_22c9c.exe /implib:cmTC_22c9c.lib /pdb:cmTC_22c9c.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_22c9c.dir\CheckFunctionExists.c.obj /out:cmTC_22c9c.exe /implib:cmTC_22c9c.lib /pdb:cmTC_22c9c.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_22c9c.dir/intermediate.manifest CMakeFiles\cmTC_22c9c.dir/manifest.res" failed (exit code 1120) with the following output:
-CheckFunctionExists.c.obj : error LNK2019: unresolved external symbol fseeko referenced in function main
-cmTC_22c9c.exe : fatal error LNK1120: 1 unresolved externals
-ninja: build stopped: subcommand failed.
-
-
-
-Determining if the include file unistd.h exists failed with the following output:
-Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_99183 && [1/2] Building C object CMakeFiles\cmTC_99183.dir\CheckIncludeFile.c.obj
-FAILED: CMakeFiles/cmTC_99183.dir/CheckIncludeFile.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_99183.dir\CheckIncludeFile.c.obj /FdCMakeFiles\cmTC_99183.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory
-ninja: build stopped: subcommand failed.
-
-
-
-Performing C++ SOURCE FILE Test LEAK_SANITIZER_AVAILABLE failed with the following output:
-Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_fd7d4 && [1/2] Building CXX object CMakeFiles\cmTC_fd7d4.dir\src.cxx.obj
-cl : Command line warning D9002 : ignoring unknown option '-fsanitize=leak'
-[2/2] Linking CXX executable cmTC_fd7d4.exe
+[2/2] Linking CXX executable cmTC_20f82.exe
 
 
 Source file was:
@@ -286,19 +11,383 @@ int main() { return 0; }
 Performing C++ SOURCE FILE Test UNDEFINED_BEHAVIOUR_SANITIZER_AVAILABLE failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_b4472 && [1/2] Building CXX object CMakeFiles\cmTC_b4472.dir\src.cxx.obj
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_7b3d3 && [1/2] Building CXX object CMakeFiles\cmTC_7b3d3.dir\src.cxx.obj
 cl : Command line warning D9002 : ignoring unknown option '-fsanitize=undefined'
-[2/2] Linking CXX executable cmTC_b4472.exe
+[2/2] Linking CXX executable cmTC_7b3d3.exe
 
 
 Source file was:
 int main() { return 0; }
+Determining if the include file sys/sdt.h exists failed with the following output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_d4826 && [1/2] Building C object CMakeFiles\cmTC_d4826.dir\CheckIncludeFile.c.obj
+FAILED: CMakeFiles/cmTC_d4826.dir/CheckIncludeFile.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 /W3   /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_d4826.dir\CheckIncludeFile.c.obj /FdCMakeFiles\cmTC_d4826.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Cannot open include file: 'sys/sdt.h': No such file or directory
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the include file unistd.h exists failed with the following output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_73777 && [1/2] Building C object CMakeFiles\cmTC_73777.dir\CheckIncludeFile.c.obj
+FAILED: CMakeFiles/cmTC_73777.dir/CheckIncludeFile.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 /W3   /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_73777.dir\CheckIncludeFile.c.obj /FdCMakeFiles\cmTC_73777.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory
+ninja: build stopped: subcommand failed.
+
+
+
+Determining size of off64_t failed with the following output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_454fe && [1/2] Building C object CMakeFiles\cmTC_454fe.dir\OFF64_T.c.obj
+FAILED: CMakeFiles/cmTC_454fe.dir/OFF64_T.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo -D_LARGEFILE64_SOURCE=1 -D__USE_LARGEFILE64  /DWIN32 /D_WINDOWS /W3 /W3   /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_454fe.dir\OFF64_T.c.obj /FdCMakeFiles\cmTC_454fe.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(29): error C2065: 'off64_t': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(30): error C2065: 'off64_t': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(31): error C2065: 'off64_t': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(32): error C2065: 'off64_t': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\OFF64_T.c(33): error C2065: 'off64_t': undeclared identifier
+ninja: build stopped: subcommand failed.
+
+
+D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CheckTypeSize/OFF64_T.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(off64_t))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of _off64_t failed with the following output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_1d6ac && [1/2] Building C object CMakeFiles\cmTC_1d6ac.dir\_OFF64_T.c.obj
+FAILED: CMakeFiles/cmTC_1d6ac.dir/_OFF64_T.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo -D_LARGEFILE64_SOURCE=1 -D__USE_LARGEFILE64  /DWIN32 /D_WINDOWS /W3 /W3   /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_1d6ac.dir\_OFF64_T.c.obj /FdCMakeFiles\cmTC_1d6ac.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\_OFF64_T.c
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\_OFF64_T.c(29): error C2065: '_off64_t': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\_OFF64_T.c(30): error C2065: '_off64_t': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\_OFF64_T.c(31): error C2065: '_off64_t': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\_OFF64_T.c(32): error C2065: '_off64_t': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\_OFF64_T.c(33): error C2065: '_off64_t': undeclared identifier
+ninja: build stopped: subcommand failed.
+
+
+D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CheckTypeSize/_OFF64_T.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(_off64_t))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of __off64_t failed with the following output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_47d74 && [1/2] Building C object CMakeFiles\cmTC_47d74.dir\__OFF64_T.c.obj
+FAILED: CMakeFiles/cmTC_47d74.dir/__OFF64_T.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo -D_LARGEFILE64_SOURCE=1 -D__USE_LARGEFILE64  /DWIN32 /D_WINDOWS /W3 /W3   /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_47d74.dir\__OFF64_T.c.obj /FdCMakeFiles\cmTC_47d74.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\__OFF64_T.c
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\__OFF64_T.c(29): error C2065: '__off64_t': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\__OFF64_T.c(30): error C2065: '__off64_t': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\__OFF64_T.c(31): error C2065: '__off64_t': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\__OFF64_T.c(32): error C2065: '__off64_t': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\__OFF64_T.c(33): error C2065: '__off64_t': undeclared identifier
+ninja: build stopped: subcommand failed.
+
+
+D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CheckTypeSize/__OFF64_T.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(__off64_t))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the function fseeko exists failed with the following output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_bb5ae && [1/2] Building C object CMakeFiles\cmTC_bb5ae.dir\CheckFunctionExists.c.obj
+[2/2] Linking C executable cmTC_bb5ae.exe
+FAILED: cmTC_bb5ae.exe 
+cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_bb5ae.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_bb5ae.dir\CheckFunctionExists.c.obj  /out:cmTC_bb5ae.exe /implib:cmTC_bb5ae.lib /pdb:cmTC_bb5ae.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_bb5ae.dir\CheckFunctionExists.c.obj /out:cmTC_bb5ae.exe /implib:cmTC_bb5ae.lib /pdb:cmTC_bb5ae.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_bb5ae.dir/intermediate.manifest CMakeFiles\cmTC_bb5ae.dir/manifest.res" failed (exit code 1120) with the following output:
+CheckFunctionExists.c.obj : error LNK2019: unresolved external symbol fseeko referenced in function main
+cmTC_bb5ae.exe : fatal error LNK1120: 1 unresolved externals
+ninja: build stopped: subcommand failed.
+
+
+
+Performing C SOURCE FILE Test HAVE_NO_INTERPOSITION failed with the following output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_8666a && [1/2] Building C object CMakeFiles\cmTC_8666a.dir\src.c.obj
+cl : Command line warning D9002 : ignoring unknown option '-fno-semantic-interposition'
+[2/2] Linking C executable cmTC_8666a.exe
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test HAVE_ATTRIBUTE_VISIBILITY_HIDDEN failed with the following output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_feda1 && [1/2] Building C object CMakeFiles\cmTC_feda1.dir\src.c.obj
+FAILED: CMakeFiles/cmTC_feda1.dir/src.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo -DHAVE_ATTRIBUTE_VISIBILITY_HIDDEN  /DWIN32 /D_WINDOWS /W3 /W3   /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_feda1.dir\src.c.obj /FdCMakeFiles\cmTC_feda1.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(2): error C2143: syntax error: missing ')' before '('
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(2): error C2091: function returns function
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(2): error C2143: syntax error: missing ')' before 'string'
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(2): error C2143: syntax error: missing '{' before 'string'
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(2): error C2059: syntax error: 'string'
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(2): error C2059: syntax error: ')'
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#define Z_INTERNAL __attribute__((visibility ("hidden")))
+    int Z_INTERNAL foo;
+    int main() {
+        return 0;
+    }
+Performing C SOURCE FILE Test HAVE_ATTRIBUTE_VISIBILITY_INTERNAL failed with the following output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_172dc && [1/2] Building C object CMakeFiles\cmTC_172dc.dir\src.c.obj
+FAILED: CMakeFiles/cmTC_172dc.dir/src.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo -DHAVE_ATTRIBUTE_VISIBILITY_INTERNAL  /DWIN32 /D_WINDOWS /W3 /W3   /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_172dc.dir\src.c.obj /FdCMakeFiles\cmTC_172dc.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(2): error C2143: syntax error: missing ')' before '('
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(2): error C2091: function returns function
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(2): error C2143: syntax error: missing ')' before 'string'
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(2): error C2143: syntax error: missing '{' before 'string'
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(2): error C2059: syntax error: 'string'
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(2): error C2059: syntax error: ')'
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#define Z_INTERNAL __attribute__((visibility ("internal")))
+    int Z_INTERNAL foo;
+    int main() {
+        return 0;
+    }
+Performing C SOURCE FILE Test HAVE_BUILTIN_CTZ failed with the following output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_6eab4 && [1/2] Building C object CMakeFiles\cmTC_6eab4.dir\src.c.obj
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(3): warning C4013: '__builtin_ctz' undefined; assuming extern returning int
+[2/2] Linking C executable cmTC_6eab4.exe
+FAILED: cmTC_6eab4.exe 
+cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_6eab4.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_6eab4.dir\src.c.obj  /out:cmTC_6eab4.exe /implib:cmTC_6eab4.lib /pdb:cmTC_6eab4.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_6eab4.dir\src.c.obj /out:cmTC_6eab4.exe /implib:cmTC_6eab4.lib /pdb:cmTC_6eab4.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_6eab4.dir/intermediate.manifest CMakeFiles\cmTC_6eab4.dir/manifest.res" failed (exit code 1120) with the following output:
+src.c.obj : error LNK2019: unresolved external symbol __builtin_ctz referenced in function main
+cmTC_6eab4.exe : fatal error LNK1120: 1 unresolved externals
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main(void) {
+        unsigned int zero = 0;
+        long test = __builtin_ctz(zero);
+        (void)test;
+        return 0;
+    }
+Performing C SOURCE FILE Test HAVE_BUILTIN_CTZLL failed with the following output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_3365d && [1/2] Building C object CMakeFiles\cmTC_3365d.dir\src.c.obj
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(3): warning C4013: '__builtin_ctzll' undefined; assuming extern returning int
+[2/2] Linking C executable cmTC_3365d.exe
+FAILED: cmTC_3365d.exe 
+cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_3365d.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_3365d.dir\src.c.obj  /out:cmTC_3365d.exe /implib:cmTC_3365d.lib /pdb:cmTC_3365d.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_3365d.dir\src.c.obj /out:cmTC_3365d.exe /implib:cmTC_3365d.lib /pdb:cmTC_3365d.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_3365d.dir/intermediate.manifest CMakeFiles\cmTC_3365d.dir/manifest.res" failed (exit code 1120) with the following output:
+src.c.obj : error LNK2019: unresolved external symbol __builtin_ctzll referenced in function main
+cmTC_3365d.exe : fatal error LNK1120: 1 unresolved externals
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main(void) {
+        unsigned int zero = 0;
+        long test = __builtin_ctzll(zero);
+        (void)test;
+        return 0;
+    }
+Performing C SOURCE FILE Test HAVE_SSE42CRC_INLINE_ASM failed with the following output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_76c2b && [1/2] Building C object CMakeFiles\cmTC_76c2b.dir\src.c.obj
+FAILED: CMakeFiles/cmTC_76c2b.dir/src.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo -DHAVE_SSE42CRC_INLINE_ASM  /DWIN32 /D_WINDOWS /W3 /W3   /MDd /Zi /Ob0 /Od /RTC1 -DZLIB_DEBUG /showIncludes /FoCMakeFiles\cmTC_76c2b.dir\src.c.obj /FdCMakeFiles\cmTC_76c2b.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(4): error C4235: nonstandard extension used: '__asm' keyword not supported on this architecture
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(4): error C2065: 'mov': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(4): error C2146: syntax error: missing ';' before identifier 'edx'
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(4): error C2065: 'edx': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(4): error C4235: nonstandard extension used: '__asm' keyword not supported on this architecture
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(4): error C2146: syntax error: missing ';' before identifier 'mov'
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(4): error C2146: syntax error: missing ';' before identifier 'eax'
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(4): error C2065: 'eax': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(4): error C4235: nonstandard extension used: '__asm' keyword not supported on this architecture
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(4): error C2146: syntax error: missing ';' before identifier 'crc32'
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(4): error C2065: 'crc32': undeclared identifier
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(4): error C4235: nonstandard extension used: '__asm' keyword not supported on this architecture
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(4): error C2146: syntax error: missing ';' before identifier 'val'
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(4): error C2143: syntax error: missing ';' before '}'
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main(void) {
+            unsigned val = 0, h = 0;
+        #if defined(_MSC_VER)
+            { __asm mov edx, h __asm mov eax, val __asm crc32 eax, edx __asm mov val, eax }
+        #else
+            __asm__ __volatile__ ( "crc32 %1,%0" : "+r" (h) : "r" (val) );
+        #endif
+            return (int)h;
+        }
 Determining if the include file pthread.h exists failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_2eab2 && [1/2] Building C object CMakeFiles\cmTC_2eab2.dir\CheckIncludeFile.c.obj
-FAILED: CMakeFiles/cmTC_2eab2.dir/CheckIncludeFile.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= /showIncludes /FoCMakeFiles\cmTC_2eab2.dir\CheckIncludeFile.c.obj /FdCMakeFiles\cmTC_2eab2.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_75966 && [1/2] Building C object CMakeFiles\cmTC_75966.dir\CheckIncludeFile.c.obj
+FAILED: CMakeFiles/cmTC_75966.dir/CheckIncludeFile.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= /showIncludes /FoCMakeFiles\cmTC_75966.dir\CheckIncludeFile.c.obj /FdCMakeFiles\cmTC_75966.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -307,9 +396,9 @@ ninja: build stopped: subcommand failed.
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/filio.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_53f8a && [1/2] Building C object CMakeFiles\cmTC_53f8a.dir\HAVE_SYS_FILIO_H.c.obj
-FAILED: CMakeFiles/cmTC_53f8a.dir/HAVE_SYS_FILIO_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_53f8a.dir\HAVE_SYS_FILIO_H.c.obj /FdCMakeFiles\cmTC_53f8a.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_FILIO_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_22b2d && [1/2] Building C object CMakeFiles\cmTC_22b2d.dir\HAVE_SYS_FILIO_H.c.obj
+FAILED: CMakeFiles/cmTC_22b2d.dir/HAVE_SYS_FILIO_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_22b2d.dir\HAVE_SYS_FILIO_H.c.obj /FdCMakeFiles\cmTC_22b2d.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_FILIO_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_FILIO_H.c(7): fatal error C1083: Cannot open include file: 'sys/filio.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -329,9 +418,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/ioctl.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_d9ee0 && [1/2] Building C object CMakeFiles\cmTC_d9ee0.dir\HAVE_SYS_IOCTL_H.c.obj
-FAILED: CMakeFiles/cmTC_d9ee0.dir/HAVE_SYS_IOCTL_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_d9ee0.dir\HAVE_SYS_IOCTL_H.c.obj /FdCMakeFiles\cmTC_d9ee0.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_IOCTL_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a55f6 && [1/2] Building C object CMakeFiles\cmTC_a55f6.dir\HAVE_SYS_IOCTL_H.c.obj
+FAILED: CMakeFiles/cmTC_a55f6.dir/HAVE_SYS_IOCTL_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_a55f6.dir\HAVE_SYS_IOCTL_H.c.obj /FdCMakeFiles\cmTC_a55f6.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_IOCTL_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_IOCTL_H.c(7): fatal error C1083: Cannot open include file: 'sys/ioctl.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -351,9 +440,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/resource.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_7a856 && [1/2] Building C object CMakeFiles\cmTC_7a856.dir\HAVE_SYS_RESOURCE_H.c.obj
-FAILED: CMakeFiles/cmTC_7a856.dir/HAVE_SYS_RESOURCE_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_7a856.dir\HAVE_SYS_RESOURCE_H.c.obj /FdCMakeFiles\cmTC_7a856.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_RESOURCE_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_98e6d && [1/2] Building C object CMakeFiles\cmTC_98e6d.dir\HAVE_SYS_RESOURCE_H.c.obj
+FAILED: CMakeFiles/cmTC_98e6d.dir/HAVE_SYS_RESOURCE_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_98e6d.dir\HAVE_SYS_RESOURCE_H.c.obj /FdCMakeFiles\cmTC_98e6d.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_RESOURCE_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_RESOURCE_H.c(7): fatal error C1083: Cannot open include file: 'sys/resource.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -373,9 +462,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/uio.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_15dc2 && [1/2] Building C object CMakeFiles\cmTC_15dc2.dir\HAVE_SYS_UIO_H.c.obj
-FAILED: CMakeFiles/cmTC_15dc2.dir/HAVE_SYS_UIO_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_15dc2.dir\HAVE_SYS_UIO_H.c.obj /FdCMakeFiles\cmTC_15dc2.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UIO_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_f5f70 && [1/2] Building C object CMakeFiles\cmTC_f5f70.dir\HAVE_SYS_UIO_H.c.obj
+FAILED: CMakeFiles/cmTC_f5f70.dir/HAVE_SYS_UIO_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_f5f70.dir\HAVE_SYS_UIO_H.c.obj /FdCMakeFiles\cmTC_f5f70.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UIO_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UIO_H.c(9): fatal error C1083: Cannot open include file: 'sys/uio.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -397,9 +486,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/un.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_93769 && [1/2] Building C object CMakeFiles\cmTC_93769.dir\HAVE_SYS_UN_H.c.obj
-FAILED: CMakeFiles/cmTC_93769.dir/HAVE_SYS_UN_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_93769.dir\HAVE_SYS_UN_H.c.obj /FdCMakeFiles\cmTC_93769.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UN_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_24d0d && [1/2] Building C object CMakeFiles\cmTC_24d0d.dir\HAVE_SYS_UN_H.c.obj
+FAILED: CMakeFiles/cmTC_24d0d.dir/HAVE_SYS_UN_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_24d0d.dir\HAVE_SYS_UN_H.c.obj /FdCMakeFiles\cmTC_24d0d.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UN_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UN_H.c(9): fatal error C1083: Cannot open include file: 'sys/un.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -421,9 +510,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;sys/xattr.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_5a2e3 && [1/2] Building C object CMakeFiles\cmTC_5a2e3.dir\HAVE_SYS_XATTR_H.c.obj
-FAILED: CMakeFiles/cmTC_5a2e3.dir/HAVE_SYS_XATTR_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_5a2e3.dir\HAVE_SYS_XATTR_H.c.obj /FdCMakeFiles\cmTC_5a2e3.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_XATTR_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a1a7d && [1/2] Building C object CMakeFiles\cmTC_a1a7d.dir\HAVE_SYS_XATTR_H.c.obj
+FAILED: CMakeFiles/cmTC_a1a7d.dir/HAVE_SYS_XATTR_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_a1a7d.dir\HAVE_SYS_XATTR_H.c.obj /FdCMakeFiles\cmTC_a1a7d.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_XATTR_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_XATTR_H.c(10): fatal error C1083: Cannot open include file: 'sys/xattr.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -446,9 +535,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;arpa/tftp.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_6495e && [1/2] Building C object CMakeFiles\cmTC_6495e.dir\HAVE_ARPA_TFTP_H.c.obj
-FAILED: CMakeFiles/cmTC_6495e.dir/HAVE_ARPA_TFTP_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_6495e.dir\HAVE_ARPA_TFTP_H.c.obj /FdCMakeFiles\cmTC_6495e.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_TFTP_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_c5835 && [1/2] Building C object CMakeFiles\cmTC_c5835.dir\HAVE_ARPA_TFTP_H.c.obj
+FAILED: CMakeFiles/cmTC_c5835.dir/HAVE_ARPA_TFTP_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_c5835.dir\HAVE_ARPA_TFTP_H.c.obj /FdCMakeFiles\cmTC_c5835.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_TFTP_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_TFTP_H.c(10): fatal error C1083: Cannot open include file: 'arpa/tftp.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -471,9 +560,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;idn2.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_30122 && [1/2] Building C object CMakeFiles\cmTC_30122.dir\HAVE_IDN2_H.c.obj
-FAILED: CMakeFiles/cmTC_30122.dir/HAVE_IDN2_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_30122.dir\HAVE_IDN2_H.c.obj /FdCMakeFiles\cmTC_30122.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_IDN2_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_0eba1 && [1/2] Building C object CMakeFiles\cmTC_0eba1.dir\HAVE_IDN2_H.c.obj
+FAILED: CMakeFiles/cmTC_0eba1.dir/HAVE_IDN2_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_0eba1.dir\HAVE_IDN2_H.c.obj /FdCMakeFiles\cmTC_0eba1.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_IDN2_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_IDN2_H.c(13): fatal error C1083: Cannot open include file: 'idn2.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -499,9 +588,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;ifaddrs.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_c3002 && [1/2] Building C object CMakeFiles\cmTC_c3002.dir\HAVE_IFADDRS_H.c.obj
-FAILED: CMakeFiles/cmTC_c3002.dir/HAVE_IFADDRS_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_c3002.dir\HAVE_IFADDRS_H.c.obj /FdCMakeFiles\cmTC_c3002.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_IFADDRS_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_83ce7 && [1/2] Building C object CMakeFiles\cmTC_83ce7.dir\HAVE_IFADDRS_H.c.obj
+FAILED: CMakeFiles/cmTC_83ce7.dir/HAVE_IFADDRS_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_83ce7.dir\HAVE_IFADDRS_H.c.obj /FdCMakeFiles\cmTC_83ce7.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_IFADDRS_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_IFADDRS_H.c(13): fatal error C1083: Cannot open include file: 'ifaddrs.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -527,9 +616,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;krb.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_0e3ce && [1/2] Building C object CMakeFiles\cmTC_0e3ce.dir\HAVE_KRB_H.c.obj
-FAILED: CMakeFiles/cmTC_0e3ce.dir/HAVE_KRB_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_0e3ce.dir\HAVE_KRB_H.c.obj /FdCMakeFiles\cmTC_0e3ce.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_KRB_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_82a7c && [1/2] Building C object CMakeFiles\cmTC_82a7c.dir\HAVE_KRB_H.c.obj
+FAILED: CMakeFiles/cmTC_82a7c.dir/HAVE_KRB_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_82a7c.dir\HAVE_KRB_H.c.obj /FdCMakeFiles\cmTC_82a7c.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_KRB_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_KRB_H.c(14): fatal error C1083: Cannot open include file: 'krb.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -556,9 +645,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;libgen.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_31c66 && [1/2] Building C object CMakeFiles\cmTC_31c66.dir\HAVE_LIBGEN_H.c.obj
-FAILED: CMakeFiles/cmTC_31c66.dir/HAVE_LIBGEN_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_31c66.dir\HAVE_LIBGEN_H.c.obj /FdCMakeFiles\cmTC_31c66.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_LIBGEN_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_19584 && [1/2] Building C object CMakeFiles\cmTC_19584.dir\HAVE_LIBGEN_H.c.obj
+FAILED: CMakeFiles/cmTC_19584.dir/HAVE_LIBGEN_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_19584.dir\HAVE_LIBGEN_H.c.obj /FdCMakeFiles\cmTC_19584.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_LIBGEN_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_LIBGEN_H.c(14): fatal error C1083: Cannot open include file: 'libgen.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -585,9 +674,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;locale.h;netinet/tcp.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_8fbe7 && [1/2] Building C object CMakeFiles\cmTC_8fbe7.dir\HAVE_NETINET_TCP_H.c.obj
-FAILED: CMakeFiles/cmTC_8fbe7.dir/HAVE_NETINET_TCP_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_8fbe7.dir\HAVE_NETINET_TCP_H.c.obj /FdCMakeFiles\cmTC_8fbe7.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_NETINET_TCP_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_53a88 && [1/2] Building C object CMakeFiles\cmTC_53a88.dir\HAVE_NETINET_TCP_H.c.obj
+FAILED: CMakeFiles/cmTC_53a88.dir/HAVE_NETINET_TCP_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_53a88.dir\HAVE_NETINET_TCP_H.c.obj /FdCMakeFiles\cmTC_53a88.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_NETINET_TCP_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_NETINET_TCP_H.c(15): fatal error C1083: Cannot open include file: 'netinet/tcp.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -615,9 +704,9 @@ int main(void){return 0;}
 Determining if the include file linux/tcp.h exists failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_b3fa6 && [1/2] Building C object CMakeFiles\cmTC_b3fa6.dir\CheckIncludeFile.c.obj
-FAILED: CMakeFiles/cmTC_b3fa6.dir/CheckIncludeFile.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_b3fa6.dir\CheckIncludeFile.c.obj /FdCMakeFiles\cmTC_b3fa6.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_69694 && [1/2] Building C object CMakeFiles\cmTC_69694.dir\CheckIncludeFile.c.obj
+FAILED: CMakeFiles/cmTC_69694.dir/CheckIncludeFile.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_69694.dir\CheckIncludeFile.c.obj /FdCMakeFiles\cmTC_69694.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Cannot open include file: 'linux/tcp.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -626,9 +715,9 @@ ninja: build stopped: subcommand failed.
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;locale.h;pem.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_8e99b && [1/2] Building C object CMakeFiles\cmTC_8e99b.dir\HAVE_PEM_H.c.obj
-FAILED: CMakeFiles/cmTC_8e99b.dir/HAVE_PEM_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_8e99b.dir\HAVE_PEM_H.c.obj /FdCMakeFiles\cmTC_8e99b.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_PEM_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_277ff && [1/2] Building C object CMakeFiles\cmTC_277ff.dir\HAVE_PEM_H.c.obj
+FAILED: CMakeFiles/cmTC_277ff.dir/HAVE_PEM_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_277ff.dir\HAVE_PEM_H.c.obj /FdCMakeFiles\cmTC_277ff.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_PEM_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_PEM_H.c(15): fatal error C1083: Cannot open include file: 'pem.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -656,9 +745,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;locale.h;poll.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_98dcd && [1/2] Building C object CMakeFiles\cmTC_98dcd.dir\HAVE_POLL_H.c.obj
-FAILED: CMakeFiles/cmTC_98dcd.dir/HAVE_POLL_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_98dcd.dir\HAVE_POLL_H.c.obj /FdCMakeFiles\cmTC_98dcd.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_POLL_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_cb804 && [1/2] Building C object CMakeFiles\cmTC_cb804.dir\HAVE_POLL_H.c.obj
+FAILED: CMakeFiles/cmTC_cb804.dir/HAVE_POLL_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_cb804.dir\HAVE_POLL_H.c.obj /FdCMakeFiles\cmTC_cb804.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_POLL_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_POLL_H.c(15): fatal error C1083: Cannot open include file: 'poll.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -686,9 +775,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;locale.h;setjmp.h;signal.h;ssl.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_81a80 && [1/2] Building C object CMakeFiles\cmTC_81a80.dir\HAVE_SSL_H.c.obj
-FAILED: CMakeFiles/cmTC_81a80.dir/HAVE_SSL_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_81a80.dir\HAVE_SSL_H.c.obj /FdCMakeFiles\cmTC_81a80.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SSL_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_ba65f && [1/2] Building C object CMakeFiles\cmTC_ba65f.dir\HAVE_SSL_H.c.obj
+FAILED: CMakeFiles/cmTC_ba65f.dir/HAVE_SSL_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_ba65f.dir\HAVE_SSL_H.c.obj /FdCMakeFiles\cmTC_ba65f.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SSL_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SSL_H.c(17): fatal error C1083: Cannot open include file: 'ssl.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -718,9 +807,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;locale.h;setjmp.h;signal.h;stdbool.h;stdio.h;stdlib.h;string.h;stropts.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_7785f && [1/2] Building C object CMakeFiles\cmTC_7785f.dir\HAVE_STROPTS_H.c.obj
-FAILED: CMakeFiles/cmTC_7785f.dir/HAVE_STROPTS_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_7785f.dir\HAVE_STROPTS_H.c.obj /FdCMakeFiles\cmTC_7785f.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_STROPTS_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_af273 && [1/2] Building C object CMakeFiles\cmTC_af273.dir\HAVE_STROPTS_H.c.obj
+FAILED: CMakeFiles/cmTC_af273.dir/HAVE_STROPTS_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_af273.dir\HAVE_STROPTS_H.c.obj /FdCMakeFiles\cmTC_af273.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_STROPTS_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_STROPTS_H.c(21): fatal error C1083: Cannot open include file: 'stropts.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -754,9 +843,9 @@ int main(void){return 0;}
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;locale.h;setjmp.h;signal.h;stdbool.h;stdio.h;stdlib.h;string.h;time.h;process.h;stddef.h;malloc.h;memory.h;sys/utsname.h exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_48f93 && [1/2] Building C object CMakeFiles\cmTC_48f93.dir\HAVE_SYS_UTSNAME_H.c.obj
-FAILED: CMakeFiles/cmTC_48f93.dir/HAVE_SYS_UTSNAME_H.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_48f93.dir\HAVE_SYS_UTSNAME_H.c.obj /FdCMakeFiles\cmTC_48f93.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UTSNAME_H.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_354d7 && [1/2] Building C object CMakeFiles\cmTC_354d7.dir\HAVE_SYS_UTSNAME_H.c.obj
+FAILED: CMakeFiles/cmTC_354d7.dir/HAVE_SYS_UTSNAME_H.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_354d7.dir\HAVE_SYS_UTSNAME_H.c.obj /FdCMakeFiles\cmTC_354d7.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UTSNAME_H.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UTSNAME_H.c(26): fatal error C1083: Cannot open include file: 'sys/utsname.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -795,9 +884,9 @@ int main(void){return 0;}
 Determining size of ssize_t failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_aa768 && [1/2] Building C object CMakeFiles\cmTC_aa768.dir\SIZEOF_SSIZE_T.c.obj
-FAILED: CMakeFiles/cmTC_aa768.dir/SIZEOF_SSIZE_T.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_aa768.dir\SIZEOF_SSIZE_T.c.obj /FdCMakeFiles\cmTC_aa768.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\SIZEOF_SSIZE_T.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_66e66 && [1/2] Building C object CMakeFiles\cmTC_66e66.dir\SIZEOF_SSIZE_T.c.obj
+FAILED: CMakeFiles/cmTC_66e66.dir/SIZEOF_SSIZE_T.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_66e66.dir\SIZEOF_SSIZE_T.c.obj /FdCMakeFiles\cmTC_66e66.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\SIZEOF_SSIZE_T.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\SIZEOF_SSIZE_T.c(28): error C2065: 'ssize_t': undeclared identifier
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\SIZEOF_SSIZE_T.c(29): error C2065: 'ssize_t': undeclared identifier
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\SIZEOF_SSIZE_T.c(30): error C2065: 'ssize_t': undeclared identifier
@@ -861,9 +950,9 @@ int main(int argc, char *argv[])
 Determining if the basename exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_ff5da && [1/2] Building C object CMakeFiles\cmTC_ff5da.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_ff5da.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_ff5da.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_ff5da.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_9ebe7 && [1/2] Building C object CMakeFiles\cmTC_9ebe7.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_9ebe7.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_9ebe7.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_9ebe7.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'basename': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -908,9 +997,9 @@ int main(int argc, char** argv)
 Determining if the strncmpi exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_37307 && [1/2] Building C object CMakeFiles\cmTC_37307.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_37307.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_37307.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_37307.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_76ef0 && [1/2] Building C object CMakeFiles\cmTC_76ef0.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_76ef0.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_76ef0.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_76ef0.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'strncmpi': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -955,9 +1044,9 @@ int main(int argc, char** argv)
 Determining if the alarm exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a6425 && [1/2] Building C object CMakeFiles\cmTC_a6425.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_a6425.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_a6425.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_a6425.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_17a58 && [1/2] Building C object CMakeFiles\cmTC_17a58.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_17a58.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_17a58.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_17a58.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'alarm': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1002,9 +1091,9 @@ int main(int argc, char** argv)
 Determining if the getppid exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_88690 && [1/2] Building C object CMakeFiles\cmTC_88690.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_88690.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_88690.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_88690.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_484ef && [1/2] Building C object CMakeFiles\cmTC_484ef.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_484ef.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_484ef.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_484ef.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'getppid': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1049,9 +1138,9 @@ int main(int argc, char** argv)
 Determining if the utimes exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a87e1 && [1/2] Building C object CMakeFiles\cmTC_a87e1.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_a87e1.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_a87e1.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_a87e1.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_e6b59 && [1/2] Building C object CMakeFiles\cmTC_e6b59.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_e6b59.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_e6b59.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_e6b59.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'utimes': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1096,9 +1185,9 @@ int main(int argc, char** argv)
 Determining if the getpwuid_r exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_c90a5 && [1/2] Building C object CMakeFiles\cmTC_c90a5.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_c90a5.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_c90a5.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_c90a5.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_69791 && [1/2] Building C object CMakeFiles\cmTC_69791.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_69791.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_69791.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_69791.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'getpwuid_r': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1143,9 +1232,9 @@ int main(int argc, char** argv)
 Determining if the usleep exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_9908c && [1/2] Building C object CMakeFiles\cmTC_9908c.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_9908c.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_9908c.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_9908c.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a5152 && [1/2] Building C object CMakeFiles\cmTC_a5152.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_a5152.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_a5152.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_a5152.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'usleep': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1190,9 +1279,9 @@ int main(int argc, char** argv)
 Determining if the strerror_r exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a0460 && [1/2] Building C object CMakeFiles\cmTC_a0460.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_a0460.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_a0460.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_a0460.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_f4f9a && [1/2] Building C object CMakeFiles\cmTC_f4f9a.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_f4f9a.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_f4f9a.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_f4f9a.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'strerror_r': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1237,9 +1326,9 @@ int main(int argc, char** argv)
 Determining if the siginterrupt exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_32870 && [1/2] Building C object CMakeFiles\cmTC_32870.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_32870.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_32870.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_32870.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_35376 && [1/2] Building C object CMakeFiles\cmTC_35376.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_35376.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_35376.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_35376.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'siginterrupt': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1284,9 +1373,9 @@ int main(int argc, char** argv)
 Determining if the pipe exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a8375 && [1/2] Building C object CMakeFiles\cmTC_a8375.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_a8375.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_a8375.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_a8375.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_299b3 && [1/2] Building C object CMakeFiles\cmTC_299b3.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_299b3.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_299b3.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_299b3.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'pipe': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1331,9 +1420,9 @@ int main(int argc, char** argv)
 Determining if the ftruncate exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_62d3e && [1/2] Building C object CMakeFiles\cmTC_62d3e.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_62d3e.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_62d3e.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_62d3e.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_8dea7 && [1/2] Building C object CMakeFiles\cmTC_8dea7.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_8dea7.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_8dea7.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_8dea7.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'ftruncate': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1378,9 +1467,9 @@ int main(int argc, char** argv)
 Determining if the if_nametoindex exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_d9598 && [1/2] Building C object CMakeFiles\cmTC_d9598.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_d9598.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_d9598.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_d9598.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_518f9 && [1/2] Building C object CMakeFiles\cmTC_518f9.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_518f9.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_518f9.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_518f9.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'if_nametoindex': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1425,9 +1514,9 @@ int main(int argc, char** argv)
 Determining if the getrlimit exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_7ea29 && [1/2] Building C object CMakeFiles\cmTC_7ea29.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_7ea29.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_7ea29.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_7ea29.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a085a && [1/2] Building C object CMakeFiles\cmTC_a085a.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_a085a.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_a085a.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_a085a.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'getrlimit': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1472,9 +1561,9 @@ int main(int argc, char** argv)
 Determining if the setrlimit exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_39673 && [1/2] Building C object CMakeFiles\cmTC_39673.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_39673.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_39673.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_39673.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_c9b53 && [1/2] Building C object CMakeFiles\cmTC_c9b53.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_c9b53.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_c9b53.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_c9b53.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'setrlimit': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1519,9 +1608,9 @@ int main(int argc, char** argv)
 Determining if the fcntl exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_291cf && [1/2] Building C object CMakeFiles\cmTC_291cf.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_291cf.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_291cf.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_291cf.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_acfe9 && [1/2] Building C object CMakeFiles\cmTC_acfe9.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_acfe9.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_acfe9.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_acfe9.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'fcntl': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1566,9 +1655,9 @@ int main(int argc, char** argv)
 Determining if the ioctl exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_35301 && [1/2] Building C object CMakeFiles\cmTC_35301.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_35301.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_35301.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_35301.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_ca5af && [1/2] Building C object CMakeFiles\cmTC_ca5af.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_ca5af.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_ca5af.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_ca5af.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'ioctl': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1613,13 +1702,13 @@ int main(int argc, char** argv)
 Determining if the function mach_absolute_time exists failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_88e74 && [1/2] Building C object CMakeFiles\cmTC_88e74.dir\CheckFunctionExists.c.obj
-[2/2] Linking C executable cmTC_88e74.exe
-FAILED: cmTC_88e74.exe 
-cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_88e74.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_88e74.dir\CheckFunctionExists.c.obj  /out:cmTC_88e74.exe /implib:cmTC_88e74.lib /pdb:cmTC_88e74.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  ws2_32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_88e74.dir\CheckFunctionExists.c.obj /out:cmTC_88e74.exe /implib:cmTC_88e74.lib /pdb:cmTC_88e74.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_88e74.dir/intermediate.manifest CMakeFiles\cmTC_88e74.dir/manifest.res" failed (exit code 1120) with the following output:
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_107f1 && [1/2] Building C object CMakeFiles\cmTC_107f1.dir\CheckFunctionExists.c.obj
+[2/2] Linking C executable cmTC_107f1.exe
+FAILED: cmTC_107f1.exe 
+cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_107f1.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_107f1.dir\CheckFunctionExists.c.obj  /out:cmTC_107f1.exe /implib:cmTC_107f1.lib /pdb:cmTC_107f1.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  ws2_32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_107f1.dir\CheckFunctionExists.c.obj /out:cmTC_107f1.exe /implib:cmTC_107f1.lib /pdb:cmTC_107f1.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_107f1.dir/intermediate.manifest CMakeFiles\cmTC_107f1.dir/manifest.res" failed (exit code 1120) with the following output:
 CheckFunctionExists.c.obj : error LNK2019: unresolved external symbol mach_absolute_time referenced in function main
-cmTC_88e74.exe : fatal error LNK1120: 1 unresolved externals
+cmTC_107f1.exe : fatal error LNK1120: 1 unresolved externals
 ninja: build stopped: subcommand failed.
 
 
@@ -1627,9 +1716,9 @@ ninja: build stopped: subcommand failed.
 Determining if the fsetxattr exist failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_0ca5a && [1/2] Building C object CMakeFiles\cmTC_0ca5a.dir\CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_0ca5a.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_0ca5a.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_0ca5a.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_27d1f && [1/2] Building C object CMakeFiles\cmTC_27d1f.dir\CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_27d1f.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_27d1f.dir\CheckSymbolExists.c.obj /FdCMakeFiles\cmTC_27d1f.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): error C2065: 'fsetxattr': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1674,9 +1763,9 @@ int main(int argc, char** argv)
 Determining size of sa_family_t failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_d36e8 && [1/2] Building C object CMakeFiles\cmTC_d36e8.dir\SIZEOF_SA_FAMILY_T.c.obj
-FAILED: CMakeFiles/cmTC_d36e8.dir/SIZEOF_SA_FAMILY_T.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_d36e8.dir\SIZEOF_SA_FAMILY_T.c.obj /FdCMakeFiles\cmTC_d36e8.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\SIZEOF_SA_FAMILY_T.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a16e1 && [1/2] Building C object CMakeFiles\cmTC_a16e1.dir\SIZEOF_SA_FAMILY_T.c.obj
+FAILED: CMakeFiles/cmTC_a16e1.dir/SIZEOF_SA_FAMILY_T.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_a16e1.dir\SIZEOF_SA_FAMILY_T.c.obj /FdCMakeFiles\cmTC_a16e1.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\SIZEOF_SA_FAMILY_T.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\SIZEOF_SA_FAMILY_T.c(3): fatal error C1083: Cannot open include file: 'sys/socket.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -1737,9 +1826,9 @@ int main(int argc, char *argv[])
 Determining size of ADDRESS_FAMILY failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_47915 && [1/2] Building C object CMakeFiles\cmTC_47915.dir\SIZEOF_ADDRESS_FAMILY.c.obj
-FAILED: CMakeFiles/cmTC_47915.dir/SIZEOF_ADDRESS_FAMILY.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_47915.dir\SIZEOF_ADDRESS_FAMILY.c.obj /FdCMakeFiles\cmTC_47915.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\SIZEOF_ADDRESS_FAMILY.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_bebd9 && [1/2] Building C object CMakeFiles\cmTC_bebd9.dir\SIZEOF_ADDRESS_FAMILY.c.obj
+FAILED: CMakeFiles/cmTC_bebd9.dir/SIZEOF_ADDRESS_FAMILY.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_bebd9.dir\SIZEOF_ADDRESS_FAMILY.c.obj /FdCMakeFiles\cmTC_bebd9.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CheckTypeSize\SIZEOF_ADDRESS_FAMILY.c
 C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared\ws2def.h(47): fatal error C1189: #error:  Do not include winsock.h and ws2def.h in the same module. Instead include only winsock2.h.
 ninja: build stopped: subcommand failed.
 
@@ -1800,9 +1889,9 @@ int main(int argc, char *argv[])
 Performing Curl Test HAVE_FCNTL_O_NONBLOCK failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_4284b && [1/2] Building C object CMakeFiles\cmTC_4284b.dir\CurlTests.c.obj
-FAILED: CMakeFiles/cmTC_4284b.dir/CurlTests.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_FCNTL_O_NONBLOCK  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_4284b.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_4284b.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_0febf && [1/2] Building C object CMakeFiles\cmTC_0febf.dir\CurlTests.c.obj
+FAILED: CMakeFiles/cmTC_0febf.dir/CurlTests.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_FCNTL_O_NONBLOCK  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_0febf.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_0febf.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(44): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -1810,37 +1899,37 @@ ninja: build stopped: subcommand failed.
 Performing Curl Test HAVE_IOCTLSOCKET_CAMEL failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a8d23 && [1/2] Building C object CMakeFiles\cmTC_a8d23.dir\CurlTests.c.obj
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_1f034 && [1/2] Building C object CMakeFiles\cmTC_1f034.dir\CurlTests.c.obj
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(265): warning C4013: 'IoctlSocket' undefined; assuming extern returning int
-[2/2] Linking C executable cmTC_a8d23.exe
-FAILED: cmTC_a8d23.exe 
-cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_a8d23.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_a8d23.dir\CurlTests.c.obj  /out:cmTC_a8d23.exe /implib:cmTC_a8d23.lib /pdb:cmTC_a8d23.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  ws2_32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_a8d23.dir\CurlTests.c.obj /out:cmTC_a8d23.exe /implib:cmTC_a8d23.lib /pdb:cmTC_a8d23.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_a8d23.dir/intermediate.manifest CMakeFiles\cmTC_a8d23.dir/manifest.res" failed (exit code 1120) with the following output:
+[2/2] Linking C executable cmTC_1f034.exe
+FAILED: cmTC_1f034.exe 
+cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_1f034.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_1f034.dir\CurlTests.c.obj  /out:cmTC_1f034.exe /implib:cmTC_1f034.lib /pdb:cmTC_1f034.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  ws2_32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_1f034.dir\CurlTests.c.obj /out:cmTC_1f034.exe /implib:cmTC_1f034.lib /pdb:cmTC_1f034.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_1f034.dir/intermediate.manifest CMakeFiles\cmTC_1f034.dir/manifest.res" failed (exit code 1120) with the following output:
 CurlTests.c.obj : error LNK2019: unresolved external symbol IoctlSocket referenced in function main
-cmTC_a8d23.exe : fatal error LNK1120: 1 unresolved externals
+cmTC_1f034.exe : fatal error LNK1120: 1 unresolved externals
 ninja: build stopped: subcommand failed.
 
 
 Performing Curl Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_20737 && [1/2] Building C object CMakeFiles\cmTC_20737.dir\CurlTests.c.obj
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_70b00 && [1/2] Building C object CMakeFiles\cmTC_70b00.dir\CurlTests.c.obj
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(289): warning C4013: 'IoctlSocket' undefined; assuming extern returning int
-[2/2] Linking C executable cmTC_20737.exe
-FAILED: cmTC_20737.exe 
-cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_20737.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_20737.dir\CurlTests.c.obj  /out:cmTC_20737.exe /implib:cmTC_20737.lib /pdb:cmTC_20737.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  ws2_32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_20737.dir\CurlTests.c.obj /out:cmTC_20737.exe /implib:cmTC_20737.lib /pdb:cmTC_20737.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_20737.dir/intermediate.manifest CMakeFiles\cmTC_20737.dir/manifest.res" failed (exit code 1120) with the following output:
+[2/2] Linking C executable cmTC_70b00.exe
+FAILED: cmTC_70b00.exe 
+cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_70b00.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_70b00.dir\CurlTests.c.obj  /out:cmTC_70b00.exe /implib:cmTC_70b00.lib /pdb:cmTC_70b00.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  ws2_32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_70b00.dir\CurlTests.c.obj /out:cmTC_70b00.exe /implib:cmTC_70b00.lib /pdb:cmTC_70b00.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_70b00.dir/intermediate.manifest CMakeFiles\cmTC_70b00.dir/manifest.res" failed (exit code 1120) with the following output:
 CurlTests.c.obj : error LNK2019: unresolved external symbol IoctlSocket referenced in function main
-cmTC_20737.exe : fatal error LNK1120: 1 unresolved externals
+cmTC_70b00.exe : fatal error LNK1120: 1 unresolved externals
 ninja: build stopped: subcommand failed.
 
 
 Performing Curl Test HAVE_IOCTL_FIONBIO failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_fb10b && [1/2] Building C object CMakeFiles\cmTC_fb10b.dir\CurlTests.c.obj
-FAILED: CMakeFiles/cmTC_fb10b.dir/CurlTests.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_IOCTL_FIONBIO  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_fb10b.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_fb10b.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_881a8 && [1/2] Building C object CMakeFiles\cmTC_881a8.dir\CurlTests.c.obj
+FAILED: CMakeFiles/cmTC_881a8.dir/CurlTests.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_IOCTL_FIONBIO  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_881a8.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_881a8.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(343): warning C4013: 'ioctl' undefined; assuming extern returning int
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(343): error C2065: 'FIONBIO': undeclared identifier
 ninja: build stopped: subcommand failed.
@@ -1849,9 +1938,9 @@ ninja: build stopped: subcommand failed.
 Performing Curl Test HAVE_IOCTL_SIOCGIFADDR failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_10a3d && [1/2] Building C object CMakeFiles\cmTC_10a3d.dir\CurlTests.c.obj
-FAILED: CMakeFiles/cmTC_10a3d.dir/CurlTests.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_IOCTL_SIOCGIFADDR  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_10a3d.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_10a3d.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_76b0d && [1/2] Building C object CMakeFiles\cmTC_76b0d.dir\CurlTests.c.obj
+FAILED: CMakeFiles/cmTC_76b0d.dir/CurlTests.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_IOCTL_SIOCGIFADDR  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_76b0d.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_76b0d.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(368): fatal error C1083: Cannot open include file: 'net/if.h': No such file or directory
 ninja: build stopped: subcommand failed.
 
@@ -1859,9 +1948,9 @@ ninja: build stopped: subcommand failed.
 Performing Curl Test HAVE_SETSOCKOPT_SO_NONBLOCK failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_f1b25 && [1/2] Building C object CMakeFiles\cmTC_f1b25.dir\CurlTests.c.obj
-FAILED: CMakeFiles/cmTC_f1b25.dir/CurlTests.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_SETSOCKOPT_SO_NONBLOCK  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_f1b25.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_f1b25.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_1a157 && [1/2] Building C object CMakeFiles\cmTC_1a157.dir\CurlTests.c.obj
+FAILED: CMakeFiles/cmTC_1a157.dir/CurlTests.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_SETSOCKOPT_SO_NONBLOCK  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_1a157.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_1a157.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(404): error C2065: 'SO_NONBLOCK': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1869,22 +1958,22 @@ ninja: build stopped: subcommand failed.
 Performing Curl Test HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_5b650 && [1/2] Building C object CMakeFiles\cmTC_5b650.dir\CurlTests.c.obj
-[2/2] Linking C executable cmTC_5b650.exe
-FAILED: cmTC_5b650.exe 
-cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_5b650.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_5b650.dir\CurlTests.c.obj  /out:cmTC_5b650.exe /implib:cmTC_5b650.lib /pdb:cmTC_5b650.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  ws2_32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_5b650.dir\CurlTests.c.obj /out:cmTC_5b650.exe /implib:cmTC_5b650.lib /pdb:cmTC_5b650.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_5b650.dir/intermediate.manifest CMakeFiles\cmTC_5b650.dir/manifest.res" failed (exit code 1120) with the following output:
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_63398 && [1/2] Building C object CMakeFiles\cmTC_63398.dir\CurlTests.c.obj
+[2/2] Linking C executable cmTC_63398.exe
+FAILED: cmTC_63398.exe 
+cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_63398.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_63398.dir\CurlTests.c.obj  /out:cmTC_63398.exe /implib:cmTC_63398.lib /pdb:cmTC_63398.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  ws2_32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_63398.dir\CurlTests.c.obj /out:cmTC_63398.exe /implib:cmTC_63398.lib /pdb:cmTC_63398.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_63398.dir/intermediate.manifest CMakeFiles\cmTC_63398.dir/manifest.res" failed (exit code 1120) with the following output:
 MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-cmTC_5b650.exe : fatal error LNK1120: 1 unresolved externals
+cmTC_63398.exe : fatal error LNK1120: 1 unresolved externals
 ninja: build stopped: subcommand failed.
 
 
 Performing Curl Test HAVE_FILE_OFFSET_BITS failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_79c6e && [1/2] Building C object CMakeFiles\cmTC_79c6e.dir\CurlTests.c.obj
-FAILED: CMakeFiles/cmTC_79c6e.dir/CurlTests.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_FILE_OFFSET_BITS  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_79c6e.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_79c6e.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_e9dc8 && [1/2] Building C object CMakeFiles\cmTC_e9dc8.dir\CurlTests.c.obj
+FAILED: CMakeFiles/cmTC_e9dc8.dir/CurlTests.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_FILE_OFFSET_BITS  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_e9dc8.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_e9dc8.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(218): warning C4293: '<<': shift count negative or too big, undefined behavior
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(219): warning C4293: '<<': shift count negative or too big, undefined behavior
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(220): error C2118: negative subscript
@@ -1894,9 +1983,9 @@ ninja: build stopped: subcommand failed.
 Performing Curl Test HAVE_VARIADIC_MACROS_GCC failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_9d201 && [1/2] Building C object CMakeFiles\cmTC_9d201.dir\CurlTests.c.obj
-FAILED: CMakeFiles/cmTC_9d201.dir/CurlTests.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_VARIADIC_MACROS_GCC  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_9d201.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_9d201.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_62cfc && [1/2] Building C object CMakeFiles\cmTC_62cfc.dir\CurlTests.c.obj
+FAILED: CMakeFiles/cmTC_62cfc.dir/CurlTests.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_VARIADIC_MACROS_GCC  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_62cfc.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_62cfc.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(495): error C2010: '.': unexpected in macro parameter list
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(496): error C2010: '.': unexpected in macro parameter list
 ninja: build stopped: subcommand failed.
@@ -1905,9 +1994,9 @@ ninja: build stopped: subcommand failed.
 Performing Curl Test HAVE_GLIBC_STRERROR_R failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_d6a2a && [1/2] Building C object CMakeFiles\cmTC_d6a2a.dir\CurlTests.c.obj
-FAILED: CMakeFiles/cmTC_d6a2a.dir/CurlTests.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_GLIBC_STRERROR_R  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_d6a2a.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_d6a2a.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_67ff7 && [1/2] Building C object CMakeFiles\cmTC_67ff7.dir\CurlTests.c.obj
+FAILED: CMakeFiles/cmTC_67ff7.dir/CurlTests.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_GLIBC_STRERROR_R  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_67ff7.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_67ff7.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(420): warning C4013: 'strerror_r' undefined; assuming extern returning int
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(420): error C2109: subscript requires array or pointer type
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(420): error C2198: 'check': too few arguments for call
@@ -1917,24 +2006,24 @@ ninja: build stopped: subcommand failed.
 Performing Curl Test HAVE_POSIX_STRERROR_R failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_1b150 && [1/2] Building C object CMakeFiles\cmTC_1b150.dir\CurlTests.c.obj
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_d558b && [1/2] Building C object CMakeFiles\cmTC_d558b.dir\CurlTests.c.obj
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(435): warning C4013: 'strerror_r' undefined; assuming extern returning int
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(435): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
-[2/2] Linking C executable cmTC_1b150.exe
-FAILED: cmTC_1b150.exe 
-cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_1b150.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_1b150.dir\CurlTests.c.obj  /out:cmTC_1b150.exe /implib:cmTC_1b150.lib /pdb:cmTC_1b150.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  ws2_32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_1b150.dir\CurlTests.c.obj /out:cmTC_1b150.exe /implib:cmTC_1b150.lib /pdb:cmTC_1b150.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_1b150.dir/intermediate.manifest CMakeFiles\cmTC_1b150.dir/manifest.res" failed (exit code 1120) with the following output:
+[2/2] Linking C executable cmTC_d558b.exe
+FAILED: cmTC_d558b.exe 
+cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_d558b.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_d558b.dir\CurlTests.c.obj  /out:cmTC_d558b.exe /implib:cmTC_d558b.lib /pdb:cmTC_d558b.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  ws2_32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+LINK Pass 1: command "C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\link.exe /nologo CMakeFiles\cmTC_d558b.dir\CurlTests.c.obj /out:cmTC_d558b.exe /implib:cmTC_d558b.lib /pdb:cmTC_d558b.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\cmTC_d558b.dir/intermediate.manifest CMakeFiles\cmTC_d558b.dir/manifest.res" failed (exit code 1120) with the following output:
 CurlTests.c.obj : error LNK2019: unresolved external symbol strerror_r referenced in function main
-cmTC_1b150.exe : fatal error LNK1120: 1 unresolved externals
+cmTC_d558b.exe : fatal error LNK1120: 1 unresolved externals
 ninja: build stopped: subcommand failed.
 
 
 Performing Curl Test HAVE_CLOCK_GETTIME_MONOTONIC failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_fb774 && [1/2] Building C object CMakeFiles\cmTC_fb774.dir\CurlTests.c.obj
-FAILED: CMakeFiles/cmTC_fb774.dir/CurlTests.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_CLOCK_GETTIME_MONOTONIC  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_fb774.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_fb774.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_8d3d4 && [1/2] Building C object CMakeFiles\cmTC_8d3d4.dir\CurlTests.c.obj
+FAILED: CMakeFiles/cmTC_8d3d4.dir/CurlTests.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_CLOCK_GETTIME_MONOTONIC  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_8d3d4.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_8d3d4.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(460): warning C4013: 'clock_gettime' undefined; assuming extern returning int
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(460): error C2065: 'CLOCK_MONOTONIC': undeclared identifier
 ninja: build stopped: subcommand failed.
@@ -1943,9 +2032,9 @@ ninja: build stopped: subcommand failed.
 Performing Curl Test HAVE_BUILTIN_AVAILABLE failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_515e3 && [1/2] Building C object CMakeFiles\cmTC_515e3.dir\CurlTests.c.obj
-FAILED: CMakeFiles/cmTC_515e3.dir/CurlTests.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_BUILTIN_AVAILABLE  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_515e3.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_515e3.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_f4d8a && [1/2] Building C object CMakeFiles\cmTC_f4d8a.dir\CurlTests.c.obj
+FAILED: CMakeFiles/cmTC_f4d8a.dir/CurlTests.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DHAVE_BUILTIN_AVAILABLE  -DHAVE_WINDOWS_H -DHAVE_WS2TCPIP_H -DHAVE_WINSOCK2_H -DHAVE_WINCRYPT_H -DHAVE_STDIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UTIME_H -DHAVE_ASSERT_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IO_H -DHAVE_LOCALE_H -DHAVE_SETJMP_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_TIME_H -DHAVE_PROCESS_H -DHAVE_STDDEF_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_f4d8a.dir\CurlTests.c.obj /FdCMakeFiles\cmTC_f4d8a.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(467): warning C4013: '__builtin_available' undefined; assuming extern returning int
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(467): error C2065: 'macOS': undeclared identifier
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(467): error C2143: syntax error: missing ')' before 'constant'
@@ -1956,9 +2045,9 @@ ninja: build stopped: subcommand failed.
 Performing C SOURCE FILE Test HAVE_MSG_NOSIGNAL failed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_72b39 && [1/2] Building C object CMakeFiles\cmTC_72b39.dir\src.c.obj
-FAILED: CMakeFiles/cmTC_72b39.dir/src.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo -DHAVE_MSG_NOSIGNAL -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_72b39.dir\src.c.obj /FdCMakeFiles\cmTC_72b39.dir\cmTC_72b39.pdb /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_6a060 && [1/2] Building C object CMakeFiles\cmTC_6a060.dir\src.c.obj
+FAILED: CMakeFiles/cmTC_6a060.dir/src.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo -DHAVE_MSG_NOSIGNAL -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_6a060.dir\src.c.obj /FdCMakeFiles\cmTC_6a060.dir\cmTC_6a060.pdb /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(8): error C2065: 'MSG_NOSIGNAL': undeclared identifier
 ninja: build stopped: subcommand failed.
 
@@ -1978,9 +2067,9 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_POLL_FINE failed with the following compile output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_b59c0 && [1/2] Building C object CMakeFiles\cmTC_b59c0.dir\src.c.obj
-FAILED: CMakeFiles/cmTC_b59c0.dir/src.c.obj 
-C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo -DHAVE_POLL_FINE -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_b59c0.dir\src.c.obj /FdCMakeFiles\cmTC_b59c0.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_def57 && [1/2] Building C object CMakeFiles\cmTC_def57.dir\src.c.obj
+FAILED: CMakeFiles/cmTC_def57.dir/src.c.obj 
+C:\PROGRA~1\MICROS~1\2022\Preview\VC\Tools\MSVC\1432~1.313\bin\Hostx64\x64\cl.exe  /nologo -DHAVE_POLL_FINE -ID:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\include /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1    -D_WIN32_WINNT=0x0600 -D_WINSOCKAPI_= -DSECURITY_WIN32 /showIncludes /FoCMakeFiles\cmTC_def57.dir\src.c.obj /FdCMakeFiles\cmTC_def57.dir\ /FS -c D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\src.c(3): fatal error C1083: Cannot open include file: 'sys/time.h': No such file or directory
 ninja: build stopped: subcommand failed.
 

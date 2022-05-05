@@ -19,16 +19,7 @@ std::string Console::colorText(std::string name, std::string color) {
 }
 std::string Console::colorText(std::string name, std::string fgColor, std::string bgColor)
 {
-#if WINDOWS
-	auto fg = dye::white(name);
-	if (fgColor == blackFGColor)
-		fg = dye::black(name);
-	else if (fgColor == redFGColor)
-		fg = dye::black(name);
-	return fg;
-#else
 	return fgColor + bgColor + name + resetColor;
-#endif
 }
 
 void Console::PrintColored(std::string text, std::string fgColor, std::string bgColor)
@@ -38,7 +29,7 @@ void Console::PrintColored(std::string text, std::string fgColor, std::string bg
 	if (fgColor == blackFGColor)
 		fg = dye::black(text);
 	else if (fgColor == redFGColor)
-		fg = dye::black(text);
+		fg = dye::red(text);
 	else if (fgColor == greenFGColor)
 		fg = dye::green(text);
 	else if (fgColor == yellowFGColor)
@@ -46,9 +37,9 @@ void Console::PrintColored(std::string text, std::string fgColor, std::string bg
 	else if (fgColor == blueFGColor)
 		fg = dye::blue(text);
 	else if (fgColor == magentaFGColor)
-		fg = dye::magenta(text);
+		fg = dye::purple(text);
 	else if (fgColor == cyanFGColor)
-		fg = dye::cyan(text);
+		fg = dye::aqua(text);
 	else if (fgColor == whiteFGColor)
 		fg = dye::white(text);
 	std::cout << fg;

@@ -13,3 +13,5 @@ FileContentIndex
 *.lnk
 *.dccblock
 programs
+slnx.sqlite
+DCC-Miner/.vs/slnx.sqlite

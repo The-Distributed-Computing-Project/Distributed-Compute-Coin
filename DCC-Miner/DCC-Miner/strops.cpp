@@ -61,14 +61,14 @@ void rtrim(std::string& s)
 		}).base(), s.end());
 }
 // Overrided by boost::trim
-//// trim from both ends (in place)
-//string trim(std::string s)
-//{
-//	string sN = s;
-//	ltrim(sN);
-//	rtrim(sN);
-//	return sN;
-//}
+// trim from both ends (in place)
+std::string TrimString(std::string s)
+{
+	std::string sN = s;
+	ltrim(sN);
+	rtrim(sN);
+	return sN;
+}
 
 // Convert string to uppercase
 std::string ToUpper(std::string s)

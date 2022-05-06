@@ -19,6 +19,7 @@ char buffer[BUFFERLENGTH];
 //SOCKET localSocket;
 SOCKADDR_IN otherAddr;
 int otherSize;
+std::atomic_bool stop_thread_1 = false;
 //Console console;
 
 std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
@@ -42,10 +43,15 @@ std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 	return res;
 }
 
-void P2P::TaskRec(unsigned int update_interval_millisecs) {
+//void P2P::TaskRec()
+void P2P::TaskRec(unsigned int update_interval_millisecs)
+{
 	Console console;
 	while (true)
 	{
+		if (stop_thread_1)
+			return;
+
 		//const auto wait_duration = std::chrono::milliseconds(update_interval_millisecs);
 
 		SOCKADDR_IN remoteAddr;
@@ -59,7 +65,7 @@ void P2P::TaskRec(unsigned int update_interval_millisecs) {
 		if (iResult > 0) {
 			console.NetworkPrint();
 			console.WriteLine(NormalizedIPString(remoteAddr) + " -> " + std::string(buffer, buffer + iResult));
-			if(std::string(buffer, buffer + iResult) == "peer connect")
+			if (std::string(buffer, buffer + iResult) == "peer connect")
 				CONNECTED_TO_PEER = true;
 			std::cout << NormalizedIPString(remoteAddr) << " -> " << std::string(buffer, buffer + iResult) << std::endl;
 		}
@@ -96,8 +102,9 @@ int P2P::SafeSend(SOCKET s, char* buf, int buflen)
 }
 
 int P2P::StartP2P(std::string addr, std::string port)
-{	
+{
 	Console console;
+	Http http;
 
 	console.NetworkPrint();
 	console.WriteLine("Starting P2P Client");
@@ -136,7 +143,7 @@ int P2P::StartP2P(std::string addr, std::string port)
 
 	int val = 64 * 1024;
 	setsockopt(localSocket, SOL_SOCKET, SO_SNDBUF, (char*)&val, sizeof(val));
-	setsockopt(localSocket, SOL_SOCKET, SO_RCVBUF, (char*)&val, sizeof(val));	
+	setsockopt(localSocket, SOL_SOCKET, SO_RCVBUF, (char*)&val, sizeof(val));
 	//
 	//std::string request = "1";
 	//std::cout << "Identification number: ";  std::cin >> request;
@@ -148,71 +155,80 @@ int P2P::StartP2P(std::string addr, std::string port)
 	std::string otherIpPort;
 	//std::cout << "Peer IP:PORT combo > "; 
 	//std::cin >> otherIpPort;
-	
+
 	console.NetworkPrint();
 	console.WriteLine("Asking server for PEER address...");
 	std::vector<std::string> args = {
 		"query=AskForConnection",
-                "ip_port=" + addr + ":" + port,
-                "last_tried_ip_port=none";
-	std::string httpOut = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/p2pconn.php?", args);
+		"ip_port=" + addr + ":" + port,
+		"last_tried_ip_port=none"
+	};
+	std::string httpOut = TrimString(http.StartHttpWebRequest("http://api.achillium.us.to/dcc/p2pconn.php?", args));
 	console.NetworkPrint();
-	console.WriteLine("HTTP returned: \"" + httpOut "\"");
-		
+	console.WriteLine("HTTP returned: " + httpOut);
+
 	std::string last_tried_ip_port = "";
 	for (int t = 0; t < 20; t++)
-	//while (true)
-        {
+		//while (true)
+	{
 		console.NetworkPrint();
-		console.Write("Attempt: " + t + "  |  Asking server for PEER address...\r");
+		console.WriteLine("Attempt: " + std::to_string(t) + "  |  Asking server for PEER address...");
+
 		std::vector<std::string> args = {
 			"query=WaitForConnection",
-                	"ip_port=" + addr + ":" + port,
-                	"last_tried_ip_port=" + last_tried_ip_port
-		httpOut = http.StartHttpWebRequest("http://api.achillium.us.to/dcc/p2pconn.php?", args);
+			"ip_port=" + addr + ":" + port,
+			"last_tried_ip_port=" + last_tried_ip_port
+		};
+		httpOut = TrimString(http.StartHttpWebRequest("http://api.achillium.us.to/dcc/p2pconn.php?", args));
 
-                if (httpOut == "" || httpOut.find("waiting") != std::string::npos || httpOut.find(addr + ":" + port) != std::string::npos)
-                {
+		if (httpOut == "" || httpOut.find("waiting") != std::string::npos || httpOut.find(addr + ":" + port) != std::string::npos)
+		{
 			console.NetworkPrint();
-                   	console.Write("Failed, waiting 3 sec to look for a new peer...");
-                    	Sleep(3000);
-                    	continue;
-                }
+			console.WriteLine("Failed, waiting 3 sec to look for a new peer...");
+			Sleep(3000);
+			continue;
+		}
 
-                otherIpPort = httpOut;
-				
-			
+		console.NetworkPrint();
+		console.WriteLine("HTTP2 returned: " + httpOut);
+
+		otherIpPort = httpOut;
+
+
 		std::string host = SplitString(otherIpPort, ":")[0];
 		int otherPort = stoi(SplitString(otherIpPort, ":")[1]);
-		
+
 		otherAddr.sin_port = htons(otherPort);
 		otherAddr.sin_family = AF_INET;
 		otherAddr.sin_addr.s_addr = inet_addr(host.c_str());
-	
+
 		otherSize = sizeof(otherAddr);
-	
+
 		// Listen to replies
 		const unsigned int update_interval = 50; // update after every 50 milliseconds
-		std::thread t1(TaskRec, update_interval);
-	
+		std::thread t1(&P2P::TaskRec, this, update_interval);
+
 		// Begin sending messages, and stop when a reply is received
 		for (int i = 0; i < 5; i++)
-		//while (true)
+			//while (true)
 		{
-			if(CONNECTED_TO_PEER)
-				break;
-			
 			std::string msg = "peer connect";
 			char* msgConvert = (char*)msg.c_str();
 			//int err = SafeSend(localSocket, msgConvert, msg.length());
 			//std::cout << err << std::endl;
-			
+
 			sendto(localSocket, msg.c_str(), msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 			Sleep(1000);
-	
+
 			console.NetworkPrint();
-			console.WriteLine("Attempt: " + i + "  |  Sending: " + msg);
+			console.WriteLine("Attempt: " + std::to_string(i) + "  |  Sending: " + msg);
 		}
+		if (CONNECTED_TO_PEER)
+			return 0;
+
+		stop_thread_1 = true;
+		t1.join();
+		stop_thread_1 = false;
 	}
 
 	//std::cout << "get ip is: " << NormalizedIPString(clientAddr) << std::endl;
@@ -255,7 +271,7 @@ int P2P::StartP2P(std::string addr, std::string port)
 	//		console.WriteLine();
 	//	}
 	//}
-		
+
 
 	getchar();
 

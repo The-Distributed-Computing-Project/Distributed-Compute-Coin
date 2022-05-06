@@ -105,12 +105,15 @@ std::string endpointPort = "";
 
 struct stat info;
 Console console;
+P2P p2p;
 
 int main()
 {
 	console.DebugPrint();
 	console.WriteLine("Started");
 	//console.WriteLine("Error Code " + std::to_string(ec), console.Debug());
+
+	generate_key();
 
 	for (std::string dir : directoryList)
 		if (!fs::is_directory(dir) || !fs::exists(dir)) {
@@ -185,7 +188,7 @@ int main()
 
 	console.DebugPrint();
 	console.WriteLine("Starting P2P with: " + ipPortCombo);
-	StartP2P(endpointAddr, endpointPort);
+	p2p.StartP2P(endpointAddr, endpointPort);
 
 	console.ErrorPrint();
 	console.ExitError("Stopped before json, after P2P.");

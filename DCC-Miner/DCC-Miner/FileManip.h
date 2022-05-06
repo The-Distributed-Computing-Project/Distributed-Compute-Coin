@@ -18,4 +18,6 @@ int sha256_file(char* path, char outputBuffer[65]);
 
 int FileCount(std::string dir);
 
+bool generate_key();
+
 #endif

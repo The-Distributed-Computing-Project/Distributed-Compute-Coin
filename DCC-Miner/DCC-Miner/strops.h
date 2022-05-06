@@ -6,7 +6,7 @@ std::vector<std::string> SplitString(std::string str, std::string delim);
 void ltrim(std::string& s);
 void rtrim(std::string& s);
 // Overrided by boost::trim
-//string trim(std::string s);
+std::string TrimString(std::string s);
 std::string ToUpper(std::string s);
 bool StringStartsWith(std::string str, std::string substr);
 

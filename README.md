@@ -1,5 +1,14 @@
 ## Working on:
 * P2P Networking, allowing people to use clients independently of a server. **The server is often down**, due to development, and since P2P is still in progress, the clients basically don't work.
+	- [ ] Better handling, requests still aren't verified if they reached the other peer. It should be
+	```
+	REQ: Client Request -> Server
+	RES: Server Response -> Client
+	ACK: Client Acknowledge -> Server
+	ACK: Server Acknowledge -> Client
+	FIN.
+	```
+	And retry sending each of these until an adequate response is received, and both eventually ACK.
 * Moving from C# to C++. It is currently in a windows-only state, so my goal is to have it be more cross-platform, for linux and mac, and also be lower-level for performance.
 
 # Distributed Compute Coin

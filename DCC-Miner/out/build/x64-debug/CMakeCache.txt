@@ -41,8 +41,8 @@ CMAKE_AR:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools
 //No help, variable specified on the command line.
 CMAKE_BUILD_TYPE:STRING=Debug
 
-//No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:STRING=cl.exe
+//CXX compiler
+CMAKE_CXX_COMPILER:STRING=C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.32.31326/bin/Hostx64/x64/cl.exe
 
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /W3 /GR /EHsc
@@ -62,8 +62,8 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/MD /Zi /O2 /Ob1 /DNDEBUG
 //Libraries linked by default with all C++ applications.
 CMAKE_CXX_STANDARD_LIBRARIES:STRING=kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
 
-//No help, variable specified on the command line.
-CMAKE_C_COMPILER:STRING=cl.exe
+//C compiler
+CMAKE_C_COMPILER:STRING=C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.32.31326/bin/Hostx64/x64/cl.exe
 
 //Flags used by the C compiler during all build types.
 CMAKE_C_FLAGS:STRING=/DWIN32 /D_WINDOWS /W3
@@ -603,10 +603,10 @@ LIBSSH2_INCLUDE_DIR:PATH=C:/Strawberry/c/include
 LIBSSH2_LIBRARY:FILEPATH=LIBSSH2_LIBRARY-NOTFOUND
 
 //Path to a library.
-LIB_EAY_DEBUG:FILEPATH=C:/Program Files/OpenSSL-Win64/lib/VC/libcrypto64MDd.lib
+LIB_EAY_DEBUG:FILEPATH=C:/Program Files/OpenSSL-Win64/lib/VC/static/libcrypto64MDd.lib
 
 //Path to a library.
-LIB_EAY_RELEASE:FILEPATH=C:/Program Files/OpenSSL-Win64/lib/VC/libcrypto64MD.lib
+LIB_EAY_RELEASE:FILEPATH=C:/Program Files/OpenSSL-Win64/lib/VC/static/libcrypto64MD.lib
 
 //Installation directory for libraries
 LIB_INSTALL_DIR:PATH=D:/Code/DC-Cryptocurrency/DCC-Miner/out/install/x64-debug/lib
@@ -636,10 +636,10 @@ PKG_CONFIG_EXECUTABLE:FILEPATH=C:/Strawberry/perl/bin/pkg-config.bat
 RANDOM_FILE:FILEPATH=RANDOM_FILE-NOTFOUND
 
 //Path to a library.
-SSL_EAY_DEBUG:FILEPATH=C:/Program Files/OpenSSL-Win64/lib/VC/libssl64MDd.lib
+SSL_EAY_DEBUG:FILEPATH=C:/Program Files/OpenSSL-Win64/lib/VC/static/libssl64MDd.lib
 
 //Path to a library.
-SSL_EAY_RELEASE:FILEPATH=C:/Program Files/OpenSSL-Win64/lib/VC/libssl64MD.lib
+SSL_EAY_RELEASE:FILEPATH=C:/Program Files/OpenSSL-Win64/lib/VC/static/libssl64MD.lib
 
 //Use libidn2 for IDN support
 USE_LIBIDN2:BOOL=ON
@@ -1052,7 +1052,7 @@ ENABLE_IPV6-ADVANCED:INTERNAL=1
 //Details about finding CURL
 FIND_PACKAGE_MESSAGE_DETAILS_CURL:INTERNAL=[C:\curl][C:\curl\include][c ][v7.83.0()]
 //Details about finding OpenSSL
-FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[optimized;C:/Program Files/OpenSSL-Win64/lib/VC/libcrypto64MD.lib;debug;C:/Program Files/OpenSSL-Win64/lib/VC/libcrypto64MDd.lib][C:/Program Files/OpenSSL-Win64/include][c ][v3.0.2()]
+FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[optimized;C:/Program Files/OpenSSL-Win64/lib/VC/static/libcrypto64MD.lib;debug;C:/Program Files/OpenSSL-Win64/lib/VC/static/libcrypto64MDd.lib][C:/Program Files/OpenSSL-Win64/include][c ][v3.0.2()]
 //Details about finding Perl
 FIND_PACKAGE_MESSAGE_DETAILS_Perl:INTERNAL=[C:/Strawberry/perl/bin/perl.exe][v5.32.1()]
 //Details about finding Threads

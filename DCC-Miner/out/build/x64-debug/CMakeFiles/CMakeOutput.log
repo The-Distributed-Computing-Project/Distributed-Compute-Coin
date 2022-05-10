@@ -50,25 +50,25 @@ The CXX compiler identification is MSVC, found in "D:/Code/DC-Cryptocurrency/DCC
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_8cd17 && [1/2] Building C object CMakeFiles\cmTC_8cd17.dir\CMakeCCompilerABI.c.obj
-[2/2] Linking C executable cmTC_8cd17.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_921ef && [1/2] Building C object CMakeFiles\cmTC_921ef.dir\CMakeCCompilerABI.c.obj
+[2/2] Linking C executable cmTC_921ef.exe
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_86385 && [1/2] Building CXX object CMakeFiles\cmTC_86385.dir\CMakeCXXCompilerABI.cpp.obj
-[2/2] Linking CXX executable cmTC_86385.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_fe280 && [1/2] Building CXX object CMakeFiles\cmTC_fe280.dir\CMakeCXXCompilerABI.cpp.obj
+[2/2] Linking CXX executable cmTC_fe280.exe
 
 
 
 Performing C++ SOURCE FILE Test THREAD_SANITIZER_AVAILABLE succeeded with the following compile output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_99f9e && [1/2] Building CXX object CMakeFiles\cmTC_99f9e.dir\src.cxx.obj
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_ee6fd && [1/2] Building CXX object CMakeFiles\cmTC_ee6fd.dir\src.cxx.obj
 cl : Command line warning D9002 : ignoring unknown option '-fsanitize=thread'
-[2/2] Linking CXX executable cmTC_99f9e.exe
+[2/2] Linking CXX executable cmTC_ee6fd.exe
 
 
 ...and run output:
@@ -79,8 +79,8 @@ int main() { return 0; }
 Performing C++ SOURCE FILE Test ADDRESS_SANITIZER_AVAILABLE succeeded with the following compile output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_0ed8e && [1/2] Building CXX object CMakeFiles\cmTC_0ed8e.dir\src.cxx.obj
-[2/2] Linking CXX executable cmTC_0ed8e.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_f4e37 && [1/2] Building CXX object CMakeFiles\cmTC_f4e37.dir\src.cxx.obj
+[2/2] Linking CXX executable cmTC_f4e37.exe
 
 
 ...and run output:
@@ -91,8 +91,110 @@ int main() { return 0; }
 Performing C++ SOURCE FILE Test ALL_SANITIZERS_AVAILABLE succeeded with the following compile output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a07c6 && [1/2] Building CXX object CMakeFiles\cmTC_a07c6.dir\src.cxx.obj
-[2/2] Linking CXX executable cmTC_a07c6.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a6360 && [1/2] Building CXX object CMakeFiles\cmTC_a6360.dir\src.cxx.obj
+[2/2] Linking CXX executable cmTC_a6360.exe
+
+
+...and run output:
+
+Return value: 1
+Source file was:
+int main() { return 0; }
+The system is: Windows - 10.0.19043 - AMD64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.32.31326/bin/Hostx64/x64/cl.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+Microsoft (R) C/C++ Optimizing Compiler Version 19.32.31328 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+CMakeCCompilerId.c
+Microsoft (R) Incremental Linker Version 14.32.31328.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCCompilerId.exe 
+CMakeCCompilerId.obj 
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.exe"
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
+
+The C compiler identification is MSVC, found in "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/3.22.22040401-MSVC_2/CompilerIdC/CMakeCCompilerId.exe"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.32.31326/bin/Hostx64/x64/cl.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+Microsoft (R) C/C++ Optimizing Compiler Version 19.32.31328 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+CMakeCXXCompilerId.cpp
+Microsoft (R) Incremental Linker Version 14.32.31328.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCXXCompilerId.exe 
+CMakeCXXCompilerId.obj 
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.exe"
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
+
+The CXX compiler identification is MSVC, found in "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/3.22.22040401-MSVC_2/CompilerIdCXX/CMakeCXXCompilerId.exe"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_bab6b && [1/2] Building C object CMakeFiles\cmTC_bab6b.dir\CMakeCCompilerABI.c.obj
+[2/2] Linking C executable cmTC_bab6b.exe
+
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_0c745 && [1/2] Building CXX object CMakeFiles\cmTC_0c745.dir\CMakeCXXCompilerABI.cpp.obj
+[2/2] Linking CXX executable cmTC_0c745.exe
+
+
+
+Performing C++ SOURCE FILE Test THREAD_SANITIZER_AVAILABLE succeeded with the following compile output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_10e55 && [1/2] Building CXX object CMakeFiles\cmTC_10e55.dir\src.cxx.obj
+cl : Command line warning D9002 : ignoring unknown option '-fsanitize=thread'
+[2/2] Linking CXX executable cmTC_10e55.exe
+
+
+...and run output:
+
+Return value: 1
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test ADDRESS_SANITIZER_AVAILABLE succeeded with the following compile output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_88553 && [1/2] Building CXX object CMakeFiles\cmTC_88553.dir\src.cxx.obj
+[2/2] Linking CXX executable cmTC_88553.exe
+
+
+...and run output:
+
+Return value: 1
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test ALL_SANITIZERS_AVAILABLE succeeded with the following compile output:
+Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_ae19f && [1/2] Building CXX object CMakeFiles\cmTC_ae19f.dir\src.cxx.obj
+[2/2] Linking CXX executable cmTC_ae19f.exe
 
 
 ...and run output:
@@ -103,40 +205,40 @@ int main() { return 0; }
 Determining if the include file sys/types.h exists passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_2d670 && [1/2] Building C object CMakeFiles\cmTC_2d670.dir\CheckIncludeFile.c.obj
-[2/2] Linking C executable cmTC_2d670.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_f6a16 && [1/2] Building C object CMakeFiles\cmTC_f6a16.dir\CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_f6a16.exe
 
 
 
 Determining if the include file stdint.h exists passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_6427b && [1/2] Building C object CMakeFiles\cmTC_6427b.dir\CheckIncludeFile.c.obj
-[2/2] Linking C executable cmTC_6427b.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_d21f8 && [1/2] Building C object CMakeFiles\cmTC_d21f8.dir\CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_d21f8.exe
 
 
 
 Determining if the include file stddef.h exists passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_c248c && [1/2] Building C object CMakeFiles\cmTC_c248c.dir\CheckIncludeFile.c.obj
-[2/2] Linking C executable cmTC_c248c.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_2a4d6 && [1/2] Building C object CMakeFiles\cmTC_2a4d6.dir\CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_2a4d6.exe
 
 
 
 Determining if the function strerror exists passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_4dd50 && [1/2] Building C object CMakeFiles\cmTC_4dd50.dir\CheckFunctionExists.c.obj
-[2/2] Linking C executable cmTC_4dd50.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_15d4b && [1/2] Building C object CMakeFiles\cmTC_15d4b.dir\CheckFunctionExists.c.obj
+[2/2] Linking C executable cmTC_15d4b.exe
 
 
 
 Performing C SOURCE FILE Test HAVE_PTRDIFF_T succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_d5082 && [1/2] Building C object CMakeFiles\cmTC_d5082.dir\src.c.obj
-[2/2] Linking C executable cmTC_d5082.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_6c676 && [1/2] Building C object CMakeFiles\cmTC_6c676.dir\src.c.obj
+[2/2] Linking C executable cmTC_6c676.exe
 
 
 Source file was:
@@ -149,8 +251,8 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_SSE2_INTRIN succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_c6d70 && [1/2] Building C object CMakeFiles\cmTC_c6d70.dir\src.c.obj
-[2/2] Linking C executable cmTC_c6d70.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_fbe79 && [1/2] Building C object CMakeFiles\cmTC_fbe79.dir\src.c.obj
+[2/2] Linking C executable cmTC_fbe79.exe
 
 
 Source file was:
@@ -163,8 +265,8 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_SSSE3_INTRIN succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_d2250 && [1/2] Building C object CMakeFiles\cmTC_d2250.dir\src.c.obj
-[2/2] Linking C executable cmTC_d2250.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_59cb3 && [1/2] Building C object CMakeFiles\cmTC_59cb3.dir\src.c.obj
+[2/2] Linking C executable cmTC_59cb3.exe
 
 
 Source file was:
@@ -180,8 +282,8 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_SSE42CRC_INTRIN succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_b75c8 && [1/2] Building C object CMakeFiles\cmTC_b75c8.dir\src.c.obj
-[2/2] Linking C executable cmTC_b75c8.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_9dd91 && [1/2] Building C object CMakeFiles\cmTC_9dd91.dir\src.c.obj
+[2/2] Linking C executable cmTC_9dd91.exe
 
 
 Source file was:
@@ -200,8 +302,8 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_SSE42CMPSTR_INTRIN succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_15878 && [1/2] Building C object CMakeFiles\cmTC_15878.dir\src.c.obj
-[2/2] Linking C executable cmTC_15878.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_69e0c && [1/2] Building C object CMakeFiles\cmTC_69e0c.dir\src.c.obj
+[2/2] Linking C executable cmTC_69e0c.exe
 
 
 Source file was:
@@ -217,8 +319,8 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_PCLMULQDQ_INTRIN succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_f8299 && [1/2] Building C object CMakeFiles\cmTC_f8299.dir\src.c.obj
-[2/2] Linking C executable cmTC_f8299.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_44018 && [1/2] Building C object CMakeFiles\cmTC_44018.dir\src.c.obj
+[2/2] Linking C executable cmTC_44018.exe
 
 
 Source file was:
@@ -233,8 +335,8 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_AVX2_INTRIN succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_b912c && [1/2] Building C object CMakeFiles\cmTC_b912c.dir\src.c.obj
-[2/2] Linking C executable cmTC_b912c.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_3f0db && [1/2] Building C object CMakeFiles\cmTC_3f0db.dir\src.c.obj
+[2/2] Linking C executable cmTC_3f0db.exe
 
 
 Source file was:
@@ -249,153 +351,153 @@ Source file was:
 Determining if the function getch exists in the ws2_32; passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_e9ab7 && [1/2] Building C object CMakeFiles\cmTC_e9ab7.dir\CheckFunctionExists.c.obj
-[2/2] Linking C executable cmTC_e9ab7.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_645d5 && [1/2] Building C object CMakeFiles\cmTC_645d5.dir\CheckFunctionExists.c.obj
+[2/2] Linking C executable cmTC_645d5.exe
 
 
 
 Determining if the function getch exists in the winmm;ws2_32 passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_6a534 && [1/2] Building C object CMakeFiles\cmTC_6a534.dir\CheckFunctionExists.c.obj
-[2/2] Linking C executable cmTC_6a534.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_6f9cf && [1/2] Building C object CMakeFiles\cmTC_6f9cf.dir\CheckFunctionExists.c.obj
+[2/2] Linking C executable cmTC_6f9cf.exe
 
 
 
 Determining if files ;windows.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_9cd37 && [1/2] Building C object CMakeFiles\cmTC_9cd37.dir\HAVE_WINDOWS_H.c.obj
-[2/2] Linking C executable cmTC_9cd37.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_43093 && [1/2] Building C object CMakeFiles\cmTC_43093.dir\HAVE_WINDOWS_H.c.obj
+[2/2] Linking C executable cmTC_43093.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_2ca5b && [1/2] Building C object CMakeFiles\cmTC_2ca5b.dir\HAVE_WS2TCPIP_H.c.obj
-[2/2] Linking C executable cmTC_2ca5b.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_07274 && [1/2] Building C object CMakeFiles\cmTC_07274.dir\HAVE_WS2TCPIP_H.c.obj
+[2/2] Linking C executable cmTC_07274.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h;winsock2.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_5088b && [1/2] Building C object CMakeFiles\cmTC_5088b.dir\HAVE_WINSOCK2_H.c.obj
-[2/2] Linking C executable cmTC_5088b.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_03806 && [1/2] Building C object CMakeFiles\cmTC_03806.dir\HAVE_WINSOCK2_H.c.obj
+[2/2] Linking C executable cmTC_03806.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_ba2ff && [1/2] Building C object CMakeFiles\cmTC_ba2ff.dir\HAVE_WINCRYPT_H.c.obj
-[2/2] Linking C executable cmTC_ba2ff.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_9ead5 && [1/2] Building C object CMakeFiles\cmTC_9ead5.dir\HAVE_WINCRYPT_H.c.obj
+[2/2] Linking C executable cmTC_9ead5.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_6a4aa && [1/2] Building C object CMakeFiles\cmTC_6a4aa.dir\HAVE_STDIO_H.c.obj
-[2/2] Linking C executable cmTC_6a4aa.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_257cb && [1/2] Building C object CMakeFiles\cmTC_257cb.dir\HAVE_STDIO_H.c.obj
+[2/2] Linking C executable cmTC_257cb.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_3794c && [1/2] Building C object CMakeFiles\cmTC_3794c.dir\HAVE_ASSERT_H.c.obj
-[2/2] Linking C executable cmTC_3794c.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_ab9cc && [1/2] Building C object CMakeFiles\cmTC_ab9cc.dir\HAVE_ASSERT_H.c.obj
+[2/2] Linking C executable cmTC_ab9cc.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_7e3d3 && [1/2] Building C object CMakeFiles\cmTC_7e3d3.dir\HAVE_ERRNO_H.c.obj
-[2/2] Linking C executable cmTC_7e3d3.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_ddc6d && [1/2] Building C object CMakeFiles\cmTC_ddc6d.dir\HAVE_ERRNO_H.c.obj
+[2/2] Linking C executable cmTC_ddc6d.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;locale.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_be9cb && [1/2] Building C object CMakeFiles\cmTC_be9cb.dir\HAVE_LOCALE_H.c.obj
-[2/2] Linking C executable cmTC_be9cb.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a5d6f && [1/2] Building C object CMakeFiles\cmTC_a5d6f.dir\HAVE_LOCALE_H.c.obj
+[2/2] Linking C executable cmTC_a5d6f.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;locale.h;setjmp.h;signal.h;stdbool.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_33337 && [1/2] Building C object CMakeFiles\cmTC_33337.dir\HAVE_STDBOOL_H.c.obj
-[2/2] Linking C executable cmTC_33337.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_267fc && [1/2] Building C object CMakeFiles\cmTC_267fc.dir\HAVE_STDBOOL_H.c.obj
+[2/2] Linking C executable cmTC_267fc.exe
 
 
 
 Determining size of size_t passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a2b33 && [1/2] Building C object CMakeFiles\cmTC_a2b33.dir\SIZEOF_SIZE_T.c.obj
-[2/2] Linking C executable cmTC_a2b33.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_3f2e9 && [1/2] Building C object CMakeFiles\cmTC_3f2e9.dir\SIZEOF_SIZE_T.c.obj
+[2/2] Linking C executable cmTC_3f2e9.exe
 
 
 
 Determining size of long long passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_78467 && [1/2] Building C object CMakeFiles\cmTC_78467.dir\SIZEOF_LONG_LONG.c.obj
-[2/2] Linking C executable cmTC_78467.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_b5b5e && [1/2] Building C object CMakeFiles\cmTC_b5b5e.dir\SIZEOF_LONG_LONG.c.obj
+[2/2] Linking C executable cmTC_b5b5e.exe
 
 
 
 Determining size of long passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_89844 && [1/2] Building C object CMakeFiles\cmTC_89844.dir\SIZEOF_LONG.c.obj
-[2/2] Linking C executable cmTC_89844.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_c88e8 && [1/2] Building C object CMakeFiles\cmTC_c88e8.dir\SIZEOF_LONG.c.obj
+[2/2] Linking C executable cmTC_c88e8.exe
 
 
 
 Determining size of short passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_7fe6a && [1/2] Building C object CMakeFiles\cmTC_7fe6a.dir\SIZEOF_SHORT.c.obj
-[2/2] Linking C executable cmTC_7fe6a.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a6f4b && [1/2] Building C object CMakeFiles\cmTC_a6f4b.dir\SIZEOF_SHORT.c.obj
+[2/2] Linking C executable cmTC_a6f4b.exe
 
 
 
 Determining size of int passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_90b33 && [1/2] Building C object CMakeFiles\cmTC_90b33.dir\SIZEOF_INT.c.obj
-[2/2] Linking C executable cmTC_90b33.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_e54ef && [1/2] Building C object CMakeFiles\cmTC_e54ef.dir\SIZEOF_INT.c.obj
+[2/2] Linking C executable cmTC_e54ef.exe
 
 
 
 Determining size of __int64 passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_78a49 && [1/2] Building C object CMakeFiles\cmTC_78a49.dir\SIZEOF___INT64.c.obj
-[2/2] Linking C executable cmTC_78a49.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_64d51 && [1/2] Building C object CMakeFiles\cmTC_64d51.dir\SIZEOF___INT64.c.obj
+[2/2] Linking C executable cmTC_64d51.exe
 
 
 
 Determining size of time_t passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_7719c && [1/2] Building C object CMakeFiles\cmTC_7719c.dir\SIZEOF_TIME_T.c.obj
-[2/2] Linking C executable cmTC_7719c.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_16b46 && [1/2] Building C object CMakeFiles\cmTC_16b46.dir\SIZEOF_TIME_T.c.obj
+[2/2] Linking C executable cmTC_16b46.exe
 
 
 
 Determining if the gethostbyname exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_080c5 && [1/2] Building C object CMakeFiles\cmTC_080c5.dir\CheckSymbolExists.c.obj
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_8707d && [1/2] Building C object CMakeFiles\cmTC_8707d.dir\CheckSymbolExists.c.obj
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): warning C4996: 'gethostbyname': Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
-[2/2] Linking C executable cmTC_080c5.exe
+[2/2] Linking C executable cmTC_8707d.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -438,8 +540,8 @@ int main(int argc, char** argv)
 Determining if the strtoll exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_84eda && [1/2] Building C object CMakeFiles\cmTC_84eda.dir\CheckSymbolExists.c.obj
-[2/2] Linking C executable cmTC_84eda.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_508f8 && [1/2] Building C object CMakeFiles\cmTC_508f8.dir\CheckSymbolExists.c.obj
+[2/2] Linking C executable cmTC_508f8.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -482,8 +584,8 @@ int main(int argc, char** argv)
 Determining if the _strtoi64 exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_c07b8 && [1/2] Building C object CMakeFiles\cmTC_c07b8.dir\CheckSymbolExists.c.obj
-[2/2] Linking C executable cmTC_c07b8.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_87cc9 && [1/2] Building C object CMakeFiles\cmTC_87cc9.dir\CheckSymbolExists.c.obj
+[2/2] Linking C executable cmTC_87cc9.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -526,8 +628,8 @@ int main(int argc, char** argv)
 Determining if the freeaddrinfo exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_12c6f && [1/2] Building C object CMakeFiles\cmTC_12c6f.dir\CheckSymbolExists.c.obj
-[2/2] Linking C executable cmTC_12c6f.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_b93cc && [1/2] Building C object CMakeFiles\cmTC_b93cc.dir\CheckSymbolExists.c.obj
+[2/2] Linking C executable cmTC_b93cc.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -570,8 +672,8 @@ int main(int argc, char** argv)
 Determining if the getprotobyname exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_6a402 && [1/2] Building C object CMakeFiles\cmTC_6a402.dir\CheckSymbolExists.c.obj
-[2/2] Linking C executable cmTC_6a402.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_5a563 && [1/2] Building C object CMakeFiles\cmTC_5a563.dir\CheckSymbolExists.c.obj
+[2/2] Linking C executable cmTC_5a563.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -614,8 +716,8 @@ int main(int argc, char** argv)
 Determining if the getpeername exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a0364 && [1/2] Building C object CMakeFiles\cmTC_a0364.dir\CheckSymbolExists.c.obj
-[2/2] Linking C executable cmTC_a0364.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_b8f5e && [1/2] Building C object CMakeFiles\cmTC_b8f5e.dir\CheckSymbolExists.c.obj
+[2/2] Linking C executable cmTC_b8f5e.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -658,8 +760,8 @@ int main(int argc, char** argv)
 Determining if the getsockname exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_f71a0 && [1/2] Building C object CMakeFiles\cmTC_f71a0.dir\CheckSymbolExists.c.obj
-[2/2] Linking C executable cmTC_f71a0.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_619ba && [1/2] Building C object CMakeFiles\cmTC_619ba.dir\CheckSymbolExists.c.obj
+[2/2] Linking C executable cmTC_619ba.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -702,8 +804,8 @@ int main(int argc, char** argv)
 Determining if the setlocale exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a3f60 && [1/2] Building C object CMakeFiles\cmTC_a3f60.dir\CheckSymbolExists.c.obj
-[2/2] Linking C executable cmTC_a3f60.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_6cc41 && [1/2] Building C object CMakeFiles\cmTC_6cc41.dir\CheckSymbolExists.c.obj
+[2/2] Linking C executable cmTC_6cc41.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -746,9 +848,9 @@ int main(int argc, char** argv)
 Determining if the setmode exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_4fa10 && [1/2] Building C object CMakeFiles\cmTC_4fa10.dir\CheckSymbolExists.c.obj
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_b5a32 && [1/2] Building C object CMakeFiles\cmTC_b5a32.dir\CheckSymbolExists.c.obj
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31): warning C4996: 'setmode': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _setmode. See online help for details.
-[2/2] Linking C executable cmTC_4fa10.exe
+[2/2] Linking C executable cmTC_b5a32.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -791,8 +893,8 @@ int main(int argc, char** argv)
 Determining if the setsockopt exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_50068 && [1/2] Building C object CMakeFiles\cmTC_50068.dir\CheckSymbolExists.c.obj
-[2/2] Linking C executable cmTC_50068.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_f0828 && [1/2] Building C object CMakeFiles\cmTC_f0828.dir\CheckSymbolExists.c.obj
+[2/2] Linking C executable cmTC_f0828.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -835,8 +937,8 @@ int main(int argc, char** argv)
 Determining if the inet_pton exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_5b9c7 && [1/2] Building C object CMakeFiles\cmTC_5b9c7.dir\CheckSymbolExists.c.obj
-[2/2] Linking C executable cmTC_5b9c7.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_e7313 && [1/2] Building C object CMakeFiles\cmTC_e7313.dir\CheckSymbolExists.c.obj
+[2/2] Linking C executable cmTC_e7313.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -879,53 +981,53 @@ int main(int argc, char** argv)
 Performing Curl Test HAVE_IOCTLSOCKET passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a1bb9 && [1/2] Building C object CMakeFiles\cmTC_a1bb9.dir\CurlTests.c.obj
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_aecc9 && [1/2] Building C object CMakeFiles\cmTC_aecc9.dir\CurlTests.c.obj
 D:\Code\DC-Cryptocurrency\DCC-Miner\out\build\x64-debug\_deps\curl-src\CMake\CurlTests.c(241) : warning C4700: uninitialized local variable 'socket' used
-[2/2] Linking C executable cmTC_a1bb9.exe
+[2/2] Linking C executable cmTC_aecc9.exe
 
 
 Performing Curl Test HAVE_IOCTLSOCKET_FIONBIO passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_e5622 && [1/2] Building C object CMakeFiles\cmTC_e5622.dir\CurlTests.c.obj
-[2/2] Linking C executable cmTC_e5622.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_b368e && [1/2] Building C object CMakeFiles\cmTC_b368e.dir\CurlTests.c.obj
+[2/2] Linking C executable cmTC_b368e.exe
 
 
 Performing Curl Test HAVE_BOOL_T passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_ce89b && [1/2] Building C object CMakeFiles\cmTC_ce89b.dir\CurlTests.c.obj
-[2/2] Linking C executable cmTC_ce89b.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_523c7 && [1/2] Building C object CMakeFiles\cmTC_523c7.dir\CurlTests.c.obj
+[2/2] Linking C executable cmTC_523c7.exe
 
 
 Performing Curl Test HAVE_VARIADIC_MACROS_C99 passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_de461 && [1/2] Building C object CMakeFiles\cmTC_de461.dir\CurlTests.c.obj
-[2/2] Linking C executable cmTC_de461.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_b88d8 && [1/2] Building C object CMakeFiles\cmTC_b88d8.dir\CurlTests.c.obj
+[2/2] Linking C executable cmTC_b88d8.exe
 
 
 Determining size of off_t passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_4215b && [1/2] Building C object CMakeFiles\cmTC_4215b.dir\SIZEOF_OFF_T.c.obj
-[2/2] Linking C executable cmTC_4215b.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_4ad8d && [1/2] Building C object CMakeFiles\cmTC_4ad8d.dir\SIZEOF_OFF_T.c.obj
+[2/2] Linking C executable cmTC_4ad8d.exe
 
 
 
 Determining size of curl_off_t passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_30307 && [1/2] Building C object CMakeFiles\cmTC_30307.dir\SIZEOF_CURL_OFF_T.c.obj
-[2/2] Linking C executable cmTC_30307.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_df63e && [1/2] Building C object CMakeFiles\cmTC_df63e.dir\SIZEOF_CURL_OFF_T.c.obj
+[2/2] Linking C executable cmTC_df63e.exe
 
 
 
 Performing C SOURCE FILE Test curl_cv_recv succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_c1672 && [1/2] Building C object CMakeFiles\cmTC_c1672.dir\src.c.obj
-[2/2] Linking C static library cmTC_c1672.lib
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_7d8be && [1/2] Building C object CMakeFiles\cmTC_7d8be.dir\src.c.obj
+[2/2] Linking C static library cmTC_7d8be.lib
 
 
 Source file was:
@@ -942,8 +1044,8 @@ int main(void) {
 Performing C SOURCE FILE Test curl_cv_func_recv_test succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_081d6 && [1/2] Building C object CMakeFiles\cmTC_081d6.dir\src.c.obj
-[2/2] Linking C static library cmTC_081d6.lib
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_1040d && [1/2] Building C object CMakeFiles\cmTC_1040d.dir\src.c.obj
+[2/2] Linking C static library cmTC_1040d.lib
 
 
 Source file was:
@@ -971,8 +1073,8 @@ Source file was:
 Performing C SOURCE FILE Test curl_cv_send succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_daa7b && [1/2] Building C object CMakeFiles\cmTC_daa7b.dir\src.c.obj
-[2/2] Linking C static library cmTC_daa7b.lib
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a5024 && [1/2] Building C object CMakeFiles\cmTC_a5024.dir\src.c.obj
+[2/2] Linking C static library cmTC_a5024.lib
 
 
 Source file was:
@@ -989,8 +1091,8 @@ int main(void) {
 Performing C SOURCE FILE Test curl_cv_func_send_test succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_c6395 && [1/2] Building C object CMakeFiles\cmTC_c6395.dir\src.c.obj
-[2/2] Linking C static library cmTC_c6395.lib
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_79357 && [1/2] Building C object CMakeFiles\cmTC_79357.dir\src.c.obj
+[2/2] Linking C static library cmTC_79357.lib
 
 
 Source file was:
@@ -1018,8 +1120,8 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_STRUCT_TIMEVAL succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_831ff && [1/2] Building C object CMakeFiles\cmTC_831ff.dir\src.c.obj
-[2/2] Linking C static library cmTC_831ff.lib
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_f929a && [1/2] Building C object CMakeFiles\cmTC_f929a.dir\src.c.obj
+[2/2] Linking C static library cmTC_f929a.lib
 
 
 Source file was:
@@ -1039,16 +1141,16 @@ int main(void) {
 Determining size of struct sockaddr_storage passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_e0e99 && [1/2] Building C object CMakeFiles\cmTC_e0e99.dir\SIZEOF_STRUCT_SOCKADDR_STORAGE.c.obj
-[2/2] Linking C static library cmTC_e0e99.lib
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a6744 && [1/2] Building C object CMakeFiles\cmTC_a6744.dir\SIZEOF_STRUCT_SOCKADDR_STORAGE.c.obj
+[2/2] Linking C static library cmTC_a6744.lib
 
 
 
 Determining if the CryptAcquireContext exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_2d8a7 && [1/2] Building C object CMakeFiles\cmTC_2d8a7.dir\CheckSymbolExists.c.obj
-[2/2] Linking C executable cmTC_2d8a7.exe
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_66394 && [1/2] Building C object CMakeFiles\cmTC_66394.dir\CheckSymbolExists.c.obj
+[2/2] Linking C executable cmTC_66394.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:

@@ -5,7 +5,7 @@ cmake_minimum_required (VERSION 3.0 FATAL_ERROR)
 
 
 # Add source to this project's executable.
-add_executable (DCC-Miner "json.hpp" "Main.h" "Main.cpp" "Console.h" "Console.cpp" "FileManip.h" "FileManip.cpp" "Network.h" "Network.cpp" "strops.h" "strops.cpp" "P2PClient.h" "P2PClient.cpp" "Network.h" "Network.cpp")
+add_executable (DCC-Miner "json.hpp" "Main.h" "Main.cpp" "Console.h" "Console.cpp" "FileManip.h" "FileManip.cpp" "Network.h" "Network.cpp" "strops.h" "strops.cpp" "P2PClient.h" "P2PClient.cpp" "Network.h" "Network.cpp" "crypto.h" )
 
 
 #add_subdirectory(extlibs/elzip) # Path to the 11zip
@@ -28,7 +28,7 @@ FetchContent_MakeAvailable(cpr)
 
 #target_link_libraries(DCC-Miner PRIVATE cpr::cpr)
 
-find_package(OpenSSL REQUIRED)
+#find_package(OpenSSL REQUIRED)
 #target_link_libraries(DCC-Miner OpenSSL::SSL)
 
 set(Boost_ADDITIONAL_VERSIONS 1.78.0 1.78)
@@ -47,12 +47,17 @@ include_directories(${Boost_INCLUDE_DIRS})
 set(CURL_INCLUDE_DIR "C:\\curl\\include")
 set(CURL_LIBRARY "C:\\curl")
 
+#set(LIB_CRYPTO "lib/libcrypto.lib")
+
 add_definitions(-DCURL_STATICLIB)
 
 find_package(CURL REQUIRED)
 include_directories(${CURL_INCLUDE_DIR})
 
-target_link_libraries(DCC-Miner ${CURL_LIBRARY} ${Boost_LIBRARIES} OpenSSL::SSL cpr::cpr)
+set(OPENSSL_USE_STATIC_LIBS TRUE)
+find_package(OpenSSL REQUIRED)
+
+target_link_libraries(DCC-Miner ${CURL_LIBRARY} ${Boost_LIBRARIES} OpenSSL::SSL cpr::cpr OpenSSL::Crypto)
 
 #set(ELZIP_LIBRARY include/lib/libcurl_a_debug)
 #target_link_libraries(DCC-Miner )

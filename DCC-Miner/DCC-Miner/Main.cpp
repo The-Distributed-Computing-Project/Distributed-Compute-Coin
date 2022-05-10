@@ -10,6 +10,7 @@
 
 #include "Main.h"
 
+
 //using namespace std;
 using json = nlohmann::json;
 namespace fs = std::filesystem;
@@ -113,7 +114,19 @@ int main()
 	console.WriteLine("Started");
 	//console.WriteLine("Error Code " + std::to_string(ec), console.Debug());
 
-	generate_key();
+	//generate_key();
+
+	cryptMain();
+
+	/*std::string random256BitKey = mine::AES::generateRandomKey(256);
+	std::string inputString = "1234567890000000000000000000dfff";
+
+	std::cout << random256BitKey << std::endl;
+	std::cout << "Input is: " << inputString << std::endl;*/
+
+	
+
+	return 0;
 
 	for (std::string dir : directoryList)
 		if (!fs::is_directory(dir) || !fs::exists(dir)) {

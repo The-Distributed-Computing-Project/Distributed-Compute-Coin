@@ -24,5 +24,6 @@
 #include "Console.h"
 #include "P2PClient.h"
 #include "strops.h"
+#include "crypto.h"
 
 #endif

@@ -91,7 +91,7 @@ auto since(std::chrono::time_point<clock_t, duration_t> const& start)
 
 std::string id = "";
 int connectionStatus = 1;
-const std::string directoryList[] = { "./wwwdata", "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/programs" };
+const std::string directoryList[] = { "./sec", "./wwwdata", "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/programs" };
 
 json programConfig;
 json walletInfo;
@@ -108,6 +108,8 @@ struct stat info;
 Console console;
 P2P p2p;
 
+std::vector<std::string> keypair = {"", ""};
+
 int main()
 {
 	console.DebugPrint();
@@ -116,7 +118,7 @@ int main()
 
 	//generate_key();
 
-	cryptMain();
+	//cryptMain();
 
 	/*std::string random256BitKey = mine::AES::generateRandomKey(256);
 	std::string inputString = "1234567890000000000000000000dfff";
@@ -126,7 +128,7 @@ int main()
 
 	
 
-	return 0;
+	//return 0;
 
 	for (std::string dir : directoryList)
 		if (!fs::is_directory(dir) || !fs::exists(dir)) {
@@ -146,6 +148,25 @@ int main()
 			configFile.close();
 		}
 	}
+
+	console.DebugPrint();
+	console.WriteLine("Checking keypairs...");
+	if (!fs::exists("./sec/prikey.pem"))
+	{
+		console.DebugPrint();
+		console.WriteLine("None found, generating keypairs...");
+		GenerateKeypair();
+	}
+	std::ifstream pkey("./sec/pubkey.pem");
+	std::stringstream keybuf;
+	keybuf << pkey.rdbuf();
+	keypair[0] = keybuf.str();
+	std::ifstream skey("./sec/prikey.pem");
+	std::stringstream skeybuf;
+	skeybuf << skey.rdbuf();
+	keypair[1] = skeybuf.str();
+
+
 
 	std::ifstream t("./config.cfg");
 	std::stringstream buffer;

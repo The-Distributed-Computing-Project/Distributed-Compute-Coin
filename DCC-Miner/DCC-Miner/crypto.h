@@ -1,4 +1,12 @@
-﻿#ifndef crypto_h
+﻿/*
+
+Thanks to https://blog.karatos.in/a?ID=01650-057d7aac-eb6b-4fa4-ad47-17fd98e05538 !!
+	The only place I could find a good and easy example
+	of openssl asymmetric dual-key encryption!
+
+*/
+
+#ifndef crypto_h
 #define crypto_h
 
 #include <iostream>
@@ -31,22 +39,40 @@ void md5(const std::string& srcStr, std::string& encodedStr, std::string& encode
 	encodedHexStr = std::string(buf);
 }
 
+////---- sha256 digest hash----// 
+//void sha256(const std::string& srcStr, std::string& encodedStr, std::string& encodedHexStr)
+//{
+//
+//	unsigned char mdStr[33] = { 0 };
+//	SHA256((const unsigned char*)srcStr.c_str(), srcStr.length(), mdStr);//call sha256 hash
+//	encodedStr = std::string((const char*)mdStr);//hashed string
+//
+//	char buf[65] = { 0 };
+//	char tmp[3] = { 0 };
+//	for (int i = 0; i < 32; i++)//hashed hexadecimal string 32 bytes  
+//	{
+//		sprintf(tmp, "%02x", mdStr[i]);
+//		strcat(buf, tmp);
+//	}
+//	buf[32] = '\0';//followed by 0, truncated from 32 bytes  
+//	encodedHexStr = std::string(buf);
+//}
 //---- sha256 digest hash----// 
 void sha256(const std::string& srcStr, std::string& encodedStr, std::string& encodedHexStr)
 {
 
-	unsigned char mdStr[33] = { 0 };
+	unsigned char mdStr[65] = { 0 };
 	SHA256((const unsigned char*)srcStr.c_str(), srcStr.length(), mdStr);//call sha256 hash
 	encodedStr = std::string((const char*)mdStr);//hashed string
 
-	char buf[65] = { 0 };
+	char buf[129] = { 0 };
 	char tmp[3] = { 0 };
-	for (int i = 0; i < 32; i++)//hashed hexadecimal string 32 bytes  
+	for (int i = 0; i < 64; i++)//hashed hexadecimal string 32 bytes  
 	{
 		sprintf(tmp, "%02x", mdStr[i]);
 		strcat(buf, tmp);
 	}
-	buf[32] = '\0';//followed by 0, truncated from 32 bytes  
+	buf[64] = '\0';//followed by 0, truncated from 32 bytes  
 	encodedHexStr = std::string(buf);
 }
 
@@ -156,8 +182,8 @@ std::string des_decrypt(const std::string& cipherText, const std::string& key)
 
 //---- rsa asymmetric encryption and decryption ----// 
 #define KEY_LENGTH 2048//Key length
-#define PUB_KEY_FILE "pubkey.pem"//public key path
-#define PRI_KEY_FILE "prikey.pem"//private key path
+#define PUB_KEY_FILE "./sec/pubkey.pem"//public key path
+#define PRI_KEY_FILE "./sec/prikey.pem"//private key path
 
 //Function method to generate key pair 
 void generateRSAKey(std::string strKey[2])
@@ -289,54 +315,78 @@ std::string rsa_pri_decrypt(const std::string& cipherText, const std::string& pr
 	return strRet;
 }
 
+std::vector<std::string> GenerateKeypair()
+{
+	std::string kp[2];
+	generateRSAKey(kp);
+
+	std::vector<std::string> vKp;
+
+	vKp.push_back(kp[0]);
+	vKp.push_back(kp[1]);
+
+	return vKp;
+}
+
 int cryptMain()
 {
-	//original plaintext  
-	std::string srcText = "this is an example";
+	////original plaintext  
+	//std::string srcText = "this is an example";
+
+	//std::string encryptText;
+	//std::string encryptHexText;
+	//std::string decryptText;
+
+	//std::cout << "=== original plaintext ===" << std::endl;
+	//std::cout << srcText << std::endl;
+
+	////md5  
+	//std::cout << "=== md5 hash ===" << std::endl;
+	//md5(srcText, encryptText, encryptHexText);
+	//std::cout << "Summary character: " << encryptText << std::endl;
+	//std::cout << "Summary String: " << encryptHexText << std::endl;
+
+	////sha256  
+	//std::cout << "=== sha256 hash ===" << std::endl;
+	//sha256(srcText, encryptText, encryptHexText);
+	//std::cout << "Summary character: " << encryptText << std::endl;
+	//std::cout << "Summary String: " << encryptHexText << std::endl;
+
+	////des  
+	//std::cout << "=== des encryption and decryption ===" << std::endl;
+	//std::string desKey = "12345";
+	//encryptText = des_encrypt(srcText, desKey);
+	//std::cout << "Encrypted character: " << std::endl;
+	//std::cout << encryptText << std::endl;
+	//decryptText = des_decrypt(encryptText, desKey);
+	//std::cout << "Decryption character: " << std::endl;
+	//std::cout << decryptText << std::endl;
+
+	// RSA Example
+	std::string inputString = "Hello World!";
+	std::cout << "Input string: " << inputString << std::endl << std::endl;
+
+	std::vector<std::string> keyPair = GenerateKeypair();
+	std::cout << "Public key: " << std::endl;
+	std::cout << keyPair[0] << std::endl;
 
 	std::string encryptText;
 	std::string encryptHexText;
-	std::string decryptText;
+	sha256(keyPair[0], encryptText, encryptHexText);
+	std::string publicKeyAsAddress = encryptHexText;
+	std::cout << "Address: " << std::endl;
+	std::cout << publicKeyAsAddress << std::endl;
 
-	std::cout << "=== original plaintext ===" << std::endl;
-	std::cout << srcText << std::endl;
-
-	//md5  
-	std::cout << "=== md5 hash ===" << std::endl;
-	md5(srcText, encryptText, encryptHexText);
-	std::cout << "Summary character: " << encryptText << std::endl;
-	std::cout << "Summary String: " << encryptHexText << std::endl;
-
-	//sha256  
-	std::cout << "=== sha256 hash ===" << std::endl;
-	sha256(srcText, encryptText, encryptHexText);
-	std::cout << "Summary character: " << encryptText << std::endl;
-	std::cout << "Summary String: " << encryptHexText << std::endl;
-
-	//des  
-	std::cout << "=== des encryption and decryption ===" << std::endl;
-	std::string desKey = "12345";
-	encryptText = des_encrypt(srcText, desKey);
-	std::cout << "Encrypted character: " << std::endl;
-	std::cout << encryptText << std::endl;
-	decryptText = des_decrypt(encryptText, desKey);
-	std::cout << "Decryption character: " << std::endl;
-	std::cout << decryptText << std::endl;
-
-	//rsa  
-	std::cout << "=== rsa encryption and decryption ===" << std::endl;
-	std::string key[2];
-	generateRSAKey(key);
-	std::cout << "Public key: " << std::endl;
-	std::cout << key[0] << std::endl;
 	std::cout << "Private Key: " << std::endl;
-	std::cout << key[1] << std::endl;
-	encryptText = rsa_pub_encrypt(srcText, key[0]);
-	std::cout << "Encrypted character: " << std::endl;
-	std::cout << encryptText << std::endl;
-	decryptText = rsa_pri_decrypt(encryptText, key[1]);
-	std::cout << "Decryption character: " << std::endl;
-	std::cout << decryptText << std::endl;
+	std::cout << keyPair[1] << std::endl;
+
+	std::string encryptedText = rsa_pub_encrypt(inputString, keyPair[0]);
+	std::cout << "Encrypted text: " << std::endl;
+	std::cout << encryptedText << std::endl;
+
+	std::string decryptedText = rsa_pri_decrypt(encryptedText, keyPair[1]);
+	std::cout << "Decrypted text: " << std::endl;
+	std::cout << decryptedText << std::endl;
 
 	system("pause");
 	return 0;

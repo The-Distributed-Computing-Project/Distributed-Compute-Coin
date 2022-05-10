@@ -4,8 +4,8 @@
 	```
 	REQ: Client Request -> Server
 	RES: Server Response -> Client
-	ACK: Client Acknowledge -> Server
-	ACK: Server Acknowledge -> Client
+	ACK1: Client Acknowledge -> Server
+	ACK2: Server Acknowledge -> Client
 	FIN.
 	```
 	And retry sending each of these until an adequate response is received, and both eventually ACK.

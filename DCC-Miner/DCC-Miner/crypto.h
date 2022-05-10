@@ -179,6 +179,30 @@ std::string des_decrypt(const std::string& cipherText, const std::string& key)
 	return clearText;
 }
 
+std::vector<std::string> GenerateWalletPhrase()
+{
+	std::vector<std::string> wordlist;
+	std::string line;    
+	std::ifstream fin("./wordlist");
+	while(getline(fin,line)){
+		wordlist.push_back(line);
+	}
+	
+	byte buffer[128];
+	int rc = RAND_bytes(buffer, sizeof(buffer));	
+	int compressed[16];
+	// Make the 128 random 0 - 256 bytes into 16 random 0 - 2048 ints
+	for (int i=0; i<16; i++)
+		for (int b = 0; b < 8; b++)
+			compressed[i] += buffer[i*8+b];
+	
+	std::vector<std::string> walletPhrase;
+	for(int i = 0; i<16; i++)
+		walletPhrase.push_back(wordlist[compressed[i]]);
+	
+	return walletPhrase;
+}
+
 
 //---- rsa asymmetric encryption and decryption ----// 
 #define KEY_LENGTH 2048//Key length
@@ -196,6 +220,10 @@ void generateRSAKey(std::string strKey[2])
 
 	//Generate key pair  
 	RSA* keypair = RSA_generate_key(KEY_LENGTH, RSA_3, NULL, NULL);
+	
+	// Seeding, haven't tried yet...
+	static const char rnd_seed[] = "This is the seed"; // This will be replaced by the 16 word passphrase and block height
+	RAND_seed(rnd_seed, sizeof (rnd_seed));
 
 	BIO* pri = BIO_new(BIO_s_mem());
 	BIO* pub = BIO_new(BIO_s_mem());

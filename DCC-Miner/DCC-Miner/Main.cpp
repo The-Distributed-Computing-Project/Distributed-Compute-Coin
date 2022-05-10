@@ -129,7 +129,8 @@ int main()
 	
 
 	//return 0;
-
+	
+	// Create required directories if they don't exist
 	for (std::string dir : directoryList)
 		if (!fs::is_directory(dir) || !fs::exists(dir)) {
 			console.DebugPrint();
@@ -137,6 +138,7 @@ int main()
 			fs::create_directory(dir);
 		}
 
+	// Create config.cfg file if it doesn't exist
 	console.DebugPrint();
 	console.WriteLine("Checking config.cfg");
 	if (!fs::exists("./config.cfg"))
@@ -149,6 +151,7 @@ int main()
 		}
 	}
 
+	// Generate and save keypair if it doesn't exist
 	console.DebugPrint();
 	console.WriteLine("Checking keypairs...");
 	if (!fs::exists("./sec/prikey.pem"))
@@ -157,17 +160,19 @@ int main()
 		console.WriteLine("None found, generating keypairs...");
 		GenerateKeypair();
 	}
+	// Load public key as keypair[0]
 	std::ifstream pkey("./sec/pubkey.pem");
 	std::stringstream keybuf;
 	keybuf << pkey.rdbuf();
 	keypair[0] = keybuf.str();
+	// Load private key as keypair[1]
 	std::ifstream skey("./sec/prikey.pem");
 	std::stringstream skeybuf;
 	skeybuf << skey.rdbuf();
 	keypair[1] = skeybuf.str();
 
 
-
+	// If previous config exists, load it. Else, ask for required information.
 	std::ifstream t("./config.cfg");
 	std::stringstream buffer;
 	buffer << t.rdbuf();
@@ -181,14 +186,14 @@ int main()
 	else
 	{
 		console.MiningPrint();
-		//console.WriteDialogueAuthor(console.Mining());
 		console.Write("Enter your payout wallet : ");
 		walletInfo["Address"] = console.ReadLine();
 
 		console.MiningPrint();
-		//console.WriteDialogueAuthor(console.Mining());
 		console.Write("Stay logged in? Y/N : ");
 		std::string stayLoggedIn = console.ReadLine();
+		
+		// Save to config.cfg file
 		if (ToUpper(stayLoggedIn) == "Y")
 		{
 			std::ofstream configFile("./config.cfg");

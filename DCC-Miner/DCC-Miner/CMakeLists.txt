@@ -5,7 +5,7 @@ cmake_minimum_required (VERSION 3.0 FATAL_ERROR)
 
 
 # Add source to this project's executable.
-add_executable (DCC-Miner "json.hpp" "Main.h" "Main.cpp" "Console.h" "Console.cpp" "FileManip.h" "FileManip.cpp" "Network.h" "Network.cpp" "strops.h" "strops.cpp" "P2PClient.h" "P2PClient.cpp" "Network.h" "Network.cpp" "crypto.h" )
+add_executable (DCC-Miner "json.hpp" "Main.h" "Main.cpp" "Console.h" "Console.cpp" "FileManip.h" "FileManip.cpp" "Network.h" "Network.cpp" "strops.h" "strops.cpp" "P2PClient.h" "P2PClient.cpp" "Network.h" "Network.cpp" "crypto.h")
 
 
 #add_subdirectory(extlibs/elzip) # Path to the 11zip

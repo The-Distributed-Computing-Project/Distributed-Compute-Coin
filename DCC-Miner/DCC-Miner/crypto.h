@@ -18,6 +18,9 @@ Thanks to https://blog.karatos.in/a?ID=01650-057d7aac-eb6b-4fa4-ad47-17fd98e0553
 #include <openssl/des.h>
 #include <openssl/rsa.h>
 #include <openssl/pem.h>
+#include <openssl/rand.h>
+
+#include <openssl/engine.h>
 
 //#pragma comment(lib,"libcrypto.lib")
 
@@ -179,29 +182,63 @@ std::string des_decrypt(const std::string& cipherText, const std::string& key)
 	return clearText;
 }
 
-std::vector<std::string> GenerateWalletPhrase()
+std::string GenerateWalletPhrase()
+//std::vector<std::string> GenerateWalletPhrase()
 {
+	//OpenSSL_add_all_algorithms();
+
+	//ERR_load_crypto_strings();
+
+	//ENGINE_load_dynamic();
+	//ENGINE* randEngine_engine = ENGINE_by_id("./randEngine.c");
+
+	//if (randEngine_engine == NULL)
+	//{
+	//	printf("Could not Load randEngine Engine!\n");
+	//	exit(1);
+	//}
+	//printf("randEngine Engine successfully loaded\n");
+
+	//int init_res = ENGINE_init(randEngine_engine);
+	//printf("Engine name: %s init result : %d \n", ENGINE_get_name(randEngine_engine), init_res);
+	//return "";
+
+
+
+	RAND_set_rand_method(NULL);
+
+	// Seeding, haven't tried yet...
+	static const char rnd_seed[] = "This is the seed"; // This will be replaced by the 16 word passphrase and block height
+	srand(sizeof(rnd_seed));
+	RAND_seed(rnd_seed, sizeof(rnd_seed));
+
 	std::vector<std::string> wordlist;
-	std::string line;    
+	std::string line;
 	std::ifstream fin("./wordlist");
-	while(getline(fin,line)){
+	while (getline(fin, line)) {
 		wordlist.push_back(line);
 	}
-	
-	byte buffer[128];
-	int rc = RAND_bytes(buffer, sizeof(buffer));	
-	int compressed[16];
+	std::cout << wordlist.size() << std::endl;
+
+	unsigned char buffer[128];
+	int rc = RAND_bytes(buffer, sizeof(buffer));
+
+	int compressed[16] = { 0 };
 	// Make the 128 random 0 - 256 bytes into 16 random 0 - 2048 ints
-	for (int i=0; i<16; i++)
+	for (int i = 0; i < 16; i++)
 		for (int b = 0; b < 8; b++)
-			compressed[i] += buffer[i*8+b];
-	
-	std::vector<std::string> walletPhrase;
-	for(int i = 0; i<16; i++)
-		walletPhrase.push_back(wordlist[compressed[i]]);
-	
+			compressed[i] += (int)buffer[i * 8 + b];
+
+	std::string walletPhrase;
+	for (int i = 0; i < 16; i++) {
+		walletPhrase += wordlist[compressed[i]];
+		if (i < 15)
+			walletPhrase += " ";
+	}
+
 	return walletPhrase;
 }
+
 
 
 //---- rsa asymmetric encryption and decryption ----// 
@@ -220,10 +257,11 @@ void generateRSAKey(std::string strKey[2])
 
 	//Generate key pair  
 	RSA* keypair = RSA_generate_key(KEY_LENGTH, RSA_3, NULL, NULL);
-	
+
 	// Seeding, haven't tried yet...
 	static const char rnd_seed[] = "This is the seed"; // This will be replaced by the 16 word passphrase and block height
-	RAND_seed(rnd_seed, sizeof (rnd_seed));
+	srand(sizeof(rnd_seed));
+	RAND_seed(rnd_seed, sizeof(rnd_seed));
 
 	BIO* pri = BIO_new(BIO_s_mem());
 	BIO* pub = BIO_new(BIO_s_mem());

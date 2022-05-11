@@ -126,7 +126,7 @@ int main()
 	std::cout << random256BitKey << std::endl;
 	std::cout << "Input is: " << inputString << std::endl;*/
 
-	
+	console.WriteLine("Your phrase: " + GenerateWalletPhrase());
 
 	//return 0;
 	
@@ -138,7 +138,7 @@ int main()
 			fs::create_directory(dir);
 		}
 
-	// Create config.cfg file if it doesn't exist
+	// Create config.cfg file if it doesn't exist 
 	console.DebugPrint();
 	console.WriteLine("Checking config.cfg");
 	if (!fs::exists("./config.cfg"))
@@ -158,7 +158,11 @@ int main()
 	{
 		console.DebugPrint();
 		console.WriteLine("None found, generating keypairs...");
-		GenerateKeypair();
+		keypair=GenerateKeypair();
+		std::cout << "Public key: " << std::endl;
+		std::cout << keypair[0] << std::endl;
+		std::cout << "Private key: " << std::endl;
+		std::cout << keypair[1] << std::endl;
 	}
 	// Load public key as keypair[0]
 	std::ifstream pkey("./sec/pubkey.pem");

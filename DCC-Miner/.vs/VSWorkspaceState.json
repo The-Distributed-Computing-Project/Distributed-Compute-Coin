@@ -3,9 +3,8 @@
     "",
     "\\DCC-Miner",
     "\\DCC-Miner\\extlibs",
-    "\\DCC-Miner\\include",
     "\\DCC-Miner\\lib"
   ],
-  "SelectedNode": "\\DCC-Miner\\P2PClient.cpp",
+  "SelectedNode": "\\DCC-Miner\\Main.cpp",
   "PreviewInSolutionExplorer": false
 }

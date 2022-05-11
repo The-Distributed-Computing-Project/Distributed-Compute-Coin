@@ -1,4 +1,6 @@
 ## Working on:
+* The actual 'crypto' aspect of it, and making RSA dual-key encryption for better verification.
+	- [ ] Implement a library like dopenssl or just use openssl for deterministic key generation from a non-deterministic seed.
 * P2P Networking, allowing people to use clients independently of a server. **The server is often down**, due to development, and since P2P is still in progress, the clients basically don't work.
 	- [ ] Better handling, requests still aren't verified if they reached the other peer. It should be
 	```
@@ -33,3 +35,8 @@ Options:
   -ma, --mineany <block num> <dif>	  (Debug) Mines the block specified by <block num> at the given difficulty <dif>
 ```
 Inputting one of these commands and pressing the Enter key will execute the command. To begin mining, simply type "mine" (and a block amount, if you want to mine more than one).
+
+## Using:
+* OpenSSL
+* cURL
+* dOpenSSL (maybe)

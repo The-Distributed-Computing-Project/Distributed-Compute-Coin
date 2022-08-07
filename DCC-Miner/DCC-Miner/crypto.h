@@ -192,11 +192,11 @@ std::string GenerateWalletPhrase()
 	RAND_seed(rnd_seed, sizeof rnd_seed); /* or BN_generate_prime_ex may fail */
 
 	BN_generate_prime_ex(r, 512, 0, NULL, NULL, NULL);
-	std::string s = to_string(r);
+	std::cout << r << std::endl;
 
 	BN_free(r);
 	
-	return s;
+	return "";
 	
 	//OpenSSL_add_all_algorithms();
 
@@ -221,7 +221,7 @@ std::string GenerateWalletPhrase()
 	RAND_set_rand_method(NULL);
 
 	// Seeding, haven't tried yet...
-	static const char rnd_seed[] = "This is the seed"; // This will be replaced by the 16 word passphrase and block height
+	//static const char rnd_seed[] = "This is the seed"; // This will be replaced by the 16 word passphrase and block height
 	srand(0);
 	RAND_seed(rnd_seed, sizeof(rnd_seed));
 
@@ -234,7 +234,7 @@ std::string GenerateWalletPhrase()
 	std::cout << wordlist.size() << std::endl;
 
 	unsigned char buffer[128];
-	int rc = RAND_pseudo_bytes_ex(buffer, sizeof(buffer));
+	int rc = RAND_pseudo_bytes(buffer, sizeof(buffer));
 
 	int compressed[16] = { 0 };
 	// Make the 128 random 0 - 256 bytes into 16 random 0 - 2048 ints

@@ -705,7 +705,7 @@ bool IsChainValid()
 		std::string content = buffer.str();
 
 		json o = json::parse(content);
-		std::string trans[] = { o["Transactions"] };
+		vector<std::string> trans(std::begin(o["Transactions"]), std::end(o["Transactions"]));
 
 		if (o["Version"] == nullptr || o["Version"] == "" || o["Version"] != blockVersion)
 		{
@@ -728,20 +728,20 @@ bool IsChainValid()
 		std::stringstream bufferd;
 		bufferd << td.rdbuf();
 		std::string nextBlockText = bufferd.str();
-		o = json::parse(nextBlockText);
+		json o2 = json::parse(nextBlockText);
 
-		std::string nextHash = o["LastHash"];
+		std::string nextHash = o2["LastHash"];
 
-		if (o["Version"] == nullptr || o["Version"] == "" || o["Version"] != blockVersion)
-		{
-			UpgradeBlock(o, blockVersion);
-			std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i + 1) + ".dccblock");
-			if (blockFile.is_open())
-			{
-				blockFile << o.dump();
-				blockFile.close();
-			}
-		}
+		//if (o2["Version"] == nullptr || o2["Version"] == "" || o2["Version"] != blockVersion)
+		//{
+		//	UpgradeBlock(o, blockVersion);
+		//	std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i + 1) + ".dccblock");
+		//	if (blockFile.is_open())
+		//	{
+		//		blockFile << o.dump();
+		//		blockFile.close();
+		//	}
+		//}
 
 		console.BlockCheckerPrint();
 		console.WriteLine("Validating block: " + i);
@@ -752,6 +752,19 @@ bool IsChainValid()
 		{
 			return false;
 		}
+		
+		// Check all transactions to see if they have a valid signature
+		for (int tr = 0; tr < trans.size(); tr++){
+			std::string transactionContent = SplitString(trans[tr], "|")[0];
+			std::string signature = SplitString(trans[tr], "|")[1];
+			std::string publicKey = SplitString(trans[tr], "|")[2];
+			
+			// The from address should be the same as the end of the public key, so check that first:
+			if(publicKey.substr(192, 64) != SplitString(transactionContent, "->")[0])
+				trans.erase(trans.begin() + tr);
+		}
+		// Update the old transactions with the new ones
+		o["Transactions"] = trans.data();
 	}
 	return true;
 }

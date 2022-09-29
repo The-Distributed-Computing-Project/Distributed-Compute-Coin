@@ -752,6 +752,17 @@ bool IsChainValid()
 		{
 			return false;
 		}
+		
+		// Check all transactions to see if they have a valid signature
+		for (int tr = 0; tr < sizeof(trans) * sizeof(trans[0]); tr++){
+			std::string transactionContent = SplitString(trans[tr], "|")[0];
+			std::string signature = SplitString(trans[tr], "|")[1];
+			std::string publicKey = SplitString(trans[tr], "|")[2];
+			
+			// The from address should be the same as the end of the public key, so check that first:
+			if(publicKey.substr(192, 64) != SplitString(transactionContent, "->")[0])
+				return false;
+		}
 	}
 	return true;
 }

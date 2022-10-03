@@ -2,6 +2,7 @@
 #define strops_h
 
 std::string JoinArrayPieces(std::string input[]);
+std::string JoinArrayPieces(std::vector<std::string> input);
 std::vector<std::string> SplitString(std::string str, std::string delim);
 void ltrim(std::string& s);
 void rtrim(std::string& s);

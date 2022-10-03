@@ -27,8 +27,8 @@ public:
 		auto response = cpr::Get(cpr::Url{ url });
 		html = response.text;
 
-		console.DebugPrint();
-		console.WriteLine(html);
+		//console.DebugPrint();
+		//console.WriteLine(html);
 
 		return html;
 	}
@@ -38,5 +38,6 @@ int DownloadFile(std::string url, std::string saveAs);
 int DownloadFile(std::string url, std::string saveAs, bool printStatus);
 std::string UploadFile(std::string url, std::string filePath);
 //string GetPeerAddress();
+
 
 #endif

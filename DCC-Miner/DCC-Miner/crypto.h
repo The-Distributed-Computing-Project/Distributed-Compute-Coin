@@ -19,8 +19,108 @@ Thanks to https://blog.karatos.in/a?ID=01650-057d7aac-eb6b-4fa4-ad47-17fd98e0553
 #include <openssl/rsa.h>
 #include <openssl/pem.h>
 #include <openssl/rand.h>
+#include <openssl/ssl.h>
 
 #include <openssl/engine.h>
+#include <boost/archive/iterators/binary_from_base64.hpp>
+#include <boost/archive/iterators/base64_from_binary.hpp>
+#include <boost/archive/iterators/transform_width.hpp>
+#include <boost/algorithm/string.hpp>
+
+
+static const std::string base64_chars =
+"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+"abcdefghijklmnopqrstuvwxyz"
+"0123456789+/";
+
+
+static inline bool is_base64(unsigned char c) {
+	return (isalnum(c) || (c == '+') || (c == '/'));
+}
+
+std::string encode64(unsigned char const* bytes_to_encode, unsigned int in_len) {
+	std::string ret;
+	int i = 0;
+	int j = 0;
+	unsigned char char_array_3[3];
+	unsigned char char_array_4[4];
+
+	while (in_len--) {
+		char_array_3[i++] = *(bytes_to_encode++);
+		if (i == 3) {
+			char_array_4[0] = (char_array_3[0] & 0xfc) >> 2;
+			char_array_4[1] = ((char_array_3[0] & 0x03) << 4) + ((char_array_3[1] & 0xf0) >> 4);
+			char_array_4[2] = ((char_array_3[1] & 0x0f) << 2) + ((char_array_3[2] & 0xc0) >> 6);
+			char_array_4[3] = char_array_3[2] & 0x3f;
+
+			for (i = 0; (i < 4); i++)
+				ret += base64_chars[char_array_4[i]];
+			i = 0;
+		}
+	}
+
+	if (i)
+	{
+		for (j = i; j < 3; j++)
+			char_array_3[j] = '\0';
+
+		char_array_4[0] = (char_array_3[0] & 0xfc) >> 2;
+		char_array_4[1] = ((char_array_3[0] & 0x03) << 4) + ((char_array_3[1] & 0xf0) >> 4);
+		char_array_4[2] = ((char_array_3[1] & 0x0f) << 2) + ((char_array_3[2] & 0xc0) >> 6);
+		char_array_4[3] = char_array_3[2] & 0x3f;
+
+		for (j = 0; (j < i + 1); j++)
+			ret += base64_chars[char_array_4[j]];
+
+		while ((i++ < 3))
+			ret += '=';
+
+	}
+
+	return ret;
+
+}
+std::string decode64(std::string const& encoded_string) {
+	int in_len = encoded_string.size();
+	int i = 0;
+	int j = 0;
+	int in_ = 0;
+	unsigned char char_array_4[4], char_array_3[3];
+	std::string ret;
+
+	while (in_len-- && (encoded_string[in_] != '=') && is_base64(encoded_string[in_])) {
+		char_array_4[i++] = encoded_string[in_]; in_++;
+		if (i == 4) {
+			for (i = 0; i < 4; i++)
+				char_array_4[i] = base64_chars.find(char_array_4[i]);
+
+			char_array_3[0] = (char_array_4[0] << 2) + ((char_array_4[1] & 0x30) >> 4);
+			char_array_3[1] = ((char_array_4[1] & 0xf) << 4) + ((char_array_4[2] & 0x3c) >> 2);
+			char_array_3[2] = ((char_array_4[2] & 0x3) << 6) + char_array_4[3];
+
+			for (i = 0; (i < 3); i++)
+				ret += char_array_3[i];
+			i = 0;
+		}
+	}
+
+	if (i) {
+		for (j = i; j < 4; j++)
+			char_array_4[j] = 0;
+
+		for (j = 0; j < 4; j++)
+			char_array_4[j] = base64_chars.find(char_array_4[j]);
+
+		char_array_3[0] = (char_array_4[0] << 2) + ((char_array_4[1] & 0x30) >> 4);
+		char_array_3[1] = ((char_array_4[1] & 0xf) << 4) + ((char_array_4[2] & 0x3c) >> 2);
+		char_array_3[2] = ((char_array_4[2] & 0x3) << 6) + char_array_4[3];
+
+		for (j = 0; (j < i - 1); j++) ret += char_array_3[j];
+	}
+
+	return ret;
+}
+
 
 //#pragma comment(lib,"libcrypto.lib")
 
@@ -363,6 +463,43 @@ std::string rsa_pub_encrypt(const std::string& clearText, const std::string& pub
 	return strRet;
 }
 
+//Private key encryption  
+std::string rsa_pri_encrypt(const std::string& clearText, const std::string& priKey)
+{
+	std::string strRet;
+	try
+	{
+
+		RSA* rsa = NULL;
+		BIO* keybio = BIO_new_mem_buf((unsigned char*)priKey.c_str(), -1);
+		//There are three methods here
+		//1, read the key pair generated in the memory, and then generate rsa from the memory
+		//2, Read the key pair text file generated in the disk, and generate rsa from the memory
+		//3. Generate rsa directly from reading the file pointer
+		rsa = PEM_read_bio_RSAPrivateKey(keybio, &rsa, NULL, NULL);
+
+		int len = RSA_size(rsa);
+		char* encryptedText = (char*)malloc(len + 1);
+		memset(encryptedText, 0, len + 1);
+
+		//Encryption function
+		int ret = RSA_private_encrypt(strlen(clearText.c_str()), (unsigned char*)(clearText.c_str()), (unsigned char*)encryptedText, rsa, RSA_PKCS1_PADDING);
+		if (ret >= 0)
+			strRet = std::string(encryptedText, ret);
+
+		//release memory
+		free(encryptedText);
+		BIO_free_all(keybio);
+		RSA_free(rsa);
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	return strRet;
+}
+
 //private key decryption  
 std::string rsa_pri_decrypt(const std::string& cipherText, const std::string& priKey)
 {
@@ -383,6 +520,32 @@ std::string rsa_pri_decrypt(const std::string& cipherText, const std::string& pr
 
 	//Decryption function
 	int ret = RSA_private_decrypt(cipherText.length(), (const unsigned char*)cipherText.c_str(), (unsigned char*)decryptedText, rsa, RSA_PKCS1_PADDING);
+	if (ret >= 0)
+		strRet = std::string(decryptedText, ret);
+
+	//release memory
+	free(decryptedText);
+	BIO_free_all(keybio);
+	RSA_free(rsa);
+
+	return strRet;
+}
+
+//public key decryption  
+std::string rsa_pub_decrypt(const std::string& cipherText, const std::string& pubKey)
+{
+	std::string strRet;
+	RSA* rsa = RSA_new();
+	BIO* keybio;
+	keybio = BIO_new_mem_buf((unsigned char*)pubKey.c_str(), -1);
+	rsa = PEM_read_bio_RSAPublicKey(keybio, &rsa, NULL, NULL);
+
+	int len = RSA_size(rsa);
+	char* decryptedText = (char*)malloc(len + 1);
+	memset(decryptedText, 0, len + 1);
+
+	//Decryption function
+	int ret = RSA_public_decrypt(cipherText.length(), (const unsigned char*)cipherText.c_str(), (unsigned char*)decryptedText, rsa, RSA_PKCS1_PADDING);
 	if (ret >= 0)
 		strRet = std::string(decryptedText, ret);
 

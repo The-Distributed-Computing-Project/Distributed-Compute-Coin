@@ -23,26 +23,55 @@ std::string JoinArrayPieces(std::string input[])
 	return outStr;
 }
 
+std::string JoinArrayPieces(std::vector<std::string> input)
+{
+	std::string outStr = "";
+	for (int i = 0; i < input.size(); i++)
+	{
+		outStr += input[i];
+	}
+	return outStr;
+}
+
+//std::vector<std::string> SplitString(std::string str, std::string delim)
+//{
+//	std::vector<std::string> words;
+//	
+//	size_t last = 0;
+//	size_t next = 0;
+//	while ((next = str.find(delim, last)) != std::string::npos)
+//	{
+//		//cout << s.substr(last, next - last) << endl;  
+//		words.push_back(str.substr(last, next - last));
+//		last = next + 1;
+//	}
+//	//cout << s.substr(last) << endl;
+//	words.push_back(str.substr(last));
+//
+//	//for (const auto& str : words) {
+//	//	cout << str << endl;
+//	//}
+//
+//	return words;
+//}
+
 std::vector<std::string> SplitString(std::string str, std::string delim)
 {
-	std::vector<std::string> words;
-
-	size_t last = 0;
-	size_t next = 0;
-	while ((next = str.find(delim, last)) != std::string::npos)
+	std::vector<std::string> splittedString;
+	int startIndex = 0;
+	int  endIndex = 0;
+	while ((endIndex = str.find(delim, startIndex)) < str.size())
 	{
-		//cout << s.substr(last, next - last) << endl;  
-		words.push_back(str.substr(last, next - last));
-		last = next + 1;
+		std::string val = str.substr(startIndex, endIndex - startIndex);
+		splittedString.push_back(val);
+		startIndex = endIndex + delim.size();
 	}
-	//cout << s.substr(last) << endl;
-	words.push_back(str.substr(last));
-
-	//for (const auto& str : words) {
-	//	cout << str << endl;
-	//}
-
-	return words;
+	if (startIndex < str.size())
+	{
+		std::string val = str.substr(startIndex);
+		splittedString.push_back(val);
+	}
+	return splittedString;
 }
 
 // trim from start (in place)

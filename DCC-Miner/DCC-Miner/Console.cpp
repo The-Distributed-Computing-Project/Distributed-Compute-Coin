@@ -141,7 +141,7 @@ void Console::Write(std::string message, std::string fgColor, std::string bgColo
 std::string Console::ReadLine()
 {
 	std::string s;
-	std::cin >> s;
+	std::getline(std::cin, s);
 	return s;
 }
 

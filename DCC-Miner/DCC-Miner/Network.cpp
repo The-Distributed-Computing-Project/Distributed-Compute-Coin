@@ -43,7 +43,7 @@ int DownloadFile(std::string url, std::string saveAs)
 	if (curl)
 	{
 		fp = fopen(saveAs.c_str(), "wb");
-		curl_easy_setopt(curl, CURLOPT_URL, url);
+		curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, NULL);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
 		res = curl_easy_perform(curl);
@@ -63,18 +63,21 @@ int DownloadFile(std::string url, std::string saveAs, bool printStatus)
 	if (curl)
 	{
 		console.NetworkPrint();
-		console.Write("Downloading from: \"" + url + "\" ...\r");
+		console.WriteLine("Downloading from: \"" + url + "\"");
 		
 		fp = fopen(saveAs.c_str(), "wb");
-		curl_easy_setopt(curl, CURLOPT_URL, url);
+		curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, NULL);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
+		curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");
 		res = curl_easy_perform(curl);
-		curl_easy_cleanup(curl);
 		fclose(fp);
-		
-		console.NetworkPrint();
-		console.Write("Downloading from: \"" + url + "\" Done.\r");
+		if (res != CURLE_OK) {
+			fprintf(stderr, "\ncurl_easy_perform() failed: %s\n",
+				curl_easy_strerror(res));
+		}
+		curl_easy_cleanup(curl);
+		curl_global_cleanup();
 	}
 	return 0;
 }

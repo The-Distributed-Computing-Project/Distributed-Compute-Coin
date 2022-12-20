@@ -286,8 +286,8 @@ int main()
 		else {
 			walletInfo = w;
 			walletInfo["Funds"] = 0.0f;
-			//walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
-			//walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
+			walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
+			walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
 		}
 
 		if (connectionStatus == 1 && !w.is_null())
@@ -378,18 +378,18 @@ int main()
 
 			for (int i = 0; i < iterations; i++)
 			{
-				for (auto oldBlock : fs::directory_iterator("./wwwdata/pendingblocks/"))
-				{
-					try
-					{
-						remove(oldBlock.path());
-					}
-					catch (const std::exception&)
-					{
-						console.ErrorPrint();
-						console.WriteLine("Error removing \"" + oldBlock.path().string() + "\"");
-					}
-				}
+				//for (auto oldBlock : fs::directory_iterator("./wwwdata/pendingblocks/"))
+				//{
+				//	try
+				//	{
+				//		remove(oldBlock.path());
+				//	}
+				//	catch (const std::exception&)
+				//	{
+				//		console.ErrorPrint();
+				//		console.WriteLine("Error removing \"" + oldBlock.path().string() + "\"");
+				//	}
+				//}
 				for (int s = 0; s < walletInfo["PendingLength"]; s++)
 				{
 					if (SyncPending(walletInfo["BlockchainLength"] + 1 + s) == 0)
@@ -428,6 +428,9 @@ int main()
 					ConnectionError();
 					continue;
 				}
+
+				walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
+				walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
 
 				console.MiningPrint();
 				console.WriteLine("Blockchain length: " + std::to_string((int)walletInfo["BlockchainLength"] + 1));
@@ -755,6 +758,11 @@ int SyncPending(int whichBlock)
 
 		//console.WriteLine("Synced pending: " + whichBlock, console.Mining());
 		//File.WriteAllText("./wwwdata/pendingblocks/block" + to_string(whichBlock) + ".dccblock", html);
+
+		if (fs::exists("./wwwdata/pendingblocks/block" + std::to_string(whichBlock) + ".dccblock"))
+			return 1;
+
+
 		DownloadFile(serverURL + "/dcc/?query=getPendingBlock&blockNum=" + std::to_string(whichBlock) + "&Version=" + blockVersion,
 			"./wwwdata/pendingblocks/block" + std::to_string(whichBlock) + ".dccblock",
 			true);
@@ -779,6 +787,9 @@ int SyncBlock(int whichBlock)
 
 		//console.WriteLine("Synced: " + whichBlock);
 		//File.WriteAllText("./wwwdata/blockchain/block" + to_string(whichBlock) + ".dccblock", html);
+
+		if (fs::exists("./wwwdata/blockchain/block" + std::to_string(whichBlock) + ".dccblock"))
+			return 1;
 
 		DownloadFile(serverURL + "/dcc/?query=getBlock&blockNum=" + std::to_string(whichBlock) + "&Version=" + blockVersion,
 			"./wwwdata/blockchain/block" + std::to_string(whichBlock) + ".dccblock",
@@ -1160,6 +1171,9 @@ int SendFunds(std::string toAddress, float amount)
 		}
 	}
 
+	walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
+	walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
+
 	while (!IsChainValid())
 	{
 		for (auto oldBlock : fs::directory_iterator("./wwwdata/blockchain/"))
@@ -1199,6 +1213,8 @@ int SendFunds(std::string toAddress, float amount)
 		std::stringstream bufferd;
 		bufferd << blkData.rdbuf();
 		std::string blockText = bufferd.str();
+		std::cout << "read from: " << ("./wwwdata/pendingblocks/block" + std::to_string((int)walletInfo["BlockchainLength"] + (int)walletInfo["PendingLength"]) + ".dccblock") << std::endl;
+		std::cout << "textread: " << blockText << std::endl;
 		json blockJson = json::parse(blockText);
 
 

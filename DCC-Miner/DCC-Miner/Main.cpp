@@ -477,6 +477,12 @@ int main()
 				diff = SplitString(command, " ")[2];
 			MineAnyBlock(stoi(SplitString(command, " ")[1]), diff);
 		}
+		else if (SplitString(ToUpper(command), " ")[0] == "--CONNECT" || SplitString(ToUpper(command), " ")[0] == "-C")
+		{
+			p2p.StartP2P(endpointAddr, endpointPort);
+			console.NetworkPrint();
+			console.WriteLine("Closed P2P");
+		}
 		connectionStatus = 1;
 	}
 }
@@ -872,7 +878,7 @@ bool IsChainValid()
 			buffer << t.rdbuf();
 			std::string content = buffer.str();
 
-			bool changedBlockData=false;
+			bool changedBlockData = false;
 			json o = json::parse(content);
 			std::vector<std::string> trans = o["transactions"];
 			std::vector<uint64_t> transTimes = o["transactionTimes"];

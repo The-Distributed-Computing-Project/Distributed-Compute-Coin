@@ -47,15 +47,15 @@ std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 void P2P::TaskRec(unsigned int update_interval_millisecs)
 {
 	Console console;
+	const auto wait_duration = std::chrono::milliseconds(update_interval_millisecs);
+
+	SOCKADDR_IN remoteAddr;
+	int remoteAddrLen = sizeof(remoteAddr);
+
 	while (true)
 	{
 		if (stop_thread_1)
 			return;
-
-		//const auto wait_duration = std::chrono::milliseconds(update_interval_millisecs);
-
-		SOCKADDR_IN remoteAddr;
-		int remoteAddrLen = sizeof(remoteAddr);
 
 		console.NetworkPrint();
 		console.WriteLine("Checking for requests...");
@@ -63,20 +63,27 @@ void P2P::TaskRec(unsigned int update_interval_millisecs)
 		//console.WriteLine("Checked, parsing " + iResult);
 
 		if (iResult > 0) {
-			console.NetworkPrint();
-			console.WriteLine(NormalizedIPString(remoteAddr) + " -> " + std::string(buffer, buffer + iResult));
-			if (std::string(buffer, buffer + iResult) == "peer connect")
+			if (std::string(buffer, buffer + iResult) == "peer connect") {
+				console.WriteLine("Received initial connection, awaiting confirmation...", console.greenFGColor, "");
 				CONNECTED_TO_PEER = true;
-			std::cout << NormalizedIPString(remoteAddr) << " -> " << std::string(buffer, buffer + iResult) << std::endl;
+				messageStatus = 1;
+			}
+			else if (std::string(buffer, buffer + iResult) == "peer success") {
+				console.WriteLine("Dual Connection Confirmation", console.greenFGColor, "");
+				messageStatus = 2;
+			}
+			std::cout << "received: " << NormalizedIPString(remoteAddr) << " -> " << std::string(buffer, buffer + iResult) << std::endl;
 		}
 		else {
 			console.NetworkErrorPrint();
 			console.WriteLine("Error: Peer closed.");
-			//std::cout << "Error: Peer closed." << std::endl;
-			//break;
+			break;
 		}
 
-		//std::this_thread::sleep_for(wait_duration);
+		//if (messageStatus==2)
+		//	return;
+
+		std::this_thread::sleep_for(wait_duration);
 	}
 }
 
@@ -209,26 +216,45 @@ int P2P::StartP2P(std::string addr, std::string port)
 		std::thread t1(&P2P::TaskRec, this, update_interval);
 
 		// Begin sending messages, and stop when a reply is received
-		for (int i = 0; i < 5; i++)
+		for (messageAttempt = 0; messageAttempt < 15; messageAttempt++)
 			//while (true)
 		{
-			std::string msg = "peer connect";
+			std::string msg = messageStatus >= 1 ? "peer success" : "peer connect";
 			char* msgConvert = (char*)msg.c_str();
 			//int err = SafeSend(localSocket, msgConvert, msg.length());
 			//std::cout << err << std::endl;
 
-			sendto(localSocket, msg.c_str(), msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-			Sleep(1000);
-
 			console.NetworkPrint();
-			console.WriteLine("Attempt: " + std::to_string(i) + "  |  Sending: " + msg);
+			console.WriteLine("Attempt: " + std::to_string(messageAttempt) + "  |  Sending: " + msg);
+
+			sendto(localSocket, msg.c_str(), msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+			Sleep(3000);
+
+			if (messageStatus == 2) {
+				console.WriteLine("Successful connection!", console.greenFGColor, "");
+
+				if (messageAttempt == 4) {
+					stop_thread_1 = true;
+					t1.join();
+					stop_thread_1 = false;
+
+					closesocket(localSocket);
+					WSACleanup();
+
+					console.WriteLine("Closing connection...", console.greenFGColor, "");
+
+					return 0;
+				}
+			}
 		}
-		if (CONNECTED_TO_PEER)
-			return 0;
+
+		console.WriteLine("Unsuccessful connection, trying other peer", console.redFGColor, "");
 
 		stop_thread_1 = true;
 		t1.join();
 		stop_thread_1 = false;
+
+		continue;
 	}
 
 	//std::cout << "get ip is: " << NormalizedIPString(clientAddr) << std::endl;
@@ -273,7 +299,7 @@ int P2P::StartP2P(std::string addr, std::string port)
 	//}
 
 
-	getchar();
+	//getchar();
 
 	closesocket(localSocket);
 	WSACleanup();

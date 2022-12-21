@@ -15,6 +15,8 @@ public:
 	//void TaskRec();
 	int MSG_PART = 0;
 	bool CONNECTED_TO_PEER = false;
+	int messageStatus = 0;
+	int messageAttempt = 0;
 	std::vector<std::string> CONNECTION_PARTS = {""};
 
 	std::string NormalizedIPString(SOCKADDR_IN addr);

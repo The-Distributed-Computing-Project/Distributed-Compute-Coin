@@ -186,24 +186,24 @@ int main()
 	walletInfo["Address"] = wallet;
 
 
-	std::cout << "\nTesting Encryption..." << std::endl;
-	std::string message = "Hello world!";
-	std::cout << "\nMessage: " << message << std::endl;
-	std::string encryptedVersion = rsa_pri_encrypt(message, keypair[1]);
-	std::cout << "\nEncrypted: " << encryptedVersion << std::endl;
-	std::string encodedVersion = encode64((const unsigned char*)encryptedVersion.c_str(), encryptedVersion.length());
-	std::cout << "\nEncoded: " << encodedVersion << std::endl;
-	//char sha256OutBufferss[65];
-	//sha256_string((char *)encryptedVersion.c_str(), sha256OutBufferss);
-	//std::string enHash = sha256OutBufferss;
-	//std::cout << "Encrypted hash: " << enHash << std::endl;
-	std::string decoded = decode64(encodedVersion);
-	std::cout << "\nDecoded: " << decoded << std::endl;
-	std::cout << "\nAre the same: " << (decoded == encryptedVersion) << std::endl;
-	std::string decryptedVersion = rsa_pub_decrypt(decoded, keypair[0]);
-	std::cout << "\nDecrypted: " << decryptedVersion << std::endl;
+	//// Encryption Test
+	//std::cout << "\nTesting Encryption..." << std::endl;
+	//std::string message = "Hello world!";
+	//std::cout << "\nMessage: " << message << std::endl;
+	//std::string encryptedVersion = rsa_pri_encrypt(message, keypair[1]);
+	//std::cout << "\nEncrypted: " << encryptedVersion << std::endl;
+	//std::string encodedVersion = encode64((const unsigned char*)encryptedVersion.c_str(), encryptedVersion.length());
+	//std::cout << "\nEncoded: " << encodedVersion << std::endl;
+	////char sha256OutBufferss[65];
+	////sha256_string((char *)encryptedVersion.c_str(), sha256OutBufferss);
+	////std::string enHash = sha256OutBufferss;
+	////std::cout << "Encrypted hash: " << enHash << std::endl;
+	//std::string decoded = decode64(encodedVersion);
+	//std::cout << "\nDecoded: " << decoded << std::endl;
+	//std::cout << "\nAre the same: " << (decoded == encryptedVersion) << std::endl;
+	//std::string decryptedVersion = rsa_pub_decrypt(decoded, keypair[0]);
+	//std::cout << "\nDecrypted: " << decryptedVersion << std::endl;
 
-	//return 0;
 
 
 	//// If previous config exists, load it. Else, ask for required information.
@@ -326,7 +326,7 @@ int main()
 			console.WriteLine("The difficulty is UNKNOWN");
 		}
 
-		console.Write("DCC >  ");
+		console.Write("Input >  ");
 		std::string command = console.ReadLine();
 
 		if (connectionStatus == 0)
@@ -363,7 +363,7 @@ int main()
 					continue;
 				}
 			}
-			catch (const std::exception&e)
+			catch (const std::exception& e)
 			{
 				console.WriteLine("Error sending : " + (std::string)e.what(), "", console.redFGColor);
 			}
@@ -487,12 +487,13 @@ void Help()
 
 Usage: miner [options]
 		 OR (while in interactive mode)
-	   DCC >  [options]
+	   Input >  [options]
 Options:
-  -h, --help						  Display this help menu
-  -s, --sync						  Manually re-sync blockchain
-  -m, --mine <amount>			      Mine <amount> number of blocks, defaults to 1 if not specified
-  -ma, --mineany <block num> <dif>	  (Debug) Mines the block specified by <block num> at the given difficulty <dif>
+  -h, --help                          Display this help menu
+  -s, --sync                          Manually re-sync blockchain
+  -m, --mine <amount>                 Mine <amount> number of blocks, defaults to 1 if not specified
+  -ma, --mineany <block num> <dif>    (Debug) Mines the block specified by <block num> at the given difficulty <dif>
+  -sn, --send <addr> <amount>         Sends the <amount> of DCC to a receiving address <addr>
 
 )V0G0N");
 }
@@ -819,6 +820,8 @@ bool IsChainValid()
 
 	float tmpFunds = 0;
 
+	console.BlockCheckerPrint();
+	console.WriteLine("Checking blocks...");
 
 	// Apply funds to user from the first block separately
 	try
@@ -829,7 +832,8 @@ bool IsChainValid()
 			buffer2 << th.rdbuf();
 			std::string content2 = buffer2.str();
 			json firstBlock = json::parse(content2);
-			std::cout << "content: " << content2 << "numoftrans: " << std::to_string(firstBlock["transactions"].size()) << std::endl;
+			console.BlockCheckerPrint();
+			//std::cout << "content: " << content2 << "\nnumoftrans: " << std::to_string(firstBlock["transactions"].size()) << std::endl;
 			//std::vector<std::string> o["transactions"] = o["transactions"];
 			//std::vector<uint64_t> o["transactionTimes"] = o["transactionTimes"];
 			for (int tr = 0; tr < firstBlock["transactions"].size(); tr++) {
@@ -850,6 +854,7 @@ bool IsChainValid()
 					tmpFunds += stof(transactionDetails[0]);
 				}
 			}
+			std::cout << "\nfunds: " + std::to_string(tmpFunds) << std::endl;
 		}
 	}
 	catch (const std::exception& e)
@@ -867,9 +872,15 @@ bool IsChainValid()
 			buffer << t.rdbuf();
 			std::string content = buffer.str();
 
+			bool changedBlockData=false;
 			json o = json::parse(content);
 			std::vector<std::string> trans = o["transactions"];
 			std::vector<uint64_t> transTimes = o["transactionTimes"];
+
+
+			//console.BlockCheckerPrint();
+			//std::cout << "Transactions: " << std::to_string(trans.size()) << std::endl;
+
 
 			if (o["Version"] == nullptr || o["Version"] == "" || o["Version"] != blockVersion)
 			{
@@ -882,9 +893,9 @@ bool IsChainValid()
 				}
 			}
 
-			std::string lastHash = o["LastHash"];
-			std::string currentHash = o["Hash"];
-			std::string nonce = o["Nonce"];
+			std::string lastHash = o["lastHash"];
+			std::string currentHash = o["hash"];
+			std::string nonce = o["nonce"];
 			std::string transactions = JoinArrayPieces(trans);
 
 
@@ -894,26 +905,33 @@ bool IsChainValid()
 			std::string nextBlockText = bufferd.str();
 			json o2 = json::parse(nextBlockText);
 
-			std::string nextHash = o2["LastHash"];
+			std::string nextHash = o2["lastHash"];
 
-			//if (o2["Version"] == nullptr || o2["Version"] == "" || o2["Version"] != blockVersion)
-			//{
-			//	UpgradeBlock(o, blockVersion);
-			//	std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i + 1) + ".dccblock");
-			//	if (blockFile.is_open())
-			//	{
-			//		blockFile << o.dump();
-			//		blockFile.close();
-			//	}
-			//}
+			if (o2["Version"] == nullptr || o2["Version"] == "" || o2["Version"] != blockVersion)
+			{
+				UpgradeBlock(o, blockVersion);
+				std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i + 1) + ".dccblock");
+				if (blockFile.is_open())
+				{
+					blockFile << o.dump();
+					blockFile.close();
+				}
+			}
 
-			console.BlockCheckerPrint();
-			console.WriteLine("Validating block: " + i);
+			console.WriteBulleted("Validating block: " + std::to_string(i), 1);
 			char sha256OutBuffer[65];
 			sha256_string((char*)(lastHash + transactions + nonce).c_str(), sha256OutBuffer);
 			std::string blockHash = sha256OutBuffer;
 			if ((blockHash[0] != '0' && blockHash[1] != '0') || blockHash != currentHash || blockHash != nextHash)
 			{
+				std::string rr = "";
+				if ((blockHash[0] != '0' && blockHash[1] != '0'))
+					rr = "0";
+				if (blockHash != currentHash)
+					rr = "1";
+				if (blockHash != nextHash)
+					rr = "1";
+				console.WriteLine("    X Bad Block X  " + std::to_string(i) + " R" + rr, console.redFGColor, "");
 				return false;
 			}
 			float tmpFunds2 = 0;
@@ -931,6 +949,7 @@ bool IsChainValid()
 				if (SplitString(transactionContent, "->")[1] != expectedWallet) {
 					trans.erase(trans.begin() + tr);
 					transTimes.erase(transTimes.begin() + tr);
+					changedBlockData = true;
 					continue;
 				}
 
@@ -943,19 +962,20 @@ bool IsChainValid()
 				std::string decryptedSig = rsa_pub_decrypt(signature, publicKey);
 
 				// The decrypted signature should be the same as the hash we just generated
-				if (decryptedSig == tranhash) {
+				if (decryptedSig != tranhash) {
 					trans.erase(trans.begin() + tr);
 					transTimes.erase(transTimes.begin() + tr);
+					console.Write("  Bad signature on T:" + std::to_string(tr), console.redFGColor, "");
 					continue;
 				}
 
 
 				// Now check if the sending or receiving address is the same as the user's
 				std::vector<std::string> transactionDetails = SplitString(transactionContent, "->");
-				if (transactionDetails.size() == 3) {
+				if (transactionDetails.size() >= 3) {
 					if ((std::string)walletInfo["Address"] == transactionDetails[1])
 						tmpFunds2 -= stof(transactionDetails[0]);
-					else if ((std::string)walletInfo["Address"] == transactionDetails[2])
+					if ((std::string)walletInfo["Address"] == TrimString(SplitString(transactionDetails[2], "|")[0]))
 						tmpFunds2 += stof(transactionDetails[0]);
 				}
 				else if ((std::string)walletInfo["Address"] == transactionDetails[1])
@@ -965,8 +985,34 @@ bool IsChainValid()
 			// Update the old transactions with the new ones
 			o["transactions"] = trans;
 			o["transactionTimes"] = transTimes;
+
+			// Save json data to file if it was changed
+			if (changedBlockData) {
+				try
+				{
+					std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
+					if (blockFile.is_open())
+					{
+						blockFile << o.dump();
+						blockFile.close();
+					}
+				}
+				catch (const std::exception& e)
+				{
+					std::cerr << e.what() << std::endl;
+					return 0;
+				}
+			}
+
 			// Update funds
 			tmpFunds += tmpFunds2;
+
+			console.Write("\tTransactions: " + std::to_string(trans.size()));
+
+			console.WriteLine(" \tOk  ", console.greenFGColor, "");
+
+			//console.BlockCheckerPrint();
+			//std::cout << "  funds: " + std::to_string(tmpFunds2) << std::endl;
 		}
 		catch (const std::exception& e)
 		{
@@ -974,7 +1020,7 @@ bool IsChainValid()
 			console.ExitError("Failure, exiting");
 		}
 	}
-	walletInfo["Funds"] = (float)walletInfo["Funds"] + tmpFunds;
+	walletInfo["Funds"] = tmpFunds;
 	return true;
 }
 
@@ -992,9 +1038,9 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 	{
 		auto startTime = std::chrono::steady_clock::now();
 
-		//console.RustPrint();
-		//console.WriteLine("Starting program... ");
-		//boost::process::child cargoProc = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + id + "/Cargo.toml");
+		console.RustPrint();
+		console.WriteLine("Starting program... ");
+		boost::process::child cargoProc = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + id + "/Cargo.toml");
 
 		//Checks Hash
 		int nonce = 0;
@@ -1020,16 +1066,16 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 			sha256_string((char*)(lastHash + transactionHistory + std::to_string(nonce)).c_str(), sha256OutBuffer);
 			hash = sha256OutBuffer;
 
-			/*if (!cargoProc.running())
-				break;*/
+			//if (!cargoProc.running())
+			//	break;
 		}
 
 		std::cout << std::endl;
 
-		//if (cargoProc.running())
-		//{
-		//	cargoProc.wait();
-		//}
+		if (cargoProc.running())
+		{
+			cargoProc.wait();
+		}
 
 		//console.Clear();
 
@@ -1091,7 +1137,7 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 			// Save new json data to file into finished blockchain folder
 			try
 			{
-				std::ofstream blockFilew("./wwwdata/pendingblocks/block" + std::to_string(blockNum+1) + ".dccblock");
+				std::ofstream blockFilew("./wwwdata/pendingblocks/block" + std::to_string(blockNum + 1) + ".dccblock");
 				if (blockFilew.is_open())
 				{
 					blockFilew << blockJson.dump();
@@ -1388,14 +1434,14 @@ boost::process::child ExecuteAsync(std::string cmd)
 		std::vector<std::string> splitCommand = SplitString(cmd, " ");
 		std::string command = splitCommand[0];
 		std::string args;
-		for (int i = 0; i < sizeof(splitCommand) / sizeof(splitCommand[0]); i++)
+		for (int i = 1; i < sizeof(splitCommand) / sizeof(splitCommand[0]); i++)
 		{
-			args += splitCommand[i];
+			args += splitCommand[i] + " ";
 		}
-		bp::child c(bp::search_path(cmd), args);
+		bp::child c(cmd);
 
 		std::cout << c.id() << std::endl;
-		// ... do something with ID ...
+
 		return c;
 	}
 	catch (const std::exception& e)

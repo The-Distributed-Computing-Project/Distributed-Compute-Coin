@@ -87,7 +87,7 @@ void Console::CompilerErrorPrint()
 void Console::BlockCheckerPrint()
 {
 	Console::PrintColored("[", yellowFGColor, "");
-	Console::PrintColored("Block-Checker", blackFGColor, cyanBGColor);
+	Console::PrintColored("Block-Checker", greenFGColor, cyanBGColor);
 	Console::PrintColored("]  - ", yellowFGColor, "");
 }
 void Console::DebugPrint()
@@ -132,6 +132,41 @@ void Console::Write(std::string message, std::string color)
 void Console::Write(std::string message, std::string fgColor, std::string bgColor)
 {
 	Console::PrintColored(message, fgColor, bgColor);
+}
+void Console::WriteIndented(std::string message, std::string fgColor, std::string bgColor, int indents)
+{
+	std::string ind = "";
+	for (size_t i = 0; i < indents; i++)
+		ind += "\t";
+	Console::PrintColored(ind + "  " + message, fgColor, bgColor);
+}
+void Console::WriteBulleted(std::string message, std::string fgColor, std::string bgColor, int indents, std::string bullet)
+{
+	std::string ind = "";
+	for (size_t i = 0; i < indents; i++)
+		ind += "\t";
+	Console::PrintColored(ind + bullet + " " + message, fgColor, bgColor);
+}
+void Console::WriteBulleted(std::string message, std::string fgColor, std::string bgColor, int indents)
+{
+	std::string ind = "";
+	for (size_t i = 0; i < indents; i++)
+		ind += "\t";
+	Console::PrintColored(ind + "- " + message, fgColor, bgColor);
+}
+void Console::WriteBulleted(std::string message, int indents, std::string bullet)
+{
+	std::string ind = "";
+	for (size_t i = 0; i < indents; i++)
+		ind += "\t";
+	Console::PrintColored(ind + bullet + " " + message, "", "");
+}
+void Console::WriteBulleted(std::string message, int indents)
+{
+	std::string ind = "";
+	for (size_t i = 0; i < indents; i++)
+		ind += "\t";
+	Console::PrintColored(ind + "- " + message, "", "");
 }
 //void Console::WriteDialogueAuthor(std::string coloredType)
 //{

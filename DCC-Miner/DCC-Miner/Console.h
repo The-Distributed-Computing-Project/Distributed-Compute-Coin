@@ -45,7 +45,7 @@ public:
 
 	std::string colorText(std::string name, std::string color);
 	std::string colorText(std::string name, std::string fgColor, std::string bgColor);
-	
+
 	void PrintColored(std::string text, std::string fgColor, std::string bgColor);
 
 	void NetworkPrint();
@@ -68,6 +68,11 @@ public:
 	void Write(std::string message, std::string color);
 	void Write(std::string message, std::string fgColor, std::string bgColor);
 	void WriteDialogueAuthor(std::string coloredType);
+	void WriteIndented(std::string message, std::string fgColor, std::string bgColor, int indents);
+	void WriteBulleted(std::string message, std::string fgColor, std::string bgColor, int indents, std::string bullet);
+	void WriteBulleted(std::string message, std::string fgColor, std::string bgColor, int indents);
+	void WriteBulleted(std::string message, int indents, std::string bullet);
+	void WriteBulleted(std::string message, int indents);
 
 	std::string ReadLine();
 

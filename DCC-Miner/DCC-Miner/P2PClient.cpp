@@ -87,16 +87,19 @@ void P2P::TaskRec()
 
 			if (iResult > 0) {
 				std::string textVal = std::string(buffer, buffer + iResult);
+				// If the peer is requesting to connect
 				if (textVal == "peer connect") {
 					console.WriteLine("Received initial connection, awaiting confirmation...", console.greenFGColor, "");
 					messageStatus = 1; // Awaiting confirmation status
 				}
+				// If the peer is requesting message received confirmation
 				else if (textVal == "peer success") {
 					console.WriteLine("Dual Confirmation", console.greenFGColor, "");
 					messageStatus = 2; // Confirmed message status, continue sending our own 
 					                   // confirmation for 4 times, then switch to idle state -1
 					CONNECTED_TO_PEER = true;
 				}
+				// If the peer is idling
 				else if (textVal == "peer idle") {
 					console.WriteLine("idle...", console.yellowFGColor, "");
 					//messageStatus = -1;
@@ -150,6 +153,7 @@ void P2P::TaskRec()
 			else {
 				console.NetworkErrorPrint();
 				console.WriteLine("Error: Peer closed.");
+				CONNECTED_TO_PEER = false;
 				break;
 			}
 
@@ -241,16 +245,16 @@ int P2P::StartP2P(std::string addr, std::string port)
 	//std::cout << "Peer IP:PORT combo > "; 
 	//std::cin >> otherIpPort;
 
-	console.NetworkPrint();
-	console.WriteLine("Asking server for PEER address...");
-	std::vector<std::string> args = {
-		"query=AskForConnection",
-		"ip_port=" + addr + ":" + port,
-		"last_tried_ip_port=none"
-	};
-	std::string httpOut = TrimString(http.StartHttpWebRequest("http://api.achillium.us.to/dcc/p2pconn.php?", args));
-	console.NetworkPrint();
-	console.WriteLine("HTTP returned: " + httpOut);
+	//console.NetworkPrint();
+	//console.WriteLine("Asking server for PEER address...");
+	//std::vector<std::string> args = {
+	//	"query=AskForConnection",
+	//	"ip_port=" + addr + ":" + port,
+	//	"last_tried_ip_port=none"
+	//};
+	//std::string httpOut = TrimString(http.StartHttpWebRequest("http://api.achillium.us.to/dcc/p2pconn.php?", args));
+	//console.NetworkPrint();
+	//console.WriteLine("HTTP returned: " + httpOut);
 
 	std::string last_tried_ip_port = "";
 	
@@ -266,7 +270,7 @@ int P2P::StartP2P(std::string addr, std::string port)
 			"ip_port=" + addr + ":" + port,
 			"last_tried_ip_port=" + last_tried_ip_port
 		};
-		httpOut = TrimString(http.StartHttpWebRequest("http://api.achillium.us.to/dcc/p2pconn.php?", args));
+		std::string httpOut = TrimString(http.StartHttpWebRequest("http://api.achillium.us.to/dcc/p2pconn.php?", args));
 
 		// If the request fails or no peers are found, try again after 3 seconds
 		if (httpOut == "" || httpOut.find("waiting") != std::string::npos || httpOut.find(addr + ":" + port) != std::string::npos)

@@ -123,6 +123,7 @@ void P2P::TaskRec()
 					if (SplitString(textVal, " ")[1] == "height"){
 						peerBlockchainLength = std::stoi(SplitString(textVal, " ")[2]);
 						messageStatus = 1;
+						console.WriteLine("answer height: " + std::to_string(peerBlockchainLength), console.greenFGColor, "");
 					}
 					// If peer is giving a block's data
 					else if (SplitString(textVal, " ")[1] == "block") {
@@ -144,9 +145,10 @@ void P2P::TaskRec()
 						{
 							std::cerr << e.what() << std::endl;
 						}
+						
+						console.WriteLine("answer block: " + std::to_string(num), console.greenFGColor, "");
 					}
 
-					console.WriteLine("answer " + SplitString(textVal, " ")[1], console.greenFGColor, "");
 				}
 				//console.WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + std::string(buffer, buffer + iResult));
 			}

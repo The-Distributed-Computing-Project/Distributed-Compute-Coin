@@ -9,12 +9,17 @@
 #include <boost/process.hpp>
 #include <chrono>
 #include "Network.h"
+#include "FileManip.h"
 
 #pragma comment(lib,"ws2_32.lib")
 
 const int BUFFERLENGTH = 1024;
 
 char buffer[BUFFERLENGTH];
+
+int reqDat = 0;
+int blockchainLength = 0;
+int peerBlockchainLength = 0;
 
 //SOCKET localSocket;
 SOCKADDR_IN otherAddr;
@@ -44,46 +49,110 @@ std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 }
 
 //void P2P::TaskRec()
-void P2P::TaskRec(unsigned int update_interval_millisecs)
+void P2P::TaskRec()
 {
 	Console console;
-	const auto wait_duration = std::chrono::milliseconds(update_interval_millisecs);
+	//const auto wait_duration = std::chrono::milliseconds(update_interval_millisecs);
 
 	SOCKADDR_IN remoteAddr;
 	int remoteAddrLen = sizeof(remoteAddr);
 
-	while (true)
+
+	struct timeval stTimeOut;
+	fd_set stReadFDS;
+	FD_ZERO(&stReadFDS);
+	stTimeOut.tv_sec = 3; // 3 second timeout
+	stTimeOut.tv_usec = 0;
+	FD_SET(localSocket, &stReadFDS);
+
+	while (!stop_thread_1)
 	{
+		//std::cerr << "\nstopthread status:" << (stop_thread_1 ? "true" : "false") << std::endl;
 		if (stop_thread_1)
 			return;
+		/*if (messageAttempt == 4)
+			return;*/
 
 		console.NetworkPrint();
 		console.WriteLine("Checking for requests...");
-		int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
-		//console.WriteLine("Checked, parsing " + iResult);
-
-		if (iResult > 0) {
-			if (std::string(buffer, buffer + iResult) == "peer connect") {
-				console.WriteLine("Received initial connection, awaiting confirmation...", console.greenFGColor, "");
-				CONNECTED_TO_PEER = true;
-				messageStatus = 1;
-			}
-			else if (std::string(buffer, buffer + iResult) == "peer success") {
-				console.WriteLine("Dual Connection Confirmation", console.greenFGColor, "");
-				messageStatus = 2;
-			}
-			std::cout << "received: " << NormalizedIPString(remoteAddr) << " -> " << std::string(buffer, buffer + iResult) << std::endl;
-		}
-		else {
+		int t = select(-1, &stReadFDS, 0, 0, &stTimeOut);
+		if (t == SOCKET_ERROR) {
 			console.NetworkErrorPrint();
-			console.WriteLine("Error: Peer closed.");
+			console.WriteLine("Error: Socket Error.");
 			break;
 		}
+		else {
+			int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
+			//console.WriteLine("Checked, parsing " + iResult);
 
-		//if (messageStatus==2)
-		//	return;
+			if (iResult > 0) {
+				std::string textVal = std::string(buffer, buffer + iResult);
+				if (textVal == "peer connect") {
+					console.WriteLine("Received initial connection, awaiting confirmation...", console.greenFGColor, "");
+					messageStatus = 1;
+				}
+				else if (textVal == "peer success") {
+					console.WriteLine("Dual Connection Confirmation", console.greenFGColor, "");
+					messageStatus = 2;
+					CONNECTED_TO_PEER = true;
+				}
+				// If peer is requesting data
+				else if (SplitString(textVal, " ")[0] == "request") {
+					// If peer is asking for blockchain height
+					if (SplitString(textVal, " ")[1] == "height")
+						messageStatus = 3;
+					// If peer is asking for a block's data
+					else if (SplitString(textVal, " ")[1] == "block") {
+						messageStatus = 4;
+						reqDat = std::stoi(SplitString(textVal, " ")[2]);
+					}
 
-		std::this_thread::sleep_for(wait_duration);
+					console.WriteLine("request " + std::to_string(messageStatus), console.greenFGColor, "");
+				}
+				// If peer is answering request
+				else if (SplitString(textVal, " ")[0] == "answer") {
+					// If peer is giving blockchain height
+					if (SplitString(textVal, " ")[1] == "height"){
+						peerBlockchainLength = std::stoi(SplitString(textVal, " ")[2]);
+						messageStatus = 1;
+					}
+					// If peer is giving a block's data
+					else if (SplitString(textVal, " ")[1] == "block") {
+						messageStatus = 1;
+						std::string blockData = SplitString(textVal, " ")[3];
+						int num = std::stoi(SplitString(textVal, " ")[2]);
+
+						// Save block data to file
+						try
+						{
+							std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(num) + ".dccblock");
+							if (blockFile.is_open())
+							{
+								blockFile << blockData;
+								blockFile.close();
+							}
+						}
+						catch (const std::exception& e)
+						{
+							std::cerr << e.what() << std::endl;
+						}
+					}
+
+					console.WriteLine("answer " + SplitString(textVal, " ")[1], console.greenFGColor, "");
+				}
+				//console.WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + std::string(buffer, buffer + iResult));
+			}
+			else {
+				console.NetworkErrorPrint();
+				console.WriteLine("Error: Peer closed.");
+				break;
+			}
+
+			//if (messageStatus==2)
+			//	return;
+
+			//std::this_thread::sleep_for(wait_duration);
+		}
 	}
 }
 
@@ -120,6 +189,8 @@ int P2P::StartP2P(std::string addr, std::string port)
 	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
 		return 0;
 	}
+
+	blockchainLength = FileCount("./wwwdata/blockchain/");
 
 	//SOCKADDR_IN serverAddr;
 	//serverAddr.sin_port = htons(6668);
@@ -212,8 +283,8 @@ int P2P::StartP2P(std::string addr, std::string port)
 		otherSize = sizeof(otherAddr);
 
 		// Listen to replies
-		const unsigned int update_interval = 50; // update after every 50 milliseconds
-		std::thread t1(&P2P::TaskRec, this, update_interval);
+		const unsigned int update_interval = 500; // update after every 500 milliseconds
+		std::thread t1(&P2P::TaskRec, this);
 
 		// Begin sending messages, and stop when a reply is received
 		for (messageAttempt = 0; messageAttempt < 15; messageAttempt++)
@@ -227,16 +298,20 @@ int P2P::StartP2P(std::string addr, std::string port)
 			console.NetworkPrint();
 			console.WriteLine("Attempt: " + std::to_string(messageAttempt) + "  |  Sending: " + msg);
 
-			sendto(localSocket, msg.c_str(), msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-			Sleep(3000);
-
+			// If doing peer confirmation
 			if (messageStatus == 2) {
+				sendto(localSocket, msg.c_str(), msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+				Sleep(3000);
+
 				console.WriteLine("Successful connection!", console.greenFGColor, "");
 
 				if (messageAttempt == 4) {
+					console.WriteLine("stopping thread...", console.yellowFGColor, "");
 					stop_thread_1 = true;
+					Sleep(8000);
 					t1.join();
 					stop_thread_1 = false;
+					console.WriteLine("stopped", console.yellowFGColor, "");
 
 					closesocket(localSocket);
 					WSACleanup();
@@ -245,6 +320,24 @@ int P2P::StartP2P(std::string addr, std::string port)
 
 					return 0;
 				}
+			}
+			// Else if replying to height request
+			else if (messageStatus == 3) {
+				msg = "answer height " + std::to_string(blockchainLength);
+				sendto(localSocket, msg.c_str(), msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+				Sleep(3000);
+			}
+			// Else if replying to block data request
+			else if (messageStatus == 4) {
+				// Open and read requested block
+				std::ifstream td("./wwwdata/blockchain/block" + std::to_string(reqDat) + ".dccblock");
+				std::stringstream bufferd;
+				bufferd << td.rdbuf();
+				std::string blockText = bufferd.str();
+
+				msg = "answer block " + std::to_string(reqDat) + TrimString(blockText);
+				sendto(localSocket, msg.c_str(), msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+				Sleep(3000);
 			}
 		}
 

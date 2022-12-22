@@ -1249,14 +1249,14 @@ int SendFunds(std::string toAddress, float amount)
 			}
 		}
 	}
-	std::cout << "checnkingfunds..." << std::endl;
+	//std::cout << "checnkingfunds..." << std::endl;
 	// Check if user even has enough funds for the transaction
 	if ((float)walletInfo["Funds"] < amount) {
 		console.MiningErrorPrint();
 		console.WriteLine("Not enough funds", "", console.redFGColor);
 		return 0;
 	}
-	std::cout << "done checnkingfunds..." << std::endl;
+	//std::cout << "done checnkingfunds..." << std::endl;
 
 	try
 	{

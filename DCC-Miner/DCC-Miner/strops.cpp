@@ -116,3 +116,16 @@ bool StringStartsWith(std::string str, std::string substr)
 	}
 	return true;
 }
+
+std::string ReplaceEscapeSymbols(std::string s)
+{
+	std::string out = "";
+	for (size_t i = 0; i < s.size(); i++)
+	{
+		if (s[i] == '\n')
+			out += "\\n";
+		else
+			out += s[i];
+	}
+	return out;
+}

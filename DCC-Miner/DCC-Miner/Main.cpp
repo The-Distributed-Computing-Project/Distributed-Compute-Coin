@@ -269,7 +269,8 @@ int main()
 	// Get public IP address and PORT
 	Http http;
 	std::vector<std::string> args;
-	std::string ipPortCombo = http.StartHttpWebRequest(serverURL + "/dcc/ipget.php", args);
+	std::string ipPortCombo = http.StartHttpWebRequest("https://api.ipify.org", args);
+	ipPortCombo += ":5000";
 	if (ipPortCombo != "")
 	{
 		endpointAddr = SplitString(ipPortCombo, ":")[0];

@@ -187,6 +187,29 @@ int main()
 	walletInfo["Address"] = wallet;
 
 
+	std::string line;
+	std::ifstream peerFile("./wwwdata/peerlist.txt");
+	// If the peer list file does not exist, create it
+	if(!peerFile)
+	{
+		std::cout<<"Error opening peer file"<< std::endl;
+		//system("pause");
+		//return -1;
+	
+		// Create the peer list file
+		std::ofstream peerFileW("./wwwdata/peerlist.txt");
+		if (peerFileW.is_open())
+		{
+			peerFileW << "";
+			peerFileW.close();
+		}
+		peerFileW.close();
+	}
+	else
+		while (std::getline(peerFile, line))
+			peerList.push_back(line);
+	peerFile.close();
+
 	//// Encryption Test
 	//std::cout << "\nTesting Encryption..." << std::endl;
 	//std::string message = "Hello world!";

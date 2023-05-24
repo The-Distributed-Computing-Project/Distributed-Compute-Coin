@@ -72,6 +72,7 @@ int mySendTo(int socket, std::string& s, int length, int flags, sockaddr* to, in
 		// if it was partially successful, advance down the string
 		// to the bit which didn't get sent, and try again
 		//std::cout << "sent " << std::to_string(n) << " of " << std::to_string(length) << std::endl;
+		console.NetworkPrint();
 		console.WriteLine("sent " + std::to_string(n) + " of " + std::to_string(length));
 		len -= n;
 		p += n;
@@ -528,7 +529,7 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 		}
 
 		console.NetworkError();
-		console.WriteLine("Bad connection, disconnected, or did not receive a reply in time", console.redFGColor, "");
+		console.WriteLine("Peer Timed out", console.redFGColor, "");
 
 		// Stop the current listening thread and continue
 		stop_thread_1 = true;

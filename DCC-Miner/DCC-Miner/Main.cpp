@@ -102,6 +102,7 @@ const std::string blockVersion = "v0.01alpha-coin";
 
 std::string endpointAddr = "";
 std::string endpointPort = "";
+std::string peerPort = "";
 
 //PHPServ phpserv = new PHPServ();
 //P2P p2p = new P2P();
@@ -479,7 +480,13 @@ int main()
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--CONNECT" || SplitString(ToUpper(command), " ")[0] == "-C")
 		{
-			p2p.StartP2P(endpointAddr, endpointPort);
+			if (SplitString(command, " ").size() < 3)
+				continue;
+			
+			endpointPort = SplitString(command, " ")[1];
+			peerPort = SplitString(command, " ")[2];
+			
+			p2p.StartP2P(endpointAddr, endpointPort, peerPort);
 			console.NetworkPrint();
 			console.WriteLine("Closed P2P");
 		}

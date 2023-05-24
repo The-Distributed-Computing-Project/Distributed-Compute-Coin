@@ -253,7 +253,7 @@ int P2P::SafeSend(SOCKET s, char* buf, int buflen)
 	return 0;
 }
 
-int P2P::StartP2P(std::string addr, std::string port)
+int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 {
 	Console console;
 	Http http;
@@ -308,7 +308,7 @@ int P2P::StartP2P(std::string addr, std::string port)
 
 	bool notFound = true;
 
-	std::string otherIpPort;
+	std::string otherIpPort = peerPort;
 	//std::cout << "Peer IP:PORT combo > "; 
 	//std::cin >> otherIpPort;
 

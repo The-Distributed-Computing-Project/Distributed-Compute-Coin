@@ -7,12 +7,28 @@
 #define WINDOWS true
 #endif
 
+#define MULTITHREADED_SAFE true
+
 
 #include <iostream>
 #include <string>
 #include <vector>
+#include <queue>
 #include "Console.h"
 #include "include/color.hpp"
+
+
+std::queue<std::string> printQueue;
+
+void ConsoleQueueHandle(){
+	while (!printQueue.empty())
+	{
+		// Output front of the queue
+		std::cout << printQueue.front() << std::endl;
+		// Pop the queue item
+		printQueue.pop();
+	}	
+}
 
 std::string Console::colorText(std::string name, std::string color) {
 	return color + name + resetColor;
@@ -42,9 +58,19 @@ void Console::PrintColored(std::string text, std::string fgColor, std::string bg
 		fg = dye::aqua(text);
 	else if (fgColor == whiteFGColor)
 		fg = dye::white(text);
+	#if MULTITHREADED_SAFE
+	printQueue.push(fg);
+	ConsoleQueueHandle();
+	#else
 	std::cout << fg;
+	#endif
 #else
+	#if MULTITHREADED_SAFE
+	printQueue.push(fgColor + bgColor + name + resetColor);
+	ConsoleQueueHandle();
+	#else
 	cout << fgColor + bgColor + name + resetColor;
+	#endif
 #endif
 }
 
@@ -105,11 +131,21 @@ void Console::ErrorPrint()
 
 void Console::WriteLine()
 {
+	#if MULTITHREADED_SAFE
+	printQueue.push("\n");
+	ConsoleQueueHandle();
+	#else
 	std::cout << std::endl;
+	#endif
 }
 void Console::WriteLine(std::string message)
 {
+	#if MULTITHREADED_SAFE
+	printQueue.push(message + "\n");
+	ConsoleQueueHandle();
+	#else
 	std::cout << message << std::endl;
+	#endif
 }
 void Console::WriteLine(std::string message, std::string fgColor, std::string bgColor)
 {
@@ -119,11 +155,17 @@ void Console::WriteLine(std::string message, std::string fgColor, std::string bg
 
 void Console::Write()
 {
-	std::cout;
+	//std::cout;
+	ConsoleQueueHandle();
 }
 void Console::Write(std::string message)
 {
+	#if MULTITHREADED_SAFE
+	printQueue.push(message);
+	ConsoleQueueHandle();
+	#else
 	std::cout << message;
+	#endif
 }
 void Console::Write(std::string message, std::string color)
 {

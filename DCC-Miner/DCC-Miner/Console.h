@@ -78,6 +78,9 @@ public:
 
 	void ExitError(std::string errMessage);
 
+
+	std::queue<std::string> *printQueue;
+	
 	//Console();
 };
 

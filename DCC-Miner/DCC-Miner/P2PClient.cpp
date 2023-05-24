@@ -51,6 +51,8 @@ std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 
 // Send full message safely
 int mySendTo(int socket, std::string& s, int length, int flags, sockaddr* to, int toLen) {
+	Console console;
+	
 	const char* p = s.c_str();
 	size_t len = s.length();
 	size_t n;
@@ -58,7 +60,8 @@ int mySendTo(int socket, std::string& s, int length, int flags, sockaddr* to, in
 		// successfully sent some (possibly all) of the message
 		// if it was partially successful, advance down the string
 		// to the bit which didn't get sent, and try again
-		std::cout << "sent " << std::to_string(n) << " of " << std::to_string(length) << std::endl;
+		//std::cout << "sent " << std::to_string(n) << " of " << std::to_string(length) << std::endl;
+		console.WriteLine("sent " + std::to_string(n) + " of " + std::to_string(length));
 		len -= n;
 		p += n;
 		n = 1;
@@ -66,12 +69,16 @@ int mySendTo(int socket, std::string& s, int length, int flags, sockaddr* to, in
 	if (n == 0) {
 		// a send call failed to make any progress through the data
 		// or perhaps len itself was 0 to start with.
-		std::cout << "Send failed" << std::endl;
+		//std::cout << "Send failed" << std::endl;
+		console.NetworkErrorPrint();
+		console.WriteLine("Send failed");
 	}
 	if (n < 0) {
 		// look at errno to determine what went wrong
 		// some values like EAGAIN and EINTR may be worth a 2nd attempt
-		std::cout << "Send failed, errno: " << std::to_string(n) << std::endl;
+		//std::cout << "Send failed, errno: " << std::to_string(n) << std::endl;
+		console.NetworkErrorPrint();
+		console.WriteLine("Send failed, errno: " + std::to_string(n));
 	}
 	return n;
 }

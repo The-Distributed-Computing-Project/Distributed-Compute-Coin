@@ -136,7 +136,8 @@ void P2P::TaskRec(int update_interval)
 				//console.WriteLine("Checking for requests...");
 			int t = select(-1, &stReadFDS, 0, 0, &stTimeOut);
 			std::cerr << ("monitoring... ") << std::to_string(messageStatus) << std::endl;
-			if (t == SOCKET_ERROR) {
+			if (false) {
+			//if (t == SOCKET_ERROR) {
 				console.NetworkErrorPrint();
 				console.WriteLine("Error: Socket Error, trying again...");
 				break;
@@ -146,7 +147,7 @@ void P2P::TaskRec(int update_interval)
 				//console.WriteLine("Checked, parsing " + iResult);
 				std::cout << "iResult: " << std::to_string(iResult) << std::endl;
 				if (iResult > 0) {
-					std::string textVal = std::string(buffer);
+					std::string textVal = std::string(buffer, buffer + iResult);
 					// If the peer is requesting to connect
 					if (textVal == "peer$$$connect") {
 						console.WriteLine("Received initial connection, awaiting confirmation...", console.greenFGColor, "");
@@ -212,7 +213,7 @@ void P2P::TaskRec(int update_interval)
 						messageAttempt = 0;
 
 					}
-					console.WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + std::string(buffer, buffer + iResult));
+					console.WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + std::string(buffer, buffer + iResult) + "\t status: " + std::to_string(messageStatus));
 				}
 				else {
 					console.NetworkErrorPrint();

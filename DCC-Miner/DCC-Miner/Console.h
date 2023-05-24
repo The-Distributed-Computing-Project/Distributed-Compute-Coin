@@ -79,7 +79,7 @@ public:
 	void ExitError(std::string errMessage);
 
 
-	std::queue<std::string> *printQueue;
+	extern std::queue<std::string> printQueue;
 	
 	//Console();
 };

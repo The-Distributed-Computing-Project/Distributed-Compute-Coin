@@ -145,17 +145,19 @@ void P2P::TaskRec(int update_interval)
 			else {
 				int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
 				//console.WriteLine("Checked, parsing " + iResult);
-				std::cout << "iResult: " << std::to_string(iResult) << std::endl;
+				//std::cout << "iResult: " << std::to_string(iResult) << std::endl;
 				if (iResult > 0) {
 					std::string textVal = std::string(buffer, buffer + iResult);
 					// If the peer is requesting to connect
 					if (textVal == "peer$$$connect") {
+						console.DebugPrint();
 						console.WriteLine("Received initial connection, awaiting confirmation...", console.greenFGColor, "");
 						messageStatus = 1; // Awaiting confirmation status
 						messageAttempt = 0;
 					}
 					// If the peer is requesting message received confirmation
 					else if (textVal == "peer$$$success" && (messageStatus >= 0)) {
+						console.DebugPrint();
 						console.WriteLine("Dual Confirmation", console.greenFGColor, "");
 						messageStatus = 2; // Confirmed message status, continue sending our own 
 										   // confirmation for 4 times, then switch to idle state -1
@@ -163,6 +165,7 @@ void P2P::TaskRec(int update_interval)
 					}
 					// If the peer is idling
 					else if (textVal == "peer$$$idle") {
+						console.DebugPrint();
 						console.WriteLine("idle...", console.yellowFGColor, "");
 						//messageStatus = -1;
 					}
@@ -463,7 +466,8 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 			else if (!noinput) {
 				// Request console input
 				std::string inputCmd = "";
-				std::cout << "Network Input*>  ";
+				console.Write("P2P Shell $  ");
+				//std::cout << "Network Input*>  ";
 				std::getline(std::cin, inputCmd);
 
 				// Reset attempts to 0, since we are currently not sending messages
@@ -493,7 +497,9 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 				}
 				else {
 					messageStatus = -1;
-					std::cout << "Command not found: \"" + inputCmd + "\"\n";
+					console.ErrorPrint();
+					console.WriteLine("Command not found: \"" + inputCmd + "\"");
+					//std::cout << "Command not found: \"" + inputCmd + "\"\n";
 				}
 			}
 			else {

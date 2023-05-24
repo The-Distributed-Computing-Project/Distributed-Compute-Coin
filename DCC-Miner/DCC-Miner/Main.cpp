@@ -505,8 +505,11 @@ Options:
   -h, --help                          Display this help menu
   -s, --sync                          Manually re-sync blockchain
   -m, --mine <amount>                 Mine <amount> number of blocks, defaults to 1 if not specified
-  -ma, --mineany <block num> <dif>    (Debug) Mines the block specified by <block num> at the given difficulty <dif>
+  -ma, --mineany <block num> <dif>    (Debug) Mines the block specified by <block num> at the given 
+                                      difficulty <dif>
   -sn, --send <addr> <amount>         Sends the <amount> of DCC to a receiving address <addr>
+  -c, --connect <local> <peer>        Opens manual shell for a oeer connection, reveiving at the port
+                                      <local> and sending to the peer's port at <peer>
 
 )V0G0N");
 }

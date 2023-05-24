@@ -25,7 +25,7 @@ void ConsoleQueueHandle(){
 	while (!printQueue.empty())
 	{
 		// Output front of the queue
-		std::cout << printQueue.front() << std::endl;
+		std::cout << printQueue.front();
 		// Pop the queue item
 		printQueue.pop();
 	}	

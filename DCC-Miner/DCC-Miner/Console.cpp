@@ -18,6 +18,8 @@
 #include "include/color.hpp"
 
 
+std::queue<std::string> printQueue;
+
 
 void ConsoleQueueHandle(){
 	while (!printQueue.empty())

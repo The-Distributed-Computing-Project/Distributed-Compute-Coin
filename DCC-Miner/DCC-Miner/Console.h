@@ -1,6 +1,10 @@
 #ifndef console_h
 #define console_h
 
+// Declare the global print queue
+extern std::queue<std::string> printQueue;
+
+
 class Console
 {
 public:
@@ -78,8 +82,6 @@ public:
 
 	void ExitError(std::string errMessage);
 
-
-	extern std::queue<std::string> printQueue;
 	
 	//Console();
 };

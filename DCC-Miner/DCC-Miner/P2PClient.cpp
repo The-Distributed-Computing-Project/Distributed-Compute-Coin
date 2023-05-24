@@ -28,6 +28,17 @@ std::atomic_bool stop_thread_1 = false;
 std::atomic_bool thread_running = false;
 //Console console;
 
+enum MsgStatus{
+	idle = -1,
+	initial_connect_request = 0,
+	await_first_success = 1,
+	await_second_success = 2,
+	replying_height = 3,
+	replying_block = 4,
+	requesting_height = 5,
+	requesting_block = 6
+};
+
 std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 	char host[16];
 	ZeroMemory(host, 16);
@@ -159,14 +170,14 @@ void P2P::TaskRec(int update_interval)
 					if (textVal == "peer$$$connect") {
 						console.DebugPrint();
 						console.WriteLine("Received initial connection, awaiting confirmation...", console.greenFGColor, "");
-						messageStatus = 1; // Awaiting confirmation status
+						messageStatus = await_first_success; // Awaiting confirmation status
 						messageAttempt = 0;
 					}
 					// If the peer is requesting message received confirmation
 					else if (textVal == "peer$$$success" && (messageStatus >= 0)) {
 						console.DebugPrint();
 						console.WriteLine("Dual Confirmation", console.greenFGColor, "");
-						messageStatus = 2; // Confirmed message status, continue sending our own 
+						messageStatus = await_second_success; // Confirmed message status, continue sending our own 
 										   // confirmation for 4 times, then switch to idle state -1
 						CONNECTED_TO_PEER = true;
 					}
@@ -180,10 +191,10 @@ void P2P::TaskRec(int update_interval)
 					else if (SplitString(textVal, "$$$")[0] == "request") {
 						// If peer is asking for blockchain height
 						if (SplitString(textVal, "$$$")[1] == "height")
-							messageStatus = 3;
+							messageStatus = replying_height;
 						// If peer is asking for a block's data
 						else if (SplitString(textVal, "$$$")[1] == "block") {
-							messageStatus = 4;
+							messageStatus = replying_block;
 							reqDat = std::stoi(SplitString(textVal, "$$$")[2]);
 						}
 
@@ -194,12 +205,12 @@ void P2P::TaskRec(int update_interval)
 						// If peer is giving blockchain height
 						if (SplitString(textVal, "$$$")[1] == "height") {
 							peerBlockchainLength = std::stoi(SplitString(textVal, "$$$")[2]);
-							messageStatus = 1;
+							messageStatus = await_first_success;
 							console.WriteLine("answer height: " + std::to_string(peerBlockchainLength), console.greenFGColor, "");
 						}
 						// If peer is giving a block's data
 						else if (SplitString(textVal, "$$$")[1] == "block") {
-							messageStatus = 1;
+							messageStatus = await_first_success;
 							int num = std::stoi(SplitString(textVal, "$$$")[2]);
 							std::string blockData = SplitString(textVal, "$$$")[3];
 
@@ -353,13 +364,13 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 		if (httpOut == "" || httpOut.find("waiting") != std::string::npos || httpOut.find(addr + ":" + port) != std::string::npos)
 		{
 			console.NetworkPrint();
-			console.WriteLine("Failed, waiting 3 sec to ask for a peer...");
+			console.WriteLine("No peers found, waiting 3 sec to ask again...");
 			Sleep(3000); // Wait 3 seconds until next request
 			continue;
 		}
 
 		console.NetworkPrint();
-		console.WriteLine("HTTP2 returned: " + httpOut);
+		console.WriteLine("Server returned: " + httpOut);
 
 		otherIpPort = httpOut;
 		last_tried_ip_port = otherIpPort;
@@ -385,7 +396,7 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 			//while (true)
 		{
 			// If not in idle state, continue sending messages
-			if (messageStatus != -1 && !(noinput && messageStatus == 6)) {
+			if (messageStatus != idle && !(noinput && messageStatus == requesting_block)) {
 				std::string msg = "";
 				//int err = SafeSend(localSocket, msgConvert, msg.length());
 				//std::cout << err << std::endl;
@@ -394,13 +405,13 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 				console.Write("Send attempt: " + std::to_string(messageAttempt) + "  :  ");
 
 				// If doing initial connect request
-				if (messageStatus == 0) {
+				if (messageStatus == await_first_success) {
 					msg = "peer$$$connect";
 					console.Write(msg + "\n");
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 				}
 				// If doing peer confirmation
-				else if ((messageStatus == 0 || messageStatus == 1 || messageStatus == 2)) {
+				else if ((messageStatus == initial_connect_request || messageStatus == await_first_success || messageStatus == await_second_success)) {
 					msg = "peer$$$success";
 					console.Write(msg + "\n");
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -409,7 +420,7 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 
 					if (messageAttempt >= 4) {
 						// After multiple confirmations have been sent, switch back to idle mode
-						messageStatus = -1;
+						messageStatus = idle;
 						messageAttempt = 0;
 						//noinput = false;
 						continue;
@@ -429,13 +440,13 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 					}
 				}
 				// Else if replying to height request
-				else if (messageStatus == 3) {
+				else if (messageStatus == replying_height) {
 					msg = "answer$$$height$$$" + std::to_string(blockchainLength);
 					console.Write(msg + "\n");
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 				}
 				// Else if replying to block data request
-				else if (messageStatus == 4) {
+				else if (messageStatus == replying_block) {
 					// Open and read requested block
 					std::ifstream td("./wwwdata/blockchain/block" + std::to_string(reqDat) + ".dccblock");
 					std::stringstream bufferd;
@@ -450,7 +461,7 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 					Sleep(3000);
 				}
 				// Else if requesting chain height
-				else if (messageStatus == 5) {
+				else if (messageStatus == requesting_height) {
 					msg = "request$$$height";
 					console.Write(msg + "\n");
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -458,7 +469,7 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 					//Sleep(3000);
 				}
 				// Else if requesting block data
-				else if (messageStatus == 6) {
+				else if (messageStatus == requesting_block) {
 					msg = "request$$$block$$$" + std::to_string(reqDat);
 					console.Write(msg + "\n");
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -488,13 +499,13 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 
 				// If user inputted `height` command
 				if (cmdArgs[0] == "height") {
-					messageStatus = 5;
+					messageStatus = requesting_height;
 					messageAttempt = 0;
 				}
 				// If user inputted `syncblock` command, and an argument
 				else if (cmdArgs[0] == "syncblock" && cmdArgs.size() >= 2) {
 					reqDat = std::stoi(cmdArgs[1]); // Block number is the first argument
-					messageStatus = 6;
+					messageStatus = requesting_block;
 					messageAttempt = 0;
 					Sleep(1000);
 				}
@@ -503,7 +514,7 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 					noinput = true;
 				}
 				else {
-					messageStatus = -1;
+					messageStatus = idle;
 					console.ErrorPrint();
 					console.WriteLine("Command not found: \"" + inputCmd + "\"");
 					//std::cout << "Command not found: \"" + inputCmd + "\"\n";
@@ -512,10 +523,12 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 			else {
 				messageAttempt = 0;
 				console.WriteLine("listener status: " + std::to_string(thread_running));
+				Sleep(1000);
 			}
 		}
 
-		console.WriteLine("Unsuccessful connection, trying other peer", console.redFGColor, "");
+		console.NetworkError();
+		console.WriteLine("Bad connection, disconnected, or did not receive a reply in time", console.redFGColor, "");
 
 		// Stop the current listening thread and continue
 		stop_thread_1 = true;

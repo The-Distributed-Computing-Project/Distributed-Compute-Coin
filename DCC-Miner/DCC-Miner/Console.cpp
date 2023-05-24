@@ -18,7 +18,7 @@
 #include "include/color.hpp"
 
 
-std::queue<std::string> printQueue;
+//std::queue<std::string> printQueue;
 
 
 void ConsoleQueueHandle(){

@@ -26,4 +26,6 @@
 #include "strops.h"
 #include "crypto.h"
 
+extern string[] peerList;
+
 #endif

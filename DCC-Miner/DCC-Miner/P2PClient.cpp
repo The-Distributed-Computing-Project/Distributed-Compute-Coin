@@ -36,7 +36,8 @@ enum MsgStatus{
 	replying_height = 3,
 	replying_block = 4,
 	requesting_height = 5,
-	requesting_block = 6
+	requesting_block = 6,
+	requesting_peer_list = 7
 };
 
 std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
@@ -154,7 +155,7 @@ void P2P::TaskRec(int update_interval)
 				//console.NetworkPrint();
 				//console.WriteLine("Checking for requests...");
 			int t = select(-1, &stReadFDS, 0, 0, &stTimeOut);
-			std::cerr << ("monitoring... ") << std::to_string(messageStatus) << std::endl;
+			//std::cerr << ("monitoring... ") << std::to_string(messageStatus) << std::endl;
 			if (false) {
 			//if (t == SOCKET_ERROR) {
 				console.NetworkErrorPrint();
@@ -198,6 +199,9 @@ void P2P::TaskRec(int update_interval)
 							messageStatus = replying_block;
 							reqDat = std::stoi(SplitString(textVal, "$$$")[2]);
 						}
+						// If peer is asking for this peer's peerList
+						else if (SplitString(textVal, "$$$")[1] == "peerlist")
+							messageStatus = replying_peerlist;
 
 						console.WriteLine("request " + std::to_string(messageStatus), console.greenFGColor, "");
 					}
@@ -208,6 +212,24 @@ void P2P::TaskRec(int update_interval)
 							peerBlockchainLength = std::stoi(SplitString(textVal, "$$$")[2]);
 							messageStatus = await_first_success;
 							console.WriteLine("answer height: " + std::to_string(peerBlockchainLength), console.greenFGColor, "");
+						}
+						// If peer is giving peer list
+						else if (SplitString(textVal, "$$$")[1] == "peerlist") {
+							std::vector<std::string> receivedPeers = SplitString(SplitString(textVal, "$$$")[2], ",");
+							// Iterate all received peers, and only add them to our list if it is not already on it
+							for(int x = 0; x < receivedPeers.size(); x++){
+								bool wasFound = false;
+								for(int y = 0; y < peerList.size(); y++){
+									if(receivedPeers[x] == peerList[y]){
+										wasFound = true;
+										break;
+									}
+								}
+								if(wasFound == true)
+									peerList.push_back(receivedPeers[x]);
+							}
+							messageStatus = await_first_success;
+							//console.WriteLine("answer peerlist: " + std::to_string(peerBlockchainLength), console.greenFGColor, "");
 						}
 						// If peer is giving a block's data
 						else if (SplitString(textVal, "$$$")[1] == "block") {
@@ -461,6 +483,17 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 					Sleep(3000);
 				}
+				// Else if replying to peer list request
+				else if (messageStatus == replying_peer_list) {
+					std::string totalPeersString = "";
+					for(int i = 0; i < peerList.size() && i < 10; i++)
+						totalPeersString += peerList[i] + ((i == peerList.size()-1 || i == 9) ? "" : ",");
+					
+					msg = "answer$$$peerlist$$$" + totalPeersString;
+					console.Write(msg + "\n");
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+					Sleep(3000);
+				}
 				// Else if requesting chain height
 				else if (messageStatus == requesting_height) {
 					msg = "request$$$height";
@@ -476,7 +509,16 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 					// Wait extra 3 seconds
 					Sleep(3000);
-					noinput = true;
+					//noinput = true;
+				}
+				// Else if requesting peer list
+				else if (messageStatus == requesting_peer_list) {
+					msg = "request$$$peerlist";
+					console.Write(msg + "\n");
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+					//// Wait extra 3 seconds
+					//Sleep(3000);
+					//noinput = true;
 				}
 				// Wait 3 seconds before sending next message
 				Sleep(3000);
@@ -513,6 +555,11 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 				// If user inputted `noinput` command, stop requesting console input so the main thread is free to reply
 				else if (cmdArgs[0] == "noinput") {
 					noinput = true;
+				}
+				// If user inputted `syncpeers` command, request a list of known peers from the connection
+				else if (cmdArgs[0] == "syncpeers") {
+					messageStatus = requesting_peer_list;
+					messageAttempt = 0;
 				}
 				else {
 					messageStatus = idle;

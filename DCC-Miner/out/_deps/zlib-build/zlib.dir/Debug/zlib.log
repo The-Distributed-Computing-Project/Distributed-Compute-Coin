@@ -1,0 +1,43 @@
+﻿  Building Custom Rule D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/zlib-src/CMakeLists.txt
+  adler32.c
+  chunkset.c
+  compare258.c
+  compress.c
+  crc32.c
+  crc32_comb.c
+  deflate.c
+  deflate_fast.c
+  deflate_medium.c
+  deflate_quick.c
+  deflate_slow.c
+  functable.c
+  infback.c
+  inffast.c
+  inflate.c
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\zlib-src\inflate.c(1215,22): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\zlib-src\inflate.c(1216,23): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data
+  inftrees.c
+  insert_string.c
+  trees.c
+  uncompr.c
+  zutil.c
+  Generating Code...
+  Compiling...
+  x86.c
+  slide_avx.c
+  chunkset_avx.c
+  compare258_avx.c
+  adler32_avx.c
+  insert_string_sse.c
+  compare258_sse.c
+  chunkset_sse.c
+  slide_sse.c
+  adler32_ssse3.c
+  crc_folding.c
+  gzlib.c
+  gzread.c
+  gzwrite.c
+  Generating Code...
+  Auto build dll exports
+     Creating library D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/zlib-build/Debug/zlib.lib and object D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/zlib-build/Debug/zlib.exp
+  zlib.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\Debug\zlib.dll

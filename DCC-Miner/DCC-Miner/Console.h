@@ -1,8 +1,10 @@
 #ifndef console_h
 #define console_h
 
+#include <queue>
+
 // Declare the global print queue
-extern std::queue<std::string> printQueue;
+extern std::queue<std::ostream> printQueue;
 
 
 class Console

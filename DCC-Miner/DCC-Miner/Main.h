@@ -26,6 +26,4 @@
 #include "strops.h"
 #include "crypto.h"
 
-extern std::vector<std::string> peerList;
-
 #endif

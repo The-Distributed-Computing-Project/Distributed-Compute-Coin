@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-subbuild\CMakeFiles\7e983cc7ebf7dda955d90ba81214dbc9\curl-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-subbuild\CMakeFiles\7e983cc7ebf7dda955d90ba81214dbc9\curl-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-subbuild\CMakeFiles\7e983cc7ebf7dda955d90ba81214dbc9\curl-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-subbuild\CMakeFiles\7e983cc7ebf7dda955d90ba81214dbc9\curl-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-subbuild\CMakeFiles\7e983cc7ebf7dda955d90ba81214dbc9\curl-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-subbuild\CMakeFiles\7e983cc7ebf7dda955d90ba81214dbc9\curl-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-subbuild\CMakeFiles\7e983cc7ebf7dda955d90ba81214dbc9\curl-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-subbuild\CMakeFiles\7e983cc7ebf7dda955d90ba81214dbc9\curl-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-subbuild\CMakeFiles\5b28accdc277ab838150c8489b49d2a4\curl-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-subbuild\CMakeFiles\032ca1c2d964c38cab332534d949b2cc\curl-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-subbuild\CMakeFiles\curl-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{96A7E4C0-A565-3587-ABE7-FAA86ACD989E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\auth.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\bearer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\cookies.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\cprtypes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\curl_container.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\curlholder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\error.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\multipart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\parameters.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\payload.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\proxies.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\proxyauth.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\session.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\timeout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\unix_socket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\response.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\redirect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\auth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\bearer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\body.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\cookies.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\cpr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\cprtypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\curlholder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\digest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\error.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\limit_rate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\multipart.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\ntlm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\parameters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\payload.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\proxies.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\proxyauth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\response.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\session.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\ssl_options.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\timeout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\unix_socket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\verbose.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\interface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\redirect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include\cpr\http_version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes\cpr\cprver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{EFE926DF-8596-312F-99F0-0BAE5EEF4D8E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B8A84EDC-D466-3D40-896B-13265076C5C2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

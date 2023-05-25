@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/zlib-subbuild/CMakeFiles/zlib-populate"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/zlib-subbuild/CMakeFiles/1d3434accf2fb799193d778ed346616e/zlib-populate.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/zlib-subbuild/CMakeFiles/b3ef93796e3a6ce094453a47b885e989/zlib-populate-complete.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/zlib-subbuild/CMakeFiles/d6e76ac192c03f3511f66fe515258aac/zlib-populate-build.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/zlib-subbuild/CMakeFiles/d6e76ac192c03f3511f66fe515258aac/zlib-populate-configure.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/zlib-subbuild/CMakeFiles/d6e76ac192c03f3511f66fe515258aac/zlib-populate-download.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/zlib-subbuild/CMakeFiles/d6e76ac192c03f3511f66fe515258aac/zlib-populate-install.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/zlib-subbuild/CMakeFiles/d6e76ac192c03f3511f66fe515258aac/zlib-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/zlib-subbuild/CMakeFiles/d6e76ac192c03f3511f66fe515258aac/zlib-populate-patch.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/zlib-subbuild/CMakeFiles/d6e76ac192c03f3511f66fe515258aac/zlib-populate-test.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/zlib-subbuild/CMakeFiles/d6e76ac192c03f3511f66fe515258aac/zlib-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"zlib-populate"
+		],
+		"name" : "zlib-populate"
+	}
+}

@@ -2,6 +2,11 @@
 #define p2pclient_h
 
 #include <string>
+#include <vector>
+
+
+extern std::vector<std::string> peerList;
+
 
 class P2P
 {

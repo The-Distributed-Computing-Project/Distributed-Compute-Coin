@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\DCC-Miner",
+    "\\DCC-Miner\\out",
+    "\\DCC-Miner\\out\\CMakeFiles",
+    "\\DCC-Miner\\out\\CMakeFiles\\3.21.4",
+    "\\DCC-Miner\\out\\CMakeFiles\\3.21.4\\CompilerIdC",
+    "\\DCC-Miner\\out\\_deps",
+    "\\DCC-Miner\\out\\_deps\\cpr-subbuild",
+    "\\DCC-Miner\\out\\_deps\\curl-build",
+    "\\DCC-Miner\\out\\_deps\\zlib-build"
+  ],
+  "SelectedNode": "\\DCC-Miner\\out\\_deps\\cpr-subbuild\\cpr-populate.sln",
+  "PreviewInSolutionExplorer": false
+}

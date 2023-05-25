@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\a23442ac99c25e90ba9c8f7121efefa3\uninstall.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-build\CMakeFiles\uninstall" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{C9042D10-88DF-3F03-9CFC-4C4492B2A348}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

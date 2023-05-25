@@ -35,7 +35,7 @@ set(Boost_ADDITIONAL_VERSIONS 1.78.0 1.78)
 set(Boost_USE_STATIC_LIBS OFF) 
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF) 
-FIND_PACKAGE(Boost 1.78.0 COMPONENTS program_options) 
+FIND_PACKAGE(Boost 1.78.0 REQUIRED) 
 include_directories(${Boost_INCLUDE_DIRS}) 
 
 
@@ -57,7 +57,7 @@ include_directories(${CURL_INCLUDE_DIR})
 set(OPENSSL_USE_STATIC_LIBS TRUE)
 find_package(OpenSSL REQUIRED)
 
-target_link_libraries(DCC-Miner ${CURL_LIBRARY} ${Boost_LIBRARIES} OpenSSL::SSL cpr::cpr OpenSSL::Crypto)
+target_link_libraries(DCC-Miner ${CURL_LIBRARY} ${Boost_LIBRARIES} "D:\\Code\\boost\\stage\\lib\\libboost_filesystem-vc143-mt-gd-x64-1_78.lib" OpenSSL::SSL cpr::cpr OpenSSL::Crypto)
 
 #set(ELZIP_LIBRARY include/lib/libcurl_a_debug)
 #target_link_libraries(DCC-Miner )

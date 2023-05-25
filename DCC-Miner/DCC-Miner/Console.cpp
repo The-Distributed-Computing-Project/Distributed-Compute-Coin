@@ -7,25 +7,28 @@
 #define WINDOWS true
 #endif
 
-#define MULTITHREADED_SAFE true
+#define MULTITHREADED_SAFE false
 
 
 #include <iostream>
 #include <string>
 #include <vector>
 #include <queue>
+#include <sstream>
 #include "Console.h"
 #include "include/color.hpp"
 
 
-//std::queue<std::string> printQueue;
+std::queue<std::ostream> printQueue;
 
 
 void ConsoleQueueHandle(){
 	while (!printQueue.empty())
 	{
 		// Output front of the queue
-		std::cout << printQueue.front();
+		std::stringbuf str;
+		printQueue.front().rdbuf(&str); // uses str
+		std::cout << str.str();
 		// Pop the queue item
 		printQueue.pop();
 	}	
@@ -60,7 +63,9 @@ void Console::PrintColored(std::string text, std::string fgColor, std::string bg
 	else if (fgColor == whiteFGColor)
 		fg = dye::white(text);
 	#if MULTITHREADED_SAFE
-	printQueue.push(fg);
+	std::stringstream ss;
+	ss << fg;
+	printQueue.push((std::ostream)fg);
 	ConsoleQueueHandle();
 	#else
 	std::cout << fg;

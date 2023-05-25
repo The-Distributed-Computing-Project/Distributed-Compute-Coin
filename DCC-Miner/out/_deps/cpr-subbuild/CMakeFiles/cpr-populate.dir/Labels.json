@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-subbuild/CMakeFiles/cpr-populate"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-subbuild/CMakeFiles/5bf9c86dd04bff739dd03dc319320c94/cpr-populate.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-subbuild/CMakeFiles/fbc317e0e73dae54006c04694c649332/cpr-populate-complete.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-subbuild/CMakeFiles/2ecb860d7c35a7f39fb52b28a9f017b7/cpr-populate-build.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-subbuild/CMakeFiles/2ecb860d7c35a7f39fb52b28a9f017b7/cpr-populate-configure.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-subbuild/CMakeFiles/2ecb860d7c35a7f39fb52b28a9f017b7/cpr-populate-download.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-subbuild/CMakeFiles/2ecb860d7c35a7f39fb52b28a9f017b7/cpr-populate-install.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-subbuild/CMakeFiles/2ecb860d7c35a7f39fb52b28a9f017b7/cpr-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-subbuild/CMakeFiles/2ecb860d7c35a7f39fb52b28a9f017b7/cpr-populate-patch.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-subbuild/CMakeFiles/2ecb860d7c35a7f39fb52b28a9f017b7/cpr-populate-test.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-subbuild/CMakeFiles/2ecb860d7c35a7f39fb52b28a9f017b7/cpr-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"cpr-populate"
+		],
+		"name" : "cpr-populate"
+	}
+}

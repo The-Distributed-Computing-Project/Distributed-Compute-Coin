@@ -1,0 +1,12 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.21/Modules/FetchContent.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FetchContent/CMakeLists.cmake.in
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindBoost.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindCURL.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindGit.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindOpenSSL.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindPkgConfig.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/SelectLibraryConfigurations.cmake
+D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/CMakeLists.txt

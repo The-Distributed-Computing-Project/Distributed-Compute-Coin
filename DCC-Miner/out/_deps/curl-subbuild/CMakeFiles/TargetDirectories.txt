@@ -1,0 +1,3 @@
+D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/curl-subbuild/CMakeFiles/curl-populate.dir
+D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/curl-subbuild/CMakeFiles/ALL_BUILD.dir
+D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/curl-subbuild/CMakeFiles/ZERO_CHECK.dir

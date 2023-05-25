@@ -1,0 +1,20 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCXXCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCXXSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCXXSourceRuns.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FetchContent.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FetchContent/CMakeLists.cmake.in
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindGit.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/Internal/CheckCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/Internal/CheckSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/Internal/CheckSourceRuns.cmake
+D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-src/CMakeLists.txt
+D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-src/cmake/clear_variable.cmake
+D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-src/cmake/code_coverage.cmake
+D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-src/cmake/cprver.h.in
+D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-src/cmake/sanitizer.cmake
+D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-src/cmake/zlib_external.cmake

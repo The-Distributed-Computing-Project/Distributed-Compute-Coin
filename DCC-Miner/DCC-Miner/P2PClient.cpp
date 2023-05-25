@@ -123,9 +123,9 @@ int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* 
 			   0,
 			   to,
 			   toLen);
-		std::cout << n << "  " << bytesleft << std::endl;
 		if (n == -1) { break; }
 		total += n;
+		std::cout << std::to_string(round(100*(1f-((float)bytesleft/(float)total)))) << "% sent" << std::endl;
 		if(bytesleft < 1000)
 			bytesleft -= n;
 		else
@@ -133,6 +133,7 @@ int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* 
 		
 		segmentCount++;
 	}
+	std::cout << "Done." << std::endl;
 
 	len = total; // return number actually sent here
 

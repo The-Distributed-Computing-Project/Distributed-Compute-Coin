@@ -3,6 +3,8 @@
 #include <windows.h>
 #include <iostream>
 #include <thread>
+#include <math.h>
+
 #include "strops.h"
 #include "P2PClient.h"
 #include "Console.h"
@@ -65,42 +67,42 @@ std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 	return res;
 }
 
-// Send full message safely
-int mySendTo(int socket, std::string& s, int length, int flags, sockaddr* to, int toLen) {
-	Console console;
+//// Send full message safely
+//int mySendTo(int socket, std::string& s, int length, int flags, sockaddr* to, int toLen) {
+//	Console console;
+//
+//	const char* p = s.c_str();
+//	size_t len = s.length();
+//	size_t n;
+//	while (len > 0 && (n = sendto(socket, p, len, flags, to, toLen)) > 0) {
+//		// successfully sent some (possibly all) of the message
+//		// if it was partially successful, advance down the string
+//		// to the bit which didn't get sent, and try again
+//		//std::cout << "sent " << std::to_string(n) << " of " << std::to_string(length) << std::endl;
+//		console.NetworkPrint();
+//		console.WriteLine("sent " + std::to_string(n) + " of " + std::to_string(length));
+//		len -= n;
+//		p += n;
+//		n = 1;
+//	}
+//	if (n == 0) {
+//		// a send call failed to make any progress through the data
+//		// or perhaps len itself was 0 to start with.
+//		//std::cout << "Send failed" << std::endl;
+//		console.NetworkErrorPrint();
+//		console.WriteLine("Send failed");
+//	}
+//	if (n < 0) {
+//		// look at errno to determine what went wrong
+//		// some values like EAGAIN and EINTR may be worth a 2nd attempt
+//		//std::cout << "Send failed, errno: " << std::to_string(n) << std::endl;
+//		console.NetworkErrorPrint();
+//		console.WriteLine("Send failed, errno: " + std::to_string(n));
+//	}
+//	return n;
+//}
 
-	const char* p = s.c_str();
-	size_t len = s.length();
-	size_t n;
-	while (len > 0 && (n = sendto(socket, p, len, flags, to, toLen)) > 0) {
-		// successfully sent some (possibly all) of the message
-		// if it was partially successful, advance down the string
-		// to the bit which didn't get sent, and try again
-		//std::cout << "sent " << std::to_string(n) << " of " << std::to_string(length) << std::endl;
-		console.NetworkPrint();
-		console.WriteLine("sent " + std::to_string(n) + " of " + std::to_string(length));
-		len -= n;
-		p += n;
-		n = 1;
-	}
-	if (n == 0) {
-		// a send call failed to make any progress through the data
-		// or perhaps len itself was 0 to start with.
-		//std::cout << "Send failed" << std::endl;
-		console.NetworkErrorPrint();
-		console.WriteLine("Send failed");
-	}
-	if (n < 0) {
-		// look at errno to determine what went wrong
-		// some values like EAGAIN and EINTR may be worth a 2nd attempt
-		//std::cout << "Send failed, errno: " << std::to_string(n) << std::endl;
-		console.NetworkErrorPrint();
-		console.WriteLine("Send failed, errno: " + std::to_string(n));
-	}
-	return n;
-}
-
-int SendAll(int socket, std::string& s, int len, sockaddr* to, int toLen)
+int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen)
 {
 	int total = 0;        // how many bytes we've sent
 	int bytesleft = len; // how many we have left to send
@@ -108,8 +110,19 @@ int SendAll(int socket, std::string& s, int len, sockaddr* to, int toLen)
 
 	const char* p = s.c_str();
 
+	int segmentCount = 1;
 	while (total < len) {
-		n = sendto(socket, p + total, (bytesleft < 1000) ? bytesleft : 1000, 0, to, toLen);
+		//std::string segInfo = "seg " + + " of " + + ", " + + " bytes|";
+		std::string segInfo = "seg :" + std::to_string(segmentCount) + ": of :" + std::to_string((int)ceil((float)bytesleft / 1000.0f)) + ": , :" + std::to_string((bytesleft < 1000) ? bytesleft : 1000) + ": bytes|||";
+		
+		segInfo += (p + total);
+		
+		n = sendto(socket,
+			   segInfo.c_str(),
+			   (bytesleft < 1000) ? (bytesleft+segInfo.size()) : (1000+segInfo.size()),
+			   0,
+			   to,
+			   toLen);
 		std::cout << n << "  " << bytesleft << std::endl;
 		if (n == -1) { break; }
 		total += n;
@@ -117,6 +130,8 @@ int SendAll(int socket, std::string& s, int len, sockaddr* to, int toLen)
 			bytesleft -= n;
 		else
 			bytesleft -= 1000;
+		
+		segmentCount++;
 	}
 
 	len = total; // return number actually sent here
@@ -169,6 +184,10 @@ void P2P::TaskRec(int update_interval)
 			thread_running = false;
 			return;
 		}
+		
+		bool pendingReceiveData = false;
+		int currentPendingSegment = 0;
+		std::string totalMessage = "";
 
 		while (!stop_thread_1)
 		{
@@ -196,8 +215,51 @@ void P2P::TaskRec(int update_interval)
 				//std::cout << "iResult: " << std::to_string(iResult) << std::endl;
 				if (iResult > 0) {
 					std::string textVal = std::string(buffer, buffer + iResult);
+					
+					// Get the segment information from the received data
+					std::string segInfo = SplitString(textVal, "|||")[0];
+					int segNumber = std::stoi(SplitString(segInfo, ":")[1])
+					int maxSegments = std::stoi(SplitString(segInfo, ":")[3])
+					std::string content = SplitString(textVal, "|||")[1];
+					
+					totalMessage += content;
+					
+					if(pendingReceiveData){
+						// If the current segment number is less than the last one, 
+						// this must be different data than we were receiving before,
+						// so cancel.
+						if(currentPendingSegment > segNumber){
+							currentPendingSegment = 0;
+							pendingReceiveData = false;
+							totalMessage = "";
+							continue;
+						}
+						// Else if the maximum number of segments was reached, stop
+						// Pending receiving data
+						else if(maxSegments == segNumber){
+							currentPendingSegment = 0;
+							pendingReceiveData = false;
+						}
+						// Else if the maximum number of segments was NOT reached,
+						// continue receiving pending data
+						else if(maxSegments > segNumber && segNumber == 1){
+							currentPendingSegment = segNumber;
+							continue;
+						}
+					}
+					// Else if the maximum number of segments is greater than
+					// the current one, and the current one is 1, that means
+					// this is the first and this needs to wait for more data
+					// to arrive.
+					else if(maxSegments > segNumber && segNumber == 1){
+						currentPendingSegment = segNumber;
+						pendingReceiveData = true;
+						totalMessage = content; // Clear total message string and overwrite with current new data
+						continue;
+					}
+					
 					// If the peer is requesting to connect
-					if (textVal == "peer$$$connect") {
+					if (totalMessage == "peer$$$connect") {
 						console.DebugPrint();
 						console.WriteLine("Received initial connection, awaiting confirmation...", console.greenFGColor, "");
 						messageStatus = await_first_success; // Awaiting confirmation status
@@ -226,7 +288,7 @@ void P2P::TaskRec(int update_interval)
 						//}
 					}
 					// If the peer is requesting message received confirmation
-					else if (textVal == "peer$$$success" && (messageStatus >= 0)) {
+					else if (totalMessage == "peer$$$success" && (messageStatus >= 0)) {
 						console.DebugPrint();
 						console.WriteLine("Dual Confirmation", console.greenFGColor, "");
 						messageStatus = await_second_success; // Confirmed message status, continue sending our own 
@@ -234,38 +296,38 @@ void P2P::TaskRec(int update_interval)
 						CONNECTED_TO_PEER = true;
 					}
 					// If the peer is idling
-					else if (textVal == "peer$$$idle") {
+					else if (totalMessage == "peer$$$idle") {
 						console.DebugPrint();
 						console.WriteLine("idle...", console.yellowFGColor, "");
 						//messageStatus = -1;
 					}
 					// If peer is requesting data
-					else if (SplitString(textVal, "$$$")[0] == "request") {
+					else if (SplitString(totalMessage, "$$$")[0] == "request") {
 						// If peer is asking for blockchain height
-						if (SplitString(textVal, "$$$")[1] == "height")
+						if (SplitString(totalMessage, "$$$")[1] == "height")
 							messageStatus = replying_height;
 						// If peer is asking for a block's data
-						else if (SplitString(textVal, "$$$")[1] == "block") {
+						else if (SplitString(totalMessage, "$$$")[1] == "block") {
 							messageStatus = replying_block;
-							reqDat = std::stoi(SplitString(textVal, "$$$")[2]);
+							reqDat = std::stoi(SplitString(totalMessage, "$$$")[2]);
 						}
 						// If peer is asking for this peer's peerList
-						else if (SplitString(textVal, "$$$")[1] == "peerlist")
+						else if (SplitString(totalMessage, "$$$")[1] == "peerlist")
 							messageStatus = replying_peer_list;
 
 						console.WriteLine("request " + std::to_string(messageStatus), console.greenFGColor, "");
 					}
 					// If peer is answering request
-					else if (SplitString(textVal, "$$$")[0] == "answer") {
+					else if (SplitString(totalMessage, "$$$")[0] == "answer") {
 						// If peer is giving blockchain height
-						if (SplitString(textVal, "$$$")[1] == "height") {
-							peerBlockchainLength = std::stoi(SplitString(textVal, "$$$")[2]);
+						if (SplitString(totalMessage, "$$$")[1] == "height") {
+							peerBlockchainLength = std::stoi(SplitString(totalMessage, "$$$")[2]);
 							messageStatus = await_first_success;
 							console.WriteLine("answer height: " + std::to_string(peerBlockchainLength), console.greenFGColor, "");
 						}
 						// If peer is giving peer list
-						else if (SplitString(textVal, "$$$")[1] == "peerlist") {
-							std::vector<std::string> receivedPeers = SplitString(SplitString(textVal, "$$$")[2], ",");
+						else if (SplitString(totalMessage, "$$$")[1] == "peerlist") {
+							std::vector<std::string> receivedPeers = SplitString(SplitString(totalMessage, "$$$")[2], ",");
 							// Iterate all received peers, and only add them to our list if it is not already on it
 							for (int x = 0; x < receivedPeers.size(); x++) {
 								bool wasFound = false;
@@ -282,10 +344,10 @@ void P2P::TaskRec(int update_interval)
 							//console.WriteLine("answer peerlist: " + std::to_string(peerBlockchainLength), console.greenFGColor, "");
 						}
 						// If peer is giving a block's data
-						else if (SplitString(textVal, "$$$")[1] == "block") {
+						else if (SplitString(totalMessage, "$$$")[1] == "block") {
 							messageStatus = await_first_success;
-							int num = std::stoi(SplitString(textVal, "$$$")[2]);
-							std::string blockData = SplitString(textVal, "$$$")[3];
+							int num = std::stoi(SplitString(totalMessage, "$$$")[2]);
+							std::string blockData = SplitString(totalMessage, "$$$")[3];
 
 							// Save block data to file
 							try
@@ -555,8 +617,8 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 
 					msg = "answer$$$block$$$" + std::to_string(reqDat) + "$$$" + ReplaceEscapeSymbols(testSend);
 					console.Write(msg + "\n");
-					//mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-					SendAll(localSocket, msg, (int)msg.length(), (sockaddr*)&otherAddr, otherSize);
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+					//SendAll(localSocket, msg, (int)msg.length(), (sockaddr*)&otherAddr, otherSize);
 					Sleep(3000);
 				}
 				// Else if replying to peer list request

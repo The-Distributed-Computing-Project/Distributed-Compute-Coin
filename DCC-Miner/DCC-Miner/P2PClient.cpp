@@ -215,6 +215,21 @@ void P2P::TaskRec(int update_interval)
 				//console.WriteLine("Checked, parsing " + iResult);
 				//std::cout << "iResult: " << std::to_string(iResult) << std::endl;
 				if (iResult > 0) {
+					
+					// Get the IPV4 address of the received data. If it matches
+					// the expected one, continue. If it does not, then stop. If
+					// the current one is blank or has disconnected, set this one
+					// as the current connection and continue.
+					char *ip = inet_ntoa(remoteAddr->sin_addr);
+					std::string fromIPString = "";
+					fromIPString += ip;
+					if(otherAddrStr == ""){ // If not currently connected
+						otherAddrStr = fromIPString;
+					}
+					else if(fromIPString != SplitString(otherAddrStr, ":")[0]){ // If connected and different
+						
+					}
+					
 					std::string textVal = std::string(buffer, buffer + iResult);
 					
 					// Get the segment information from the received data

@@ -391,7 +391,7 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 		return 0;
 	}
 
-	int val = 64 * 1024;
+	int val = 2048;
 	setsockopt(localSocket, SOL_SOCKET, SO_SNDBUF, (char*)&val, sizeof(val));
 	setsockopt(localSocket, SOL_SOCKET, SO_RCVBUF, (char*)&val, sizeof(val));
 	//
@@ -419,7 +419,7 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 
 	std::string last_tried_ip_port = "";
 
-	// Start requesting peers to connect to from the handling server
+	// Start requesting possible peers to connect to, from the handling server
 	for (int t = 0; t < 20; t++)
 		//while (true)
 	{

@@ -46,6 +46,7 @@ enum MsgStatus {
 	replying_peer_list = 8,
 };
 
+// Get the IP:Port combination from SOCKADDR_IN struct, and return it as a string
 std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 	char host[16];
 	ZeroMemory(host, 16);
@@ -102,6 +103,7 @@ std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 //	return n;
 //}
 
+// Safely send some data as a string, and split large amounts of data into multiple segments to be sent sequentially.
 int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen)
 {
 	int total = 0;        // how many bytes we've sent
@@ -148,6 +150,7 @@ int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* 
 }
 
 //void P2P::TaskRec()
+// The function that is run in a thread in order to listen for received data in the background
 void P2P::TaskRec(int update_interval)
 {
 	thread_running = true;
@@ -412,6 +415,9 @@ void P2P::TaskRec(int update_interval)
 	}
 }
 
+// The function to start the P2P node, get IP address, and try to connect to another peer.
+// TODO: Break this function into multiple parts, for starting the connection and winsock,
+//       sending and handling messages and client states, and safely closing the connection
 int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 {
 	Console console;

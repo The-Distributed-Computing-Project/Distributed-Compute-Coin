@@ -10,6 +10,8 @@
 
 #include "Main.h"
 
+#define DEBUG true
+
 std::string serverURL = "http://api.achillium.us.to";
 
 //using namespace std;
@@ -300,8 +302,10 @@ int main()
 
 		json w = GetInfo();
 
+		#if DEBUG
 		console.NetworkPrint();
 		console.WriteLine("Done");
+		#endif
 
 		if (w.is_null())
 		{
@@ -325,11 +329,15 @@ int main()
 			Sync();
 			try
 			{
+				#if DEBUG
 				console.DebugPrint();
 				console.WriteLine("Validating blockchain...");
+				#endif
 				IsChainValid();
+				#if DEBUG
 				console.DebugPrint();
 				console.WriteLine("Done!");
+				#endif
 			}
 			catch (const std::exception&)
 			{
@@ -700,8 +708,10 @@ int GetProgram()
 
 			id = assignedProgram;
 
+			#if DEBUG
 			console.NetworkPrint();
 			console.WriteLine("./wwwdata/programs/" + id + ".cfg");
+			#endif
 
 			DownloadFile(serverURL + "/dcc/programs/" + id + ".cfg", "./wwwdata/programs/" + id + ".cfg", true);
 			DownloadFile(serverURL + "/dcc/programs/" + id + ".zip", "./wwwdata/programs/" + id + ".zip", true);
@@ -899,7 +909,9 @@ bool IsChainValid()
 	}
 	catch (const std::exception& e)
 	{
+		#if DEBUG
 		std::cerr << std::endl << e.what() << std::endl;
+		#endif
 		console.ExitError("Failure, exiting");
 	}
 
@@ -1047,7 +1059,9 @@ bool IsChainValid()
 			// Update funds
 			tmpFunds += tmpFunds2;
 
+			#if DEBUG
 			console.Write("\tTransactions: " + std::to_string(trans.size()));
+			#endif
 
 			console.WriteLine(" \tOk  ", console.greenFGColor, "");
 
@@ -1056,7 +1070,9 @@ bool IsChainValid()
 		}
 		catch (const std::exception& e)
 		{
+			#if DEBUG
 			std::cerr << std::endl << e.what() << std::endl;
+			#endif
 			console.ExitError("Failure, exiting");
 		}
 	}
@@ -1155,7 +1171,9 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 		}
 		catch (const std::exception& e)
 		{
+			#if DEBUG
 			std::cerr << e.what() << std::endl;
+			#endif
 			return 0;
 		}
 
@@ -1186,7 +1204,9 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 			}
 			catch (const std::exception& e)
 			{
+				#if DEBUG
 				std::cerr << e.what() << std::endl;
+				#endif
 				return 0;
 			}
 		}
@@ -1199,7 +1219,9 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 	}
 	catch (const std::exception& e)
 	{
+		#if DEBUG
 		std::cerr << e.what() << std::endl;
+		#endif
 		return 0;
 	}
 }
@@ -1252,7 +1274,9 @@ int SendFunds(std::string toAddress, float amount)
 		}
 		catch (const std::exception& e)
 		{
+			#if DEBUG
 			std::cerr << e.what() << std::endl;
+			#endif
 			return 0;
 		}
 	}
@@ -1299,8 +1323,10 @@ int SendFunds(std::string toAddress, float amount)
 		std::stringstream bufferd;
 		bufferd << blkData.rdbuf();
 		std::string blockText = bufferd.str();
+		#if DEBUG
 		std::cout << "read from: " << ("./wwwdata/pendingblocks/block" + std::to_string((int)walletInfo["BlockchainLength"] + (int)walletInfo["PendingLength"]) + ".dccblock") << std::endl;
 		std::cout << "textread: " << blockText << std::endl;
+		#endif
 		json blockJson = json::parse(blockText);
 
 
@@ -1312,10 +1338,10 @@ int SendFunds(std::string toAddress, float amount)
 		sha256_string((char*)(std::to_string(amount) + "->" + (std::string)walletInfo["Address"] + "->" + toAddress + " " + std::to_string(sec)).c_str(), sha256OutBuffer);
 		std::string hash = sha256OutBuffer;
 
-		std::cout << "before sig" << std::endl;
+		//std::cout << "before sig" << std::endl;
 		// Generate signature by encrypting hash with private key
 		std::string signature = rsa_pri_encrypt(hash, keypair[1]);
-		std::cout << "after sig" << std::endl;
+		//std::cout << "after sig" << std::endl;
 
 		std::string sigBase64 = encode64((const unsigned char*)signature.c_str(), signature.length());
 		//// Hash signature
@@ -1341,7 +1367,9 @@ int SendFunds(std::string toAddress, float amount)
 		}
 		catch (const std::exception& e)
 		{
+			#if DEBUG
 			std::cerr << e.what() << std::endl;
+			#endif
 			return 0;
 		}
 
@@ -1354,7 +1382,9 @@ int SendFunds(std::string toAddress, float amount)
 	}
 	catch (const std::exception& e)
 	{
+		#if DEBUG
 		std::cerr << e.what() << std::endl;
+		#endif
 		return 0;
 	}
 }
@@ -1480,13 +1510,17 @@ boost::process::child ExecuteAsync(std::string cmd)
 		}
 		bp::child c(cmd);
 
+		#if DEBUG
 		std::cout << c.id() << std::endl;
+		#endif
 
 		return c;
 	}
 	catch (const std::exception& e)
 	{
+		#if DEBUG
 		std::cerr << e.what() << std::endl;
+		#endif
 		return boost::process::child();
 	}
 
@@ -1497,8 +1531,10 @@ boost::process::child ExecuteAsync(std::string cmd)
 
 json UpgradeBlock(json b, std::string toVersion)
 {
+	#if DEBUG
 	console.BlockCheckerPrint();
 	console.WriteLine("Upgrading block to version " + toVersion);
+	#endif
 
 	if (toVersion == "v0.01alpha-coin")
 	{

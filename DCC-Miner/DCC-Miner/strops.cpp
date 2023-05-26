@@ -33,6 +33,20 @@ std::string JoinArrayPieces(std::vector<std::string> input)
 	return outStr;
 }
 
+std::string CommaLargeNumber(int num) {
+	int v = num;
+	auto s = std::to_string(v);
+
+	int n = s.length() - 3;
+	int end = (v >= 0) ? 0 : 1; // Support for negative numbers
+	while (n > end) {
+		s.insert(n, ",");
+		n -= 3;
+	}
+
+	return s;
+}
+
 //std::vector<std::string> SplitString(std::string str, std::string delim)
 //{
 //	std::vector<std::string> words;

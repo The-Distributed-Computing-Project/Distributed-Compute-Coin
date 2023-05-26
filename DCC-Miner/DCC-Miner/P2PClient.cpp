@@ -227,11 +227,11 @@ void P2P::TaskRec(int update_interval)
 					// matches the expected one, continue. If it does not, then
 					// stop. If the current one is blank or has disconnected,
 					// set this one as the current connection and continue.
-					char* ipC = inet_ntoa(remoteAddr.sin_addr);
-					char* portC = inet_ntoa(remoteAddr.sin_port);
-					std::string fromIPString = "";
-					fromIPString += ipC;
-					fromIPString += portC;
+					//char* ipC = inet_ntoa(remoteAddr.sin_addr);
+					//char* portC = inet_ntoa(remoteAddr.sin_port);
+					std::string fromIPString = NormalizedIPString(remoteAddr);
+					//fromIPString += ipC;
+					//fromIPString += portC;
 					// If not currently connected, accept this connection.
 					if (otherAddrStr == "") { 
 						otherAddrStr = fromIPString;
@@ -241,6 +241,7 @@ void P2P::TaskRec(int update_interval)
 						continue;
 					}
 
+					// Read the received data buffer into a string
 					std::string textVal = std::string(buffer, buffer + iResult);
 
 					// Get the segment information from the received data
@@ -249,7 +250,7 @@ void P2P::TaskRec(int update_interval)
 					int maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
 					std::string content = SplitString(textVal, "|||")[1];
 
-
+					// If we are urrently still waiting for more data to be received
 					if (pendingReceiveData) {
 						totalMessage += content;
 						// If the current segment number is less than the last one, 
@@ -284,7 +285,8 @@ void P2P::TaskRec(int update_interval)
 						totalMessage = content; // Clear total message string and overwrite with current new data
 						continue;
 					}
-					// Else, this is a single segment message, and so the `totalMessage` variable can be set to the content
+					// Else, this is a single segment message, and so the
+					// totalMessage` variable can be set to the content
 					else
 						totalMessage = content;
 
@@ -297,27 +299,27 @@ void P2P::TaskRec(int update_interval)
 						messageStatus = await_first_success; // Awaiting confirmation status
 						messageAttempt = 0;
 
-						//// Add item to peer list, and save to file
-						//bool alreadyInList = false;
-						//for (int y = 0; y < peerList.size(); y++) {
-						//	if (otherAddrStr == peerList[y]) {
-						//		alreadyInList = true;
-						//		break;
-						//	}
-						//}
-						//if (alreadyInList == false) {
-						//	peerList.push_back(otherAddrStr);
-						//	std::string totalList = "";
-						//	for (int y = 0; y < peerList.size(); y++)
-						//		totalList += peerList[y] + "\n";
-						//	std::ofstream peerFileW("./wwwdata/peerlist.txt");
-						//	if (peerFileW.is_open())
-						//	{
-						//		peerFileW << totalList;
-						//		peerFileW.close();
-						//	}
-						//	peerFileW.close();
-						//}
+						// Add item to peer list, and save to file
+						bool alreadyInList = false;
+						for (int y = 0; y < peerList.size(); y++) {
+							if (otherAddrStr == peerList[y]) {
+								alreadyInList = true;
+								break;
+							}
+						}
+						if (alreadyInList == false) {
+							peerList.push_back(otherAddrStr);
+							std::string totalList = "";
+							for (int y = 0; y < peerList.size(); y++)
+								totalList += peerList[y] + "\n";
+							std::ofstream peerFileW("./wwwdata/peerlist.txt");
+							if (peerFileW.is_open())
+							{
+								peerFileW << totalList;
+								peerFileW.close();
+							}
+							peerFileW.close();
+						}
 					}
 					// If the peer is requesting message received confirmation
 					else if (totalMessage == "peer$$$success" && (messageStatus >= 0)) {
@@ -326,7 +328,7 @@ void P2P::TaskRec(int update_interval)
 						console.WriteLine("Dual Confirmation", console.greenFGColor, "");
 						#endif
 						messageStatus = await_second_success; // Confirmed message status, continue sending our own 
-						// confirmation for 4 times, then switch to idle state -1
+						// confirm 2 times, then switch to idle state -1
 						CONNECTED_TO_PEER = true;
 					}
 					// If the peer is idling

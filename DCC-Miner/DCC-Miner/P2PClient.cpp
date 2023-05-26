@@ -128,7 +128,9 @@ int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* 
 			- segSize; // Don't include segment info when counting data, so subtract this
 		if (n == -1) { break; }
 		total += n;
+		#if DEBUG
 		std::cout << std::to_string((int)round(100 * ((float)total / (float)len))) << "% sent" << std::endl;
+		#endif
 		if (bytesleft < 1000)
 			bytesleft -= n;
 		else
@@ -136,7 +138,9 @@ int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* 
 
 		segmentCount++;
 	}
+	#if DEBUG
 	std::cout << "Done." << std::endl;
+	#endif
 
 	len = total; // return number actually sent here
 
@@ -282,8 +286,10 @@ void P2P::TaskRec(int update_interval)
 
 					// If the peer is requesting to connect
 					if (totalMessage == "peer$$$connect") {
+						#if DEBUG
 						console.DebugPrint();
 						console.WriteLine("Received initial connection, awaiting confirmation...", console.greenFGColor, "");
+						#endif
 						messageStatus = await_first_success; // Awaiting confirmation status
 						messageAttempt = 0;
 
@@ -311,16 +317,20 @@ void P2P::TaskRec(int update_interval)
 					}
 					// If the peer is requesting message received confirmation
 					else if (totalMessage == "peer$$$success" && (messageStatus >= 0)) {
+						#if DEBUG
 						console.DebugPrint();
 						console.WriteLine("Dual Confirmation", console.greenFGColor, "");
+						#endif
 						messageStatus = await_second_success; // Confirmed message status, continue sending our own 
 						// confirmation for 4 times, then switch to idle state -1
 						CONNECTED_TO_PEER = true;
 					}
 					// If the peer is idling
 					else if (totalMessage == "peer$$$idle") {
+						#if DEBUG
 						console.DebugPrint();
 						console.WriteLine("idle...", console.yellowFGColor, "");
+						#endif
 						//messageStatus = -1;
 					}
 					// If peer is requesting data
@@ -337,7 +347,9 @@ void P2P::TaskRec(int update_interval)
 						else if (SplitString(totalMessage, "$$$")[1] == "peerlist")
 							messageStatus = replying_peer_list;
 
+						#if DEBUG
 						console.WriteLine("request " + std::to_string(messageStatus), console.greenFGColor, "");
+						#endif
 					}
 					// If peer is answering request
 					else if (SplitString(totalMessage, "$$$")[0] == "answer") {
@@ -345,7 +357,9 @@ void P2P::TaskRec(int update_interval)
 						if (SplitString(totalMessage, "$$$")[1] == "height") {
 							peerBlockchainLength = std::stoi(SplitString(totalMessage, "$$$")[2]);
 							messageStatus = await_first_success;
+							#if DEBUG
 							console.WriteLine("answer height: " + std::to_string(peerBlockchainLength), console.greenFGColor, "");
+							#endif
 						}
 						// If peer is giving peer list
 						else if (SplitString(totalMessage, "$$$")[1] == "peerlist") {
@@ -386,12 +400,16 @@ void P2P::TaskRec(int update_interval)
 								std::cerr << e.what() << std::endl;
 							}
 
+							#if DEBUG
 							console.WriteLine("answer block: " + std::to_string(num), console.greenFGColor, "");
+							#endif
 						}
 						messageAttempt = 0;
 
 					}
+					#if DEBUG
 					console.WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + totalMessage + "\t status: " + std::to_string(messageStatus));
+					#endif
 				}
 				else {
 					console.NetworkErrorPrint();
@@ -508,7 +526,7 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 		//while (true)
 	{
 		console.NetworkPrint();
-		console.WriteLine("Attempt: " + std::to_string(t) + "  |  Asking server for PEER address...");
+		console.WriteLine("Attempt: " + std::to_string(t) + "  |  Asking server for PEER address...  \r");
 
 		std::vector<std::string> args = {
 			"query=WaitForConnection",
@@ -521,14 +539,18 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 		// If the request fails or no peers are found, try again after 3 seconds
 		if (httpOut == "" || httpOut.find("waiting") != std::string::npos || httpOut.find(addr + ":" + port) != std::string::npos)
 		{
+			#if DEBUG
 			console.NetworkPrint();
 			console.WriteLine("No peers found, waiting 3 sec to ask again...");
+			#endif
 			Sleep(3000); // Wait 3 seconds until next request
 			continue;
 		}
 
+		#if DEBUG
 		console.NetworkPrint();
 		console.WriteLine("Server returned: " + httpOut);
+		#endif
 
 		otherIpPort = httpOut;
 		last_tried_ip_port = otherIpPort;
@@ -588,13 +610,17 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 				// If doing initial connect request
 				if (messageStatus == initial_connect_request) {
 					msg = "peer$$$connect";
+					#if DEBUG
 					console.Write(msg + "\n");
+					#endif
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 				}
 				// If doing peer confirmation
 				else if ((messageStatus == initial_connect_request || messageStatus == await_first_success || messageStatus == await_second_success)) {
 					msg = "peer$$$success";
+					#if DEBUG
 					console.Write(msg + "\n");
+					#endif
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 
 					//console.WriteLine("Confirming");
@@ -623,7 +649,9 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 				// Else if replying to height request
 				else if (messageStatus == replying_height) {
 					msg = "answer$$$height$$$" + std::to_string(blockchainLength);
+					#if DEBUG
 					console.Write(msg + "\n");
+					#endif
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 				}
 				// Else if replying to block data request
@@ -638,7 +666,9 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 					//std::string testSend = "{\"Version\":\"v0.01alpha-coin\",\"hash\":\"00000622bf7f189dccdb4701bb146e37b17a24c4b019a1c503b85e65b38d32c2\",\"lastHash\":\"00000c1999d1e108ed9205705eb98081635e11e81ec6356729e55a4e57a18663\",\"nonce\":\"47161\",\"time\":1671746241,\"transactionTimes\":[1671746235, 1671746238],\"transactions\":[\"1.000000->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735|cgbb0zbqtm/sTmB9OJPMI2dlWjcHpf21x+TBqCDRiz6DyoBCfmQnSNA9g/iiJo0ivibnfvRCD4AxbFSmsOKX2gLjwR1Ysgt65I7mIIcdc0+chUqDnu0a+X8LbSKYD6yCSr4rSD4955nU3s930DjVOgVmKxh7K6+2BJ2nx5GZic9owDDCYDbBHK01pYCBSEfnaIA1XOXeGWMtadMZAfW7as9k6ZXSeGpflVN3JdI3Fh107Z1wby6I94gmJt5Gw9sTTA6MCoB/K2GUmhQZ14N6f6VYJ3BxURJB+iiLxGtBINjReGqZFgwb8dtpX9RfOwQRGJC8rvv+Tjzk1qszaXseOw==|-----BEGIN RSA PUBLIC KEY-----\nMIIBCAKCAQEApXRtTjPRE4XRamo84MIP4rjVqUnW91OZ/D7K5qXoLTyO9IOv1zui\nervc3Usp3uyDHpKnZdy2jb0czi6qC5nbaEFh6OlSGJmpa0MN++zxo4YkGwKwRf3N\n6SG8r0bOhipGyVOLOyh+q1oCBY9HqrFhZVgwtaunRurL2GLzG9o8hOr1+UIMoyFh\nzItKMOC26XxiCy2w8B9KOreJS/4Hucg94WsjweyiKFUe2+VUjgsw4Y0Mxg8lrCAP\nsZg0GkYLFsD69WtfHE+H2Dn+xeV+25ZU1fdMj4n4xY15NHg8s/3XTyDvCLOPjn6e\ni8D7LcG3jbyKkhZGq4v30kDiA6O/9d7T5QIBAw==\n-----END RSA PUBLIC KEY-----\n\",\"1.000000->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735|bsTog6pluw/85hWJ3JJQ2jNr/u+Gf5U32RCNFNUx446Jvw0FqKg/Wh7cXIQTJ2DvVjAH0SiNt+ENgKTuLSTKvwP772cRPKVRBGy2rYE268+dpoIiw7dRv86lnP9JjQaOXkUgx2xQK+JnYHPDEPF+VBG8lLm19UM1YWl9v+Jb9ep//kfLJXzXVYp+rmzyCNb4hO6ehgF/NnuA1hgdwqbmRTLYPOHhdy6P5L8LW2v4ANUCGNCNFB+ajxb1G6yJdodX4OuqcC1Z/LQrjbSxCF2kXtv8p1RA3F9qG4WtMk62vi5otUDWo1W5aExiwOg79hLOTqBbSta9ZWOXR05lm/n1Qw==|-----BEGIN RSA PUBLIC KEY-----\nMIIBCAKCAQEApXRtTjPRE4XRamo84MIP4rjVqUnW91OZ/D7K5qXoLTyO9IOv1zui\nervc3Usp3uyDHpKnZdy2jb0czi6qC5nbaEFh6OlSGJmpa0MN++zxo4YkGwKwRf3N\n6SG8r0bOhipGyVOLOyh+q1oCBY9HqrFhZVgwtaunRurL2GLzG9o8hOr1+UIMoyFh\nzItKMOC26XxiCy2w8B9KOreJS/4Hucg94WsjweyiKFUe2+VUjgsw4Y0Mxg8lrCAP\nsZg0GkYLFsD69WtfHE+H2Dn+xeV+25ZU1fdMj4n4xY15NHg8s/3XTyDvCLOPjn6e\ni8D7LcG3jbyKkhZGq4v30kDiA6O/9d7T5QIBAw==\n-----END RSA PUBLIC KEY-----\n\"]";
 
 					msg = "answer$$$block$$$" + std::to_string(reqDat) + "$$$" + ReplaceEscapeSymbols(blockText);
+					#if DEBUG
 					console.Write(msg + "\n");
+					#endif
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 					//SendAll(localSocket, msg, (int)msg.length(), (sockaddr*)&otherAddr, otherSize);
 					Sleep(3000);
@@ -650,14 +680,18 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 						totalPeersString += peerList[i] + ((i == peerList.size() - 1 || i == 9) ? "" : ",");
 
 					msg = "answer$$$peerlist$$$" + totalPeersString;
+					#if DEBUG
 					console.Write(msg + "\n");
+					#endif
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 					Sleep(3000);
 				}
 				// Else if requesting chain height
 				else if (messageStatus == requesting_height) {
 					msg = "request$$$height";
+					#if DEBUG
 					console.Write(msg + "\n");
+					#endif
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 					//// Wait extra 3 seconds
 					//Sleep(3000);
@@ -665,7 +699,9 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 				// Else if requesting block data
 				else if (messageStatus == requesting_block) {
 					msg = "request$$$block$$$" + std::to_string(reqDat);
+					#if DEBUG
 					console.Write(msg + "\n");
+					#endif
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 					// Wait extra 3 seconds
 					Sleep(3000);
@@ -674,7 +710,9 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 				// Else if requesting peer list
 				else if (messageStatus == requesting_peer_list) {
 					msg = "request$$$peerlist";
+					#if DEBUG
 					console.Write(msg + "\n");
+					#endif
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 					//// Wait extra 3 seconds
 					//Sleep(3000);

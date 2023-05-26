@@ -223,18 +223,22 @@ void P2P::TaskRec(int update_interval)
 				//std::cout << "iResult: " << std::to_string(iResult) << std::endl;
 				if (iResult > 0) {
 
-					// Get the IPV4 address of the received data. If it matches
-					// the expected one, continue. If it does not, then stop. If
-					// the current one is blank or has disconnected, set this one
-					// as the current connection and continue.
-					char* ip = inet_ntoa(remoteAddr.sin_addr);
+					// Get the IPV4 address:port of the received data. If it
+					// matches the expected one, continue. If it does not, then
+					// stop. If the current one is blank or has disconnected,
+					// set this one as the current connection and continue.
+					char* ipC = inet_ntoa(remoteAddr.sin_addr);
+					char* portC = inet_ntoa(remoteAddr.sin_port);
 					std::string fromIPString = "";
-					fromIPString += ip;
-					if (otherAddrStr == "") { // If not currently connected
+					fromIPString += ipC;
+					fromIPString += portC;
+					// If not currently connected, accept this connection.
+					if (otherAddrStr == "") { 
 						otherAddrStr = fromIPString;
 					}
-					else if (fromIPString != SplitString(otherAddrStr, ":")[0]) { // If connected and different
-
+					// If connected but different, ignore.
+					else if (fromIPString != SplitString(otherAddrStr, ":")[0]) { 
+						continue;
 					}
 
 					std::string textVal = std::string(buffer, buffer + iResult);
@@ -593,6 +597,9 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 		std::thread t1(&P2P::TaskRec, this, update_interval);
 
 		bool noinput = false;
+		
+		// Only receive if in the idle state.
+		while(messageStatus == idle){}
 
 		// Begin sending messages, and stop when a reply is received
 		for (messageAttempt = 0; messageAttempt < 10; messageAttempt++)

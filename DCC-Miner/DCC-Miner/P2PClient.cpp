@@ -147,28 +147,6 @@ int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* 
 	return n == -1 ? -1 : 0; // return -1 onm failure, 0 on success
 }
 
-// Receive full message safely
-int myReceiveFrom(int socket, char* buffer, int len, int flags, sockaddr* from, int* fromLen) {
-	int n = recvfrom(socket, buffer, len, 0, from, fromLen);
-	//while (len > 0 && (n = send(socket, p, len, 0)) > 0) {
-	//	// successfully sent some (possibly all) of the message
-	//	// if it was partially successful, advance down the string
-	//	// to the bit which didn't get sent, and try again
-	//	len -= n;
-	//	p += n;
-	//	n = 1;
-	//}
-	//if (n == 0) {
-	//	// a send call failed to make any progress through the data
-	//	// or perhaps len itself was 0 to start with.
-	//}
-	//if (n < 0) {
-	//	// look at errno to determine what went wrong
-	//	// some values like EAGAIN and EINTR may be worth a 2nd attempt
-	//}
-	return n;
-}
-
 //void P2P::TaskRec()
 void P2P::TaskRec(int update_interval)
 {
@@ -432,27 +410,6 @@ void P2P::TaskRec(int update_interval)
 			}
 		}
 	}
-}
-
-int P2P::SafeSend(SOCKET s, char* buf, int buflen)
-{
-	int sendlen = 0;
-	int totalsend = 0;
-	int remaining = buflen;
-
-	while (sendlen != buflen)
-	{
-		sendlen = send(s, &buf[totalsend], remaining, 0);
-
-		if (sendlen == SOCKET_ERROR)
-		{
-			return SOCKET_ERROR;
-		}
-
-		totalsend = totalsend + sendlen;
-		remaining = sendlen - totalsend;
-	}
-	return 0;
 }
 
 int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)

@@ -114,23 +114,26 @@ int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* 
 	while (total < len) {
 		//std::string segInfo = "seg " + + " of " + + ", " + + " bytes|";
 		std::string segInfo = "seg :" + std::to_string(segmentCount) + ": of :" + std::to_string((int)ceil((float)bytesleft / 1000.0f)) + ": , :" + std::to_string((bytesleft < 1000) ? bytesleft : 1000) + ": bytes|||";
-		
+
+		int segSize = segInfo.size();
+
 		segInfo += (p + total);
-		
+
 		n = sendto(socket,
-			   segInfo.c_str(),
-			   (bytesleft < 1000) ? (bytesleft+segInfo.size()) : (1000+segInfo.size()),
-			   0,
-			   to,
-			   toLen);
+			segInfo.c_str(),
+			(bytesleft < 1000) ? (bytesleft + segSize) : (1000 + segSize),
+			0,
+			to,
+			toLen)
+			- segSize; // Don't include segment info when counting data, so subtract this
 		if (n == -1) { break; }
 		total += n;
-		std::cout << std::to_string(round(100*(1f-((float)bytesleft/(float)total)))) << "% sent" << std::endl;
-		if(bytesleft < 1000)
+		std::cout << std::to_string((int)round(100 * ((float)total / (float)len))) << "% sent" << std::endl;
+		if (bytesleft < 1000)
 			bytesleft -= n;
 		else
 			bytesleft -= 1000;
-		
+
 		segmentCount++;
 	}
 	std::cout << "Done." << std::endl;
@@ -185,7 +188,7 @@ void P2P::TaskRec(int update_interval)
 			thread_running = false;
 			return;
 		}
-		
+
 		bool pendingReceiveData = false;
 		int currentPendingSegment = 0;
 		std::string totalMessage = "";
@@ -195,7 +198,7 @@ void P2P::TaskRec(int update_interval)
 			//std::cerr << "\nstopthread status:" << (stop_thread_1 ? "true" : "false") << std::endl;
 			if (stop_thread_1) {
 				thread_running = false;
-				return;
+				break;
 			}
 			/*if (messageAttempt == 4)
 				return;*/
@@ -215,36 +218,36 @@ void P2P::TaskRec(int update_interval)
 				//console.WriteLine("Checked, parsing " + iResult);
 				//std::cout << "iResult: " << std::to_string(iResult) << std::endl;
 				if (iResult > 0) {
-					
+
 					// Get the IPV4 address of the received data. If it matches
 					// the expected one, continue. If it does not, then stop. If
 					// the current one is blank or has disconnected, set this one
 					// as the current connection and continue.
-					char *ip = inet_ntoa(remoteAddr->sin_addr);
+					char* ip = inet_ntoa(remoteAddr.sin_addr);
 					std::string fromIPString = "";
 					fromIPString += ip;
-					if(otherAddrStr == ""){ // If not currently connected
+					if (otherAddrStr == "") { // If not currently connected
 						otherAddrStr = fromIPString;
 					}
-					else if(fromIPString != SplitString(otherAddrStr, ":")[0]){ // If connected and different
-						
+					else if (fromIPString != SplitString(otherAddrStr, ":")[0]) { // If connected and different
+
 					}
-					
+
 					std::string textVal = std::string(buffer, buffer + iResult);
-					
+
 					// Get the segment information from the received data
 					std::string segInfo = SplitString(textVal, "|||")[0];
-					int segNumber = std::stoi(SplitString(segInfo, ":")[1])
-					int maxSegments = std::stoi(SplitString(segInfo, ":")[3])
+					int segNumber = std::stoi(SplitString(segInfo, ":")[1]);
+					int maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
 					std::string content = SplitString(textVal, "|||")[1];
-					
-					totalMessage += content;
-					
-					if(pendingReceiveData){
+
+
+					if (pendingReceiveData) {
+						totalMessage += content;
 						// If the current segment number is less than the last one, 
 						// this must be different data than we were receiving before,
 						// so cancel.
-						if(currentPendingSegment > segNumber){
+						if (currentPendingSegment > segNumber) {
 							currentPendingSegment = 0;
 							pendingReceiveData = false;
 							totalMessage = "";
@@ -252,13 +255,13 @@ void P2P::TaskRec(int update_interval)
 						}
 						// Else if the maximum number of segments was reached, stop
 						// Pending receiving data
-						else if(maxSegments == segNumber){
+						else if (maxSegments == segNumber) {
 							currentPendingSegment = 0;
 							pendingReceiveData = false;
 						}
 						// Else if the maximum number of segments was NOT reached,
 						// continue receiving pending data
-						else if(maxSegments > segNumber && segNumber == 1){
+						else if (maxSegments > segNumber && segNumber == 1) {
 							currentPendingSegment = segNumber;
 							continue;
 						}
@@ -267,13 +270,16 @@ void P2P::TaskRec(int update_interval)
 					// the current one, and the current one is 1, that means
 					// this is the first and this needs to wait for more data
 					// to arrive.
-					else if(maxSegments > segNumber && segNumber == 1){
+					else if (maxSegments > segNumber && segNumber == 1) {
 						currentPendingSegment = segNumber;
 						pendingReceiveData = true;
 						totalMessage = content; // Clear total message string and overwrite with current new data
 						continue;
 					}
-					
+					// Else, this is a single segment message, and so the `totalMessage` variable can be set to the content
+					else
+						totalMessage = content;
+
 					// If the peer is requesting to connect
 					if (totalMessage == "peer$$$connect") {
 						console.DebugPrint();
@@ -385,7 +391,7 @@ void P2P::TaskRec(int update_interval)
 						messageAttempt = 0;
 
 					}
-					console.WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + std::string(buffer, buffer + iResult) + "\t status: " + std::to_string(messageStatus));
+					console.WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + totalMessage + "\t status: " + std::to_string(messageStatus));
 				}
 				else {
 					console.NetworkErrorPrint();
@@ -627,11 +633,11 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 					std::stringstream bufferd;
 					bufferd << td.rdbuf();
 					std::string blockText = bufferd.str();
-					std::string testSend = "{\"Version\":\"v0.01alpha-coin\",\"hash\":\"00000622bf7f189dccdb4701bb146e37b17a24c4b019a1c503b85e65b38d32c2\",\"lastHash\":\"00000c1999d1e108ed9205705eb98081635e11e81ec6356729e55a4e57a18663\",\"nonce\":\"47161\",\"time\":1671746241,\"transactionTimes\":[1671746235, 1671746238],\"transactions\":[\"1.000000->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735|cgbb0zbqtm/sTmB9OJPMI2dlWjcHpf21x+TBqCDRiz6DyoBCfmQnSNA9g/iiJo0ivibnfvRCD4AxbFSmsOKX2gLjwR1Ysgt65I7mIIcdc0+chUqDnu0a+X8LbSKYD6yCSr4rSD4955nU3s930DjVOgVmKxh7K6+2BJ2nx5GZic9owDDCYDbBHK01pYCBSEfnaIA1XOXeGWMtadMZAfW7as9k6ZXSeGpflVN3JdI3Fh107Z1wby6I94gmJt5Gw9sTTA6MCoB/K2GUmhQZ14N6f6VYJ3BxURJB+iiLxGtBINjReGqZFgwb8dtpX9RfOwQRGJC8rvv+Tjzk1qszaXseOw==|-----BEGIN RSA PUBLIC KEY-----\nMIIBCAKCAQEApXRtTjPRE4XRamo84MIP4rjVqUnW91OZ/D7K5qXoLTyO9IOv1zui\nervc3Usp3uyDHpKnZdy2jb0czi6qC5nbaEFh6OlSGJmpa0MN++zxo4YkGwKwRf3N\n6SG8r0bOhipGyVOLOyh+q1oCBY9HqrFhZVgwtaunRurL2GLzG9o8hOr1+UIMoyFh\nzItKMOC26XxiCy2w8B9KOreJS/4Hucg94WsjweyiKFUe2+VUjgsw4Y0Mxg8lrCAP\nsZg0GkYLFsD69WtfHE+H2Dn+xeV+25ZU1fdMj4n4xY15NHg8s/3XTyDvCLOPjn6e\ni8D7LcG3jbyKkhZGq4v30kDiA6O/9d7T5QIBAw==\n-----END RSA PUBLIC KEY-----\n\",\"1.000000->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735|bsTog6pluw/85hWJ3JJQ2jNr/u+Gf5U32RCNFFNUx446Jvw0FqKg/Wh7cXIQTJ2DvVjAH0SiNt+ENgKTuLSTKvwP772cRPKVRBGy2rYE268+dpoIiw7dRv86lnP9JjQaOXkUgx2xQK+JnYHPDEPF+VBG8lLm19UM1YWl9v+Jb9ep//kfLJXzXVYp+rmzyCNb4hO6ehgF/NnuA1hgdwqbmRTLYPOHhdy6P5L8LW2v4ANUCGNCNFB+ajxb1G6yJdodX4OuqcC1Z/LQrjbSxCF2kXtv8p1RA3F9qG4WtMk62vi5otUDWo1W5aExiwOg79hLOTqBbSta9ZWOXR05lm/n1Qw==|-----BEGIN RSA PUBLIC KEY-----\nMIIBCAKCAQEApXR";
+					//std::string testSend = "{\"Version\":\"v0.01alpha-coin\",\"hash\":\"00000622bf7f189dccdb4701bb146e37b17a24c4b019a1c503b85e65b38d32c2\",\"lastHash\":\"00000c1999d1e108ed9205705eb98081635e11e81ec6356729e55a4e57a18663\",\"nonce\":\"47161\",\"time\":1671746241,\"transactionTimes\":[1671746235, 1671746238],\"transactions\":[\"1.000000->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735|cgbb0zbqtm/sTmB9OJPMI2dlWjcHpf21x+TBqCDRiz6DyoBCfmQnSNA9g/iiJo0ivibnfvRCD4AxbFSmsOKX2gLjwR1Ysgt65I7mIIcdc0+chUqDnu0a+X8LbSKYD6yCSr4rSD4955nU3s930DjVOgVmKxh7K6+2BJ2nx5GZic9owDDCYDbBHK01pYCBSEfnaIA1XOXeGWMtadMZAfW7as9k6ZXSeGpflVN3JdI3Fh107Z1wby6I94gmJt5Gw9sTTA6MCoB/K2GUmhQZ14N6f6VYJ3BxURJB+iiLxGtBINjReGqZFgwb8dtpX9RfOwQRGJC8rvv+Tjzk1qszaXseOw==|-----BEGIN RSA PUBLIC KEY-----\nMIIBCAKCAQEApXRtTjPRE4XRamo84MIP4rjVqUnW91OZ/D7K5qXoLTyO9IOv1zui\nervc3Usp3uyDHpKnZdy2jb0czi6qC5nbaEFh6OlSGJmpa0MN++zxo4YkGwKwRf3N\n6SG8r0bOhipGyVOLOyh+q1oCBY9HqrFhZVgwtaunRurL2GLzG9o8hOr1+UIMoyFh\nzItKMOC26XxiCy2w8B9KOreJS/4Hucg94WsjweyiKFUe2+VUjgsw4Y0Mxg8lrCAP\nsZg0GkYLFsD69WtfHE+H2Dn+xeV+25ZU1fdMj4n4xY15NHg8s/3XTyDvCLOPjn6e\ni8D7LcG3jbyKkhZGq4v30kDiA6O/9d7T5QIBAw==\n-----END RSA PUBLIC KEY-----\n\",\"1.000000->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735|bsTog6pluw/85hWJ3JJQ2jNr/u+Gf5U32RCNFFNUx446Jvw0FqKg/Wh7cXIQTJ2DvVjAH0SiNt+ENgKTuLSTKvwP772cRPKVRBGy2rYE268+dpoIiw7dRv86lnP9JjQaOXkUgx2xQK+JnYHPDEPF+VBG8lLm19UM1YWl9v+Jb9ep//kfLJXzXVYp+rmzyCNb4hO6ehgF/NnuA1hgdwqbmRTLYPOHhdy6P5L8LW2v4ANUCGNCNFB+ajxb1G6yJdodX4OuqcC1Z/LQrjbSxCF2kXtv8p1RA3F9qG4WtMk62vi5otUDWo1W5aExiwOg79hLOTqBbSta9ZWOXR05lm/n1Qw==|-----BEGIN RSA PUBLIC KEY-----\nMIIBCAKCAQEApXR";
 					//std::string testSend = "{\"Version\":\"v0.01alpha-coin\",\"hash\":\"00000622bf7f189dccdb4701bb146e37b17a24c4b019a1c503b85e65b38d32c2\",\"lastHash\":\"00000c1999d1e108ed9205705eb98081635e11e81ec6356729e55a4e57a18663\",\"nonce\":\"47161\",\"time\":1671746241,\"transactionTimes\":[1671746235, 1671746238],\"transactions\":[\"1.000000->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735|cgbb0zbqtm/sTmB9OJPMI2dlWjcHpf21x+TBqCDRiz6DyoBCfmQnSNA9g/iiJo0ivibnfvRCD4AxbFSmsOKX2gLjwR1Ysgt65I7mIIcdc0+chUqDnu0a+X8LbSKYD6yCSr4rSD4955nU3s930DjVOgVmKxh7K6+2BJ2nx5GZic9owDDCYDbBHK01pYCBSEfnaIA1XOXeGWMtadMZAfW7as9k6ZXSeGpflVN3JdI3Fh107Z1wby6I94gmJt5Gw9sTTA6MCoB/K2GUmhQZ14N6f6VYJ3BxURJB+iiLxGtBINjReGqZFgwb8dtpX9RfOwQRGJC8rvv+Tjzk1qszaXseOw==|-----BEGIN RSA PUBLIC KEY-----\nMIIBCAKCAQEApXRtTjPRE4XRamo84MIP4rjVqUnW91OZ/D7K5qXoLTyO9IOv1zui\nervc3Usp3uyDHpKnZdy2jb0czi6qC5nbaEFh6OlSGJmpa0MN++zxo4YkGwKwRf3N\n6SG8r0bOhipGyVOLOyh+q1oCBY9HqrFhZVgwtaunRurL2GLzG9o8hOr1+UIMoyFh\nzItKMOC26XxiCy2w8B9KOreJS/4Hucg94WsjweyiKFUe2+VUjgsw4Y0Mxg8lrCAP\nsZg0GkYLFsD69WtfHE+H2Dn+xeV+25ZU1fdMj4n4xY15NHg8s/3XTyDvCLOPjn6e\ni8D7LcG3jbyKkhZGq4v30kDiA6O/9d7T5QIBAw==\n-----END RSA PUBLIC KEY-----\n\",\"1.000000->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735|bsTog6pluw/85hWJ3JJQ2jNr/u+Gf5U32RCNFFNUx446Jvw0FqKg/Wh7cXIQTJ2DvVjAH0SiNt+ENgKTuLSTKvwP772cRPKVRBGy2rYE268+dpo";
-					//std::string testSend = "{\"Version\":\"v0.01alpha-coin\",\"hash\":\"00000622bf7f189dccdb4701bb146e37b17a24c4b019a1c503b85e65b38d32c2\",\"lastHash\":\"00000c1999d1e108ed9205705eb98081635e11e81ec6356729e55a4e57a18663\",\"nonce\":\"47161\",\"time\":1671746241,\"transactionTimes\":[1671746235, 1671746238],\"transactions\":[\"1.000000->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735|cgbb0zbqtm/sTmB9OJPMI2dlWjcHpf21x+TBqCDRiz6DyoBCfmQnSNA9g/iiJo0ivibnfvRCD4AxbFSmsOKX2gLjwR1Ysgt65I7mIIcdc0+chUqDnu0a+X8LbSKYD6yCSr4rSD4955nU3s930DjVOgVmKxh7K6+2BJ2nx5GZic9owDDCYDbBHK01pYCBSEfnaIA1XOXeGWMtadMZAfW7as9k6ZXSeGpflVN3JdI3Fh107Z1wby6I94gmJt5Gw9sTTA6MCoB/K2GUmhQZ14N6f6VYJ3BxURJB+iiLxGtBINjReGqZFgwb8dtpX9RfOwQRGJC8rvv+Tjzk1qszaXseOw==|-----BEGIN RSA PUBLIC KEY-----\nMIIBCAKCAQEApXRtTjPRE4XRamo84MIP4rjVqUnW91OZ/D7K5qXoLTyO9IOv1zui\nervc3Usp3uyDHpKnZdy2jb0czi6qC5nbaEFh6OlSGJmpa0MN++zxo4YkGwKwRf3N\n6SG8r0bOhipGyVOLOyh+q1oCBY9HqrFhZVgwtaunRurL2GLzG9o8hOr1+UIMoyFh\nzItKMOC26XxiCy2w8B9KOreJS/4Hucg94WsjweyiKFUe2+VUjgsw4Y0Mxg8lrCAP\nsZg0GkYLFsD69WtfHE+H2Dn+xeV+25ZU1fdMj4n4xY15NHg8s/3XTyDvCLOPjn6e\ni8D7LcG3jbyKkhZGq4v30kDiA6O/9d7T5QIBAw==\n-----END RSA PUBLIC KEY-----\n\",\"1.000000->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735|bsTog6pluw/85hWJ3JJQ2jNr/u+Gf5U32RCNFNUx446Jvw0FqKg/Wh7cXIQTJ2DvVjAH0SiNt+ENgKTuLSTKvwP772cRPKVRBGy2rYE268+dpoIiw7dRv86lnP9JjQaOXkUgx2xQK+JnYHPDEPF+VBG8lLm19UM1YWl9v+Jb9ep//kfLJXzXVYp+rmzyCNb4hO6ehgF/NnuA1hgdwqbmRTLYPOHhdy6P5L8LW2v4ANUCGNCNFB+ajxb1G6yJdodX4OuqcC1Z/LQrjbSxCF2kXtv8p1RA3F9qG4WtMk62vi5otUDWo1W5aExiwOg79hLOTqBbSta9ZWOXR05lm/n1Qw==|-----BEGIN RSA PUBLIC KEY-----\nMIIBCAKCAQEApXRtTjPRE4XRamo84MIP4rjVqUnW91OZ/D7K5qXoLTyO9IOv1zui\nervc3Usp3uyDHpKnZdy2jb0czi6qC5nbaEFh6OlSGJmpa0MN++zxo4YkGwKwRf3N\n6SG8r0bOhipGyVOLOyh+q1oCBY9HqrFhZVgwtaunRurL2GLzG9o8hOr1+UIMoyFh\nzItKMOC26XxiCy2w8B9KOreJS/4Hucg94WsjweyiKFUe2+VUjgsw4Y0Mxg8lrCAP\nsZg0GkYLFsD69WtfHE+H2Dn+xeV+25ZU1fdMj4n4xY15NHg8s/3XTyDvCLOPjn6e\ni8D7LcG3jbyKkhZGq4v30kDiA6O/9d7T5QIBAw==\n-----END RSA PUBLIC KEY-----\n\"];
+					//std::string testSend = "{\"Version\":\"v0.01alpha-coin\",\"hash\":\"00000622bf7f189dccdb4701bb146e37b17a24c4b019a1c503b85e65b38d32c2\",\"lastHash\":\"00000c1999d1e108ed9205705eb98081635e11e81ec6356729e55a4e57a18663\",\"nonce\":\"47161\",\"time\":1671746241,\"transactionTimes\":[1671746235, 1671746238],\"transactions\":[\"1.000000->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735|cgbb0zbqtm/sTmB9OJPMI2dlWjcHpf21x+TBqCDRiz6DyoBCfmQnSNA9g/iiJo0ivibnfvRCD4AxbFSmsOKX2gLjwR1Ysgt65I7mIIcdc0+chUqDnu0a+X8LbSKYD6yCSr4rSD4955nU3s930DjVOgVmKxh7K6+2BJ2nx5GZic9owDDCYDbBHK01pYCBSEfnaIA1XOXeGWMtadMZAfW7as9k6ZXSeGpflVN3JdI3Fh107Z1wby6I94gmJt5Gw9sTTA6MCoB/K2GUmhQZ14N6f6VYJ3BxURJB+iiLxGtBINjReGqZFgwb8dtpX9RfOwQRGJC8rvv+Tjzk1qszaXseOw==|-----BEGIN RSA PUBLIC KEY-----\nMIIBCAKCAQEApXRtTjPRE4XRamo84MIP4rjVqUnW91OZ/D7K5qXoLTyO9IOv1zui\nervc3Usp3uyDHpKnZdy2jb0czi6qC5nbaEFh6OlSGJmpa0MN++zxo4YkGwKwRf3N\n6SG8r0bOhipGyVOLOyh+q1oCBY9HqrFhZVgwtaunRurL2GLzG9o8hOr1+UIMoyFh\nzItKMOC26XxiCy2w8B9KOreJS/4Hucg94WsjweyiKFUe2+VUjgsw4Y0Mxg8lrCAP\nsZg0GkYLFsD69WtfHE+H2Dn+xeV+25ZU1fdMj4n4xY15NHg8s/3XTyDvCLOPjn6e\ni8D7LcG3jbyKkhZGq4v30kDiA6O/9d7T5QIBAw==\n-----END RSA PUBLIC KEY-----\n\",\"1.000000->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735->3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735|bsTog6pluw/85hWJ3JJQ2jNr/u+Gf5U32RCNFNUx446Jvw0FqKg/Wh7cXIQTJ2DvVjAH0SiNt+ENgKTuLSTKvwP772cRPKVRBGy2rYE268+dpoIiw7dRv86lnP9JjQaOXkUgx2xQK+JnYHPDEPF+VBG8lLm19UM1YWl9v+Jb9ep//kfLJXzXVYp+rmzyCNb4hO6ehgF/NnuA1hgdwqbmRTLYPOHhdy6P5L8LW2v4ANUCGNCNFB+ajxb1G6yJdodX4OuqcC1Z/LQrjbSxCF2kXtv8p1RA3F9qG4WtMk62vi5otUDWo1W5aExiwOg79hLOTqBbSta9ZWOXR05lm/n1Qw==|-----BEGIN RSA PUBLIC KEY-----\nMIIBCAKCAQEApXRtTjPRE4XRamo84MIP4rjVqUnW91OZ/D7K5qXoLTyO9IOv1zui\nervc3Usp3uyDHpKnZdy2jb0czi6qC5nbaEFh6OlSGJmpa0MN++zxo4YkGwKwRf3N\n6SG8r0bOhipGyVOLOyh+q1oCBY9HqrFhZVgwtaunRurL2GLzG9o8hOr1+UIMoyFh\nzItKMOC26XxiCy2w8B9KOreJS/4Hucg94WsjweyiKFUe2+VUjgsw4Y0Mxg8lrCAP\nsZg0GkYLFsD69WtfHE+H2Dn+xeV+25ZU1fdMj4n4xY15NHg8s/3XTyDvCLOPjn6e\ni8D7LcG3jbyKkhZGq4v30kDiA6O/9d7T5QIBAw==\n-----END RSA PUBLIC KEY-----\n\"]";
 
-					msg = "answer$$$block$$$" + std::to_string(reqDat) + "$$$" + ReplaceEscapeSymbols(testSend);
+					msg = "answer$$$block$$$" + std::to_string(reqDat) + "$$$" + ReplaceEscapeSymbols(blockText);
 					console.Write(msg + "\n");
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 					//SendAll(localSocket, msg, (int)msg.length(), (sockaddr*)&otherAddr, otherSize);
@@ -714,6 +720,17 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 				else if (cmdArgs[0] == "syncpeers") {
 					messageStatus = requesting_peer_list;
 					messageAttempt = 0;
+				}
+				// If user inputted `exit` command, close the connection and exit the P2P shell
+				else if (cmdArgs[0] == "exit") {
+					stop_thread_1 = true;
+					t1.join();
+					stop_thread_1 = false;
+
+					closesocket(localSocket);
+					WSACleanup();
+
+					return 0;
 				}
 				else {
 					messageStatus = idle;

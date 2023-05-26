@@ -872,7 +872,6 @@ bool IsChainValid()
 			buffer2 << th.rdbuf();
 			std::string content2 = buffer2.str();
 			json firstBlock = json::parse(content2);
-			console.BlockCheckerPrint();
 			//std::cout << "content: " << content2 << "\nnumoftrans: " << std::to_string(firstBlock["transactions"].size()) << std::endl;
 			//std::vector<std::string> o["transactions"] = o["transactions"];
 			//std::vector<uint64_t> o["transactionTimes"] = o["transactionTimes"];
@@ -894,6 +893,7 @@ bool IsChainValid()
 					tmpFunds += stof(transactionDetails[0]);
 				}
 			}
+			//console.BlockCheckerPrint();
 			std::cout << "\nfunds: " + std::to_string(tmpFunds) << std::endl;
 		}
 	}
@@ -1096,7 +1096,7 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 				hashStart = std::chrono::steady_clock::now();
 				hashesAtStart = nonce;
 
-				console.Write("\r" + std::to_string(std::round(since(startTime).count() / 1000)) + " :	" + std::to_string(nonce) + " # " + hash);
+				console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + " :	" + CommaLargeNumber(nonce) + " # " + hash);
 				console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
 			}
 
@@ -1390,7 +1390,7 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 			hashStart = std::chrono::steady_clock::now();
 			hashesAtStart = nonce;
 
-			console.Write("\r" + std::to_string(std::round(since(startTime).count() / 1000)) + " :	" + std::to_string(nonce) + " # " + hash);
+			console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + " :	" + CommaLargeNumber(nonce) + " # " + hash);
 			console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
 		}
 

@@ -84,7 +84,7 @@ void Console::NetworkPrint()
 {
 	Console::PrintColored("[", yellowFGColor, "");
 	Console::PrintColored("Network", cyanFGColor, "");
-	Console::PrintColored("]  - ", yellowFGColor, "");
+	Console::PrintColored("]        - ", yellowFGColor, "");
 }
 void Console::NetworkErrorPrint()
 {
@@ -96,25 +96,25 @@ void Console::MiningPrint()
 {
 	Console::PrintColored("[", yellowFGColor, "");
 	Console::PrintColored("Mining", greenFGColor, "");
-	Console::PrintColored("]  - ", yellowFGColor, "");
+	Console::PrintColored("]         - ", yellowFGColor, "");
 }
 void Console::MiningErrorPrint()
 {
 	Console::PrintColored("[", yellowFGColor, "");
 	Console::PrintColored("Mining-Error", redFGColor, "");
-	Console::PrintColored("]  - ", yellowFGColor, "");
+	Console::PrintColored("]   - ", yellowFGColor, "");
 }
 void Console::RustPrint()
 {
 	Console::PrintColored("[", yellowFGColor, "");
 	Console::PrintColored("Rust", magentaFGColor, "");
-	Console::PrintColored("]  - ", yellowFGColor, "");
+	Console::PrintColored("]           - ", yellowFGColor, "");
 }
 void Console::CompilerErrorPrint()
 {
 	Console::PrintColored("[", yellowFGColor, "");
 	Console::PrintColored("Rust-Error", redFGColor, "");
-	Console::PrintColored("]  - ", yellowFGColor, "");
+	Console::PrintColored("]     - ", yellowFGColor, "");
 }
 void Console::BlockCheckerPrint()
 {
@@ -126,13 +126,19 @@ void Console::DebugPrint()
 {
 	Console::PrintColored("[", yellowFGColor, "");
 	Console::PrintColored("Debug", yellowFGColor, "");
-	Console::PrintColored("]  - ", yellowFGColor, "");
+	Console::PrintColored("]          - ", yellowFGColor, "");
+}
+void Console::SystemPrint()
+{
+	Console::PrintColored("[", yellowFGColor, "");
+	Console::PrintColored("System", blueFGColor, "");
+	Console::PrintColored("]         - ", yellowFGColor, "");
 }
 void Console::ErrorPrint()
 {
 	Console::PrintColored("[", yellowFGColor, "");
 	Console::PrintColored("Error", redFGColor, "");
-	Console::PrintColored("]  - ", yellowFGColor, "");
+	Console::PrintColored("]          - ", yellowFGColor, "");
 }
 
 void Console::WriteLine()

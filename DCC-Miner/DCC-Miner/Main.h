@@ -2,6 +2,7 @@
 #define Main_h
 
 
+
 #include <iostream>
 #include "json.hpp"
 //#include <string>
@@ -25,5 +26,6 @@
 #include "P2PClient.h"
 #include "strops.h"
 #include "crypto.h"
+#include "SettingsConsts.h"
 
 #endif

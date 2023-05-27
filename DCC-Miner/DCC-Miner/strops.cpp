@@ -47,6 +47,22 @@ std::string CommaLargeNumber(int num) {
 	return s;
 }
 
+std::string CommaLargeNumber(float num) {
+	int v = (int)num;
+	auto s = std::to_string(v);
+
+	int n = s.length() - 3;
+	int end = (v >= 0) ? 0 : 1; // Support for negative numbers
+	while (n > end) {
+		s.insert(n, ",");
+		n -= 3;
+	}
+
+	s += "." + SplitString(std::to_string(num), ".")[1];
+
+	return s;
+}
+
 //std::vector<std::string> SplitString(std::string str, std::string delim)
 //{
 //	std::vector<std::string> words;

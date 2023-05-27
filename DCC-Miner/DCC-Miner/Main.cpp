@@ -10,8 +10,6 @@
 
 #include "Main.h"
 
-#define DEBUG true
-
 std::string serverURL = "http://api.achillium.us.to";
 
 //using namespace std;
@@ -138,13 +136,13 @@ int main()
 	// Create required directories if they don't exist
 	for (std::string dir : directoryList)
 		if (!fs::is_directory(dir) || !fs::exists(dir)) {
-			console.DebugPrint();
+			console.SystemPrint();
 			console.WriteLine("Creating " + dir);
 			fs::create_directory(dir);
 		}
 
 	// Create config.cfg file if it doesn't exist 
-	console.DebugPrint();
+	console.SystemPrint();
 	console.WriteLine("Checking config.cfg");
 	if (!fs::exists("./config.cfg"))
 	{
@@ -157,11 +155,11 @@ int main()
 	}
 
 	// Generate and save keypair if it doesn't exist
-	console.DebugPrint();
+	console.SystemPrint();
 	console.WriteLine("Checking keypairs...");
 	if (!fs::exists("./sec/prikey.pem"))
 	{
-		console.DebugPrint();
+		console.SystemPrint();
 		console.WriteLine("None found, generating keypairs...");
 		keypair = GenerateKeypair();
 		std::cout << "Public key: " << std::endl;
@@ -184,20 +182,23 @@ int main()
 	sha256_string((char*)(keypair[0]).c_str(), walletBuffer);
 	std::string wallet = walletBuffer;
 
-	console.DebugPrint();
-	console.WriteLine("Your wallet: " + wallet, "", console.greenFGColor);
+	console.SystemPrint();
+	console.Write("Your wallet: ");
+	console.WriteLine(wallet, console.greenFGColor, "");
 	walletInfo["Address"] = wallet;
 
 
 	std::string line;
 	std::ifstream peerFile("./wwwdata/peerlist.txt");
 	// If the peer list file does not exist, create it
-	if(!peerFile)
+	if (!peerFile)
 	{
-		std::cout<<"Error opening peer file"<< std::endl;
+		console.ErrorPrint();
+		console.WriteLine("Error opening peer file", console.redFGColor, "");
+		//std::cout << "Error opening peer file" << std::endl;
 		//system("pause");
 		//return -1;
-	
+
 		// Create the peer list file
 		std::ofstream peerFileW("./wwwdata/peerlist.txt");
 		if (peerFileW.is_open())
@@ -297,15 +298,15 @@ int main()
 
 	while (true)
 	{
-		console.NetworkPrint();
+		console.SystemPrint();
 		console.WriteLine("Getting wallet info...");
 
 		json w = GetInfo();
 
-		#if DEBUG
-		console.NetworkPrint();
-		console.WriteLine("Done");
-		#endif
+		if (constants::debugPrint == true) {
+			console.NetworkPrint();
+			console.WriteLine("Done");
+		}
 
 		if (w.is_null())
 		{
@@ -329,24 +330,24 @@ int main()
 			Sync();
 			try
 			{
-				#if DEBUG
-				console.DebugPrint();
-				console.WriteLine("Validating blockchain...");
-				#endif
+				if (constants::debugPrint == true) {
+					console.BlockCheckerPrint();
+					console.WriteLine("Validating blockchain...");
+				}
 				IsChainValid();
-				#if DEBUG
-				console.DebugPrint();
-				console.WriteLine("Done!");
-				#endif
+				if (constants::debugPrint == true) {
+					console.BlockCheckerPrint();
+					console.WriteLine("Done!");
+				}
 			}
 			catch (const std::exception&)
 			{
 				Sync();
 			}
 
-			console.DebugPrint();
+			console.SystemPrint();
 			console.Write("You have: ");
-			console.WriteLine(std::to_string((float)walletInfo["Funds"]) + "\n", "", console.greenFGColor);
+			console.WriteLine("$" + CommaLargeNumber((float)walletInfo["Funds"]) + "\n", console.yellowFGColor, "");
 		}
 		else
 		{
@@ -514,10 +515,10 @@ int main()
 		{
 			if (SplitString(command, " ").size() < 3)
 				continue;
-			
+
 			endpointPort = SplitString(command, " ")[1];
 			peerPort = SplitString(command, " ")[2];
-			
+
 			p2p.StartP2P(endpointAddr, endpointPort, peerPort);
 			console.NetworkPrint();
 			console.WriteLine("Closed P2P");
@@ -600,7 +601,7 @@ json GetInfo()
 		http.blockVersion = blockVersion;
 		std::vector<std::string> args = { "query=getInfo", "fromAddress=" + (std::string)walletInfo["Address"] };
 		std::string html = http.StartHttpWebRequest(serverURL + "/dcc/?", args);
-		std::cout << html << std::endl;
+		//std::cout << html << std::endl;
 		return json::parse(html);
 
 		//string html = p2p.Connect("index.php?query=getInfo&fromAddress=" + walletInfo["Address"]).Trim();
@@ -708,10 +709,10 @@ int GetProgram()
 
 			id = assignedProgram;
 
-			#if DEBUG
-			console.NetworkPrint();
-			console.WriteLine("./wwwdata/programs/" + id + ".cfg");
-			#endif
+			if (constants::debugPrint == true) {
+				console.NetworkPrint();
+				console.WriteLine("./wwwdata/programs/" + id + ".cfg");
+			}
 
 			DownloadFile(serverURL + "/dcc/programs/" + id + ".cfg", "./wwwdata/programs/" + id + ".cfg", true);
 			DownloadFile(serverURL + "/dcc/programs/" + id + ".zip", "./wwwdata/programs/" + id + ".zip", true);
@@ -904,14 +905,14 @@ bool IsChainValid()
 				}
 			}
 			//console.BlockCheckerPrint();
-			std::cout << "\nfunds: " + std::to_string(tmpFunds) << std::endl;
+			//std::cout << "\nfunds: " + std::to_string(tmpFunds) << std::endl;
 		}
 	}
 	catch (const std::exception& e)
 	{
-		#if DEBUG
-		std::cerr << std::endl << e.what() << std::endl;
-		#endif
+		if (constants::debugPrint == true) {
+			std::cerr << std::endl << e.what() << std::endl;
+		}
 		console.ExitError("Failure, exiting");
 	}
 
@@ -970,10 +971,11 @@ bool IsChainValid()
 				}
 			}
 
-			console.WriteBulleted("Validating block: " + std::to_string(i), 1);
+			console.WriteBulleted("Validating block: " + std::to_string(i), 3);
 			char sha256OutBuffer[65];
 			sha256_string((char*)(lastHash + transactions + nonce).c_str(), sha256OutBuffer);
 			std::string blockHash = sha256OutBuffer;
+
 			if ((blockHash[0] != '0' && blockHash[1] != '0') || blockHash != currentHash || blockHash != nextHash)
 			{
 				std::string rr = "";
@@ -982,7 +984,7 @@ bool IsChainValid()
 				if (blockHash != currentHash)
 					rr = "1";
 				if (blockHash != nextHash)
-					rr = "1";
+					rr = "2";
 				console.WriteLine("    X Bad Block X  " + std::to_string(i) + " R" + rr, console.redFGColor, "");
 				return false;
 			}
@@ -1059,9 +1061,7 @@ bool IsChainValid()
 			// Update funds
 			tmpFunds += tmpFunds2;
 
-			#if DEBUG
 			console.Write("\tTransactions: " + std::to_string(trans.size()));
-			#endif
 
 			console.WriteLine(" \tOk  ", console.greenFGColor, "");
 
@@ -1070,9 +1070,9 @@ bool IsChainValid()
 		}
 		catch (const std::exception& e)
 		{
-			#if DEBUG
-			std::cerr << std::endl << e.what() << std::endl;
-			#endif
+			if (constants::debugPrint == true) {
+				std::cerr << std::endl << e.what() << std::endl;
+			}
 			console.ExitError("Failure, exiting");
 		}
 	}
@@ -1171,9 +1171,9 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 		}
 		catch (const std::exception& e)
 		{
-			#if DEBUG
-			std::cerr << e.what() << std::endl;
-			#endif
+			if (constants::debugPrint == true) {
+				std::cerr << e.what() << std::endl;
+			}
 			return 0;
 		}
 
@@ -1204,9 +1204,9 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 			}
 			catch (const std::exception& e)
 			{
-				#if DEBUG
-				std::cerr << e.what() << std::endl;
-				#endif
+				if (constants::debugPrint == true) {
+					std::cerr << e.what() << std::endl;
+				}
 				return 0;
 			}
 		}
@@ -1219,9 +1219,9 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 	}
 	catch (const std::exception& e)
 	{
-		#if DEBUG
-		std::cerr << e.what() << std::endl;
-		#endif
+		if (constants::debugPrint == true) {
+			std::cerr << e.what() << std::endl;
+		}
 		return 0;
 	}
 }
@@ -1274,9 +1274,9 @@ int SendFunds(std::string toAddress, float amount)
 		}
 		catch (const std::exception& e)
 		{
-			#if DEBUG
-			std::cerr << e.what() << std::endl;
-			#endif
+			if (constants::debugPrint == true) {
+				std::cerr << e.what() << std::endl;
+			}
 			return 0;
 		}
 	}
@@ -1323,10 +1323,10 @@ int SendFunds(std::string toAddress, float amount)
 		std::stringstream bufferd;
 		bufferd << blkData.rdbuf();
 		std::string blockText = bufferd.str();
-		#if DEBUG
-		std::cout << "read from: " << ("./wwwdata/pendingblocks/block" + std::to_string((int)walletInfo["BlockchainLength"] + (int)walletInfo["PendingLength"]) + ".dccblock") << std::endl;
-		std::cout << "textread: " << blockText << std::endl;
-		#endif
+		if (constants::debugPrint == true) {
+			std::cout << "read from: " << ("./wwwdata/pendingblocks/block" + std::to_string((int)walletInfo["BlockchainLength"] + (int)walletInfo["PendingLength"]) + ".dccblock") << std::endl;
+			std::cout << "textread: " << blockText << std::endl;
+		}
 		json blockJson = json::parse(blockText);
 
 
@@ -1367,9 +1367,9 @@ int SendFunds(std::string toAddress, float amount)
 		}
 		catch (const std::exception& e)
 		{
-			#if DEBUG
-			std::cerr << e.what() << std::endl;
-			#endif
+			if (constants::debugPrint == true) {
+				std::cerr << e.what() << std::endl;
+			}
 			return 0;
 		}
 
@@ -1382,9 +1382,9 @@ int SendFunds(std::string toAddress, float amount)
 	}
 	catch (const std::exception& e)
 	{
-		#if DEBUG
-		std::cerr << e.what() << std::endl;
-		#endif
+		if (constants::debugPrint == true) {
+			std::cerr << e.what() << std::endl;
+		}
 		return 0;
 	}
 }
@@ -1510,17 +1510,17 @@ boost::process::child ExecuteAsync(std::string cmd)
 		}
 		bp::child c(cmd);
 
-		#if DEBUG
-		std::cout << c.id() << std::endl;
-		#endif
+		if (constants::debugPrint == true) {
+			std::cout << c.id() << std::endl;
+		}
 
 		return c;
 	}
 	catch (const std::exception& e)
 	{
-		#if DEBUG
-		std::cerr << e.what() << std::endl;
-		#endif
+		if (constants::debugPrint == true) {
+			std::cerr << e.what() << std::endl;
+		}
 		return boost::process::child();
 	}
 
@@ -1531,10 +1531,10 @@ boost::process::child ExecuteAsync(std::string cmd)
 
 json UpgradeBlock(json b, std::string toVersion)
 {
-	#if DEBUG
-	console.BlockCheckerPrint();
-	console.WriteLine("Upgrading block to version " + toVersion);
-	#endif
+	if (constants::debugPrint == true) {
+		console.BlockCheckerPrint();
+		console.WriteLine("Upgrading block to version " + toVersion);
+	}
 
 	if (toVersion == "v0.01alpha-coin")
 	{

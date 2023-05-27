@@ -62,6 +62,7 @@ public:
 	void CompilerErrorPrint();
 	void BlockCheckerPrint();
 	void DebugPrint();
+	void SystemPrint();
 	void ErrorPrint();
 
 	void WriteLine();

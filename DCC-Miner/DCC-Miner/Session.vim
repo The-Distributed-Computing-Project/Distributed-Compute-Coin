@@ -13,7 +13,7 @@ badd +1 Main.h
 badd +1 P2PClient.cpp
 badd +1 Console.cpp
 badd +138 /usr/share/nvim/runtime/doc/various.txt
-badd +1 term://.//2932:/bin/bash
+badd +1 term://.//1045:/bin/bash
 argglobal
 %argdel
 $argadd Main.cpp
@@ -30,8 +30,8 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 53 + 33) / 67)
-exe '2resize ' . ((&lines * 10 + 33) / 67)
+exe '1resize ' . ((&lines * 47 + 33) / 66)
+exe '2resize ' . ((&lines * 15 + 33) / 66)
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -42,7 +42,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 112 - ((37 * winheight(0) + 26) / 53)
+let s:l = 112 - ((32 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -50,7 +50,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-if bufexists("term://.//2932:/bin/bash") | buffer term://.//2932:/bin/bash | else | edit term://.//2932:/bin/bash | endif
+if bufexists("term://.//1045:/bin/bash") | buffer term://.//1045:/bin/bash | else | edit term://.//1045:/bin/bash | endif
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -59,15 +59,16 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 1 - ((0 * winheight(0) + 5) / 10)
+let s:l = 224 - ((14 * winheight(0) + 7) / 15)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+224
+normal! 07|
 wincmd w
-exe '1resize ' . ((&lines * 53 + 33) / 67)
-exe '2resize ' . ((&lines * 10 + 33) / 67)
+2wincmd w
+exe '1resize ' . ((&lines * 47 + 33) / 66)
+exe '2resize ' . ((&lines * 15 + 33) / 66)
 tabedit Main.h
 set splitbelow splitright
 set nosplitright
@@ -86,7 +87,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 32) / 64)
+let s:l = 1 - ((0 * winheight(0) + 31) / 63)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -110,7 +111,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 32) / 64)
+let s:l = 1 - ((0 * winheight(0) + 31) / 63)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -134,7 +135,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 32) / 64)
+let s:l = 1 - ((0 * winheight(0) + 31) / 63)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt

@@ -1,5 +1,4 @@
-﻿  Building Custom Rule D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/curl-src/lib/CMakeLists.txt
-  altsvc.c
+﻿  altsvc.c
   amigaos.c
   asyn-ares.c
   asyn-thread.c

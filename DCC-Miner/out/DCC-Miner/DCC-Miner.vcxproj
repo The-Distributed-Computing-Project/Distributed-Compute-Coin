@@ -317,7 +317,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\DCC-Miner\SettingsConsts.h" />
     <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\json.hpp" />
     <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.h" />
     <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp" />

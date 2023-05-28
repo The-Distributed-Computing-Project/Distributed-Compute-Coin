@@ -45,9 +45,6 @@
     <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\crypto.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\DCC-Miner\SettingsConsts.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\CMakeLists.txt" />

@@ -75,6 +75,7 @@ void ConnectionError();
 std::string ExecuteCommand(const char* cmd);
 std::string FormatHPS(float input);
 boost::process::child ExecuteAsync(std::string cmd);
+boost::process::child ExecuteAsync(std::string cmd, bool print);
 int SendFunds(std::string toAddress, float amount);
 
 
@@ -663,16 +664,6 @@ int GetProgram()
 					console.WriteLine("Error removing \"" + oldProgram.path().string() + "\"");
 				}
 			}
-			//foreach(string oldProgram in Directory.GetDirectories("./wwwdata/programs/", "*.*", SearchOption.TopDirectoryOnly))
-			//{
-			//	try
-			//	{
-			//		Directory.Delete(oldProgram, true);
-			//	}
-			//	catch (const std::exception&)
-			//	{
-			//	}
-			//}
 
 			Http http;
 			http.blockVersion = blockVersion;
@@ -778,14 +769,6 @@ int SyncPending(int whichBlock)
 {
 	try
 	{
-		//Http http;
-		//http.blockVersion = blockVersion;
-		//vector<string> args = { "query=getPendingBlock", "blockNum=" + whichBlock };
-		//string html = http.StartHttpWebRequest(serverURL + "/dcc/?", args);
-
-		//console.WriteLine("Synced pending: " + whichBlock, console.Mining());
-		//File.WriteAllText("./wwwdata/pendingblocks/block" + to_string(whichBlock) + ".dccblock", html);
-
 		if (fs::exists("./wwwdata/pendingblocks/block" + std::to_string(whichBlock) + ".dccblock"))
 			return 1;
 
@@ -807,14 +790,6 @@ int SyncBlock(int whichBlock)
 {
 	try
 	{
-		//Http http;
-		//http.blockVersion = blockVersion;
-		//vector<string> args = { "query=getBlock", "blockNum=" + whichBlock };
-		//string html = http.StartHttpWebRequest(serverURL + "/dcc/?", args);
-
-		//console.WriteLine("Synced: " + whichBlock);
-		//File.WriteAllText("./wwwdata/blockchain/block" + to_string(whichBlock) + ".dccblock", html);
-
 		if (fs::exists("./wwwdata/blockchain/block" + std::to_string(whichBlock) + ".dccblock"))
 			return 1;
 
@@ -1071,7 +1046,7 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 
 		console.RustPrint();
 		console.WriteLine("Starting program... ");
-		boost::process::child cargoProc = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + id + "/Cargo.toml");
+		boost::process::child cargoProc = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + id + "/Cargo.toml", false);
 
 		//Checks Hash
 		int nonce = 0;
@@ -1369,6 +1344,9 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 	//if (difficulty == "")
 	//	difficulty = (std::string)walletInfo["MineDifficulty"];
 
+	difficulty = ToLower(difficulty); 
+
+
 	auto startTime = std::chrono::steady_clock::now();
 
 	std::ifstream td("./wwwdata/blockchain/block" + std::to_string(blockNum) + ".dccblock");
@@ -1501,6 +1479,34 @@ boost::process::child ExecuteAsync(std::string cmd)
 
 	return boost::process::child();
 	//c.wait();
+}
+
+boost::process::child ExecuteAsync(std::string cmd, bool printOutput)
+{
+	try
+	{
+		namespace bp = boost::process;
+		std::vector<std::string> splitCommand = SplitString(cmd, " ");
+		std::string command = splitCommand[0];
+		std::string args;
+		for (int i = 1; i < sizeof(splitCommand) / sizeof(splitCommand[0]); i++)
+		{
+			args += splitCommand[i] + " ";
+		}
+		bp::child c(cmd);
+
+		if (constants::debugPrint == true) {
+			std::cout << c.id() << std::endl;
+		}
+
+		return c;
+	}
+	catch (const std::exception& e)
+	{
+		return boost::process::child();
+	}
+
+	return boost::process::child();
 }
 
 

@@ -137,6 +137,14 @@ std::string ToUpper(std::string s)
 	return sN;
 }
 
+// Convert string to lowercase 
+std::string ToLower(std::string s)
+{
+	std::string sN = s;
+	for (auto& c : sN) c = tolower(c);
+	return sN;
+}
+
 bool StringStartsWith(std::string str, std::string substr)
 {
 	for (int i = 0; i < substr.length(); i++)

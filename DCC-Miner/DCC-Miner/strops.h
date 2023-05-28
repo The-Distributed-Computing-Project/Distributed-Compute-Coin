@@ -11,6 +11,7 @@ void rtrim(std::string& s);
 // Overrided by boost::trim
 std::string TrimString(std::string s);
 std::string ToUpper(std::string s);
+std::string ToLower(std::string s);
 std::string ReplaceEscapeSymbols(std::string s);
 bool StringStartsWith(std::string str, std::string substr);
 std::string CommaLargeNumber(int num);

@@ -57,7 +57,7 @@ add_definitions(-DCURL_STATICLIB)
 find_package(CURL REQUIRED)
 include_directories(${CURL_INCLUDE_DIR})
 
-include_directories("C:\\Program Files\\OpenSSL-Win64\\") 
+#include_directories("C:\\Program Files\\OpenSSL-Win64\\") 
 set(OPENSSL_ROOT_DIR "C:\\Program Files\\OpenSSL-Win64\\")
 set(OPENSSL_USE_STATIC_LIBS TRUE)
 find_package(OpenSSL REQUIRED)

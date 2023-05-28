@@ -30,7 +30,7 @@ Boost_DIR:PATH=Boost_DIR-NOTFOUND
 Boost_INCLUDE_DIR:PATH=D:/Code/boost
 
 //Path to a program.
-CMAKE_AR:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.36.32502/bin/Hostx64/x64/lib.exe
+CMAKE_AR:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.37.32705/bin/Hostx64/x64/lib.exe
 
 //Choose the type of build, standard options are: Debug Release
 // RelWithDebInfo MinSizeRel.
@@ -144,7 +144,7 @@ CMAKE_INSTALL_SHAREDSTATEDIR:PATH=com
 CMAKE_INSTALL_SYSCONFDIR:PATH=etc
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.36.32502/bin/Hostx64/x64/link.exe
+CMAKE_LINKER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.37.32705/bin/Hostx64/x64/link.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.

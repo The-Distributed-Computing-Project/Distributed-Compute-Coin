@@ -25,3 +25,4 @@ DCC-Miner/out/build/x64-debug/DCC-Miner/DCC-Miner.pdb
 */wwwdata/*
 .vs
 *.pem
+*/config.cfg

@@ -12,7 +12,6 @@
 
 std::string serverURL = "http://api.achillium.us.to";
 
-//using namespace std;
 using json = nlohmann::json;
 namespace fs = std::filesystem;
 
@@ -104,8 +103,6 @@ std::string endpointAddr = "";
 std::string endpointPort = "";
 std::string peerPort = "";
 
-//PHPServ phpserv = new PHPServ();
-//P2P p2p = new P2P();
 
 struct stat info;
 Console console;
@@ -272,8 +269,8 @@ int main()
 	// Get public IP address and PORT
 	Http http;
 	std::vector<std::string> args;
-	std::string ipPortCombo = http.StartHttpWebRequest("https://api.ipify.org", args);
-	ipPortCombo += ":5000";
+	std::string ipPortCombo = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP free
+	ipPortCombo += ":5000"; // Default PORT is 5000
 	if (ipPortCombo != "")
 	{
 		endpointAddr = SplitString(ipPortCombo, ":")[0];
@@ -287,15 +284,8 @@ int main()
 	}
 
 
-	//console.DebugPrint();
-	//console.WriteLine("Starting P2P with: " + ipPortCombo);
-	//p2p.StartP2P(endpointAddr, endpointPort);
-
-
-
-	//console.ErrorPrint();
-	//console.ExitError("Stopped before json, after P2P.");
-
+	
+	// Start command loop
 	while (true)
 	{
 		console.SystemPrint();
@@ -379,9 +369,7 @@ int main()
 				//ConnectionError();
 				continue;
 			}
-			//console.Write(((char)7).ToString()); // Bell char to make sound
 		}
-		//--send 3bc5832b5c8939549526b843337267b25f67393142015fe3aa7294bbd125a735 1
 		else if (SplitString(ToUpper(command), " ")[0] == "--SEND" || SplitString(ToUpper(command), " ")[0] == "-SN")
 		{
 			std::string toAddr;
@@ -402,7 +390,6 @@ int main()
 				console.WriteLine("Error sending : " + (std::string)e.what(), "", console.redFGColor);
 			}
 
-			//console.Write(((char)7).ToString()); // Bell char to make sound
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--MINE" || SplitString(ToUpper(command), " ")[0] == "-M")
 		{
@@ -412,18 +399,6 @@ int main()
 
 			for (int i = 0; i < iterations; i++)
 			{
-				//for (auto oldBlock : fs::directory_iterator("./wwwdata/pendingblocks/"))
-				//{
-				//	try
-				//	{
-				//		remove(oldBlock.path());
-				//	}
-				//	catch (const std::exception&)
-				//	{
-				//		console.ErrorPrint();
-				//		console.WriteLine("Error removing \"" + oldBlock.path().string() + "\"");
-				//	}
-				//}
 				for (int s = 0; s < walletInfo["PendingLength"]; s++)
 				{
 					if (SyncPending(walletInfo["BlockchainLength"] + 1 + s) == 0)
@@ -1462,7 +1437,7 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 
 void ConnectionError()
 {
-	connectionStatus = 0;
+	//connectionStatus = 0;
 	console.NetworkErrorPrint();
 	console.WriteLine("Failed To Connect");
 }

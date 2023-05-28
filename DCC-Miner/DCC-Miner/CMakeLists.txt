@@ -2,6 +2,9 @@
 # project specific logic here.
 #
 cmake_minimum_required (VERSION 3.0 FATAL_ERROR)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
 
 # Add source to this project's executable.
@@ -54,6 +57,8 @@ add_definitions(-DCURL_STATICLIB)
 find_package(CURL REQUIRED)
 include_directories(${CURL_INCLUDE_DIR})
 
+include_directories("C:\\Program Files\\OpenSSL-Win64\\") 
+set(OPENSSL_ROOT_DIR "C:\\Program Files\\OpenSSL-Win64\\")
 set(OPENSSL_USE_STATIC_LIBS TRUE)
 find_package(OpenSSL REQUIRED)
 

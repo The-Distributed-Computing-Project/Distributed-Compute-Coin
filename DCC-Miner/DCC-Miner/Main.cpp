@@ -1067,11 +1067,16 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 
 		//Checks Hash
 		int nonce = 0;
-		std::string hash = "aaaaaaaaaaaaaaa";
 		auto hashStart = std::chrono::steady_clock::now();
 		int hashesPerSecond = 0;
 		int hashesAtStart = 0;
-		while (!StringStartsWith(hash, (std::string)walletInfo["MineDifficulty"]))
+		unsigned char hash[32];
+		char* c_difficulty = (char*)(((std::string)walletInfo["MineDifficulty"]).c_str());
+		int difficultyLen = ((std::string)walletInfo["MineDifficulty"]).length();
+		std::string hData = lastHash + transactionHistory;
+		//while (!StringStartsWith(hash, difficulty))
+		char sha256OutBuffer[65];
+		while (!CharStrStartsWith(hash, c_difficulty, difficultyLen))
 		{
 			if ((since(hashStart).count() / 1000) >= 1)
 			{
@@ -1079,18 +1084,23 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 				hashStart = std::chrono::steady_clock::now();
 				hashesAtStart = nonce;
 
-				console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + " :	" + CommaLargeNumber(nonce) + " # " + hash);
+				cstr_to_hexstr(hash, 32, sha256OutBuffer);
+				console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
 				console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
 			}
 
+			//if(nonce %1000000 == 0)
+			//{
+			//	cstr_to_hexstr(hash, 32, sha256OutBuffer);
+			//	console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + " :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
+			//	console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
+			//}
 
 			nonce++;
-			char sha256OutBuffer[65];
-			sha256_string((char*)(lastHash + transactionHistory + std::to_string(nonce)).c_str(), sha256OutBuffer);
-			hash = sha256OutBuffer;
-
-			//if (!cargoProc.running())
-			//	break;
+			//char sha256OutBuffer[65];
+			sha256_full_cstr((char*)(hData + std::to_string(nonce)).c_str(), hash);
+			//sha256_string(lastHash + transactions + std::to_string(nonce), hash);
+			//hash = sha256OutBuffer;
 		}
 
 		std::cout << std::endl;
@@ -1110,6 +1120,10 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 		std::string s = UploadFile(url, "./wwwdata/programs//" + id + "/out.txt");*/
 		//std::to_string((int)walletInfo["BlockchainLength"] + 1)
 
+		// Convert hash into hexadecimal string
+		cstr_to_hexstr(hash, 32, sha256OutBuffer);
+		std::string hashStr = std::string(sha256OutBuffer);
+
 
 		// Write new hash and nonce into pending block
 		std::ifstream blockFile("./wwwdata/pendingblocks/block" + std::to_string(blockNum) + ".dccblock");
@@ -1120,7 +1134,7 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 
 		json blockJson = json::parse(content);
 
-		blockJson["hash"] = hash;
+		blockJson["hash"] = hashStr;
 		blockJson["nonce"] = std::to_string(nonce);
 		// Get current unix time in seconds
 		uint64_t sec = duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
@@ -1152,7 +1166,7 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 			json blockJson = json();
 
 			blockJson["hash"] = "0000000000000000000000000000000000000000000000000000000000000000";
-			blockJson["lastHash"] = hash;
+			blockJson["lastHash"] = hashStr;
 			blockJson["nonce"] = "";
 			blockJson["time"] = "";
 			blockJson["Version"] = blockVersion;
@@ -1397,7 +1411,7 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 			hashesAtStart = nonce;
 
 			cstr_to_hexstr(hash, 32, sha256OutBuffer);
-			console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + " :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
+			console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
 			console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
 		}
 

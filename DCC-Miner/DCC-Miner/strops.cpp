@@ -159,18 +159,19 @@ char toHexChar(int value) {
     if (value < 10) {
         return static_cast<char>('0' + value);
     } else {
-        return static_cast<char>('A' + value - 10);
+        return static_cast<char>('a' + value - 10);
     }
 }
 
-void stringToHex(char* input, char* output) {
-    while (*input) {
-        output[0] = toHexChar((static_cast<unsigned char>(*input) >> 4) & 0x0F);
-        output[1] = toHexChar(static_cast<unsigned char>(*input) & 0x0F);
-        input++;
-        output += 2;
-    }
-    *output = '\0'; // Add null terminator at the end
+void stringToHex(char* input, char* output, int len) {
+	for (int i = 0; i < len; i++)
+	{
+		output[0] = toHexChar((static_cast<unsigned char>(*input) >> 4) & 0x0F);
+		output[1] = toHexChar(static_cast<unsigned char>(*input) & 0x0F);
+		input++;
+		output += 2;
+	}
+	*output = '\0'; // Add null terminator at the end
 }
 
 char d[30];
@@ -181,7 +182,7 @@ bool CharStrStartsWith(unsigned char* str, char* substr, int len)
 	//{
 	//	sprintf(c + (i * 2), "%02x", str[i]);
 	//}
-	stringToHex((char*)str, c);
+	stringToHex((char*)str, c, len);
 	for (int i = 0; i < len; i++)
 	{
 		if (c[i] != substr[i])

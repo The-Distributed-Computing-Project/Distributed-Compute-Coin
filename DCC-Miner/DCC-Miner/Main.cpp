@@ -1401,13 +1401,12 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 			console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
 		}
 
-		/*if(nonce %1000000 == 0)
-		{
-			char sha256OutBuffer[65];
-			cstr_to_hexstr(hash, 32, sha256OutBuffer);
-			console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + " :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
-			console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
-		}*/
+		//if(nonce %1000000 == 0)
+		//{
+		//	cstr_to_hexstr(hash, 32, sha256OutBuffer);
+		//	console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + " :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
+		//	console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
+		//}
 
 		nonce++;
 		//char sha256OutBuffer[65];

@@ -1387,6 +1387,7 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 	int hashesAtStart = 0;
 	std::string hData = lastHash + transactions;
 	//while (!StringStartsWith(hash, difficulty))
+	char sha256OutBuffer[65];
 	while (!CharStrStartsWith(hash, c_difficulty, difficultyLen))
 	{
 		if ((since(hashStart).count() / 1000) >= 1)
@@ -1395,7 +1396,6 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 			hashStart = std::chrono::steady_clock::now();
 			hashesAtStart = nonce;
 
-			char sha256OutBuffer[65];
 			cstr_to_hexstr(hash, 32, sha256OutBuffer);
 			console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + " :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
 			console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
@@ -1420,7 +1420,7 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 	console.MiningPrint();
 	console.WriteLine("Debug mined in " + std::to_string(std::round(since(startTime).count() / 1000)) + " s.");
 	console.MiningPrint();
-	char sha256OutBuffer[65];
+	//char sha256OutBuffer[65];
 	cstr_to_hexstr(hash, 32, sha256OutBuffer);
 	console.Write("Final value: hash # ");
 	console.WriteLine(std::string(sha256OutBuffer), "", console.greenFGColor);

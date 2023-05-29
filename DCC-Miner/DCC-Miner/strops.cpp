@@ -155,9 +155,10 @@ bool StringStartsWith(std::string str, std::string substr)
 	return true;
 }
 
+char d[30];
 bool CharStrStartsWith(unsigned char* str, char* substr, int len)
 {
-	char* c = new char[len];
+	char* c = d;
 	for (int i = 0; i < len; i++)
 	{
 		sprintf(c + (i * 2), "%02x", str[i]);

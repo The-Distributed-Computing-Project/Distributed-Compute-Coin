@@ -1067,12 +1067,14 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 
 		//Checks Hash
 		int nonce = 0;
+		//std::string hash = "";
+		unsigned char hash[32];
+		std::string dif = (std::string)walletInfo["MineDifficulty"];
+		char* c_difficulty = (char*)dif.c_str();
+		int difficultyLen = dif.length();
 		auto hashStart = std::chrono::steady_clock::now();
 		int hashesPerSecond = 0;
 		int hashesAtStart = 0;
-		unsigned char hash[32];
-		char* c_difficulty = (char*)(((std::string)walletInfo["MineDifficulty"]).c_str());
-		int difficultyLen = ((std::string)walletInfo["MineDifficulty"]).length();
 		std::string hData = lastHash + transactionHistory;
 		//while (!StringStartsWith(hash, difficulty))
 		char sha256OutBuffer[65];
@@ -1541,10 +1543,6 @@ boost::process::child ExecuteAsync(std::string cmd, bool printOutput)
 			args += splitCommand[i] + " ";
 		}
 		bp::child c(cmd);
-
-		if (constants::debugPrint == true) {
-			std::cout << c.id() << std::endl;
-		}
 
 		return c;
 	}

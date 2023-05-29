@@ -14,6 +14,7 @@ std::string ToUpper(std::string s);
 std::string ToLower(std::string s);
 std::string ReplaceEscapeSymbols(std::string s);
 bool StringStartsWith(std::string str, std::string substr);
+bool CharStrStartsWith(unsigned char* str, char* substr, int len);
 std::string CommaLargeNumber(int num);
 std::string CommaLargeNumber(float num);
 

@@ -13,7 +13,9 @@ badd +1 Main.h
 badd +1 P2PClient.cpp
 badd +1 Console.cpp
 badd +138 /usr/share/nvim/runtime/doc/various.txt
-badd +1 term://.//1045:/bin/bash
+badd +1 term://.//2216:/bin/bash
+badd +1 FileManip.cpp
+badd +1 FileManip.h
 argglobal
 %argdel
 $argadd Main.cpp
@@ -42,15 +44,15 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 112 - ((32 * winheight(0) + 23) / 47)
+let s:l = 1391 - ((30 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-112
-normal! 0
+1391
+normal! 044|
 wincmd w
 argglobal
-if bufexists("term://.//1045:/bin/bash") | buffer term://.//1045:/bin/bash | else | edit term://.//1045:/bin/bash | endif
+if bufexists("term://.//2216:/bin/bash") | buffer term://.//2216:/bin/bash | else | edit term://.//2216:/bin/bash | endif
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -59,16 +61,64 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 224 - ((14 * winheight(0) + 7) / 15)
+let s:l = 236 - ((0 * winheight(0) + 7) / 15)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-224
-normal! 07|
+236
+normal! 079|
 wincmd w
 2wincmd w
 exe '1resize ' . ((&lines * 47 + 33) / 66)
 exe '2resize ' . ((&lines * 15 + 33) / 66)
+tabedit FileManip.cpp
+set splitbelow splitright
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 55 - ((20 * winheight(0) + 31) / 63)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+55
+normal! 0
+tabedit FileManip.h
+set splitbelow splitright
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 17 - ((16 * winheight(0) + 31) / 63)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+17
+normal! 0
 tabedit Main.h
 set splitbelow splitright
 set nosplitright

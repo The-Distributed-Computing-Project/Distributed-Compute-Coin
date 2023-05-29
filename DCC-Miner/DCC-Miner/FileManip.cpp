@@ -36,7 +36,6 @@ void sha256_hash_string(unsigned char hash[SHA256_DIGEST_LENGTH], char outputBuf
 	outputBuffer[64] = 0;
 }
 
-
 void sha256_string(char* string, char outputBuffer[65])
 {
 	unsigned char hash[SHA256_DIGEST_LENGTH];
@@ -51,6 +50,39 @@ void sha256_string(char* string, char outputBuffer[65])
 	}
 	outputBuffer[64] = 0;
 }
+
+void sha256_full_cstr(char* string, unsigned char outputBuffer[SHA256_DIGEST_LENGTH])
+{
+	unsigned char hash[SHA256_DIGEST_LENGTH];
+	SHA256_CTX sha256;
+	SHA256_Init(&sha256);
+	SHA256_Update(&sha256, string, strlen(string));
+	SHA256_Final(outputBuffer, &sha256);
+	//outputBuffer = (char*)hash;
+}
+
+void cstr_to_hexstr(unsigned char* str, int clen, char outputBuffer[65])
+{
+	//int i = 0;
+	for (int i = 0; i < clen; i++)
+	{
+		sprintf(outputBuffer + (i * 2), "%02x", str[i]);
+	}
+	outputBuffer[64] = 0;
+}
+
+//unsigned char* hexstr_to_cstr(char* str, int clen)
+//{
+//	unsigned char decVer[clen];
+//	int x;
+//	sscanf(str, "%02x", &x);
+//	//int i = 0;
+//	for (int i = 0; i < clen; i++)
+//	{
+//		sprintf(outputBuffer + (i * 2), "%02x", str[i]);
+//	}
+//	outputBuffer[64] = 0;
+//}
 
 int sha256_file(char* path, char outputBuffer[65])
 {

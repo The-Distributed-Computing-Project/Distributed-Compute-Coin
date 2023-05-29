@@ -111,6 +111,8 @@ P2P p2p;
 
 std::vector<std::string> keypair = { "", "" };
 
+//SHA256_CTX sha256inst;
+
 int main()
 {
 	console.DebugPrint();
@@ -120,6 +122,21 @@ int main()
 	//generate_key();
 
 	//cryptMain();
+
+	char sha256OutBuffer[65];
+	unsigned char hash[32];
+	char* input = (char*)"hello there";
+	sha256_full_cstr(input, hash);
+	cstr_to_hexstr(hash, 32, sha256OutBuffer);
+	std::cout << "test:    " << sha256OutBuffer << std::endl;
+
+	char sha256OutBuffer2[65];
+	char* input2 = (char*)"hello there";
+	sha256_string(input2, sha256OutBuffer2);
+	std::cout << "correct: " << sha256OutBuffer2 << std::endl;
+	//return 0;
+	
+	//SHA256_Init(&sha256inst);
 
 	/*std::string random256BitKey = mine::AES::generateRandomKey(256);
 	std::string inputString = "1234567890000000000000000000dfff";
@@ -1361,11 +1378,16 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 
 	//Checks Hash
 	int nonce = 0;
-	std::string hash = "";
+	//std::string hash = "";
+	unsigned char hash[32];
+	char* c_difficulty = (char*)difficulty.c_str();
+	int difficultyLen = difficulty.length();
 	auto hashStart = std::chrono::steady_clock::now();
 	int hashesPerSecond = 0;
 	int hashesAtStart = 0;
-	while (!StringStartsWith(hash, difficulty))
+	std::string hData = lastHash + transactions;
+	//while (!StringStartsWith(hash, difficulty))
+	while (!CharStrStartsWith(hash, c_difficulty, difficultyLen))
 	{
 		if ((since(hashStart).count() / 1000) >= 1)
 		{
@@ -1373,23 +1395,35 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 			hashStart = std::chrono::steady_clock::now();
 			hashesAtStart = nonce;
 
-			console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + " :	" + CommaLargeNumber(nonce) + " # " + hash);
+			char sha256OutBuffer[65];
+			cstr_to_hexstr(hash, 32, sha256OutBuffer);
+			console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + " :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
 			console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
 		}
 
+		/*if(nonce %1000000 == 0)
+		{
+			char sha256OutBuffer[65];
+			cstr_to_hexstr(hash, 32, sha256OutBuffer);
+			console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + " :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
+			console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
+		}*/
 
 		nonce++;
-		char sha256OutBuffer[65];
-		sha256_string((char*)(lastHash + transactions + std::to_string(nonce)).c_str(), sha256OutBuffer);
-		hash = sha256OutBuffer;
+		//char sha256OutBuffer[65];
+		sha256_full_cstr((char*)(hData + std::to_string(nonce)).c_str(), hash);
+		//sha256_string(lastHash + transactions + std::to_string(nonce), hash);
+		//hash = sha256OutBuffer;
 	}
 
 	std::cout << std::endl;
 	console.MiningPrint();
 	console.WriteLine("Debug mined in " + std::to_string(std::round(since(startTime).count() / 1000)) + " s.");
 	console.MiningPrint();
+	char sha256OutBuffer[65];
+	cstr_to_hexstr(hash, 32, sha256OutBuffer);
 	console.Write("Final value: hash # ");
-	console.WriteLine(hash, "", console.greenFGColor);
+	console.WriteLine(std::string(sha256OutBuffer), "", console.greenFGColor);
 	console.MiningPrint();
 	console.Write("Final value: nonce # ");
 	console.WriteLine(std::to_string(nonce), "", console.greenFGColor);

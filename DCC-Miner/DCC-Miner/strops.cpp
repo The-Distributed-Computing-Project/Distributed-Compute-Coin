@@ -155,6 +155,21 @@ bool StringStartsWith(std::string str, std::string substr)
 	return true;
 }
 
+bool CharStrStartsWith(unsigned char* str, char* substr, int len)
+{
+	char* c = new char[len];
+	for (int i = 0; i < len; i++)
+	{
+		sprintf(c + (i * 2), "%02x", str[i]);
+	}
+	for (int i = 0; i < len; i++)
+	{
+		if (c[i] != substr[i])
+			return false;
+	}
+	return true;
+}
+
 std::string ReplaceEscapeSymbols(std::string s)
 {
 	std::string out = "";

@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;C:\Program Files\OpenSSL-Win64;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -105,10 +105,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CURL_STATICLIB;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;C:\Program Files\OpenSSL-Win64;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;C:\Program Files\OpenSSL-Win64;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -131,7 +131,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;C:\Program Files\OpenSSL-Win64;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -150,10 +150,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CURL_STATICLIB;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;C:\Program Files\OpenSSL-Win64;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;C:\Program Files\OpenSSL-Win64;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -176,7 +176,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;C:\Program Files\OpenSSL-Win64;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -195,10 +195,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CURL_STATICLIB;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;C:\Program Files\OpenSSL-Win64;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;C:\Program Files\OpenSSL-Win64;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -221,7 +221,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;C:\Program Files\OpenSSL-Win64;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -239,10 +239,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CURL_STATICLIB;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;C:\Program Files\OpenSSL-Win64;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;C:\Program Files\OpenSSL-Win64;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>

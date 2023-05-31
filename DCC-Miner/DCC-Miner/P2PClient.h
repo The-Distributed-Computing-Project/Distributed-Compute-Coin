@@ -25,7 +25,7 @@ public:
 	std::vector<std::string> CONNECTION_PARTS = {""};
 
 	std::string NormalizedIPString(SOCKADDR_IN addr);
-	void TaskRec(int update_interval);
+	void ListenerThread(int update_interval);
 	int SafeSend(SOCKET s, char* buf, int buflen);
 	int StartP2P(std::string addr, std::string port, std::string peerPort);
 };

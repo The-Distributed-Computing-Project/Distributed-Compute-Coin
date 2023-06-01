@@ -58,6 +58,7 @@ namespace fs = std::filesystem;
 
 
 void Help();
+void Logo();
 json GetInfo();
 json ReadProgramConfig();
 json UpgradeBlock(json b, std::string toVersion);
@@ -115,22 +116,19 @@ std::vector<std::string> keypair = { "", "" };
 
 int main()
 {
-	console.DebugPrint();
-	console.WriteLine("Started");
-
 	Logo();
 
-	char sha256OutBuffer[65];
-	unsigned char hash[32];
-	char* input = (char*)"hello there";
-	sha256_full_cstr(input, hash);
-	cstr_to_hexstr(hash, 32, sha256OutBuffer);
-	std::cout << "test:    " << sha256OutBuffer << std::endl;
+	//char sha256OutBuffer[65];
+	//unsigned char hash[32];
+	//char* input = (char*)"hello there";
+	//sha256_full_cstr(input, hash);
+	//cstr_to_hexstr(hash, 32, sha256OutBuffer);
+	//std::cout << "test:    " << sha256OutBuffer << std::endl;
 
-	char sha256OutBuffer2[65];
-	char* input2 = (char*)"hello there";
-	sha256_string(input2, sha256OutBuffer2);
-	std::cout << "correct: " << sha256OutBuffer2 << std::endl;
+	//char sha256OutBuffer2[65];
+	//char* input2 = (char*)"hello there";
+	//sha256_string(input2, sha256OutBuffer2);
+	//std::cout << "correct: " << sha256OutBuffer2 << std::endl;
 
 	// Create required directories if they don't exist
 	for (std::string dir : directoryList)
@@ -148,7 +146,7 @@ int main()
 		int prt;
 		console.ErrorPrint();
 		console.Write("config file not found. \nPlease input the port # you want to use \n(default 5000): ");
-		cin >> prt;
+		std::cin >> prt;
 		if(prt <= 0 || prt > 65535)
 			prt = 5000;
 		std::ofstream configFile("./config.cfg");
@@ -194,7 +192,7 @@ int main()
 
 
 	std::string line;
-	std::ifstream peerFile("./wwwdata/peerlist.txt");
+	std::ifstream peerFile("./wwwdata/peerlist.list");
 	// If the peer list file does not exist, create it
 	if (!peerFile)
 	{
@@ -202,7 +200,7 @@ int main()
 		console.WriteLine("Error opening peer file", console.redFGColor, "");
 
 		// Create the peer list file
-		std::ofstream peerFileW("./wwwdata/peerlist.txt");
+		std::ofstream peerFileW("./wwwdata/peerlist.list");
 		if (peerFileW.is_open())
 		{
 			peerFileW << "";
@@ -285,12 +283,14 @@ int main()
 
 	ipPortCombo += ":" + std::to_string((int)walletConfig["port"]); // Default PORT is 5000
 
+	std::cout << ipPortCombo << std::endl;
+
 	// Open the socket required to accept P2P requests and send responses
 	p2p.OpenP2PSocket(std::to_string((int)walletConfig["port"]));
 	// Start the P2P listener thread
-	std::thread t1(&P2P::ListenerThread, p2p, 500);
+	std::thread t1(&P2P::ListenerThread, &p2p, 500);
 	// Start the P2P sender thread
-	std::thread t2(&P2P::SenderThread, p2p);
+	std::thread t2(&P2P::SenderThread, &p2p);
 
 
 	if (ipPortCombo != "")
@@ -328,8 +328,9 @@ int main()
 		walletInfo["Funds"] = 0.0f;
 		walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
 		walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
+		walletInfo["MineDifficulty"] = "000000";
 		//}
-		IsChainValid();
+		//IsChainValid();
 
 		//if (connectionStatus == 1 && !w.is_null())
 		if (connectionStatus == 1)
@@ -339,6 +340,8 @@ int main()
 			console.MiningPrint();
 			console.WriteLine("The difficulty is " + std::to_string(((std::string)walletInfo["MineDifficulty"]).size()));
 
+			console.NetworkPrint();
+			console.WriteLine("Syncing blocks...");
 			Sync();
 			try
 			{
@@ -374,6 +377,12 @@ int main()
 
 		console.Write("Input >  ");
 		std::string command = console.ReadLine();
+
+		if(command == "") {
+			console.ErrorPrint();
+			console.WriteLine("Invalid command");
+			continue;
+		}
 
 		if (connectionStatus == 0)
 		{
@@ -512,6 +521,10 @@ int main()
 			console.NetworkPrint();
 			console.WriteLine("Closed P2P");
 		}
+		else {
+			console.ErrorPrint();
+			console.WriteLine("Invalid command");
+		}
 		connectionStatus = 1;
 	}
 }
@@ -519,8 +532,7 @@ int main()
 // Print the logo art
 void Logo()
 {
-	console.WriteLine(R"V0G0N(
- ______      ______    ______  
+	console.WriteLine(R"V0G0N( ______      ______    ______  
 |_   _ `.  .' ___  | .' ___  | 
   | | `. \/ .'   \_|/ .'   \_| 
   | |  | || |       | |        
@@ -528,7 +540,7 @@ void Logo()
 |______.'  `.____ .' `.____ .' 
 
 DCC, copyright (c) AstroSam (sam-astro) 2023
-)V0G0N");
+)V0G0N", console.blueFGColor, "");
 	console.WriteLine("client: " + VERSION);
 	console.WriteLine("block: " + blockVersion + "\n\n");
 }

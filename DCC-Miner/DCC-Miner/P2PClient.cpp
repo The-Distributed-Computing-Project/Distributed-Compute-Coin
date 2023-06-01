@@ -169,11 +169,11 @@ void P2P::ListenerThread(int update_interval)
 					// stop. If the current one is blank or has disconnected,
 					// set this one as the current connection and continue.
 					std::string fromIPString = NormalizedIPString(remoteAddr);
-					
+
 					// If not currently connected, accept this connection.
 					if (otherAddrStr == "")
 						otherAddrStr = fromIPString;
-					
+
 					// If connected but different, ignore.
 					else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0])
 						continue;
@@ -238,6 +238,8 @@ void P2P::ListenerThread(int update_interval)
 						messageStatus = await_first_success; // Awaiting confirmation status
 						messageAttempt = 0;
 
+						CONNECTED_TO_PEER = true;
+
 						// Add item to peer list, and save to file
 						bool alreadyInList = false;
 						for (int y = 0; y < peerList.size(); y++) {
@@ -251,7 +253,7 @@ void P2P::ListenerThread(int update_interval)
 							std::string totalList = "";
 							for (int y = 0; y < peerList.size(); y++)
 								totalList += peerList[y] + "\n";
-							std::ofstream peerFileW("./wwwdata/peerlist.txt");
+							std::ofstream peerFileW("./wwwdata/peerlist.list");
 							if (peerFileW.is_open())
 							{
 								peerFileW << totalList;
@@ -264,7 +266,7 @@ void P2P::ListenerThread(int update_interval)
 					else if (totalMessage == "peer$$$disconnect") {
 						console.NetworkErrorPrint();
 						console.WriteLine("Peer closed.");
-						CONNECTED_TO_PEER = false;
+						//CONNECTED_TO_PEER = false;
 						thread_running = false;
 						messageStatus = disconnect_request;
 						return;
@@ -433,6 +435,9 @@ void P2P::SenderThread()
 	//for (int t = 0; t < 20; t++)
 	while (true)
 	{
+		// If not connected to a peer, continue
+		if (CONNECTED_TO_PEER)
+			continue;
 		//std::cout << "\r";
 		//console.NetworkPrint();
 		//console.WriteLine("Attempt: " + std::to_string(t) + "  |  Asking server for PEER address...    ");
@@ -478,7 +483,7 @@ void P2P::SenderThread()
 		//	std::string totalList = "";
 		//	for (int y = 0; y < peerList.size(); y++)
 		//		totalList += peerList[y] + "\n";
-		//	std::ofstream peerFileW("./wwwdata/peerlist.txt", std::ios::out | std::ios::trunc);
+		//	std::ofstream peerFileW("./wwwdata/peerlist.list", std::ios::out | std::ios::trunc);
 		//	if (peerFileW.is_open())
 		//	{
 		//		peerFileW << totalList;
@@ -499,203 +504,200 @@ void P2P::SenderThread()
 
 		bool noinput = false;
 
-		// If currently connected to a peer
-		if(CONNECTED_TO_PEER)
-			// Begin sending messages, and stop when a reply is received
-			for (messageAttempt = 0; messageAttempt < 10; messageAttempt++)
-				//while (true)
-			{
-				// If not in idle state, continue sending messages
-				if (messageStatus != idle && !(noinput && messageStatus == requesting_block)) {
-					std::string msg = "";
+		// Begin sending messages, and stop when a reply is received
+		for (messageAttempt = 0; messageAttempt < 10; messageAttempt++)
+			//while (true)
+		{
+			// If not in idle state, continue sending messages
+			if (messageStatus != idle && !(noinput && messageStatus == requesting_block)) {
+				std::string msg = "";
 
-					std::cout << "\r";
-					console.NetworkPrint();
-					if (constants::debugPrint == true)
-						console.Write("Send attempt : " + std::to_string(messageAttempt) + "    ");
-					else
-						console.Write("Send attempt: " + std::to_string(messageAttempt) + "    ");
+				std::cout << "\r";
+				console.NetworkPrint();
+				if (constants::debugPrint == true)
+					console.Write("Send attempt : " + std::to_string(messageAttempt) + "    ");
+				else
+					console.Write("Send attempt: " + std::to_string(messageAttempt) + "    ");
 
-					// If doing initial connect request
-					if (messageStatus == initial_connect_request) {
-						msg = "peer$$$connect";
-						if (constants::debugPrint == true) {
-							console.Write(msg + "\n");
-						}
-						mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+				// If doing initial connect request
+				if (messageStatus == initial_connect_request) {
+					msg = "peer$$$connect";
+					if (constants::debugPrint == true) {
+						console.Write(msg + "\n");
 					}
-					// If doing disconnect request
-					if (messageStatus == disconnect_request) {
-						msg = "peer$$$disconnect";
-						if (constants::debugPrint == true) {
-							console.Write(msg + "\n");
-						}
-						mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+				}
+				// If doing disconnect request
+				else if (messageStatus == disconnect_request) {
+					msg = "peer$$$disconnect";
+					if (constants::debugPrint == true) {
+						console.Write(msg + "\n");
 					}
-					// If doing peer confirmation
-					else if ((messageStatus == initial_connect_request || messageStatus == await_first_success || messageStatus == await_second_success)) {
-						msg = "peer$$$success";
-						if (constants::debugPrint == true) {
-							console.Write(msg + "\n");
-						}
-						mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+				}
+				// If doing peer confirmation
+				else if ((messageStatus == initial_connect_request || messageStatus == await_first_success || messageStatus == await_second_success)) {
+					msg = "peer$$$success";
+					if (constants::debugPrint == true) {
+						console.Write(msg + "\n");
+					}
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 
-						//console.WriteLine("Confirming");
+					//console.WriteLine("Confirming");
 
-						// After multiple confirmations have been sent, switch back to idle mode
-						if (messageAttempt >= 2) {
-							messageStatus = idle;
-							messageAttempt = 0;
-							continue;
-						}
+					// After multiple confirmations have been sent, switch back to idle mode
+					if (messageAttempt >= 2) {
+						messageStatus = idle;
+						messageAttempt = 0;
+						continue;
 					}
-					// Else if replying to height request
-					else if (messageStatus == replying_height) {
-						msg = "answer$$$height$$$" + std::to_string(blockchainLength);
-						if (constants::debugPrint == true) {
-							console.Write(msg + "\n");
-						}
-						mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+				}
+				// Else if replying to height request
+				else if (messageStatus == replying_height) {
+					msg = "answer$$$height$$$" + std::to_string(blockchainLength);
+					if (constants::debugPrint == true) {
+						console.Write(msg + "\n");
 					}
-					// Else if replying to block data request
-					else if (messageStatus == replying_block) {
-						// Open and read requested block
-						std::ifstream td("./wwwdata/blockchain/block" + std::to_string(reqDat) + ".dccblock");
-						std::stringstream bufferd;
-						bufferd << td.rdbuf();
-						std::string blockText = bufferd.str();
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+				}
+				// Else if replying to block data request
+				else if (messageStatus == replying_block) {
+					// Open and read requested block
+					std::ifstream td("./wwwdata/blockchain/block" + std::to_string(reqDat) + ".dccblock");
+					std::stringstream bufferd;
+					bufferd << td.rdbuf();
+					std::string blockText = bufferd.str();
 
-						msg = "answer$$$block$$$" + std::to_string(reqDat) + "$$$" + ReplaceEscapeSymbols(blockText);
-						if (constants::debugPrint == true) {
-							console.Write(msg + "\n");
-						}
-						mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-						Sleep(3000);
+					msg = "answer$$$block$$$" + std::to_string(reqDat) + "$$$" + ReplaceEscapeSymbols(blockText);
+					if (constants::debugPrint == true) {
+						console.Write(msg + "\n");
 					}
-					// Else if replying to peer list request
-					else if (messageStatus == replying_peer_list) {
-						std::string totalPeersString = "";
-						for (int i = 0; i < peerList.size() && i < 10; i++)
-							totalPeersString += peerList[i] + ((i == peerList.size() - 1 || i == 9) ? "" : ",");
-
-						msg = "answer$$$peerlist$$$" + totalPeersString;
-						if (constants::debugPrint == true) {
-							console.Write(msg + "\n");
-						}
-						mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-						Sleep(3000);
-					}
-					// Else if requesting chain height
-					else if (messageStatus == requesting_height) {
-						msg = "request$$$height";
-						if (constants::debugPrint == true) {
-							console.Write(msg + "\n");
-						}
-						mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-						//// Wait extra 3 seconds
-						//Sleep(3000);
-					}
-					// Else if requesting block data
-					else if (messageStatus == requesting_block) {
-						msg = "request$$$block$$$" + std::to_string(reqDat);
-						if (constants::debugPrint == true) {
-							console.Write(msg + "\n");
-						}
-						mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-						// Wait extra 3 seconds
-						Sleep(3000);
-						//noinput = true;
-					}
-					// Else if requesting peer list
-					else if (messageStatus == requesting_peer_list) {
-						msg = "request$$$peerlist";
-						if (constants::debugPrint == true) {
-							console.Write(msg + "\n");
-						}
-						mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-						//// Wait extra 3 seconds
-						//Sleep(3000);
-						//noinput = true;
-					}
-					// Wait 3 seconds before sending next message
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 					Sleep(3000);
 				}
-				// Else if in idle state, request input (temporary) and execute that input
-				else if (!noinput) {
-					// Request console input
-					std::string inputCmd = "";
-					console.Write("\n\nP2P Shell $  ");
-					//std::cout << "Network Input*>  ";
-					std::getline(std::cin, inputCmd);
+				// Else if replying to peer list request
+				else if (messageStatus == replying_peer_list) {
+					std::string totalPeersString = "";
+					for (int i = 0; i < peerList.size() && i < 10; i++)
+						totalPeersString += peerList[i] + ((i == peerList.size() - 1 || i == 9) ? "" : ",");
 
-					// Reset attempts to 0, since we are currently not sending messages
-					messageAttempt = 0;
-
-					// If the inputted command is blank or too small to be a command, try again.
-					if (inputCmd.length() == 0)
-						continue;
-
-					std::vector<std::string> cmdArgs = SplitString(inputCmd, " ");
-
-					// If user inputted `height` command
-					if (cmdArgs[0] == "height") {
-						messageStatus = requesting_height;
-						messageAttempt = 0;
+					msg = "answer$$$peerlist$$$" + totalPeersString;
+					if (constants::debugPrint == true) {
+						console.Write(msg + "\n");
 					}
-					// If user inputted `syncblock` command, and an argument
-					else if (cmdArgs[0] == "syncblock" && cmdArgs.size() >= 2) {
-						reqDat = std::stoi(cmdArgs[1]); // Block number is the first argument
-						messageStatus = requesting_block;
-						messageAttempt = 0;
-						Sleep(1000);
-					}
-					// If user inputted `noinput` command, stop requesting console input so the main thread is free to reply
-					else if (cmdArgs[0] == "noinput") {
-						noinput = true;
-					}
-					// If user inputted `syncpeers` command, request a list of known peers from the connection
-					else if (cmdArgs[0] == "syncpeers") {
-						messageStatus = requesting_peer_list;
-						messageAttempt = 0;
-					}
-					// If user inputted `exit` command, close the connection and exit the P2P shell
-					else if (cmdArgs[0] == "exit") {
-						messageStatus = disconnect_request; // Return disconnect request, so the other peer thread knows to shut down
-						messageAttempt = 0;
-						/*stop_thread_1 = true;
-						t1.join();
-						stop_thread_1 = false;
-
-						closesocket(localSocket);
-						WSACleanup();
-
-						return 0;*/
-					}
-					else {
-						messageStatus = idle;
-						console.ErrorPrint();
-						console.WriteLine("Command not found: \"" + inputCmd + "\"");
-						//std::cout << "Command not found: \"" + inputCmd + "\"\n";
-					}
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+					Sleep(3000);
 				}
-				// If in listen mode, but the peer has disconnected, exit listen mode and close connection
-				else if(CONNECTED_TO_PEER == false) {
-					stop_thread_1 = true;
+				// Else if requesting chain height
+				else if (messageStatus == requesting_height) {
+					msg = "request$$$height";
+					if (constants::debugPrint == true) {
+						console.Write(msg + "\n");
+					}
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+					//// Wait extra 3 seconds
+					//Sleep(3000);
+				}
+				// Else if requesting block data
+				else if (messageStatus == requesting_block) {
+					msg = "request$$$block$$$" + std::to_string(reqDat);
+					if (constants::debugPrint == true) {
+						console.Write(msg + "\n");
+					}
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+					// Wait extra 3 seconds
+					Sleep(3000);
+					//noinput = true;
+				}
+				// Else if requesting peer list
+				else if (messageStatus == requesting_peer_list) {
+					msg = "request$$$peerlist";
+					if (constants::debugPrint == true) {
+						console.Write(msg + "\n");
+					}
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+					//// Wait extra 3 seconds
+					//Sleep(3000);
+					//noinput = true;
+				}
+				// Wait 3 seconds before sending next message
+				Sleep(3000);
+			}
+			// Else if in idle state, request input (temporary) and execute that input
+			else if (!noinput) {
+				// Request console input
+				std::string inputCmd = "";
+				console.Write("\n\nP2P Shell $  ");
+				//std::cout << "Network Input*>  ";
+				std::getline(std::cin, inputCmd);
+
+				// Reset attempts to 0, since we are currently not sending messages
+				messageAttempt = 0;
+
+				// If the inputted command is blank or too small to be a command, try again.
+				if (inputCmd.length() == 0)
+					continue;
+
+				std::vector<std::string> cmdArgs = SplitString(inputCmd, " ");
+
+				// If user inputted `height` command
+				if (cmdArgs[0] == "height") {
+					messageStatus = requesting_height;
+					messageAttempt = 0;
+				}
+				// If user inputted `syncblock` command, and an argument
+				else if (cmdArgs[0] == "syncblock" && cmdArgs.size() >= 2) {
+					reqDat = std::stoi(cmdArgs[1]); // Block number is the first argument
+					messageStatus = requesting_block;
+					messageAttempt = 0;
+					Sleep(1000);
+				}
+				// If user inputted `noinput` command, stop requesting console input so the main thread is free to reply
+				else if (cmdArgs[0] == "noinput") {
+					noinput = true;
+				}
+				// If user inputted `syncpeers` command, request a list of known peers from the connection
+				else if (cmdArgs[0] == "syncpeers") {
+					messageStatus = requesting_peer_list;
+					messageAttempt = 0;
+				}
+				// If user inputted `exit` command, close the connection and exit the P2P shell
+				else if (cmdArgs[0] == "exit") {
+					messageStatus = disconnect_request; // Return disconnect request, so the other peer thread knows to shut down
+					messageAttempt = 0;
+					/*stop_thread_1 = true;
 					t1.join();
-					stop_thread_1 = false;
+					//stop_thread_1 = false;
 
 					closesocket(localSocket);
 					WSACleanup();
 
-					return 0;
+					return 0;*/
 				}
-				// Otherwise, we are in listen mode and still connected
 				else {
-					messageAttempt = 0;
-					console.WriteLine("listener status: " + std::to_string(thread_running));
-					Sleep(100);
+					messageStatus = idle;
+					console.ErrorPrint();
+					console.WriteLine("Command not found: \"" + inputCmd + "\"");
+					//std::cout << "Command not found: \"" + inputCmd + "\"\n";
 				}
 			}
+			// If in listen mode, but the peer has disconnected, exit listen mode and close connection
+			else if (CONNECTED_TO_PEER == false) {
+				//stop_thread_1 = true;
+				//t1.join();
+				//stop_thread_1 = false;
+
+				closesocket(localSocket);
+				WSACleanup();
+
+			}
+			// Otherwise, we are in listen mode and still connected
+			else {
+				messageAttempt = 0;
+				console.WriteLine("listener status: " + std::to_string(thread_running));
+				Sleep(100);
+			}
+		}
 
 		console.NetworkErrorPrint();
 		console.WriteLine("Peer Timed out", console.redFGColor, "");
@@ -704,23 +706,19 @@ void P2P::SenderThread()
 		messageAttempt = 0;
 
 		// Stop the current listening thread and continue
-		stop_thread_1 = true;
+		//stop_thread_1 = true;
 		//t1.join();
-		t1.detach();
-		stop_thread_1 = false;
+		//t1.detach();
+		//stop_thread_1 = false;
 
-		closesocket(localSocket);
-		WSACleanup();
-
-		return 0;
+		//closesocket(localSocket);
+		//WSACleanup();
 
 		continue;
 	}
 
 	closesocket(localSocket);
 	WSACleanup();
-
-	return 0;
 }
 
 // The function to start the P2P node, get IP address, and try to connect to another peer.
@@ -728,375 +726,375 @@ void P2P::SenderThread()
 //       sending and handling messages and client states, and safely closing the connection
 int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 {
-//	Console console;
-//	Http http;
-//
-//	console.NetworkPrint();
-//	console.WriteLine("Starting P2P Client");
-//
-//	// Start winsock
-//	WSADATA wsaData;
-//	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
-//		return 0;
-//	}
-//
-//	blockchainLength = FileCount("./wwwdata/blockchain/");
-//
-//	stop_thread_1 = false;
-//
-//	//SOCKADDR_IN serverAddr;
-//	//serverAddr.sin_port = htons(6668);
-//	//serverAddr.sin_family = AF_INET;
-//	//serverAddr.sin_addr.s_addr = inet_addr("127.0.0.1");	
-//
-//	//int serverSize = sizeof(serverAddr);
-//
-//	localSocket = socket(AF_INET, SOCK_DGRAM, 0);
-//
-//	SOCKADDR_IN clientAddr;
-//	clientAddr.sin_port = htons(stoi(port));
-//	clientAddr.sin_family = AF_INET;
-//	clientAddr.sin_addr.s_addr = INADDR_ANY;
-//
-//	//		address.sin_family = AF_INET;
-//	//		address.sin_addr.s_addr = INADDR_ANY;
-//	//		address.sin_port = htons(port);
-//
-//	// Bind the socket
-//	if (bind(localSocket, (LPSOCKADDR)&clientAddr, sizeof(clientAddr)) == SOCKET_ERROR)
-//	{
-//		console.ErrorPrint();
-//		console.WriteLine("Failed to bind socket");
-//		closesocket(localSocket);
-//		WSACleanup();
-//		return 0;
-//	}
-//
-//	int val = 2048;
-//	setsockopt(localSocket, SOL_SOCKET, SO_SNDBUF, (char*)&val, sizeof(val));
-//	setsockopt(localSocket, SOL_SOCKET, SO_RCVBUF, (char*)&val, sizeof(val));
-//	//
-//	//std::string request = "1";
-//	//std::cout << "Identification number: ";  std::cin >> request;
-//	//
-//	//sendto(localSocket, request.c_str(), request.length(), 0, (sockaddr*)&serverAddr, serverSize);
-//
-//	bool notFound = true;
-//
-//	std::string otherIpPort = peerPort;
-//	//std::cout << "Peer IP:PORT combo > "; 
-//	//std::cin >> otherIpPort;
-//
-//	//console.NetworkPrint();
-//	//console.WriteLine("Asking server for PEER address...");
-//	std::vector<std::string> args = {
-//		"query=AskForConnection",
-//		"ip_port=" + addr + ":" + port,
-//		"last_tried_ip_port=none"
-//	};
-//	std::string httpOut = TrimString(http.StartHttpWebRequest("http://api.achillium.us.to/dcc/p2pconn.php?", args));
-//	//console.NetworkPrint();
-//	//console.WriteLine("HTTP returned: " + httpOut);
-//
-//	std::string last_tried_ip_port = "";
-//
-//	// Start requesting possible peers to connect to, from the handling server
-//	for (int t = 0; t < 20; t++)
-//		//while (true)
-//	{
-//		std::cout << "\r";
-//		console.NetworkPrint();
-//		console.WriteLine("Attempt: " + std::to_string(t) + "  |  Asking server for PEER address...    ");
-//
-//		std::vector<std::string> args = {
-//			"query=WaitForConnection",
-//			"ip_port=" + addr + ":" + port,
-//			"last_tried_ip_port=" + last_tried_ip_port
-//		};
-//		std::string httpOut = TrimString(http.StartHttpWebRequest("http://api.achillium.us.to/dcc/p2pconn.php?", args));
-//		//otherAddrStr = last_tried_ip_port;
-//
-//		// If the request fails or no peers are found, try again after 3 seconds
-//		if (httpOut == "" || httpOut.find("waiting") != std::string::npos || httpOut.find(addr + ":" + port) != std::string::npos)
-//		{
-//			if (constants::debugPrint == true) {
-//				console.NetworkPrint();
-//				console.WriteLine("No peers found, waiting 3 sec to ask again...");
-//			}
-//			Sleep(3000); // Wait 3 seconds until next request
-//			continue;
-//		}
-//
-//		if (constants::debugPrint == true) {
-//			console.NetworkPrint();
-//			console.WriteLine("Server returned: " + httpOut);
-//		}
-//
-//		otherIpPort = httpOut;
-//		last_tried_ip_port = otherIpPort;
-//		otherAddrStr = otherIpPort;
-//
-//		// Add item to peer list, and save to file
-//		bool alreadyInList = false;
-//		for (int y = 0; y < peerList.size(); y++) {
-//			if (otherAddrStr == peerList[y]) {
-//				alreadyInList = true;
-//				break;
-//			}
-//		}
-//		if (alreadyInList == false) {
-//			peerList.push_back(otherAddrStr);
-//			std::string totalList = "";
-//			for (int y = 0; y < peerList.size(); y++)
-//				totalList += peerList[y] + "\n";
-//			std::ofstream peerFileW("./wwwdata/peerlist.txt", std::ios::out | std::ios::trunc);
-//			if (peerFileW.is_open())
-//			{
-//				peerFileW << totalList;
-//				peerFileW.close();
-//			}
-//			peerFileW.close();
-//		}
-//
-//
-//		std::string host = SplitString(otherIpPort, ":")[0];
-//		int otherPort = stoi(SplitString(otherIpPort, ":")[1]);
-//
-//		otherAddr.sin_port = htons(otherPort);
-//		otherAddr.sin_family = AF_INET;
-//		otherAddr.sin_addr.s_addr = inet_addr(host.c_str());
-//
-//		otherSize = sizeof(otherAddr);
-//
-//		// Listen to replies
-//		const unsigned int update_interval = 500; // update after every 500 milliseconds
-//		std::thread t1(&P2P::ListenerThread, this, update_interval);
-//
-//		bool noinput = false;
-//
-//		// Only receive if in the idle state.
-//		while (messageStatus == idle) {}
-//
-//		// Begin sending messages, and stop when a reply is received
-//		for (messageAttempt = 0; messageAttempt < 10; messageAttempt++)
-//			//while (true)
-//		{
-//			// If not in idle state, continue sending messages
-//			if (messageStatus != idle && !(noinput && messageStatus == requesting_block)) {
-//				std::string msg = "";
-//				//int err = SafeSend(localSocket, msgConvert, msg.length());
-//				//std::cout << err << std::endl;
-//
-//				std::cout << "\r";
-//				console.NetworkPrint();
-//				if (constants::debugPrint == true)
-//					console.Write("Send attempt : " + std::to_string(messageAttempt) + "    ");
-//				else
-//					console.Write("Send attempt: " + std::to_string(messageAttempt) + "    ");
-//
-//				// If doing initial connect request
-//				if (messageStatus == initial_connect_request) {
-//					msg = "peer$$$connect";
-//					if (constants::debugPrint == true) {
-//						console.Write(msg + "\n");
-//					}
-//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-//				}
-//				// If doing disconnect request
-//				if (messageStatus == disconnect_request) {
-//					msg = "peer$$$disconnect";
-//					if (constants::debugPrint == true) {
-//						console.Write(msg + "\n");
-//					}
-//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-//				}
-//				// If doing peer confirmation
-//				else if ((messageStatus == initial_connect_request || messageStatus == await_first_success || messageStatus == await_second_success)) {
-//					msg = "peer$$$success";
-//					if (constants::debugPrint == true) {
-//						console.Write(msg + "\n");
-//					}
-//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-//
-//					//console.WriteLine("Confirming");
-//
-//					// After multiple confirmations have been sent, switch back to idle mode
-//					if (messageAttempt >= 2) {
-//						messageStatus = idle;
-//						messageAttempt = 0;
-//						continue;
-//					}
-//				}
-//				// Else if replying to height request
-//				else if (messageStatus == replying_height) {
-//					msg = "answer$$$height$$$" + std::to_string(blockchainLength);
-//					if (constants::debugPrint == true) {
-//						console.Write(msg + "\n");
-//					}
-//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-//				}
-//				// Else if replying to block data request
-//				else if (messageStatus == replying_block) {
-//					// Open and read requested block
-//					std::ifstream td("./wwwdata/blockchain/block" + std::to_string(reqDat) + ".dccblock");
-//					std::stringstream bufferd;
-//					bufferd << td.rdbuf();
-//					std::string blockText = bufferd.str();
-//
-//					msg = "answer$$$block$$$" + std::to_string(reqDat) + "$$$" + ReplaceEscapeSymbols(blockText);
-//					if (constants::debugPrint == true) {
-//						console.Write(msg + "\n");
-//					}
-//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-//					Sleep(3000);
-//				}
-//				// Else if replying to peer list request
-//				else if (messageStatus == replying_peer_list) {
-//					std::string totalPeersString = "";
-//					for (int i = 0; i < peerList.size() && i < 10; i++)
-//						totalPeersString += peerList[i] + ((i == peerList.size() - 1 || i == 9) ? "" : ",");
-//
-//					msg = "answer$$$peerlist$$$" + totalPeersString;
-//					if (constants::debugPrint == true) {
-//						console.Write(msg + "\n");
-//					}
-//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-//					Sleep(3000);
-//				}
-//				// Else if requesting chain height
-//				else if (messageStatus == requesting_height) {
-//					msg = "request$$$height";
-//					if (constants::debugPrint == true) {
-//						console.Write(msg + "\n");
-//					}
-//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-//					//// Wait extra 3 seconds
-//					//Sleep(3000);
-//				}
-//				// Else if requesting block data
-//				else if (messageStatus == requesting_block) {
-//					msg = "request$$$block$$$" + std::to_string(reqDat);
-//					if (constants::debugPrint == true) {
-//						console.Write(msg + "\n");
-//					}
-//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-//					// Wait extra 3 seconds
-//					Sleep(3000);
-//					//noinput = true;
-//				}
-//				// Else if requesting peer list
-//				else if (messageStatus == requesting_peer_list) {
-//					msg = "request$$$peerlist";
-//					if (constants::debugPrint == true) {
-//						console.Write(msg + "\n");
-//					}
-//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-//					//// Wait extra 3 seconds
-//					//Sleep(3000);
-//					//noinput = true;
-//				}
-//				// Wait 3 seconds before sending next message
-//				Sleep(3000);
-//			}
-//			// Else if in idle state, request input (temporary) and execute that input
-//			else if (!noinput) {
-//				// Request console input
-//				std::string inputCmd = "";
-//				console.Write("\n\nP2P Shell $  ");
-//				//std::cout << "Network Input*>  ";
-//				std::getline(std::cin, inputCmd);
-//
-//				// Reset attempts to 0, since we are currently not sending messages
-//				messageAttempt = 0;
-//
-//				// If the inputted command is blank or too small to be a command, try again.
-//				if (inputCmd.length() == 0)
-//					continue;
-//
-//				std::vector<std::string> cmdArgs = SplitString(inputCmd, " ");
-//
-//				// If user inputted `height` command
-//				if (cmdArgs[0] == "height") {
-//					messageStatus = requesting_height;
-//					messageAttempt = 0;
-//				}
-//				// If user inputted `syncblock` command, and an argument
-//				else if (cmdArgs[0] == "syncblock" && cmdArgs.size() >= 2) {
-//					reqDat = std::stoi(cmdArgs[1]); // Block number is the first argument
-//					messageStatus = requesting_block;
-//					messageAttempt = 0;
-//					Sleep(1000);
-//				}
-//				// If user inputted `noinput` command, stop requesting console input so the main thread is free to reply
-//				else if (cmdArgs[0] == "noinput") {
-//					noinput = true;
-//				}
-//				// If user inputted `syncpeers` command, request a list of known peers from the connection
-//				else if (cmdArgs[0] == "syncpeers") {
-//					messageStatus = requesting_peer_list;
-//					messageAttempt = 0;
-//				}
-//				// If user inputted `exit` command, close the connection and exit the P2P shell
-//				else if (cmdArgs[0] == "exit") {
-//					messageStatus = disconnect_request;
-//					messageAttempt = 0;
-//					/*stop_thread_1 = true;
-//					t1.join();
-//					stop_thread_1 = false;
-//
-//					closesocket(localSocket);
-//					WSACleanup();
-//
-//					return 0;*/
-//				}
-//				else {
-//					messageStatus = idle;
-//					console.ErrorPrint();
-//					console.WriteLine("Command not found: \"" + inputCmd + "\"");
-//					//std::cout << "Command not found: \"" + inputCmd + "\"\n";
-//				}
-//			}
-//			// If in listen mode, but the peer has disconnected, exit listen mode and close connection
-//			else if(CONNECTED_TO_PEER == false) {
-//				stop_thread_1 = true;
-//				t1.join();
-//				stop_thread_1 = false;
-//
-//				closesocket(localSocket);
-//				WSACleanup();
-//
-//				return 0;
-//			}
-//			// Otherwise, we are in listen mode and still connected
-//			else {
-//				messageAttempt = 0;
-//				console.WriteLine("listener status: " + std::to_string(thread_running));
-//				Sleep(100);
-//			}
-//		}
-//
-//		console.NetworkErrorPrint();
-//		console.WriteLine("Peer Timed out", console.redFGColor, "");
-//
-//		messageStatus = initial_connect_request;
-//		messageAttempt = 0;
-//
-//		// Stop the current listening thread and continue
-//		stop_thread_1 = true;
-//		//t1.join();
-//		t1.detach();
-//		stop_thread_1 = false;
-//
-//		closesocket(localSocket);
-//		WSACleanup();
-//
-//		return 0;
-//
-//		continue;
-//	}
-//
-//	closesocket(localSocket);
-//	WSACleanup();
-//
+	//	Console console;
+	//	Http http;
+	//
+	//	console.NetworkPrint();
+	//	console.WriteLine("Starting P2P Client");
+	//
+	//	// Start winsock
+	//	WSADATA wsaData;
+	//	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
+	//		return 0;
+	//	}
+	//
+	//	blockchainLength = FileCount("./wwwdata/blockchain/");
+	//
+	//	stop_thread_1 = false;
+	//
+	//	//SOCKADDR_IN serverAddr;
+	//	//serverAddr.sin_port = htons(6668);
+	//	//serverAddr.sin_family = AF_INET;
+	//	//serverAddr.sin_addr.s_addr = inet_addr("127.0.0.1");	
+	//
+	//	//int serverSize = sizeof(serverAddr);
+	//
+	//	localSocket = socket(AF_INET, SOCK_DGRAM, 0);
+	//
+	//	SOCKADDR_IN clientAddr;
+	//	clientAddr.sin_port = htons(stoi(port));
+	//	clientAddr.sin_family = AF_INET;
+	//	clientAddr.sin_addr.s_addr = INADDR_ANY;
+	//
+	//	//		address.sin_family = AF_INET;
+	//	//		address.sin_addr.s_addr = INADDR_ANY;
+	//	//		address.sin_port = htons(port);
+	//
+	//	// Bind the socket
+	//	if (bind(localSocket, (LPSOCKADDR)&clientAddr, sizeof(clientAddr)) == SOCKET_ERROR)
+	//	{
+	//		console.ErrorPrint();
+	//		console.WriteLine("Failed to bind socket");
+	//		closesocket(localSocket);
+	//		WSACleanup();
+	//		return 0;
+	//	}
+	//
+	//	int val = 2048;
+	//	setsockopt(localSocket, SOL_SOCKET, SO_SNDBUF, (char*)&val, sizeof(val));
+	//	setsockopt(localSocket, SOL_SOCKET, SO_RCVBUF, (char*)&val, sizeof(val));
+	//	//
+	//	//std::string request = "1";
+	//	//std::cout << "Identification number: ";  std::cin >> request;
+	//	//
+	//	//sendto(localSocket, request.c_str(), request.length(), 0, (sockaddr*)&serverAddr, serverSize);
+	//
+	//	bool notFound = true;
+	//
+	//	std::string otherIpPort = peerPort;
+	//	//std::cout << "Peer IP:PORT combo > "; 
+	//	//std::cin >> otherIpPort;
+	//
+	//	//console.NetworkPrint();
+	//	//console.WriteLine("Asking server for PEER address...");
+	//	std::vector<std::string> args = {
+	//		"query=AskForConnection",
+	//		"ip_port=" + addr + ":" + port,
+	//		"last_tried_ip_port=none"
+	//	};
+	//	std::string httpOut = TrimString(http.StartHttpWebRequest("http://api.achillium.us.to/dcc/p2pconn.php?", args));
+	//	//console.NetworkPrint();
+	//	//console.WriteLine("HTTP returned: " + httpOut);
+	//
+	//	std::string last_tried_ip_port = "";
+	//
+	//	// Start requesting possible peers to connect to, from the handling server
+	//	for (int t = 0; t < 20; t++)
+	//		//while (true)
+	//	{
+	//		std::cout << "\r";
+	//		console.NetworkPrint();
+	//		console.WriteLine("Attempt: " + std::to_string(t) + "  |  Asking server for PEER address...    ");
+	//
+	//		std::vector<std::string> args = {
+	//			"query=WaitForConnection",
+	//			"ip_port=" + addr + ":" + port,
+	//			"last_tried_ip_port=" + last_tried_ip_port
+	//		};
+	//		std::string httpOut = TrimString(http.StartHttpWebRequest("http://api.achillium.us.to/dcc/p2pconn.php?", args));
+	//		//otherAddrStr = last_tried_ip_port;
+	//
+	//		// If the request fails or no peers are found, try again after 3 seconds
+	//		if (httpOut == "" || httpOut.find("waiting") != std::string::npos || httpOut.find(addr + ":" + port) != std::string::npos)
+	//		{
+	//			if (constants::debugPrint == true) {
+	//				console.NetworkPrint();
+	//				console.WriteLine("No peers found, waiting 3 sec to ask again...");
+	//			}
+	//			Sleep(3000); // Wait 3 seconds until next request
+	//			continue;
+	//		}
+	//
+	//		if (constants::debugPrint == true) {
+	//			console.NetworkPrint();
+	//			console.WriteLine("Server returned: " + httpOut);
+	//		}
+	//
+	//		otherIpPort = httpOut;
+	//		last_tried_ip_port = otherIpPort;
+	//		otherAddrStr = otherIpPort;
+	//
+	//		// Add item to peer list, and save to file
+	//		bool alreadyInList = false;
+	//		for (int y = 0; y < peerList.size(); y++) {
+	//			if (otherAddrStr == peerList[y]) {
+	//				alreadyInList = true;
+	//				break;
+	//			}
+	//		}
+	//		if (alreadyInList == false) {
+	//			peerList.push_back(otherAddrStr);
+	//			std::string totalList = "";
+	//			for (int y = 0; y < peerList.size(); y++)
+	//				totalList += peerList[y] + "\n";
+	//			std::ofstream peerFileW("./wwwdata/peerlist.list", std::ios::out | std::ios::trunc);
+	//			if (peerFileW.is_open())
+	//			{
+	//				peerFileW << totalList;
+	//				peerFileW.close();
+	//			}
+	//			peerFileW.close();
+	//		}
+	//
+	//
+	//		std::string host = SplitString(otherIpPort, ":")[0];
+	//		int otherPort = stoi(SplitString(otherIpPort, ":")[1]);
+	//
+	//		otherAddr.sin_port = htons(otherPort);
+	//		otherAddr.sin_family = AF_INET;
+	//		otherAddr.sin_addr.s_addr = inet_addr(host.c_str());
+	//
+	//		otherSize = sizeof(otherAddr);
+	//
+	//		// Listen to replies
+	//		const unsigned int update_interval = 500; // update after every 500 milliseconds
+	//		std::thread t1(&P2P::ListenerThread, this, update_interval);
+	//
+	//		bool noinput = false;
+	//
+	//		// Only receive if in the idle state.
+	//		while (messageStatus == idle) {}
+	//
+	//		// Begin sending messages, and stop when a reply is received
+	//		for (messageAttempt = 0; messageAttempt < 10; messageAttempt++)
+	//			//while (true)
+	//		{
+	//			// If not in idle state, continue sending messages
+	//			if (messageStatus != idle && !(noinput && messageStatus == requesting_block)) {
+	//				std::string msg = "";
+	//				//int err = SafeSend(localSocket, msgConvert, msg.length());
+	//				//std::cout << err << std::endl;
+	//
+	//				std::cout << "\r";
+	//				console.NetworkPrint();
+	//				if (constants::debugPrint == true)
+	//					console.Write("Send attempt : " + std::to_string(messageAttempt) + "    ");
+	//				else
+	//					console.Write("Send attempt: " + std::to_string(messageAttempt) + "    ");
+	//
+	//				// If doing initial connect request
+	//				if (messageStatus == initial_connect_request) {
+	//					msg = "peer$$$connect";
+	//					if (constants::debugPrint == true) {
+	//						console.Write(msg + "\n");
+	//					}
+	//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+	//				}
+	//				// If doing disconnect request
+	//				if (messageStatus == disconnect_request) {
+	//					msg = "peer$$$disconnect";
+	//					if (constants::debugPrint == true) {
+	//						console.Write(msg + "\n");
+	//					}
+	//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+	//				}
+	//				// If doing peer confirmation
+	//				else if ((messageStatus == initial_connect_request || messageStatus == await_first_success || messageStatus == await_second_success)) {
+	//					msg = "peer$$$success";
+	//					if (constants::debugPrint == true) {
+	//						console.Write(msg + "\n");
+	//					}
+	//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+	//
+	//					//console.WriteLine("Confirming");
+	//
+	//					// After multiple confirmations have been sent, switch back to idle mode
+	//					if (messageAttempt >= 2) {
+	//						messageStatus = idle;
+	//						messageAttempt = 0;
+	//						continue;
+	//					}
+	//				}
+	//				// Else if replying to height request
+	//				else if (messageStatus == replying_height) {
+	//					msg = "answer$$$height$$$" + std::to_string(blockchainLength);
+	//					if (constants::debugPrint == true) {
+	//						console.Write(msg + "\n");
+	//					}
+	//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+	//				}
+	//				// Else if replying to block data request
+	//				else if (messageStatus == replying_block) {
+	//					// Open and read requested block
+	//					std::ifstream td("./wwwdata/blockchain/block" + std::to_string(reqDat) + ".dccblock");
+	//					std::stringstream bufferd;
+	//					bufferd << td.rdbuf();
+	//					std::string blockText = bufferd.str();
+	//
+	//					msg = "answer$$$block$$$" + std::to_string(reqDat) + "$$$" + ReplaceEscapeSymbols(blockText);
+	//					if (constants::debugPrint == true) {
+	//						console.Write(msg + "\n");
+	//					}
+	//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+	//					Sleep(3000);
+	//				}
+	//				// Else if replying to peer list request
+	//				else if (messageStatus == replying_peer_list) {
+	//					std::string totalPeersString = "";
+	//					for (int i = 0; i < peerList.size() && i < 10; i++)
+	//						totalPeersString += peerList[i] + ((i == peerList.size() - 1 || i == 9) ? "" : ",");
+	//
+	//					msg = "answer$$$peerlist$$$" + totalPeersString;
+	//					if (constants::debugPrint == true) {
+	//						console.Write(msg + "\n");
+	//					}
+	//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+	//					Sleep(3000);
+	//				}
+	//				// Else if requesting chain height
+	//				else if (messageStatus == requesting_height) {
+	//					msg = "request$$$height";
+	//					if (constants::debugPrint == true) {
+	//						console.Write(msg + "\n");
+	//					}
+	//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+	//					//// Wait extra 3 seconds
+	//					//Sleep(3000);
+	//				}
+	//				// Else if requesting block data
+	//				else if (messageStatus == requesting_block) {
+	//					msg = "request$$$block$$$" + std::to_string(reqDat);
+	//					if (constants::debugPrint == true) {
+	//						console.Write(msg + "\n");
+	//					}
+	//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+	//					// Wait extra 3 seconds
+	//					Sleep(3000);
+	//					//noinput = true;
+	//				}
+	//				// Else if requesting peer list
+	//				else if (messageStatus == requesting_peer_list) {
+	//					msg = "request$$$peerlist";
+	//					if (constants::debugPrint == true) {
+	//						console.Write(msg + "\n");
+	//					}
+	//					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+	//					//// Wait extra 3 seconds
+	//					//Sleep(3000);
+	//					//noinput = true;
+	//				}
+	//				// Wait 3 seconds before sending next message
+	//				Sleep(3000);
+	//			}
+	//			// Else if in idle state, request input (temporary) and execute that input
+	//			else if (!noinput) {
+	//				// Request console input
+	//				std::string inputCmd = "";
+	//				console.Write("\n\nP2P Shell $  ");
+	//				//std::cout << "Network Input*>  ";
+	//				std::getline(std::cin, inputCmd);
+	//
+	//				// Reset attempts to 0, since we are currently not sending messages
+	//				messageAttempt = 0;
+	//
+	//				// If the inputted command is blank or too small to be a command, try again.
+	//				if (inputCmd.length() == 0)
+	//					continue;
+	//
+	//				std::vector<std::string> cmdArgs = SplitString(inputCmd, " ");
+	//
+	//				// If user inputted `height` command
+	//				if (cmdArgs[0] == "height") {
+	//					messageStatus = requesting_height;
+	//					messageAttempt = 0;
+	//				}
+	//				// If user inputted `syncblock` command, and an argument
+	//				else if (cmdArgs[0] == "syncblock" && cmdArgs.size() >= 2) {
+	//					reqDat = std::stoi(cmdArgs[1]); // Block number is the first argument
+	//					messageStatus = requesting_block;
+	//					messageAttempt = 0;
+	//					Sleep(1000);
+	//				}
+	//				// If user inputted `noinput` command, stop requesting console input so the main thread is free to reply
+	//				else if (cmdArgs[0] == "noinput") {
+	//					noinput = true;
+	//				}
+	//				// If user inputted `syncpeers` command, request a list of known peers from the connection
+	//				else if (cmdArgs[0] == "syncpeers") {
+	//					messageStatus = requesting_peer_list;
+	//					messageAttempt = 0;
+	//				}
+	//				// If user inputted `exit` command, close the connection and exit the P2P shell
+	//				else if (cmdArgs[0] == "exit") {
+	//					messageStatus = disconnect_request;
+	//					messageAttempt = 0;
+	//					/*stop_thread_1 = true;
+	//					t1.join();
+	//					stop_thread_1 = false;
+	//
+	//					closesocket(localSocket);
+	//					WSACleanup();
+	//
+	//					return 0;*/
+	//				}
+	//				else {
+	//					messageStatus = idle;
+	//					console.ErrorPrint();
+	//					console.WriteLine("Command not found: \"" + inputCmd + "\"");
+	//					//std::cout << "Command not found: \"" + inputCmd + "\"\n";
+	//				}
+	//			}
+	//			// If in listen mode, but the peer has disconnected, exit listen mode and close connection
+	//			else if(CONNECTED_TO_PEER == false) {
+	//				stop_thread_1 = true;
+	//				t1.join();
+	//				stop_thread_1 = false;
+	//
+	//				closesocket(localSocket);
+	//				WSACleanup();
+	//
+	//				return 0;
+	//			}
+	//			// Otherwise, we are in listen mode and still connected
+	//			else {
+	//				messageAttempt = 0;
+	//				console.WriteLine("listener status: " + std::to_string(thread_running));
+	//				Sleep(100);
+	//			}
+	//		}
+	//
+	//		console.NetworkErrorPrint();
+	//		console.WriteLine("Peer Timed out", console.redFGColor, "");
+	//
+	//		messageStatus = initial_connect_request;
+	//		messageAttempt = 0;
+	//
+	//		// Stop the current listening thread and continue
+	//		stop_thread_1 = true;
+	//		//t1.join();
+	//		t1.detach();
+	//		stop_thread_1 = false;
+	//
+	//		closesocket(localSocket);
+	//		WSACleanup();
+	//
+	//		return 0;
+	//
+	//		continue;
+	//	}
+	//
+	//	closesocket(localSocket);
+	//	WSACleanup();
+	//
 	return 0;
 }

@@ -5,6 +5,8 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 0	DCC-Miner/DCC-Miner/Session.vim	/^normal! 0$/;"	m
+010|	DCC-Miner/DCC-Miner/Session.vim	/^normal! 010|$/;"	m
+011|	DCC-Miner/DCC-Miner/Session.vim	/^normal! 011|$/;"	m
 ACHINE	DCC-Miner/out/_deps/curl-src/Makefile	/^	nmake \/f Makefile.vc MACHINE=x64$/;"	m
 ACHINE	DCC-Miner/out/_deps/curl-src/Makefile	/^	nmake \/f Makefile.vc MACHINE=x86$/;"	m
 ACTIVE	DCC-Miner/out/_deps/curl-src/tests/server/sockfilt.c	/^  ACTIVE,            \/* as a client, connected to a server *\/$/;"	e	enum:sockmode	file:
@@ -7593,6 +7595,7 @@ Len	DCC-Miner/out/_deps/zlib-src/deflate.h	87;"	d
 LimitRate	DCC-Miner/out/_deps/cpr-src/include/cpr/limit_rate.h	/^    LimitRate(const std::int64_t p_downrate, const std::int64_t p_uprate)$/;"	f	class:cpr::LimitRate
 LimitRate	DCC-Miner/out/_deps/cpr-src/include/cpr/limit_rate.h	/^class LimitRate {$/;"	c	namespace:cpr
 ListenerThread	DCC-Miner/DCC-Miner/P2PClient.cpp	/^void P2P::ListenerThread(int update_interval)$/;"	f	class:P2P
+Logo	DCC-Miner/DCC-Miner/Main.cpp	/^void Logo()$/;"	f
 LongShort	DCC-Miner/out/_deps/curl-src/src/tool_getparam.c	/^struct LongShort {$/;"	s	file:
 LowSpeed	DCC-Miner/out/_deps/cpr-src/include/cpr/low_speed.h	/^    LowSpeed(const std::int32_t p_limit, const std::int32_t p_time) : limit(p_limit), time(p_time) {}$/;"	f	class:cpr::LowSpeed
 LowSpeed	DCC-Miner/out/_deps/cpr-src/include/cpr/low_speed.h	/^class LowSpeed {$/;"	c	namespace:cpr
@@ -9709,6 +9712,7 @@ ScriptRC	DCC-Miner/out/_deps/curl-src/tests/negtelnetserver.py	/^class ScriptRC(
 ScriptRC	DCC-Miner/out/_deps/curl-src/tests/smbserver.py	/^class ScriptRC(object):$/;"	c
 SelectClientCert	DCC-Miner/out/_deps/curl-src/lib/vtls/nss.c	/^static SECStatus SelectClientCert(void *arg, PRFileDesc *sock,$/;"	f	file:
 SendFunds	DCC-Miner/DCC-Miner/Main.cpp	/^int SendFunds(std::string toAddress, float amount)$/;"	f
+SenderThread	DCC-Miner/DCC-Miner/P2PClient.cpp	/^void P2P::SenderThread()$/;"	f	class:P2P
 Session	DCC-Miner/out/_deps/cpr-src/cpr/session.cpp	/^Session::Session() : pimpl_(new Impl()) {}$/;"	f	class:cpr::Session
 Session	DCC-Miner/out/_deps/cpr-src/include/cpr/session.h	/^class Session {$/;"	c	namespace:cpr
 SessionIdCache	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    SessionIdCache(bool p_enabled) : enabled(p_enabled) {}$/;"	f	class:cpr::ssl::SessionIdCache
@@ -10805,6 +10809,7 @@ VERIFIED_RSP	DCC-Miner/out/_deps/curl-src/tests/smbserver.py	/^VERIFIED_RSP = "W
 VERIFY_SOCK	DCC-Miner/out/_deps/curl-src/lib/select.h	104;"	d
 VERIFY_SOCK	DCC-Miner/out/_deps/curl-src/lib/select.h	116;"	d
 VERIFY_SOCK	DCC-Miner/out/_deps/curl-src/lib/select.h	99;"	d
+VERSION	DCC-Miner/DCC-Miner/Main.cpp	/^const std::string VERSION = "v0.01alpha";$/;"	v
 VERSION	DCC-Miner/out/_deps/curl-src/lib/config-os400.h	34;"	d
 VERSION	DCC-Miner/out/_deps/curl-src/lib/config-os400.h	378;"	d
 VERSION	DCC-Miner/out/_deps/curl-src/lib/config-plan9.h	41;"	d
@@ -19008,12 +19013,10 @@ runtimestats	DCC-Miner/out/_deps/curl-src/tests/runtests.pl	/^sub runtimestats {
 rw_init	DCC-Miner/out/_deps/curl-src/tests/server/tftpd.c	/^static struct tftphdr *rw_init(int x)$/;"	f	file:
 rx_time	DCC-Miner/out/_deps/curl-src/lib/tftp.c	/^  time_t          rx_time;$/;"	m	struct:tftp_state_data	file:
 s	DCC-Miner/out/_deps/curl-src/tests/testcurl.pl	/^        s:\/:\\\\:g;$/;"	l
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 1 - ((0 * winheight(0) + 31) \/ 63)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 167 - ((44 * winheight(0) + 31) \/ 63)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 17 - ((16 * winheight(0) + 31) \/ 63)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 5 - ((4 * winheight(0) + 5) \/ 10)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 54 - ((38 * winheight(0) + 31) \/ 63)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 628 - ((11 * winheight(0) + 26) \/ 52)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 1 - ((0 * winheight(0) + 30) \/ 61)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 17 - ((16 * winheight(0) + 8) \/ 17)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 424 - ((30 * winheight(0) + 30) \/ 61)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 541 - ((21 * winheight(0) + 21) \/ 43)$/;"	v
 s:save_splitbelow	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_splitbelow = &splitbelow$/;"	v
 s:save_splitright	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_splitright = &splitright$/;"	v
 s:save_winminheight	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_winminheight = &winminheight$/;"	v
@@ -20072,6 +20075,7 @@ still_running	DCC-Miner/out/_deps/curl-src/docs/examples/hiperfifo.c	/^  int sti
 stoc	DCC-Miner/DCC-Miner/include/color.hpp	/^    int stoc(std::string a)$/;"	f	namespace:hue
 stoc	DCC-Miner/DCC-Miner/include/color.hpp	/^    int stoc(std::string a, std::string b)$/;"	f	namespace:hue
 stop_thread_1	DCC-Miner/DCC-Miner/P2PClient.cpp	/^std::atomic_bool stop_thread_1 = false;$/;"	v
+stop_thread_2	DCC-Miner/DCC-Miner/P2PClient.cpp	/^std::atomic_bool stop_thread_2 = false;$/;"	v
 stopped	DCC-Miner/out/_deps/curl-src/docs/examples/hiperfifo.c	/^  int stopped;$/;"	m	struct:_GlobalInfo	file:
 stopserver	DCC-Miner/out/_deps/curl-src/tests/runtests.pl	/^sub stopserver {$/;"	s
 stopservers	DCC-Miner/out/_deps/curl-src/tests/runtests.pl	/^sub stopservers {$/;"	s
@@ -21385,6 +21389,7 @@ waitfor	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  int waitfor;      \/* cur
 waitperform	DCC-Miner/out/_deps/curl-src/lib/asyn-ares.c	/^static int waitperform(struct Curl_easy *data, timediff_t timeout_ms)$/;"	f	file:
 waitproxyconnect_getsock	DCC-Miner/out/_deps/curl-src/lib/multi.c	/^static int waitproxyconnect_getsock(struct connectdata *conn,$/;"	f	file:
 wakeup_pair	DCC-Miner/out/_deps/curl-src/lib/multihandle.h	/^  curl_socket_t wakeup_pair[2]; \/* socketpair() used for wakeup$/;"	m	struct:Curl_multi
+walletConfig	DCC-Miner/DCC-Miner/Main.cpp	/^json walletConfig;$/;"	v
 walletInfo	DCC-Miner/DCC-Miner/Main.cpp	/^json walletInfo;$/;"	v
 want	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  unsigned long want;  \/* Bitmask set to the authentication methods wanted by$/;"	m	struct:auth
 want	DCC-Miner/out/_deps/zlib-src/gzguts.h	/^    unsigned want;          \/* requested buffer size, default is GZBUFSIZE *\/$/;"	m	struct:__anon201

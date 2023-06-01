@@ -26,3 +26,4 @@ DCC-Miner/out/build/x64-debug/DCC-Miner/DCC-Miner.pdb
 .vs
 *.pem
 */config.cfg
+*.list

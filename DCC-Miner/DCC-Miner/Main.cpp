@@ -95,8 +95,10 @@ int connectionStatus = 1;
 const std::string directoryList[] = { "./sec", "./wwwdata", "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/programs" };
 
 json programConfig;
+json walletConfig;
 json walletInfo;
 
+const std::string VERSION = "v0.01alpha";
 const std::string blockVersion = "v0.01alpha-coin";
 
 std::string endpointAddr = "";
@@ -115,6 +117,8 @@ int main()
 {
 	console.DebugPrint();
 	console.WriteLine("Started");
+
+	Logo();
 
 	char sha256OutBuffer[65];
 	unsigned char hash[32];
@@ -141,10 +145,16 @@ int main()
 	console.WriteLine("Checking config.cfg");
 	if (!fs::exists("./config.cfg"))
 	{
+		int prt;
+		console.ErrorPrint();
+		console.Write("config file not found. \nPlease input the port # you want to use \n(default 5000): ");
+		cin >> prt;
+		if(prt <= 0 || prt > 65535)
+			prt = 5000;
 		std::ofstream configFile("./config.cfg");
 		if (configFile.is_open())
 		{
-			configFile << "";
+			configFile << "{\"port\":" << std::to_string(prt) << "}";
 			configFile.close();
 		}
 	}
@@ -265,7 +275,24 @@ int main()
 	Http http;
 	std::vector<std::string> args;
 	std::string ipPortCombo = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP free
-	ipPortCombo += ":5000"; // Default PORT is 5000
+
+
+	// Load the wallet config file and get the P2P port
+	std::ifstream conf("./config.cfg");
+	std::stringstream confbuf;
+	confbuf << conf.rdbuf();
+	walletConfig = json::parse(confbuf.str());
+
+	ipPortCombo += ":" + std::to_string((int)walletConfig["port"]); // Default PORT is 5000
+
+	// Open the socket required to accept P2P requests and send responses
+	p2p.OpenP2PSocket(std::to_string((int)walletConfig["port"]));
+	// Start the P2P listener thread
+	std::thread t1(&P2P::ListenerThread, p2p, 500);
+	// Start the P2P sender thread
+	std::thread t2(&P2P::SenderThread, p2p);
+
+
 	if (ipPortCombo != "")
 	{
 		endpointAddr = SplitString(ipPortCombo, ":")[0];
@@ -277,13 +304,6 @@ int main()
 		console.ExitError("Could not obtain public IP");
 		return 1;
 	}
-
-
-	// Open the socket required to accept P2P requests and send responses
-	p2p.OpenP2PSocket("5000");
-	// Start the P2P listener thread
-	std::thread t1(&P2P::ListenerThread, p2p, 500);
-
 	
 	// Start command loop
 	while (true)
@@ -291,26 +311,28 @@ int main()
 		console.SystemPrint();
 		console.WriteLine("Getting wallet info...");
 
-		json w = GetInfo();
+		//json w = GetInfo();
 
-		if (constants::debugPrint == true) {
-			console.NetworkPrint();
-			console.WriteLine("Done");
-		}
+		//if (constants::debugPrint == true) {
+		//	console.NetworkPrint();
+		//	console.WriteLine("Done");
+		//}
 
-		if (w.is_null())
-		{
-			ConnectionError();
-			continue;
-		}
-		else {
-			walletInfo = w;
-			walletInfo["Funds"] = 0.0f;
-			walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
-			walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
-		}
+		//if (w.is_null())
+		//{
+		//	ConnectionError();
+		//	continue;
+		//}
+		//else {
+		//walletInfo = w;
+		walletInfo["Funds"] = 0.0f;
+		walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
+		walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
+		//}
+		IsChainValid();
 
-		if (connectionStatus == 1 && !w.is_null())
+		//if (connectionStatus == 1 && !w.is_null())
+		if (connectionStatus == 1)
 		{
 			console.MiningPrint();
 			console.WriteLine("There are " + std::to_string((int)walletInfo["PendingLength"]) + " Blocks to compute");
@@ -362,13 +384,14 @@ int main()
 
 		if (SplitString(ToUpper(command), " ")[0] == "--HELP" || SplitString(ToUpper(command), " ")[0] == "-H")
 			Help();
+		else if (SplitString(ToUpper(command), " ")[0] == "--VERSION" || SplitString(ToUpper(command), " ")[0] == "-V")
+		{
+			Logo();
+			continue;
+		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--SYNC" || SplitString(ToUpper(command), " ")[0] == "-S")
 		{
-			if (Sync() == 0)
-			{
-				//ConnectionError();
-				continue;
-			}
+			if (Sync() == 0) continue;
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--SEND" || SplitString(ToUpper(command), " ")[0] == "-SN")
 		{
@@ -472,15 +495,6 @@ int main()
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--MINEANY" || SplitString(ToUpper(command), " ")[0] == "-MA")
 		{
-			//std::ifstream blockFile("./wwwdata/pendingblocks/block" + to_string(walletInfo["BlockchainLength"] + 1) + ".dccblock");
-			//std::stringstream blockBuffer;
-			//blockBuffer << blockFile.rdbuf();
-			//std::string content = blockBuffer.str();
-
-			//json o = json::parse(content);
-			//std::string transactions = JoinArrayPieces((std::string[])o["transactions"]);
-			//std::string lastHash = o["LastHash"];
-
 			std::string diff = "";
 			if (SplitString(command, " ").size() == 3)
 				diff = SplitString(command, " ")[2];
@@ -502,6 +516,23 @@ int main()
 	}
 }
 
+// Print the logo art
+void Logo()
+{
+	console.WriteLine(R"V0G0N(
+ ______      ______    ______  
+|_   _ `.  .' ___  | .' ___  | 
+  | | `. \/ .'   \_|/ .'   \_| 
+  | |  | || |       | |        
+ _| |_.' /\ `.___.'\\ `.___.'\ 
+|______.'  `.____ .' `.____ .' 
+
+DCC, copyright (c) AstroSam (sam-astro) 2023
+)V0G0N");
+	console.WriteLine("client: " + VERSION);
+	console.WriteLine("block: " + blockVersion + "\n\n");
+}
+
 // Print the help menu
 void Help()
 {
@@ -512,6 +543,7 @@ Usage: miner [options]
 	   Input >  [options]
 Options:
   -h, --help                          Display this help menu
+  -v, --version                       Print the current wallet and block version
   -s, --sync                          Manually re-sync blockchain
   -m, --mine <amount>                 Mine <amount> number of blocks, defaults to 1 if not specified
   -ma, --mineany <block num> <dif>    (Debug) Mines the block specified by <block num> at the given 

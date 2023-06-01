@@ -7,7 +7,7 @@ Id flags:
 The output was:
 0
 MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
-Build started 5/28/2023 1:28:46 PM.
+Build started 5/31/2023 7:04:09 PM.
 
 Project "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\3.21.4\CompilerIdCXX\CompilerIdCXX.vcxproj" on node 1 (default targets).
 PrepareForBuild:
@@ -43,7 +43,7 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:01.03
+Time Elapsed 00:00:01.09
 
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -60,7 +60,7 @@ Id flags:
 The output was:
 0
 MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
-Build started 5/28/2023 1:28:47 PM.
+Build started 5/31/2023 7:04:11 PM.
 
 Project "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\3.21.4\CompilerIdC\CompilerIdC.vcxproj" on node 1 (default targets).
 PrepareForBuild:
@@ -96,7 +96,7 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.93
+Time Elapsed 00:00:00.78
 
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -108,41 +108,41 @@ The C compiler identification is MSVC, found in "D:/Code/DC-Cryptocurrency/DCC-M
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_dd923.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_24d44.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CMakeCXXCompilerABI.cpp
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_dd923.dir\Debug\\" /Fd"cmTC_dd923.dir\Debug\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCXXCompilerABI.cpp"
-  cmTC_dd923.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_dd923.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_24d44.dir\Debug\\" /Fd"cmTC_24d44.dir\Debug\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCXXCompilerABI.cpp"
+  cmTC_24d44.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_24d44.exe
 
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_ee34f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_d4d3f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CMakeCCompilerABI.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ee34f.dir\Debug\\" /Fd"cmTC_ee34f.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCCompilerABI.c"
-  cmTC_ee34f.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_ee34f.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d4d3f.dir\Debug\\" /Fd"cmTC_d4d3f.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCCompilerABI.c"
+  cmTC_d4d3f.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_d4d3f.exe
 
 
 
 Performing C++ SOURCE FILE Test THREAD_SANITIZER_AVAILABLE succeeded with the following compile output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_d08a3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_a21e3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   src.cxx
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D THREAD_SANITIZER_AVAILABLE /D "CMAKE_INTDIR=\"Debug\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_d08a3.dir\Debug\\" /Fd"cmTC_d08a3.dir\Debug\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue  -O3 -fsanitize=thread "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.cxx"
-cl : command line  warning D9002: ignoring unknown option '-O3' [D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\cmTC_d08a3.vcxproj]
-cl : command line  warning D9002: ignoring unknown option '-fsanitize=thread' [D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\cmTC_d08a3.vcxproj]
-  cmTC_d08a3.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_d08a3.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D THREAD_SANITIZER_AVAILABLE /D "CMAKE_INTDIR=\"Debug\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a21e3.dir\Debug\\" /Fd"cmTC_a21e3.dir\Debug\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue  -O3 -fsanitize=thread "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.cxx"
+cl : command line  warning D9002: ignoring unknown option '-O3' [D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\cmTC_a21e3.vcxproj]
+cl : command line  warning D9002: ignoring unknown option '-fsanitize=thread' [D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\cmTC_a21e3.vcxproj]
+  cmTC_a21e3.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_a21e3.exe
 
 
 ...and run output:
@@ -153,65 +153,65 @@ int main() { return 0; }
 Determining if the include file sys/types.h exists passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_75a4a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_750fc.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckIncludeFile.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D __USE_LARGEFILE64 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_75a4a.dir\Debug\\" /Fd"cmTC_75a4a.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
-  cmTC_75a4a.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_75a4a.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D __USE_LARGEFILE64 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_750fc.dir\Debug\\" /Fd"cmTC_750fc.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  cmTC_750fc.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_750fc.exe
 
 
 
 Determining if the include file stdint.h exists passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_77dd9.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_87c17.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckIncludeFile.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D __USE_LARGEFILE64 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_77dd9.dir\Debug\\" /Fd"cmTC_77dd9.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
-  cmTC_77dd9.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_77dd9.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D __USE_LARGEFILE64 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_87c17.dir\Debug\\" /Fd"cmTC_87c17.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  cmTC_87c17.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_87c17.exe
 
 
 
 Determining if the include file stddef.h exists passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_cf8c8.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_2cd61.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckIncludeFile.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D __USE_LARGEFILE64 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_cf8c8.dir\Debug\\" /Fd"cmTC_cf8c8.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
-  cmTC_cf8c8.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_cf8c8.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D __USE_LARGEFILE64 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_2cd61.dir\Debug\\" /Fd"cmTC_2cd61.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  cmTC_2cd61.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_2cd61.exe
 
 
 
 Determining if the function strerror exists passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_da1c0.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_8550e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckFunctionExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=strerror /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_da1c0.dir\Debug\\" /Fd"cmTC_da1c0.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.21\Modules\CheckFunctionExists.c"
-  cmTC_da1c0.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_da1c0.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=strerror /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_8550e.dir\Debug\\" /Fd"cmTC_8550e.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.21\Modules\CheckFunctionExists.c"
+  cmTC_8550e.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_8550e.exe
 
 
 
 Performing C SOURCE FILE Test HAVE_PTRDIFF_T succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_40ff1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_5a6ae.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   src.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_PTRDIFF_T /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_40ff1.dir\Debug\\" /Fd"cmTC_40ff1.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
-  cmTC_40ff1.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_40ff1.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_PTRDIFF_T /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5a6ae.dir\Debug\\" /Fd"cmTC_5a6ae.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
+  cmTC_5a6ae.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_5a6ae.exe
 
 
 Source file was:
@@ -224,13 +224,13 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_SSE2_INTRIN succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_bd7ff.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_88e9c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   src.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ZLIB_DEBUG /D HAVE_SSE2_INTRIN /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bd7ff.dir\Debug\\" /Fd"cmTC_bd7ff.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
-  cmTC_bd7ff.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_bd7ff.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ZLIB_DEBUG /D HAVE_SSE2_INTRIN /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_88e9c.dir\Debug\\" /Fd"cmTC_88e9c.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
+  cmTC_88e9c.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_88e9c.exe
 
 
 Source file was:
@@ -243,13 +243,13 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_SSSE3_INTRIN succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_7c0e3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_20f7c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   src.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ZLIB_DEBUG /D HAVE_SSSE3_INTRIN /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7c0e3.dir\Debug\\" /Fd"cmTC_7c0e3.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
-  cmTC_7c0e3.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_7c0e3.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ZLIB_DEBUG /D HAVE_SSSE3_INTRIN /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_20f7c.dir\Debug\\" /Fd"cmTC_20f7c.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
+  cmTC_20f7c.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_20f7c.exe
 
 
 Source file was:
@@ -265,13 +265,13 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_SSE42CRC_INTRIN succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_6fc1e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_14f46.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   src.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ZLIB_DEBUG /D HAVE_SSE42CRC_INTRIN /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6fc1e.dir\Debug\\" /Fd"cmTC_6fc1e.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
-  cmTC_6fc1e.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_6fc1e.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ZLIB_DEBUG /D HAVE_SSE42CRC_INTRIN /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_14f46.dir\Debug\\" /Fd"cmTC_14f46.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
+  cmTC_14f46.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_14f46.exe
 
 
 Source file was:
@@ -290,13 +290,13 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_SSE42CMPSTR_INTRIN succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_fd02b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_c1640.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   src.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ZLIB_DEBUG /D HAVE_SSE42CMPSTR_INTRIN /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_fd02b.dir\Debug\\" /Fd"cmTC_fd02b.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
-  cmTC_fd02b.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_fd02b.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ZLIB_DEBUG /D HAVE_SSE42CMPSTR_INTRIN /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c1640.dir\Debug\\" /Fd"cmTC_c1640.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
+  cmTC_c1640.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_c1640.exe
 
 
 Source file was:
@@ -312,13 +312,13 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_PCLMULQDQ_INTRIN succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_49f8e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_88711.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   src.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ZLIB_DEBUG /D HAVE_PCLMULQDQ_INTRIN /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_49f8e.dir\Debug\\" /Fd"cmTC_49f8e.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
-  cmTC_49f8e.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_49f8e.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ZLIB_DEBUG /D HAVE_PCLMULQDQ_INTRIN /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_88711.dir\Debug\\" /Fd"cmTC_88711.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
+  cmTC_88711.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_88711.exe
 
 
 Source file was:
@@ -333,13 +333,13 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_AVX2_INTRIN succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_1289e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_bd4af.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   src.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ZLIB_DEBUG /D HAVE_AVX2_INTRIN /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1289e.dir\Debug\\" /Fd"cmTC_1289e.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
-  cmTC_1289e.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_1289e.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ZLIB_DEBUG /D HAVE_AVX2_INTRIN /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bd4af.dir\Debug\\" /Fd"cmTC_bd4af.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
+  cmTC_bd4af.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_bd4af.exe
 
 
 Source file was:
@@ -354,248 +354,248 @@ Source file was:
 Determining if the function getch exists in the ws2_32; passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_a274d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_3a6e4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckFunctionExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=getch /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a274d.dir\Debug\\" /Fd"cmTC_a274d.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.21\Modules\CheckFunctionExists.c"
-  cmTC_a274d.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_a274d.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=getch /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3a6e4.dir\Debug\\" /Fd"cmTC_3a6e4.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.21\Modules\CheckFunctionExists.c"
+  cmTC_3a6e4.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_3a6e4.exe
 
 
 
 Determining if the function getch exists in the winmm;ws2_32 passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_f3cf5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_d86d4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckFunctionExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=getch /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f3cf5.dir\Debug\\" /Fd"cmTC_f3cf5.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.21\Modules\CheckFunctionExists.c"
-  cmTC_f3cf5.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_f3cf5.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=getch /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d86d4.dir\Debug\\" /Fd"cmTC_d86d4.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.21\Modules\CheckFunctionExists.c"
+  cmTC_d86d4.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_d86d4.exe
 
 
 
 Determining if files ;windows.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_143d9.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_65e93.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   HAVE_WINDOWS_H.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_143d9.dir\Debug\\" /Fd"cmTC_143d9.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_WINDOWS_H.c"
-  cmTC_143d9.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_143d9.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_65e93.dir\Debug\\" /Fd"cmTC_65e93.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_WINDOWS_H.c"
+  cmTC_65e93.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_65e93.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_7794c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_37edb.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   HAVE_WS2TCPIP_H.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7794c.dir\Debug\\" /Fd"cmTC_7794c.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_WS2TCPIP_H.c"
-  cmTC_7794c.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_7794c.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_37edb.dir\Debug\\" /Fd"cmTC_37edb.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_WS2TCPIP_H.c"
+  cmTC_37edb.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_37edb.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h;winsock2.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_421f1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_7e0e0.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   HAVE_WINSOCK2_H.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_421f1.dir\Debug\\" /Fd"cmTC_421f1.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK2_H.c"
-  cmTC_421f1.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_421f1.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7e0e0.dir\Debug\\" /Fd"cmTC_7e0e0.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK2_H.c"
+  cmTC_7e0e0.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_7e0e0.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_ff1a6.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_34a55.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   HAVE_WINCRYPT_H.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ff1a6.dir\Debug\\" /Fd"cmTC_ff1a6.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_WINCRYPT_H.c"
-  cmTC_ff1a6.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_ff1a6.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_34a55.dir\Debug\\" /Fd"cmTC_34a55.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_WINCRYPT_H.c"
+  cmTC_34a55.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_34a55.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_f1f1e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_3cdb5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   HAVE_STDIO_H.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f1f1e.dir\Debug\\" /Fd"cmTC_f1f1e.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_STDIO_H.c"
-  cmTC_f1f1e.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_f1f1e.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3cdb5.dir\Debug\\" /Fd"cmTC_3cdb5.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_STDIO_H.c"
+  cmTC_3cdb5.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_3cdb5.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_74a23.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_aa075.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   HAVE_ASSERT_H.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_74a23.dir\Debug\\" /Fd"cmTC_74a23.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_ASSERT_H.c"
-  cmTC_74a23.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_74a23.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_aa075.dir\Debug\\" /Fd"cmTC_aa075.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_ASSERT_H.c"
+  cmTC_aa075.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_aa075.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_baec9.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_4acf6.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   HAVE_ERRNO_H.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_baec9.dir\Debug\\" /Fd"cmTC_baec9.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_ERRNO_H.c"
-  cmTC_baec9.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_baec9.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4acf6.dir\Debug\\" /Fd"cmTC_4acf6.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_ERRNO_H.c"
+  cmTC_4acf6.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_4acf6.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;locale.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_abaa4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_b957b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   HAVE_LOCALE_H.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_abaa4.dir\Debug\\" /Fd"cmTC_abaa4.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_LOCALE_H.c"
-  cmTC_abaa4.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_abaa4.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b957b.dir\Debug\\" /Fd"cmTC_b957b.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_LOCALE_H.c"
+  cmTC_b957b.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_b957b.exe
 
 
 
 Determining if files windows.h;ws2tcpip.h;winsock2.h;wincrypt.h;stdio.h;sys/stat.h;sys/types.h;sys/utime.h;assert.h;errno.h;fcntl.h;io.h;locale.h;setjmp.h;signal.h;stdbool.h exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_924f8.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_dd687.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   HAVE_STDBOOL_H.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_924f8.dir\Debug\\" /Fd"cmTC_924f8.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_STDBOOL_H.c"
-  cmTC_924f8.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_924f8.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_dd687.dir\Debug\\" /Fd"cmTC_dd687.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckIncludeFiles\HAVE_STDBOOL_H.c"
+  cmTC_dd687.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_dd687.exe
 
 
 
 Determining size of size_t passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_a83de.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_b0c54.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   SIZEOF_SIZE_T.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a83de.dir\Debug\\" /Fd"cmTC_a83de.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_SIZE_T.c"
-  cmTC_a83de.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_a83de.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b0c54.dir\Debug\\" /Fd"cmTC_b0c54.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_SIZE_T.c"
+  cmTC_b0c54.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_b0c54.exe
 
 
 
 Determining size of long long passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_c2032.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_cf7cb.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   SIZEOF_LONG_LONG.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c2032.dir\Debug\\" /Fd"cmTC_c2032.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_LONG_LONG.c"
-  cmTC_c2032.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_c2032.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_cf7cb.dir\Debug\\" /Fd"cmTC_cf7cb.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_LONG_LONG.c"
+  cmTC_cf7cb.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_cf7cb.exe
 
 
 
 Determining size of long passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_77ac6.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_5e441.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   SIZEOF_LONG.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_77ac6.dir\Debug\\" /Fd"cmTC_77ac6.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_LONG.c"
-  cmTC_77ac6.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_77ac6.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5e441.dir\Debug\\" /Fd"cmTC_5e441.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_LONG.c"
+  cmTC_5e441.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_5e441.exe
 
 
 
 Determining size of short passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_e2162.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_a7b6f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   SIZEOF_SHORT.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e2162.dir\Debug\\" /Fd"cmTC_e2162.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_SHORT.c"
-  cmTC_e2162.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_e2162.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a7b6f.dir\Debug\\" /Fd"cmTC_a7b6f.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_SHORT.c"
+  cmTC_a7b6f.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_a7b6f.exe
 
 
 
 Determining size of int passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_000f5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_2a34e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   SIZEOF_INT.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_000f5.dir\Debug\\" /Fd"cmTC_000f5.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_INT.c"
-  cmTC_000f5.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_000f5.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_2a34e.dir\Debug\\" /Fd"cmTC_2a34e.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_INT.c"
+  cmTC_2a34e.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_2a34e.exe
 
 
 
 Determining size of __int64 passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_10dc1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_e6eec.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   SIZEOF___INT64.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_10dc1.dir\Debug\\" /Fd"cmTC_10dc1.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF___INT64.c"
-  cmTC_10dc1.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_10dc1.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e6eec.dir\Debug\\" /Fd"cmTC_e6eec.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF___INT64.c"
+  cmTC_e6eec.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_e6eec.exe
 
 
 
 Determining size of time_t passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_c21fe.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_5c7be.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   SIZEOF_TIME_T.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c21fe.dir\Debug\\" /Fd"cmTC_c21fe.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_TIME_T.c"
-  cmTC_c21fe.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_c21fe.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5c7be.dir\Debug\\" /Fd"cmTC_5c7be.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_TIME_T.c"
+  cmTC_5c7be.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_5c7be.exe
 
 
 
 Determining if the gethostbyname exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_e0b0e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_067ba.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckSymbolExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e0b0e.dir\Debug\\" /Fd"cmTC_e0b0e.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31,19): warning C4996: 'gethostbyname': Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\cmTC_e0b0e.vcxproj]
-  cmTC_e0b0e.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_e0b0e.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_067ba.dir\Debug\\" /Fd"cmTC_067ba.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31,19): warning C4996: 'gethostbyname': Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\cmTC_067ba.vcxproj]
+  cmTC_067ba.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_067ba.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -638,13 +638,13 @@ int main(int argc, char** argv)
 Determining if the strtoll exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_45020.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_be5e1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckSymbolExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_45020.dir\Debug\\" /Fd"cmTC_45020.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
-  cmTC_45020.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_45020.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_be5e1.dir\Debug\\" /Fd"cmTC_be5e1.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
+  cmTC_be5e1.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_be5e1.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -687,13 +687,13 @@ int main(int argc, char** argv)
 Determining if the _strtoi64 exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_f249a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_a2c70.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckSymbolExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f249a.dir\Debug\\" /Fd"cmTC_f249a.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
-  cmTC_f249a.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_f249a.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a2c70.dir\Debug\\" /Fd"cmTC_a2c70.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
+  cmTC_a2c70.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_a2c70.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -736,13 +736,13 @@ int main(int argc, char** argv)
 Determining if the freeaddrinfo exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_14a3f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_6e651.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckSymbolExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_14a3f.dir\Debug\\" /Fd"cmTC_14a3f.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
-  cmTC_14a3f.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_14a3f.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6e651.dir\Debug\\" /Fd"cmTC_6e651.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
+  cmTC_6e651.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_6e651.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -785,13 +785,13 @@ int main(int argc, char** argv)
 Determining if the getprotobyname exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_a43ea.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_f4eb2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckSymbolExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a43ea.dir\Debug\\" /Fd"cmTC_a43ea.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
-  cmTC_a43ea.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_a43ea.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f4eb2.dir\Debug\\" /Fd"cmTC_f4eb2.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
+  cmTC_f4eb2.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_f4eb2.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -834,13 +834,13 @@ int main(int argc, char** argv)
 Determining if the getpeername exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_d0008.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_16a71.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckSymbolExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d0008.dir\Debug\\" /Fd"cmTC_d0008.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
-  cmTC_d0008.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_d0008.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_16a71.dir\Debug\\" /Fd"cmTC_16a71.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
+  cmTC_16a71.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_16a71.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -883,13 +883,13 @@ int main(int argc, char** argv)
 Determining if the getsockname exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_8fceb.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_68ea0.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckSymbolExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_8fceb.dir\Debug\\" /Fd"cmTC_8fceb.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
-  cmTC_8fceb.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_8fceb.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_68ea0.dir\Debug\\" /Fd"cmTC_68ea0.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
+  cmTC_68ea0.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_68ea0.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -932,13 +932,13 @@ int main(int argc, char** argv)
 Determining if the setlocale exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_8f6f3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_43244.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckSymbolExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_8f6f3.dir\Debug\\" /Fd"cmTC_8f6f3.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
-  cmTC_8f6f3.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_8f6f3.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_43244.dir\Debug\\" /Fd"cmTC_43244.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
+  cmTC_43244.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_43244.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -981,14 +981,14 @@ int main(int argc, char** argv)
 Determining if the setmode exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_dcf63.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_3c358.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckSymbolExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_dcf63.dir\Debug\\" /Fd"cmTC_dcf63.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31,19): warning C4996: 'setmode': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _setmode. See online help for details. [D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\cmTC_dcf63.vcxproj]
-  cmTC_dcf63.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_dcf63.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3c358.dir\Debug\\" /Fd"cmTC_3c358.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c(31,19): warning C4996: 'setmode': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _setmode. See online help for details. [D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\cmTC_3c358.vcxproj]
+  cmTC_3c358.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_3c358.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -1031,13 +1031,13 @@ int main(int argc, char** argv)
 Determining if the setsockopt exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_7df34.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_e731c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckSymbolExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7df34.dir\Debug\\" /Fd"cmTC_7df34.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
-  cmTC_7df34.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_7df34.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e731c.dir\Debug\\" /Fd"cmTC_e731c.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
+  cmTC_e731c.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_e731c.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -1080,13 +1080,13 @@ int main(int argc, char** argv)
 Determining if the inet_pton exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_7d6d6.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_7c3ab.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckSymbolExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7d6d6.dir\Debug\\" /Fd"cmTC_7d6d6.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
-  cmTC_7d6d6.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_7d6d6.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7c3ab.dir\Debug\\" /Fd"cmTC_7c3ab.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
+  cmTC_7c3ab.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_7c3ab.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -1129,88 +1129,88 @@ int main(int argc, char** argv)
 Performing Curl Test HAVE_IOCTLSOCKET passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_0825c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_994ef.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CurlTests.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_IOCTLSOCKET /D HAVE_WINDOWS_H /D HAVE_WS2TCPIP_H /D HAVE_WINSOCK2_H /D HAVE_WINCRYPT_H /D HAVE_STDIO_H /D HAVE_SYS_STAT_H /D HAVE_SYS_TYPES_H /D HAVE_SYS_UTIME_H /D HAVE_ASSERT_H /D HAVE_ERRNO_H /D HAVE_FCNTL_H /D HAVE_IO_H /D HAVE_LOCALE_H /D HAVE_SETJMP_H /D HAVE_SIGNAL_H /D HAVE_STDBOOL_H /D HAVE_STDLIB_H /D HAVE_STRING_H /D HAVE_TIME_H /D HAVE_PROCESS_H /D HAVE_STDDEF_H /D HAVE_MALLOC_H /D HAVE_MEMORY_H /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0825c.dir\Debug\\" /Fd"cmTC_0825c.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\CMake\CurlTests.c"
-D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\CMake\CurlTests.c(241): warning C4700: uninitialized local variable 'socket' used [D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\cmTC_0825c.vcxproj]
-  cmTC_0825c.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_0825c.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_IOCTLSOCKET /D HAVE_WINDOWS_H /D HAVE_WS2TCPIP_H /D HAVE_WINSOCK2_H /D HAVE_WINCRYPT_H /D HAVE_STDIO_H /D HAVE_SYS_STAT_H /D HAVE_SYS_TYPES_H /D HAVE_SYS_UTIME_H /D HAVE_ASSERT_H /D HAVE_ERRNO_H /D HAVE_FCNTL_H /D HAVE_IO_H /D HAVE_LOCALE_H /D HAVE_SETJMP_H /D HAVE_SIGNAL_H /D HAVE_STDBOOL_H /D HAVE_STDLIB_H /D HAVE_STRING_H /D HAVE_TIME_H /D HAVE_PROCESS_H /D HAVE_STDDEF_H /D HAVE_MALLOC_H /D HAVE_MEMORY_H /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_994ef.dir\Debug\\" /Fd"cmTC_994ef.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\CMake\CurlTests.c"
+D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\CMake\CurlTests.c(241): warning C4700: uninitialized local variable 'socket' used [D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\cmTC_994ef.vcxproj]
+  cmTC_994ef.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_994ef.exe
 
 
 Performing Curl Test HAVE_IOCTLSOCKET_FIONBIO passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_3dc6c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_c96a3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CurlTests.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_IOCTLSOCKET_FIONBIO /D HAVE_WINDOWS_H /D HAVE_WS2TCPIP_H /D HAVE_WINSOCK2_H /D HAVE_WINCRYPT_H /D HAVE_STDIO_H /D HAVE_SYS_STAT_H /D HAVE_SYS_TYPES_H /D HAVE_SYS_UTIME_H /D HAVE_ASSERT_H /D HAVE_ERRNO_H /D HAVE_FCNTL_H /D HAVE_IO_H /D HAVE_LOCALE_H /D HAVE_SETJMP_H /D HAVE_SIGNAL_H /D HAVE_STDBOOL_H /D HAVE_STDLIB_H /D HAVE_STRING_H /D HAVE_TIME_H /D HAVE_PROCESS_H /D HAVE_STDDEF_H /D HAVE_MALLOC_H /D HAVE_MEMORY_H /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3dc6c.dir\Debug\\" /Fd"cmTC_3dc6c.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\CMake\CurlTests.c"
-  cmTC_3dc6c.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_3dc6c.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_IOCTLSOCKET_FIONBIO /D HAVE_WINDOWS_H /D HAVE_WS2TCPIP_H /D HAVE_WINSOCK2_H /D HAVE_WINCRYPT_H /D HAVE_STDIO_H /D HAVE_SYS_STAT_H /D HAVE_SYS_TYPES_H /D HAVE_SYS_UTIME_H /D HAVE_ASSERT_H /D HAVE_ERRNO_H /D HAVE_FCNTL_H /D HAVE_IO_H /D HAVE_LOCALE_H /D HAVE_SETJMP_H /D HAVE_SIGNAL_H /D HAVE_STDBOOL_H /D HAVE_STDLIB_H /D HAVE_STRING_H /D HAVE_TIME_H /D HAVE_PROCESS_H /D HAVE_STDDEF_H /D HAVE_MALLOC_H /D HAVE_MEMORY_H /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c96a3.dir\Debug\\" /Fd"cmTC_c96a3.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\CMake\CurlTests.c"
+  cmTC_c96a3.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_c96a3.exe
 
 
 Performing Curl Test HAVE_BOOL_T passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_a2898.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_ecd0d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CurlTests.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_BOOL_T /D HAVE_WINDOWS_H /D HAVE_WS2TCPIP_H /D HAVE_WINSOCK2_H /D HAVE_WINCRYPT_H /D HAVE_STDIO_H /D HAVE_SYS_STAT_H /D HAVE_SYS_TYPES_H /D HAVE_SYS_UTIME_H /D HAVE_ASSERT_H /D HAVE_ERRNO_H /D HAVE_FCNTL_H /D HAVE_IO_H /D HAVE_LOCALE_H /D HAVE_SETJMP_H /D HAVE_SIGNAL_H /D HAVE_STDBOOL_H /D HAVE_STDLIB_H /D HAVE_STRING_H /D HAVE_TIME_H /D HAVE_PROCESS_H /D HAVE_STDDEF_H /D HAVE_MALLOC_H /D HAVE_MEMORY_H /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a2898.dir\Debug\\" /Fd"cmTC_a2898.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\CMake\CurlTests.c"
-  cmTC_a2898.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_a2898.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_BOOL_T /D HAVE_WINDOWS_H /D HAVE_WS2TCPIP_H /D HAVE_WINSOCK2_H /D HAVE_WINCRYPT_H /D HAVE_STDIO_H /D HAVE_SYS_STAT_H /D HAVE_SYS_TYPES_H /D HAVE_SYS_UTIME_H /D HAVE_ASSERT_H /D HAVE_ERRNO_H /D HAVE_FCNTL_H /D HAVE_IO_H /D HAVE_LOCALE_H /D HAVE_SETJMP_H /D HAVE_SIGNAL_H /D HAVE_STDBOOL_H /D HAVE_STDLIB_H /D HAVE_STRING_H /D HAVE_TIME_H /D HAVE_PROCESS_H /D HAVE_STDDEF_H /D HAVE_MALLOC_H /D HAVE_MEMORY_H /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ecd0d.dir\Debug\\" /Fd"cmTC_ecd0d.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\CMake\CurlTests.c"
+  cmTC_ecd0d.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_ecd0d.exe
 
 
 Performing Curl Test HAVE_VARIADIC_MACROS_C99 passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_154b9.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_5a246.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CurlTests.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_VARIADIC_MACROS_C99 /D HAVE_WINDOWS_H /D HAVE_WS2TCPIP_H /D HAVE_WINSOCK2_H /D HAVE_WINCRYPT_H /D HAVE_STDIO_H /D HAVE_SYS_STAT_H /D HAVE_SYS_TYPES_H /D HAVE_SYS_UTIME_H /D HAVE_ASSERT_H /D HAVE_ERRNO_H /D HAVE_FCNTL_H /D HAVE_IO_H /D HAVE_LOCALE_H /D HAVE_SETJMP_H /D HAVE_SIGNAL_H /D HAVE_STDBOOL_H /D HAVE_STDLIB_H /D HAVE_STRING_H /D HAVE_TIME_H /D HAVE_PROCESS_H /D HAVE_STDDEF_H /D HAVE_MALLOC_H /D HAVE_MEMORY_H /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_154b9.dir\Debug\\" /Fd"cmTC_154b9.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\CMake\CurlTests.c"
-  cmTC_154b9.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_154b9.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_VARIADIC_MACROS_C99 /D HAVE_WINDOWS_H /D HAVE_WS2TCPIP_H /D HAVE_WINSOCK2_H /D HAVE_WINCRYPT_H /D HAVE_STDIO_H /D HAVE_SYS_STAT_H /D HAVE_SYS_TYPES_H /D HAVE_SYS_UTIME_H /D HAVE_ASSERT_H /D HAVE_ERRNO_H /D HAVE_FCNTL_H /D HAVE_IO_H /D HAVE_LOCALE_H /D HAVE_SETJMP_H /D HAVE_SIGNAL_H /D HAVE_STDBOOL_H /D HAVE_STDLIB_H /D HAVE_STRING_H /D HAVE_TIME_H /D HAVE_PROCESS_H /D HAVE_STDDEF_H /D HAVE_MALLOC_H /D HAVE_MEMORY_H /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5a246.dir\Debug\\" /Fd"cmTC_5a246.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\CMake\CurlTests.c"
+  cmTC_5a246.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_5a246.exe
 
 
 Determining size of off_t passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_ed47d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_0ac73.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   SIZEOF_OFF_T.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ed47d.dir\Debug\\" /Fd"cmTC_ed47d.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_OFF_T.c"
-  cmTC_ed47d.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_ed47d.exe
+  cl /c /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0ac73.dir\Debug\\" /Fd"cmTC_0ac73.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_OFF_T.c"
+  cmTC_0ac73.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_0ac73.exe
 
 
 
 Determining size of curl_off_t passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_af895.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_ee609.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   SIZEOF_CURL_OFF_T.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_af895.dir\Debug\\" /Fd"cmTC_af895.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_CURL_OFF_T.c"
-  cmTC_af895.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_af895.exe
+  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ee609.dir\Debug\\" /Fd"cmTC_ee609.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_CURL_OFF_T.c"
+  cmTC_ee609.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_ee609.exe
 
 
 
 Performing C SOURCE FILE Test curl_cv_recv succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_a36e4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_5afad.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   src.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D curl_cv_recv /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a36e4.dir\Debug\\" /Fd"D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_a36e4.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
-  cmTC_a36e4.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_a36e4.lib
+  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D curl_cv_recv /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5afad.dir\Debug\\" /Fd"D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_5afad.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
+  cmTC_5afad.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_5afad.lib
 
 
 Source file was:
@@ -1227,13 +1227,13 @@ int main(void) {
 Performing C SOURCE FILE Test curl_cv_func_recv_test succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_5ad67.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_9167a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   src.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D curl_cv_func_recv_test /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5ad67.dir\Debug\\" /Fd"D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_5ad67.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
-  cmTC_5ad67.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_5ad67.lib
+  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D curl_cv_func_recv_test /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9167a.dir\Debug\\" /Fd"D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_9167a.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
+  cmTC_9167a.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_9167a.lib
 
 
 Source file was:
@@ -1261,13 +1261,13 @@ Source file was:
 Performing C SOURCE FILE Test curl_cv_send succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_47356.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_e96de.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   src.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D curl_cv_send /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_47356.dir\Debug\\" /Fd"D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_47356.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
-  cmTC_47356.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_47356.lib
+  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D curl_cv_send /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e96de.dir\Debug\\" /Fd"D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_e96de.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
+  cmTC_e96de.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_e96de.lib
 
 
 Source file was:
@@ -1284,13 +1284,13 @@ int main(void) {
 Performing C SOURCE FILE Test curl_cv_func_send_test succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_051b8.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_1101d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   src.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D curl_cv_func_send_test /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_051b8.dir\Debug\\" /Fd"D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_051b8.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
-  cmTC_051b8.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_051b8.lib
+  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D curl_cv_func_send_test /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1101d.dir\Debug\\" /Fd"D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_1101d.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
+  cmTC_1101d.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_1101d.lib
 
 
 Source file was:
@@ -1318,13 +1318,13 @@ Source file was:
 Performing C SOURCE FILE Test HAVE_STRUCT_TIMEVAL succeeded with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_4eb9b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_006a1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   src.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D HAVE_STRUCT_TIMEVAL /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4eb9b.dir\Debug\\" /Fd"D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_4eb9b.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
-  cmTC_4eb9b.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_4eb9b.lib
+  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D HAVE_STRUCT_TIMEVAL /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_006a1.dir\Debug\\" /Fd"D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_006a1.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\src.c"
+  cmTC_006a1.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_006a1.lib
 
 
 Source file was:
@@ -1344,26 +1344,26 @@ int main(void) {
 Determining size of struct sockaddr_storage passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_440cc.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_d02df.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   SIZEOF_STRUCT_SOCKADDR_STORAGE.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_440cc.dir\Debug\\" /Fd"D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_440cc.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_STRUCT_SOCKADDR_STORAGE.c"
-  cmTC_440cc.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_440cc.lib
+  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d02df.dir\Debug\\" /Fd"D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_d02df.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CheckTypeSize\SIZEOF_STRUCT_SOCKADDR_STORAGE.c"
+  cmTC_d02df.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_d02df.lib
 
 
 
 Determining if the CryptAcquireContext exist passed with the following output:
 Change Dir: D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_c6f50.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_ec4e5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.7.0-preview-23226-04+0dbc421ea for .NET Framework
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32705 for x64
   CheckSymbolExists.c
   Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c6f50.dir\Debug\\" /Fd"cmTC_c6f50.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
-  cmTC_c6f50.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_c6f50.exe
+  cl /c /I"D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include" /I"C:\Users\Sam\vcpkg\installed\x64-windows\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _WIN32_WINNT=0x0600 /D _WINSOCKAPI_= /D SECURITY_WIN32 /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ec4e5.dir\Debug\\" /Fd"cmTC_ec4e5.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
+  cmTC_ec4e5.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\CMakeFiles\CMakeTmp\Debug\cmTC_ec4e5.exe
 
 
 File D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeTmp/CheckSymbolExists.c:

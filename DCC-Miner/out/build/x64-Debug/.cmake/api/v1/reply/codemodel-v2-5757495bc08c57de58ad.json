@@ -1,0 +1,258 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "DCC-Miner",
+					"childIndexes" : 
+					[
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-DCC-Miner-Debug-4c0abc660a60b222705e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "DCC-Miner",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "_deps/cpr-build",
+					"childIndexes" : 
+					[
+						3,
+						4,
+						6,
+						7
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.cpr-build-Debug-84d21eb656ee39cdc4d0.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "out/build/x64-Debug/_deps/cpr-src"
+				},
+				{
+					"build" : "_deps/zlib-build",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.zlib-build-Debug-36687967658a49a12d51.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5.1"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "out/build/x64-Debug/_deps/zlib-src",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "_deps/curl-build",
+					"childIndexes" : 
+					[
+						5
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.curl-build-Debug-511064948556990b6ce9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 3,
+					"source" : "out/build/x64-Debug/_deps/curl-src",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "_deps/curl-build/lib",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.curl-build.lib-Debug-e3a0a2ecc8681a04f312.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 3,
+					"source" : "out/build/x64-Debug/_deps/curl-src/lib",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "_deps/cpr-build/cpr",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.cpr-build.cpr-Debug-2aa64567fd53660811b4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 1,
+					"source" : "out/build/x64-Debug/_deps/cpr-src/cpr",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "_deps/cpr-build/include",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.cpr-build.include-Debug-a6f4c1af6b7df261841a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 1,
+					"source" : "out/build/x64-Debug/_deps/cpr-src/include"
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "DCC-Miner",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						2,
+						6,
+						7
+					],
+					"name" : "cpr",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "zlib",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4,
+						5
+					],
+					"name" : "CURL",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "DCC-Miner::@7c9fba58f9b8b12f7bc5",
+					"jsonFile" : "target-DCC-Miner-Debug-9131b6d0d275c13203ad.json",
+					"name" : "DCC-Miner",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "cpr::@c4b08663df96993e8225",
+					"jsonFile" : "target-cpr-Debug-8d921d5d0ac020f8bae8.json",
+					"name" : "cpr",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "libcurl::@7349aeacaff41deceb36",
+					"jsonFile" : "target-libcurl-Debug-b7016ff46471bef8c5b7.json",
+					"name" : "libcurl",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "uninstall::@b95861b2ba384b5171eb",
+					"jsonFile" : "target-uninstall-Debug-145f5c566b4b4c3f32f4.json",
+					"name" : "uninstall",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "zlib::@c9556b0b6bf47963f9da",
+					"jsonFile" : "target-zlib-Debug-54ea5b89d170e942a9b6.json",
+					"name" : "zlib",
+					"projectIndex" : 2
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug",
+		"source" : "D:/Code/DC-Cryptocurrency/DCC-Miner"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

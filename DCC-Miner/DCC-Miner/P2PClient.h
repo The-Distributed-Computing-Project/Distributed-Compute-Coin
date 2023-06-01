@@ -27,6 +27,7 @@ public:
 	std::string NormalizedIPString(SOCKADDR_IN addr);
 	void ListenerThread(int update_interval);
 	int SafeSend(SOCKET s, char* buf, int buflen);
+	int OpenP2PSocket(std::string port);
 	int StartP2P(std::string addr, std::string port, std::string peerPort);
 };
 

@@ -1,0 +1,21 @@
+# ninja log v5
+2	46	7072769323752382	cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-mkdir	bae5aafdd7321251
+2	46	7072769323752382	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-mkdir	bae5aafdd7321251
+47	2265	7072769345947986	cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-download	e966c05bed3d7d7a
+47	2265	7072769345947986	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-download	e966c05bed3d7d7a
+2266	2346	0	cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-update	e452a81888bab893
+2266	2346	0	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-update	e452a81888bab893
+2346	2385	7072769347147977	cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-patch	4d2a080645bb83c3
+2346	2385	7072769347147977	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-patch	4d2a080645bb83c3
+2385	2423	7072769347517989	cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-configure	9a070ddfa93555f3
+2385	2423	7072769347517989	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-configure	9a070ddfa93555f3
+2423	2460	7072769347897983	cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-build	d78f7140d6f54c60
+2423	2460	7072769347897983	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-build	d78f7140d6f54c60
+2460	2497	7072769348267977	cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-install	946cd4c8c03c37b9
+2460	2497	7072769348267977	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-install	946cd4c8c03c37b9
+2498	2538	7072769348667986	cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-test	de6279cf4ac922c2
+2498	2538	7072769348667986	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-test	de6279cf4ac922c2
+2538	2590	7072769349197976	CMakeFiles/cpr-populate-complete	57e23539559a95d1
+2538	2590	7072769349197976	cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-done	57e23539559a95d1
+2538	2590	7072769349197976	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/cpr-subbuild/CMakeFiles/cpr-populate-complete	57e23539559a95d1
+2538	2590	7072769349197976	D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-done	57e23539559a95d1

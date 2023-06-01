@@ -24,6 +24,7 @@ int ExtractZip(std::string path, std::string saveAs)
 	return 0;
 }
 
+// Convert the SHA-256 char[] <hash> into a hex encoding, outputing into char[] <outputBuffer>
 void sha256_hash_string(unsigned char hash[SHA256_DIGEST_LENGTH], char outputBuffer[65])
 {
 	int i = 0;
@@ -36,12 +37,13 @@ void sha256_hash_string(unsigned char hash[SHA256_DIGEST_LENGTH], char outputBuf
 	outputBuffer[64] = 0;
 }
 
-void sha256_string(char* string, char outputBuffer[65])
+// Calculate the SHA-256 hash of char* <str>, and place the hex encoded version into char[] <outputBuffer>
+void sha256_string(char* str, char outputBuffer[65])
 {
 	unsigned char hash[SHA256_DIGEST_LENGTH];
 	SHA256_CTX sha256;
 	SHA256_Init(&sha256);
-	SHA256_Update(&sha256, string, strlen(string));
+	SHA256_Update(&sha256, str, strlen(str));
 	SHA256_Final(hash, &sha256);
 	int i = 0;
 	for (i = 0; i < SHA256_DIGEST_LENGTH; i++)
@@ -51,16 +53,18 @@ void sha256_string(char* string, char outputBuffer[65])
 	outputBuffer[64] = 0;
 }
 
-void sha256_full_cstr(char* string, unsigned char outputBuffer[SHA256_DIGEST_LENGTH])
+// Calculate the SHA-256 hash of char* <str>, and place the raw version into unsigned char[] outputBuffer
+void sha256_full_cstr(char* str, unsigned char outputBuffer[SHA256_DIGEST_LENGTH])
 {
 	unsigned char hash[SHA256_DIGEST_LENGTH];
 	SHA256_CTX sha256;
 	SHA256_Init(&sha256);
-	SHA256_Update(&sha256, string, strlen(string));
+	SHA256_Update(&sha256, str, strlen(str));
 	SHA256_Final(outputBuffer, &sha256);
 	//outputBuffer = (char*)hash;
 }
 
+// Convert the SHA-256 unsigned char* <hash> into a hex encoding, outputing into char[] <outputBuffer>
 void cstr_to_hexstr(unsigned char* str, int clen, char outputBuffer[65])
 {
 	//int i = 0;

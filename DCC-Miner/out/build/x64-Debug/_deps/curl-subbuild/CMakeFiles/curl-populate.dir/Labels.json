@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/curl-subbuild/CMakeFiles/curl-populate"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/curl-subbuild/CMakeFiles/curl-populate.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/curl-subbuild/CMakeFiles/curl-populate-complete.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-build.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-configure.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-download.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-install.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-patch.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-test.rule"
+		},
+		{
+			"file" : "D:/Code/DC-Cryptocurrency/DCC-Miner/out/build/x64-Debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"curl-populate"
+		],
+		"name" : "curl-populate"
+	}
+}

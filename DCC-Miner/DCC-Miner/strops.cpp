@@ -3,16 +3,6 @@
 #include <vector>
 #include "strops.h"
 
-//using namespace std;
-
-//string JoinArrayPieces(string input[]);
-//vector<string> SplitString(string str, string delim);
-//void ltrim(std::string& s);
-//void rtrim(std::string& s);
-//string trim(std::string s);
-//string ToUpper(string s);
-//bool StringStartsWith(string str, string substr);
-
 std::string JoinArrayPieces(std::string input[])
 {
 	std::string outStr = "";
@@ -63,28 +53,7 @@ std::string CommaLargeNumber(float num) {
 	return s;
 }
 
-//std::vector<std::string> SplitString(std::string str, std::string delim)
-//{
-//	std::vector<std::string> words;
-//	
-//	size_t last = 0;
-//	size_t next = 0;
-//	while ((next = str.find(delim, last)) != std::string::npos)
-//	{
-//		//cout << s.substr(last, next - last) << endl;  
-//		words.push_back(str.substr(last, next - last));
-//		last = next + 1;
-//	}
-//	//cout << s.substr(last) << endl;
-//	words.push_back(str.substr(last));
-//
-//	//for (const auto& str : words) {
-//	//	cout << str << endl;
-//	//}
-//
-//	return words;
-//}
-
+// Split a string <str> by a delimiter <delim>, and return a vector of strings
 std::vector<std::string> SplitString(std::string str, std::string delim)
 {
 	std::vector<std::string> splittedString;
@@ -156,11 +125,12 @@ bool StringStartsWith(std::string str, std::string substr)
 }
 
 char toHexChar(int value) {
-    if (value < 10) {
-        return static_cast<char>('0' + value);
-    } else {
-        return static_cast<char>('a' + value - 10);
-    }
+	if (value < 10) {
+		return static_cast<char>('0' + value);
+	}
+	else {
+		return static_cast<char>('a' + value - 10);
+	}
 }
 
 void stringToHex(char* input, char* output, int len) {
@@ -174,7 +144,8 @@ void stringToHex(char* input, char* output, int len) {
 	*output = '\0'; // Add null terminator at the end
 }
 
-char d[30];
+char d[30]; // Buffer for the CharStrStartsWith() function check
+// Check if the unsigned char* <str> starts with another char* <substr>
 bool CharStrStartsWith(unsigned char* str, char* substr, int len)
 {
 	char* c = d;
@@ -191,6 +162,7 @@ bool CharStrStartsWith(unsigned char* str, char* substr, int len)
 	return true;
 }
 
+// Replace all instances of the escape symbol '\n' with the string "\\n"
 std::string ReplaceEscapeSymbols(std::string s)
 {
 	std::string out = "";

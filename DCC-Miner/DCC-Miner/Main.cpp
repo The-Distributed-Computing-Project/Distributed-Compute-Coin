@@ -74,7 +74,6 @@ bool IsChainValid();
 void ConnectionError();
 std::string ExecuteCommand(const char* cmd);
 std::string FormatHPS(float input);
-boost::process::child ExecuteAsync(std::string cmd);
 boost::process::child ExecuteAsync(std::string cmd, bool print);
 int SendFunds(std::string toAddress, float amount);
 
@@ -111,17 +110,11 @@ P2P p2p;
 
 std::vector<std::string> keypair = { "", "" };
 
-//SHA256_CTX sha256inst;
 
 int main()
 {
 	console.DebugPrint();
 	console.WriteLine("Started");
-	//console.WriteLine("Error Code " + std::to_string(ec), console.Debug());
-
-	//generate_key();
-
-	//cryptMain();
 
 	char sha256OutBuffer[65];
 	unsigned char hash[32];
@@ -134,19 +127,6 @@ int main()
 	char* input2 = (char*)"hello there";
 	sha256_string(input2, sha256OutBuffer2);
 	std::cout << "correct: " << sha256OutBuffer2 << std::endl;
-	//return 0;
-	
-	//SHA256_Init(&sha256inst);
-
-	/*std::string random256BitKey = mine::AES::generateRandomKey(256);
-	std::string inputString = "1234567890000000000000000000dfff";
-
-	std::cout << random256BitKey << std::endl;
-	std::cout << "Input is: " << inputString << std::endl;*/
-
-	//console.WriteLine("Your phrase: " + GenerateWalletPhrase());
-
-	//return 0;
 
 	// Create required directories if they don't exist
 	for (std::string dir : directoryList)
@@ -210,9 +190,6 @@ int main()
 	{
 		console.ErrorPrint();
 		console.WriteLine("Error opening peer file", console.redFGColor, "");
-		//std::cout << "Error opening peer file" << std::endl;
-		//system("pause");
-		//return -1;
 
 		// Create the peer list file
 		std::ofstream peerFileW("./wwwdata/peerlist.txt");
@@ -301,6 +278,11 @@ int main()
 		return 1;
 	}
 
+
+	// Open the socket required to accept P2P requests and send responses
+	p2p.OpenP2PSocket("5000");
+	// Start the P2P listener thread
+	std::thread t1(&P2P::ListenerThread, p2p, 500);
 
 	
 	// Start command loop
@@ -520,6 +502,7 @@ int main()
 	}
 }
 
+// Print the help menu
 void Help()
 {
 	console.WriteLine(R"V0G0N(
@@ -534,48 +517,19 @@ Options:
   -ma, --mineany <block num> <dif>    (Debug) Mines the block specified by <block num> at the given 
                                       difficulty <dif>
   -sn, --send <addr> <amount>         Sends the <amount> of DCC to a receiving address <addr>
-  -c, --connect <local> <peer>        Opens manual shell for a oeer connection, reveiving at the port
+  -c, --connect <local> <peer>        Opens manual shell for a peer connection, reveiving at the port
                                       <local> and sending to the peer's port at <peer>
 
 )V0G0N");
 }
 
+// Sync the entire blockchain
 int Sync()
 {
 	try
 	{
-		//	for (auto oldBlock : fs::directory_iterator("./wwwdata/pendingblocks/"))
-		//	{
-		//		try
-		//		{
-		//			remove(oldBlock.path());
-		//		}
-		//		catch (const std::exception&)
-		//		{
-		//			console.ErrorPrint();
-		//			console.WriteLine("Error removing \"" + oldBlock.path().string() + "\"");
-		//		}
-		//	}
-		//for (auto oldBlock : fs::directory_iterator("./wwwdata/blockchain/"))
-		//{
-		//	try
-		//	{
-		//		remove(oldBlock.path());
-		//	}
-		//	catch (const std::exception&)
-		//	{
-		//		console.ErrorPrint();
-		//		console.WriteLine("Error removing \"" + oldBlock.path().string() + "\"");
-		//	}
-		//}
-		/*for (int i = 1; i < walletInfo["PendingLength"] + 1; i++)
-		{
-			SyncPending((int)walletInfo["PendingLength"] + i);
-		}*/
 		for (int i = 1; i < walletInfo["BlockchainLength"] + 1; i++)
-		{
 			SyncBlock(i);
-		}
 		GetProgram();
 		return 1;
 	}
@@ -586,6 +540,7 @@ int Sync()
 	}
 }
 
+// Get the wallet and blockchain information from the server   // TODO: get most information locally, and get things like difficulty from peers
 json GetInfo()
 {
 	try
@@ -624,6 +579,7 @@ json GetInfo()
 	}
 }
 
+// Read the configuration file of the assigned program, and return the JSON data
 json ReadProgramConfig()
 {
 	std::ifstream t("./wwwdata/programs/" + id + ".cfg");
@@ -633,6 +589,7 @@ json ReadProgramConfig()
 	return json::parse(content);
 }
 
+// Write the JSON data for the assigned program to file
 int WriteProgramConfig()
 {
 	try
@@ -651,6 +608,7 @@ int WriteProgramConfig()
 	}
 }
 
+// Make sure a rust program is assigned. If one is not, or it's life is 0, then download a new one     // TODO: Change to download from peers instead of server
 int GetProgram()
 {
 	float life = 0;
@@ -761,6 +719,7 @@ int GetProgram()
 	}
 }
 
+// Get the amount of time left of the current assigned rust program, by asking the server     // TODO: change to ask peers instead of the server
 float GetProgramLifeLeft(std::string id)
 {
 	try
@@ -782,6 +741,7 @@ float GetProgramLifeLeft(std::string id)
 	}
 }
 
+// Sync a single pending block from the server     // TODO: change this from asking the server to asking peers.
 int SyncPending(int whichBlock)
 {
 	try
@@ -803,6 +763,7 @@ int SyncPending(int whichBlock)
 	}
 }
 
+// Sync a single solid block from the server     // TODO: change this from asking the server to asking peers.
 int SyncBlock(int whichBlock)
 {
 	try
@@ -823,6 +784,7 @@ int SyncBlock(int whichBlock)
 	}
 }
 
+// Check every single block to make sure the nonce is valid, the hash matches the earlier and later blocks, and each transaction has a valid signature.
 bool IsChainValid()
 {
 	while (FileCount("./wwwdata/blockchain/") < walletInfo["BlockchainLength"])
@@ -1047,6 +1009,7 @@ bool IsChainValid()
 	return true;
 }
 
+// Mine a single block with specified data and using the difficulty stored in walletInfo["MineDifficulty"]
 int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 {
 	walletInfo["MineDifficulty"] = "00000";
@@ -1067,7 +1030,6 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 
 		//Checks Hash
 		int nonce = 0;
-		//std::string hash = "";
 		unsigned char hash[32];
 		std::string dif = (std::string)walletInfo["MineDifficulty"];
 		char* c_difficulty = (char*)dif.c_str();
@@ -1076,7 +1038,6 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 		int hashesPerSecond = 0;
 		int hashesAtStart = 0;
 		std::string hData = lastHash + transactionHistory;
-		//while (!StringStartsWith(hash, difficulty))
 		char sha256OutBuffer[65];
 		while (!CharStrStartsWith(hash, c_difficulty, difficultyLen))
 		{
@@ -1091,28 +1052,16 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 				console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
 			}
 
-			//if(nonce %1000000 == 0)
-			//{
-			//	cstr_to_hexstr(hash, 32, sha256OutBuffer);
-			//	console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + " :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
-			//	console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
-			//}
-
 			nonce++;
-			//char sha256OutBuffer[65];
 			sha256_full_cstr((char*)(hData + std::to_string(nonce)).c_str(), hash);
-			//sha256_string(lastHash + transactions + std::to_string(nonce), hash);
-			//hash = sha256OutBuffer;
 		}
 
 		std::cout << std::endl;
-
+		
+		// Wait for the rust program to finish running
 		if (cargoProc.running())
-		{
 			cargoProc.wait();
-		}
 
-		//console.Clear();
 
 		/*char sha256OutBuffer[65];
 		sha256_string((char*)(lastHash + transactionHistory + std::to_string(nonce)).c_str(), sha256OutBuffer);
@@ -1154,9 +1103,8 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 		}
 		catch (const std::exception& e)
 		{
-			if (constants::debugPrint == true) {
+			if (constants::debugPrint == true)
 				std::cerr << e.what() << std::endl;
-			}
 			return 0;
 		}
 
@@ -1187,9 +1135,8 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 			}
 			catch (const std::exception& e)
 			{
-				if (constants::debugPrint == true) {
+				if (constants::debugPrint == true)
 					std::cerr << e.what() << std::endl;
-				}
 				return 0;
 			}
 		}
@@ -1202,13 +1149,14 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 	}
 	catch (const std::exception& e)
 	{
-		if (constants::debugPrint == true) {
+		if (constants::debugPrint == true)
 			std::cerr << e.what() << std::endl;
-		}
 		return 0;
 	}
 }
 
+// Send funds to another address, by first checking if the user has enough funds in the first place,
+// then adding the transaction and signature to a pending block
 int SendFunds(std::string toAddress, float amount)
 {
 	console.DebugPrint();
@@ -1372,11 +1320,9 @@ int SendFunds(std::string toAddress, float amount)
 	}
 }
 
+// Calculate the nonce and hash for an existing block at a specific difficulty
 int MineAnyBlock(int blockNum, std::string difficulty)
 {
-	//if (difficulty == "")
-	//	difficulty = (std::string)walletInfo["MineDifficulty"];
-
 	difficulty = ToLower(difficulty); 
 
 
@@ -1417,25 +1363,14 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 			console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
 		}
 
-		//if(nonce %1000000 == 0)
-		//{
-		//	cstr_to_hexstr(hash, 32, sha256OutBuffer);
-		//	console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + " :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
-		//	console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
-		//}
-
 		nonce++;
-		//char sha256OutBuffer[65];
 		sha256_full_cstr((char*)(hData + std::to_string(nonce)).c_str(), hash);
-		//sha256_string(lastHash + transactions + std::to_string(nonce), hash);
-		//hash = sha256OutBuffer;
 	}
 
 	std::cout << std::endl;
 	console.MiningPrint();
 	console.WriteLine("Debug mined in " + std::to_string(std::round(since(startTime).count() / 1000)) + " s.");
 	console.MiningPrint();
-	//char sha256OutBuffer[65];
 	cstr_to_hexstr(hash, 32, sha256OutBuffer);
 	console.Write("Final value: hash # ");
 	console.WriteLine(std::string(sha256OutBuffer), "", console.greenFGColor);
@@ -1446,22 +1381,7 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 	return 0;
 }
 
-//static Process ExecuteCommand(string command, string directory)
-//{
-//	ProcessStartInfo ProcessInfo;
-//	Process proc;
-//
-//	ProcessInfo = new ProcessStartInfo("cmd.exe", "/c " + command);
-//	ProcessInfo.WorkingDirectory = directory;
-//	ProcessInfo.CreateNoWindow = true;
-//	ProcessInfo.WindowStyle = ProcessWindowStyle.Hidden;
-//	ProcessInfo.UseShellExecute = true;
-//
-//	proc = Process.Start(ProcessInfo);
-//
-//	return proc;
-//}
-
+// Print a connection error dialog
 void ConnectionError()
 {
 	//connectionStatus = 0;
@@ -1469,10 +1389,9 @@ void ConnectionError()
 	console.WriteLine("Failed To Connect");
 }
 
+// Execute a command in the main thread and print the output
 std::string ExecuteCommand(const char* cmd)
 {
-	//console.WriteLine("Rust Compiler: ", console.Rust());
-
 	std::array<char, 128> buffer;
 	std::string result;
 	std::unique_ptr<FILE, decltype(&_pclose)> pipe(_popen(cmd, "r"), _pclose);
@@ -1484,52 +1403,10 @@ std::string ExecuteCommand(const char* cmd)
 		std::cout << buffer.data();
 	}
 
-	//STARTUPINFO sinfo = { 0 };
-	//PROCESS_INFORMATION pinfo = { 0 };
-	//if (!CreateProcess(cmd, buf, NULL, NULL, FALSE, 0, NULL, NULL, &sinfo, &pinfo)) {
-	//	Fail("Could not launch Vim");
-	//}
-	//if (WaitForSingleObject(pinfo.hProcess, INFINITE) == WAIT_FAILED) {
-	//	Fail("WaitForSingleObject");
-	//}
-
-	//system(("start " + (string)(cmd)).c_str());
-	//console.WriteLine("Done Compiling", console.Rust());
 	return "";
 }
 
-boost::process::child ExecuteAsync(std::string cmd)
-{
-	try
-	{
-		namespace bp = boost::process;
-		std::vector<std::string> splitCommand = SplitString(cmd, " ");
-		std::string command = splitCommand[0];
-		std::string args;
-		for (int i = 1; i < sizeof(splitCommand) / sizeof(splitCommand[0]); i++)
-		{
-			args += splitCommand[i] + " ";
-		}
-		bp::child c(cmd);
-
-		if (constants::debugPrint == true) {
-			std::cout << c.id() << std::endl;
-		}
-
-		return c;
-	}
-	catch (const std::exception& e)
-	{
-		if (constants::debugPrint == true) {
-			std::cerr << e.what() << std::endl;
-		}
-		return boost::process::child();
-	}
-
-	return boost::process::child();
-	//c.wait();
-}
-
+// Execute a process in an asynchronous background thread
 boost::process::child ExecuteAsync(std::string cmd, bool printOutput)
 {
 	try
@@ -1554,7 +1431,7 @@ boost::process::child ExecuteAsync(std::string cmd, bool printOutput)
 	return boost::process::child();
 }
 
-
+// Upgrade a block to a newer version
 json UpgradeBlock(json b, std::string toVersion)
 {
 	if (constants::debugPrint == true) {
@@ -1570,6 +1447,7 @@ json UpgradeBlock(json b, std::string toVersion)
 	return b;
 }
 
+// Format the hashes per second float <input> into a readable and shortened string
 std::string FormatHPS(float input)
 {
 	if (input > 1000000000.0f)
@@ -1582,24 +1460,9 @@ std::string FormatHPS(float input)
 		return std::to_string(round(input, 3)) + " H/s";
 }
 
+// Round a float to <decimal_places> number of decimal places
 double round(float value, int decimal_places)
 {
 	const double multiplier = std::pow(10.0, decimal_places);
 	return std::round(value * multiplier) / multiplier;
 }
-
-
-//bool isAccessibleDir(string pathname)
-//{
-//	if (stat(pathname.c_str(), &info) != 0) {
-//		console.WriteLine("cannot access directory \"" + pathname + "\"", console.Error());
-//		return false;
-//	}
-//	else if (info.st_mode & S_IFDIR) {
-//		return true;
-//	}
-//	else {
-//		console.WriteLine("\"" + pathname + "\"" + " not a directory" + pathname, console.Error());
-//		return false;
-//	}
-//}

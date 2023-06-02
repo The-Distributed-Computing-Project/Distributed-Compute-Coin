@@ -99,8 +99,8 @@ json programConfig;
 json walletConfig;
 json walletInfo;
 
-const std::string VERSION = "v0.01alpha";
-const std::string BLOCK_VERSION = "v0.01alpha-coin";
+const std::string VERSION = "v0.2.0-alpha";
+const std::string BLOCK_VERSION = "v0.2.0-alpha-coin";
 
 std::string endpointAddr = "";
 std::string endpointPort = "";
@@ -490,9 +490,9 @@ void Help()
 {
 	console.WriteLine(R"V0G0N(
 
-Usage: miner [options]
+Usage: miner.exe [options]
 		 OR (while in interactive mode)
-	   Input >  [options]
+       Input: [options]
 Options:
   -h, --help                          Display this help menu
   -v, --version                       Print the current wallet and block version

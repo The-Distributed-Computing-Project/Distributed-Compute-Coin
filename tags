@@ -5,8 +5,8 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 0	DCC-Miner/DCC-Miner/Session.vim	/^normal! 0$/;"	m
-010|	DCC-Miner/DCC-Miner/Session.vim	/^normal! 010|$/;"	m
-011|	DCC-Miner/DCC-Miner/Session.vim	/^normal! 011|$/;"	m
+031|	DCC-Miner/DCC-Miner/Session.vim	/^normal! 031|$/;"	m
+072|	DCC-Miner/DCC-Miner/Session.vim	/^normal! 072|$/;"	m
 ACHINE	DCC-Miner/out/_deps/curl-src/Makefile	/^	nmake \/f Makefile.vc MACHINE=x64$/;"	m
 ACHINE	DCC-Miner/out/_deps/curl-src/Makefile	/^	nmake \/f Makefile.vc MACHINE=x86$/;"	m
 ACTIVE	DCC-Miner/out/_deps/curl-src/tests/server/sockfilt.c	/^  ACTIVE,            \/* as a client, connected to a server *\/$/;"	e	enum:sockmode	file:
@@ -115,7 +115,7 @@ BLOB_LAST	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  BLOB_LAST$/;"	e	enum:du
 BLOB_SSL_ISSUERCERT	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  BLOB_SSL_ISSUERCERT,$/;"	e	enum:dupblob
 BLOB_SSL_ISSUERCERT_PROXY	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  BLOB_SSL_ISSUERCERT_PROXY,$/;"	e	enum:dupblob
 BLOCKCHAIN_DIR	DCC-Miner/DCC-Miner/RequestParser.cpp	/^string BLOCKCHAIN_DIR = ".\/wwwdata\/blockchain";$/;"	v
-BLOCK_VERSION	DCC-Miner/DCC-Miner/Main.cpp	/^const std::string BLOCK_VERSION = "v0.01alpha-coin";$/;"	v
+BLOCK_VERSION	DCC-Miner/DCC-Miner/Main.cpp	/^const std::string BLOCK_VERSION = "v0.2.0-alpha-coin";$/;"	v
 BL_CODES	DCC-Miner/out/_deps/zlib-src/deflate.h	40;"	d
 BN_bn2bin	DCC-Miner/out/_deps/curl-src/lib/setup-vms.h	202;"	d
 BN_num_bits	DCC-Miner/out/_deps/curl-src/lib/setup-vms.h	203;"	d
@@ -10810,7 +10810,7 @@ VERIFIED_RSP	DCC-Miner/out/_deps/curl-src/tests/smbserver.py	/^VERIFIED_RSP = "W
 VERIFY_SOCK	DCC-Miner/out/_deps/curl-src/lib/select.h	104;"	d
 VERIFY_SOCK	DCC-Miner/out/_deps/curl-src/lib/select.h	116;"	d
 VERIFY_SOCK	DCC-Miner/out/_deps/curl-src/lib/select.h	99;"	d
-VERSION	DCC-Miner/DCC-Miner/Main.cpp	/^const std::string VERSION = "v0.01alpha";$/;"	v
+VERSION	DCC-Miner/DCC-Miner/Main.cpp	/^const std::string VERSION = "v0.2.0-alpha";$/;"	v
 VERSION	DCC-Miner/out/_deps/curl-src/lib/config-os400.h	34;"	d
 VERSION	DCC-Miner/out/_deps/curl-src/lib/config-os400.h	378;"	d
 VERSION	DCC-Miner/out/_deps/curl-src/lib/config-plan9.h	41;"	d
@@ -16843,7 +16843,7 @@ mesalink_send	DCC-Miner/out/_deps/curl-src/lib/vtls/mesalink.c	/^static Curl_sen
 mesalink_shutdown	DCC-Miner/out/_deps/curl-src/lib/vtls/mesalink.c	/^mesalink_shutdown(struct Curl_easy *data,$/;"	f	file:
 mesalink_version	DCC-Miner/out/_deps/curl-src/lib/vtls/mesalink.c	/^mesalink_version(char *buffer, size_t size)$/;"	f	file:
 messageAttempt	DCC-Miner/DCC-Miner/P2PClient.h	/^	int messageAttempt = 0;$/;"	m	class:P2P
-messageStatus	DCC-Miner/DCC-Miner/P2PClient.h	/^	std::atomic_int messageStatus = idle;$/;"	m	class:P2P
+messageStatus	DCC-Miner/DCC-Miner/P2PClient.h	/^	std::atomic_int messageStatus = initial_connect_request;$/;"	m	class:P2P
 meta	DCC-Miner/DCC-Miner/json.hpp	/^            static basic_json meta()$/;"	f	class:nlohmann::nlohmann::nlohmann::basic_json
 method	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  Curl_HttpReq method;   \/* what kind of HTTP request (if any) is this *\/$/;"	m	struct:UserDefined
 method	DCC-Miner/out/_deps/zlib-src/deflate.c	/^int32_t Z_EXPORT PREFIX(deflateInit2_)(PREFIX3(stream) *strm, int32_t level, int32_t method, int32_t windowBits,$/;"	v
@@ -19015,10 +19015,12 @@ runtimestats	DCC-Miner/out/_deps/curl-src/tests/runtests.pl	/^sub runtimestats {
 rw_init	DCC-Miner/out/_deps/curl-src/tests/server/tftpd.c	/^static struct tftphdr *rw_init(int x)$/;"	f	file:
 rx_time	DCC-Miner/out/_deps/curl-src/lib/tftp.c	/^  time_t          rx_time;$/;"	m	struct:tftp_state_data	file:
 s	DCC-Miner/out/_deps/curl-src/tests/testcurl.pl	/^        s:\/:\\\\:g;$/;"	l
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 1 - ((0 * winheight(0) + 30) \/ 61)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 17 - ((16 * winheight(0) + 8) \/ 17)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 424 - ((30 * winheight(0) + 30) \/ 61)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 541 - ((21 * winheight(0) + 21) \/ 43)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 236 - ((10 * winheight(0) + 25) \/ 50)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 26 - ((25 * winheight(0) + 30) \/ 61)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 2760 - ((9 * winheight(0) + 5) \/ 10)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 56 - ((50 * winheight(0) + 30) \/ 61)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 677 - ((50 * winheight(0) + 30) \/ 61)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 7 - ((6 * winheight(0) + 30) \/ 61)$/;"	v
 s:save_splitbelow	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_splitbelow = &splitbelow$/;"	v
 s:save_splitright	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_splitright = &splitright$/;"	v
 s:save_winminheight	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_winminheight = &winminheight$/;"	v
@@ -20829,6 +20831,7 @@ trailers_read	DCC-Miner/out/_deps/curl-src/lib/transfer.c	/^static size_t traile
 trailers_state	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  trailers_state trailers_state; \/* whether we are sending trailers$/;"	m	struct:UrlState
 trailers_state	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^} trailers_state;$/;"	t	typeref:enum:__anon167
 trailing_crlf	DCC-Miner/out/_deps/curl-src/lib/smtp.h	/^  bool trailing_crlf;      \/* Specifies if the trailing CRLF is present *\/$/;"	m	struct:SMTP
+transactionNumber	DCC-Miner/DCC-Miner/Main.cpp	/^int transactionNumber = 0;$/;"	v
 transfer	DCC-Miner/out/_deps/curl-src/docs/examples/http2-download.c	/^struct transfer {$/;"	s	file:
 transfer	DCC-Miner/out/_deps/curl-src/lib/ftp.h	/^  curl_pp_transfer transfer;$/;"	m	struct:FTP
 transfer	DCC-Miner/out/_deps/curl-src/lib/imap.h	/^  curl_pp_transfer transfer;$/;"	m	struct:IMAP
@@ -21740,6 +21743,7 @@ zalloc	DCC-Miner/out/_deps/zlib-src/zlib-ng.h	/^    alloc_func            zalloc
 zalloc	DCC-Miner/out/_deps/zlib-src/zlib.h	/^    alloc_func            zalloc;     \/* used to allocate the internal state *\/$/;"	m	struct:z_stream_s
 zalloc_cb	DCC-Miner/out/_deps/curl-src/lib/content_encoding.c	/^zalloc_cb(voidpf opaque, unsigned int items, unsigned int size)$/;"	f	file:
 zalloc_func	DCC-Miner/out/_deps/curl-src/src/tool_hugehelp.c	/^static voidpf zalloc_func(voidpf opaque, unsigned int items, unsigned int size)$/;"	f	file:
+zc	DCC-Miner/DCC-Miner/Session.vim	/^normal! zc$/;"	m
 zds	DCC-Miner/out/_deps/curl-src/lib/content_encoding.c	/^  ZSTD_DStream *zds;    \/* State structure for zstd. *\/$/;"	m	struct:zstd_params	file:
 zfree	DCC-Miner/out/_deps/zlib-src/test/example.c	/^static free_func zfree = NULL;$/;"	v	file:
 zfree	DCC-Miner/out/_deps/zlib-src/test/fuzz/example_dict_fuzzer.c	/^static free_func zfree = NULL;$/;"	v	file:
@@ -21799,6 +21803,7 @@ zng_tr_init	DCC-Miner/out/_deps/zlib-src/trees.c	/^void Z_INTERNAL zng_tr_init(d
 zng_tr_stored_block	DCC-Miner/out/_deps/zlib-src/trees.c	/^void Z_INTERNAL zng_tr_stored_block(deflate_state *s, char *buf, uint32_t stored_len, int last) {$/;"	f
 zng_tr_tally_dist	DCC-Miner/out/_deps/zlib-src/deflate_p.h	/^static inline int zng_tr_tally_dist(deflate_state *s, uint32_t dist, uint32_t len) {$/;"	f
 zng_tr_tally_lit	DCC-Miner/out/_deps/zlib-src/deflate_p.h	/^static inline int zng_tr_tally_lit(deflate_state *s, unsigned char c) {$/;"	f
+zo	DCC-Miner/DCC-Miner/Session.vim	/^normal! zo$/;"	m
 zonefrom_url	DCC-Miner/out/_deps/curl-src/lib/url.c	/^static void zonefrom_url(CURLU *uh, struct Curl_easy *data,$/;"	f	file:
 zoneid	DCC-Miner/out/_deps/curl-src/lib/urlapi.c	/^  char *zoneid; \/* for numerical IPv6 addresses *\/$/;"	m	struct:Curl_URL	file:
 zstd_close_writer	DCC-Miner/out/_deps/curl-src/lib/content_encoding.c	/^static void zstd_close_writer(struct Curl_easy *data,$/;"	f	file:

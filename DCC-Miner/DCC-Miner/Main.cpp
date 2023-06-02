@@ -821,26 +821,26 @@ bool IsChainValid()
 			std::string content2 = buffer2.str();
 			json firstBlock = json::parse(content2);
 			for (int tr = 0; tr < firstBlock["transactions"].size(); tr++) {
-				std::string fromAddr =           firstBlock["transactions"][tr]["tx"]["fromAddr"];
-				std::string toAddr =             firstBlock["transactions"][tr]["tx"]["toAddr"];
+				std::string fromAddr = (std::string)firstBlock["transactions"][tr]["tx"]["fromAddr"];
+				std::string toAddr = (std::string)firstBlock["transactions"][tr]["tx"]["toAddr"];
 				float amount =                   firstBlock["transactions"][tr]["tx"]["amount"];
 				uint32_t txNum =                 firstBlock["transactions"][tr]["tx"]["txNum"];
-				std::string signature = decode64(firstBlock["transactions"][tr]["sec"]["signature"]);
-				std::string publicKey =          firstBlock["transactions"][tr]["sec"]["pubKey"];
-				std::string note =               firstBlock["transactions"][tr]["sec"]["note"];
+				std::string signature = decode64((std::string)firstBlock["transactions"][tr]["sec"]["signature"]);
+				std::string publicKey = (std::string)firstBlock["transactions"][tr]["sec"]["pubKey"];
+				std::string note = (std::string)firstBlock["transactions"][tr]["sec"]["note"];
 				
 				// If this is the first transaction, that is the block reward, so it should be handled differently:
 				if(tr == 0){
 					if ((std::string)walletInfo["Address"] == toAddr) // If this is the receiving address, then give reward
-						tmpFunds += stof(amount);
+						tmpFunds += amount;
 					continue;
 				}
 
 				// Check if the sending or receiving address is the same as the user's
 				if ((std::string)walletInfo["Address"] == fromAddr)
-					tmpFunds -= stof(amount);
+					tmpFunds -= amount;
 				else if ((std::string)walletInfo["Address"] == toAddr)
-					tmpFunds += stof(amount);
+					tmpFunds += amount;
 			}
 		}
 	}
@@ -863,7 +863,7 @@ bool IsChainValid()
 
 			bool changedBlockData = false;
 			json o = json::parse(content);
-			std::vector<std::string> trans = o["transactions"];
+			//std::vector<std::string> trans = o["transactions"];
 			//std::vector<uint64_t> transTimes = o["transactionTimes"];
 
 
@@ -885,7 +885,7 @@ bool IsChainValid()
 			std::string lastHash = o["lastHash"];
 			std::string currentHash = o["hash"];
 			std::string nonce = o["nonce"];
-			std::string transactions = JoinArrayPieces(trans);
+			//std::string transactions = JoinArrayPieces(trans);
 
 
 			std::ifstream td("./wwwdata/blockchain/block" + std::to_string(i + 1) + ".dccblock");
@@ -909,7 +909,7 @@ bool IsChainValid()
 
 			console.WriteBulleted("Validating block: " + std::to_string(i), 3);
 			char sha256OutBuffer[65];
-			sha256_string((char*)(lastHash + transactions + nonce).c_str(), sha256OutBuffer);
+			sha256_string((char*)(lastHash + (std::string)o["transactions"].dump() + nonce).c_str(), sha256OutBuffer);
 			std::string blockHash = sha256OutBuffer;
 
 			if ((blockHash[0] != '0' && blockHash[1] != '0') || blockHash != currentHash || blockHash != nextHash)
@@ -926,14 +926,14 @@ bool IsChainValid()
 			}
 			float tmpFunds2 = 0;
 			// Check all transactions to see if they have a valid signature
-			for (int tr = 0; tr < trans.size(); tr++) {
-				std::string fromAddr =           trans[tr]["tx"]["fromAddr"];
-				std::string toAddr =             trans[tr]["tx"]["toAddr"];
-				float amount =                   trans[tr]["tx"]["amount"];
-				uint32_t txNum =                 trans[tr]["tx"]["txNum"];
-				std::string signature = decode64(trans[tr]["sec"]["signature"]);
-				std::string publicKey =          trans[tr]["sec"]["pubKey"];
-				std::string note =               trans[tr]["sec"]["note"];
+			for (int tr = 0; tr < o["transactions"].size(); tr++) {
+				std::string fromAddr = (std::string)o["transactions"][tr]["tx"]["fromAddr"];
+				std::string toAddr = (std::string)o["transactions"][tr]["tx"]["toAddr"];
+				float amount = o["transactions"][tr]["tx"]["amount"];
+				uint32_t txNum = o["transactions"][tr]["tx"]["txNum"];
+				std::string signature = decode64((std::string)o["transactions"][tr]["sec"]["signature"]);
+				std::string publicKey = (std::string)o["transactions"][tr]["sec"]["pubKey"];
+				std::string note = (std::string)o["transactions"][tr]["sec"]["note"];
 				//std::string transactionContent = SplitString(trans[tr], "|")[0];
 				//std::string signature = decode64(SplitString(trans[tr], "|")[1]);
 				//std::string publicKey = SplitString(trans[tr], "|")[2];
@@ -942,7 +942,7 @@ bool IsChainValid()
 				// If this is the first transaction, that is the block reward, so it should be handled differently:
 				if(tr == 0){
 					if ((std::string)walletInfo["Address"] == toAddr) // If this is the receiving address, then give reward
-						tmpFunds2 += stof(amount);
+						tmpFunds2 += amount;
 					continue;
 				}
 
@@ -950,25 +950,26 @@ bool IsChainValid()
 				char walletBuffer[65];
 				sha256_string((char*)(publicKey).c_str(), walletBuffer);
 				std::string expectedWallet = walletBuffer;
-				if (SplitString(transactionContent, "->")[1] != expectedWallet) {
-					trans.erase(trans.begin() + tr);
-					transTimes.erase(transTimes.begin() + tr);
+				if (fromAddr != expectedWallet) {
+					o["transactions"].erase(o["transactions"].begin() + tr);
+					//transTimes.erase(transTimes.begin() + tr);
 					changedBlockData = true;
 					continue;
 				}
 
 				// Hash transaction data
 				sha256OutBuffer[65];
-				sha256_string((char*)(transactionContent + " " + std::to_string(transactionTime)).c_str(), sha256OutBuffer);
-				std::string tranhash = sha256OutBuffer;
+				sha256_string((char*)(o["transactions"][tr]["tx"].dump()).c_str(), sha256OutBuffer);
+				//sha256_string((char*)(transactionContent + " " + std::to_string(transactionTime)).c_str(), sha256OutBuffer);
+				std::string transHash = sha256OutBuffer;
 
 				// Verify signature by decrypting hash with public key
 				std::string decryptedSig = rsa_pub_decrypt(signature, publicKey);
 
 				// The decrypted signature should be the same as the hash we just generated
-				if (decryptedSig != tranhash) {
-					trans.erase(trans.begin() + tr);
-					transTimes.erase(transTimes.begin() + tr);
+				if (decryptedSig != transHash) {
+					o["transactions"].erase(o["transactions"].begin() + tr);
+					//transTimes.erase(transTimes.begin() + tr);
 					console.Write("  Bad signature on T:" + std::to_string(tr), console.redFGColor, "");
 					continue;
 				}
@@ -977,15 +978,15 @@ bool IsChainValid()
 				// Now check if the sending or receiving address is the same as the user's
 				//std::vector<std::string> transactionDetails = SplitString(transactionContent, "->");
 				if ((std::string)walletInfo["Address"] == fromAddr){
-					tmpFunds2 -= stof(amount);
+					tmpFunds2 -= amount;
 					txNPending++;
 				}
 				else if ((std::string)walletInfo["Address"] == toAddr)
-					tmpFunds2 += stof(amount);
+					tmpFunds2 += amount;
 			}
-			// Update the old transactions with the new ones
-			o["transactions"] = trans;
-			o["transactionTimes"] = transTimes;
+			//// Update the old transactions with the new ones
+			//o["transactions"] = o["transactions"];
+			//o["transactionTimes"] = transTimes;
 
 			// Save json data to file if it was changed
 			if (changedBlockData) {
@@ -1009,7 +1010,7 @@ bool IsChainValid()
 			tmpFunds += tmpFunds2;
 			transactionNumber = txNPending;
 
-			console.Write("\tTransactions: " + std::to_string(trans.size()));
+			console.Write("\tTransactions: " + std::to_string(o["transactions"].size()));
 
 			console.WriteLine(" \tOk  ", console.greenFGColor, "");
 
@@ -1285,19 +1286,34 @@ int SendFunds(std::string toAddress, float amount)
 
 		// Hash transaction data
 		char sha256OutBuffer[65];
-		json txDat = {
+		json txDat = json::object({});
+		txDat["tx"] = {
+				{"fromAddr", (std::string)walletInfo["Address"]},
+				{"toAddr", toAddress},
+				{"amount", amount},
+				{"txNum", (int)walletInfo["BlockchainLength"] + 1}
+		};
+		txDat["sec"] = {
+				{"signature", ""},
+				{"pubKey", keypair[0]},
+				{"note", ""}
+		};
+		/*json txDat = {
 			"tx",{
 				{"fromAddr", (std::string)walletInfo["Address"]},
 				{"toAddr", toAddress},
 				{"amount", amount},
-				{"txNum", (int)walletInfo["BlockchainLength"] + 1},
-			}
+				{"txNum", (int)walletInfo["BlockchainLength"] + 1}
+			},
 			"sec",{
 				{"signature", ""},
 				{"pubKey", keypair[0]},
 				{"note", ""}
 			}
-		}
+		};*/
+
+		std::cout << std::setw(4) << txDat << std::endl;
+
 		sha256_string((char*)(txDat["tx"].dump()).c_str(), sha256OutBuffer);
 		std::string hash = sha256OutBuffer;
 
@@ -1307,27 +1323,16 @@ int SendFunds(std::string toAddress, float amount)
 		//std::cout << "after sig" << std::endl;
 
 		std::string sigBase64 = encode64((const unsigned char*)signature.c_str(), signature.length());
+
+		txDat["sec"]["signature"] = sigBase64;
+
 		//// Hash signature
 		//sha256OutBuffer[65];
 		//sha256_string((char*)(signature).c_str(), sha256OutBuffer);
 		//std::string sighash = sha256OutBuffer;
 
 		// Append transaction to list
-		blockJson["transactions"].push_back(
-			{
-				"tx",{
-					{"fromAddr", (std::string)walletInfo["Address"]},
-					{"toAddr", toAddress},
-					{"amount", amount},
-					{"txNum", (int)walletInfo["BlockchainLength"] + 1},
-				}
-				"sec",{
-					{"signature", ""},
-					{"pubKey", keypair[0]},
-					{"note", ""}
-				}
-			}
-		);
+		blockJson["transactions"].push_back(txDat);
 
 		//// Append time to list
 		//blockJson["transactionTimes"].push_back(sec);
@@ -1346,6 +1351,7 @@ int SendFunds(std::string toAddress, float amount)
 		{
 			if (constants::debugPrint == true) {
 				std::cerr << e.what() << std::endl;
+				std::cerr << "line 1350" << std::endl;
 			}
 			return 0;
 		}
@@ -1361,6 +1367,7 @@ int SendFunds(std::string toAddress, float amount)
 	{
 		if (constants::debugPrint == true) {
 			std::cerr << e.what() << std::endl;
+			std::cerr << "line 1365" << std::endl;
 		}
 		return 0;
 	}

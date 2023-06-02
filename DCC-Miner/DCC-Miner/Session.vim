@@ -13,10 +13,10 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +275 Main.cpp
+badd +1 Main.cpp
 badd +9 term://.//1585:/bin/bash
 badd +1 Main.h
-badd +436 P2PClient.cpp
+badd +449 P2PClient.cpp
 badd +1 Console.cpp
 badd +138 /usr/share/nvim/runtime/doc/various.txt
 badd +1 term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//1187:/bin/bash
@@ -24,15 +24,17 @@ badd +1 FileManip.cpp
 badd +17 FileManip.h
 badd +1 strops.cpp
 badd +1 /mnt/d/Code/DC-Cryptocurrency/DCC-Miner/run.sh
-badd +36 P2PClient.h
+badd +27 P2PClient.h
 badd +151 ~/.config/nvim/init.vim
 badd +28 Network.cpp
 badd +11 Network.h
 badd +4 SettingsConsts.h
+badd +64 /mnt/d/Code/DC-Cryptocurrency/README.md
 argglobal
 %argdel
 $argadd Main.cpp
 set stal=2
+tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
@@ -66,172 +68,112 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-117
+119
 normal! zo
-273
+304
 normal! zo
-275
+346
 normal! zo
-298
+350
 normal! zo
-303
+366
 normal! zo
-307
+372
 normal! zo
-307
+374
 normal! zo
-315
+429
 normal! zo
-317
+467
 normal! zo
-329
-normal! zo
-327
-normal! zo
-331
-normal! zo
-348
-normal! zo
-354
-normal! zo
-356
-normal! zo
-365
-normal! zo
-367
-normal! zo
-379
-normal! zo
-427
-normal! zo
-434
-normal! zo
-478
-normal! zo
-493
-normal! zo
-495
-normal! zo
-493
+491
 normal! zc
-510
+544
 normal! zo
-549
+546
 normal! zc
-559
-normal! zo
-559
+574
 normal! zc
-578
+593
 normal! zo
-592
+612
 normal! zo
-594
+626
 normal! zo
-578
+723
+normal! zo
+725
+normal! zo
+745
+normal! zo
+747
+normal! zo
+770
+normal! zo
+772
+normal! zo
+795
+normal! zo
+815
+normal! zo
+817
+normal! zo
+823
+normal! zo
+833
+normal! zo
+855
+normal! zo
+857
+normal! zo
+874
+normal! zo
+915
+normal! zo
+929
+normal! zo
+857
 normal! zc
-689
-normal! zo
-691
-normal! zo
-689
+855
 normal! zc
-711
-normal! zo
-713
-normal! zo
-736
-normal! zo
-738
-normal! zo
-740
-normal! zo
-761
-normal! zo
-763
-normal! zo
-780
-normal! zo
-782
-normal! zo
-788
-normal! zo
-796
-normal! zo
-808
-normal! zo
-816
-normal! zo
-818
-normal! zo
-835
-normal! zo
-860
-normal! zo
-876
-normal! zo
-890
-normal! zo
-926
-normal! zo
-940
-normal! zo
-941
-normal! zo
-967
-normal! zo
-980
-normal! zo
-990
-normal! zo
-1009
-normal! zo
-1009
+795
 normal! zc
-1082
+1033
 normal! zo
-990
+1043
+normal! zo
+1124
+normal! zo
+1135
+normal! zo
+1180
+normal! zo
+1196
+normal! zo
+1270
+normal! zo
+1290
 normal! zc
-980
-normal! zc
-1127
+1350
 normal! zo
-1143
-normal! zo
-1185
-normal! zo
-1199
-normal! zo
-1291
-normal! zo
-1291
-normal! zc
 1352
 normal! zc
-1360
-normal! zo
-1360
+1270
 normal! zc
 1377
 normal! zo
+1406
+normal! zo
+1408
+normal! zc
 1377
 normal! zc
-1402
-normal! zo
-1402
-normal! zc
-1418
-normal! zo
-1418
-normal! zc
-1431
-normal! zc
-let s:l = 275 - ((24 * winheight(0) + 25) / 50)
+let s:l = 236 - ((10 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 275
-normal! 029|
+keepjumps 236
+normal! 0
 wincmd w
 argglobal
 if bufexists(fnamemodify("term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//1187:/bin/bash", ":p")) | buffer term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//1187:/bin/bash | else | edit term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//1187:/bin/bash | endif
@@ -247,13 +189,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 3718 - ((9 * winheight(0) + 5) / 10)
+let s:l = 2760 - ((9 * winheight(0) + 5) / 10)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 3718
-normal! 071|
+keepjumps 2760
+normal! 072|
 wincmd w
+2wincmd w
 exe '1resize ' . ((&lines * 50 + 32) / 64)
 exe '2resize ' . ((&lines * 10 + 32) / 64)
 tabnext
@@ -280,52 +223,72 @@ normal! zc
 normal! zo
 110
 normal! zo
-134
+128
 normal! zo
-147
+141
 normal! zo
-152
+146
 normal! zo
-279
+273
 normal! zo
-420
+414
 normal! zo
-429
+427
+normal! zo
+446
+normal! zo
+458
+normal! zo
+464
+normal! zo
+472
+normal! zo
+480
+normal! zo
+497
 normal! zo
 505
 normal! zo
-509
+520
+normal! zo
+535
+normal! zo
+548
+normal! zo
+558
+normal! zo
+569
+normal! zo
+580
+normal! zo
+464
+normal! zo
+472
+normal! zo
+480
+normal! zo
+497
+normal! zo
+505
 normal! zo
 520
 normal! zo
-528
+535
 normal! zo
-536
+548
 normal! zo
-553
+558
 normal! zo
-561
+569
 normal! zo
-576
+580
 normal! zo
-591
-normal! zo
-604
-normal! zo
-614
-normal! zo
-625
-normal! zo
-636
-normal! zo
-650
-normal! zo
-let s:l = 436 - ((17 * winheight(0) + 30) / 61)
+let s:l = 677 - ((50 * winheight(0) + 30) / 61)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 436
-normal! 041|
+keepjumps 677
+normal! 0
 tabnext
 edit P2PClient.h
 argglobal
@@ -340,12 +303,12 @@ setlocal fdn=20
 setlocal fen
 19
 normal! zo
-let s:l = 36 - ((35 * winheight(0) + 30) / 61)
+let s:l = 26 - ((25 * winheight(0) + 30) / 61)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 36
-normal! 042|
+keepjumps 26
+normal! 031|
 tabnext
 edit Console.cpp
 argglobal
@@ -363,6 +326,24 @@ if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 56
+normal! 0
+tabnext
+edit SettingsConsts.h
+argglobal
+balt Console.cpp
+setlocal fdm=expr
+setlocal fde=b:anyfold_ind_buffer[v:lnum-1]
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=99
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 7 - ((6 * winheight(0) + 30) / 61)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 7
 normal! 0
 tabnext 1
 set stal=1

@@ -24,7 +24,7 @@ public:
 	//void TaskRec();
 
 	int messageAttempt = 0;
-	std::atomic_int messageStatus = idle;
+	std::atomic_int messageStatus = initial_connect_request;
 	enum MsgStatus {
 		idle = -1,
 		initial_connect_request = 0,

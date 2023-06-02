@@ -423,6 +423,21 @@ int main()
 				blockFile.close();
 
 				json blockJson = json::parse(content);
+				
+				// Add the mine award to the front of transactions before starting to mine,
+				// which will verify this as the recipient should it succeed.
+				blockJson["transactions"].insert(blockJson["transactions"].begin(), 
+					{
+						{"fromAddr", "Block Award"},
+						{"toAddr", (std::string)walletInfo["Address"]},
+						{"signature", ""},
+						{"pubKey", keypair[0]},
+						{"amount", 1},
+						{"txNum", (int)walletInfo["BlockchainLength"] + 1},
+						{"note", ""}
+					}
+				);
+				
 				std::string transactions = blockJson["transactions"].dump();
 				std::string lastHash = (std::string)blockJson["lastHash"];
 
@@ -806,29 +821,26 @@ bool IsChainValid()
 			std::string content2 = buffer2.str();
 			json firstBlock = json::parse(content2);
 			for (int tr = 0; tr < firstBlock["transactions"].size(); tr++) {
-				std::string fromAddr = firstBlock["transactions"][tr]["fromAddr"];
-				std::string toAddr = firstBlock["transactions"][tr]["toAddr"];
-				float amount = firstBlock["transactions"][tr]["amount"];
-				uint32_t txNum = firstBlock["transactions"][tr]["txNum"];
-				std::string signature = decode64(firstBlock["transactions"][tr]["signature"]);
-				std::string publicKey = firstBlock["transactions"][tr]["pubKey"];
-				std::string note = firstBlock["transactions"][tr]["note"];
-				//std::string transactionContent = SplitString(firstBlock["transactions"][tr], "|")[0];
-				//std::string signature = SplitString(firstBlock["transactions"][tr], "|")[1];
-				//std::string publicKey = SplitString(firstBlock["transactions"][tr], "|")[2];
-				//uint64_t transactionTime = firstBlock["transactionTimes"][tr];
+				std::string fromAddr =           firstBlock["transactions"][tr]["tx"]["fromAddr"];
+				std::string toAddr =             firstBlock["transactions"][tr]["tx"]["toAddr"];
+				float amount =                   firstBlock["transactions"][tr]["tx"]["amount"];
+				uint32_t txNum =                 firstBlock["transactions"][tr]["tx"]["txNum"];
+				std::string signature = decode64(firstBlock["transactions"][tr]["sec"]["signature"]);
+				std::string publicKey =          firstBlock["transactions"][tr]["sec"]["pubKey"];
+				std::string note =               firstBlock["transactions"][tr]["sec"]["note"];
+				
+				// If this is the first transaction, that is the block reward, so it should be handled differently:
+				if(tr == 0){
+					if ((std::string)walletInfo["Address"] == toAddr) // If this is the receiving address, then give reward
+						tmpFunds += stof(amount);
+					continue;
+				}
 
 				// Check if the sending or receiving address is the same as the user's
-				std::vector<std::string> transactionDetails = SplitString(transactionContent, "->");
-				if (transactionDetails.size() == 3) {
-					if ((std::string)walletInfo["Address"] == transactionDetails[1])
-						tmpFunds -= stof(transactionDetails[0]);
-					else if ((std::string)walletInfo["Address"] == transactionDetails[2])
-						tmpFunds += stof(transactionDetails[0]);
-				}
-				else if ((std::string)walletInfo["Address"] == transactionDetails[1]) {
-					tmpFunds += stof(transactionDetails[0]);
-				}
+				if ((std::string)walletInfo["Address"] == fromAddr)
+					tmpFunds -= stof(amount);
+				else if ((std::string)walletInfo["Address"] == toAddr)
+					tmpFunds += stof(amount);
 			}
 		}
 	}
@@ -852,7 +864,7 @@ bool IsChainValid()
 			bool changedBlockData = false;
 			json o = json::parse(content);
 			std::vector<std::string> trans = o["transactions"];
-			std::vector<uint64_t> transTimes = o["transactionTimes"];
+			//std::vector<uint64_t> transTimes = o["transactionTimes"];
 
 
 			//console.BlockCheckerPrint();
@@ -915,17 +927,24 @@ bool IsChainValid()
 			float tmpFunds2 = 0;
 			// Check all transactions to see if they have a valid signature
 			for (int tr = 0; tr < trans.size(); tr++) {
-				std::string fromAddr = trans[tr]["fromAddr"];
-				std::string toAddr = trans[tr]["toAddr"];
-				float amount = trans[tr]["amount"];
-				uint32_t txNum = trans[tr]["txNum"];
-				std::string signature = decode64(trans[tr]["signature"]);
-				std::string publicKey = trans[tr]["pubKey"];
-				std::string note = trans[tr]["note"];
+				std::string fromAddr =           trans[tr]["tx"]["fromAddr"];
+				std::string toAddr =             trans[tr]["tx"]["toAddr"];
+				float amount =                   trans[tr]["tx"]["amount"];
+				uint32_t txNum =                 trans[tr]["tx"]["txNum"];
+				std::string signature = decode64(trans[tr]["sec"]["signature"]);
+				std::string publicKey =          trans[tr]["sec"]["pubKey"];
+				std::string note =               trans[tr]["sec"]["note"];
 				//std::string transactionContent = SplitString(trans[tr], "|")[0];
 				//std::string signature = decode64(SplitString(trans[tr], "|")[1]);
 				//std::string publicKey = SplitString(trans[tr], "|")[2];
 				//uint64_t transactionTime = transTimes[tr];
+				
+				// If this is the first transaction, that is the block reward, so it should be handled differently:
+				if(tr == 0){
+					if ((std::string)walletInfo["Address"] == toAddr) // If this is the receiving address, then give reward
+						tmpFunds2 += stof(amount);
+					continue;
+				}
 
 				// The from address should be the same as the hash of the public key, so check that first:
 				char walletBuffer[65];
@@ -956,17 +975,13 @@ bool IsChainValid()
 
 
 				// Now check if the sending or receiving address is the same as the user's
-				std::vector<std::string> transactionDetails = SplitString(transactionContent, "->");
-				if (transactionDetails.size() >= 3) {
-					if ((std::string)walletInfo["Address"] == transactionDetails[1]){
-						tmpFunds2 -= stof(transactionDetails[0]);
-						txNPending++;
-					}
-					if ((std::string)walletInfo["Address"] == TrimString(SplitString(transactionDetails[2], "|")[0]))
-						tmpFunds2 += stof(transactionDetails[0]);
+				//std::vector<std::string> transactionDetails = SplitString(transactionContent, "->");
+				if ((std::string)walletInfo["Address"] == fromAddr){
+					tmpFunds2 -= stof(amount);
+					txNPending++;
 				}
-				else if ((std::string)walletInfo["Address"] == transactionDetails[1])
-					tmpFunds2 += stof(transactionDetails[0]);
+				else if ((std::string)walletInfo["Address"] == toAddr)
+					tmpFunds2 += stof(amount);
 			}
 			// Update the old transactions with the new ones
 			o["transactions"] = trans;
@@ -1270,7 +1285,20 @@ int SendFunds(std::string toAddress, float amount)
 
 		// Hash transaction data
 		char sha256OutBuffer[65];
-		sha256_string((char*)(std::to_string(amount) + "->" + (std::string)walletInfo["Address"] + "->" + toAddress + " " + std::to_string(sec)).c_str(), sha256OutBuffer);
+		json txDat = {
+			"tx",{
+				{"fromAddr", (std::string)walletInfo["Address"]},
+				{"toAddr", toAddress},
+				{"amount", amount},
+				{"txNum", (int)walletInfo["BlockchainLength"] + 1},
+			}
+			"sec",{
+				{"signature", ""},
+				{"pubKey", keypair[0]},
+				{"note", ""}
+			}
+		}
+		sha256_string((char*)(txDat["tx"].dump()).c_str(), sha256OutBuffer);
 		std::string hash = sha256OutBuffer;
 
 		//std::cout << "before sig" << std::endl;
@@ -1287,13 +1315,17 @@ int SendFunds(std::string toAddress, float amount)
 		// Append transaction to list
 		blockJson["transactions"].push_back(
 			{
-				{"fromAddr", (std::string)walletInfo["Address"]},
-				{"toAddr", toAddress},
-				{"signature", sigBase64},
-				{"pubKey", keypair[0]},
-				{"amount", amount},
-				{"txNum", transactionNumber},
-				{"note", ""}
+				"tx",{
+					{"fromAddr", (std::string)walletInfo["Address"]},
+					{"toAddr", toAddress},
+					{"amount", amount},
+					{"txNum", (int)walletInfo["BlockchainLength"] + 1},
+				}
+				"sec",{
+					{"signature", ""},
+					{"pubKey", keypair[0]},
+					{"note", ""}
+				}
 			}
 		);
 
@@ -1453,8 +1485,37 @@ json UpgradeBlock(json b, std::string toVersion)
 		console.WriteLine("Upgrading block to version " + toVersion);
 	}
 
+	// Changes:
+	// * Add version field
+	// * Update version
 	if (toVersion == "v0.01alpha-coin")
 	{
+		b["Version"] = toVersion;
+	}
+
+	// Changes:
+	// * Convert all transactions from list array to object
+	// * Update version
+	if (toVersion == "v0.2.0-alpha-coin")
+	{
+		//int listSize = b["transactions"].size();
+		//for(int i = 0; i < listSize; i++){
+		//	b["transactions"] = {
+		//		"tx",{
+		//			{"fromAddr", (std::string)walletInfo["Address"]},
+		//			{"toAddr", toAddress},
+		//			{"amount", amount},
+		//			{"txNum", (int)walletInfo["BlockchainLength"] + 1},
+		//		}
+		//		"sec",{
+		//			{"signature", ""},
+		//			{"pubKey", keypair[0]},
+		//			{"note", ""}
+		//		}
+		//	};
+		//}
+		
+		
 		b["Version"] = toVersion;
 	}
 

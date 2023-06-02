@@ -21,7 +21,6 @@ const int BUFFERLENGTH = 1024 * 8;
 
 char buffer[BUFFERLENGTH];
 
-int reqDat = 0;
 int blockchainLength = 0;
 int peerBlockchainLength = 0;
 
@@ -36,37 +35,23 @@ std::atomic_bool thread_running = false;
 
 std::vector<std::string> peerList;
 
-enum MsgStatus {
-	idle = -1,
-	initial_connect_request = 0,
-	disconnect_request = 9,
-	await_first_success = 1,
-	await_second_success = 2,
-	replying_height = 3,
-	replying_block = 4,
-	requesting_height = 5,
-	requesting_block = 6,
-	requesting_peer_list = 7,
-	replying_peer_list = 8,
-};
-
 // Get the IP:Port combination from SOCKADDR_IN struct, and return it as a string
 std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
-	char host[16];
-	ZeroMemory(host, 16);
-	inet_ntop(AF_INET, &addr.sin_addr, host, 16);
+	char otherIP[16];
+	ZeroMemory(otherIP, 16);
+	inet_ntop(AF_INET, &addr.sin_addr, otherIP, 16);
 
 	USHORT port = ntohs(addr.sin_port);
 
 	int realLen = 0;
 	for (int i = 0; i < 16; i++) {
-		if (host[i] == '\00') {
+		if (otherIP[i] == '\00') {
 			break;
 		}
 		realLen++;
 	}
 
-	std::string res(host, realLen);
+	std::string res(otherIP, realLen);
 	res += ":" + std::to_string(port);
 
 	return res;
@@ -128,13 +113,8 @@ void P2P::ListenerThread(int update_interval)
 		SOCKADDR_IN remoteAddr;
 		int remoteAddrLen = sizeof(remoteAddr);
 
-
-		struct timeval stTimeOut;
-		fd_set stReadFDS;
-		FD_ZERO(&stReadFDS);
-		stTimeOut.tv_sec = 2; // 2 second timeout
-		stTimeOut.tv_usec = 0;
-		FD_SET(localSocket, &stReadFDS);
+		DWORD timeout = 1 * 1000;
+		setsockopt(localSocket, SOL_SOCKET, SO_RCVTIMEO, (char*)&timeout, sizeof(timeout));
 
 		if (stop_thread_1) {
 			thread_running = false;
@@ -151,7 +131,7 @@ void P2P::ListenerThread(int update_interval)
 				thread_running = false;
 				break;
 			}
-			int t = select(-1, &stReadFDS, 0, 0, &stTimeOut);
+			//int t = select(-1, &stReadFDS, 0, 0, &stTimeOut);
 			if (false) {
 				//if (t == SOCKET_ERROR) {
 				console.NetworkErrorPrint();
@@ -159,9 +139,10 @@ void P2P::ListenerThread(int update_interval)
 				//break;
 			}
 			else {
+				//std::cout << "WAITING TO RECEIVE" <<std::endl;
 				int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
 				//console.WriteLine("Checked, parsing " + iResult);
-				//std::cout << "iResult: " << std::to_string(iResult) << std::endl;
+				std::cout << "iResult: " << std::to_string(iResult) << std::endl;
 				if (iResult > 0) {
 
 					// Get the IPV4 address:port of the received data. If it
@@ -293,6 +274,11 @@ void P2P::ListenerThread(int update_interval)
 						// If peer is asking for blockchain height
 						if (SplitString(totalMessage, "$$$")[1] == "height")
 							messageStatus = replying_height;
+						// If peer is asking for a pending block's data
+						else if (SplitString(totalMessage, "$$$")[1] == "pendingblock") {
+							messageStatus = replying_pendingblock;
+							reqDat = std::stoi(SplitString(totalMessage, "$$$")[2]);
+						}
 						// If peer is asking for a block's data
 						else if (SplitString(totalMessage, "$$$")[1] == "block") {
 							messageStatus = replying_block;
@@ -366,7 +352,7 @@ void P2P::ListenerThread(int update_interval)
 						console.WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + totalMessage + "\t status: " + std::to_string(messageStatus));
 					}
 				}
-				else {
+				else if(WSAGetLastError() != WSAETIMEDOUT) {
 					console.NetworkErrorPrint();
 					console.WriteLine("Error: Peer closed.");
 					CONNECTED_TO_PEER = false;
@@ -380,7 +366,7 @@ void P2P::ListenerThread(int update_interval)
 
 
 // The function to open the socket required for the P2P connection
-int P2P::OpenP2PSocket(std::string port)
+int P2P::OpenP2PSocket(int port)
 {
 	Console console;
 	Http http;
@@ -395,11 +381,12 @@ int P2P::OpenP2PSocket(std::string port)
 	}
 
 	stop_thread_1 = false;
+	stop_thread_2 = false;
 
 	localSocket = socket(AF_INET, SOCK_DGRAM, 0);
 
 	SOCKADDR_IN clientAddr;
-	clientAddr.sin_port = htons(stoi(port));
+	clientAddr.sin_port = htons(port);
 	clientAddr.sin_family = AF_INET;
 	clientAddr.sin_addr.s_addr = INADDR_ANY;
 
@@ -435,87 +422,38 @@ void P2P::SenderThread()
 	//for (int t = 0; t < 20; t++)
 	while (true)
 	{
-		// If not connected to a peer, continue
-		if (CONNECTED_TO_PEER)
-			continue;
-		//std::cout << "\r";
-		//console.NetworkPrint();
-		//console.WriteLine("Attempt: " + std::to_string(t) + "  |  Asking server for PEER address...    ");
-
-		//std::vector<std::string> args = {
-		//	"query=WaitForConnection",
-		//	"ip_port=" + addr + ":" + port,
-		//	"last_tried_ip_port=" + last_tried_ip_port
-		//};
-		//std::string httpOut = TrimString(http.StartHttpWebRequest("http://api.achillium.us.to/dcc/p2pconn.php?", args));
-		////otherAddrStr = last_tried_ip_port;
-
-		//// If the request fails or no peers are found, try again after 3 seconds
-		//if (httpOut == "" || httpOut.find("waiting") != std::string::npos || httpOut.find(addr + ":" + port) != std::string::npos)
-		//{
-		//	if (constants::debugPrint == true) {
-		//		console.NetworkPrint();
-		//		console.WriteLine("No peers found, waiting 3 sec to ask again...");
-		//	}
-		//	Sleep(3000); // Wait 3 seconds until next request
-		//	continue;
-		//}
-
-		//if (constants::debugPrint == true) {
-		//	console.NetworkPrint();
-		//	console.WriteLine("Server returned: " + httpOut);
-		//}
-
-		//otherIpPort = httpOut;
-		//last_tried_ip_port = otherIpPort;
-		//otherAddrStr = otherIpPort;
-
-		//// Add item to peer list, and save to file
-		//bool alreadyInList = false;
-		//for (int y = 0; y < peerList.size(); y++) {
-		//	if (otherAddrStr == peerList[y]) {
-		//		alreadyInList = true;
-		//		break;
-		//	}
-		//}
-		//if (alreadyInList == false) {
-		//	peerList.push_back(otherAddrStr);
-		//	std::string totalList = "";
-		//	for (int y = 0; y < peerList.size(); y++)
-		//		totalList += peerList[y] + "\n";
-		//	std::ofstream peerFileW("./wwwdata/peerlist.list", std::ios::out | std::ios::trunc);
-		//	if (peerFileW.is_open())
-		//	{
-		//		peerFileW << totalList;
-		//		peerFileW.close();
-		//	}
-		//	peerFileW.close();
-		//}
-
-
-		std::string host = SplitString(peerList[0], ":")[0];
+	//	// If not connected to a peer, continue
+	//	if (!CONNECTED_TO_PEER)
+	//		continue;
+	
+		std::string otherIP = SplitString(peerList[0], ":")[0];
 		int otherPort = stoi(SplitString(peerList[0], ":")[1]);
 
 		otherAddr.sin_port = htons(otherPort);
 		otherAddr.sin_family = AF_INET;
-		otherAddr.sin_addr.s_addr = inet_addr(host.c_str());
+		otherAddr.sin_addr.s_addr = inet_addr(otherIP.c_str());
 
 		otherSize = sizeof(otherAddr);
 
 		bool noinput = false;
+
+
+		// If not replying to messages or requesting something, continue
+		if (messageStatus == idle)
+			continue;
 
 		// Begin sending messages, and stop when a reply is received
 		for (messageAttempt = 0; messageAttempt < 10; messageAttempt++)
 			//while (true)
 		{
 			// If not in idle state, continue sending messages
-			if (messageStatus != idle && !(noinput && messageStatus == requesting_block)) {
+			if (messageStatus != idle && !(noinput && (messageStatus == requesting_block || messageStatus == requesting_pendingblock))) {
 				std::string msg = "";
 
 				std::cout << "\r";
 				console.NetworkPrint();
 				if (constants::debugPrint == true)
-					console.Write("Send attempt : " + std::to_string(messageAttempt) + "    ");
+					console.Write("Send attempt : " + std::to_string(messageAttempt) + "  " + otherIP + ":" + std::to_string(otherPort) + "    ");
 				else
 					console.Write("Send attempt: " + std::to_string(messageAttempt) + "    ");
 
@@ -560,6 +498,21 @@ void P2P::SenderThread()
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 				}
+				// Else if replying to pending block data request
+				else if (messageStatus == replying_pendingblock) {
+					// Open and read requested block
+					std::ifstream td("./wwwdata/pendingblocks/block" + std::to_string(reqDat) + ".dccblock");
+					std::stringstream bufferd;
+					bufferd << td.rdbuf();
+					std::string blockText = bufferd.str();
+
+					msg = "answer$$$pendingblock$$$" + std::to_string(reqDat) + "$$$" + ReplaceEscapeSymbols(blockText);
+					if (constants::debugPrint == true) {
+						console.Write(msg + "\n");
+					}
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+					Sleep(3000);
+				}
 				// Else if replying to block data request
 				else if (messageStatus == replying_block) {
 					// Open and read requested block
@@ -597,6 +550,17 @@ void P2P::SenderThread()
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 					//// Wait extra 3 seconds
 					//Sleep(3000);
+				}
+				// Else if requesting pending block data
+				else if (messageStatus == requesting_pendingblock) {
+					msg = "request$$$pendingblock$$$" + std::to_string(reqDat);
+					if (constants::debugPrint == true) {
+						console.Write(msg + "\n");
+					}
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+					// Wait extra 3 seconds
+					Sleep(3000);
+					//noinput = true;
 				}
 				// Else if requesting block data
 				else if (messageStatus == requesting_block) {
@@ -689,7 +653,6 @@ void P2P::SenderThread()
 
 				closesocket(localSocket);
 				WSACleanup();
-
 			}
 			// Otherwise, we are in listen mode and still connected
 			else {
@@ -702,7 +665,7 @@ void P2P::SenderThread()
 		console.NetworkErrorPrint();
 		console.WriteLine("Peer Timed out", console.redFGColor, "");
 
-		messageStatus = initial_connect_request;
+		messageStatus = idle;
 		messageAttempt = 0;
 
 		// Stop the current listening thread and continue
@@ -857,12 +820,12 @@ int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)
 	//		}
 	//
 	//
-	//		std::string host = SplitString(otherIpPort, ":")[0];
+	//		std::string otherIP = SplitString(otherIpPort, ":")[0];
 	//		int otherPort = stoi(SplitString(otherIpPort, ":")[1]);
 	//
 	//		otherAddr.sin_port = htons(otherPort);
 	//		otherAddr.sin_family = AF_INET;
-	//		otherAddr.sin_addr.s_addr = inet_addr(host.c_str());
+	//		otherAddr.sin_addr.s_addr = inet_addr(otherIP.c_str());
 	//
 	//		otherSize = sizeof(otherAddr);
 	//

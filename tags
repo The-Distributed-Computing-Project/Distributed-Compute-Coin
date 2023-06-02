@@ -115,6 +115,7 @@ BLOB_LAST	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  BLOB_LAST$/;"	e	enum:du
 BLOB_SSL_ISSUERCERT	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  BLOB_SSL_ISSUERCERT,$/;"	e	enum:dupblob
 BLOB_SSL_ISSUERCERT_PROXY	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  BLOB_SSL_ISSUERCERT_PROXY,$/;"	e	enum:dupblob
 BLOCKCHAIN_DIR	DCC-Miner/DCC-Miner/RequestParser.cpp	/^string BLOCKCHAIN_DIR = ".\/wwwdata\/blockchain";$/;"	v
+BLOCK_VERSION	DCC-Miner/DCC-Miner/Main.cpp	/^const std::string BLOCK_VERSION = "v0.01alpha-coin";$/;"	v
 BL_CODES	DCC-Miner/out/_deps/zlib-src/deflate.h	40;"	d
 BN_bn2bin	DCC-Miner/out/_deps/curl-src/lib/setup-vms.h	202;"	d
 BN_num_bits	DCC-Miner/out/_deps/curl-src/lib/setup-vms.h	203;"	d
@@ -369,9 +370,9 @@ CONNCTRL_CONNECTION	DCC-Miner/out/_deps/curl-src/lib/connect.h	134;"	d
 CONNCTRL_KEEP	DCC-Miner/out/_deps/curl-src/lib/connect.h	133;"	d
 CONNCTRL_STREAM	DCC-Miner/out/_deps/curl-src/lib/connect.h	135;"	d
 CONNECT	DCC-Miner/out/_deps/curl-src/lib/http_proxy.c	/^static CURLcode CONNECT(struct Curl_easy *data,$/;"	f	file:
-CONNECTED_TO_PEER	DCC-Miner/DCC-Miner/P2PClient.h	/^	bool CONNECTED_TO_PEER = false;$/;"	m	class:P2P
+CONNECTED_TO_PEER	DCC-Miner/DCC-Miner/P2PClient.h	/^	std::atomic_bool CONNECTED_TO_PEER = false;$/;"	m	class:P2P
 CONNECTION_FAILURE	DCC-Miner/out/_deps/cpr-src/include/cpr/error.h	/^    CONNECTION_FAILURE,$/;"	m	class:cpr::ErrorCode
-CONNECTION_PARTS	DCC-Miner/DCC-Miner/P2PClient.h	/^	std::vector<std::string> CONNECTION_PARTS = {""};$/;"	m	class:P2P
+CONNECTION_PARTS	DCC-Miner/DCC-Miner/P2PClient.h	/^	std::vector<std::string> CONNECTION_PARTS = { "" };$/;"	m	class:P2P
 CONNECT_AUTH_INIT	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  CONNECT_AUTH_INIT, \/* 6 setup outgoing auth buffer *\/$/;"	e	enum:connect_t
 CONNECT_AUTH_READ	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  CONNECT_AUTH_READ, \/* 8 read auth response *\/$/;"	e	enum:connect_t
 CONNECT_AUTH_SEND	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  CONNECT_AUTH_SEND, \/* 7 send auth *\/$/;"	e	enum:connect_t
@@ -7847,7 +7848,7 @@ Mine	DCC-Miner/DCC-Miner/Main.cpp	/^int Mine(std::string lastHash, std::string t
 MineAnyBlock	DCC-Miner/DCC-Miner/Main.cpp	/^int MineAnyBlock(int blockNum, std::string difficulty)$/;"	f
 MiningErrorPrint	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::MiningErrorPrint()$/;"	f	class:Console
 MiningPrint	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::MiningPrint()$/;"	f	class:Console
-MsgStatus	DCC-Miner/DCC-Miner/P2PClient.cpp	/^enum MsgStatus {$/;"	g	file:
+MsgStatus	DCC-Miner/DCC-Miner/P2PClient.h	/^	enum MsgStatus {$/;"	g	class:P2P
 MthStr	DCC-Miner/out/_deps/curl-src/docs/examples/synctime.c	/^const char *MthStr[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",$/;"	v
 Multipart	DCC-Miner/out/_deps/cpr-src/cpr/multipart.cpp	/^Multipart::Multipart(const std::initializer_list<Part>& p_parts) : parts{p_parts} {}$/;"	f	class:cpr::Multipart
 Multipart	DCC-Miner/out/_deps/cpr-src/include/cpr/multipart.h	/^class Multipart {$/;"	c	namespace:cpr
@@ -8205,7 +8206,7 @@ OnRequestTimeout	DCC-Miner/out/_deps/cpr-src/test/httpServer.cpp	/^void HttpServ
 OnRequestTwoRedirects	DCC-Miner/out/_deps/cpr-src/test/httpServer.cpp	/^void HttpServer::OnRequestTwoRedirects(mg_connection* conn, http_message* \/*msg*\/) {$/;"	f	class:cpr::HttpServer
 OnRequestUrlPost	DCC-Miner/out/_deps/cpr-src/test/httpServer.cpp	/^void HttpServer::OnRequestUrlPost(mg_connection* conn, http_message* msg) {$/;"	f	class:cpr::HttpServer
 OnRequestV1Cookies	DCC-Miner/out/_deps/cpr-src/test/httpServer.cpp	/^void HttpServer::OnRequestV1Cookies(mg_connection* conn, http_message* \/*msg*\/) {$/;"	f	class:cpr::HttpServer
-OpenP2PSocket	DCC-Miner/DCC-Miner/P2PClient.cpp	/^int P2P::OpenP2PSocket(std::string port)$/;"	f	class:P2P
+OpenP2PSocket	DCC-Miner/DCC-Miner/P2PClient.cpp	/^int P2P::OpenP2PSocket(int port)$/;"	f	class:P2P
 OpenSSL_add_all_algorithms	DCC-Miner/out/_deps/curl-src/lib/setup-vms.h	404;"	d
 OpenSSL_version_num	DCC-Miner/out/_deps/curl-src/lib/vtls/openssl.c	149;"	d	file:
 OperationConfig	DCC-Miner/out/_deps/curl-src/src/tool_cfgable.h	/^struct OperationConfig {$/;"	s
@@ -11730,8 +11731,8 @@ avail_in	DCC-Miner/out/_deps/zlib-src/zlib.h	/^    uint32_t              avail_i
 avail_out	DCC-Miner/out/_deps/zlib-src/zlib-ng.h	/^    uint32_t              avail_out;  \/* remaining free space at next_out *\/$/;"	m	struct:zng_stream_s
 avail_out	DCC-Miner/out/_deps/zlib-src/zlib.h	/^    uint32_t              avail_out;  \/* remaining free space at next_out *\/$/;"	m	struct:z_stream_s
 available_backends	DCC-Miner/out/_deps/curl-src/lib/vtls/vtls.c	/^static const struct Curl_ssl *available_backends[] = {$/;"	v	typeref:struct:Curl_ssl	file:
-await_first_success	DCC-Miner/DCC-Miner/P2PClient.cpp	/^	await_first_success = 1,$/;"	e	enum:MsgStatus	file:
-await_second_success	DCC-Miner/DCC-Miner/P2PClient.cpp	/^	await_second_success = 2,$/;"	e	enum:MsgStatus	file:
+await_first_success	DCC-Miner/DCC-Miner/P2PClient.h	/^		await_first_success = 1,$/;"	e	enum:P2P::MsgStatus
+await_second_success	DCC-Miner/DCC-Miner/P2PClient.h	/^		await_second_success = 2,$/;"	e	enum:P2P::MsgStatus
 aws_sigv4	DCC-Miner/out/_deps/curl-src/src/tool_cfgable.h	/^  char *aws_sigv4;$/;"	m	struct:OperationConfig
 azure_check_environment	DCC-Miner/out/_deps/curl-src/tests/azure.pm	/^sub azure_check_environment {$/;"	s
 azure_create_test_result	DCC-Miner/out/_deps/curl-src/tests/azure.pm	/^sub azure_create_test_result {$/;"	s
@@ -11911,7 +11912,6 @@ blobs	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  struct curl_blob *blobs[BLO
 block	DCC-Miner/out/_deps/curl-src/lib/md4.c	/^  MD4_u32plus block[16];$/;"	m	struct:md4_ctx	file:
 block	DCC-Miner/out/_deps/curl-src/lib/md5.c	/^  MD5_u32plus block[16];$/;"	m	struct:md5_ctx	file:
 block	DCC-Miner/out/_deps/curl-src/lib/tftp.c	/^  unsigned short  block;$/;"	m	struct:tftp_state_data	file:
-blockVersion	DCC-Miner/DCC-Miner/Main.cpp	/^const std::string blockVersion = "v0.01alpha-coin";$/;"	v
 blockVersion	DCC-Miner/DCC-Miner/Network.h	/^	std::string blockVersion = "";$/;"	m	class:Http
 block_done	DCC-Miner/out/_deps/zlib-src/deflate.h	/^    block_done,     \/* block flush performed *\/$/;"	e	enum:__anon200
 block_open	DCC-Miner/out/_deps/zlib-src/deflate.h	/^    int block_open;$/;"	m	struct:internal_state
@@ -13653,7 +13653,7 @@ discarded	DCC-Miner/DCC-Miner/json.hpp	/^            BasicJsonType discarded = B
 discardfunc	DCC-Miner/out/_deps/curl-src/docs/examples/ftpuploadresume.c	/^static size_t discardfunc(void *ptr, size_t size, size_t nmemb, void *stream)$/;"	f	file:
 disconnect	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  CURLcode (*disconnect)(struct Curl_easy *, struct connectdata *,$/;"	m	struct:Curl_handler
 disconnect	DCC-Miner/out/_deps/curl-src/tests/server/mqttd.c	/^static int disconnect(FILE *dump, curl_socket_t fd)$/;"	f	file:
-disconnect_request	DCC-Miner/DCC-Miner/P2PClient.cpp	/^	disconnect_request = 9,$/;"	e	enum:MsgStatus	file:
+disconnect_request	DCC-Miner/DCC-Miner/P2PClient.h	/^		disconnect_request = 9,$/;"	e	enum:P2P::MsgStatus
 display_cert_info	DCC-Miner/out/_deps/curl-src/lib/vtls/nss.c	/^static void display_cert_info(struct Curl_easy *data,$/;"	f	file:
 display_conn_info	DCC-Miner/out/_deps/curl-src/lib/vtls/nss.c	/^static CURLcode display_conn_info(struct Curl_easy *data, PRFileDesc *sock)$/;"	f	file:
 display_error	DCC-Miner/out/_deps/curl-src/lib/vtls/nss.c	/^static int display_error(struct Curl_easy *data, PRInt32 err,$/;"	f	file:
@@ -15495,7 +15495,7 @@ identity_encoding	DCC-Miner/out/_deps/curl-src/lib/content_encoding.c	/^static c
 identity_init_writer	DCC-Miner/out/_deps/curl-src/lib/content_encoding.c	/^static CURLcode identity_init_writer(struct Curl_easy *data,$/;"	f	file:
 identity_tag	DCC-Miner/DCC-Miner/json.hpp	/^        template <class T> struct identity_tag {};$/;"	s	namespace:nlohmann::detail
 identity_unencode_write	DCC-Miner/out/_deps/curl-src/lib/content_encoding.c	/^static CURLcode identity_unencode_write(struct Curl_easy *data,$/;"	f	file:
-idle	DCC-Miner/DCC-Miner/P2PClient.cpp	/^	idle = -1,$/;"	e	enum:MsgStatus	file:
+idle	DCC-Miner/DCC-Miner/P2PClient.h	/^		idle = -1,$/;"	e	enum:P2P::MsgStatus
 idsize	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  size_t idsize;    \/* if known, otherwise 0 *\/$/;"	m	struct:Curl_ssl_session
 idx	DCC-Miner/out/_deps/curl-src/lib/vtls/schannel.c	/^  int idx;$/;"	m	struct:Adder_args	file:
 if2ip_result_t	DCC-Miner/out/_deps/curl-src/lib/if2ip.h	/^} if2ip_result_t;$/;"	t	typeref:enum:__anon134
@@ -15712,7 +15712,7 @@ init_terminal	DCC-Miner/out/_deps/curl-src/src/tool_doswin.c	/^static void init_
 init_thread_sync_data	DCC-Miner/out/_deps/curl-src/lib/asyn-thread.c	/^int init_thread_sync_data(struct thread_data *td,$/;"	f	file:
 init_wc_data	DCC-Miner/out/_deps/curl-src/lib/ftp.c	/^static CURLcode init_wc_data(struct Curl_easy *data)$/;"	f	file:
 init_writer	DCC-Miner/out/_deps/curl-src/lib/content_encoding.h	/^  CURLcode (*init_writer)(struct Curl_easy *data,$/;"	m	struct:content_encoding
-initial_connect_request	DCC-Miner/DCC-Miner/P2PClient.cpp	/^	initial_connect_request = 0,$/;"	e	enum:MsgStatus	file:
+initial_connect_request	DCC-Miner/DCC-Miner/P2PClient.h	/^		initial_connect_request = 0,$/;"	e	enum:P2P::MsgStatus
 initial_size	DCC-Miner/out/_deps/curl-src/src/tool_cb_prg.h	/^  curl_off_t  initial_size;$/;"	m	struct:ProgressData
 initialized	DCC-Miner/out/_deps/curl-src/lib/easy.c	/^static unsigned int  initialized;$/;"	v	file:
 initialized	DCC-Miner/out/_deps/curl-src/lib/vtls/nss.c	/^static volatile int initialized = 0;$/;"	v	file:
@@ -16843,7 +16843,7 @@ mesalink_send	DCC-Miner/out/_deps/curl-src/lib/vtls/mesalink.c	/^static Curl_sen
 mesalink_shutdown	DCC-Miner/out/_deps/curl-src/lib/vtls/mesalink.c	/^mesalink_shutdown(struct Curl_easy *data,$/;"	f	file:
 mesalink_version	DCC-Miner/out/_deps/curl-src/lib/vtls/mesalink.c	/^mesalink_version(char *buffer, size_t size)$/;"	f	file:
 messageAttempt	DCC-Miner/DCC-Miner/P2PClient.h	/^	int messageAttempt = 0;$/;"	m	class:P2P
-messageStatus	DCC-Miner/DCC-Miner/P2PClient.h	/^	int messageStatus = 0;$/;"	m	class:P2P
+messageStatus	DCC-Miner/DCC-Miner/P2PClient.h	/^	std::atomic_int messageStatus = idle;$/;"	m	class:P2P
 meta	DCC-Miner/DCC-Miner/json.hpp	/^            static basic_json meta()$/;"	f	class:nlohmann::nlohmann::nlohmann::basic_json
 method	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  Curl_HttpReq method;   \/* what kind of HTTP request (if any) is this *\/$/;"	m	struct:UserDefined
 method	DCC-Miner/out/_deps/zlib-src/deflate.c	/^int32_t Z_EXPORT PREFIX(deflateInit2_)(PREFIX3(stream) *strm, int32_t level, int32_t method, int32_t windowBits,$/;"	v
@@ -18771,16 +18771,17 @@ replace	DCC-Miner/DCC-Miner/json.hpp	/^            replace, \/\/\/< replace inva
 replace_in_file	DCC-Miner/out/_deps/zlib-src/configure	/^replace_in_file() {$/;"	f
 replace_substring	DCC-Miner/DCC-Miner/json.hpp	/^        inline void replace_substring(StringType& s, const StringType& f,$/;"	f	namespace:nlohmann::detail
 replace_url_encoded_space_by_plus	DCC-Miner/out/_deps/curl-src/src/tool_getparam.c	/^static size_t replace_url_encoded_space_by_plus(char *url)$/;"	f	file:
-replying_block	DCC-Miner/DCC-Miner/P2PClient.cpp	/^	replying_block = 4,$/;"	e	enum:MsgStatus	file:
-replying_height	DCC-Miner/DCC-Miner/P2PClient.cpp	/^	replying_height = 3,$/;"	e	enum:MsgStatus	file:
-replying_peer_list	DCC-Miner/DCC-Miner/P2PClient.cpp	/^	replying_peer_list = 8,$/;"	e	enum:MsgStatus	file:
+replying_block	DCC-Miner/DCC-Miner/P2PClient.h	/^		replying_block = 4,$/;"	e	enum:P2P::MsgStatus
+replying_height	DCC-Miner/DCC-Miner/P2PClient.h	/^		replying_height = 3,$/;"	e	enum:P2P::MsgStatus
+replying_peer_list	DCC-Miner/DCC-Miner/P2PClient.h	/^		replying_peer_list = 8,$/;"	e	enum:P2P::MsgStatus
+replying_pendingblock	DCC-Miner/DCC-Miner/P2PClient.h	/^		replying_pendingblock = 11,$/;"	e	enum:P2P::MsgStatus
 report	DCC-Miner/out/_deps/curl-src/lib/mk-ca-bundle.pl	/^sub report($@) {$/;"	s
 reproducible	DCC-Miner/out/_deps/zlib-src/arch/s390/dfltcc_deflate.h	/^int Z_INTERNAL dfltcc_can_set_reproducible(PREFIX3(streamp) strm, int reproducible);$/;"	v
 reproducible	DCC-Miner/out/_deps/zlib-src/deflate.h	/^    int                  reproducible;     \/* Whether reproducible compression results are required. *\/$/;"	m	struct:internal_state
 req	DCC-Miner/out/_deps/curl-src/lib/http_proxy.h	/^  struct dynbuf req;$/;"	m	struct:http_connect_state	typeref:struct:http_connect_state::dynbuf
 req	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  struct SingleRequest req;    \/* Request-specific data *\/$/;"	m	struct:Curl_easy	typeref:struct:Curl_easy::SingleRequest
 req	DCC-Miner/out/_deps/curl-src/tests/unit/unit1650.c	/^static const struct dohrequest req[] = {$/;"	v	typeref:struct:dohrequest	file:
-reqDat	DCC-Miner/DCC-Miner/P2PClient.cpp	/^int reqDat = 0;$/;"	v
+reqDat	DCC-Miner/DCC-Miner/P2PClient.h	/^	int reqDat = 0;$/;"	m	class:P2P
 req_flags	DCC-Miner/out/_deps/curl-src/lib/vtls/schannel.h	/^  unsigned long req_flags, ret_flags;$/;"	m	struct:ssl_backend_data
 req_retry	DCC-Miner/out/_deps/curl-src/src/tool_cfgable.h	/^  long req_retry;           \/* number of retries *\/$/;"	m	struct:OperationConfig
 reqbuf	DCC-Miner/out/_deps/curl-src/tests/server/rtspd.c	/^  char reqbuf[REQBUFSIZ]; \/* buffer area for the incoming request *\/$/;"	m	struct:httprequest	file:
@@ -18793,9 +18794,10 @@ request_state	DCC-Miner/out/_deps/curl-src/lib/smb.c	/^static void request_state
 request_target	DCC-Miner/out/_deps/curl-src/lib/c-hyper.c	/^static CURLcode request_target(struct Curl_easy *data,$/;"	f	file:
 request_target	DCC-Miner/out/_deps/curl-src/src/tool_cfgable.h	/^  char *request_target;$/;"	m	struct:OperationConfig
 requested_blksize	DCC-Miner/out/_deps/curl-src/lib/tftp.c	/^  int             requested_blksize;$/;"	m	struct:tftp_state_data	file:
-requesting_block	DCC-Miner/DCC-Miner/P2PClient.cpp	/^	requesting_block = 6,$/;"	e	enum:MsgStatus	file:
-requesting_height	DCC-Miner/DCC-Miner/P2PClient.cpp	/^	requesting_height = 5,$/;"	e	enum:MsgStatus	file:
-requesting_peer_list	DCC-Miner/DCC-Miner/P2PClient.cpp	/^	requesting_peer_list = 7,$/;"	e	enum:MsgStatus	file:
+requesting_block	DCC-Miner/DCC-Miner/P2PClient.h	/^		requesting_block = 6,$/;"	e	enum:P2P::MsgStatus
+requesting_height	DCC-Miner/DCC-Miner/P2PClient.h	/^		requesting_height = 5,$/;"	e	enum:P2P::MsgStatus
+requesting_peer_list	DCC-Miner/DCC-Miner/P2PClient.h	/^		requesting_peer_list = 7,$/;"	e	enum:P2P::MsgStatus
+requesting_pendingblock	DCC-Miner/DCC-Miner/P2PClient.h	/^		requesting_pendingblock = 10,$/;"	e	enum:P2P::MsgStatus
 requestparser_h	DCC-Miner/DCC-Miner/RequestParser.h	3;"	d
 res	DCC-Miner/out/_deps/curl-src/lib/asyn-thread.c	/^  struct Curl_addrinfo *res;$/;"	m	struct:thread_sync_data	typeref:struct:thread_sync_data::Curl_addrinfo	file:
 res	DCC-Miner/out/_deps/curl-src/tests/libtest/libntlmconnect.c	/^static int res = 0;$/;"	v	file:

@@ -100,7 +100,7 @@ json walletConfig;
 json walletInfo;
 
 const std::string VERSION = "v0.01alpha";
-const std::string blockVersion = "v0.01alpha-coin";
+const std::string BLOCK_VERSION = "v0.01alpha-coin";
 
 std::string endpointAddr = "";
 std::string endpointPort = "";
@@ -181,6 +181,7 @@ int main()
 	skeybuf << skey.rdbuf();
 	keypair[1] = skeybuf.str();
 
+	// Calculate wallet from hash of public key
 	char walletBuffer[65];
 	sha256_string((char*)(keypair[0]).c_str(), walletBuffer);
 	std::string wallet = walletBuffer;
@@ -213,61 +214,6 @@ int main()
 			peerList.push_back(line);
 	peerFile.close();
 
-	//// Encryption Test
-	//std::cout << "\nTesting Encryption..." << std::endl;
-	//std::string message = "Hello world!";
-	//std::cout << "\nMessage: " << message << std::endl;
-	//std::string encryptedVersion = rsa_pri_encrypt(message, keypair[1]);
-	//std::cout << "\nEncrypted: " << encryptedVersion << std::endl;
-	//std::string encodedVersion = encode64((const unsigned char*)encryptedVersion.c_str(), encryptedVersion.length());
-	//std::cout << "\nEncoded: " << encodedVersion << std::endl;
-	////char sha256OutBufferss[65];
-	////sha256_string((char *)encryptedVersion.c_str(), sha256OutBufferss);
-	////std::string enHash = sha256OutBufferss;
-	////std::cout << "Encrypted hash: " << enHash << std::endl;
-	//std::string decoded = decode64(encodedVersion);
-	//std::cout << "\nDecoded: " << decoded << std::endl;
-	//std::cout << "\nAre the same: " << (decoded == encryptedVersion) << std::endl;
-	//std::string decryptedVersion = rsa_pub_decrypt(decoded, keypair[0]);
-	//std::cout << "\nDecrypted: " << decryptedVersion << std::endl;
-
-
-
-	//// If previous config exists, load it. Else, ask for required information.
-	//std::ifstream t("./config.cfg");
-	//std::stringstream buffer;
-	//buffer << t.rdbuf();
-	//std::string configFileRead = buffer.str();
-	//if (configFileRead.size() > 4)
-	//{
-	//	std::string cpy = SplitString(configFileRead, "\n")[0];
-	//	boost::trim(cpy);
-	//	walletInfo["Address"] = cpy;
-	//}
-	//else
-	//{
-	//	console.MiningPrint();
-	//	console.Write("Enter your payout wallet : ");
-	//	walletInfo["Address"] = console.ReadLine();
-
-	//	console.MiningPrint();
-	//	console.Write("Stay logged in? Y/N : ");
-	//	std::string stayLoggedIn = console.ReadLine();
-	//	
-	//	// Save to config.cfg file
-	//	if (ToUpper(stayLoggedIn) == "Y")
-	//	{
-	//		std::ofstream configFile("./config.cfg");
-	//		if (configFile.is_open())
-	//		{
-	//			configFile << walletInfo["Address"];
-	//			configFile.close();
-	//		}
-	//	}
-	//}
-
-	//phpserv.StartServer();
-	//p2p.Connect("");
 
 	// Get public IP address and PORT
 	Http http;
@@ -283,14 +229,8 @@ int main()
 
 	ipPortCombo += ":" + std::to_string((int)walletConfig["port"]); // Default PORT is 5000
 
-	std::cout << ipPortCombo << std::endl;
-
-	// Open the socket required to accept P2P requests and send responses
-	p2p.OpenP2PSocket(std::to_string((int)walletConfig["port"]));
-	// Start the P2P listener thread
-	std::thread t1(&P2P::ListenerThread, &p2p, 500);
-	// Start the P2P sender thread
-	std::thread t2(&P2P::SenderThread, &p2p);
+	if(constants::debugPrint == true)
+		std::cout << ipPortCombo << std::endl;
 
 
 	if (ipPortCombo != "")
@@ -304,78 +244,64 @@ int main()
 		console.ExitError("Could not obtain public IP");
 		return 1;
 	}
+
+
+	// Open the socket required to accept P2P requests and send responses
+	p2p.OpenP2PSocket((int)walletConfig["port"]);
+	// Start the P2P listener thread
+	std::thread t1(&P2P::ListenerThread, &p2p, 500);
+	// Start the P2P sender thread
+	std::thread t2(&P2P::SenderThread, &p2p);
+
+
+	//
+	// Gather wallet information, validate blockchain, and print information.
+	//	
 	
+	console.SystemPrint();
+	console.WriteLine("Getting wallet info...");
+
+	walletInfo["Funds"] = 0.0f;
+	walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
+	walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
+	walletInfo["MineDifficulty"] = "000000";
+
+	console.MiningPrint();
+	console.WriteLine("There are " + std::to_string((int)walletInfo["PendingLength"]) + " Blocks to compute");
+	console.MiningPrint();
+	console.WriteLine("The difficulty is " + std::to_string(((std::string)walletInfo["MineDifficulty"]).size()));
+
+	console.NetworkPrint();
+	console.WriteLine("Syncing blocks...");
+	Sync();
+	try
+	{
+		if (constants::debugPrint == true) {
+			console.BlockCheckerPrint();
+			console.WriteLine("Validating blockchain...");
+		}
+		IsChainValid();
+		if (constants::debugPrint == true) {
+			console.BlockCheckerPrint();
+			console.WriteLine("Done!");
+		}
+	}
+	catch (const std::exception&)
+	{
+		Sync();
+	}
+
+	console.SystemPrint();
+	console.Write("You have: ");
+	console.WriteLine("$" + CommaLargeNumber((float)walletInfo["Funds"]) + "\n", console.yellowFGColor, "");
+
+
+	//
 	// Start command loop
+	//
 	while (true)
 	{
-		console.SystemPrint();
-		console.WriteLine("Getting wallet info...");
-
-		//json w = GetInfo();
-
-		//if (constants::debugPrint == true) {
-		//	console.NetworkPrint();
-		//	console.WriteLine("Done");
-		//}
-
-		//if (w.is_null())
-		//{
-		//	ConnectionError();
-		//	continue;
-		//}
-		//else {
-		//walletInfo = w;
-		walletInfo["Funds"] = 0.0f;
-		walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
-		walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
-		walletInfo["MineDifficulty"] = "000000";
-		//}
-		//IsChainValid();
-
-		//if (connectionStatus == 1 && !w.is_null())
-		if (connectionStatus == 1)
-		{
-			console.MiningPrint();
-			console.WriteLine("There are " + std::to_string((int)walletInfo["PendingLength"]) + " Blocks to compute");
-			console.MiningPrint();
-			console.WriteLine("The difficulty is " + std::to_string(((std::string)walletInfo["MineDifficulty"]).size()));
-
-			console.NetworkPrint();
-			console.WriteLine("Syncing blocks...");
-			Sync();
-			try
-			{
-				if (constants::debugPrint == true) {
-					console.BlockCheckerPrint();
-					console.WriteLine("Validating blockchain...");
-				}
-				IsChainValid();
-				if (constants::debugPrint == true) {
-					console.BlockCheckerPrint();
-					console.WriteLine("Done!");
-				}
-			}
-			catch (const std::exception&)
-			{
-				Sync();
-			}
-
-			console.SystemPrint();
-			console.Write("You have: ");
-			console.WriteLine("$" + CommaLargeNumber((float)walletInfo["Funds"]) + "\n", console.yellowFGColor, "");
-		}
-		else
-		{
-			console.NetworkErrorPrint();
-			console.WriteLine("Failed to connect");
-
-			console.MiningErrorPrint();
-			console.WriteLine("There are UNKNOWN Blocks to compute");
-			console.MiningErrorPrint();
-			console.WriteLine("The difficulty is UNKNOWN");
-		}
-
-		console.Write("Input >  ");
+		console.Write("Input:  ");
 		std::string command = console.ReadLine();
 
 		if(command == "") {
@@ -402,6 +328,19 @@ int main()
 		{
 			if (Sync() == 0) continue;
 		}
+		else if (SplitString(ToUpper(command), " ")[0] == "--SYNCBLOCK" || SplitString(ToUpper(command), " ")[0] == "-SB")
+		{
+			int blockNum;
+			try
+			{
+				blockNum = stoi(SplitString(ToUpper(command), " ")[1]);
+				SyncBlock(blockNum);
+			}
+			catch (const std::exception& e)
+			{
+				console.WriteLine("Error sending : " + (std::string)e.what(), "", console.redFGColor);
+			}
+		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--SEND" || SplitString(ToUpper(command), " ")[0] == "-SN")
 		{
 			std::string toAddr;
@@ -421,7 +360,6 @@ int main()
 			{
 				console.WriteLine("Error sending : " + (std::string)e.what(), "", console.redFGColor);
 			}
-
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--MINE" || SplitString(ToUpper(command), " ")[0] == "-M")
 		{
@@ -492,7 +430,7 @@ int main()
 					continue;
 				}
 
-				walletInfo = GetInfo();
+				//walletInfo = GetInfo();
 				walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
 				walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
 				if (walletInfo.is_null())
@@ -540,9 +478,9 @@ void Logo()
 |______.'  `.____ .' `.____ .' 
 
 DCC, copyright (c) AstroSam (sam-astro) 2023
-)V0G0N", console.blueFGColor, "");
-	console.WriteLine("client: " + VERSION);
-	console.WriteLine("block: " + blockVersion + "\n\n");
+)V0G0N", console.cyanFGColor, "");
+	console.WriteLine("client: " + VERSION, console.cyanFGColor, "");
+	console.WriteLine("block: " + BLOCK_VERSION + "\n\n", console.cyanFGColor, "");
 }
 
 // Print the help menu
@@ -557,6 +495,7 @@ Options:
   -h, --help                          Display this help menu
   -v, --version                       Print the current wallet and block version
   -s, --sync                          Manually re-sync blockchain
+  -sb, --syncblock                    Manually re-sync a single block on the blockchain
   -m, --mine <amount>                 Mine <amount> number of blocks, defaults to 1 if not specified
   -ma, --mineany <block num> <dif>    (Debug) Mines the block specified by <block num> at the given 
                                       difficulty <dif>
@@ -590,7 +529,7 @@ json GetInfo()
 	try
 	{
 		Http http;
-		http.blockVersion = blockVersion;
+		http.blockVersion = BLOCK_VERSION;
 		std::vector<std::string> args = { "query=getInfo", "fromAddress=" + (std::string)walletInfo["Address"] };
 		std::string html = http.StartHttpWebRequest(serverURL + "/dcc/?", args);
 		//std::cout << html << std::endl;
@@ -603,7 +542,7 @@ json GetInfo()
 		//try
 		//{
 		//    Http http = new Http();
-		//    http.blockVersion = blockVersion;
+		//    http.BLOCK_VERSION = BLOCK_VERSION;
 		//    string[] args = new string[] { "query=getInfo", "fromAddress=" + walletInfo.Address };
 		//    string html = http.StartHttpWebRequest(serverURL + "/dcc/?", args);
 
@@ -685,7 +624,7 @@ int GetProgram()
 			}
 
 			Http http;
-			http.blockVersion = blockVersion;
+			http.blockVersion = BLOCK_VERSION;
 			std::vector<std::string> args = { "query=assignProgram" };
 			std::string assignedProgram = http.StartHttpWebRequest(serverURL + "/dcc/?", args);
 
@@ -728,7 +667,7 @@ int GetProgram()
 		std::string ourHash = sha256OutBuffer;
 
 		Http http1;
-		http1.blockVersion = blockVersion;
+		http1.blockVersion = BLOCK_VERSION;
 		std::vector<std::string> args1 = { "query=hashProgram", "programID=" + id };
 		std::string theirHash = http1.StartHttpWebRequest(serverURL + "/dcc/?", args1);
 
@@ -769,7 +708,7 @@ float GetProgramLifeLeft(std::string id)
 	try
 	{
 		Http http;
-		http.blockVersion = blockVersion;
+		http.blockVersion = BLOCK_VERSION;
 		std::vector<std::string> args = { "query=getProgramLifeLeft", "programID=" + id };
 		std::string html = http.StartHttpWebRequest(serverURL + "/dcc/?", args);
 
@@ -793,10 +732,13 @@ int SyncPending(int whichBlock)
 		if (fs::exists("./wwwdata/pendingblocks/block" + std::to_string(whichBlock) + ".dccblock"))
 			return 1;
 
+		p2p.messageStatus = p2p.requesting_pendingblock;
+		p2p.messageAttempt = 0;
+		p2p.reqDat = whichBlock;
 
-		DownloadFile(serverURL + "/dcc/?query=getPendingBlock&blockNum=" + std::to_string(whichBlock) + "&Version=" + blockVersion,
-			"./wwwdata/pendingblocks/block" + std::to_string(whichBlock) + ".dccblock",
-			true);
+		//DownloadFile(serverURL + "/dcc/?query=getPendingBlock&blockNum=" + std::to_string(whichBlock) + "&Version=" + BLOCK_VERSION,
+		//	"./wwwdata/pendingblocks/block" + std::to_string(whichBlock) + ".dccblock",
+		//	true);
 
 		return 1;
 	}
@@ -815,9 +757,13 @@ int SyncBlock(int whichBlock)
 		if (fs::exists("./wwwdata/blockchain/block" + std::to_string(whichBlock) + ".dccblock"))
 			return 1;
 
-		DownloadFile(serverURL + "/dcc/?query=getBlock&blockNum=" + std::to_string(whichBlock) + "&Version=" + blockVersion,
-			"./wwwdata/blockchain/block" + std::to_string(whichBlock) + ".dccblock",
-			true);
+		p2p.messageStatus = p2p.requesting_block;
+		p2p.messageAttempt = 0;
+		p2p.reqDat = whichBlock;
+
+		//DownloadFile(serverURL + "/dcc/?query=getBlock&blockNum=" + std::to_string(whichBlock) + "&Version=" + BLOCK_VERSION,
+		//	"./wwwdata/blockchain/block" + std::to_string(whichBlock) + ".dccblock",
+		//	true);
 
 		return 1;
 	}
@@ -856,9 +802,6 @@ bool IsChainValid()
 			buffer2 << th.rdbuf();
 			std::string content2 = buffer2.str();
 			json firstBlock = json::parse(content2);
-			//std::cout << "content: " << content2 << "\nnumoftrans: " << std::to_string(firstBlock["transactions"].size()) << std::endl;
-			//std::vector<std::string> o["transactions"] = o["transactions"];
-			//std::vector<uint64_t> o["transactionTimes"] = o["transactionTimes"];
 			for (int tr = 0; tr < firstBlock["transactions"].size(); tr++) {
 				std::string transactionContent = SplitString(firstBlock["transactions"][tr], "|")[0];
 				std::string signature = SplitString(firstBlock["transactions"][tr], "|")[1];
@@ -877,8 +820,6 @@ bool IsChainValid()
 					tmpFunds += stof(transactionDetails[0]);
 				}
 			}
-			//console.BlockCheckerPrint();
-			//std::cout << "\nfunds: " + std::to_string(tmpFunds) << std::endl;
 		}
 	}
 	catch (const std::exception& e)
@@ -908,9 +849,9 @@ bool IsChainValid()
 			//std::cout << "Transactions: " << std::to_string(trans.size()) << std::endl;
 
 
-			if (o["Version"] == nullptr || o["Version"] == "" || o["Version"] != blockVersion)
+			if (o["Version"] == nullptr || o["Version"] == "" || o["Version"] != BLOCK_VERSION)
 			{
-				UpgradeBlock(o, blockVersion);
+				UpgradeBlock(o, BLOCK_VERSION);
 				std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 				if (blockFile.is_open())
 				{
@@ -933,9 +874,9 @@ bool IsChainValid()
 
 			std::string nextHash = o2["lastHash"];
 
-			if (o2["Version"] == nullptr || o2["Version"] == "" || o2["Version"] != blockVersion)
+			if (o2["Version"] == nullptr || o2["Version"] == "" || o2["Version"] != BLOCK_VERSION)
 			{
-				UpgradeBlock(o, blockVersion);
+				UpgradeBlock(o, BLOCK_VERSION);
 				std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i + 1) + ".dccblock");
 				if (blockFile.is_open())
 				{
@@ -1007,7 +948,6 @@ bool IsChainValid()
 				}
 				else if ((std::string)walletInfo["Address"] == transactionDetails[1])
 					tmpFunds2 += stof(transactionDetails[0]);
-
 			}
 			// Update the old transactions with the new ones
 			o["transactions"] = trans;
@@ -1110,7 +1050,7 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 		/*char sha256OutBuffer[65];
 		sha256_string((char*)(lastHash + transactionHistory + std::to_string(nonce)).c_str(), sha256OutBuffer);
 		hash = sha256OutBuffer;
-		std::string url = serverURL + "/dcc/?query=submitBlock&blockNum=" + std::to_string(blockNum) + "&nonce=" + std::to_string(nonce) + "&minedHash=" + hash + "&fromAddress=" + (std::string)walletInfo["Address"] + "&programID=" + id + "&time=" + std::to_string(since(startTime).count() / 1000.0f) + "&Version=" + blockVersion;
+		std::string url = serverURL + "/dcc/?query=submitBlock&blockNum=" + std::to_string(blockNum) + "&nonce=" + std::to_string(nonce) + "&minedHash=" + hash + "&fromAddress=" + (std::string)walletInfo["Address"] + "&programID=" + id + "&time=" + std::to_string(since(startTime).count() / 1000.0f) + "&Version=" + BLOCK_VERSION;
 
 		std::string s = UploadFile(url, "./wwwdata/programs//" + id + "/out.txt");*/
 		//std::to_string((int)walletInfo["BlockchainLength"] + 1)
@@ -1163,7 +1103,7 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 			blockJson["lastHash"] = hashStr;
 			blockJson["nonce"] = "";
 			blockJson["time"] = "";
-			blockJson["Version"] = blockVersion;
+			blockJson["Version"] = BLOCK_VERSION;
 			blockJson["transactions"] = std::vector<std::string>();
 			blockJson["transactionTimes"] = std::vector<std::string>();
 
@@ -1233,7 +1173,7 @@ int SendFunds(std::string toAddress, float amount)
 		blockJson["lastHash"] = (std::string)lastBlockJson["hash"];
 		blockJson["nonce"] = "";
 		blockJson["time"] = "";
-		blockJson["Version"] = blockVersion;
+		blockJson["Version"] = BLOCK_VERSION;
 		blockJson["transactions"] = std::vector<std::string>();
 		blockJson["transactionTimes"] = std::vector<std::string>();
 

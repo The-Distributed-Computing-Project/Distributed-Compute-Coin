@@ -106,6 +106,8 @@ std::string endpointAddr = "";
 std::string endpointPort = "";
 std::string peerPort = "";
 
+int transactionNumber = 0;
+
 
 struct stat info;
 Console console;
@@ -421,7 +423,7 @@ int main()
 				blockFile.close();
 
 				json blockJson = json::parse(content);
-				std::string transactions = JoinArrayPieces(blockJson["transactions"]);
+				std::string transactions = blockJson["transactions"].dump();
 				std::string lastHash = (std::string)blockJson["lastHash"];
 
 				if (Mine(lastHash, transactions, ((int)walletInfo["BlockchainLength"] + 1)) == 0)
@@ -789,6 +791,7 @@ bool IsChainValid()
 	int chainLength = FileCount("./wwwdata/blockchain/");
 
 	float tmpFunds = 0;
+	int txNPending = 0;
 
 	console.BlockCheckerPrint();
 	console.WriteLine("Checking blocks...");
@@ -803,10 +806,17 @@ bool IsChainValid()
 			std::string content2 = buffer2.str();
 			json firstBlock = json::parse(content2);
 			for (int tr = 0; tr < firstBlock["transactions"].size(); tr++) {
-				std::string transactionContent = SplitString(firstBlock["transactions"][tr], "|")[0];
-				std::string signature = SplitString(firstBlock["transactions"][tr], "|")[1];
-				std::string publicKey = SplitString(firstBlock["transactions"][tr], "|")[2];
-				uint64_t transactionTime = firstBlock["transactionTimes"][tr];
+				std::string fromAddr = firstBlock["transactions"][tr]["fromAddr"];
+				std::string toAddr = firstBlock["transactions"][tr]["toAddr"];
+				float amount = firstBlock["transactions"][tr]["amount"];
+				uint32_t txNum = firstBlock["transactions"][tr]["txNum"];
+				std::string signature = decode64(firstBlock["transactions"][tr]["signature"]);
+				std::string publicKey = firstBlock["transactions"][tr]["pubKey"];
+				std::string note = firstBlock["transactions"][tr]["note"];
+				//std::string transactionContent = SplitString(firstBlock["transactions"][tr], "|")[0];
+				//std::string signature = SplitString(firstBlock["transactions"][tr], "|")[1];
+				//std::string publicKey = SplitString(firstBlock["transactions"][tr], "|")[2];
+				//uint64_t transactionTime = firstBlock["transactionTimes"][tr];
 
 				// Check if the sending or receiving address is the same as the user's
 				std::vector<std::string> transactionDetails = SplitString(transactionContent, "->");
@@ -905,10 +915,17 @@ bool IsChainValid()
 			float tmpFunds2 = 0;
 			// Check all transactions to see if they have a valid signature
 			for (int tr = 0; tr < trans.size(); tr++) {
-				std::string transactionContent = SplitString(trans[tr], "|")[0];
-				std::string signature = decode64(SplitString(trans[tr], "|")[1]);
-				std::string publicKey = SplitString(trans[tr], "|")[2];
-				uint64_t transactionTime = transTimes[tr];
+				std::string fromAddr = trans[tr]["fromAddr"];
+				std::string toAddr = trans[tr]["toAddr"];
+				float amount = trans[tr]["amount"];
+				uint32_t txNum = trans[tr]["txNum"];
+				std::string signature = decode64(trans[tr]["signature"]);
+				std::string publicKey = trans[tr]["pubKey"];
+				std::string note = trans[tr]["note"];
+				//std::string transactionContent = SplitString(trans[tr], "|")[0];
+				//std::string signature = decode64(SplitString(trans[tr], "|")[1]);
+				//std::string publicKey = SplitString(trans[tr], "|")[2];
+				//uint64_t transactionTime = transTimes[tr];
 
 				// The from address should be the same as the hash of the public key, so check that first:
 				char walletBuffer[65];
@@ -941,8 +958,10 @@ bool IsChainValid()
 				// Now check if the sending or receiving address is the same as the user's
 				std::vector<std::string> transactionDetails = SplitString(transactionContent, "->");
 				if (transactionDetails.size() >= 3) {
-					if ((std::string)walletInfo["Address"] == transactionDetails[1])
+					if ((std::string)walletInfo["Address"] == transactionDetails[1]){
 						tmpFunds2 -= stof(transactionDetails[0]);
+						txNPending++;
+					}
 					if ((std::string)walletInfo["Address"] == TrimString(SplitString(transactionDetails[2], "|")[0]))
 						tmpFunds2 += stof(transactionDetails[0]);
 				}
@@ -971,8 +990,9 @@ bool IsChainValid()
 				}
 			}
 
-			// Update funds
+			// Update funds and transaction number
 			tmpFunds += tmpFunds2;
+			transactionNumber = txNPending;
 
 			console.Write("\tTransactions: " + std::to_string(trans.size()));
 
@@ -1104,8 +1124,8 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 			blockJson["nonce"] = "";
 			blockJson["time"] = "";
 			blockJson["Version"] = BLOCK_VERSION;
-			blockJson["transactions"] = std::vector<std::string>();
-			blockJson["transactionTimes"] = std::vector<std::string>();
+			blockJson["transactions"] = json::array();
+			//blockJson["transactionTimes"] = std::vector<std::string>();
 
 			// Save new json data to file into finished blockchain folder
 			try
@@ -1174,8 +1194,8 @@ int SendFunds(std::string toAddress, float amount)
 		blockJson["nonce"] = "";
 		blockJson["time"] = "";
 		blockJson["Version"] = BLOCK_VERSION;
-		blockJson["transactions"] = std::vector<std::string>();
-		blockJson["transactionTimes"] = std::vector<std::string>();
+		blockJson["transactions"] = json::array();
+		//blockJson["transactionTimes"] = std::vector<std::string>();
 
 		// Save new json data to file into finished blockchain folder
 		try
@@ -1265,10 +1285,20 @@ int SendFunds(std::string toAddress, float amount)
 		//std::string sighash = sha256OutBuffer;
 
 		// Append transaction to list
-		blockJson["transactions"].push_back(std::to_string(amount) + "->" + (std::string)walletInfo["Address"] + "->" + toAddress + "|" + sigBase64 + "|" + keypair[0]);
+		blockJson["transactions"].push_back(
+			{
+				{"fromAddr", (std::string)walletInfo["Address"]},
+				{"toAddr", toAddress},
+				{"signature", sigBase64},
+				{"pubKey", keypair[0]},
+				{"amount", amount},
+				{"txNum", transactionNumber},
+				{"note", ""}
+			}
+		);
 
-		// Append time to list
-		blockJson["transactionTimes"].push_back(sec);
+		//// Append time to list
+		//blockJson["transactionTimes"].push_back(sec);
 
 		// Save new json data to file
 		try
@@ -1318,7 +1348,7 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 	std::string nextBlockText = bufferd.str();
 	json o = json::parse(nextBlockText);
 
-	std::string transactions = JoinArrayPieces(o["transactions"]);
+	std::string transactions = o["transactions"].dump();
 	std::string currentHash = o["hash"];
 	std::string lastHash = o["lastHash"];
 

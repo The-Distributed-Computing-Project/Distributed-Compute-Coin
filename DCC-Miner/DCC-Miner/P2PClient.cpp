@@ -69,7 +69,10 @@ int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* 
 	int segmentCount = 1;
 	while (total < len) {
 		//std::string segInfo = "seg " + + " of " + + ", " + + " bytes|";
-		std::string segInfo = "seg :" + std::to_string(segmentCount) + ": of :" + std::to_string((int)ceil((float)len / 1000.0f)) + ": , :" + std::to_string((bytesleft < 1000) ? bytesleft : 1000) + ": bytes|||";
+		std::string segInfo = "seg :" + std::to_string(segmentCount) + 
+			": of :" + std::to_string((int)ceil((float)len / 1000.0f)) + 
+			": , :" + std::to_string((bytesleft < 1000) ? bytesleft : 1000) + 
+			": bytes|||";
 
 		int segSize = segInfo.size();
 
@@ -143,6 +146,7 @@ void P2P::ListenerThread(int update_interval)
 				int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
 				//console.WriteLine("Checked, parsing " + iResult);
 				std::cout << "iResult: " << std::to_string(iResult) << std::endl;
+				std::cout << "msgStat: " << messageStatus << std::endl;
 				if (iResult > 0) {
 
 					// Get the IPV4 address:port of the received data. If it
@@ -442,13 +446,19 @@ void P2P::SenderThread()
 		if (messageStatus == idle)
 			continue;
 
+		int messageMaxAttempts = 10;
+
 		// Begin sending messages, and stop when a reply is received
-		for (messageAttempt = 0; messageAttempt < 10; messageAttempt++)
+		for (messageAttempt = 0; messageAttempt < messageMaxAttempts; messageAttempt++)
 			//while (true)
 		{
 			// Stop sending if the message status switches to idle
 			if(messageStatus == idle)
+				//break;
+			{
+				console.WriteLine("Connected", console.greenFGColor, "");
 				break;
+			}
 
 			// If not in idle state, continue sending messages
 			std::string msg = "";
@@ -590,88 +600,15 @@ void P2P::SenderThread()
 
 			// Wait 3 seconds before sending next message
 			Sleep(3000);
-			//}
-			//// Else if in idle state, request input (temporary) and execute that input
-			//else if (!noinput) {
-			//	// Request console input
-			//	std::string inputCmd = "";
-			//	console.Write("\n\nP2P Shell $  ");
-			//	//std::cout << "Network Input*>  ";
-			//	std::getline(std::cin, inputCmd);
-
-			//	// Reset attempts to 0, since we are currently not sending messages
-			//	messageAttempt = 0;
-
-			//	// If the inputted command is blank or too small to be a command, try again.
-			//	if (inputCmd.length() == 0)
-			//		continue;
-
-			//	std::vector<std::string> cmdArgs = SplitString(inputCmd, " ");
-
-			//	// If user inputted `height` command
-			//	if (cmdArgs[0] == "height") {
-			//		messageStatus = requesting_height;
-			//		messageAttempt = 0;
-			//	}
-			//	// If user inputted `syncblock` command, and an argument
-			//	else if (cmdArgs[0] == "syncblock" && cmdArgs.size() >= 2) {
-			//		reqDat = std::stoi(cmdArgs[1]); // Block number is the first argument
-			//		messageStatus = requesting_block;
-			//		messageAttempt = 0;
-			//		Sleep(1000);
-			//	}
-			//	// If user inputted `noinput` command, stop requesting console input so the main thread is free to reply
-			//	else if (cmdArgs[0] == "noinput") {
-			//		noinput = true;
-			//	}
-			//	// If user inputted `syncpeers` command, request a list of known peers from the connection
-			//	else if (cmdArgs[0] == "syncpeers") {
-			//		messageStatus = requesting_peer_list;
-			//		messageAttempt = 0;
-			//	}
-			//	// If user inputted `exit` command, close the connection and exit the P2P shell
-			//	else if (cmdArgs[0] == "exit") {
-			//		messageStatus = disconnect_request; // Return disconnect request, so the other peer thread knows to shut down
-			//		messageAttempt = 0;
-			//		/*stop_thread_1 = true;
-			//		t1.join();
-			//		//stop_thread_1 = false;
-
-			//		closesocket(localSocket);
-			//		WSACleanup();
-
-			//		return 0;*/
-			//	}
-			//	else {
-			//		messageStatus = idle;
-			//		console.ErrorPrint();
-			//		console.WriteLine("Command not found: \"" + inputCmd + "\"");
-			//		//std::cout << "Command not found: \"" + inputCmd + "\"\n";
-			//	}
-			//}
-			//// If in listen mode, but the peer has disconnected, exit listen mode and close connection
-			//else if (CONNECTED_TO_PEER == false) {
-			//	//stop_thread_1 = true;
-			//	//t1.join();
-			//	//stop_thread_1 = false;
-
-			//	closesocket(localSocket);
-			//	WSACleanup();
-			//}
-			//// Otherwise, we are in listen mode and still connected
-			//else {
-			//	messageAttempt = 0;
-			//	console.WriteLine("listener status: " + std::to_string(thread_running));
-			//	Sleep(100);
-			//}
 		}
 
-		console.NetworkErrorPrint();
-		console.WriteLine("Peer Timed out", console.redFGColor, "");
+		if(messageAttempt == messageMaxAttempts){
+			console.NetworkErrorPrint();
+			console.WriteLine("Peer Timed out", console.redFGColor, "");
 
-		messageStatus = idle;
-		messageAttempt = 0;
-
+			messageStatus = idle;
+			messageAttempt = 0;
+		}
 		// Stop the current listening thread and continue
 		//stop_thread_1 = true;
 		//t1.join();

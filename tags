@@ -16843,7 +16843,7 @@ mesalink_send	DCC-Miner/out/_deps/curl-src/lib/vtls/mesalink.c	/^static Curl_sen
 mesalink_shutdown	DCC-Miner/out/_deps/curl-src/lib/vtls/mesalink.c	/^mesalink_shutdown(struct Curl_easy *data,$/;"	f	file:
 mesalink_version	DCC-Miner/out/_deps/curl-src/lib/vtls/mesalink.c	/^mesalink_version(char *buffer, size_t size)$/;"	f	file:
 messageAttempt	DCC-Miner/DCC-Miner/P2PClient.h	/^	int messageAttempt = 0;$/;"	m	class:P2P
-messageStatus	DCC-Miner/DCC-Miner/P2PClient.h	/^	std::atomic_int messageStatus = initial_connect_request;$/;"	m	class:P2P
+messageStatus	DCC-Miner/DCC-Miner/P2PClient.h	/^	int messageStatus = initial_connect_request;$/;"	m	class:P2P
 meta	DCC-Miner/DCC-Miner/json.hpp	/^            static basic_json meta()$/;"	f	class:nlohmann::nlohmann::nlohmann::basic_json
 method	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  Curl_HttpReq method;   \/* what kind of HTTP request (if any) is this *\/$/;"	m	struct:UserDefined
 method	DCC-Miner/out/_deps/zlib-src/deflate.c	/^int32_t Z_EXPORT PREFIX(deflateInit2_)(PREFIX3(stream) *strm, int32_t level, int32_t method, int32_t windowBits,$/;"	v

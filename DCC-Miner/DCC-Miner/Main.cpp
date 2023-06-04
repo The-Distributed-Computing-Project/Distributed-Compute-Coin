@@ -151,10 +151,20 @@ int main()
 		std::cin >> prt;
 		if(prt <= 0 || prt > 65535)
 			prt = 5000;
+
+		// Get public IP address
+		console.NetworkPrint();
+		console.WriteLine("Getting public IP address...");
+		Http http;
+		std::vector<std::string> args;
+		std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
+		console.NetworkPrint();
+		console.WriteLine("Done.");
+
 		std::ofstream configFile("./config.cfg");
 		if (configFile.is_open())
 		{
-			configFile << "{\"port\":" << std::to_string(prt) << "}";
+			configFile << "{\"port\":" << std::to_string(prt) << ",\"ip\":\"" << ipStr << "\"}";
 			configFile.close();
 		}
 	}
@@ -217,35 +227,20 @@ int main()
 	peerFile.close();
 
 
-	// Get public IP address and PORT
-	Http http;
-	std::vector<std::string> args;
-	std::string ipPortCombo = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP free
-
-
-	// Load the wallet config file and get the P2P port
+	// Load the wallet config file and get the P2P port and IP
 	std::ifstream conf("./config.cfg");
 	std::stringstream confbuf;
 	confbuf << conf.rdbuf();
 	walletConfig = json::parse(confbuf.str());
 
-	ipPortCombo += ":" + std::to_string((int)walletConfig["port"]); // Default PORT is 5000
+	//ipPortCombo += ":" + std::to_string((int)walletConfig["port"]); // Default PORT is 5000
 
-	if(constants::debugPrint == true)
-		std::cout << ipPortCombo << std::endl;
+	//if(constants::debugPrint == true)
+	//	std::cout << ipPortCombo << std::endl;
 
 
-	if (ipPortCombo != "")
-	{
-		endpointAddr = SplitString(ipPortCombo, ":")[0];
-		endpointPort = SplitString(ipPortCombo, ":")[1];
-	}
-	else
-	{
-		console.NetworkErrorPrint();
-		console.ExitError("Could not obtain public IP");
-		return 1;
-	}
+	endpointAddr = (std::string)walletConfig["ip"];
+	endpointPort = std::to_string((int)walletConfig["port"]);
 
 
 	// Open the socket required to accept P2P requests and send responses
@@ -771,10 +766,10 @@ int SyncBlock(int whichBlock)
 {
 	try
 	{
-		if (fs::exists("./wwwdata/blockchain/block" + std::to_string(whichBlock) + ".dccblock"))
-			return 1;
+		//if (fs::exists("./wwwdata/blockchain/block" + std::to_string(whichBlock) + ".dccblock"))
+		//	return 1;
 
-		p2p.messageStatus = p2p.requesting_block;
+		p2p.messageStatus = 6;
 		p2p.messageAttempt = 0;
 		p2p.reqDat = whichBlock;
 

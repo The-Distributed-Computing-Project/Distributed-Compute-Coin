@@ -4,7 +4,7 @@
 namespace constants
 {
     constexpr double pi{ 3.14159 };
-    constexpr bool debugPrint{ false };
+    constexpr bool debugPrint{ true };
 
 }
 #endif

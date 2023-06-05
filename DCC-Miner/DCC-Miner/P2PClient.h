@@ -24,7 +24,7 @@ public:
 	//void TaskRec();
 
 	int messageAttempt = 0;
-	std::atomic_int messageStatus = initial_connect_request;
+	std::atomic_int messageStatus = -1;
 	enum MsgStatus {
 		idle = -1,
 		initial_connect_request = 0,
@@ -43,8 +43,12 @@ public:
 
 	int reqDat = 0;
 
+	std::string peerIP;
+	int peerPort;
+
 	std::string NormalizedIPString(SOCKADDR_IN addr);
 	void ListenerThread(int update_interval);
+	void RandomizePeer();
 	int SafeSend(SOCKET s, char* buf, int buflen);
 	int OpenP2PSocket(int port);
 	void SenderThread();

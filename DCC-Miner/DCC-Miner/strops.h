@@ -2,6 +2,7 @@
 #define strops_h
 
 #include <vector>
+#include <string>
 
 std::string JoinArrayPieces(std::string input[]);
 std::string JoinArrayPieces(std::vector<std::string> input);

@@ -8864,6 +8864,7 @@ RTSPREQ_SET_PARAMETER	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^    RTSPREQ_S
 RTSPREQ_TEARDOWN	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^    RTSPREQ_TEARDOWN,$/;"	e	enum:__anon165
 R_OK	DCC-Miner/out/_deps/curl-src/lib/curl_path.h	33;"	d
 R_OK	DCC-Miner/out/_deps/curl-src/lib/mime.c	50;"	d	file:
+RandomizePeer	DCC-Miner/DCC-Miner/P2PClient.cpp	/^void P2P::RandomizePeer(){$/;"	f	class:P2P
 Range	DCC-Miner/out/_deps/cpr-src/include/cpr/range.h	/^    Range(const std::int64_t p_resume_from, const std::int64_t p_finish_at)$/;"	f	class:cpr::Range
 Range	DCC-Miner/out/_deps/cpr-src/include/cpr/range.h	/^class Range {$/;"	c	namespace:cpr
 ReadCallback	DCC-Miner/out/_deps/cpr-src/include/cpr/callback.h	/^    ReadCallback(cpr_off_t p_size, std::function<bool(char* buffer, size_t& size, intptr_t userdata)> p_callback, intptr_t p_userdata = 0) : userdata(p_userdata), size{p_size}, callback{std::move(p_callback)} {}$/;"	f	class:cpr::ReadCallback
@@ -16843,7 +16844,7 @@ mesalink_send	DCC-Miner/out/_deps/curl-src/lib/vtls/mesalink.c	/^static Curl_sen
 mesalink_shutdown	DCC-Miner/out/_deps/curl-src/lib/vtls/mesalink.c	/^mesalink_shutdown(struct Curl_easy *data,$/;"	f	file:
 mesalink_version	DCC-Miner/out/_deps/curl-src/lib/vtls/mesalink.c	/^mesalink_version(char *buffer, size_t size)$/;"	f	file:
 messageAttempt	DCC-Miner/DCC-Miner/P2PClient.h	/^	int messageAttempt = 0;$/;"	m	class:P2P
-messageStatus	DCC-Miner/DCC-Miner/P2PClient.h	/^	int messageStatus = initial_connect_request;$/;"	m	class:P2P
+messageStatus	DCC-Miner/DCC-Miner/P2PClient.h	/^	std::atomic_int messageStatus = -1;$/;"	m	class:P2P
 meta	DCC-Miner/DCC-Miner/json.hpp	/^            static basic_json meta()$/;"	f	class:nlohmann::nlohmann::nlohmann::basic_json
 method	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  Curl_HttpReq method;   \/* what kind of HTTP request (if any) is this *\/$/;"	m	struct:UserDefined
 method	DCC-Miner/out/_deps/zlib-src/deflate.c	/^int32_t Z_EXPORT PREFIX(deflateInit2_)(PREFIX3(stream) *strm, int32_t level, int32_t method, int32_t windowBits,$/;"	v
@@ -18047,8 +18048,10 @@ pcode	DCC-Miner/out/_deps/curl-src/tests/libtest/lib1560.c	/^  CURLUcode pcode; 
 peek_ipv6	DCC-Miner/out/_deps/curl-src/src/tool_urlglob.c	/^static bool peek_ipv6(const char *str, size_t *skip)$/;"	f	file:
 peer	DCC-Miner/out/_deps/curl-src/tests/server/tftpd.c	/^static curl_socket_t peer = CURL_SOCKET_BAD;$/;"	v	file:
 peerBlockchainLength	DCC-Miner/DCC-Miner/P2PClient.cpp	/^int peerBlockchainLength = 0;$/;"	v
+peerIP	DCC-Miner/DCC-Miner/P2PClient.h	/^	std::string peerIP;$/;"	m	class:P2P
 peerList	DCC-Miner/DCC-Miner/P2PClient.cpp	/^std::vector<std::string> peerList;$/;"	v
 peerPort	DCC-Miner/DCC-Miner/Main.cpp	/^std::string peerPort = "";$/;"	v
+peerPort	DCC-Miner/DCC-Miner/P2PClient.h	/^	int peerPort;$/;"	m	class:P2P
 pem_library	DCC-Miner/out/_deps/curl-src/lib/vtls/nss.c	/^static const char *pem_library = "libnsspem.dylib";$/;"	v	file:
 pem_library	DCC-Miner/out/_deps/curl-src/lib/vtls/nss.c	/^static const char *pem_library = "libnsspem.so";$/;"	v	file:
 pem_library	DCC-Miner/out/_deps/curl-src/lib/vtls/nss.c	/^static const char *pem_library = "nsspem.dll";$/;"	v	file:

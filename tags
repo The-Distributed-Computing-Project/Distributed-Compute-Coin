@@ -5,8 +5,8 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 0	DCC-Miner/DCC-Miner/Session.vim	/^normal! 0$/;"	m
-031|	DCC-Miner/DCC-Miner/Session.vim	/^normal! 031|$/;"	m
 072|	DCC-Miner/DCC-Miner/Session.vim	/^normal! 072|$/;"	m
+08|	DCC-Miner/DCC-Miner/Session.vim	/^normal! 08|$/;"	m
 ACHINE	DCC-Miner/out/_deps/curl-src/Makefile	/^	nmake \/f Makefile.vc MACHINE=x64$/;"	m
 ACHINE	DCC-Miner/out/_deps/curl-src/Makefile	/^	nmake \/f Makefile.vc MACHINE=x86$/;"	m
 ACTIVE	DCC-Miner/out/_deps/curl-src/tests/server/sockfilt.c	/^  ACTIVE,            \/* as a client, connected to a server *\/$/;"	e	enum:sockmode	file:
@@ -3687,6 +3687,7 @@ CaInfo	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    CaInfo(std::s
 CaInfo	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^class CaInfo {$/;"	c	namespace:cpr::ssl
 CaPath	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    CaPath(std::string&& p_filename) : filename(std::move(p_filename)) {}$/;"	f	class:cpr::ssl::CaPath
 CaPath	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^class CaPath {$/;"	c	namespace:cpr::ssl
+CalculateDifficulty	DCC-Miner/DCC-Miner/Main.cpp	/^int CalculateDifficulty(){$/;"	f
 CanFalseStartCallback	DCC-Miner/out/_deps/curl-src/lib/vtls/nss.c	/^static SECStatus CanFalseStartCallback(PRFileDesc *sock, void *client_data,$/;"	f	file:
 CaseInsensitiveCompare	DCC-Miner/out/_deps/cpr-src/include/cpr/cprtypes.h	/^struct CaseInsensitiveCompare {$/;"	s	namespace:cpr
 CertFile	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    CertFile(std::string&& p_filename) : filename(std::move(p_filename)) {}$/;"	f	class:cpr::ssl::CertFile
@@ -19018,12 +19019,10 @@ runtimestats	DCC-Miner/out/_deps/curl-src/tests/runtests.pl	/^sub runtimestats {
 rw_init	DCC-Miner/out/_deps/curl-src/tests/server/tftpd.c	/^static struct tftphdr *rw_init(int x)$/;"	f	file:
 rx_time	DCC-Miner/out/_deps/curl-src/lib/tftp.c	/^  time_t          rx_time;$/;"	m	struct:tftp_state_data	file:
 s	DCC-Miner/out/_deps/curl-src/tests/testcurl.pl	/^        s:\/:\\\\:g;$/;"	l
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 236 - ((10 * winheight(0) + 25) \/ 50)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 26 - ((25 * winheight(0) + 30) \/ 61)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 2760 - ((9 * winheight(0) + 5) \/ 10)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 56 - ((50 * winheight(0) + 30) \/ 61)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 677 - ((50 * winheight(0) + 30) \/ 61)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 7 - ((6 * winheight(0) + 30) \/ 61)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 1 - ((0 * winheight(0) + 25) \/ 51)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 3909 - ((8 * winheight(0) + 4) \/ 9)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 48 - ((47 * winheight(0) + 30) \/ 61)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 609 - ((32 * winheight(0) + 30) \/ 61)$/;"	v
 s:save_splitbelow	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_splitbelow = &splitbelow$/;"	v
 s:save_splitright	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_splitright = &splitright$/;"	v
 s:save_winminheight	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_winminheight = &winminheight$/;"	v

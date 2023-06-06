@@ -374,8 +374,8 @@ int main()
 						break;
 					}
 				}
-
-				while (!IsChainValid())
+				IsChainValid();
+				/*while (!IsChainValid())
 				{
 					for (auto oldBlock : fs::directory_iterator("./wwwdata/blockchain/"))
 					{
@@ -397,7 +397,7 @@ int main()
 							break;
 						}
 					}
-				}
+				}*/
 
 				if (GetProgram() == 0)
 				{
@@ -904,18 +904,19 @@ bool IsChainValid()
 
 			console.WriteBulleted("Validating block: " + std::to_string(i), 3);
 			char sha256OutBuffer[65];
-			sha256_string((char*)(lastHash + (std::string)o["transactions"].dump() + nonce).c_str(), sha256OutBuffer);
+			sha256_string((char*)((std::string)o["lastHash"] + o["transactions"].dump() + nonce).c_str(), sha256OutBuffer);
 			std::string blockHash = sha256OutBuffer;
+			std::cout << blockHash << std::endl;
 
 			if ((blockHash[0] != '0' && blockHash[1] != '0') || blockHash != currentHash || blockHash != nextHash)
 			{
 				std::string rr = "";
 				if ((blockHash[0] != '0' && blockHash[1] != '0'))
-					rr = "0";
+					rr += "0";
 				if (blockHash != currentHash)
-					rr = "1";
+					rr += "1";
 				if (blockHash != nextHash)
-					rr = "2";
+					rr += "2";
 				console.WriteLine("    X Bad Block X  " + std::to_string(i) + " R" + rr, console.redFGColor, "");
 				return false;
 			}
@@ -1055,7 +1056,7 @@ int CalculateDifficulty(){
 		secondCounts.push_back(difference);
 		
 		// Set new last time
-		lastTime = (uint64_t)o["time"]
+		lastTime = (uint64_t)o["time"];
 	}
 	
 	// Sort the vector so we can exlude the 60 lowest and 60 highest times
@@ -1135,7 +1136,8 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 		//std::to_string((int)walletInfo["BlockchainLength"] + 1)
 
 		// Convert hash into hexadecimal string
-		cstr_to_hexstr(hash, 32, sha256OutBuffer);
+		//cstr_to_hexstr(hash, 32, sha256OutBuffer);
+		sha256_string((char*)(hData + std::to_string(nonce)).c_str(), sha256OutBuffer);
 		std::string hashStr = std::string(sha256OutBuffer);
 
 

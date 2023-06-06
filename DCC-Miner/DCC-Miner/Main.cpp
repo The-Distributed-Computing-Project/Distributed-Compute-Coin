@@ -1024,6 +1024,54 @@ bool IsChainValid()
 	return true;
 }
 
+// Calculates the difficulty of the next block by looking at the past 720 blocks,
+// and averaging the time it took between each block to keep it within the 2 min (120 second) range
+int CalculateDifficulty(){
+	int blockCount = FileCount("./wwwdata/blockchain/");
+	
+	// Default difficulty 7 for the first 720 blocks 
+	if(blockCount < 720)
+		return 7;
+	
+	std::vector<uint16_t> secondCounts;
+	uint64_t lastTime = 0;
+	
+	// Get first block time
+	std::ifstream t("./wwwdata/blockchain/block" + std::to_string(blockCount - 720) + ".dccblock");
+	std::stringstream buffer;
+	buffer << t.rdbuf();
+	json ot = json::parse(buffer.str());
+	lastTime = (uint64_t)ot["time"];
+	
+	// Iterate last 720 blocks and add their
+	for(int i = blockCount - 719; i <= blockCount; i++){
+		std::ifstream tt("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
+		std::stringstream buffert;
+		buffert << tt.rdbuf();
+		json o = json::parse(buffert.str());
+		
+		// Get difference between last block time and this one, then add to vector of differences
+		uint16_t difference = (uint64_t)o["time"] - lastTime;
+		secondCounts.push_back(difference);
+		
+		// Set new last time
+		lastTime = (uint64_t)o["time"]
+	}
+	
+	// Sort the vector so we can exlude the 60 lowest and 60 highest times
+	std::sort(secondCounts.begin(), secondCounts.end());
+	
+	// Get average of middle 600 block times
+	uint32_t averageTotal = 0;
+	for(int i = 60; i < 660; i++)
+		averageTotal += secondCounts[i];
+	//averageTotal /= 600;  // Divide by total, which gives the average
+	
+	// Expected: 86400 seconds
+	
+	return 0;
+}
+
 // Mine a single block with specified data and using the difficulty stored in walletInfo["MineDifficulty"]
 int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 {

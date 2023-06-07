@@ -69,9 +69,9 @@ int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* 
 	int segmentCount = 1;
 	while (total < len) {
 		//std::string segInfo = "seg " + + " of " + + ", " + + " bytes|";
-		std::string segInfo = "seg :" + std::to_string(segmentCount) + 
-			": of :" + std::to_string((int)ceil((float)len / 1000.0f)) + 
-			": , :" + std::to_string((bytesleft < 1000) ? bytesleft : 1000) + 
+		std::string segInfo = "seg :" + std::to_string(segmentCount) +
+			": of :" + std::to_string((int)ceil((float)len / 1000.0f)) +
+			": , :" + std::to_string((bytesleft < 1000) ? bytesleft : 1000) +
 			": bytes|||";
 
 		int segSize = segInfo.size();
@@ -145,8 +145,9 @@ void P2P::ListenerThread(int update_interval)
 				//std::cout << "WAITING TO RECEIVE" <<std::endl;
 				int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
 				//console.WriteLine("Checked, parsing " + iResult);
-				std::cout << "iResult: " << std::to_string(iResult) << std::endl;
-				std::cout << "msgStat: " << messageStatus << std::endl;
+				if (constants::debugPrint == true)
+					std::cout << "iResult: " << std::to_string(iResult) << std::endl;
+				//std::cout << "msgStat: " << messageStatus << std::endl;
 				if (iResult > 0) {
 
 					// Get the IPV4 address:port of the received data. If it
@@ -356,7 +357,7 @@ void P2P::ListenerThread(int update_interval)
 						console.WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + totalMessage + "\t status: " + std::to_string(messageStatus));
 					}
 				}
-				else if(WSAGetLastError() != WSAETIMEDOUT && constants::debugPrint == true) {
+				else if (WSAGetLastError() != WSAETIMEDOUT && constants::debugPrint == true) {
 					console.NetworkErrorPrint();
 					console.WriteLine("Error: Peer closed.");
 					CONNECTED_TO_PEER = false;
@@ -415,7 +416,7 @@ int P2P::OpenP2PSocket(int port)
 }
 
 // Function to get random peer credentials from the peerList
-void P2P::RandomizePeer(){
+void P2P::RandomizePeer() {
 	uint16_t randI = rand() % peerList.size();
 	peerIP = SplitString(peerList[randI], ":")[0];
 	peerPort = stoi(SplitString(peerList[randI], ":")[1]);
@@ -435,12 +436,12 @@ void P2P::SenderThread()
 	//for (int t = 0; t < 20; t++)
 	while (true)
 	{
-	//	// If not connected to a peer, continue
-	//	if (!CONNECTED_TO_PEER)
-	//		continue;
-	
-		//std::string peerIP = SplitString(peerList[0], ":")[0];
-		//int peerPort = stoi(SplitString(peerList[0], ":")[1]);
+		//	// If not connected to a peer, continue
+		//	if (!CONNECTED_TO_PEER)
+		//		continue;
+
+			//std::string peerIP = SplitString(peerList[0], ":")[0];
+			//int peerPort = stoi(SplitString(peerList[0], ":")[1]);
 
 		otherAddr.sin_port = htons(peerPort);
 		otherAddr.sin_family = AF_INET;
@@ -462,7 +463,7 @@ void P2P::SenderThread()
 			//while (true)
 		{
 			// Stop sending if the message status switches to idle
-			if(messageStatus == idle)
+			if (messageStatus == idle)
 				//break;
 			{
 				console.WriteLine("Connected", console.greenFGColor, "");
@@ -604,10 +605,10 @@ void P2P::SenderThread()
 			Sleep(500);
 		}
 
-		if(messageAttempt == messageMaxAttempts){
+		if (messageAttempt == messageMaxAttempts) {
 			console.NetworkErrorPrint();
 			console.WriteLine("Peer Timed out", console.redFGColor, "");
-			
+
 			RandomizePeer();
 
 			messageStatus = idle;

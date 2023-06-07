@@ -64,6 +64,9 @@ void sha256_full_cstr(char* str, unsigned char outputBuffer[SHA256_DIGEST_LENGTH
 	//outputBuffer = (char*)hash;
 }
 
+char charArray[32];
+char charArray64[65];
+
 // Convert the SHA-256 unsigned char* <hash> into a hex encoding, outputing into char[] <outputBuffer>
 void cstr_to_hexstr(unsigned char* str, int clen, char outputBuffer[65])
 {
@@ -73,6 +76,41 @@ void cstr_to_hexstr(unsigned char* str, int clen, char outputBuffer[65])
 		sprintf(outputBuffer + (i * 2), "%02x", str[i]);
 	}
 	outputBuffer[64] = 0;
+}
+
+// Convert the SHA-256 unsigned char* <hash> into a hex encoding, outputing into char[] <outputBuffer>
+char* cstr_to_hexstr(unsigned char* str, int clen)
+{
+	//int i = 0;
+	for (int i = 0; i < clen; i++)
+	{
+		sprintf(charArray64 + (i * 2), "%02x", str[i]);
+	}
+	charArray64[64] = 0;
+}
+
+// Function to convert a hexadecimal string into a char*
+char* hexstr_to_cstr(const std::string& hexString) {
+	size_t length = hexString.length();
+	//size_t charArrayLength = length / 2 + length % 2; // Number of chars needed to represent the hex string
+	//char* charArray = new char[32]; // +1 for the null terminator
+
+	size_t index = 0;
+	size_t charIndex = 0;
+	//if (length % 2 != 0) {
+	//	// If the hex string has an odd length, handle the first digit separately
+	//	charArray[charIndex++] = static_cast<char>(std::stoi(hexString.substr(index, 1), nullptr, 16));
+	//	index++;
+	//}
+
+	// Convert the remaining digits of the hex string
+	while (index < length) {
+		charArray[index/2] = static_cast<char>(std::stoi(hexString.substr(index, 2), nullptr, 16));
+		index += 2;
+	}
+
+
+	return charArray;
 }
 
 //unsigned char* hexstr_to_cstr(char* str, int clen)

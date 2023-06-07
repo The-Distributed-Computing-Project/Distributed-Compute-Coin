@@ -67,6 +67,7 @@ int GetProgram();
 int Sync();
 int SyncPending(int whichBlock);
 int SyncBlock(int whichBlock);
+std::string CalculateDifficulty();
 int Mine(json currentBlockJson, int blockNum);
 int MineAnyBlock(int blockNum, std::string difficulty);
 float GetProgramLifeLeft(std::string id);
@@ -100,7 +101,7 @@ json walletConfig;
 json walletInfo;
 
 const std::string VERSION = "v0.2.0-alpha";
-const std::string BLOCK_VERSION = "v0.2.0-alpha-coin";
+const std::string BLOCK_VERSION = "v0.3.0-alpha-coin";
 
 std::string endpointAddr = "";
 std::string endpointPort = "";
@@ -293,6 +294,11 @@ int main()
 	console.WriteLine("$" + CommaLargeNumber((float)walletInfo["Funds"]) + "\n", console.yellowFGColor, "");
 
 
+	//console.Write("comparing 2983 > 3987   = ");
+	//console.WriteLine(std::to_string(CompareCharNumbers("2983", "3987")));
+	//console.Write("comparing 739834 > 8302   = ");
+	//console.WriteLine(std::to_string(CompareCharNumbers("739834", "008302")));
+
 	//
 	// Start command loop
 	//
@@ -332,10 +338,10 @@ int main()
 		{
 			console.SystemPrint();
 			console.WriteLine("Calculating difficulty...");
-			int dif = CalculateDifficulty;
-			
+			std::string dif = CalculateDifficulty();
+
 			console.SystemPrint();
-			console.WriteLine("The current difficulty is: " + CommaLargeNumber(dif) + ", which looks like: ");
+			console.WriteLine("The current difficulty is: " + dif + ", which looks like: " + ExtractPaddedChars(dif, '0'));
 			continue;
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--SYNC" || SplitString(ToUpper(command), " ")[0] == "-S")
@@ -435,6 +441,11 @@ int main()
 				blockFile.close();
 
 				json blockJson = json::parse(content);
+
+				std::string dif = CalculateDifficulty();
+				console.SystemPrint();
+				console.WriteLine("The current difficulty is: " + dif);
+				console.WriteLine("Which looks like: " + ExtractPaddedChars(dif, '0'));
 
 				// Add the mine award to the front of transactions before starting to mine,
 				// which will verify this as the recipient should it succeed.
@@ -887,7 +898,7 @@ bool IsChainValid()
 			//std::cout << "Transactions: " << std::to_string(trans.size()) << std::endl;
 
 
-			if (o["Version"] == nullptr || o["Version"] == "" || o["Version"] != BLOCK_VERSION)
+			if (o["_version"] == nullptr || o["_version"] == "" || o["_version"] != BLOCK_VERSION)
 			{
 				UpgradeBlock(o, BLOCK_VERSION);
 				std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
@@ -903,8 +914,8 @@ bool IsChainValid()
 			std::string nonce = o["nonce"];
 			//std::string transactions = JoinArrayPieces(trans);
 
-			if (i+1 == chainLength)
-				continue;
+			//if (i + 1 == chainLength)
+			//	continue;
 
 			std::ifstream td("./wwwdata/blockchain/block" + std::to_string(i + 1) + ".dccblock");
 			std::stringstream bufferd;
@@ -915,7 +926,7 @@ bool IsChainValid()
 
 			std::string nextHash = o2["lastHash"];
 
-			if (o2["Version"] == nullptr || o2["Version"] == "" || o2["Version"] != BLOCK_VERSION)
+			if (o2["_version"] == nullptr || o2["_version"] == "" || o2["_version"] != BLOCK_VERSION)
 			{
 				UpgradeBlock(o, BLOCK_VERSION);
 				std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i + 1) + ".dccblock");
@@ -926,8 +937,10 @@ bool IsChainValid()
 				}
 			}
 
-			console.Write("\r");
-			console.WriteBulleted("Validating block: " + std::to_string(i), 2);
+			if (i % 10 == 0 || i >= chainLength - 2) {
+				console.Write("\r");
+				console.WriteBulleted("Validating block: " + std::to_string(i), 2);
+			}
 			char sha256OutBuffer[65];
 			// The data we will actually be hashing is a hash of the
 			// transactions and header, so we don't need to do calculations on
@@ -1042,9 +1055,12 @@ bool IsChainValid()
 			//console.WriteLine(std::to_string(tmpFunds+1));
 			transactionNumber = txNPending;
 
-			console.Write("\tTransactions: " + std::to_string(o["transactions"].size()));
 
-			console.Write(" \tOk  ", console.greenFGColor, "");
+			if (i % 10 == 0 || i >= chainLength - 2) {
+				console.Write("\tTransactions: " + std::to_string(o["transactions"].size()));
+
+				console.Write(" \tOk  ", console.greenFGColor, "");
+			}
 
 			//console.BlockCheckerPrint();
 			//std::cout << "  funds: " + std::to_string(tmpFunds2) << std::endl;
@@ -1062,14 +1078,191 @@ bool IsChainValid()
 	return true;
 }
 
+// Function to multiply a large hexadecimal number by an integer
+std::string multiplyHexByInteger(const std::string& hexNumber, int multiplier) {
+	// Convert the multiplier to hexadecimal string
+	std::string multiplierHex = std::to_string(multiplier);
+	std::string resultHex;
+
+	// Perform multiplication digit by digit
+	int carry = 0;
+	for (int i = hexNumber.length() - 1; i >= 0; --i) {
+		char hexDigit = hexNumber[i];
+
+		// Convert the hexadecimal digit to its decimal value
+		int digitValue;
+		if (hexDigit >= '0' && hexDigit <= '9') {
+			digitValue = hexDigit - '0';
+		}
+		else if (hexDigit >= 'A' && hexDigit <= 'F') {
+			digitValue = hexDigit - 'A' + 10;
+		}
+		else if (hexDigit >= 'a' && hexDigit <= 'f') {
+			digitValue = hexDigit - 'a' + 10;
+		}
+		else {
+			// Invalid character in the hexadecimal string
+			std::cerr << "Invalid hexadecimal string!" << std::endl;
+			return "";
+		}
+
+		// Perform the multiplication and add the carry
+		int product = digitValue * multiplier + carry;
+		carry = product / 16;
+
+		// Convert the product back to hexadecimal digit
+		int remainder = product % 16;
+		char hexResult;
+		if (remainder < 10) {
+			hexResult = '0' + remainder;
+		}
+		else {
+			hexResult = 'A' + remainder - 10;
+		}
+
+		// Add the hexadecimal digit to the result string
+		resultHex = hexResult + resultHex;
+	}
+
+	// Add the carry if any
+	if (carry > 0) {
+		char hexCarry = '0' + carry;
+		resultHex = hexCarry + resultHex;
+	}
+
+	return resultHex;
+}
+
+// Function to divide a large hexadecimal number by a float
+std::string divideHexByFloat(const std::string& hexNumber, float divisor) {
+	std::string quotientHex;
+	int dividend = 0;
+	bool nonZeroFound = false;
+
+	// Iterate over each digit in the hexadecimal number
+	for (char hexDigit : hexNumber) {
+		int dividendDigit;
+		if (hexDigit >= '0' && hexDigit <= '9') {
+			dividendDigit = hexDigit - '0';
+		}
+		else if (hexDigit >= 'A' && hexDigit <= 'F') {
+			dividendDigit = hexDigit - 'A' + 10;
+		}
+		else if (hexDigit >= 'a' && hexDigit <= 'f') {
+			dividendDigit = hexDigit - 'a' + 10;
+		}
+		else {
+			// Invalid character in the hexadecimal string
+			std::cerr << "Invalid hexadecimal string!" << std::endl;
+			return "";
+		}
+
+		dividend = dividend * 16 + dividendDigit;
+
+		if (dividend >= divisor) {
+			int quotient = dividend / divisor;
+			char hexQuotient;
+			if (quotient < 10) {
+				hexQuotient = '0' + quotient;
+			}
+			else {
+				hexQuotient = 'A' + quotient - 10;
+			}
+			quotientHex += hexQuotient;
+			nonZeroFound = true;
+			dividend = dividend % static_cast<int>(divisor);
+		}
+		else if (nonZeroFound) {
+			quotientHex += '0';
+		}
+	}
+
+	return quotientHex;
+}
+
+std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier) {
+
+	if (true) {
+		int divisor = 1.0 / (multiplier - (long)multiplier);
+		return divideHexByFloat(hexNumber, divisor);
+	}
+	else {
+
+		std::string resultHex;
+
+		// Perform multiplication digit by digit
+		int carry = 0;
+		for (int i = hexNumber.length() - 1; i >= 0; --i) {
+			char hexDigit = hexNumber[i];
+
+			// Convert the hexadecimal digit to its decimal value
+			int digitValue;
+			if (hexDigit >= '0' && hexDigit <= '9') {
+				digitValue = hexDigit - '0';
+			}
+			else if (hexDigit >= 'A' && hexDigit <= 'F') {
+				digitValue = hexDigit - 'A' + 10;
+			}
+			else if (hexDigit >= 'a' && hexDigit <= 'f') {
+				digitValue = hexDigit - 'a' + 10;
+			}
+			else {
+				// Invalid character in the hexadecimal string
+				std::cerr << "Invalid hexadecimal string!" << std::endl;
+				return "";
+			}
+
+			// Perform the multiplication and add the carry
+			int product = digitValue * multiplier + carry;
+			carry = product / 16;
+
+			// Convert the product back to hexadecimal digit
+			int remainder = product % 16;
+			char hexResult;
+			if (remainder < 10) {
+				hexResult = '0' + remainder;
+			}
+			else {
+				hexResult = 'A' + remainder - 10;
+			}
+
+			// Add the hexadecimal digit to the result string
+			resultHex = hexResult + resultHex;
+		}
+
+		// Add the carry if any
+		if (carry > 0) {
+			char hexCarry = '0' + carry;
+			resultHex = hexCarry + resultHex;
+		}
+
+		return resultHex;
+	}
+
+}
+
+float clampf(float x, float min, float max) {
+	if (x < min)
+		return min;
+	else if (x > max)
+		return max;
+	else [[likely]]
+		return x;
+}
+
 // Calculates the difficulty of the next block by looking at the past 720 blocks,
 // and averaging the time it took between each block to keep it within the 2 min (120 second) range
-int CalculateDifficulty() {
+std::string CalculateDifficulty() {
+	std::string targetDifficulty = "0000000FFFF0000000000000000000000000000000000000000000000000000";
+
 	int blockCount = FileCount("./wwwdata/blockchain/");
 
 	// Default difficulty 7 for the first 720 blocks 
-	if (blockCount < 720)
-		return 7;
+	if (blockCount <= 721) {
+		walletInfo["targetDifficulty"] = targetDifficulty;
+		walletInfo["MineDifficulty"] = ExtractPaddedChars(targetDifficulty, '0');
+		return targetDifficulty;
+	}
 
 	std::vector<uint16_t> secondCounts;
 	uint64_t lastTime = 0;
@@ -1096,31 +1289,59 @@ int CalculateDifficulty() {
 		lastTime = (uint64_t)o["time"];
 	}
 
-	// Sort the vector so we can exlude the 60 lowest and 60 highest times
+	// Sort the vector so we can exclude the 60 lowest and 60 highest times
 	std::sort(secondCounts.begin(), secondCounts.end());
 
 	// Get average of middle 600 block times
-	uint32_t averageTotal = 0;
+	uint32_t avgTotal = 0;
 	for (int i = 60; i < 660; i++)
-		averageTotal += secondCounts[i];
-	averageTotal /= 600;  // Divide by total, which gives the average
+		avgTotal += secondCounts[i];
+	uint32_t average = avgTotal / 600;  // Divide by total, which gives the average
 
 	// Expected: 86400 seconds total,or 120 seconds average
-	
-	if(averageTotal)
 
-	return 0;
+	// Get the previous target difficulty (from 720 blocks ago)
+	try
+	{
+		std::ifstream tt("./wwwdata/blockchain/block" + std::to_string(blockCount-719) + ".dccblock");
+		std::stringstream buffert;
+		buffert << tt.rdbuf();
+		json o = json::parse(buffert.str());
+
+		targetDifficulty = (std::string)o["targetDifficulty"];
+	}
+	catch (const std::exception&)
+	{
+	}
+
+	double ratio = clampf((double)avgTotal / 86400.0, 0.25, 4.0);
+
+	std::cout << "Average time: " << average << "s" << std::endl;
+	std::cout << "Ratio: " << ratio << std::endl;
+	std::cout << "Last target difficulty: " << targetDifficulty << std::endl;
+
+
+	std::string newDifficulty = PadString(multiplyHexByFloat(targetDifficulty, ratio), '0', 64);
+	walletInfo["targetDifficulty"] = newDifficulty;
+	walletInfo["MineDifficulty"] = ExtractPaddedChars(targetDifficulty, '0');
+	//std::string hex = "00000FFFF000000000000000000000000000000000000000000000000000000";
+	//hex = multiplyHexByFloat(hex, ratio);
+	//std::cout << "FF * 0.6: " << hex << std::endl;
+	//hex = multiplyHexByFloat(hex, ratio);
+	//std::cout << "FF * 0.6: " << hex << std::endl;
+
+	return newDifficulty;
 }
 
 // Mine a single block with specified data and using the difficulty stored in walletInfo["MineDifficulty"]
 int Mine(json currentBlockJson, int blockNum)
 {
-	walletInfo["MineDifficulty"] = "000000";
+	//walletInfo["targetDifficulty"] = "00000000000FFFF000000000000000000000000000000000000000000000000";
 	console.MiningPrint();
 	console.Write("Mining ");
 	console.Write("block " + std::to_string(blockNum), console.whiteBGColor, console.blackFGColor);
 	console.Write(" at difficulty ");
-	console.Write((std::string)walletInfo["MineDifficulty"], console.whiteBGColor, console.blackFGColor);
+	console.Write((std::string)walletInfo["targetDifficulty"], console.whiteBGColor, console.blackFGColor);
 	console.Write(" :");
 	console.Write("\n");
 	try
@@ -1135,14 +1356,19 @@ int Mine(json currentBlockJson, int blockNum)
 
 		//Checks Hash
 		int nonce = 0;
-		unsigned char hash[32];
-		std::string dif = (std::string)walletInfo["MineDifficulty"];
-		char* c_difficulty = (char*)dif.c_str();
+		unsigned char hash[32] = "fffffffffffffffffffffffffffffff";
+		std::string dif = (std::string)walletInfo["targetDifficulty"];
+		unsigned char* c_difficulty = (unsigned char*)hexstr_to_cstr(dif);
+		//for (size_t i = 0; i < 32; i++)
+		//	std::cout << (int)c_difficulty[i] << " ";
+		//std::cout << std::endl;
+		//console.WriteLineCharArrayOfLen((char*)c_difficulty, 32);
+		//std::cout << cstr_to_hexstr(c_difficulty, 32) << std::endl;
 		int difficultyLen = dif.length();
 		auto hashStart = std::chrono::steady_clock::now();
 		int hashesPerSecond = 0;
 		int hashesAtStart = 0;
-
+		//return 0;
 		// The data we will actually be mining for is a hash of the
 		// transactions and header, so we don't need to do calculations on
 		// massive amounts of data
@@ -1150,7 +1376,9 @@ int Mine(json currentBlockJson, int blockNum)
 		sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
 		std::string hData = std::string(sha256OutBuffer);
 
-		while (!CharStrStartsWith(hash, c_difficulty, difficultyLen))
+		//while (!CharStrStartsWith(hash, c_difficulty, difficultyLen))
+		// While hash is not less than the target difficulty number
+		while (!CompareCharNumbers(c_difficulty, hash))
 		{
 			if ((since(hashStart).count() / 1000) >= 1)
 			{
@@ -1166,6 +1394,9 @@ int Mine(json currentBlockJson, int blockNum)
 			nonce++;
 			sha256_full_cstr((char*)(hData + std::to_string(nonce)).c_str(), hash);
 		}
+		//for (size_t i = 0; i < 32; i++)
+		//	std::cout << (int)hash[i] << " ";
+		//std::cout << std::endl;
 
 		std::cout << std::endl;
 
@@ -1198,6 +1429,7 @@ int Mine(json currentBlockJson, int blockNum)
 		//json blockJson = json::parse(content);
 
 		currentBlockJson["hash"] = hashStr;
+		currentBlockJson["targetDifficulty"] = (std::string)walletInfo["targetDifficulty"];
 		currentBlockJson["nonce"] = std::to_string(nonce);
 		// Get current unix time in seconds
 		uint64_t sec = duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
@@ -1231,7 +1463,8 @@ int Mine(json currentBlockJson, int blockNum)
 			blockJson["lastHash"] = hashStr;
 			blockJson["nonce"] = "";
 			blockJson["time"] = "";
-			blockJson["Version"] = BLOCK_VERSION;
+			blockJson["targetDifficulty"] = "";
+			blockJson["_version"] = BLOCK_VERSION;
 			blockJson["transactions"] = json::array();
 			//blockJson["transactionTimes"] = std::vector<std::string>();
 
@@ -1301,7 +1534,8 @@ int SendFunds(std::string toAddress, float amount)
 		blockJson["lastHash"] = (std::string)lastBlockJson["hash"];
 		blockJson["nonce"] = "";
 		blockJson["time"] = "";
-		blockJson["Version"] = BLOCK_VERSION;
+		blockJson["targetDifficulty"] = "";
+		blockJson["_version"] = BLOCK_VERSION;
 		blockJson["transactions"] = json::array();
 		//blockJson["transactionTimes"] = std::vector<std::string>();
 
@@ -1597,7 +1831,7 @@ json UpgradeBlock(json b, std::string toVersion)
 	// * Update version
 	if (toVersion == "v0.01alpha-coin")
 	{
-		b["Version"] = toVersion;
+		b["_version"] = toVersion;
 	}
 
 	// Changes:
@@ -1605,25 +1839,16 @@ json UpgradeBlock(json b, std::string toVersion)
 	// * Update version
 	if (toVersion == "v0.2.0-alpha-coin")
 	{
-		//int listSize = b["transactions"].size();
-		//for(int i = 0; i < listSize; i++){
-		//	b["transactions"] = {
-		//		"tx",{
-		//			{"fromAddr", (std::string)walletInfo["Address"]},
-		//			{"toAddr", toAddress},
-		//			{"amount", amount},
-		//			{"txNum", (int)walletInfo["BlockchainLength"] + 1},
-		//		}
-		//		"sec",{
-		//			{"signature", ""},
-		//			{"pubKey", keypair[0]},
-		//			{"note", ""}
-		//		}
-		//	};
-		//}
+		b["_version"] = toVersion;
+	}
 
-
-		b["Version"] = toVersion;
+	// Changes:
+	// * Add new targetDifficulty variable
+	// * Update version
+	if (toVersion == "v0.3.0-alpha-coin")
+	{
+		b["targetDifficulty"] = "0000000FFFF0000000000000000000000000000000000000000000000000000";
+		b["_version"] = toVersion;
 	}
 
 	return b;

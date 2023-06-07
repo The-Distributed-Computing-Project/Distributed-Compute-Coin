@@ -16,6 +16,8 @@ void sha256_string(char* string, char outputBuffer[65]);
 void sha256_full_cstr(char* string, unsigned char outputBuffer[SHA256_DIGEST_LENGTH]);
 
 void cstr_to_hexstr(unsigned char* str, int clen, char outputBuffer[65]);
+char* cstr_to_hexstr(unsigned char* str, int clen);
+char* hexstr_to_cstr(const std::string& hexString);
 
 int sha256_file(char* path, char outputBuffer[65]);
 

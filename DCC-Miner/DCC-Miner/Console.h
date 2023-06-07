@@ -81,6 +81,8 @@ public:
 	void WriteBulleted(std::string message, int indents, std::string bullet);
 	void WriteBulleted(std::string message, int indents);
 
+	void WriteLineCharArrayOfLen(char* message, int len);
+
 	std::string ReadLine();
 
 	void ExitError(std::string errMessage);

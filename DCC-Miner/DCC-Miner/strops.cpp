@@ -53,6 +53,29 @@ std::string CommaLargeNumber(float num) {
 	return s;
 }
 
+// Function to pad the front of a string with a character to make it a certain length
+std::string PadString(const std::string& input, char padChar, size_t desiredLength) {
+	std::string result = input;
+	while (result.length() < desiredLength) {
+		result.insert(result.begin(), padChar);
+	}
+	return result;
+}
+
+// Function to extract the padded characters from the front of a string until another character is found
+std::string ExtractPaddedChars(const std::string& input, char padChar) {
+	std::string result;
+	size_t index = 0;
+
+	// Extract the padded characters until a non-padded character is found
+	while (index < input.length() && input[index] == padChar) {
+		result += input[index];
+		index++;
+	}
+
+	return result;
+}
+
 // Split a string <str> by a delimiter <delim>, and return a vector of strings
 std::vector<std::string> SplitString(std::string str, std::string delim)
 {
@@ -160,6 +183,34 @@ bool CharStrStartsWith(unsigned char* str, char* substr, int len)
 			return false;
 	}
 	return true;
+}
+
+// Function to compare two char* representing numbers
+bool CompareCharNumbers(const unsigned char* number1, const unsigned char* number2) {
+	//// Skip leading zeros
+	//while (*number1 == '0' && *(number1 + 1) != '\0') {
+	//	number1++;
+	//}
+	//while (*number2 == '0' && *(number2 + 1) != '\0') {
+	//	number2++;
+	//}
+
+	int it = 0;
+	// Compare the remaining digits
+	while (it < 32) {
+		if (*number1 < *number2) {
+			return false;
+		}
+		else if (*number1 > *number2) {
+			return true;
+		}
+		number1++;
+		number2++;
+		it++;
+	}
+
+	// If one number has more digits, the shorter one is considered smaller
+	return *number1 == '\0' && *number2 != '\0';
 }
 
 // Replace all instances of the escape symbol '\n' with the string "\\n"

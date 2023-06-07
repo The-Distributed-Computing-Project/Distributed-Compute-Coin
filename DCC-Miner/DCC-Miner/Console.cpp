@@ -222,6 +222,13 @@ void Console::WriteBulleted(std::string message, int indents)
 		ind += "\t";
 	Console::PrintColored(ind + "- " + message, "", "");
 }
+void Console::WriteLineCharArrayOfLen(char* message, int len)
+{
+	for (size_t i = 0; i < len; i++)
+		std::cout << message[i];
+
+	std::cout << std::endl;
+}
 //void Console::WriteDialogueAuthor(std::string coloredType)
 //{
 //	Console::PrintColored(coloredType, "", "");

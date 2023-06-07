@@ -67,7 +67,7 @@ int GetProgram();
 int Sync();
 int SyncPending(int whichBlock);
 int SyncBlock(int whichBlock);
-int Mine(std::string lastHash, std::string transactionHistory, int blockNum);
+int Mine(json currentBlockJson, int blockNum);
 int MineAnyBlock(int blockNum, std::string difficulty);
 float GetProgramLifeLeft(std::string id);
 double round(float value, int decimal_places);
@@ -149,7 +149,7 @@ int main()
 		console.ErrorPrint();
 		console.Write("config file not found. \nPlease input the port # you want to use \n(default 5000): ");
 		std::cin >> prt;
-		if(prt <= 0 || prt > 65535)
+		if (prt <= 0 || prt > 65535)
 			prt = 5000;
 
 		// Get public IP address
@@ -254,7 +254,7 @@ int main()
 	//
 	// Gather wallet information, validate blockchain, and print information.
 	//	
-	
+
 	console.SystemPrint();
 	console.WriteLine("Getting wallet info...");
 
@@ -273,15 +273,15 @@ int main()
 	Sync();
 	try
 	{
-		if (constants::debugPrint == true) {
-			console.BlockCheckerPrint();
-			console.WriteLine("Validating blockchain...");
-		}
+		//if (constants::debugPrint == true) {
+		console.BlockCheckerPrint();
+		console.WriteLine("Validating blockchain...");
+		//}
 		IsChainValid();
-		if (constants::debugPrint == true) {
-			console.BlockCheckerPrint();
-			console.WriteLine("Done!");
-		}
+		//if (constants::debugPrint == true) {
+		console.BlockCheckerPrint();
+		console.WriteLine("Done!");
+		//}
 	}
 	catch (const std::exception&)
 	{
@@ -301,7 +301,7 @@ int main()
 		console.Write("Input:  ");
 		std::string command = console.ReadLine();
 
-		if(command == "") {
+		if (command == "") {
 			console.ErrorPrint();
 			console.WriteLine("Invalid command");
 			continue;
@@ -319,6 +319,13 @@ int main()
 		else if (SplitString(ToUpper(command), " ")[0] == "--VERSION" || SplitString(ToUpper(command), " ")[0] == "-V")
 		{
 			Logo();
+			continue;
+		}
+		else if (SplitString(ToUpper(command), " ")[0] == "--FUNDS")
+		{
+			console.SystemPrint();
+			console.Write("You have: ");
+			console.WriteLine("$" + CommaLargeNumber((float)walletInfo["Funds"]) + "\n", console.yellowFGColor, "");
 			continue;
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--SYNC" || SplitString(ToUpper(command), " ")[0] == "-S")
@@ -418,25 +425,24 @@ int main()
 				blockFile.close();
 
 				json blockJson = json::parse(content);
-				
+
 				// Add the mine award to the front of transactions before starting to mine,
 				// which will verify this as the recipient should it succeed.
-				blockJson["transactions"].insert(blockJson["transactions"].begin(), 
-					{
-						{"fromAddr", "Block Award"},
+				json txDat = json::object({});
+				txDat["tx"] = {
+						{"fromAddr", "Block Reward"},
 						{"toAddr", (std::string)walletInfo["Address"]},
+						{"amount", 1},
+						{"txNum", (int)walletInfo["BlockchainLength"] + 1}
+				};
+				txDat["sec"] = {
 						{"signature", ""},
 						{"pubKey", keypair[0]},
-						{"amount", 1},
-						{"txNum", (int)walletInfo["BlockchainLength"] + 1},
 						{"note", ""}
-					}
-				);
-				
-				std::string transactions = blockJson["transactions"].dump();
-				std::string lastHash = (std::string)blockJson["lastHash"];
+				};
+				blockJson["transactions"].insert(blockJson["transactions"].begin(), txDat);
 
-				if (Mine(lastHash, transactions, ((int)walletInfo["BlockchainLength"] + 1)) == 0)
+				if (Mine(blockJson, ((int)walletInfo["BlockchainLength"] + 1)) == 0)
 				{
 					ConnectionError();
 					continue;
@@ -523,8 +529,9 @@ int Sync()
 {
 	try
 	{
-		for (int i = 1; i < walletInfo["BlockchainLength"] + 1; i++)
-			SyncBlock(i);
+		for (int i = 1; i < walletInfo["BlockchainLength"]; i++)
+			if (!fs::exists("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock"))
+				SyncBlock(i);
 		GetProgram();
 		return 1;
 	}
@@ -800,7 +807,7 @@ bool IsChainValid()
 
 	int chainLength = FileCount("./wwwdata/blockchain/");
 
-	float tmpFunds = 0;
+	double tmpFunds = 0;
 	int txNPending = 0;
 
 	console.BlockCheckerPrint();
@@ -818,18 +825,18 @@ bool IsChainValid()
 			for (int tr = 0; tr < firstBlock["transactions"].size(); tr++) {
 				std::string fromAddr = (std::string)firstBlock["transactions"][tr]["tx"]["fromAddr"];
 				std::string toAddr = (std::string)firstBlock["transactions"][tr]["tx"]["toAddr"];
-				float amount =                   firstBlock["transactions"][tr]["tx"]["amount"];
-				uint32_t txNum =                 firstBlock["transactions"][tr]["tx"]["txNum"];
+				float amount = firstBlock["transactions"][tr]["tx"]["amount"];
+				uint32_t txNum = firstBlock["transactions"][tr]["tx"]["txNum"];
 				std::string signature = decode64((std::string)firstBlock["transactions"][tr]["sec"]["signature"]);
 				std::string publicKey = (std::string)firstBlock["transactions"][tr]["sec"]["pubKey"];
 				std::string note = (std::string)firstBlock["transactions"][tr]["sec"]["note"];
-				
-				// If this is the first transaction, that is the block reward, so it should be handled differently:
-				if(tr == 0){
-					if ((std::string)walletInfo["Address"] == toAddr) // If this is the receiving address, then give reward
-						tmpFunds += amount;
-					continue;
-				}
+
+				//// If this is the first transaction, that is the block reward, so it should be handled differently:
+				//if (tr == 0) {
+				//	if ((std::string)walletInfo["Address"] == toAddr) // If this is the receiving address, then give reward
+				//		tmpFunds += amount;
+				//	continue;
+				//}
 
 				// Check if the sending or receiving address is the same as the user's
 				if ((std::string)walletInfo["Address"] == fromAddr)
@@ -902,11 +909,19 @@ bool IsChainValid()
 				}
 			}
 
-			console.WriteBulleted("Validating block: " + std::to_string(i), 3);
+			console.Write("\r");
+			console.WriteBulleted("Validating block: " + std::to_string(i), 2);
 			char sha256OutBuffer[65];
-			sha256_string((char*)((std::string)o["lastHash"] + o["transactions"].dump() + nonce).c_str(), sha256OutBuffer);
+			// The data we will actually be hashing is a hash of the
+			// transactions and header, so we don't need to do calculations on
+			// massive amounts of data
+			std::string fDat = (std::string)o["lastHash"] + o["transactions"].dump();
+			sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
+			std::string hData = std::string(sha256OutBuffer);
+
+			sha256_string((char*)(hData + nonce).c_str(), sha256OutBuffer);
 			std::string blockHash = sha256OutBuffer;
-			std::cout << blockHash << std::endl;
+			//std::cout << blockHash << std::endl;
 
 			if ((blockHash[0] != '0' && blockHash[1] != '0') || blockHash != currentHash || blockHash != nextHash)
 			{
@@ -934,11 +949,14 @@ bool IsChainValid()
 				//std::string signature = decode64(SplitString(trans[tr], "|")[1]);
 				//std::string publicKey = SplitString(trans[tr], "|")[2];
 				//uint64_t transactionTime = transTimes[tr];
-				
+
 				// If this is the first transaction, that is the block reward, so it should be handled differently:
-				if(tr == 0){
-					if ((std::string)walletInfo["Address"] == toAddr) // If this is the receiving address, then give reward
+				if (tr == 0) {
+					if ((std::string)walletInfo["Address"] == toAddr) { // If this is the receiving address, then give reward
 						tmpFunds2 += amount;
+						//console.DebugPrint();
+						//console.WriteLine("gained " + std::to_string(amount) + " from mining");
+					}
 					continue;
 				}
 
@@ -949,12 +967,12 @@ bool IsChainValid()
 				if (fromAddr != expectedWallet) {
 					o["transactions"].erase(o["transactions"].begin() + tr);
 					//transTimes.erase(transTimes.begin() + tr);
-					changedBlockData = true;
+					//changedBlockData = true;
 					continue;
 				}
 
 				// Hash transaction data
-				sha256OutBuffer[65];
+				//sha256OutBuffer[65];
 				sha256_string((char*)(o["transactions"][tr]["tx"].dump()).c_str(), sha256OutBuffer);
 				//sha256_string((char*)(transactionContent + " " + std::to_string(transactionTime)).c_str(), sha256OutBuffer);
 				std::string transHash = sha256OutBuffer;
@@ -973,7 +991,7 @@ bool IsChainValid()
 
 				// Now check if the sending or receiving address is the same as the user's
 				//std::vector<std::string> transactionDetails = SplitString(transactionContent, "->");
-				if ((std::string)walletInfo["Address"] == fromAddr){
+				if ((std::string)walletInfo["Address"] == fromAddr) {
 					tmpFunds2 -= amount;
 					txNPending++;
 				}
@@ -986,7 +1004,7 @@ bool IsChainValid()
 
 			// Save json data to file if it was changed
 			if (changedBlockData) {
-				try
+				/*try
 				{
 					std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 					if (blockFile.is_open())
@@ -999,16 +1017,17 @@ bool IsChainValid()
 				{
 					std::cerr << e.what() << std::endl;
 					return 0;
-				}
+				}*/
 			}
 
 			// Update funds and transaction number
 			tmpFunds += tmpFunds2;
+			//console.WriteLine(std::to_string(tmpFunds+1));
 			transactionNumber = txNPending;
 
 			console.Write("\tTransactions: " + std::to_string(o["transactions"].size()));
 
-			console.WriteLine(" \tOk  ", console.greenFGColor, "");
+			console.Write(" \tOk  ", console.greenFGColor, "");
 
 			//console.BlockCheckerPrint();
 			//std::cout << "  funds: " + std::to_string(tmpFunds2) << std::endl;
@@ -1021,62 +1040,63 @@ bool IsChainValid()
 			console.ExitError("Failure, exiting");
 		}
 	}
+	console.WriteLine();
 	walletInfo["Funds"] = tmpFunds;
 	return true;
 }
 
 // Calculates the difficulty of the next block by looking at the past 720 blocks,
 // and averaging the time it took between each block to keep it within the 2 min (120 second) range
-int CalculateDifficulty(){
+int CalculateDifficulty() {
 	int blockCount = FileCount("./wwwdata/blockchain/");
-	
+
 	// Default difficulty 7 for the first 720 blocks 
-	if(blockCount < 720)
+	if (blockCount < 720)
 		return 7;
-	
+
 	std::vector<uint16_t> secondCounts;
 	uint64_t lastTime = 0;
-	
+
 	// Get first block time
 	std::ifstream t("./wwwdata/blockchain/block" + std::to_string(blockCount - 720) + ".dccblock");
 	std::stringstream buffer;
 	buffer << t.rdbuf();
 	json ot = json::parse(buffer.str());
 	lastTime = (uint64_t)ot["time"];
-	
+
 	// Iterate last 720 blocks and add their
-	for(int i = blockCount - 719; i <= blockCount; i++){
+	for (int i = blockCount - 719; i <= blockCount; i++) {
 		std::ifstream tt("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 		std::stringstream buffert;
 		buffert << tt.rdbuf();
 		json o = json::parse(buffert.str());
-		
+
 		// Get difference between last block time and this one, then add to vector of differences
 		uint16_t difference = (uint64_t)o["time"] - lastTime;
 		secondCounts.push_back(difference);
-		
+
 		// Set new last time
 		lastTime = (uint64_t)o["time"];
 	}
-	
+
 	// Sort the vector so we can exlude the 60 lowest and 60 highest times
 	std::sort(secondCounts.begin(), secondCounts.end());
-	
+
 	// Get average of middle 600 block times
 	uint32_t averageTotal = 0;
-	for(int i = 60; i < 660; i++)
+	for (int i = 60; i < 660; i++)
 		averageTotal += secondCounts[i];
 	//averageTotal /= 600;  // Divide by total, which gives the average
-	
+
 	// Expected: 86400 seconds
-	
+
 	return 0;
 }
 
 // Mine a single block with specified data and using the difficulty stored in walletInfo["MineDifficulty"]
-int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
+int Mine(json currentBlockJson, int blockNum)
 {
-	walletInfo["MineDifficulty"] = "00000";
+	walletInfo["MineDifficulty"] = "000000";
 	console.MiningPrint();
 	console.Write("Mining ");
 	console.Write("block " + std::to_string(blockNum), console.whiteBGColor, console.blackFGColor);
@@ -1092,6 +1112,8 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 		console.WriteLine("Starting program... ");
 		boost::process::child cargoProc = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + id + "/Cargo.toml", false);
 
+		char sha256OutBuffer[65];
+
 		//Checks Hash
 		int nonce = 0;
 		unsigned char hash[32];
@@ -1101,8 +1123,14 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 		auto hashStart = std::chrono::steady_clock::now();
 		int hashesPerSecond = 0;
 		int hashesAtStart = 0;
-		std::string hData = lastHash + transactionHistory;
-		char sha256OutBuffer[65];
+
+		// The data we will actually be mining for is a hash of the
+		// transactions and header, so we don't need to do calculations on
+		// massive amounts of data
+		std::string fDat = (std::string)currentBlockJson["lastHash"] + (std::string)currentBlockJson["transactions"].dump();
+		sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
+		std::string hData = std::string(sha256OutBuffer);
+
 		while (!CharStrStartsWith(hash, c_difficulty, difficultyLen))
 		{
 			if ((since(hashStart).count() / 1000) >= 1)
@@ -1121,7 +1149,7 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 		}
 
 		std::cout << std::endl;
-		
+
 		// Wait for the rust program to finish running
 		if (cargoProc.running())
 			cargoProc.wait();
@@ -1142,19 +1170,19 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 
 
 		// Write new hash and nonce into pending block
-		std::ifstream blockFile("./wwwdata/pendingblocks/block" + std::to_string(blockNum) + ".dccblock");
-		std::stringstream blockBuffer;
-		blockBuffer << blockFile.rdbuf();
-		std::string content = blockBuffer.str();
-		blockFile.close();
+		//std::ifstream blockFile("./wwwdata/pendingblocks/block" + std::to_string(blockNum) + ".dccblock");
+		//std::stringstream blockBuffer;
+		//blockBuffer << blockFile.rdbuf();
+		//std::string content = blockBuffer.str();
+		//blockFile.close();
 
-		json blockJson = json::parse(content);
+		//json blockJson = json::parse(content);
 
-		blockJson["hash"] = hashStr;
-		blockJson["nonce"] = std::to_string(nonce);
+		currentBlockJson["hash"] = hashStr;
+		currentBlockJson["nonce"] = std::to_string(nonce);
 		// Get current unix time in seconds
 		uint64_t sec = duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-		blockJson["time"] = sec;
+		currentBlockJson["time"] = sec;
 
 		// Save new json data to file into finished blockchain folder
 		try
@@ -1162,7 +1190,7 @@ int Mine(std::string lastHash, std::string transactionHistory, int blockNum)
 			std::ofstream blockFilew("./wwwdata/blockchain/block" + std::to_string(blockNum) + ".dccblock");
 			if (blockFilew.is_open())
 			{
-				blockFilew << blockJson.dump();
+				blockFilew << currentBlockJson.dump();
 				blockFilew.close();
 			}
 		}
@@ -1421,7 +1449,7 @@ int SendFunds(std::string toAddress, float amount)
 // Calculate the nonce and hash for an existing block at a specific difficulty
 int MineAnyBlock(int blockNum, std::string difficulty)
 {
-	difficulty = ToLower(difficulty); 
+	difficulty = ToLower(difficulty);
 
 
 	auto startTime = std::chrono::steady_clock::now();
@@ -1436,6 +1464,8 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 	std::string currentHash = o["hash"];
 	std::string lastHash = o["lastHash"];
 
+	char sha256OutBuffer[65];
+
 	//Checks Hash
 	int nonce = 0;
 	//std::string hash = "";
@@ -1445,9 +1475,15 @@ int MineAnyBlock(int blockNum, std::string difficulty)
 	auto hashStart = std::chrono::steady_clock::now();
 	int hashesPerSecond = 0;
 	int hashesAtStart = 0;
-	std::string hData = lastHash + transactions;
+
+	// The data we will actually be mining for is a hash of the
+	// transactions and header, so we don't need to do calculations on
+	// massive amounts of data
+	std::string fDat = lastHash + transactions;
+	sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
+	std::string hData = std::string(sha256OutBuffer);
+
 	//while (!StringStartsWith(hash, difficulty))
-	char sha256OutBuffer[65];
 	while (!CharStrStartsWith(hash, c_difficulty, difficultyLen))
 	{
 		if ((since(hashStart).count() / 1000) >= 1)
@@ -1517,7 +1553,7 @@ boost::process::child ExecuteAsync(std::string cmd, bool printOutput)
 		{
 			args += splitCommand[i] + " ";
 		}
-		bp::child c(cmd);
+		bp::child c(cmd, ::boost::process::windows::create_no_window);
 
 		return c;
 	}
@@ -1566,8 +1602,8 @@ json UpgradeBlock(json b, std::string toVersion)
 		//		}
 		//	};
 		//}
-		
-		
+
+
 		b["Version"] = toVersion;
 	}
 

@@ -373,14 +373,14 @@ int main()
 
 			for (int i = 0; i < iterations; i++)
 			{
-				for (int s = 0; s < walletInfo["PendingLength"]; s++)
-				{
-					if (SyncPending(walletInfo["BlockchainLength"] + 1 + s) == 0)
-					{
-						ConnectionError();
-						break;
-					}
-				}
+				//for (int s = 0; s < walletInfo["PendingLength"]; s++)
+				//{
+				//	if (SyncPending(walletInfo["BlockchainLength"] + 1 + s) == 0)
+				//	{
+				//		ConnectionError();
+				//		break;
+				//	}
+				//}
 				IsChainValid();
 				/*while (!IsChainValid())
 				{
@@ -416,7 +416,7 @@ int main()
 				walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
 
 				console.MiningPrint();
-				console.WriteLine("Blockchain length: " + std::to_string((int)walletInfo["BlockchainLength"] + 1));
+				console.WriteLine("Blockchain length: " + std::to_string((int)walletInfo["BlockchainLength"]));
 
 				std::ifstream blockFile("./wwwdata/pendingblocks/block" + std::to_string((int)walletInfo["BlockchainLength"] + 1) + ".dccblock");
 				std::stringstream blockBuffer;
@@ -851,7 +851,7 @@ bool IsChainValid()
 		if (constants::debugPrint == true) {
 			std::cerr << std::endl << e.what() << std::endl;
 		}
-		console.ExitError("Failure, exiting");
+		console.ExitError("Failure, exiting 854");
 	}
 
 	for (int i = 2; i < chainLength; i++)
@@ -862,8 +862,10 @@ bool IsChainValid()
 			std::stringstream buffer;
 			buffer << t.rdbuf();
 			std::string content = buffer.str();
+			t.close();
 
 			bool changedBlockData = false;
+			//std::cout <<std::endl << content << std::endl;
 			json o = json::parse(content);
 			//std::vector<std::string> trans = o["transactions"];
 			//std::vector<uint64_t> transTimes = o["transactionTimes"];
@@ -889,10 +891,13 @@ bool IsChainValid()
 			std::string nonce = o["nonce"];
 			//std::string transactions = JoinArrayPieces(trans);
 
+			if (i+1 == chainLength)
+				continue;
 
 			std::ifstream td("./wwwdata/blockchain/block" + std::to_string(i + 1) + ".dccblock");
 			std::stringstream bufferd;
 			bufferd << td.rdbuf();
+			td.close();
 			std::string nextBlockText = bufferd.str();
 			json o2 = json::parse(nextBlockText);
 
@@ -1037,7 +1042,7 @@ bool IsChainValid()
 			if (constants::debugPrint == true) {
 				std::cerr << std::endl << e.what() << std::endl;
 			}
-			console.ExitError("Failure, exiting");
+			console.ExitError("Failure, exiting 1040");
 		}
 	}
 	console.WriteLine();

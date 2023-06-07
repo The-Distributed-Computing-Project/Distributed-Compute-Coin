@@ -328,6 +328,16 @@ int main()
 			console.WriteLine("$" + CommaLargeNumber((float)walletInfo["Funds"]) + "\n", console.yellowFGColor, "");
 			continue;
 		}
+		else if (SplitString(ToUpper(command), " ")[0] == "--DIFFICULTY")
+		{
+			console.SystemPrint();
+			console.WriteLine("Calculating difficulty...");
+			int dif = CalculateDifficulty;
+			
+			console.SystemPrint();
+			console.WriteLine("The current difficulty is: " + CommaLargeNumber(dif) + ", which looks like: ");
+			continue;
+		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--SYNC" || SplitString(ToUpper(command), " ")[0] == "-S")
 		{
 			if (Sync() == 0) continue;
@@ -516,10 +526,12 @@ Options:
   -sb, --syncblock                    Manually re-sync a single block on the blockchain
   -m, --mine <amount>                 Mine <amount> number of blocks, defaults to 1 if not specified
   -ma, --mineany <block num> <dif>    (Debug) Mines the block specified by <block num> at the given 
-                                      difficulty <dif>
+                                          difficulty <dif>
+  --funds                             Count and print the funds of the user
+  --difficulty                        Calculate the expected block's difficulty
   -sn, --send <addr> <amount>         Sends the <amount> of DCC to a receiving address <addr>
   -c, --connect <local> <peer>        Opens manual shell for a peer connection, reveiving at the port
-                                      <local> and sending to the peer's port at <peer>
+                                          <local> and sending to the peer's port at <peer>
 
 )V0G0N");
 }
@@ -1069,7 +1081,7 @@ int CalculateDifficulty() {
 	json ot = json::parse(buffer.str());
 	lastTime = (uint64_t)ot["time"];
 
-	// Iterate last 720 blocks and add their
+	// Iterate last 720 blocks and add their time difference to the vector
 	for (int i = blockCount - 719; i <= blockCount; i++) {
 		std::ifstream tt("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 		std::stringstream buffert;
@@ -1091,9 +1103,11 @@ int CalculateDifficulty() {
 	uint32_t averageTotal = 0;
 	for (int i = 60; i < 660; i++)
 		averageTotal += secondCounts[i];
-	//averageTotal /= 600;  // Divide by total, which gives the average
+	averageTotal /= 600;  // Divide by total, which gives the average
 
-	// Expected: 86400 seconds
+	// Expected: 86400 seconds total,or 120 seconds average
+	
+	if(averageTotal)
 
 	return 0;
 }

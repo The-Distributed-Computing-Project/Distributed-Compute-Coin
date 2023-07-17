@@ -13,7 +13,6 @@ class P2P
 private:
 	SOCKET localSocket;
 	int MSG_PART = 0;
-	std::atomic_bool CONNECTED_TO_PEER = false;
 	//int messageStatus = 0;
 	std::vector<std::string> CONNECTION_PARTS = { "" };
 public:
@@ -22,8 +21,13 @@ public:
 	//std::string NormalizedIPString(SOCKADDR_IN addr);
 	//
 	//void TaskRec();
+	std::atomic_bool CONNECTED_TO_PEER = false;
 
 	int messageAttempt = 0;
+	int differentPeerAttempts = 0;
+
+	uint8_t role = -1; //   -1 == offline,  0 == requester,  1 == answerer
+
 	std::atomic_int messageStatus = -1;
 	enum MsgStatus {
 		idle = -1,
@@ -41,7 +45,7 @@ public:
 		replying_peer_list = 8,
 	};
 
-	int reqDat = 0;
+	int reqDat = -1;
 
 	std::string peerIP;
 	int peerPort;
@@ -49,10 +53,9 @@ public:
 	std::string NormalizedIPString(SOCKADDR_IN addr);
 	void ListenerThread(int update_interval);
 	void RandomizePeer();
-	int SafeSend(SOCKET s, char* buf, int buflen);
+	//int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen);
 	int OpenP2PSocket(int port);
 	void SenderThread();
-	int StartP2P(std::string addr, std::string port, std::string peerPort);
 };
 
 #endif

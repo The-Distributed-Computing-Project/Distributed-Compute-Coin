@@ -55,20 +55,20 @@ D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\crypto.h(541,8): warning C4996: 'P
 D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\crypto.h(543,12): warning C4996: 'RSA_size': Since OpenSSL 3.0
 D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\crypto.h(548,12): warning C4996: 'RSA_public_decrypt': Since OpenSSL 3.0
 D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\crypto.h(555,2): warning C4996: 'RSA_free': Since OpenSSL 3.0
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1089,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1163,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1186,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1187,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1195,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1216,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1285,23): warning C4244: 'initializing': conversion from 'uint64_t' to 'uint16_t', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1317,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1324,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1367,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1391,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1651,93): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1727,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1750,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1788,41): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1813,31): warning C4101: 'e': unreferenced local variable
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(977,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1051,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1074,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1075,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1083,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1104,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1173,23): warning C4244: 'initializing': conversion from 'uint64_t' to 'uint16_t', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1205,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1212,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1255,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1279,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1539,93): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1615,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1638,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1676,41): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(1701,31): warning C4101: 'e': unreferenced local variable
   DCC-Miner.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\DCC-Miner\Debug\DCC-Miner.exe

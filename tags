@@ -5,8 +5,6 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 0	DCC-Miner/DCC-Miner/Session.vim	/^normal! 0$/;"	m
-072|	DCC-Miner/DCC-Miner/Session.vim	/^normal! 072|$/;"	m
-08|	DCC-Miner/DCC-Miner/Session.vim	/^normal! 08|$/;"	m
 ACHINE	DCC-Miner/out/_deps/curl-src/Makefile	/^	nmake \/f Makefile.vc MACHINE=x64$/;"	m
 ACHINE	DCC-Miner/out/_deps/curl-src/Makefile	/^	nmake \/f Makefile.vc MACHINE=x86$/;"	m
 ACTIVE	DCC-Miner/out/_deps/curl-src/tests/server/sockfilt.c	/^  ACTIVE,            \/* as a client, connected to a server *\/$/;"	e	enum:sockmode	file:
@@ -115,7 +113,7 @@ BLOB_LAST	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  BLOB_LAST$/;"	e	enum:du
 BLOB_SSL_ISSUERCERT	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  BLOB_SSL_ISSUERCERT,$/;"	e	enum:dupblob
 BLOB_SSL_ISSUERCERT_PROXY	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  BLOB_SSL_ISSUERCERT_PROXY,$/;"	e	enum:dupblob
 BLOCKCHAIN_DIR	DCC-Miner/DCC-Miner/RequestParser.cpp	/^string BLOCKCHAIN_DIR = ".\/wwwdata\/blockchain";$/;"	v
-BLOCK_VERSION	DCC-Miner/DCC-Miner/Main.cpp	/^const std::string BLOCK_VERSION = "v0.2.0-alpha-coin";$/;"	v
+BLOCK_VERSION	DCC-Miner/DCC-Miner/Main.cpp	/^const std::string BLOCK_VERSION = "v0.3.0-alpha-coin";$/;"	v
 BL_CODES	DCC-Miner/out/_deps/zlib-src/deflate.h	40;"	d
 BN_bn2bin	DCC-Miner/out/_deps/curl-src/lib/setup-vms.h	202;"	d
 BN_num_bits	DCC-Miner/out/_deps/curl-src/lib/setup-vms.h	203;"	d
@@ -3687,7 +3685,7 @@ CaInfo	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    CaInfo(std::s
 CaInfo	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^class CaInfo {$/;"	c	namespace:cpr::ssl
 CaPath	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    CaPath(std::string&& p_filename) : filename(std::move(p_filename)) {}$/;"	f	class:cpr::ssl::CaPath
 CaPath	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^class CaPath {$/;"	c	namespace:cpr::ssl
-CalculateDifficulty	DCC-Miner/DCC-Miner/Main.cpp	/^int CalculateDifficulty(){$/;"	f
+CalculateDifficulty	DCC-Miner/DCC-Miner/Main.cpp	/^std::string CalculateDifficulty() {$/;"	f
 CanFalseStartCallback	DCC-Miner/out/_deps/curl-src/lib/vtls/nss.c	/^static SECStatus CanFalseStartCallback(PRFileDesc *sock, void *client_data,$/;"	f	file:
 CaseInsensitiveCompare	DCC-Miner/out/_deps/cpr-src/include/cpr/cprtypes.h	/^struct CaseInsensitiveCompare {$/;"	s	namespace:cpr
 CertFile	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    CertFile(std::string&& p_filename) : filename(std::move(p_filename)) {}$/;"	f	class:cpr::ssl::CertFile
@@ -3703,6 +3701,7 @@ ClosingFileHandler	DCC-Miner/out/_deps/curl-src/tests/util.py	/^class ClosingFil
 Code	DCC-Miner/out/_deps/zlib-src/deflate.h	85;"	d
 CommaLargeNumber	DCC-Miner/DCC-Miner/strops.cpp	/^std::string CommaLargeNumber(float num) {$/;"	f
 CommaLargeNumber	DCC-Miner/DCC-Miner/strops.cpp	/^std::string CommaLargeNumber(int num) {$/;"	f
+CompareCharNumbers	DCC-Miner/DCC-Miner/strops.cpp	/^bool CompareCharNumbers(const unsigned char* number1, const unsigned char* number2) {$/;"	f
 CompilerErrorPrint	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::CompilerErrorPrint()$/;"	f	class:Console
 Complete	DCC-Miner/out/_deps/cpr-src/cpr/session.cpp	/^Response Session::Complete( CURLcode curl_error ) { return pimpl_->Complete(curl_error); }$/;"	f	class:cpr::Session
 Complete	DCC-Miner/out/_deps/cpr-src/cpr/session.cpp	/^Response Session::Impl::Complete(CURLcode curl_error) {$/;"	f	class:cpr::Session::Impl
@@ -5215,6 +5214,7 @@ EventHandler	DCC-Miner/out/_deps/cpr-src/test/abstractServer.cpp	/^static void E
 ExecuteAsync	DCC-Miner/DCC-Miner/Main.cpp	/^boost::process::child ExecuteAsync(std::string cmd, bool printOutput)$/;"	f
 ExecuteCommand	DCC-Miner/DCC-Miner/Main.cpp	/^std::string ExecuteCommand(const char* cmd)$/;"	f
 ExitError	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::ExitError(std::string errMessage)$/;"	f	class:Console
+ExtractPaddedChars	DCC-Miner/DCC-Miner/strops.cpp	/^std::string ExtractPaddedChars(const std::string& input, char padChar) {$/;"	f
 ExtractZip	DCC-Miner/DCC-Miner/FileManip.cpp	/^int ExtractZip(std::string path, std::string saveAs)$/;"	f
 F	DCC-Miner/out/_deps/curl-src/lib/md4.c	277;"	d	file:
 F	DCC-Miner/out/_deps/curl-src/lib/md5.c	275;"	d	file:
@@ -7845,7 +7845,7 @@ MemoryStruct	DCC-Miner/out/_deps/curl-src/docs/examples/getinmemory.c	/^struct M
 MemoryStruct	DCC-Miner/out/_deps/curl-src/docs/examples/postinmemory.c	/^struct MemoryStruct {$/;"	s	file:
 MemoryStruct	DCC-Miner/out/_deps/curl-src/docs/examples/xmlstream.c	/^struct MemoryStruct {$/;"	s	file:
 Milliseconds	DCC-Miner/out/_deps/cpr-src/cpr/timeout.cpp	/^long Timeout::Milliseconds() const {$/;"	f	class:cpr::Timeout
-Mine	DCC-Miner/DCC-Miner/Main.cpp	/^int Mine(std::string lastHash, std::string transactionHistory, int blockNum)$/;"	f
+Mine	DCC-Miner/DCC-Miner/Main.cpp	/^int Mine(json currentBlockJson, int blockNum)$/;"	f
 MineAnyBlock	DCC-Miner/DCC-Miner/Main.cpp	/^int MineAnyBlock(int blockNum, std::string difficulty)$/;"	f
 MiningErrorPrint	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::MiningErrorPrint()$/;"	f	class:Console
 MiningPrint	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::MiningPrint()$/;"	f	class:Console
@@ -8537,6 +8537,7 @@ PULL	DCC-Miner/out/_deps/zlib-src/infback.c	65;"	d	file:
 PULLBYTE	DCC-Miner/out/_deps/zlib-src/infback.c	79;"	d	file:
 PULLBYTE	DCC-Miner/out/_deps/zlib-src/inflate.c	280;"	d	file:
 PWD_ftp	DCC-Miner/out/_deps/curl-src/tests/ftpserver.pl	/^sub PWD_ftp {$/;"	s
+PadString	DCC-Miner/DCC-Miner/strops.cpp	/^std::string PadString(const std::string& input, char padChar, size_t desiredLength) {$/;"	f
 Pair	DCC-Miner/out/_deps/cpr-src/include/cpr/curl_container.h	/^    Pair(const std::string& p_key, const std::string& p_value) : key(p_key), value(p_value) {}$/;"	f	struct:cpr::Pair
 Pair	DCC-Miner/out/_deps/cpr-src/include/cpr/curl_container.h	/^    Pair(std::string&& p_key, std::string&& p_value)$/;"	f	struct:cpr::Pair
 Pair	DCC-Miner/out/_deps/cpr-src/include/cpr/curl_container.h	/^struct Pair {$/;"	s	namespace:cpr
@@ -8865,7 +8866,7 @@ RTSPREQ_SET_PARAMETER	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^    RTSPREQ_S
 RTSPREQ_TEARDOWN	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^    RTSPREQ_TEARDOWN,$/;"	e	enum:__anon165
 R_OK	DCC-Miner/out/_deps/curl-src/lib/curl_path.h	33;"	d
 R_OK	DCC-Miner/out/_deps/curl-src/lib/mime.c	50;"	d	file:
-RandomizePeer	DCC-Miner/DCC-Miner/P2PClient.cpp	/^void P2P::RandomizePeer(){$/;"	f	class:P2P
+RandomizePeer	DCC-Miner/DCC-Miner/P2PClient.cpp	/^void P2P::RandomizePeer() {$/;"	f	class:P2P
 Range	DCC-Miner/out/_deps/cpr-src/include/cpr/range.h	/^    Range(const std::int64_t p_resume_from, const std::int64_t p_finish_at)$/;"	f	class:cpr::Range
 Range	DCC-Miner/out/_deps/cpr-src/include/cpr/range.h	/^class Range {$/;"	c	namespace:cpr
 ReadCallback	DCC-Miner/out/_deps/cpr-src/include/cpr/callback.h	/^    ReadCallback(cpr_off_t p_size, std::function<bool(char* buffer, size_t& size, intptr_t userdata)> p_callback, intptr_t p_userdata = 0) : userdata(p_userdata), size{p_size}, callback{std::move(p_callback)} {}$/;"	f	class:cpr::ReadCallback
@@ -9884,7 +9885,6 @@ SslOptions	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^struct SslOpt
 Start	DCC-Miner/out/_deps/cpr-src/test/abstractServer.cpp	/^void AbstractServer::Start() {$/;"	f	class:cpr::AbstractServer
 StartElement	DCC-Miner/out/_deps/curl-src/docs/examples/htmltitle.cpp	/^static void StartElement(void *voidContext,$/;"	f	file:
 StartHttpWebRequest	DCC-Miner/DCC-Miner/Network.h	/^	std::string StartHttpWebRequest(std::string URL, std::vector<std::string> args_vals)$/;"	f	class:Http
-StartP2P	DCC-Miner/DCC-Miner/P2PClient.cpp	/^int P2P::StartP2P(std::string addr, std::string port, std::string peerPort)$/;"	f	class:P2P
 State	DCC-Miner/out/_deps/curl-src/src/tool_cfgable.h	/^struct State {$/;"	s
 Stop	DCC-Miner/out/_deps/cpr-src/test/abstractServer.cpp	/^void AbstractServer::Stop() {$/;"	f	class:cpr::AbstractServer
 StringHolder	DCC-Miner/out/_deps/cpr-src/include/cpr/cprtypes.h	/^    StringHolder(const char* str, size_t len) : str_(str, len) {}$/;"	f	class:cpr::StringHolder
@@ -10941,6 +10941,7 @@ WriteIndented	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::WriteIndented(std:
 WriteLine	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::WriteLine()$/;"	f	class:Console
 WriteLine	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::WriteLine(std::string message)$/;"	f	class:Console
 WriteLine	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::WriteLine(std::string message, std::string fgColor, std::string bgColor)$/;"	f	class:Console
+WriteLineCharArrayOfLen	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::WriteLineCharArrayOfLen(char* message, int len)$/;"	f	class:Console
 WriteMemoryCallback	DCC-Miner/out/_deps/curl-src/docs/examples/getinmemory.c	/^WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)$/;"	f	file:
 WriteMemoryCallback	DCC-Miner/out/_deps/curl-src/docs/examples/postinmemory.c	/^WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)$/;"	f	file:
 WriteOutput	DCC-Miner/out/_deps/curl-src/tests/libtest/lib1509.c	/^size_t WriteOutput(void *ptr, size_t size, size_t nmemb, void *stream)$/;"	f
@@ -12252,6 +12253,8 @@ cfcdata	DCC-Miner/out/_deps/curl-src/packages/OS400/ccsidcurl.c	/^struct cfcdata
 cfg	DCC-Miner/out/_deps/curl-src/lib/vquic/quiche.h	/^  quiche_config *cfg;$/;"	m	struct:quicsocket
 ch	DCC-Miner/out/_deps/curl-src/docs/examples/ghiper.c	/^  GIOChannel *ch;$/;"	m	struct:_SockInfo	file:
 challenge	DCC-Miner/out/_deps/curl-src/lib/smb.h	/^  unsigned char challenge[8];$/;"	m	struct:smb_conn
+charArray	DCC-Miner/DCC-Miner/FileManip.cpp	/^char charArray[32];$/;"	v
+charArray64	DCC-Miner/DCC-Miner/FileManip.cpp	/^char charArray64[65];$/;"	v
 char_class	DCC-Miner/out/_deps/curl-src/lib/curl_fnmatch.c	/^} char_class;$/;"	t	typeref:enum:__anon93	file:
 characterDataHandler	DCC-Miner/out/_deps/curl-src/docs/examples/xmlstream.c	/^static void characterDataHandler(void *userData, const XML_Char *s, int len)$/;"	f	file:
 characters	DCC-Miner/out/_deps/curl-src/docs/examples/xmlstream.c	/^  struct MemoryStruct characters;$/;"	m	struct:ParserStruct	typeref:struct:ParserStruct::MemoryStruct	file:
@@ -12381,6 +12384,7 @@ ciphertable	DCC-Miner/out/_deps/curl-src/lib/vtls/sectransp.c	/^const static str
 cl	DCC-Miner/out/_deps/curl-src/lib/http_proxy.h	/^  curl_off_t cl; \/* size of content to read and ignore *\/$/;"	m	struct:http_connect_state
 cl	DCC-Miner/out/_deps/curl-src/tests/server/rtspd.c	/^  size_t cl;      \/* Content-Length of the incoming request *\/$/;"	m	struct:httprequest	file:
 cl	DCC-Miner/out/_deps/curl-src/tests/server/sws.c	/^  size_t cl;      \/* Content-Length of the incoming request *\/$/;"	m	struct:httprequest	file:
+clampf	DCC-Miner/DCC-Miner/Main.cpp	/^float clampf(float x, float min, float max) {$/;"	f
 clean	DCC-Miner/out/_deps/curl-src/buildconf.bat	/^:clean$/;"	l
 clean	DCC-Miner/out/_deps/curl-src/projects/generate.bat	/^:clean$/;"	l
 clean_fifo	DCC-Miner/out/_deps/curl-src/docs/examples/ephiperfifo.c	/^static void clean_fifo(GlobalInfo *g)$/;"	f	file:
@@ -12868,6 +12872,7 @@ cryptMain	DCC-Miner/DCC-Miner/crypto.h	/^int cryptMain()$/;"	f
 crypto_h	DCC-Miner/DCC-Miner/crypto.h	10;"	d
 csb	DCC-Miner/out/_deps/zlib-src/arch/s390/dfltcc_detail.h	/^    uint8_t csb[1152];$/;"	m	struct:dfltcc_param_v0
 cselect_bits	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  int cselect_bits; \/* bitmask of socket events *\/$/;"	m	struct:connectdata
+cstr_to_hexstr	DCC-Miner/DCC-Miner/FileManip.cpp	/^char* cstr_to_hexstr(unsigned char* str, int clen)$/;"	f
 cstr_to_hexstr	DCC-Miner/DCC-Miner/FileManip.cpp	/^void cstr_to_hexstr(unsigned char* str, int clen, char outputBuffer[65])$/;"	f
 ct_data	DCC-Miner/out/_deps/zlib-src/deflate.h	/^} ct_data;$/;"	t	typeref:struct:ct_data_s
 ct_data_s	DCC-Miner/out/_deps/zlib-src/deflate.h	/^typedef struct ct_data_s {$/;"	s
@@ -13633,6 +13638,7 @@ didbind	DCC-Miner/out/_deps/curl-src/lib/openldap.c	/^  bool didbind;$/;"	m	stru
 diff	DCC-Miner/DCC-Miner/json.hpp	/^            static basic_json diff(const basic_json& source, const basic_json& target,$/;"	f	class:nlohmann::nlohmann::nlohmann::basic_json
 diff	DCC-Miner/out/_deps/zlib-src/test/example.c	/^static unsigned int diff;$/;"	v	file:
 diff	DCC-Miner/out/_deps/zlib-src/test/fuzz/example_large_fuzzer.c	/^static unsigned int diff;$/;"	v	file:
+differentPeerAttempts	DCC-Miner/DCC-Miner/P2PClient.h	/^	int differentPeerAttempts = 0;$/;"	m	class:P2P
 digest	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  struct digestdata digest;      \/* state data for host Digest auth *\/$/;"	m	struct:UrlState	typeref:struct:UrlState::digestdata
 digest	DCC-Miner/out/_deps/curl-src/tests/server/rtspd.c	/^  bool digest;    \/* Authorization digest header found *\/$/;"	m	struct:httprequest	file:
 digest	DCC-Miner/out/_deps/curl-src/tests/server/sws.c	/^  bool digest;    \/* Authorization digest header found *\/$/;"	m	struct:httprequest	file:
@@ -13674,6 +13680,7 @@ dist_code	DCC-Miner/out/_deps/zlib-src/tools/maketrees.c	/^static unsigned char 
 distbits	DCC-Miner/out/_deps/zlib-src/inflate.h	/^    unsigned distbits;          \/* index bits for distcode *\/$/;"	m	struct:inflate_state
 distcode	DCC-Miner/out/_deps/zlib-src/inflate.h	/^    code const *distcode;       \/* starting table for distance codes *\/$/;"	m	struct:inflate_state
 distfix	DCC-Miner/out/_deps/zlib-src/inffixed_tbl.h	/^static const code distfix[32] = {$/;"	v
+divideHexByFloat	DCC-Miner/DCC-Miner/Main.cpp	/^std::string divideHexByFloat(const std::string& hexNumber, float divisor) {$/;"	f
 diyfp	DCC-Miner/DCC-Miner/json.hpp	/^            struct diyfp \/\/ f * 2^e$/;"	s	namespace:nlohmann::nlohmann::nlohmann::detail::dtoa_impl
 dl	DCC-Miner/out/_deps/curl-src/src/tool_progress.c	/^  curl_off_t dl;$/;"	m	struct:speedcount	file:
 dl	DCC-Miner/out/_deps/zlib-src/deflate.h	/^    } dl;$/;"	m	struct:ct_data_s	typeref:union:ct_data_s::__anon199
@@ -15322,6 +15329,7 @@ hex_bytes	DCC-Miner/DCC-Miner/json.hpp	/^            static std::string hex_byte
 hexbuffer	DCC-Miner/out/_deps/curl-src/lib/http_chunks.h	/^  char hexbuffer[ CHUNK_MAXNUM_LEN + 1]; \/* +1 for null-terminator *\/$/;"	m	struct:Curl_chunker
 hexdump	DCC-Miner/out/_deps/curl-src/tests/libtest/first.c	/^char *hexdump(const unsigned char *buffer, size_t len)$/;"	f
 hexindex	DCC-Miner/out/_deps/curl-src/lib/http_chunks.h	/^  unsigned char hexindex;$/;"	m	struct:Curl_chunker
+hexstr_to_cstr	DCC-Miner/DCC-Miner/FileManip.cpp	/^char* hexstr_to_cstr(const std::string& hexString) {$/;"	f
 hi	DCC-Miner/out/_deps/curl-src/lib/md4.c	/^  MD4_u32plus lo, hi;$/;"	m	struct:md4_ctx	file:
 hi	DCC-Miner/out/_deps/curl-src/lib/md5.c	/^  MD5_u32plus lo, hi;$/;"	m	struct:md5_ctx	file:
 hidden_main_window	DCC-Miner/out/_deps/curl-src/tests/server/util.c	/^static HWND hidden_main_window = NULL;$/;"	v	file:
@@ -16988,6 +16996,8 @@ multidone_func	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^typedef int (*multid
 multipart_size	DCC-Miner/out/_deps/curl-src/lib/mime.c	/^static curl_off_t multipart_size(curl_mime *mime)$/;"	f	file:
 multiplexing	DCC-Miner/out/_deps/curl-src/lib/multihandle.h	/^  bool multiplexing;$/;"	m	struct:Curl_multi
 multiply	DCC-Miner/out/_deps/curl-src/src/tool_urlglob.c	/^static int multiply(unsigned long *amount, long with)$/;"	f	file:
+multiplyHexByFloat	DCC-Miner/DCC-Miner/Main.cpp	/^std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier) {$/;"	f
+multiplyHexByInteger	DCC-Miner/DCC-Miner/Main.cpp	/^std::string multiplyHexByInteger(const std::string& hexNumber, int multiplier) {$/;"	f
 multissl_close	DCC-Miner/out/_deps/curl-src/lib/vtls/vtls.c	/^static void multissl_close(struct Curl_easy *data, struct connectdata *conn,$/;"	f	file:
 multissl_connect	DCC-Miner/out/_deps/curl-src/lib/vtls/vtls.c	/^static CURLcode multissl_connect(struct Curl_easy *data,$/;"	f	file:
 multissl_connect_nonblocking	DCC-Miner/out/_deps/curl-src/lib/vtls/vtls.c	/^static CURLcode multissl_connect_nonblocking(struct Curl_easy *data,$/;"	f	file:
@@ -18785,7 +18795,7 @@ reproducible	DCC-Miner/out/_deps/zlib-src/deflate.h	/^    int                  r
 req	DCC-Miner/out/_deps/curl-src/lib/http_proxy.h	/^  struct dynbuf req;$/;"	m	struct:http_connect_state	typeref:struct:http_connect_state::dynbuf
 req	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  struct SingleRequest req;    \/* Request-specific data *\/$/;"	m	struct:Curl_easy	typeref:struct:Curl_easy::SingleRequest
 req	DCC-Miner/out/_deps/curl-src/tests/unit/unit1650.c	/^static const struct dohrequest req[] = {$/;"	v	typeref:struct:dohrequest	file:
-reqDat	DCC-Miner/DCC-Miner/P2PClient.h	/^	int reqDat = 0;$/;"	m	class:P2P
+reqDat	DCC-Miner/DCC-Miner/P2PClient.h	/^	int reqDat = -1;$/;"	m	class:P2P
 req_flags	DCC-Miner/out/_deps/curl-src/lib/vtls/schannel.h	/^  unsigned long req_flags, ret_flags;$/;"	m	struct:ssl_backend_data
 req_retry	DCC-Miner/out/_deps/curl-src/src/tool_cfgable.h	/^  long req_retry;           \/* number of retries *\/$/;"	m	struct:OperationConfig
 reqbuf	DCC-Miner/out/_deps/curl-src/tests/server/rtspd.c	/^  char reqbuf[REQBUFSIZ]; \/* buffer area for the incoming request *\/$/;"	m	struct:httprequest	file:
@@ -18934,6 +18944,7 @@ rlimit	DCC-Miner/out/_deps/curl-src/tests/libtest/lib518.c	/^static int rlimit(i
 rlimit	DCC-Miner/out/_deps/curl-src/tests/libtest/lib537.c	/^static int rlimit(int keep_open)$/;"	f	file:
 rmtree	DCC-Miner/out/_deps/curl-src/tests/testcurl.pl	/^sub rmtree($) {$/;"	s
 rogue	DCC-Miner/out/_deps/zlib-src/test/infcover.c	/^    int notlifo, rogue;         \/* counts of non-LIFO frees and rogue frees *\/$/;"	m	struct:mem_zone	file:
+role	DCC-Miner/DCC-Miner/P2PClient.h	/^	uint8_t role = -1; \/\/   -1 == offline,  0 == requester,  1 == answerer$/;"	m	class:P2P
 root	DCC-Miner/DCC-Miner/json.hpp	/^            BasicJsonType& root;$/;"	m	class:nlohmann::nlohmann::nlohmann::detail::json_sax_dom_callback_parser
 root	DCC-Miner/DCC-Miner/json.hpp	/^            BasicJsonType& root;$/;"	m	class:nlohmann::nlohmann::nlohmann::detail::json_sax_dom_parser
 root	DCC-Miner/out/_deps/curl-src/tests/unit/unit1309.c	/^  struct Curl_tree *root, *removed;$/;"	v	typeref:struct:Curl_tree
@@ -19019,10 +19030,10 @@ runtimestats	DCC-Miner/out/_deps/curl-src/tests/runtests.pl	/^sub runtimestats {
 rw_init	DCC-Miner/out/_deps/curl-src/tests/server/tftpd.c	/^static struct tftphdr *rw_init(int x)$/;"	f	file:
 rx_time	DCC-Miner/out/_deps/curl-src/lib/tftp.c	/^  time_t          rx_time;$/;"	m	struct:tftp_state_data	file:
 s	DCC-Miner/out/_deps/curl-src/tests/testcurl.pl	/^        s:\/:\\\\:g;$/;"	l
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 1 - ((0 * winheight(0) + 25) \/ 51)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 3909 - ((8 * winheight(0) + 4) \/ 9)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 33 - ((32 * winheight(0) + 25) \/ 51)$/;"	v
 s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 48 - ((47 * winheight(0) + 30) \/ 61)$/;"	v
 s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 609 - ((32 * winheight(0) + 30) \/ 61)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 9 - ((8 * winheight(0) + 4) \/ 9)$/;"	v
 s:save_splitbelow	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_splitbelow = &splitbelow$/;"	v
 s:save_splitright	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_splitright = &splitright$/;"	v
 s:save_winminheight	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_winminheight = &winminheight$/;"	v
@@ -21745,7 +21756,6 @@ zalloc	DCC-Miner/out/_deps/zlib-src/zlib-ng.h	/^    alloc_func            zalloc
 zalloc	DCC-Miner/out/_deps/zlib-src/zlib.h	/^    alloc_func            zalloc;     \/* used to allocate the internal state *\/$/;"	m	struct:z_stream_s
 zalloc_cb	DCC-Miner/out/_deps/curl-src/lib/content_encoding.c	/^zalloc_cb(voidpf opaque, unsigned int items, unsigned int size)$/;"	f	file:
 zalloc_func	DCC-Miner/out/_deps/curl-src/src/tool_hugehelp.c	/^static voidpf zalloc_func(voidpf opaque, unsigned int items, unsigned int size)$/;"	f	file:
-zc	DCC-Miner/DCC-Miner/Session.vim	/^normal! zc$/;"	m
 zds	DCC-Miner/out/_deps/curl-src/lib/content_encoding.c	/^  ZSTD_DStream *zds;    \/* State structure for zstd. *\/$/;"	m	struct:zstd_params	file:
 zfree	DCC-Miner/out/_deps/zlib-src/test/example.c	/^static free_func zfree = NULL;$/;"	v	file:
 zfree	DCC-Miner/out/_deps/zlib-src/test/fuzz/example_dict_fuzzer.c	/^static free_func zfree = NULL;$/;"	v	file:
@@ -21805,7 +21815,6 @@ zng_tr_init	DCC-Miner/out/_deps/zlib-src/trees.c	/^void Z_INTERNAL zng_tr_init(d
 zng_tr_stored_block	DCC-Miner/out/_deps/zlib-src/trees.c	/^void Z_INTERNAL zng_tr_stored_block(deflate_state *s, char *buf, uint32_t stored_len, int last) {$/;"	f
 zng_tr_tally_dist	DCC-Miner/out/_deps/zlib-src/deflate_p.h	/^static inline int zng_tr_tally_dist(deflate_state *s, uint32_t dist, uint32_t len) {$/;"	f
 zng_tr_tally_lit	DCC-Miner/out/_deps/zlib-src/deflate_p.h	/^static inline int zng_tr_tally_lit(deflate_state *s, unsigned char c) {$/;"	f
-zo	DCC-Miner/DCC-Miner/Session.vim	/^normal! zo$/;"	m
 zonefrom_url	DCC-Miner/out/_deps/curl-src/lib/url.c	/^static void zonefrom_url(CURLU *uh, struct Curl_easy *data,$/;"	f	file:
 zoneid	DCC-Miner/out/_deps/curl-src/lib/urlapi.c	/^  char *zoneid; \/* for numerical IPv6 addresses *\/$/;"	m	struct:Curl_URL	file:
 zstd_close_writer	DCC-Miner/out/_deps/curl-src/lib/content_encoding.c	/^static void zstd_close_writer(struct Curl_easy *data,$/;"	f	file:

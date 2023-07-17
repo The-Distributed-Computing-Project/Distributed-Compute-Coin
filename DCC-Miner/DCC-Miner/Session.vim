@@ -15,9 +15,11 @@ else
 endif
 badd +1 Main.cpp
 badd +1 term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//725:\|:res\ 10
-badd +0 term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//731:/bin/bash
+badd +236 term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//731:/bin/bash
 badd +421 P2PClient.cpp
 badd +53 P2PClient.h
+badd +924 term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//189:/bin/bash
+badd +0 term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//222:/bin/bash
 argglobal
 %argdel
 set stal=2
@@ -41,10 +43,9 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 51 + 32) / 64)
-exe '2resize ' . ((&lines * 9 + 32) / 64)
+exe '1resize ' . ((&lines * 44 + 32) / 64)
+exe '2resize ' . ((&lines * 16 + 32) / 64)
 argglobal
-balt Main.cpp
 setlocal fdm=expr
 setlocal fde=b:anyfold_ind_buffer[v:lnum-1]
 setlocal fmr={{{,}}}
@@ -53,19 +54,23 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 1 - ((0 * winheight(0) + 25) / 51)
+79
+normal! zo
+94
+normal! zo
+let s:l = 188 - ((21 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 188
+normal! 080|
 wincmd w
 argglobal
-if bufexists(fnamemodify("term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//731:/bin/bash", ":p")) | buffer term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//731:/bin/bash | else | edit term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//731:/bin/bash | endif
+if bufexists(fnamemodify("term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//222:/bin/bash", ":p")) | buffer term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//222:/bin/bash | else | edit term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//222:/bin/bash | endif
 if &buftype ==# 'terminal'
-  silent file term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//731:/bin/bash
+  silent file term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//222:/bin/bash
 endif
-balt term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//725:\|:res\ 10
+balt term:///mnt/d/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner//189:/bin/bash
 setlocal fdm=manual
 setlocal fde=b:anyfold_ind_buffer[v:lnum-1]
 setlocal fmr={{{,}}}
@@ -74,15 +79,16 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 3909 - ((8 * winheight(0) + 4) / 9)
+let s:l = 252 - ((15 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 3909
-normal! 072|
+keepjumps 252
+normal! 070|
 wincmd w
-exe '1resize ' . ((&lines * 51 + 32) / 64)
-exe '2resize ' . ((&lines * 9 + 32) / 64)
+2wincmd w
+exe '1resize ' . ((&lines * 44 + 32) / 64)
+exe '2resize ' . ((&lines * 16 + 32) / 64)
 tabnext
 edit P2PClient.cpp
 argglobal
@@ -95,52 +101,12 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-39
-normal! zo
-61
-normal! zo
-61
-normal! zc
-110
-normal! zo
-113
-normal! zo
-373
-normal! zo
-425
-normal! zo
-440
-normal! zo
-461
-normal! zo
-483
-normal! zo
-491
-normal! zo
-499
-normal! zo
-516
-normal! zo
-524
-normal! zo
-538
-normal! zo
-552
-normal! zo
-564
-normal! zo
-573
-normal! zo
-583
-normal! zo
-593
-normal! zo
 let s:l = 609 - ((32 * winheight(0) + 30) / 61)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 609
-normal! 08|
+normal! 0
 tabnext
 edit P2PClient.h
 argglobal
@@ -153,8 +119,6 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-19
-normal! zo
 let s:l = 48 - ((47 * winheight(0) + 30) / 61)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l

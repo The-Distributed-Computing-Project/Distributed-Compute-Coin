@@ -1,5 +1,5 @@
-﻿#ifndef Main_h
-#define Main_h
+﻿#ifndef MAIN_H
+#define MAIN_H
 
 
 
@@ -23,10 +23,12 @@
 
 #include "FileManip.h"
 #include "Network.h"
-#include "Console.h"
 #include "P2PClient.h"
 #include "strops.h"
-#include "crypto.h"
 #include "SettingsConsts.h"
+#include "Blockchain.h"
+#include "crypto.h"
+#include "Miner.h"
+#include "System.h"
 
 #endif

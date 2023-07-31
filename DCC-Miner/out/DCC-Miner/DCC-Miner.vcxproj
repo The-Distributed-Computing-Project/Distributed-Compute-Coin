@@ -335,6 +335,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.h" />
     <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp" />
     <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\crypto.h" />
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\crypto.cpp" />
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.cpp" />
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.h" />
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Miner.cpp" />
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Miner.h" />
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\SettingsConsts.h" />
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\System.cpp" />
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\System.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\ZERO_CHECK.vcxproj">

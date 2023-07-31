@@ -6,6 +6,7 @@
 // Declare the global print queue
 extern std::queue<std::ostream> printQueue;
 
+void ConnectionError();
 
 class Console
 {

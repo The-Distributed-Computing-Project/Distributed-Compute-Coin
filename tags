@@ -5,6 +5,8 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 0	DCC-Miner/DCC-Miner/Session.vim	/^normal! 0$/;"	m
+070|	DCC-Miner/DCC-Miner/Session.vim	/^normal! 070|$/;"	m
+080|	DCC-Miner/DCC-Miner/Session.vim	/^normal! 080|$/;"	m
 ACHINE	DCC-Miner/out/_deps/curl-src/Makefile	/^	nmake \/f Makefile.vc MACHINE=x64$/;"	m
 ACHINE	DCC-Miner/out/_deps/curl-src/Makefile	/^	nmake \/f Makefile.vc MACHINE=x86$/;"	m
 ACTIVE	DCC-Miner/out/_deps/curl-src/tests/server/sockfilt.c	/^  ACTIVE,            \/* as a client, connected to a server *\/$/;"	e	enum:sockmode	file:
@@ -113,7 +115,8 @@ BLOB_LAST	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  BLOB_LAST$/;"	e	enum:du
 BLOB_SSL_ISSUERCERT	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  BLOB_SSL_ISSUERCERT,$/;"	e	enum:dupblob
 BLOB_SSL_ISSUERCERT_PROXY	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  BLOB_SSL_ISSUERCERT_PROXY,$/;"	e	enum:dupblob
 BLOCKCHAIN_DIR	DCC-Miner/DCC-Miner/RequestParser.cpp	/^string BLOCKCHAIN_DIR = ".\/wwwdata\/blockchain";$/;"	v
-BLOCK_VERSION	DCC-Miner/DCC-Miner/Main.cpp	/^const std::string BLOCK_VERSION = "v0.3.0-alpha-coin";$/;"	v
+BLOCKCHAIN_H	DCC-Miner/DCC-Miner/Blockchain.h	2;"	d
+BLOCK_VERSION	DCC-Miner/DCC-Miner/SettingsConsts.h	/^const std::string BLOCK_VERSION = "v0.3.0-alpha-coin";$/;"	v
 BL_CODES	DCC-Miner/out/_deps/zlib-src/deflate.h	40;"	d
 BN_bn2bin	DCC-Miner/out/_deps/curl-src/lib/setup-vms.h	202;"	d
 BN_num_bits	DCC-Miner/out/_deps/curl-src/lib/setup-vms.h	203;"	d
@@ -462,6 +465,7 @@ CRC4	DCC-Miner/out/_deps/zlib-src/inflate_p.h	29;"	d
 CRC_FOLDING_H_	DCC-Miner/out/_deps/zlib-src/arch/x86/crc_folding.h	11;"	d
 CREATE_imap	DCC-Miner/out/_deps/curl-src/tests/ftpserver.pl	/^sub CREATE_imap {$/;"	s
 CRLfile	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  char *CRLfile;   \/* CRL to check certificate revocation *\/$/;"	m	struct:ssl_config_data
+CRYPTO_H	DCC-Miner/DCC-Miner/crypto.h	2;"	d
 CRYPTO_cleanup_all_ex_data	DCC-Miner/out/_deps/curl-src/lib/setup-vms.h	204;"	d
 CRYPTO_free	DCC-Miner/out/_deps/curl-src/lib/setup-vms.h	205;"	d
 CRYPTO_malloc	DCC-Miner/out/_deps/curl-src/lib/setup-vms.h	206;"	d
@@ -3685,7 +3689,7 @@ CaInfo	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    CaInfo(std::s
 CaInfo	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^class CaInfo {$/;"	c	namespace:cpr::ssl
 CaPath	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    CaPath(std::string&& p_filename) : filename(std::move(p_filename)) {}$/;"	f	class:cpr::ssl::CaPath
 CaPath	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^class CaPath {$/;"	c	namespace:cpr::ssl
-CalculateDifficulty	DCC-Miner/DCC-Miner/Main.cpp	/^std::string CalculateDifficulty() {$/;"	f
+CalculateDifficulty	DCC-Miner/DCC-Miner/Blockchain.cpp	/^std::string CalculateDifficulty(json& walletInfo) {$/;"	f
 CanFalseStartCallback	DCC-Miner/out/_deps/curl-src/lib/vtls/nss.c	/^static SECStatus CanFalseStartCallback(PRFileDesc *sock, void *client_data,$/;"	f	file:
 CaseInsensitiveCompare	DCC-Miner/out/_deps/cpr-src/include/cpr/cprtypes.h	/^struct CaseInsensitiveCompare {$/;"	s	namespace:cpr
 CertFile	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    CertFile(std::string&& p_filename) : filename(std::move(p_filename)) {}$/;"	f	class:cpr::ssl::CertFile
@@ -3699,8 +3703,8 @@ Ciphers	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    Ciphers(std:
 Ciphers	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^class Ciphers {$/;"	c	namespace:cpr::ssl
 ClosingFileHandler	DCC-Miner/out/_deps/curl-src/tests/util.py	/^class ClosingFileHandler(logging.StreamHandler):$/;"	c
 Code	DCC-Miner/out/_deps/zlib-src/deflate.h	85;"	d
-CommaLargeNumber	DCC-Miner/DCC-Miner/strops.cpp	/^std::string CommaLargeNumber(float num) {$/;"	f
-CommaLargeNumber	DCC-Miner/DCC-Miner/strops.cpp	/^std::string CommaLargeNumber(int num) {$/;"	f
+CommaLargeNumber	DCC-Miner/DCC-Miner/strops.cpp	/^std::string CommaLargeNumber(long num) {$/;"	f
+CommaLargeNumberF	DCC-Miner/DCC-Miner/strops.cpp	/^std::string CommaLargeNumberF(float num) {$/;"	f
 CompareCharNumbers	DCC-Miner/DCC-Miner/strops.cpp	/^bool CompareCharNumbers(const unsigned char* number1, const unsigned char* number2) {$/;"	f
 CompilerErrorPrint	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::CompilerErrorPrint()$/;"	f	class:Console
 Complete	DCC-Miner/out/_deps/cpr-src/cpr/session.cpp	/^Response Session::Complete( CURLcode curl_error ) { return pimpl_->Complete(curl_error); }$/;"	f	class:cpr::Session
@@ -3713,7 +3717,7 @@ ConnectBits	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^struct ConnectBits {$/;
 ConnectTimeout	DCC-Miner/out/_deps/cpr-src/include/cpr/connect_timeout.h	/^    ConnectTimeout(const std::chrono::milliseconds& duration) : Timeout{duration} {}$/;"	f	class:cpr::ConnectTimeout
 ConnectTimeout	DCC-Miner/out/_deps/cpr-src/include/cpr/connect_timeout.h	/^    ConnectTimeout(const std::int32_t& milliseconds) : Timeout{milliseconds} {}$/;"	f	class:cpr::ConnectTimeout
 ConnectTimeout	DCC-Miner/out/_deps/cpr-src/include/cpr/connect_timeout.h	/^class ConnectTimeout : public Timeout {$/;"	c	namespace:cpr
-ConnectionError	DCC-Miner/DCC-Miner/Main.cpp	/^void ConnectionError()$/;"	f
+ConnectionError	DCC-Miner/DCC-Miner/Console.cpp	/^void ConnectionError()$/;"	f
 ConnectionExists	DCC-Miner/out/_deps/curl-src/lib/url.c	/^ConnectionExists(struct Curl_easy *data,$/;"	f	file:
 Console	DCC-Miner/DCC-Miner/Console.h	/^class Console$/;"	c
 ConsoleQueueHandle	DCC-Miner/DCC-Miner/Console.cpp	/^void ConsoleQueueHandle(){$/;"	f
@@ -5211,8 +5215,8 @@ Error	DCC-Miner/out/_deps/cpr-src/include/cpr/error.h	/^class Error {$/;"	c	name
 ErrorCode	DCC-Miner/out/_deps/cpr-src/include/cpr/error.h	/^enum class ErrorCode {$/;"	c	namespace:cpr
 ErrorPrint	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::ErrorPrint()$/;"	f	class:Console
 EventHandler	DCC-Miner/out/_deps/cpr-src/test/abstractServer.cpp	/^static void EventHandler(mg_connection* conn, int event, void* event_data) {$/;"	f	namespace:cpr
-ExecuteAsync	DCC-Miner/DCC-Miner/Main.cpp	/^boost::process::child ExecuteAsync(std::string cmd, bool printOutput)$/;"	f
-ExecuteCommand	DCC-Miner/DCC-Miner/Main.cpp	/^std::string ExecuteCommand(const char* cmd)$/;"	f
+ExecuteAsync	DCC-Miner/DCC-Miner/System.cpp	/^boost::process::child ExecuteAsync(std::string cmd, bool printOutput)$/;"	f
+ExecuteCommand	DCC-Miner/DCC-Miner/System.cpp	/^std::string ExecuteCommand(const char* cmd)$/;"	f
 ExitError	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::ExitError(std::string errMessage)$/;"	f	class:Console
 ExtractPaddedChars	DCC-Miner/DCC-Miner/strops.cpp	/^std::string ExtractPaddedChars(const std::string& input, char padChar) {$/;"	f
 ExtractZip	DCC-Miner/DCC-Miner/FileManip.cpp	/^int ExtractZip(std::string path, std::string saveAs)$/;"	f
@@ -5360,7 +5364,7 @@ FileCount	DCC-Miner/DCC-Miner/FileManip.cpp	/^int FileCount(std::string dir)$/;"
 FindWin32CACert	DCC-Miner/out/_deps/curl-src/src/tool_doswin.c	/^CURLcode FindWin32CACert(struct OperationConfig *config,$/;"	f
 FormAdd	DCC-Miner/out/_deps/curl-src/lib/formdata.c	/^CURLFORMcode FormAdd(struct curl_httppost **httppost,$/;"	f	file:
 FormInfo	DCC-Miner/out/_deps/curl-src/lib/formdata.h	/^struct FormInfo {$/;"	s
-FormatHPS	DCC-Miner/DCC-Miner/Main.cpp	/^std::string FormatHPS(float input)$/;"	f
+FormatHPS	DCC-Miner/DCC-Miner/strops.cpp	/^std::string FormatHPS(float input)$/;"	f
 FormatType	DCC-Miner/out/_deps/curl-src/lib/mprintf.c	/^} FormatType;$/;"	t	typeref:enum:__anon140	file:
 Freq	DCC-Miner/out/_deps/zlib-src/deflate.h	84;"	d
 FtpFile	DCC-Miner/out/_deps/curl-src/docs/examples/ftpget.c	/^struct FtpFile {$/;"	s	file:
@@ -5498,15 +5502,14 @@ GetEncoded	DCC-Miner/out/_deps/cpr-src/cpr/cookies.cpp	/^std::string Cookies::Ge
 GetEnv	DCC-Miner/out/_deps/curl-src/lib/getenv.c	/^static char *GetEnv(const char *variable)$/;"	f	file:
 GetEnv	DCC-Miner/out/_deps/curl-src/src/tool_homedir.c	/^static char *GetEnv(const char *variable)$/;"	f	file:
 GetFileAndPassword	DCC-Miner/out/_deps/curl-src/src/tool_getparam.c	/^GetFileAndPassword(char *nextarg, char **file, char **password)$/;"	f	file:
-GetInfo	DCC-Miner/DCC-Miner/Main.cpp	/^json GetInfo()$/;"	f
 GetKeyType	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    virtual const char* GetKeyType() const {$/;"	f	class:cpr::ssl::KeyBlob
 GetKeyType	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    virtual const char* GetKeyType() const {$/;"	f	class:cpr::ssl::KeyFile
 GetLoadedModulePaths	DCC-Miner/out/_deps/curl-src/src/tool_doswin.c	/^struct curl_slist *GetLoadedModulePaths(void)$/;"	f
 GetOrSetUpData	DCC-Miner/out/_deps/curl-src/lib/nwlib.c	/^int GetOrSetUpData(int id, struct libdata **appData,$/;"	f
 GetPort	DCC-Miner/out/_deps/cpr-src/test/httpServer.cpp	/^uint16_t HttpServer::GetPort() {$/;"	f	class:cpr::HttpServer
 GetPort	DCC-Miner/out/_deps/cpr-src/test/httpsServer.cpp	/^uint16_t HttpsServer::GetPort() {$/;"	f	class:cpr::HttpsServer
-GetProgram	DCC-Miner/DCC-Miner/Main.cpp	/^int GetProgram()$/;"	f
-GetProgramLifeLeft	DCC-Miner/DCC-Miner/Main.cpp	/^float GetProgramLifeLeft(std::string id)$/;"	f
+GetProgram	DCC-Miner/DCC-Miner/Blockchain.cpp	/^int GetProgram()$/;"	f
+GetProgramLifeLeft	DCC-Miner/DCC-Miner/Blockchain.cpp	/^float GetProgramLifeLeft(std::string& programID)$/;"	f
 GetSizeParameter	DCC-Miner/out/_deps/curl-src/src/tool_getparam.c	/^static ParameterError GetSizeParameter(struct GlobalConfig *global,$/;"	f	file:
 GetStr	DCC-Miner/out/_deps/curl-src/src/tool_getparam.c	50;"	d	file:
 GlobalConfig	DCC-Miner/out/_deps/curl-src/src/tool_cfgable.h	/^struct GlobalConfig {$/;"	s
@@ -6790,6 +6793,7 @@ ICONV_ERROR	DCC-Miner/out/_deps/curl-src/lib/non-ascii.c	49;"	d	file:
 ICONV_ID_SIZE	DCC-Miner/out/_deps/curl-src/packages/OS400/ccsidcurl.c	53;"	d	file:
 ICONV_OPEN_ERROR	DCC-Miner/out/_deps/curl-src/packages/OS400/ccsidcurl.c	54;"	d	file:
 IDENT	DCC-Miner/out/_deps/curl-src/tests/negtelnetserver.py	/^IDENT = "NTEL"$/;"	v
+IDI_ICON1	DCC-Miner/out/DCC-Miner/resource.h	5;"	d
 IDLE_imap	DCC-Miner/out/_deps/curl-src/tests/ftpserver.pl	/^sub IDLE_imap {$/;"	s
 IDN2_LOOKUP	DCC-Miner/out/_deps/curl-src/lib/url.c	66;"	d	file:
 IDN2_LOOKUP	DCC-Miner/out/_deps/curl-src/lib/url.c	69;"	d	file:
@@ -6921,27 +6925,27 @@ Interface	DCC-Miner/out/_deps/cpr-src/include/cpr/interface.h	/^    Interface(co
 Interface	DCC-Miner/out/_deps/cpr-src/include/cpr/interface.h	/^    Interface(const std::string& iface) : StringHolder<Interface>(iface) {}$/;"	f	class:cpr::Interface
 Interface	DCC-Miner/out/_deps/cpr-src/include/cpr/interface.h	/^    Interface(std::string&& iface) : StringHolder<Interface>(std::move(iface)) {}$/;"	f	class:cpr::Interface
 Interface	DCC-Miner/out/_deps/cpr-src/include/cpr/interface.h	/^class Interface : public StringHolder<Interface> {$/;"	c	namespace:cpr
-IsChainValid	DCC-Miner/DCC-Miner/Main.cpp	/^bool IsChainValid()$/;"	f
+IsChainValid	DCC-Miner/DCC-Miner/Blockchain.cpp	/^bool IsChainValid(json& walletInfo)$/;"	f
 IsMultiplexingPossible	DCC-Miner/out/_deps/curl-src/lib/url.c	/^static int IsMultiplexingPossible(const struct Curl_easy *handle,$/;"	f	file:
 JAR	DCC-Miner/out/_deps/curl-src/tests/libtest/lib506.c	/^static const char *JAR = "log\/jar506";$/;"	v	file:
-JSON_ASSERT	DCC-Miner/DCC-Miner/json.hpp	23175;"	d
+JSON_ASSERT	DCC-Miner/DCC-Miner/json.hpp	23177;"	d
 JSON_ASSERT	DCC-Miner/DCC-Miner/json.hpp	2464;"	d
-JSON_CATCH	DCC-Miner/DCC-Miner/json.hpp	23186;"	d
+JSON_CATCH	DCC-Miner/DCC-Miner/json.hpp	23188;"	d
 JSON_CATCH	DCC-Miner/DCC-Miner/json.hpp	2431;"	d
 JSON_CATCH	DCC-Miner/DCC-Miner/json.hpp	2451;"	d
 JSON_CATCH	DCC-Miner/DCC-Miner/json.hpp	2452;"	d
 JSON_DIAGNOSTICS	DCC-Miner/DCC-Miner/json.hpp	2735;"	d
-JSON_EXPLICIT	DCC-Miner/DCC-Miner/json.hpp	23181;"	d
+JSON_EXPLICIT	DCC-Miner/DCC-Miner/json.hpp	23183;"	d
 JSON_EXPLICIT	DCC-Miner/DCC-Miner/json.hpp	2729;"	d
-JSON_HAS_CPP_11	DCC-Miner/DCC-Miner/json.hpp	23188;"	d
+JSON_HAS_CPP_11	DCC-Miner/DCC-Miner/json.hpp	23190;"	d
 JSON_HAS_CPP_11	DCC-Miner/DCC-Miner/json.hpp	2342;"	d
-JSON_HAS_CPP_14	DCC-Miner/DCC-Miner/json.hpp	23189;"	d
+JSON_HAS_CPP_14	DCC-Miner/DCC-Miner/json.hpp	23191;"	d
 JSON_HAS_CPP_14	DCC-Miner/DCC-Miner/json.hpp	2334;"	d
-JSON_HAS_CPP_17	DCC-Miner/DCC-Miner/json.hpp	23190;"	d
+JSON_HAS_CPP_17	DCC-Miner/DCC-Miner/json.hpp	23192;"	d
 JSON_HAS_CPP_17	DCC-Miner/DCC-Miner/json.hpp	2333;"	d
-JSON_HAS_CPP_20	DCC-Miner/DCC-Miner/json.hpp	23191;"	d
+JSON_HAS_CPP_20	DCC-Miner/DCC-Miner/json.hpp	23193;"	d
 JSON_HAS_CPP_20	DCC-Miner/DCC-Miner/json.hpp	2332;"	d
-JSON_HAS_EXPERIMENTAL_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	23193;"	d
+JSON_HAS_EXPERIMENTAL_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	23195;"	d
 JSON_HAS_EXPERIMENTAL_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	2362;"	d
 JSON_HAS_EXPERIMENTAL_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	2368;"	d
 JSON_HAS_EXPERIMENTAL_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	2374;"	d
@@ -6949,7 +6953,7 @@ JSON_HAS_EXPERIMENTAL_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	2380;"	d
 JSON_HAS_EXPERIMENTAL_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	2386;"	d
 JSON_HAS_EXPERIMENTAL_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	2392;"	d
 JSON_HAS_EXPERIMENTAL_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	2398;"	d
-JSON_HAS_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	23192;"	d
+JSON_HAS_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	23194;"	d
 JSON_HAS_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	2348;"	d
 JSON_HAS_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	2361;"	d
 JSON_HAS_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	2367;"	d
@@ -6958,476 +6962,476 @@ JSON_HAS_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	2379;"	d
 JSON_HAS_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	2385;"	d
 JSON_HAS_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	2391;"	d
 JSON_HAS_FILESYSTEM	DCC-Miner/DCC-Miner/json.hpp	2402;"	d
-JSON_HAS_THREE_WAY_COMPARISON	DCC-Miner/DCC-Miner/json.hpp	23194;"	d
+JSON_HAS_THREE_WAY_COMPARISON	DCC-Miner/DCC-Miner/json.hpp	23196;"	d
 JSON_HAS_THREE_WAY_COMPARISON	DCC-Miner/DCC-Miner/json.hpp	2408;"	d
 JSON_HEDLEY_ALWAYS_INLINE	DCC-Miner/DCC-Miner/json.hpp	1746;"	d
 JSON_HEDLEY_ALWAYS_INLINE	DCC-Miner/DCC-Miner/json.hpp	1768;"	d
-JSON_HEDLEY_ALWAYS_INLINE	DCC-Miner/DCC-Miner/json.hpp	23200;"	d
-JSON_HEDLEY_ARM_VERSION	DCC-Miner/DCC-Miner/json.hpp	23201;"	d
+JSON_HEDLEY_ALWAYS_INLINE	DCC-Miner/DCC-Miner/json.hpp	23202;"	d
+JSON_HEDLEY_ARM_VERSION	DCC-Miner/DCC-Miner/json.hpp	23203;"	d
 JSON_HEDLEY_ARM_VERSION	DCC-Miner/DCC-Miner/json.hpp	390;"	d
 JSON_HEDLEY_ARM_VERSION	DCC-Miner/DCC-Miner/json.hpp	393;"	d
-JSON_HEDLEY_ARM_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23202;"	d
+JSON_HEDLEY_ARM_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23204;"	d
 JSON_HEDLEY_ARM_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	399;"	d
 JSON_HEDLEY_ARM_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	402;"	d
 JSON_HEDLEY_ARRAY_PARAM	DCC-Miner/DCC-Miner/json.hpp	1920;"	d
 JSON_HEDLEY_ARRAY_PARAM	DCC-Miner/DCC-Miner/json.hpp	1928;"	d
-JSON_HEDLEY_ARRAY_PARAM	DCC-Miner/DCC-Miner/json.hpp	23203;"	d
+JSON_HEDLEY_ARRAY_PARAM	DCC-Miner/DCC-Miner/json.hpp	23205;"	d
 JSON_HEDLEY_ASSUME	DCC-Miner/DCC-Miner/json.hpp	1399;"	d
 JSON_HEDLEY_ASSUME	DCC-Miner/DCC-Miner/json.hpp	1405;"	d
 JSON_HEDLEY_ASSUME	DCC-Miner/DCC-Miner/json.hpp	1431;"	d
-JSON_HEDLEY_ASSUME	DCC-Miner/DCC-Miner/json.hpp	23204;"	d
+JSON_HEDLEY_ASSUME	DCC-Miner/DCC-Miner/json.hpp	23206;"	d
 JSON_HEDLEY_BEGIN_C_DECLS	DCC-Miner/DCC-Miner/json.hpp	2024;"	d
 JSON_HEDLEY_BEGIN_C_DECLS	DCC-Miner/DCC-Miner/json.hpp	2033;"	d
-JSON_HEDLEY_BEGIN_C_DECLS	DCC-Miner/DCC-Miner/json.hpp	23205;"	d
+JSON_HEDLEY_BEGIN_C_DECLS	DCC-Miner/DCC-Miner/json.hpp	23207;"	d
 JSON_HEDLEY_CLANG_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	2198;"	d
 JSON_HEDLEY_CLANG_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	2200;"	d
-JSON_HEDLEY_CLANG_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23206;"	d
+JSON_HEDLEY_CLANG_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23208;"	d
 JSON_HEDLEY_CLANG_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	2208;"	d
 JSON_HEDLEY_CLANG_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	2210;"	d
-JSON_HEDLEY_CLANG_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	23207;"	d
+JSON_HEDLEY_CLANG_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	23209;"	d
 JSON_HEDLEY_CLANG_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	2203;"	d
 JSON_HEDLEY_CLANG_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	2205;"	d
-JSON_HEDLEY_CLANG_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23208;"	d
+JSON_HEDLEY_CLANG_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23210;"	d
 JSON_HEDLEY_CLANG_HAS_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	2225;"	d
 JSON_HEDLEY_CLANG_HAS_DECLSPEC_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	2223;"	d
-JSON_HEDLEY_CLANG_HAS_DECLSPEC_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23209;"	d
+JSON_HEDLEY_CLANG_HAS_DECLSPEC_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23211;"	d
 JSON_HEDLEY_CLANG_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	2218;"	d
 JSON_HEDLEY_CLANG_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	2220;"	d
-JSON_HEDLEY_CLANG_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	23210;"	d
+JSON_HEDLEY_CLANG_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	23212;"	d
 JSON_HEDLEY_CLANG_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	2213;"	d
 JSON_HEDLEY_CLANG_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	2215;"	d
-JSON_HEDLEY_CLANG_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	23211;"	d
+JSON_HEDLEY_CLANG_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	23213;"	d
 JSON_HEDLEY_CLANG_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	2228;"	d
 JSON_HEDLEY_CLANG_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	2230;"	d
-JSON_HEDLEY_CLANG_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	23212;"	d
-JSON_HEDLEY_COMPCERT_VERSION	DCC-Miner/DCC-Miner/json.hpp	23213;"	d
+JSON_HEDLEY_CLANG_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	23214;"	d
+JSON_HEDLEY_COMPCERT_VERSION	DCC-Miner/DCC-Miner/json.hpp	23215;"	d
 JSON_HEDLEY_COMPCERT_VERSION	DCC-Miner/DCC-Miner/json.hpp	620;"	d
 JSON_HEDLEY_COMPCERT_VERSION	DCC-Miner/DCC-Miner/json.hpp	623;"	d
-JSON_HEDLEY_COMPCERT_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23214;"	d
+JSON_HEDLEY_COMPCERT_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23216;"	d
 JSON_HEDLEY_COMPCERT_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	627;"	d
 JSON_HEDLEY_COMPCERT_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	630;"	d
 JSON_HEDLEY_CONCAT	DCC-Miner/DCC-Miner/json.hpp	225;"	d
 JSON_HEDLEY_CONCAT	DCC-Miner/DCC-Miner/json.hpp	227;"	d
-JSON_HEDLEY_CONCAT	DCC-Miner/DCC-Miner/json.hpp	23215;"	d
-JSON_HEDLEY_CONCAT3	DCC-Miner/DCC-Miner/json.hpp	23216;"	d
+JSON_HEDLEY_CONCAT	DCC-Miner/DCC-Miner/json.hpp	23217;"	d
+JSON_HEDLEY_CONCAT3	DCC-Miner/DCC-Miner/json.hpp	23218;"	d
 JSON_HEDLEY_CONCAT3	DCC-Miner/DCC-Miner/json.hpp	235;"	d
 JSON_HEDLEY_CONCAT3	DCC-Miner/DCC-Miner/json.hpp	237;"	d
 JSON_HEDLEY_CONCAT3_EX	DCC-Miner/DCC-Miner/json.hpp	230;"	d
-JSON_HEDLEY_CONCAT3_EX	DCC-Miner/DCC-Miner/json.hpp	23217;"	d
+JSON_HEDLEY_CONCAT3_EX	DCC-Miner/DCC-Miner/json.hpp	23219;"	d
 JSON_HEDLEY_CONCAT3_EX	DCC-Miner/DCC-Miner/json.hpp	232;"	d
 JSON_HEDLEY_CONCAT_EX	DCC-Miner/DCC-Miner/json.hpp	220;"	d
 JSON_HEDLEY_CONCAT_EX	DCC-Miner/DCC-Miner/json.hpp	222;"	d
-JSON_HEDLEY_CONCAT_EX	DCC-Miner/DCC-Miner/json.hpp	23218;"	d
+JSON_HEDLEY_CONCAT_EX	DCC-Miner/DCC-Miner/json.hpp	23220;"	d
 JSON_HEDLEY_CONST	DCC-Miner/DCC-Miner/json.hpp	1660;"	d
 JSON_HEDLEY_CONST	DCC-Miner/DCC-Miner/json.hpp	1682;"	d
-JSON_HEDLEY_CONST	DCC-Miner/DCC-Miner/json.hpp	23219;"	d
+JSON_HEDLEY_CONST	DCC-Miner/DCC-Miner/json.hpp	23221;"	d
 JSON_HEDLEY_CONSTEXPR	DCC-Miner/DCC-Miner/json.hpp	1512;"	d
 JSON_HEDLEY_CONSTEXPR	DCC-Miner/DCC-Miner/json.hpp	1516;"	d
 JSON_HEDLEY_CONSTEXPR	DCC-Miner/DCC-Miner/json.hpp	1520;"	d
-JSON_HEDLEY_CONSTEXPR	DCC-Miner/DCC-Miner/json.hpp	23220;"	d
+JSON_HEDLEY_CONSTEXPR	DCC-Miner/DCC-Miner/json.hpp	23222;"	d
 JSON_HEDLEY_CONST_CAST	DCC-Miner/DCC-Miner/json.hpp	1013;"	d
 JSON_HEDLEY_CONST_CAST	DCC-Miner/DCC-Miner/json.hpp	1016;"	d
-JSON_HEDLEY_CONST_CAST	DCC-Miner/DCC-Miner/json.hpp	23221;"	d
+JSON_HEDLEY_CONST_CAST	DCC-Miner/DCC-Miner/json.hpp	23223;"	d
 JSON_HEDLEY_CPP_CAST	DCC-Miner/DCC-Miner/json.hpp	1050;"	d
 JSON_HEDLEY_CPP_CAST	DCC-Miner/DCC-Miner/json.hpp	1054;"	d
-JSON_HEDLEY_CPP_CAST	DCC-Miner/DCC-Miner/json.hpp	23222;"	d
-JSON_HEDLEY_CRAY_VERSION	DCC-Miner/DCC-Miner/json.hpp	23223;"	d
+JSON_HEDLEY_CPP_CAST	DCC-Miner/DCC-Miner/json.hpp	23224;"	d
+JSON_HEDLEY_CRAY_VERSION	DCC-Miner/DCC-Miner/json.hpp	23225;"	d
 JSON_HEDLEY_CRAY_VERSION	DCC-Miner/DCC-Miner/json.hpp	548;"	d
 JSON_HEDLEY_CRAY_VERSION	DCC-Miner/DCC-Miner/json.hpp	552;"	d
-JSON_HEDLEY_CRAY_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23224;"	d
+JSON_HEDLEY_CRAY_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23226;"	d
 JSON_HEDLEY_CRAY_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	559;"	d
 JSON_HEDLEY_CRAY_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	562;"	d
 JSON_HEDLEY_C_DECL	DCC-Miner/DCC-Miner/json.hpp	2030;"	d
 JSON_HEDLEY_C_DECL	DCC-Miner/DCC-Miner/json.hpp	2035;"	d
-JSON_HEDLEY_C_DECL	DCC-Miner/DCC-Miner/json.hpp	23225;"	d
+JSON_HEDLEY_C_DECL	DCC-Miner/DCC-Miner/json.hpp	23227;"	d
 JSON_HEDLEY_DEPRECATED	DCC-Miner/DCC-Miner/json.hpp	1207;"	d
 JSON_HEDLEY_DEPRECATED	DCC-Miner/DCC-Miner/json.hpp	1215;"	d
-JSON_HEDLEY_DEPRECATED	DCC-Miner/DCC-Miner/json.hpp	23226;"	d
+JSON_HEDLEY_DEPRECATED	DCC-Miner/DCC-Miner/json.hpp	23228;"	d
 JSON_HEDLEY_DEPRECATED_FOR	DCC-Miner/DCC-Miner/json.hpp	1210;"	d
 JSON_HEDLEY_DEPRECATED_FOR	DCC-Miner/DCC-Miner/json.hpp	1216;"	d
-JSON_HEDLEY_DEPRECATED_FOR	DCC-Miner/DCC-Miner/json.hpp	23227;"	d
+JSON_HEDLEY_DEPRECATED_FOR	DCC-Miner/DCC-Miner/json.hpp	23229;"	d
 JSON_HEDLEY_DIAGNOSTIC_DISABLE_CAST_QUAL	DCC-Miner/DCC-Miner/json.hpp	1179;"	d
 JSON_HEDLEY_DIAGNOSTIC_DISABLE_CAST_QUAL	DCC-Miner/DCC-Miner/json.hpp	1182;"	d
-JSON_HEDLEY_DIAGNOSTIC_DISABLE_CAST_QUAL	DCC-Miner/DCC-Miner/json.hpp	23228;"	d
+JSON_HEDLEY_DIAGNOSTIC_DISABLE_CAST_QUAL	DCC-Miner/DCC-Miner/json.hpp	23230;"	d
 JSON_HEDLEY_DIAGNOSTIC_DISABLE_CPP98_COMPAT_WRAP_	DCC-Miner/DCC-Miner/json.hpp	1009;"	d
-JSON_HEDLEY_DIAGNOSTIC_DISABLE_CPP98_COMPAT_WRAP_	DCC-Miner/DCC-Miner/json.hpp	23229;"	d
+JSON_HEDLEY_DIAGNOSTIC_DISABLE_CPP98_COMPAT_WRAP_	DCC-Miner/DCC-Miner/json.hpp	23231;"	d
 JSON_HEDLEY_DIAGNOSTIC_DISABLE_CPP98_COMPAT_WRAP_	DCC-Miner/DCC-Miner/json.hpp	978;"	d
 JSON_HEDLEY_DIAGNOSTIC_DISABLE_CPP98_COMPAT_WRAP_	DCC-Miner/DCC-Miner/json.hpp	984;"	d
 JSON_HEDLEY_DIAGNOSTIC_DISABLE_DEPRECATED	DCC-Miner/DCC-Miner/json.hpp	1072;"	d
 JSON_HEDLEY_DIAGNOSTIC_DISABLE_DEPRECATED	DCC-Miner/DCC-Miner/json.hpp	1075;"	d
-JSON_HEDLEY_DIAGNOSTIC_DISABLE_DEPRECATED	DCC-Miner/DCC-Miner/json.hpp	23230;"	d
+JSON_HEDLEY_DIAGNOSTIC_DISABLE_DEPRECATED	DCC-Miner/DCC-Miner/json.hpp	23232;"	d
 JSON_HEDLEY_DIAGNOSTIC_DISABLE_UNKNOWN_CPP_ATTRIBUTES	DCC-Miner/DCC-Miner/json.hpp	1147;"	d
 JSON_HEDLEY_DIAGNOSTIC_DISABLE_UNKNOWN_CPP_ATTRIBUTES	DCC-Miner/DCC-Miner/json.hpp	1150;"	d
-JSON_HEDLEY_DIAGNOSTIC_DISABLE_UNKNOWN_CPP_ATTRIBUTES	DCC-Miner/DCC-Miner/json.hpp	23231;"	d
+JSON_HEDLEY_DIAGNOSTIC_DISABLE_UNKNOWN_CPP_ATTRIBUTES	DCC-Miner/DCC-Miner/json.hpp	23233;"	d
 JSON_HEDLEY_DIAGNOSTIC_DISABLE_UNKNOWN_PRAGMAS	DCC-Miner/DCC-Miner/json.hpp	1116;"	d
 JSON_HEDLEY_DIAGNOSTIC_DISABLE_UNKNOWN_PRAGMAS	DCC-Miner/DCC-Miner/json.hpp	1119;"	d
-JSON_HEDLEY_DIAGNOSTIC_DISABLE_UNKNOWN_PRAGMAS	DCC-Miner/DCC-Miner/json.hpp	23232;"	d
+JSON_HEDLEY_DIAGNOSTIC_DISABLE_UNKNOWN_PRAGMAS	DCC-Miner/DCC-Miner/json.hpp	23234;"	d
 JSON_HEDLEY_DIAGNOSTIC_DISABLE_UNUSED_FUNCTION	DCC-Miner/DCC-Miner/json.hpp	1192;"	d
 JSON_HEDLEY_DIAGNOSTIC_DISABLE_UNUSED_FUNCTION	DCC-Miner/DCC-Miner/json.hpp	1195;"	d
-JSON_HEDLEY_DIAGNOSTIC_DISABLE_UNUSED_FUNCTION	DCC-Miner/DCC-Miner/json.hpp	23233;"	d
-JSON_HEDLEY_DIAGNOSTIC_POP	DCC-Miner/DCC-Miner/json.hpp	23234;"	d
+JSON_HEDLEY_DIAGNOSTIC_DISABLE_UNUSED_FUNCTION	DCC-Miner/DCC-Miner/json.hpp	23235;"	d
+JSON_HEDLEY_DIAGNOSTIC_POP	DCC-Miner/DCC-Miner/json.hpp	23236;"	d
 JSON_HEDLEY_DIAGNOSTIC_POP	DCC-Miner/DCC-Miner/json.hpp	939;"	d
 JSON_HEDLEY_DIAGNOSTIC_POP	DCC-Miner/DCC-Miner/json.hpp	943;"	d
-JSON_HEDLEY_DIAGNOSTIC_PUSH	DCC-Miner/DCC-Miner/json.hpp	23235;"	d
+JSON_HEDLEY_DIAGNOSTIC_PUSH	DCC-Miner/DCC-Miner/json.hpp	23237;"	d
 JSON_HEDLEY_DIAGNOSTIC_PUSH	DCC-Miner/DCC-Miner/json.hpp	936;"	d
 JSON_HEDLEY_DIAGNOSTIC_PUSH	DCC-Miner/DCC-Miner/json.hpp	942;"	d
-JSON_HEDLEY_DMC_VERSION	DCC-Miner/DCC-Miner/json.hpp	23236;"	d
+JSON_HEDLEY_DMC_VERSION	DCC-Miner/DCC-Miner/json.hpp	23238;"	d
 JSON_HEDLEY_DMC_VERSION	DCC-Miner/DCC-Miner/json.hpp	604;"	d
 JSON_HEDLEY_DMC_VERSION	DCC-Miner/DCC-Miner/json.hpp	607;"	d
-JSON_HEDLEY_DMC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23237;"	d
+JSON_HEDLEY_DMC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23239;"	d
 JSON_HEDLEY_DMC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	611;"	d
 JSON_HEDLEY_DMC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	614;"	d
 JSON_HEDLEY_EMPTY_BASES	DCC-Miner/DCC-Miner/json.hpp	2176;"	d
 JSON_HEDLEY_EMPTY_BASES	DCC-Miner/DCC-Miner/json.hpp	2181;"	d
-JSON_HEDLEY_EMPTY_BASES	DCC-Miner/DCC-Miner/json.hpp	23238;"	d
-JSON_HEDLEY_EMSCRIPTEN_VERSION	DCC-Miner/DCC-Miner/json.hpp	23239;"	d
+JSON_HEDLEY_EMPTY_BASES	DCC-Miner/DCC-Miner/json.hpp	23240;"	d
+JSON_HEDLEY_EMSCRIPTEN_VERSION	DCC-Miner/DCC-Miner/json.hpp	23241;"	d
 JSON_HEDLEY_EMSCRIPTEN_VERSION	DCC-Miner/DCC-Miner/json.hpp	374;"	d
 JSON_HEDLEY_EMSCRIPTEN_VERSION	DCC-Miner/DCC-Miner/json.hpp	377;"	d
-JSON_HEDLEY_EMSCRIPTEN_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23240;"	d
+JSON_HEDLEY_EMSCRIPTEN_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23242;"	d
 JSON_HEDLEY_EMSCRIPTEN_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	381;"	d
 JSON_HEDLEY_EMSCRIPTEN_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	384;"	d
 JSON_HEDLEY_END_C_DECLS	DCC-Miner/DCC-Miner/json.hpp	2027;"	d
 JSON_HEDLEY_END_C_DECLS	DCC-Miner/DCC-Miner/json.hpp	2034;"	d
-JSON_HEDLEY_END_C_DECLS	DCC-Miner/DCC-Miner/json.hpp	23241;"	d
+JSON_HEDLEY_END_C_DECLS	DCC-Miner/DCC-Miner/json.hpp	23243;"	d
 JSON_HEDLEY_FALL_THROUGH	DCC-Miner/DCC-Miner/json.hpp	1888;"	d
 JSON_HEDLEY_FALL_THROUGH	DCC-Miner/DCC-Miner/json.hpp	1894;"	d
-JSON_HEDLEY_FALL_THROUGH	DCC-Miner/DCC-Miner/json.hpp	23347;"	d
+JSON_HEDLEY_FALL_THROUGH	DCC-Miner/DCC-Miner/json.hpp	23349;"	d
 JSON_HEDLEY_FLAGS	DCC-Miner/DCC-Miner/json.hpp	2153;"	d
 JSON_HEDLEY_FLAGS	DCC-Miner/DCC-Miner/json.hpp	2156;"	d
-JSON_HEDLEY_FLAGS	DCC-Miner/DCC-Miner/json.hpp	23242;"	d
+JSON_HEDLEY_FLAGS	DCC-Miner/DCC-Miner/json.hpp	23244;"	d
 JSON_HEDLEY_FLAGS_CAST	DCC-Miner/DCC-Miner/json.hpp	2162;"	d
 JSON_HEDLEY_FLAGS_CAST	DCC-Miner/DCC-Miner/json.hpp	2165;"	d
-JSON_HEDLEY_FLAGS_CAST	DCC-Miner/DCC-Miner/json.hpp	23243;"	d
-JSON_HEDLEY_GCC_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23244;"	d
+JSON_HEDLEY_FLAGS_CAST	DCC-Miner/DCC-Miner/json.hpp	23245;"	d
+JSON_HEDLEY_GCC_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23246;"	d
 JSON_HEDLEY_GCC_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	721;"	d
 JSON_HEDLEY_GCC_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	724;"	d
-JSON_HEDLEY_GCC_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	23245;"	d
+JSON_HEDLEY_GCC_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	23247;"	d
 JSON_HEDLEY_GCC_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	793;"	d
 JSON_HEDLEY_GCC_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	796;"	d
-JSON_HEDLEY_GCC_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23246;"	d
+JSON_HEDLEY_GCC_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23248;"	d
 JSON_HEDLEY_GCC_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	766;"	d
 JSON_HEDLEY_GCC_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	769;"	d
-JSON_HEDLEY_GCC_HAS_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23247;"	d
+JSON_HEDLEY_GCC_HAS_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23249;"	d
 JSON_HEDLEY_GCC_HAS_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	874;"	d
 JSON_HEDLEY_GCC_HAS_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	877;"	d
-JSON_HEDLEY_GCC_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	23248;"	d
+JSON_HEDLEY_GCC_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	23250;"	d
 JSON_HEDLEY_GCC_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	847;"	d
 JSON_HEDLEY_GCC_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	850;"	d
-JSON_HEDLEY_GCC_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	23249;"	d
+JSON_HEDLEY_GCC_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	23251;"	d
 JSON_HEDLEY_GCC_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	820;"	d
 JSON_HEDLEY_GCC_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	823;"	d
-JSON_HEDLEY_GCC_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	23250;"	d
+JSON_HEDLEY_GCC_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	23252;"	d
 JSON_HEDLEY_GCC_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	901;"	d
 JSON_HEDLEY_GCC_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	904;"	d
 JSON_HEDLEY_GCC_NOT_CLANG_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	2189;"	d
 JSON_HEDLEY_GCC_NOT_CLANG_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	2192;"	d
-JSON_HEDLEY_GCC_NOT_CLANG_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23251;"	d
-JSON_HEDLEY_GCC_VERSION	DCC-Miner/DCC-Miner/json.hpp	23252;"	d
+JSON_HEDLEY_GCC_NOT_CLANG_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23253;"	d
+JSON_HEDLEY_GCC_VERSION	DCC-Miner/DCC-Miner/json.hpp	23254;"	d
 JSON_HEDLEY_GCC_VERSION	DCC-Miner/DCC-Miner/json.hpp	668;"	d
 JSON_HEDLEY_GCC_VERSION	DCC-Miner/DCC-Miner/json.hpp	686;"	d
-JSON_HEDLEY_GCC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23253;"	d
+JSON_HEDLEY_GCC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23255;"	d
 JSON_HEDLEY_GCC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	690;"	d
 JSON_HEDLEY_GCC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	693;"	d
-JSON_HEDLEY_GNUC_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23254;"	d
+JSON_HEDLEY_GNUC_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23256;"	d
 JSON_HEDLEY_GNUC_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	712;"	d
 JSON_HEDLEY_GNUC_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	715;"	d
-JSON_HEDLEY_GNUC_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	23255;"	d
+JSON_HEDLEY_GNUC_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	23257;"	d
 JSON_HEDLEY_GNUC_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	784;"	d
 JSON_HEDLEY_GNUC_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	787;"	d
-JSON_HEDLEY_GNUC_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23256;"	d
+JSON_HEDLEY_GNUC_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23258;"	d
 JSON_HEDLEY_GNUC_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	757;"	d
 JSON_HEDLEY_GNUC_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	760;"	d
-JSON_HEDLEY_GNUC_HAS_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23257;"	d
+JSON_HEDLEY_GNUC_HAS_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23259;"	d
 JSON_HEDLEY_GNUC_HAS_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	865;"	d
 JSON_HEDLEY_GNUC_HAS_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	868;"	d
-JSON_HEDLEY_GNUC_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	23258;"	d
+JSON_HEDLEY_GNUC_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	23260;"	d
 JSON_HEDLEY_GNUC_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	838;"	d
 JSON_HEDLEY_GNUC_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	841;"	d
-JSON_HEDLEY_GNUC_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	23259;"	d
+JSON_HEDLEY_GNUC_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	23261;"	d
 JSON_HEDLEY_GNUC_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	811;"	d
 JSON_HEDLEY_GNUC_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	814;"	d
-JSON_HEDLEY_GNUC_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	23260;"	d
+JSON_HEDLEY_GNUC_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	23262;"	d
 JSON_HEDLEY_GNUC_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	892;"	d
 JSON_HEDLEY_GNUC_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	895;"	d
-JSON_HEDLEY_GNUC_VERSION	DCC-Miner/DCC-Miner/json.hpp	23261;"	d
+JSON_HEDLEY_GNUC_VERSION	DCC-Miner/DCC-Miner/json.hpp	23263;"	d
 JSON_HEDLEY_GNUC_VERSION	DCC-Miner/DCC-Miner/json.hpp	260;"	d
 JSON_HEDLEY_GNUC_VERSION	DCC-Miner/DCC-Miner/json.hpp	263;"	d
-JSON_HEDLEY_GNUC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23262;"	d
+JSON_HEDLEY_GNUC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23264;"	d
 JSON_HEDLEY_GNUC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	269;"	d
 JSON_HEDLEY_GNUC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	272;"	d
-JSON_HEDLEY_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23263;"	d
+JSON_HEDLEY_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23265;"	d
 JSON_HEDLEY_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	699;"	d
 JSON_HEDLEY_HAS_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	706;"	d
-JSON_HEDLEY_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	23264;"	d
+JSON_HEDLEY_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	23266;"	d
 JSON_HEDLEY_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	775;"	d
 JSON_HEDLEY_HAS_BUILTIN	DCC-Miner/DCC-Miner/json.hpp	778;"	d
-JSON_HEDLEY_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23265;"	d
+JSON_HEDLEY_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23267;"	d
 JSON_HEDLEY_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	730;"	d
 JSON_HEDLEY_HAS_CPP_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	736;"	d
-JSON_HEDLEY_HAS_CPP_ATTRIBUTE_NS	DCC-Miner/DCC-Miner/json.hpp	23266;"	d
+JSON_HEDLEY_HAS_CPP_ATTRIBUTE_NS	DCC-Miner/DCC-Miner/json.hpp	23268;"	d
 JSON_HEDLEY_HAS_CPP_ATTRIBUTE_NS	DCC-Miner/DCC-Miner/json.hpp	742;"	d
 JSON_HEDLEY_HAS_CPP_ATTRIBUTE_NS	DCC-Miner/DCC-Miner/json.hpp	745;"	d
-JSON_HEDLEY_HAS_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23267;"	d
+JSON_HEDLEY_HAS_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	23269;"	d
 JSON_HEDLEY_HAS_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	856;"	d
 JSON_HEDLEY_HAS_DECLSPEC_ATTRIBUTE	DCC-Miner/DCC-Miner/json.hpp	859;"	d
-JSON_HEDLEY_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	23268;"	d
+JSON_HEDLEY_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	23270;"	d
 JSON_HEDLEY_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	829;"	d
 JSON_HEDLEY_HAS_EXTENSION	DCC-Miner/DCC-Miner/json.hpp	832;"	d
-JSON_HEDLEY_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	23269;"	d
+JSON_HEDLEY_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	23271;"	d
 JSON_HEDLEY_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	802;"	d
 JSON_HEDLEY_HAS_FEATURE	DCC-Miner/DCC-Miner/json.hpp	805;"	d
-JSON_HEDLEY_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	23270;"	d
+JSON_HEDLEY_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	23272;"	d
 JSON_HEDLEY_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	883;"	d
 JSON_HEDLEY_HAS_WARNING	DCC-Miner/DCC-Miner/json.hpp	886;"	d
-JSON_HEDLEY_IAR_VERSION	DCC-Miner/DCC-Miner/json.hpp	23271;"	d
+JSON_HEDLEY_IAR_VERSION	DCC-Miner/DCC-Miner/json.hpp	23273;"	d
 JSON_HEDLEY_IAR_VERSION	DCC-Miner/DCC-Miner/json.hpp	568;"	d
 JSON_HEDLEY_IAR_VERSION	DCC-Miner/DCC-Miner/json.hpp	572;"	d
-JSON_HEDLEY_IAR_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23272;"	d
+JSON_HEDLEY_IAR_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23274;"	d
 JSON_HEDLEY_IAR_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	579;"	d
 JSON_HEDLEY_IAR_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	582;"	d
-JSON_HEDLEY_IBM_VERSION	DCC-Miner/DCC-Miner/json.hpp	23273;"	d
+JSON_HEDLEY_IBM_VERSION	DCC-Miner/DCC-Miner/json.hpp	23275;"	d
 JSON_HEDLEY_IBM_VERSION	DCC-Miner/DCC-Miner/json.hpp	408;"	d
 JSON_HEDLEY_IBM_VERSION	DCC-Miner/DCC-Miner/json.hpp	411;"	d
-JSON_HEDLEY_IBM_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23274;"	d
+JSON_HEDLEY_IBM_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23276;"	d
 JSON_HEDLEY_IBM_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	419;"	d
 JSON_HEDLEY_IBM_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	422;"	d
 JSON_HEDLEY_IMPORT	DCC-Miner/DCC-Miner/json.hpp	1838;"	d
 JSON_HEDLEY_IMPORT	DCC-Miner/DCC-Miner/json.hpp	1843;"	d
-JSON_HEDLEY_IMPORT	DCC-Miner/DCC-Miner/json.hpp	23275;"	d
+JSON_HEDLEY_IMPORT	DCC-Miner/DCC-Miner/json.hpp	23277;"	d
 JSON_HEDLEY_INLINE	DCC-Miner/DCC-Miner/json.hpp	1719;"	d
 JSON_HEDLEY_INLINE	DCC-Miner/DCC-Miner/json.hpp	1724;"	d
-JSON_HEDLEY_INLINE	DCC-Miner/DCC-Miner/json.hpp	23276;"	d
-JSON_HEDLEY_INTEL_CL_VERSION	DCC-Miner/DCC-Miner/json.hpp	23277;"	d
+JSON_HEDLEY_INLINE	DCC-Miner/DCC-Miner/json.hpp	23278;"	d
+JSON_HEDLEY_INTEL_CL_VERSION	DCC-Miner/DCC-Miner/json.hpp	23279;"	d
 JSON_HEDLEY_INTEL_CL_VERSION	DCC-Miner/DCC-Miner/json.hpp	320;"	d
 JSON_HEDLEY_INTEL_CL_VERSION	DCC-Miner/DCC-Miner/json.hpp	323;"	d
-JSON_HEDLEY_INTEL_CL_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23278;"	d
+JSON_HEDLEY_INTEL_CL_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23280;"	d
 JSON_HEDLEY_INTEL_CL_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	327;"	d
 JSON_HEDLEY_INTEL_CL_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	330;"	d
-JSON_HEDLEY_INTEL_VERSION	DCC-Miner/DCC-Miner/json.hpp	23279;"	d
+JSON_HEDLEY_INTEL_VERSION	DCC-Miner/DCC-Miner/json.hpp	23281;"	d
 JSON_HEDLEY_INTEL_VERSION	DCC-Miner/DCC-Miner/json.hpp	302;"	d
 JSON_HEDLEY_INTEL_VERSION	DCC-Miner/DCC-Miner/json.hpp	305;"	d
-JSON_HEDLEY_INTEL_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23280;"	d
+JSON_HEDLEY_INTEL_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23282;"	d
 JSON_HEDLEY_INTEL_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	311;"	d
 JSON_HEDLEY_INTEL_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	314;"	d
 JSON_HEDLEY_IS_CONSTANT	DCC-Miner/DCC-Miner/json.hpp	1934;"	d
 JSON_HEDLEY_IS_CONSTANT	DCC-Miner/DCC-Miner/json.hpp	1955;"	d
 JSON_HEDLEY_IS_CONSTANT	DCC-Miner/DCC-Miner/json.hpp	2013;"	d
-JSON_HEDLEY_IS_CONSTANT	DCC-Miner/DCC-Miner/json.hpp	23281;"	d
+JSON_HEDLEY_IS_CONSTANT	DCC-Miner/DCC-Miner/json.hpp	23283;"	d
 JSON_HEDLEY_IS_CONSTEXPR_	DCC-Miner/DCC-Miner/json.hpp	1942;"	d
 JSON_HEDLEY_IS_CONSTEXPR_	DCC-Miner/DCC-Miner/json.hpp	1967;"	d
-JSON_HEDLEY_IS_CONSTEXPR_	DCC-Miner/DCC-Miner/json.hpp	23282;"	d
+JSON_HEDLEY_IS_CONSTEXPR_	DCC-Miner/DCC-Miner/json.hpp	23284;"	d
 JSON_HEDLEY_LIKELY	DCC-Miner/DCC-Miner/json.hpp	1527;"	d
 JSON_HEDLEY_LIKELY	DCC-Miner/DCC-Miner/json.hpp	1545;"	d
-JSON_HEDLEY_LIKELY	DCC-Miner/DCC-Miner/json.hpp	23283;"	d
+JSON_HEDLEY_LIKELY	DCC-Miner/DCC-Miner/json.hpp	23285;"	d
 JSON_HEDLEY_MALLOC	DCC-Miner/DCC-Miner/json.hpp	1590;"	d
 JSON_HEDLEY_MALLOC	DCC-Miner/DCC-Miner/json.hpp	1611;"	d
-JSON_HEDLEY_MALLOC	DCC-Miner/DCC-Miner/json.hpp	23284;"	d
-JSON_HEDLEY_MCST_LCC_VERSION	DCC-Miner/DCC-Miner/json.hpp	23285;"	d
+JSON_HEDLEY_MALLOC	DCC-Miner/DCC-Miner/json.hpp	23286;"	d
+JSON_HEDLEY_MCST_LCC_VERSION	DCC-Miner/DCC-Miner/json.hpp	23287;"	d
 JSON_HEDLEY_MCST_LCC_VERSION	DCC-Miner/DCC-Miner/json.hpp	652;"	d
 JSON_HEDLEY_MCST_LCC_VERSION	DCC-Miner/DCC-Miner/json.hpp	655;"	d
-JSON_HEDLEY_MCST_LCC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23286;"	d
+JSON_HEDLEY_MCST_LCC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23288;"	d
 JSON_HEDLEY_MCST_LCC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	659;"	d
 JSON_HEDLEY_MCST_LCC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	662;"	d
 JSON_HEDLEY_MESSAGE	DCC-Miner/DCC-Miner/json.hpp	2081;"	d
 JSON_HEDLEY_MESSAGE	DCC-Miner/DCC-Miner/json.hpp	2084;"	d
-JSON_HEDLEY_MESSAGE	DCC-Miner/DCC-Miner/json.hpp	23287;"	d
-JSON_HEDLEY_MSVC_VERSION	DCC-Miner/DCC-Miner/json.hpp	23288;"	d
+JSON_HEDLEY_MESSAGE	DCC-Miner/DCC-Miner/json.hpp	23289;"	d
+JSON_HEDLEY_MSVC_VERSION	DCC-Miner/DCC-Miner/json.hpp	23290;"	d
 JSON_HEDLEY_MSVC_VERSION	DCC-Miner/DCC-Miner/json.hpp	278;"	d
 JSON_HEDLEY_MSVC_VERSION	DCC-Miner/DCC-Miner/json.hpp	281;"	d
-JSON_HEDLEY_MSVC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23289;"	d
+JSON_HEDLEY_MSVC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23291;"	d
 JSON_HEDLEY_MSVC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	289;"	d
 JSON_HEDLEY_MSVC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	292;"	d
 JSON_HEDLEY_NEVER_INLINE	DCC-Miner/DCC-Miner/json.hpp	1790;"	d
 JSON_HEDLEY_NEVER_INLINE	DCC-Miner/DCC-Miner/json.hpp	1812;"	d
-JSON_HEDLEY_NEVER_INLINE	DCC-Miner/DCC-Miner/json.hpp	23290;"	d
+JSON_HEDLEY_NEVER_INLINE	DCC-Miner/DCC-Miner/json.hpp	23292;"	d
 JSON_HEDLEY_NON_NULL	DCC-Miner/DCC-Miner/json.hpp	1466;"	d
 JSON_HEDLEY_NON_NULL	DCC-Miner/DCC-Miner/json.hpp	1473;"	d
-JSON_HEDLEY_NON_NULL	DCC-Miner/DCC-Miner/json.hpp	23291;"	d
+JSON_HEDLEY_NON_NULL	DCC-Miner/DCC-Miner/json.hpp	23293;"	d
 JSON_HEDLEY_NO_ESCAPE	DCC-Miner/DCC-Miner/json.hpp	1384;"	d
 JSON_HEDLEY_NO_ESCAPE	DCC-Miner/DCC-Miner/json.hpp	1387;"	d
-JSON_HEDLEY_NO_ESCAPE	DCC-Miner/DCC-Miner/json.hpp	23292;"	d
+JSON_HEDLEY_NO_ESCAPE	DCC-Miner/DCC-Miner/json.hpp	23294;"	d
 JSON_HEDLEY_NO_RETURN	DCC-Miner/DCC-Miner/json.hpp	1336;"	d
 JSON_HEDLEY_NO_RETURN	DCC-Miner/DCC-Miner/json.hpp	1339;"	d
-JSON_HEDLEY_NO_RETURN	DCC-Miner/DCC-Miner/json.hpp	23293;"	d
+JSON_HEDLEY_NO_RETURN	DCC-Miner/DCC-Miner/json.hpp	23295;"	d
 JSON_HEDLEY_NO_THROW	DCC-Miner/DCC-Miner/json.hpp	1870;"	d
 JSON_HEDLEY_NO_THROW	DCC-Miner/DCC-Miner/json.hpp	1877;"	d
-JSON_HEDLEY_NO_THROW	DCC-Miner/DCC-Miner/json.hpp	23294;"	d
+JSON_HEDLEY_NO_THROW	DCC-Miner/DCC-Miner/json.hpp	23296;"	d
 JSON_HEDLEY_NULL	DCC-Miner/DCC-Miner/json.hpp	2064;"	d
 JSON_HEDLEY_NULL	DCC-Miner/DCC-Miner/json.hpp	2068;"	d
-JSON_HEDLEY_NULL	DCC-Miner/DCC-Miner/json.hpp	23295;"	d
-JSON_HEDLEY_PELLES_VERSION	DCC-Miner/DCC-Miner/json.hpp	23296;"	d
+JSON_HEDLEY_NULL	DCC-Miner/DCC-Miner/json.hpp	23297;"	d
+JSON_HEDLEY_PELLES_VERSION	DCC-Miner/DCC-Miner/json.hpp	23298;"	d
 JSON_HEDLEY_PELLES_VERSION	DCC-Miner/DCC-Miner/json.hpp	636;"	d
 JSON_HEDLEY_PELLES_VERSION	DCC-Miner/DCC-Miner/json.hpp	639;"	d
-JSON_HEDLEY_PELLES_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23297;"	d
+JSON_HEDLEY_PELLES_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23299;"	d
 JSON_HEDLEY_PELLES_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	643;"	d
 JSON_HEDLEY_PELLES_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	646;"	d
-JSON_HEDLEY_PGI_VERSION	DCC-Miner/DCC-Miner/json.hpp	23298;"	d
+JSON_HEDLEY_PGI_VERSION	DCC-Miner/DCC-Miner/json.hpp	23300;"	d
 JSON_HEDLEY_PGI_VERSION	DCC-Miner/DCC-Miner/json.hpp	336;"	d
 JSON_HEDLEY_PGI_VERSION	DCC-Miner/DCC-Miner/json.hpp	339;"	d
-JSON_HEDLEY_PGI_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23299;"	d
+JSON_HEDLEY_PGI_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23301;"	d
 JSON_HEDLEY_PGI_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	343;"	d
 JSON_HEDLEY_PGI_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	346;"	d
 JSON_HEDLEY_PRAGMA	DCC-Miner/DCC-Miner/json.hpp	928;"	d
 JSON_HEDLEY_PREDICT	DCC-Miner/DCC-Miner/json.hpp	1524;"	d
 JSON_HEDLEY_PREDICT	DCC-Miner/DCC-Miner/json.hpp	1542;"	d
-JSON_HEDLEY_PREDICT	DCC-Miner/DCC-Miner/json.hpp	23300;"	d
+JSON_HEDLEY_PREDICT	DCC-Miner/DCC-Miner/json.hpp	23302;"	d
 JSON_HEDLEY_PREDICT_FALSE	DCC-Miner/DCC-Miner/json.hpp	1544;"	d
 JSON_HEDLEY_PREDICT_TRUE	DCC-Miner/DCC-Miner/json.hpp	1543;"	d
 JSON_HEDLEY_PRINTF_FORMAT	DCC-Miner/DCC-Miner/json.hpp	1480;"	d
 JSON_HEDLEY_PRINTF_FORMAT	DCC-Miner/DCC-Miner/json.hpp	1483;"	d
-JSON_HEDLEY_PRINTF_FORMAT	DCC-Miner/DCC-Miner/json.hpp	23301;"	d
+JSON_HEDLEY_PRINTF_FORMAT	DCC-Miner/DCC-Miner/json.hpp	23303;"	d
 JSON_HEDLEY_PRIVATE	DCC-Miner/DCC-Miner/json.hpp	1832;"	d
 JSON_HEDLEY_PRIVATE	DCC-Miner/DCC-Miner/json.hpp	1841;"	d
-JSON_HEDLEY_PRIVATE	DCC-Miner/DCC-Miner/json.hpp	23302;"	d
+JSON_HEDLEY_PRIVATE	DCC-Miner/DCC-Miner/json.hpp	23304;"	d
 JSON_HEDLEY_PUBLIC	DCC-Miner/DCC-Miner/json.hpp	1835;"	d
 JSON_HEDLEY_PUBLIC	DCC-Miner/DCC-Miner/json.hpp	1842;"	d
-JSON_HEDLEY_PUBLIC	DCC-Miner/DCC-Miner/json.hpp	23303;"	d
+JSON_HEDLEY_PUBLIC	DCC-Miner/DCC-Miner/json.hpp	23305;"	d
 JSON_HEDLEY_PURE	DCC-Miner/DCC-Miner/json.hpp	1623;"	d
 JSON_HEDLEY_PURE	DCC-Miner/DCC-Miner/json.hpp	1645;"	d
-JSON_HEDLEY_PURE	DCC-Miner/DCC-Miner/json.hpp	23304;"	d
+JSON_HEDLEY_PURE	DCC-Miner/DCC-Miner/json.hpp	23306;"	d
 JSON_HEDLEY_REINTERPRET_CAST	DCC-Miner/DCC-Miner/json.hpp	1032;"	d
 JSON_HEDLEY_REINTERPRET_CAST	DCC-Miner/DCC-Miner/json.hpp	1035;"	d
-JSON_HEDLEY_REINTERPRET_CAST	DCC-Miner/DCC-Miner/json.hpp	23305;"	d
+JSON_HEDLEY_REINTERPRET_CAST	DCC-Miner/DCC-Miner/json.hpp	23307;"	d
 JSON_HEDLEY_REQUIRE	DCC-Miner/DCC-Miner/json.hpp	2126;"	d
 JSON_HEDLEY_REQUIRE	DCC-Miner/DCC-Miner/json.hpp	2133;"	d
-JSON_HEDLEY_REQUIRE	DCC-Miner/DCC-Miner/json.hpp	23306;"	d
+JSON_HEDLEY_REQUIRE	DCC-Miner/DCC-Miner/json.hpp	23308;"	d
 JSON_HEDLEY_REQUIRE_CONSTEXPR	DCC-Miner/DCC-Miner/json.hpp	1937;"	d
 JSON_HEDLEY_REQUIRE_CONSTEXPR	DCC-Miner/DCC-Miner/json.hpp	2015;"	d
-JSON_HEDLEY_REQUIRE_CONSTEXPR	DCC-Miner/DCC-Miner/json.hpp	23307;"	d
+JSON_HEDLEY_REQUIRE_CONSTEXPR	DCC-Miner/DCC-Miner/json.hpp	23309;"	d
 JSON_HEDLEY_REQUIRE_MSG	DCC-Miner/DCC-Miner/json.hpp	2129;"	d
 JSON_HEDLEY_REQUIRE_MSG	DCC-Miner/DCC-Miner/json.hpp	2138;"	d
-JSON_HEDLEY_REQUIRE_MSG	DCC-Miner/DCC-Miner/json.hpp	23308;"	d
+JSON_HEDLEY_REQUIRE_MSG	DCC-Miner/DCC-Miner/json.hpp	23310;"	d
 JSON_HEDLEY_RESTRICT	DCC-Miner/DCC-Miner/json.hpp	1691;"	d
 JSON_HEDLEY_RESTRICT	DCC-Miner/DCC-Miner/json.hpp	1694;"	d
-JSON_HEDLEY_RESTRICT	DCC-Miner/DCC-Miner/json.hpp	23309;"	d
+JSON_HEDLEY_RESTRICT	DCC-Miner/DCC-Miner/json.hpp	23311;"	d
 JSON_HEDLEY_RETURNS_NON_NULL	DCC-Miner/DCC-Miner/json.hpp	1906;"	d
 JSON_HEDLEY_RETURNS_NON_NULL	DCC-Miner/DCC-Miner/json.hpp	1912;"	d
-JSON_HEDLEY_RETURNS_NON_NULL	DCC-Miner/DCC-Miner/json.hpp	23310;"	d
+JSON_HEDLEY_RETURNS_NON_NULL	DCC-Miner/DCC-Miner/json.hpp	23312;"	d
 JSON_HEDLEY_SENTINEL	DCC-Miner/DCC-Miner/json.hpp	1322;"	d
 JSON_HEDLEY_SENTINEL	DCC-Miner/DCC-Miner/json.hpp	1330;"	d
-JSON_HEDLEY_SENTINEL	DCC-Miner/DCC-Miner/json.hpp	23311;"	d
+JSON_HEDLEY_SENTINEL	DCC-Miner/DCC-Miner/json.hpp	23313;"	d
 JSON_HEDLEY_STATIC_ASSERT	DCC-Miner/DCC-Miner/json.hpp	2043;"	d
 JSON_HEDLEY_STATIC_ASSERT	DCC-Miner/DCC-Miner/json.hpp	2053;"	d
-JSON_HEDLEY_STATIC_ASSERT	DCC-Miner/DCC-Miner/json.hpp	23312;"	d
+JSON_HEDLEY_STATIC_ASSERT	DCC-Miner/DCC-Miner/json.hpp	23314;"	d
 JSON_HEDLEY_STATIC_CAST	DCC-Miner/DCC-Miner/json.hpp	1041;"	d
 JSON_HEDLEY_STATIC_CAST	DCC-Miner/DCC-Miner/json.hpp	1044;"	d
-JSON_HEDLEY_STATIC_CAST	DCC-Miner/DCC-Miner/json.hpp	23313;"	d
+JSON_HEDLEY_STATIC_CAST	DCC-Miner/DCC-Miner/json.hpp	23315;"	d
 JSON_HEDLEY_STRINGIFY	DCC-Miner/DCC-Miner/json.hpp	215;"	d
 JSON_HEDLEY_STRINGIFY	DCC-Miner/DCC-Miner/json.hpp	217;"	d
-JSON_HEDLEY_STRINGIFY	DCC-Miner/DCC-Miner/json.hpp	23314;"	d
+JSON_HEDLEY_STRINGIFY	DCC-Miner/DCC-Miner/json.hpp	23316;"	d
 JSON_HEDLEY_STRINGIFY_EX	DCC-Miner/DCC-Miner/json.hpp	210;"	d
 JSON_HEDLEY_STRINGIFY_EX	DCC-Miner/DCC-Miner/json.hpp	212;"	d
-JSON_HEDLEY_STRINGIFY_EX	DCC-Miner/DCC-Miner/json.hpp	23315;"	d
-JSON_HEDLEY_SUNPRO_VERSION	DCC-Miner/DCC-Miner/json.hpp	23316;"	d
+JSON_HEDLEY_STRINGIFY_EX	DCC-Miner/DCC-Miner/json.hpp	23317;"	d
+JSON_HEDLEY_SUNPRO_VERSION	DCC-Miner/DCC-Miner/json.hpp	23318;"	d
 JSON_HEDLEY_SUNPRO_VERSION	DCC-Miner/DCC-Miner/json.hpp	352;"	d
 JSON_HEDLEY_SUNPRO_VERSION	DCC-Miner/DCC-Miner/json.hpp	355;"	d
-JSON_HEDLEY_SUNPRO_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23317;"	d
+JSON_HEDLEY_SUNPRO_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23319;"	d
 JSON_HEDLEY_SUNPRO_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	365;"	d
 JSON_HEDLEY_SUNPRO_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	368;"	d
-JSON_HEDLEY_TINYC_VERSION	DCC-Miner/DCC-Miner/json.hpp	23318;"	d
+JSON_HEDLEY_TINYC_VERSION	DCC-Miner/DCC-Miner/json.hpp	23320;"	d
 JSON_HEDLEY_TINYC_VERSION	DCC-Miner/DCC-Miner/json.hpp	588;"	d
 JSON_HEDLEY_TINYC_VERSION	DCC-Miner/DCC-Miner/json.hpp	591;"	d
-JSON_HEDLEY_TINYC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23319;"	d
+JSON_HEDLEY_TINYC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23321;"	d
 JSON_HEDLEY_TINYC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	595;"	d
 JSON_HEDLEY_TINYC_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	598;"	d
-JSON_HEDLEY_TI_ARMCL_VERSION	DCC-Miner/DCC-Miner/json.hpp	23320;"	d
+JSON_HEDLEY_TI_ARMCL_VERSION	DCC-Miner/DCC-Miner/json.hpp	23322;"	d
 JSON_HEDLEY_TI_ARMCL_VERSION	DCC-Miner/DCC-Miner/json.hpp	484;"	d
 JSON_HEDLEY_TI_ARMCL_VERSION	DCC-Miner/DCC-Miner/json.hpp	487;"	d
-JSON_HEDLEY_TI_ARMCL_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23321;"	d
+JSON_HEDLEY_TI_ARMCL_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23323;"	d
 JSON_HEDLEY_TI_ARMCL_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	491;"	d
 JSON_HEDLEY_TI_ARMCL_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	494;"	d
-JSON_HEDLEY_TI_CL2000_VERSION	DCC-Miner/DCC-Miner/json.hpp	23322;"	d
+JSON_HEDLEY_TI_CL2000_VERSION	DCC-Miner/DCC-Miner/json.hpp	23324;"	d
 JSON_HEDLEY_TI_CL2000_VERSION	DCC-Miner/DCC-Miner/json.hpp	452;"	d
 JSON_HEDLEY_TI_CL2000_VERSION	DCC-Miner/DCC-Miner/json.hpp	455;"	d
-JSON_HEDLEY_TI_CL2000_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23323;"	d
+JSON_HEDLEY_TI_CL2000_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23325;"	d
 JSON_HEDLEY_TI_CL2000_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	459;"	d
 JSON_HEDLEY_TI_CL2000_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	462;"	d
-JSON_HEDLEY_TI_CL430_VERSION	DCC-Miner/DCC-Miner/json.hpp	23324;"	d
+JSON_HEDLEY_TI_CL430_VERSION	DCC-Miner/DCC-Miner/json.hpp	23326;"	d
 JSON_HEDLEY_TI_CL430_VERSION	DCC-Miner/DCC-Miner/json.hpp	468;"	d
 JSON_HEDLEY_TI_CL430_VERSION	DCC-Miner/DCC-Miner/json.hpp	471;"	d
-JSON_HEDLEY_TI_CL430_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23325;"	d
+JSON_HEDLEY_TI_CL430_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23327;"	d
 JSON_HEDLEY_TI_CL430_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	475;"	d
 JSON_HEDLEY_TI_CL430_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	478;"	d
-JSON_HEDLEY_TI_CL6X_VERSION	DCC-Miner/DCC-Miner/json.hpp	23326;"	d
+JSON_HEDLEY_TI_CL6X_VERSION	DCC-Miner/DCC-Miner/json.hpp	23328;"	d
 JSON_HEDLEY_TI_CL6X_VERSION	DCC-Miner/DCC-Miner/json.hpp	500;"	d
 JSON_HEDLEY_TI_CL6X_VERSION	DCC-Miner/DCC-Miner/json.hpp	503;"	d
-JSON_HEDLEY_TI_CL6X_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23327;"	d
+JSON_HEDLEY_TI_CL6X_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23329;"	d
 JSON_HEDLEY_TI_CL6X_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	507;"	d
 JSON_HEDLEY_TI_CL6X_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	510;"	d
-JSON_HEDLEY_TI_CL7X_VERSION	DCC-Miner/DCC-Miner/json.hpp	23328;"	d
+JSON_HEDLEY_TI_CL7X_VERSION	DCC-Miner/DCC-Miner/json.hpp	23330;"	d
 JSON_HEDLEY_TI_CL7X_VERSION	DCC-Miner/DCC-Miner/json.hpp	516;"	d
 JSON_HEDLEY_TI_CL7X_VERSION	DCC-Miner/DCC-Miner/json.hpp	519;"	d
-JSON_HEDLEY_TI_CL7X_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23329;"	d
+JSON_HEDLEY_TI_CL7X_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23331;"	d
 JSON_HEDLEY_TI_CL7X_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	523;"	d
 JSON_HEDLEY_TI_CL7X_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	526;"	d
-JSON_HEDLEY_TI_CLPRU_VERSION	DCC-Miner/DCC-Miner/json.hpp	23330;"	d
+JSON_HEDLEY_TI_CLPRU_VERSION	DCC-Miner/DCC-Miner/json.hpp	23332;"	d
 JSON_HEDLEY_TI_CLPRU_VERSION	DCC-Miner/DCC-Miner/json.hpp	532;"	d
 JSON_HEDLEY_TI_CLPRU_VERSION	DCC-Miner/DCC-Miner/json.hpp	535;"	d
-JSON_HEDLEY_TI_CLPRU_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23331;"	d
+JSON_HEDLEY_TI_CLPRU_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23333;"	d
 JSON_HEDLEY_TI_CLPRU_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	539;"	d
 JSON_HEDLEY_TI_CLPRU_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	542;"	d
-JSON_HEDLEY_TI_VERSION	DCC-Miner/DCC-Miner/json.hpp	23332;"	d
+JSON_HEDLEY_TI_VERSION	DCC-Miner/DCC-Miner/json.hpp	23334;"	d
 JSON_HEDLEY_TI_VERSION	DCC-Miner/DCC-Miner/json.hpp	428;"	d
 JSON_HEDLEY_TI_VERSION	DCC-Miner/DCC-Miner/json.hpp	438;"	d
-JSON_HEDLEY_TI_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23333;"	d
+JSON_HEDLEY_TI_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	23335;"	d
 JSON_HEDLEY_TI_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	443;"	d
 JSON_HEDLEY_TI_VERSION_CHECK	DCC-Miner/DCC-Miner/json.hpp	446;"	d
 JSON_HEDLEY_UNAVAILABLE	DCC-Miner/DCC-Miner/json.hpp	1269;"	d
 JSON_HEDLEY_UNAVAILABLE	DCC-Miner/DCC-Miner/json.hpp	1276;"	d
-JSON_HEDLEY_UNAVAILABLE	DCC-Miner/DCC-Miner/json.hpp	23334;"	d
+JSON_HEDLEY_UNAVAILABLE	DCC-Miner/DCC-Miner/json.hpp	23336;"	d
 JSON_HEDLEY_UNLIKELY	DCC-Miner/DCC-Miner/json.hpp	1530;"	d
 JSON_HEDLEY_UNLIKELY	DCC-Miner/DCC-Miner/json.hpp	1546;"	d
-JSON_HEDLEY_UNLIKELY	DCC-Miner/DCC-Miner/json.hpp	23335;"	d
+JSON_HEDLEY_UNLIKELY	DCC-Miner/DCC-Miner/json.hpp	23337;"	d
 JSON_HEDLEY_UNPREDICTABLE	DCC-Miner/DCC-Miner/json.hpp	1533;"	d
 JSON_HEDLEY_UNPREDICTABLE	DCC-Miner/DCC-Miner/json.hpp	1536;"	d
 JSON_HEDLEY_UNPREDICTABLE	DCC-Miner/DCC-Miner/json.hpp	1586;"	d
-JSON_HEDLEY_UNPREDICTABLE	DCC-Miner/DCC-Miner/json.hpp	23336;"	d
+JSON_HEDLEY_UNPREDICTABLE	DCC-Miner/DCC-Miner/json.hpp	23338;"	d
 JSON_HEDLEY_UNREACHABLE	DCC-Miner/DCC-Miner/json.hpp	1393;"	d
 JSON_HEDLEY_UNREACHABLE	DCC-Miner/DCC-Miner/json.hpp	1425;"	d
 JSON_HEDLEY_UNREACHABLE	DCC-Miner/DCC-Miner/json.hpp	1448;"	d
-JSON_HEDLEY_UNREACHABLE	DCC-Miner/DCC-Miner/json.hpp	23337;"	d
+JSON_HEDLEY_UNREACHABLE	DCC-Miner/DCC-Miner/json.hpp	23339;"	d
 JSON_HEDLEY_UNREACHABLE_RETURN	DCC-Miner/DCC-Miner/json.hpp	1396;"	d
 JSON_HEDLEY_UNREACHABLE_RETURN	DCC-Miner/DCC-Miner/json.hpp	1440;"	d
-JSON_HEDLEY_UNREACHABLE_RETURN	DCC-Miner/DCC-Miner/json.hpp	23338;"	d
+JSON_HEDLEY_UNREACHABLE_RETURN	DCC-Miner/DCC-Miner/json.hpp	23340;"	d
 JSON_HEDLEY_VERSION	DCC-Miner/DCC-Miner/json.hpp	205;"	d
 JSON_HEDLEY_VERSION	DCC-Miner/DCC-Miner/json.hpp	207;"	d
-JSON_HEDLEY_VERSION	DCC-Miner/DCC-Miner/json.hpp	23339;"	d
-JSON_HEDLEY_VERSION_DECODE_MAJOR	DCC-Miner/DCC-Miner/json.hpp	23340;"	d
+JSON_HEDLEY_VERSION	DCC-Miner/DCC-Miner/json.hpp	23341;"	d
+JSON_HEDLEY_VERSION_DECODE_MAJOR	DCC-Miner/DCC-Miner/json.hpp	23342;"	d
 JSON_HEDLEY_VERSION_DECODE_MAJOR	DCC-Miner/DCC-Miner/json.hpp	245;"	d
 JSON_HEDLEY_VERSION_DECODE_MAJOR	DCC-Miner/DCC-Miner/json.hpp	247;"	d
-JSON_HEDLEY_VERSION_DECODE_MINOR	DCC-Miner/DCC-Miner/json.hpp	23341;"	d
+JSON_HEDLEY_VERSION_DECODE_MINOR	DCC-Miner/DCC-Miner/json.hpp	23343;"	d
 JSON_HEDLEY_VERSION_DECODE_MINOR	DCC-Miner/DCC-Miner/json.hpp	250;"	d
 JSON_HEDLEY_VERSION_DECODE_MINOR	DCC-Miner/DCC-Miner/json.hpp	252;"	d
-JSON_HEDLEY_VERSION_DECODE_REVISION	DCC-Miner/DCC-Miner/json.hpp	23342;"	d
+JSON_HEDLEY_VERSION_DECODE_REVISION	DCC-Miner/DCC-Miner/json.hpp	23344;"	d
 JSON_HEDLEY_VERSION_DECODE_REVISION	DCC-Miner/DCC-Miner/json.hpp	255;"	d
 JSON_HEDLEY_VERSION_DECODE_REVISION	DCC-Miner/DCC-Miner/json.hpp	257;"	d
-JSON_HEDLEY_VERSION_ENCODE	DCC-Miner/DCC-Miner/json.hpp	23343;"	d
+JSON_HEDLEY_VERSION_ENCODE	DCC-Miner/DCC-Miner/json.hpp	23345;"	d
 JSON_HEDLEY_VERSION_ENCODE	DCC-Miner/DCC-Miner/json.hpp	240;"	d
 JSON_HEDLEY_VERSION_ENCODE	DCC-Miner/DCC-Miner/json.hpp	242;"	d
 JSON_HEDLEY_WARNING	DCC-Miner/DCC-Miner/json.hpp	2104;"	d
 JSON_HEDLEY_WARNING	DCC-Miner/DCC-Miner/json.hpp	2107;"	d
-JSON_HEDLEY_WARNING	DCC-Miner/DCC-Miner/json.hpp	23344;"	d
+JSON_HEDLEY_WARNING	DCC-Miner/DCC-Miner/json.hpp	23346;"	d
 JSON_HEDLEY_WARN_UNUSED_RESULT	DCC-Miner/DCC-Miner/json.hpp	1282;"	d
 JSON_HEDLEY_WARN_UNUSED_RESULT	DCC-Miner/DCC-Miner/json.hpp	1305;"	d
-JSON_HEDLEY_WARN_UNUSED_RESULT	DCC-Miner/DCC-Miner/json.hpp	23345;"	d
+JSON_HEDLEY_WARN_UNUSED_RESULT	DCC-Miner/DCC-Miner/json.hpp	23347;"	d
 JSON_HEDLEY_WARN_UNUSED_RESULT_MSG	DCC-Miner/DCC-Miner/json.hpp	1285;"	d
 JSON_HEDLEY_WARN_UNUSED_RESULT_MSG	DCC-Miner/DCC-Miner/json.hpp	1306;"	d
-JSON_HEDLEY_WARN_UNUSED_RESULT_MSG	DCC-Miner/DCC-Miner/json.hpp	23346;"	d
-JSON_INTERNAL_CATCH	DCC-Miner/DCC-Miner/json.hpp	23176;"	d
+JSON_HEDLEY_WARN_UNUSED_RESULT_MSG	DCC-Miner/DCC-Miner/json.hpp	23348;"	d
+JSON_INTERNAL_CATCH	DCC-Miner/DCC-Miner/json.hpp	23178;"	d
 JSON_INTERNAL_CATCH	DCC-Miner/DCC-Miner/json.hpp	2432;"	d
 JSON_INTERNAL_CATCH	DCC-Miner/DCC-Miner/json.hpp	2453;"	d
 JSON_INTERNAL_CATCH	DCC-Miner/DCC-Miner/json.hpp	2454;"	d
 JSON_INTERNAL_CATCH	DCC-Miner/DCC-Miner/json.hpp	2457;"	d
 JSON_INTERNAL_CATCH	DCC-Miner/DCC-Miner/json.hpp	2458;"	d
-JSON_NO_UNIQUE_ADDRESS	DCC-Miner/DCC-Miner/json.hpp	23183;"	d
+JSON_NO_UNIQUE_ADDRESS	DCC-Miner/DCC-Miner/json.hpp	23185;"	d
 JSON_NO_UNIQUE_ADDRESS	DCC-Miner/DCC-Miner/json.hpp	2415;"	d
-JSON_PRIVATE_UNLESS_TESTED	DCC-Miner/DCC-Miner/json.hpp	23178;"	d
+JSON_PRIVATE_UNLESS_TESTED	DCC-Miner/DCC-Miner/json.hpp	23180;"	d
 JSON_PRIVATE_UNLESS_TESTED	DCC-Miner/DCC-Miner/json.hpp	2469;"	d
-JSON_THROW	DCC-Miner/DCC-Miner/json.hpp	23177;"	d
+JSON_THROW	DCC-Miner/DCC-Miner/json.hpp	23179;"	d
 JSON_THROW	DCC-Miner/DCC-Miner/json.hpp	2429;"	d
 JSON_THROW	DCC-Miner/DCC-Miner/json.hpp	2443;"	d
 JSON_THROW	DCC-Miner/DCC-Miner/json.hpp	2444;"	d
-JSON_TRY	DCC-Miner/DCC-Miner/json.hpp	23187;"	d
+JSON_TRY	DCC-Miner/DCC-Miner/json.hpp	23189;"	d
 JSON_TRY	DCC-Miner/DCC-Miner/json.hpp	2430;"	d
 JSON_TRY	DCC-Miner/DCC-Miner/json.hpp	2447;"	d
 JSON_TRY	DCC-Miner/DCC-Miner/json.hpp	2448;"	d
@@ -7454,7 +7458,7 @@ KERB_WRAP_NO_ENCRYPT	DCC-Miner/out/_deps/curl-src/lib/curl_sspi.h	346;"	d
 KEYLEN	DCC-Miner/out/_deps/curl-src/lib/curl_fnmatch.c	100;"	d	file:
 KEYLEN	DCC-Miner/out/_deps/curl-src/lib/curl_fnmatch.c	75;"	d	file:
 KEYLOG_LABEL_MAXLEN	DCC-Miner/out/_deps/curl-src/lib/vtls/keylog.c	30;"	d	file:
-KEY_LENGTH	DCC-Miner/DCC-Miner/crypto.h	358;"	d
+KEY_LENGTH	DCC-Miner/DCC-Miner/crypto.h	361;"	d
 KRB5	DCC-Miner/out/_deps/curl-src/tests/libtest/stub_gssapi.c	/^  enum { NONE, KRB5, NTLM1, NTLM3 } sent;$/;"	e	enum:gss_ctx_id_t_desc_struct::__anon188	file:
 KeyBlob	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    KeyBlob(BlobType&& p_blob, PassType p_password)$/;"	f	class:cpr::ssl::KeyBlob
 KeyBlob	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^    KeyBlob(std::string&& p_blob) : blob(std::move(p_blob)) {}$/;"	f	class:cpr::ssl::KeyBlob
@@ -7609,6 +7613,7 @@ MAC_NOMATCH	DCC-Miner/out/_deps/curl-src/tests/unit/unit1307.c	55;"	d	file:
 MAC_SHIFT	DCC-Miner/out/_deps/curl-src/tests/unit/unit1307.c	53;"	d	file:
 MAILFROM	DCC-Miner/out/_deps/curl-src/tests/libtest/lib1507.c	34;"	d	file:
 MAIL_smtp	DCC-Miner/out/_deps/curl-src/tests/ftpserver.pl	/^sub MAIL_smtp {$/;"	s
+MAIN_H	DCC-Miner/DCC-Miner/Main.h	2;"	d
 MATCH	DCC-Miner/out/_deps/curl-src/tests/unit/unit1307.c	43;"	d	file:
 MATCH	DCC-Miner/out/_deps/zlib-src/inflate.h	/^            MATCH,      \/* o: waiting for output space to copy string *\/$/;"	e	enum:__anon202
 MATCH_TPL_H	DCC-Miner/out/_deps/zlib-src/match_tpl.h	7;"	d
@@ -7832,7 +7837,6 @@ MUTEX_LOCK	DCC-Miner/out/_deps/curl-src/docs/examples/opensslthreadlock.c	40;"	d
 MUTEX_SETUP	DCC-Miner/out/_deps/curl-src/docs/examples/opensslthreadlock.c	38;"	d	file:
 MUTEX_TYPE	DCC-Miner/out/_deps/curl-src/docs/examples/opensslthreadlock.c	37;"	d	file:
 MUTEX_UNLOCK	DCC-Miner/out/_deps/curl-src/docs/examples/opensslthreadlock.c	41;"	d	file:
-Main_h	DCC-Miner/DCC-Miner/Main.h	2;"	d
 Maj	DCC-Miner/out/_deps/curl-src/lib/sha256.c	325;"	d	file:
 MaxTLSVersion	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^struct MaxTLSVersion {};$/;"	s	namespace:cpr::ssl
 MaxTLSv1_0	DCC-Miner/out/_deps/cpr-src/include/cpr/ssl_options.h	/^struct MaxTLSv1_0 {};$/;"	s	namespace:cpr::ssl
@@ -7846,7 +7850,7 @@ MemoryStruct	DCC-Miner/out/_deps/curl-src/docs/examples/postinmemory.c	/^struct 
 MemoryStruct	DCC-Miner/out/_deps/curl-src/docs/examples/xmlstream.c	/^struct MemoryStruct {$/;"	s	file:
 Milliseconds	DCC-Miner/out/_deps/cpr-src/cpr/timeout.cpp	/^long Timeout::Milliseconds() const {$/;"	f	class:cpr::Timeout
 Mine	DCC-Miner/DCC-Miner/Main.cpp	/^int Mine(json currentBlockJson, int blockNum)$/;"	f
-MineAnyBlock	DCC-Miner/DCC-Miner/Main.cpp	/^int MineAnyBlock(int blockNum, std::string difficulty)$/;"	f
+MineAnyBlock	DCC-Miner/DCC-Miner/Main.cpp	/^int MineAnyBlock(int blockNum, std::string& difficulty)$/;"	f
 MiningErrorPrint	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::MiningErrorPrint()$/;"	f	class:Console
 MiningPrint	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::MiningPrint()$/;"	f	class:Console
 MsgStatus	DCC-Miner/DCC-Miner/P2PClient.h	/^	enum MsgStatus {$/;"	g	class:P2P
@@ -7880,11 +7884,11 @@ NGHTTP2_HAS_SET_LOCAL_WINDOW_SIZE	DCC-Miner/out/_deps/curl-src/lib/http2.c	56;"	
 NI_MAXHOST	DCC-Miner/out/_deps/curl-src/lib/ftp.c	87;"	d	file:
 NI_MAXHOST	DCC-Miner/out/_deps/curl-src/lib/setup-os400.h	27;"	d
 NI_MAXSERV	DCC-Miner/out/_deps/curl-src/lib/setup-os400.h	30;"	d
-NLOHMANN_BASIC_JSON_TPL	DCC-Miner/DCC-Miner/json.hpp	23180;"	d
+NLOHMANN_BASIC_JSON_TPL	DCC-Miner/DCC-Miner/json.hpp	23182;"	d
 NLOHMANN_BASIC_JSON_TPL	DCC-Miner/DCC-Miner/json.hpp	2517;"	d
-NLOHMANN_BASIC_JSON_TPL_DECLARATION	DCC-Miner/DCC-Miner/json.hpp	23179;"	d
+NLOHMANN_BASIC_JSON_TPL_DECLARATION	DCC-Miner/DCC-Miner/json.hpp	23181;"	d
 NLOHMANN_BASIC_JSON_TPL_DECLARATION	DCC-Miner/DCC-Miner/json.hpp	2508;"	d
-NLOHMANN_CAN_CALL_STD_FUNC_IMPL	DCC-Miner/DCC-Miner/json.hpp	23182;"	d
+NLOHMANN_CAN_CALL_STD_FUNC_IMPL	DCC-Miner/DCC-Miner/json.hpp	23184;"	d
 NLOHMANN_CAN_CALL_STD_FUNC_IMPL	DCC-Miner/DCC-Miner/json.hpp	2692;"	d
 NLOHMANN_DEFINE_TYPE_INTRUSIVE	DCC-Miner/DCC-Miner/json.hpp	2664;"	d
 NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT	DCC-Miner/DCC-Miner/json.hpp	2668;"	d
@@ -8494,7 +8498,7 @@ PREFIX4	DCC-Miner/out/_deps/zlib-src/zbuild.h	24;"	d
 PRESERVE_WINDOWS_ERROR_CODE	DCC-Miner/out/_deps/curl-src/lib/strerror.c	53;"	d	file:
 PRESET_DICT	DCC-Miner/out/_deps/zlib-src/zutil.h	77;"	d
 PRIVATE_STRTOOFF	DCC-Miner/out/_deps/curl-src/lib/strtoofft.c	51;"	d	file:
-PRI_KEY_FILE	DCC-Miner/DCC-Miner/crypto.h	360;"	d
+PRI_KEY_FILE	DCC-Miner/DCC-Miner/crypto.h	363;"	d
 PROTOPT_ALPN_NPN	DCC-Miner/out/_deps/curl-src/lib/urldata.h	828;"	d
 PROTOPT_CLOSEACTION	DCC-Miner/out/_deps/curl-src/lib/urldata.h	815;"	d
 PROTOPT_CREDSPERREQUEST	DCC-Miner/out/_deps/curl-src/lib/urldata.h	826;"	d
@@ -8532,7 +8536,7 @@ PROXY_USER	DCC-Miner/out/_deps/cpr-src/test/proxy_auth_tests.cpp	13;"	d	file:
 PSL_TTL	DCC-Miner/out/_deps/curl-src/lib/psl.h	28;"	d
 PSOCKADDR_UN	DCC-Miner/out/_deps/curl-src/lib/curl_setup.h	/^     } SOCKADDR_UN, *PSOCKADDR_UN;$/;"	t	typeref:struct:sockaddr_un
 PUB_DER_MAX_BYTES	DCC-Miner/out/_deps/curl-src/lib/vtls/mbedtls.c	180;"	d	file:
-PUB_KEY_FILE	DCC-Miner/DCC-Miner/crypto.h	359;"	d
+PUB_KEY_FILE	DCC-Miner/DCC-Miner/crypto.h	362;"	d
 PULL	DCC-Miner/out/_deps/zlib-src/infback.c	65;"	d	file:
 PULLBYTE	DCC-Miner/out/_deps/zlib-src/infback.c	79;"	d	file:
 PULLBYTE	DCC-Miner/out/_deps/zlib-src/inflate.c	280;"	d	file:
@@ -8873,7 +8877,7 @@ ReadCallback	DCC-Miner/out/_deps/cpr-src/include/cpr/callback.h	/^    ReadCallba
 ReadCallback	DCC-Miner/out/_deps/cpr-src/include/cpr/callback.h	/^    ReadCallback(std::function<bool(char* buffer, size_t& size, intptr_t userdata)> p_callback, intptr_t p_userdata = 0) : userdata(p_userdata), size{-1}, callback{std::move(p_callback)} {}$/;"	f	class:cpr::ReadCallback
 ReadCallback	DCC-Miner/out/_deps/cpr-src/include/cpr/callback.h	/^class ReadCallback {$/;"	c	namespace:cpr
 ReadLine	DCC-Miner/DCC-Miner/Console.cpp	/^std::string Console::ReadLine()$/;"	f	class:Console
-ReadProgramConfig	DCC-Miner/DCC-Miner/Main.cpp	/^json ReadProgramConfig()$/;"	f
+ReadProgramConfig	DCC-Miner/DCC-Miner/Blockchain.cpp	/^json ReadProgramConfig()$/;"	f
 ReadThis	DCC-Miner/out/_deps/curl-src/tests/libtest/lib670.c	/^struct ReadThis {$/;"	s	file:
 ReadWriteSockets	DCC-Miner/out/_deps/curl-src/tests/libtest/lib582.c	/^struct ReadWriteSockets$/;"	s	file:
 Read_crt_func	DCC-Miner/out/_deps/curl-src/lib/vtls/schannel.c	/^typedef bool(*Read_crt_func)(const CERT_CONTEXT *ccert_context, void *arg);$/;"	t	file:
@@ -9169,7 +9173,6 @@ SET	DCC-Miner/out/_deps/curl-src/lib/md5.c	303;"	d	file:
 SETCHARSET_FAIL	DCC-Miner/out/_deps/curl-src/lib/curl_fnmatch.c	70;"	d	file:
 SETCHARSET_OK	DCC-Miner/out/_deps/curl-src/lib/curl_fnmatch.c	69;"	d	file:
 SETOPT_CHECK	DCC-Miner/out/_deps/curl-src/src/tool_setopt.h	32;"	d
-SETTINGSCONSTS_H	DCC-Miner/DCC-Miner/SettingsConsts.h	2;"	d
 SET_BAD	DCC-Miner/out/_deps/zlib-src/inflate_p.h	97;"	d
 SET_BINARY_MODE	DCC-Miner/out/_deps/zlib-src/test/fuzz/minigzip_fuzzer.c	38;"	d	file:
 SET_BINARY_MODE	DCC-Miner/out/_deps/zlib-src/test/fuzz/minigzip_fuzzer.c	40;"	d	file:
@@ -9701,6 +9704,7 @@ SWSVERSION	DCC-Miner/out/_deps/curl-src/tests/server/sws.c	146;"	d	file:
 SYNC	DCC-Miner/out/_deps/zlib-src/inflate.h	/^    SYNC        \/* looking for synchronization bytes to restart inflate() *\/$/;"	e	enum:__anon202
 SYNCTIME_UA	DCC-Miner/out/_deps/curl-src/docs/examples/synctime.c	102;"	d	file:
 SYSTEM_CUSTOM	DCC-Miner/out/_deps/curl-src/tests/unit/unit1307.c	/^  SYSTEM_CUSTOM,$/;"	e	enum:system	file:
+SYSTEM_H	DCC-Miner/DCC-Miner/System.h	2;"	d
 SYSTEM_LINUX	DCC-Miner/out/_deps/curl-src/tests/unit/unit1307.c	/^  SYSTEM_LINUX,$/;"	e	enum:system	file:
 SYSTEM_MACOS	DCC-Miner/out/_deps/curl-src/tests/unit/unit1307.c	/^  SYSTEM_MACOS$/;"	e	enum:system	file:
 SYSTime	DCC-Miner/out/_deps/curl-src/docs/examples/synctime.c	/^SYSTEMTIME SYSTime;$/;"	v
@@ -9715,7 +9719,7 @@ ScriptRC	DCC-Miner/out/_deps/curl-src/tests/dictserver.py	/^class ScriptRC(objec
 ScriptRC	DCC-Miner/out/_deps/curl-src/tests/negtelnetserver.py	/^class ScriptRC(object):$/;"	c
 ScriptRC	DCC-Miner/out/_deps/curl-src/tests/smbserver.py	/^class ScriptRC(object):$/;"	c
 SelectClientCert	DCC-Miner/out/_deps/curl-src/lib/vtls/nss.c	/^static SECStatus SelectClientCert(void *arg, PRFileDesc *sock,$/;"	f	file:
-SendFunds	DCC-Miner/DCC-Miner/Main.cpp	/^int SendFunds(std::string toAddress, float amount)$/;"	f
+SendFunds	DCC-Miner/DCC-Miner/Main.cpp	/^int SendFunds(std::string& toAddress, float amount)$/;"	f
 SenderThread	DCC-Miner/DCC-Miner/P2PClient.cpp	/^void P2P::SenderThread()$/;"	f	class:P2P
 Session	DCC-Miner/out/_deps/cpr-src/cpr/session.cpp	/^Session::Session() : pimpl_(new Impl()) {}$/;"	f	class:cpr::Session
 Session	DCC-Miner/out/_deps/cpr-src/include/cpr/session.h	/^class Session {$/;"	c	namespace:cpr
@@ -9894,9 +9898,9 @@ StringHolder	DCC-Miner/out/_deps/cpr-src/include/cpr/cprtypes.h	/^    explicit S
 StringHolder	DCC-Miner/out/_deps/cpr-src/include/cpr/cprtypes.h	/^    explicit StringHolder(std::string&& str) : str_(std::move(str)) {}$/;"	f	class:cpr::StringHolder
 StringHolder	DCC-Miner/out/_deps/cpr-src/include/cpr/cprtypes.h	/^class StringHolder {$/;"	c	namespace:cpr
 StringStartsWith	DCC-Miner/DCC-Miner/strops.cpp	/^bool StringStartsWith(std::string str, std::string substr)$/;"	f
-Sync	DCC-Miner/DCC-Miner/Main.cpp	/^int Sync()$/;"	f
-SyncBlock	DCC-Miner/DCC-Miner/Main.cpp	/^int SyncBlock(int whichBlock)$/;"	f
-SyncPending	DCC-Miner/DCC-Miner/Main.cpp	/^int SyncPending(int whichBlock)$/;"	f
+Sync	DCC-Miner/DCC-Miner/Blockchain.cpp	/^int Sync(json& walletInfo)$/;"	f
+SyncBlock	DCC-Miner/DCC-Miner/Blockchain.cpp	/^int SyncBlock(int whichBlock)$/;"	f
+SyncPending	DCC-Miner/DCC-Miner/Blockchain.cpp	/^int SyncPending(int whichBlock)$/;"	f
 SyncTime_CURL_Fetch	DCC-Miner/out/_deps/curl-src/docs/examples/synctime.c	/^int SyncTime_CURL_Fetch(CURL *curl, char *URL_Str, char *OutFileName,$/;"	f
 SyncTime_CURL_Init	DCC-Miner/out/_deps/curl-src/docs/examples/synctime.c	/^void SyncTime_CURL_Init(CURL *curl, char *proxy_port,$/;"	f
 SyncTime_CURL_WriteHeader	DCC-Miner/out/_deps/curl-src/docs/examples/synctime.c	/^size_t SyncTime_CURL_WriteHeader(void *ptr, size_t size, size_t nmemb,$/;"	f
@@ -10681,7 +10685,7 @@ UnixSocket	DCC-Miner/out/_deps/cpr-src/include/cpr/unix_socket.h	/^    UnixSocke
 UnixSocket	DCC-Miner/out/_deps/cpr-src/include/cpr/unix_socket.h	/^class UnixSocket {$/;"	c	namespace:cpr
 UpdateHeader	DCC-Miner/out/_deps/cpr-src/cpr/session.cpp	/^void Session::Impl::UpdateHeader(const Header& header) {$/;"	f	class:cpr::Session::Impl
 UpdateHeader	DCC-Miner/out/_deps/cpr-src/cpr/session.cpp	/^void Session::UpdateHeader(const Header& header) { pimpl_->UpdateHeader(header); }$/;"	f	class:cpr::Session
-UpgradeBlock	DCC-Miner/DCC-Miner/Main.cpp	/^json UpgradeBlock(json b, std::string toVersion)$/;"	f
+UpgradeBlock	DCC-Miner/DCC-Miner/Blockchain.cpp	/^json UpgradeBlock(json& b, std::string toVersion)$/;"	f
 UploadFile	DCC-Miner/DCC-Miner/Network.cpp	/^std::string UploadFile(std::string url, std::string filePath)$/;"	f
 Url	DCC-Miner/out/_deps/cpr-src/include/cpr/cprtypes.h	/^    Url(const char* str, size_t len) : StringHolder<Url>(std::string(str, len)) {}$/;"	f	class:cpr::Url
 Url	DCC-Miner/out/_deps/cpr-src/include/cpr/cprtypes.h	/^    Url(const char* url) : StringHolder<Url>(url) {}$/;"	f	class:cpr::Url
@@ -10812,7 +10816,7 @@ VERIFIED_RSP	DCC-Miner/out/_deps/curl-src/tests/smbserver.py	/^VERIFIED_RSP = "W
 VERIFY_SOCK	DCC-Miner/out/_deps/curl-src/lib/select.h	104;"	d
 VERIFY_SOCK	DCC-Miner/out/_deps/curl-src/lib/select.h	116;"	d
 VERIFY_SOCK	DCC-Miner/out/_deps/curl-src/lib/select.h	99;"	d
-VERSION	DCC-Miner/DCC-Miner/Main.cpp	/^const std::string VERSION = "v0.2.0-alpha";$/;"	v
+VERSION	DCC-Miner/DCC-Miner/SettingsConsts.h	/^const std::string VERSION = "v0.2.0-alpha";$/;"	v
 VERSION	DCC-Miner/out/_deps/curl-src/lib/config-os400.h	34;"	d
 VERSION	DCC-Miner/out/_deps/curl-src/lib/config-os400.h	378;"	d
 VERSION	DCC-Miner/out/_deps/curl-src/lib/config-plan9.h	41;"	d
@@ -10945,7 +10949,7 @@ WriteLineCharArrayOfLen	DCC-Miner/DCC-Miner/Console.cpp	/^void Console::WriteLin
 WriteMemoryCallback	DCC-Miner/out/_deps/curl-src/docs/examples/getinmemory.c	/^WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)$/;"	f	file:
 WriteMemoryCallback	DCC-Miner/out/_deps/curl-src/docs/examples/postinmemory.c	/^WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)$/;"	f	file:
 WriteOutput	DCC-Miner/out/_deps/curl-src/tests/libtest/lib1509.c	/^size_t WriteOutput(void *ptr, size_t size, size_t nmemb, void *stream)$/;"	f
-WriteProgramConfig	DCC-Miner/DCC-Miner/Main.cpp	/^int WriteProgramConfig()$/;"	f
+WriteProgramConfig	DCC-Miner/DCC-Miner/Blockchain.cpp	/^int WriteProgramConfig()$/;"	f
 WriteThis	DCC-Miner/out/_deps/curl-src/docs/examples/ftpuploadfrommem.c	/^struct WriteThis {$/;"	s	file:
 WriteThis	DCC-Miner/out/_deps/curl-src/docs/examples/post-callback.c	/^struct WriteThis {$/;"	s	file:
 WriteThis	DCC-Miner/out/_deps/curl-src/tests/libtest/lib1514.c	/^struct WriteThis {$/;"	s	file:
@@ -11157,6 +11161,10 @@ _ALL_SOURCE	DCC-Miner/out/_deps/curl-build/lib/curl_config.h	975;"	d
 _ALL_SOURCE	DCC-Miner/out/_deps/curl-src/lib/config-riscos.h	342;"	d
 _APP32_64BIT_OFF_T	DCC-Miner/out/_deps/curl-src/lib/curl_setup_once.h	78;"	d
 _APP32_64BIT_OFF_T	DCC-Miner/out/_deps/curl-src/lib/curl_setup_once.h	92;"	d
+_APS_NEXT_COMMAND_VALUE	DCC-Miner/out/DCC-Miner/resource.h	12;"	d
+_APS_NEXT_CONTROL_VALUE	DCC-Miner/out/DCC-Miner/resource.h	13;"	d
+_APS_NEXT_RESOURCE_VALUE	DCC-Miner/out/DCC-Miner/resource.h	11;"	d
+_APS_NEXT_SYMED_VALUE	DCC-Miner/out/DCC-Miner/resource.h	14;"	d
 _B	DCC-Miner/out/_deps/curl-src/lib/curl_ctype.c	41;"	d	file:
 _B	DCC-Miner/out/_deps/curl-src/lib/curl_ctype.c	42;"	d	file:
 _C	DCC-Miner/out/_deps/curl-src/lib/curl_ctype.c	37;"	d	file:
@@ -12253,8 +12261,8 @@ cfcdata	DCC-Miner/out/_deps/curl-src/packages/OS400/ccsidcurl.c	/^struct cfcdata
 cfg	DCC-Miner/out/_deps/curl-src/lib/vquic/quiche.h	/^  quiche_config *cfg;$/;"	m	struct:quicsocket
 ch	DCC-Miner/out/_deps/curl-src/docs/examples/ghiper.c	/^  GIOChannel *ch;$/;"	m	struct:_SockInfo	file:
 challenge	DCC-Miner/out/_deps/curl-src/lib/smb.h	/^  unsigned char challenge[8];$/;"	m	struct:smb_conn
-charArray	DCC-Miner/DCC-Miner/FileManip.cpp	/^char charArray[32];$/;"	v
-charArray64	DCC-Miner/DCC-Miner/FileManip.cpp	/^char charArray64[65];$/;"	v
+charArray	DCC-Miner/DCC-Miner/crypto.h	/^char charArray[32];$/;"	v
+charArray64	DCC-Miner/DCC-Miner/crypto.h	/^char charArray64[65];$/;"	v
 char_class	DCC-Miner/out/_deps/curl-src/lib/curl_fnmatch.c	/^} char_class;$/;"	t	typeref:enum:__anon93	file:
 characterDataHandler	DCC-Miner/out/_deps/curl-src/docs/examples/xmlstream.c	/^static void characterDataHandler(void *userData, const XML_Char *s, int len)$/;"	f	file:
 characters	DCC-Miner/out/_deps/curl-src/docs/examples/xmlstream.c	/^  struct MemoryStruct characters;$/;"	m	struct:ParserStruct	typeref:struct:ParserStruct::MemoryStruct	file:
@@ -12384,7 +12392,7 @@ ciphertable	DCC-Miner/out/_deps/curl-src/lib/vtls/sectransp.c	/^const static str
 cl	DCC-Miner/out/_deps/curl-src/lib/http_proxy.h	/^  curl_off_t cl; \/* size of content to read and ignore *\/$/;"	m	struct:http_connect_state
 cl	DCC-Miner/out/_deps/curl-src/tests/server/rtspd.c	/^  size_t cl;      \/* Content-Length of the incoming request *\/$/;"	m	struct:httprequest	file:
 cl	DCC-Miner/out/_deps/curl-src/tests/server/sws.c	/^  size_t cl;      \/* Content-Length of the incoming request *\/$/;"	m	struct:httprequest	file:
-clampf	DCC-Miner/DCC-Miner/Main.cpp	/^float clampf(float x, float min, float max) {$/;"	f
+clampf	DCC-Miner/DCC-Miner/strops.cpp	/^float clampf(float x, float min, float max) {$/;"	f
 clean	DCC-Miner/out/_deps/curl-src/buildconf.bat	/^:clean$/;"	l
 clean	DCC-Miner/out/_deps/curl-src/projects/generate.bat	/^:clean$/;"	l
 clean_fifo	DCC-Miner/out/_deps/curl-src/docs/examples/ephiperfifo.c	/^static void clean_fifo(GlobalInfo *g)$/;"	f	file:
@@ -12607,7 +12615,7 @@ connkeep	DCC-Miner/out/_deps/curl-src/lib/connect.h	147;"	d
 connkeep	DCC-Miner/out/_deps/curl-src/lib/connect.h	151;"	d
 connmon	DCC-Miner/out/_deps/curl-src/tests/server/sws.c	/^  bool connmon;   \/* monitor the state of the connection, log disconnects *\/$/;"	m	struct:httprequest	file:
 connstate	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^struct connstate {$/;"	s
-console	DCC-Miner/DCC-Miner/Main.cpp	/^Console console;$/;"	v
+console	DCC-Miner/DCC-Miner/Blockchain.cpp	/^Console console;$/;"	v
 console	DCC-Miner/DCC-Miner/Network.h	/^	Console console;$/;"	m	class:Http
 console_h	DCC-Miner/DCC-Miner/Console.h	2;"	d
 const	DCC-Miner/out/_deps/curl-src/lib/config-os400.h	387;"	d
@@ -12869,11 +12877,10 @@ crlf	DCC-Miner/out/_deps/curl-src/src/tool_cfgable.h	/^  bool crlf;$/;"	m	struct
 crlf_conversions	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  curl_off_t crlf_conversions;$/;"	m	struct:UrlState
 crlfile	DCC-Miner/out/_deps/curl-src/src/tool_cfgable.h	/^  char *crlfile;$/;"	m	struct:OperationConfig
 cryptMain	DCC-Miner/DCC-Miner/crypto.h	/^int cryptMain()$/;"	f
-crypto_h	DCC-Miner/DCC-Miner/crypto.h	10;"	d
 csb	DCC-Miner/out/_deps/zlib-src/arch/s390/dfltcc_detail.h	/^    uint8_t csb[1152];$/;"	m	struct:dfltcc_param_v0
 cselect_bits	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  int cselect_bits; \/* bitmask of socket events *\/$/;"	m	struct:connectdata
-cstr_to_hexstr	DCC-Miner/DCC-Miner/FileManip.cpp	/^char* cstr_to_hexstr(unsigned char* str, int clen)$/;"	f
-cstr_to_hexstr	DCC-Miner/DCC-Miner/FileManip.cpp	/^void cstr_to_hexstr(unsigned char* str, int clen, char outputBuffer[65])$/;"	f
+cstr_to_hexstr	DCC-Miner/DCC-Miner/crypto.h	/^void cstr_to_hexstr(unsigned char* str, int clen)$/;"	f
+cstr_to_hexstr	DCC-Miner/DCC-Miner/crypto.h	/^void cstr_to_hexstr(unsigned char* str, int clen, char outputBuffer[65])$/;"	f
 ct_data	DCC-Miner/out/_deps/zlib-src/deflate.h	/^} ct_data;$/;"	t	typeref:struct:ct_data_s
 ct_data_s	DCC-Miner/out/_deps/zlib-src/deflate.h	/^typedef struct ct_data_s {$/;"	s
 ctl_valid	DCC-Miner/out/_deps/curl-src/lib/ftp.h	/^  bool ctl_valid;   \/* Tells Curl_ftp_quit() whether or not to do anything. If$/;"	m	struct:ftp_conn
@@ -13680,7 +13687,7 @@ dist_code	DCC-Miner/out/_deps/zlib-src/tools/maketrees.c	/^static unsigned char 
 distbits	DCC-Miner/out/_deps/zlib-src/inflate.h	/^    unsigned distbits;          \/* index bits for distcode *\/$/;"	m	struct:inflate_state
 distcode	DCC-Miner/out/_deps/zlib-src/inflate.h	/^    code const *distcode;       \/* starting table for distance codes *\/$/;"	m	struct:inflate_state
 distfix	DCC-Miner/out/_deps/zlib-src/inffixed_tbl.h	/^static const code distfix[32] = {$/;"	v
-divideHexByFloat	DCC-Miner/DCC-Miner/Main.cpp	/^std::string divideHexByFloat(const std::string& hexNumber, float divisor) {$/;"	f
+divideHexByFloat	DCC-Miner/DCC-Miner/strops.cpp	/^std::string divideHexByFloat(const std::string& hexNumber, float divisor) {$/;"	f
 diyfp	DCC-Miner/DCC-Miner/json.hpp	/^            struct diyfp \/\/ f * 2^e$/;"	s	namespace:nlohmann::nlohmann::nlohmann::detail::dtoa_impl
 dl	DCC-Miner/out/_deps/curl-src/src/tool_progress.c	/^  curl_off_t dl;$/;"	m	struct:speedcount	file:
 dl	DCC-Miner/out/_deps/zlib-src/deflate.h	/^    } dl;$/;"	m	struct:ct_data_s	typeref:union:ct_data_s::__anon199
@@ -14718,7 +14725,7 @@ general_ssl	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  struct ssl_general_co
 generate	DCC-Miner/out/_deps/curl-src/buildconf.bat	/^:generate$/;"	l
 generate	DCC-Miner/out/_deps/curl-src/projects/generate.bat	/^:generate$/;"	l
 generateRSAKey	DCC-Miner/DCC-Miner/crypto.h	/^void generateRSAKey(std::string strKey[2])$/;"	f
-generate_key	DCC-Miner/DCC-Miner/FileManip.cpp	/^bool generate_key()$/;"	f
+generate_key	DCC-Miner/DCC-Miner/crypto.h	/^bool generate_key()$/;"	f
 get	DCC-Miner/DCC-Miner/include/color.hpp	/^    int get()$/;"	f	namespace:hue
 get	DCC-Miner/DCC-Miner/json.hpp	/^            char_int_type get()$/;"	f	class:nlohmann::nlohmann::nlohmann::detail::binary_reader
 get	DCC-Miner/DCC-Miner/json.hpp	/^            char_int_type get()$/;"	f	class:nlohmann::nlohmann::nlohmann::detail::lexer
@@ -15329,7 +15336,7 @@ hex_bytes	DCC-Miner/DCC-Miner/json.hpp	/^            static std::string hex_byte
 hexbuffer	DCC-Miner/out/_deps/curl-src/lib/http_chunks.h	/^  char hexbuffer[ CHUNK_MAXNUM_LEN + 1]; \/* +1 for null-terminator *\/$/;"	m	struct:Curl_chunker
 hexdump	DCC-Miner/out/_deps/curl-src/tests/libtest/first.c	/^char *hexdump(const unsigned char *buffer, size_t len)$/;"	f
 hexindex	DCC-Miner/out/_deps/curl-src/lib/http_chunks.h	/^  unsigned char hexindex;$/;"	m	struct:Curl_chunker
-hexstr_to_cstr	DCC-Miner/DCC-Miner/FileManip.cpp	/^char* hexstr_to_cstr(const std::string& hexString) {$/;"	f
+hexstr_to_cstr	DCC-Miner/DCC-Miner/crypto.h	/^char* hexstr_to_cstr(const std::string& hexString) {$/;"	f
 hi	DCC-Miner/out/_deps/curl-src/lib/md4.c	/^  MD4_u32plus lo, hi;$/;"	m	struct:md4_ctx	file:
 hi	DCC-Miner/out/_deps/curl-src/lib/md5.c	/^  MD5_u32plus lo, hi;$/;"	m	struct:md5_ctx	file:
 hidden_main_window	DCC-Miner/out/_deps/curl-src/tests/server/util.c	/^static HWND hidden_main_window = NULL;$/;"	v	file:
@@ -15488,7 +15495,6 @@ ia5string	DCC-Miner/out/_deps/curl-src/docs/examples/curlx.c	/^static char *ia5s
 iconv_open_CCSID	DCC-Miner/out/_deps/curl-src/packages/OS400/ccsidcurl.c	/^iconv_open_CCSID(unsigned int ccsidout, unsigned int ccsidin,$/;"	f	file:
 iconv_ver_num	DCC-Miner/DCC-Miner/include/curl/curl.h	/^  int iconv_ver_num;$/;"	m	struct:curl_version_info_data
 iconv_ver_num	DCC-Miner/out/_deps/curl-src/include/curl/curl.h	/^  int iconv_ver_num;$/;"	m	struct:curl_version_info_data
-id	DCC-Miner/DCC-Miner/Main.cpp	/^std::string id = "";$/;"	v
 id	DCC-Miner/DCC-Miner/include/curl/curl.h	/^  curl_sslbackend id;$/;"	m	struct:curl_ssl_backend
 id	DCC-Miner/DCC-Miner/include/curl/options.h	/^  CURLoption id;$/;"	m	struct:curl_easyoption
 id	DCC-Miner/DCC-Miner/json.hpp	/^            const int id; \/\/ NOLINT(cppcoreguidelines-non-private-member-variables-in-classes)$/;"	m	class:nlohmann::detail::exception
@@ -16996,8 +17002,8 @@ multidone_func	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^typedef int (*multid
 multipart_size	DCC-Miner/out/_deps/curl-src/lib/mime.c	/^static curl_off_t multipart_size(curl_mime *mime)$/;"	f	file:
 multiplexing	DCC-Miner/out/_deps/curl-src/lib/multihandle.h	/^  bool multiplexing;$/;"	m	struct:Curl_multi
 multiply	DCC-Miner/out/_deps/curl-src/src/tool_urlglob.c	/^static int multiply(unsigned long *amount, long with)$/;"	f	file:
-multiplyHexByFloat	DCC-Miner/DCC-Miner/Main.cpp	/^std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier) {$/;"	f
-multiplyHexByInteger	DCC-Miner/DCC-Miner/Main.cpp	/^std::string multiplyHexByInteger(const std::string& hexNumber, int multiplier) {$/;"	f
+multiplyHexByFloat	DCC-Miner/DCC-Miner/strops.cpp	/^std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier) {$/;"	f
+multiplyHexByInteger	DCC-Miner/DCC-Miner/strops.cpp	/^std::string multiplyHexByInteger(const std::string& hexNumber, int multiplier) {$/;"	f
 multissl_close	DCC-Miner/out/_deps/curl-src/lib/vtls/vtls.c	/^static void multissl_close(struct Curl_easy *data, struct connectdata *conn,$/;"	f	file:
 multissl_connect	DCC-Miner/out/_deps/curl-src/lib/vtls/vtls.c	/^static CURLcode multissl_connect(struct Curl_easy *data,$/;"	f	file:
 multissl_connect_nonblocking	DCC-Miner/out/_deps/curl-src/lib/vtls/vtls.c	/^static CURLcode multissl_connect_nonblocking(struct Curl_easy *data,$/;"	f	file:
@@ -17020,7 +17026,7 @@ mvn	DCC-Miner/out/_deps/zlib-src/arch/s390/dfltcc_detail.h	/^    uint8_t mvn;   
 mvsnprintf	DCC-Miner/out/_deps/curl-src/lib/curl_printf.h	45;"	d
 mvsnprintf	DCC-Miner/out/_deps/curl-src/lib/curlx.h	101;"	d
 mvsnprintf	DCC-Miner/out/_deps/curl-src/lib/curlx.h	111;"	d
-mySendTo	DCC-Miner/DCC-Miner/P2PClient.cpp	/^int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen)$/;"	f
+mySendTo	DCC-Miner/DCC-Miner/P2PClient.cpp	/^int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen)$/;"	f	class:P2P
 my_conv_from_ascii_to_ebcdic	DCC-Miner/out/_deps/curl-src/docs/examples/sampleconv.c	/^static CURLcode my_conv_from_ascii_to_ebcdic(char *buffer, size_t length)$/;"	f	file:
 my_conv_from_ebcdic_to_ascii	DCC-Miner/out/_deps/curl-src/docs/examples/sampleconv.c	/^static CURLcode my_conv_from_ebcdic_to_ascii(char *buffer, size_t length)$/;"	f	file:
 my_conv_from_utf8_to_ebcdic	DCC-Miner/out/_deps/curl-src/docs/examples/sampleconv.c	/^static CURLcode my_conv_from_utf8_to_ebcdic(char *buffer, size_t length)$/;"	f	file:
@@ -17902,7 +17908,7 @@ p	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  } p;$/;"	m	struct:SingleRequest
 p	DCC-Miner/out/_deps/curl-src/tests/unit/unit1394.c	/^  const char **p;$/;"	v
 p12	DCC-Miner/out/_deps/curl-src/docs/examples/curlx.c	/^  PKCS12 *p12;$/;"	m	struct:sslctxparm_st	file:
 p12file	DCC-Miner/out/_deps/curl-src/docs/examples/curlx.c	/^  unsigned char *p12file;$/;"	m	struct:sslctxparm_st	file:
-p2p	DCC-Miner/DCC-Miner/Main.cpp	/^P2P p2p;$/;"	v
+p2p	DCC-Miner/DCC-Miner/Blockchain.cpp	/^P2P p2p;$/;"	v
 p2pclient_h	DCC-Miner/DCC-Miner/P2PClient.h	2;"	d
 p_identity	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  SEC_WINNT_AUTH_IDENTITY *p_identity;$/;"	m	struct:kerberos5data
 p_identity	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  SEC_WINNT_AUTH_IDENTITY *p_identity;$/;"	m	struct:ntlmdata
@@ -18318,7 +18324,8 @@ prog_cb	DCC-Miner/out/_deps/curl-src/docs/examples/ephiperfifo.c	/^static int pr
 prog_cb	DCC-Miner/out/_deps/curl-src/docs/examples/evhiperfifo.c	/^static int prog_cb(void *p, double dltotal, double dlnow, double ult,$/;"	f	file:
 prog_cb	DCC-Miner/out/_deps/curl-src/docs/examples/ghiper.c	/^static int prog_cb(void *p, double dltotal, double dlnow, double ult,$/;"	f	file:
 prog_cb	DCC-Miner/out/_deps/curl-src/docs/examples/hiperfifo.c	/^static int prog_cb(void *p, double dltotal, double dlnow, double ult,$/;"	f	file:
-programConfig	DCC-Miner/DCC-Miner/Main.cpp	/^json programConfig;$/;"	v
+programConfig	DCC-Miner/DCC-Miner/Blockchain.cpp	/^json programConfig;$/;"	v
+programID	DCC-Miner/DCC-Miner/Blockchain.cpp	/^std::string programID = "";$/;"	v
 program_details	DCC-Miner/out/_deps/curl-src/missing	/^program_details ()$/;"	f
 progress	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  struct Progress progress;    \/* for all the progress meter data *\/$/;"	m	struct:Curl_easy	typeref:struct:Curl_easy::Progress
 progressCallback	DCC-Miner/out/_deps/curl-src/tests/libtest/lib1555.c	/^static int progressCallback(void *arg,$/;"	f	file:
@@ -18949,7 +18956,7 @@ root	DCC-Miner/DCC-Miner/json.hpp	/^            BasicJsonType& root;$/;"	m	class
 root	DCC-Miner/DCC-Miner/json.hpp	/^            BasicJsonType& root;$/;"	m	class:nlohmann::nlohmann::nlohmann::detail::json_sax_dom_parser
 root	DCC-Miner/out/_deps/curl-src/tests/unit/unit1309.c	/^  struct Curl_tree *root, *removed;$/;"	v	typeref:struct:Curl_tree
 root_fid	DCC-Miner/out/_deps/curl-src/lib/smb.h	/^  unsigned int root_fid;$/;"	m	struct:smb_nt_create
-round	DCC-Miner/DCC-Miner/Main.cpp	/^double round(float value, int decimal_places)$/;"	f
+round	DCC-Miner/DCC-Miner/strops.cpp	/^double round(float value, int decimal_places)$/;"	f
 rpacket	DCC-Miner/out/_deps/curl-src/lib/tftp.c	/^  struct tftp_packet rpacket;$/;"	m	struct:tftp_state_data	typeref:struct:tftp_state_data::tftp_packet	file:
 rptr	DCC-Miner/out/_deps/curl-src/tests/server/tftpd.c	/^  char *rptr;     \/* read pointer into the buffer *\/$/;"	m	struct:testcase	file:
 rsa	DCC-Miner/out/_deps/curl-src/lib/vssh/ssh.h	/^  char *rsa;                  \/* path name *\/$/;"	m	struct:ssh_conn
@@ -19030,10 +19037,10 @@ runtimestats	DCC-Miner/out/_deps/curl-src/tests/runtests.pl	/^sub runtimestats {
 rw_init	DCC-Miner/out/_deps/curl-src/tests/server/tftpd.c	/^static struct tftphdr *rw_init(int x)$/;"	f	file:
 rx_time	DCC-Miner/out/_deps/curl-src/lib/tftp.c	/^  time_t          rx_time;$/;"	m	struct:tftp_state_data	file:
 s	DCC-Miner/out/_deps/curl-src/tests/testcurl.pl	/^        s:\/:\\\\:g;$/;"	l
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 33 - ((32 * winheight(0) + 25) \/ 51)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 188 - ((21 * winheight(0) + 22) \/ 44)$/;"	v
+s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 252 - ((15 * winheight(0) + 8) \/ 16)$/;"	v
 s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 48 - ((47 * winheight(0) + 30) \/ 61)$/;"	v
 s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 609 - ((32 * winheight(0) + 30) \/ 61)$/;"	v
-s:l	DCC-Miner/DCC-Miner/Session.vim	/^let s:l = 9 - ((8 * winheight(0) + 4) \/ 9)$/;"	v
 s:save_splitbelow	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_splitbelow = &splitbelow$/;"	v
 s:save_splitright	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_splitright = &splitright$/;"	v
 s:save_winminheight	DCC-Miner/DCC-Miner/Session.vim	/^let s:save_winminheight = &winminheight$/;"	v
@@ -19298,7 +19305,7 @@ server	DCC-Miner/out/_deps/cpr-src/test/put_tests.cpp	/^static HttpServer* serve
 server	DCC-Miner/out/_deps/cpr-src/test/raw_body_tests.cpp	/^static HttpServer* server = new HttpServer();$/;"	v	file:
 server	DCC-Miner/out/_deps/cpr-src/test/session_tests.cpp	/^static HttpServer* server = new HttpServer();$/;"	v	file:
 server	DCC-Miner/out/_deps/cpr-src/test/ssl_tests.cpp	/^static HttpsServer* server;$/;"	v	file:
-serverURL	DCC-Miner/DCC-Miner/Main.cpp	/^std::string serverURL = "http:\/\/api.achillium.us.to";$/;"	v
+serverURL	DCC-Miner/DCC-Miner/SettingsConsts.h	/^const std::string serverURL = "http:\/\/api.achillium.us.to";$/;"	v
 server_cert	DCC-Miner/out/_deps/curl-src/lib/vtls/openssl.c	/^  X509*    server_cert;$/;"	m	struct:ssl_backend_data	file:
 server_cmdfilename	DCC-Miner/out/_deps/curl-src/tests/serverhelp.pm	/^sub server_cmdfilename {$/;"	s
 server_fd	DCC-Miner/out/_deps/curl-src/lib/vtls/mbedtls.c	/^  int server_fd;$/;"	m	struct:ssl_backend_data	file:
@@ -19508,11 +19515,11 @@ sha256	DCC-Miner/DCC-Miner/crypto.h	/^void sha256(const std::string& srcStr, std
 sha256	DCC-Miner/out/_deps/curl-src/lib/mk-ca-bundle.pl	/^sub sha256 {$/;"	s
 sha256_compress	DCC-Miner/out/_deps/curl-src/lib/sha256.c	/^static int sha256_compress(struct sha256_state *md,$/;"	f	file:
 sha256_ctx	DCC-Miner/out/_deps/curl-src/lib/sha256.c	/^struct sha256_ctx {$/;"	s	file:
-sha256_file	DCC-Miner/DCC-Miner/FileManip.cpp	/^int sha256_file(char* path, char outputBuffer[65])$/;"	f
-sha256_full_cstr	DCC-Miner/DCC-Miner/FileManip.cpp	/^void sha256_full_cstr(char* str, unsigned char outputBuffer[SHA256_DIGEST_LENGTH])$/;"	f
-sha256_hash_string	DCC-Miner/DCC-Miner/FileManip.cpp	/^void sha256_hash_string(unsigned char hash[SHA256_DIGEST_LENGTH], char outputBuffer[65])$/;"	f
+sha256_file	DCC-Miner/DCC-Miner/crypto.h	/^int sha256_file(char* path, char outputBuffer[65])$/;"	f
+sha256_full_cstr	DCC-Miner/DCC-Miner/crypto.h	/^void sha256_full_cstr(char* str, unsigned char outputBuffer[SHA256_DIGEST_LENGTH])$/;"	f
+sha256_hash_string	DCC-Miner/DCC-Miner/crypto.h	/^void sha256_hash_string(unsigned char hash[SHA256_DIGEST_LENGTH], char outputBuffer[65])$/;"	f
 sha256_state	DCC-Miner/out/_deps/curl-src/lib/sha256.c	/^struct sha256_state {$/;"	s	file:
-sha256_string	DCC-Miner/DCC-Miner/FileManip.cpp	/^void sha256_string(char* str, char outputBuffer[65])$/;"	f
+sha256_string	DCC-Miner/DCC-Miner/crypto.h	/^void sha256_string(char* str, char outputBuffer[65])$/;"	f
 sha256_to_hex	DCC-Miner/out/_deps/curl-src/lib/http_aws_sigv4.c	/^static void sha256_to_hex(char *dst, unsigned char *sha, size_t dst_l)$/;"	f	file:
 sha256sum	DCC-Miner/out/_deps/curl-src/lib/vtls/vtls.h	/^  CURLcode (*sha256sum)(const unsigned char *input, size_t inputlen,$/;"	m	struct:Curl_ssl
 share	DCC-Miner/out/_deps/curl-src/lib/smb.h	/^  char *share;$/;"	m	struct:smb_conn
@@ -20844,7 +20851,6 @@ trailers_read	DCC-Miner/out/_deps/curl-src/lib/transfer.c	/^static size_t traile
 trailers_state	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^  trailers_state trailers_state; \/* whether we are sending trailers$/;"	m	struct:UrlState
 trailers_state	DCC-Miner/out/_deps/curl-src/lib/urldata.h	/^} trailers_state;$/;"	t	typeref:enum:__anon167
 trailing_crlf	DCC-Miner/out/_deps/curl-src/lib/smtp.h	/^  bool trailing_crlf;      \/* Specifies if the trailing CRLF is present *\/$/;"	m	struct:SMTP
-transactionNumber	DCC-Miner/DCC-Miner/Main.cpp	/^int transactionNumber = 0;$/;"	v
 transfer	DCC-Miner/out/_deps/curl-src/docs/examples/http2-download.c	/^struct transfer {$/;"	s	file:
 transfer	DCC-Miner/out/_deps/curl-src/lib/ftp.h	/^  curl_pp_transfer transfer;$/;"	m	struct:FTP
 transfer	DCC-Miner/out/_deps/curl-src/lib/imap.h	/^  curl_pp_transfer transfer;$/;"	m	struct:IMAP
@@ -21815,6 +21821,7 @@ zng_tr_init	DCC-Miner/out/_deps/zlib-src/trees.c	/^void Z_INTERNAL zng_tr_init(d
 zng_tr_stored_block	DCC-Miner/out/_deps/zlib-src/trees.c	/^void Z_INTERNAL zng_tr_stored_block(deflate_state *s, char *buf, uint32_t stored_len, int last) {$/;"	f
 zng_tr_tally_dist	DCC-Miner/out/_deps/zlib-src/deflate_p.h	/^static inline int zng_tr_tally_dist(deflate_state *s, uint32_t dist, uint32_t len) {$/;"	f
 zng_tr_tally_lit	DCC-Miner/out/_deps/zlib-src/deflate_p.h	/^static inline int zng_tr_tally_lit(deflate_state *s, unsigned char c) {$/;"	f
+zo	DCC-Miner/DCC-Miner/Session.vim	/^normal! zo$/;"	m
 zonefrom_url	DCC-Miner/out/_deps/curl-src/lib/url.c	/^static void zonefrom_url(CURLU *uh, struct Curl_easy *data,$/;"	f	file:
 zoneid	DCC-Miner/out/_deps/curl-src/lib/urlapi.c	/^  char *zoneid; \/* for numerical IPv6 addresses *\/$/;"	m	struct:Curl_URL	file:
 zstd_close_writer	DCC-Miner/out/_deps/curl-src/lib/content_encoding.c	/^static void zstd_close_writer(struct Curl_easy *data,$/;"	f	file:

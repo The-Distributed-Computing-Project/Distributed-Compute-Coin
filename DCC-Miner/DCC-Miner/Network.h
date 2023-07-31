@@ -2,6 +2,13 @@
 #define network_h
 
 #include <cpr/cpr.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include "Console.h"
+//#include "P2PClient.cpp"
+#include <Urlmon.h>
+#include <curl/curl.h>
 #include "Console.h"
 
 class Http

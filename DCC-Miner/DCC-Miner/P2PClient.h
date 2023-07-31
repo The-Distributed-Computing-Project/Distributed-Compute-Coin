@@ -3,9 +3,25 @@
 
 #include <string>
 #include <vector>
+#include <winsock2.h>
+#include <Ws2tcpip.h>
+#include <windows.h>
+#include <iostream>
+#include <thread>
+#include <math.h>
+
+#include "strops.h"
+#include "Console.h"
+#include <boost/process.hpp>
+#include <chrono>
+#include "Network.h"
+#include "FileManip.h"
+#include "SettingsConsts.h"
 
 
 extern std::vector<std::string> peerList;
+
+//extern P2P p2p;
 
 
 class P2P
@@ -56,6 +72,7 @@ public:
 	//int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen);
 	int OpenP2PSocket(int port);
 	void SenderThread();
+	int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen);
 };
 
 #endif

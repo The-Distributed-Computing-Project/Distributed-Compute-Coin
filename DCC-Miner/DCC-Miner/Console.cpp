@@ -249,3 +249,12 @@ void Console::ExitError(std::string errMessage)
 	std::cin.ignore();
 	exit(1);
 }
+
+// Print a connection error dialog
+void ConnectionError()
+{
+	//connectionStatus = 0;
+	Console console;
+	console.NetworkErrorPrint();
+	console.WriteLine("Failed To Connect");
+}

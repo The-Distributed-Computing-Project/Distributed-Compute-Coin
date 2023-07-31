@@ -1,19 +1,6 @@
 
-#include <winsock2.h>
-#include <Ws2tcpip.h>
-#include <windows.h>
-#include <iostream>
-#include <thread>
-#include <math.h>
 
-#include "strops.h"
 #include "P2PClient.h"
-#include "Console.h"
-#include <boost/process.hpp>
-#include <chrono>
-#include "Network.h"
-#include "FileManip.h"
-#include "SettingsConsts.h"
 
 #pragma comment(lib,"ws2_32.lib")
 
@@ -32,6 +19,7 @@ std::atomic_bool stop_thread_2 = false;
 std::atomic_bool thread_running = false;
 
 std::vector<std::string> peerList;
+//P2P p2p;
 
 // Get the IP:Port combination from SOCKADDR_IN struct, and return it as a string
 std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
@@ -56,7 +44,7 @@ std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 }
 
 // Safely send some data as a string, and split large amounts of data into multiple segments to be sent sequentially.
-int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen)
+int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen)
 {
 	int total = 0;        // how many bytes we've sent
 	int bytesLeft = len; // how many we have left to send

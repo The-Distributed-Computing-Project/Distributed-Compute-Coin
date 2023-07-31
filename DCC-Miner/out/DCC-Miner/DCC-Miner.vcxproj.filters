@@ -19,6 +19,18 @@
     <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\crypto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Miner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\json.hpp">
@@ -43,6 +55,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\crypto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Miner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\SettingsConsts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\System.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

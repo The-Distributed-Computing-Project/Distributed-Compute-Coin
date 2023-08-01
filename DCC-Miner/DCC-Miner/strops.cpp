@@ -51,6 +51,22 @@ std::string CommaLargeNumberF(float num) {
 	return s;
 }
 
+std::string CommaLargeNumberF(double num) {
+	long v = (long)num;
+	auto s = std::to_string(v);
+
+	long n = s.length() - 3;
+	long end = (v >= 0) ? 0 : 1; // Support for negative numbers
+	while (n > end) {
+		s.insert(n, ",");
+		n -= 3;
+	}
+
+	s += "." + SplitString(std::to_string(num), ".")[1];
+
+	return s;
+}
+
 // Function to pad the front of a string with a character to make it a certain length
 std::string PadString(const std::string& input, char padChar, size_t desiredLength) {
 	std::string result = input;
@@ -412,4 +428,41 @@ double round(float value, int decimal_places)
 {
 	const double multiplier = std::pow(10.0, decimal_places);
 	return std::round(value * multiplier) / multiplier;
+}
+
+// Returns true if <a> is a version greater than or equal to <b>
+bool CompareVersions(std::string a, std::string b) {
+	if (a == b)
+		return true;
+
+	a = SplitString(a, "v")[1];
+	b = SplitString(b, "v")[1];
+
+	std::string stageA = SplitString(a, "-")[1];
+	std::string stageB = SplitString(a, "-")[1];
+
+	if (stageA == "alpha" && stageB != "alpha")
+		return false;
+	if (stageA == "beta" && stageB != "alpha" && stageB != "beta")
+		return false;
+
+	int majorA = stoi(SplitString(a, ".")[0]);
+	int majorB = stoi(SplitString(b, ".")[0]);
+
+	if (majorA < majorB)
+		return false;
+
+	int minorA = stoi(SplitString(a, ".")[1]);
+	int minorB = stoi(SplitString(b, ".")[1]);
+
+	if (minorA < minorB)
+		return false;
+
+	int patchA = stoi(SplitString(a, ".")[2]);
+	int patchB = stoi(SplitString(b, ".")[2]);
+
+	if (patchA < patchB)
+		return false;
+
+	return true;
 }

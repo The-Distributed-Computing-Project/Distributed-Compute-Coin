@@ -215,7 +215,7 @@ int main()
 
 	console.SystemPrint();
 	console.Write("You have: ");
-	console.WriteLine("$" + CommaLargeNumberF((float)walletInfo["Funds"]) + " credits\n", console.yellowFGColor, "");
+	console.WriteLine("$" + CommaLargeNumberF((double)walletInfo["Funds"]) + " credits\n", console.yellowFGColor, "");
 
 
 	//
@@ -243,7 +243,7 @@ int main()
 		{
 			console.SystemPrint();
 			console.Write("You have: ");
-			console.WriteLine("$" + CommaLargeNumberF((float)walletInfo["Funds"]) + " credits\n", console.yellowFGColor, "");
+			console.WriteLine("$" + CommaLargeNumberF((double)walletInfo["Funds"]) + " credits\n", console.yellowFGColor, "");
 			continue;
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--DIFFICULTY")
@@ -379,7 +379,7 @@ int main()
 						{"fromAddr", "Block Reward"},
 						{"toAddr", (std::string)walletInfo["Address"]},
 						{"amount", 1},
-						{"txNum", (int)walletInfo["BlockchainLength"] + 1}
+						{"unlockTime", 10}
 				};
 				txDat["sec"] = {
 						{"signature", ""},
@@ -479,7 +479,7 @@ Options:
 // Mine a single block with specified data and using the difficulty stored in walletInfo["MineDifficulty"]
 int Mine(json currentBlockJson, int blockNum)
 {
-	walletInfo["targetDifficulty"] = "0000000FFFFC0000000000000000000000000000000000000000000000000000";
+	//walletInfo["targetDifficulty"] = "00000FFFFFF00000000000000000000000000000000000000000000000000000";
 	console.MiningPrint();
 	console.Write("Mining ");
 	console.Write("block " + std::to_string(blockNum), console.whiteBGColor, console.blackFGColor);
@@ -510,7 +510,12 @@ int Mine(json currentBlockJson, int blockNum)
 		// The data we will actually be mining for is a hash of the
 		// transactions and header, so we don't need to do calculations on
 		// massive amounts of data
-		std::string fDat = (std::string)currentBlockJson["lastHash"] + (std::string)currentBlockJson["transactions"].dump();
+		std::string txData; // Only use the `tx` portion of each transaction objects' data
+		for (size_t i = 0; i < currentBlockJson["transactions"].size(); i++)
+		{
+			txData += (std::string)currentBlockJson["transactions"][i]["tx"].dump();
+		}
+		std::string fDat = (std::string)currentBlockJson["lastHash"] + txData;
 		sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
 		std::string hData = std::string(sha256OutBuffer);
 
@@ -581,6 +586,7 @@ int Mine(json currentBlockJson, int blockNum)
 			blockJson["targetDifficulty"] = "";
 			blockJson["_version"] = BLOCK_VERSION;
 			blockJson["transactions"] = json::array();
+			blockJson["id"] = blockNum + 1;
 
 			// Save new json data to file into finished blockchain folder
 			try
@@ -649,6 +655,7 @@ int SendFunds(std::string& toAddress, float amount)
 		blockJson["targetDifficulty"] = "";
 		blockJson["_version"] = BLOCK_VERSION;
 		blockJson["transactions"] = json::array();
+		blockJson["id"] = FileCount("./wwwdata/blockchain/") + 1;
 
 		// Save new json data to file into finished blockchain folder
 		try
@@ -728,7 +735,7 @@ int SendFunds(std::string& toAddress, float amount)
 				{"fromAddr", (std::string)walletInfo["Address"]},
 				{"toAddr", toAddress},
 				{"amount", amount},
-				{"txNum", (int)walletInfo["BlockchainLength"] + 1}
+				{"unlockTime", 10}
 		};
 		txDat["sec"] = {
 				{"signature", ""},
@@ -801,7 +808,11 @@ int MineAnyBlock(int blockNum, std::string& difficulty)
 	std::string nextBlockText = bufferd.str();
 	json o = json::parse(nextBlockText);
 
-	std::string transactions = o["transactions"].dump();
+	std::string txData; // Only use the `tx` portion of each transaction objects' data
+	for (size_t i = 0; i < o["transactions"].size(); i++)
+	{
+		txData += (std::string)o["transactions"][i]["tx"].dump();
+	}
 	std::string currentHash = o["hash"];
 	std::string lastHash = o["lastHash"];
 
@@ -820,7 +831,7 @@ int MineAnyBlock(int blockNum, std::string& difficulty)
 	// The data we will actually be mining for is a hash of the
 	// transactions and header, so we don't need to do calculations on
 	// massive amounts of data
-	std::string fDat = lastHash + transactions;
+	std::string fDat = lastHash + txData;
 	sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
 	std::string hData = std::string(sha256OutBuffer);
 

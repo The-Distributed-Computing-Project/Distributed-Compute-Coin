@@ -254,11 +254,14 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			buffer2 << th.rdbuf();
 			std::string content2 = buffer2.str();
 			json firstBlock = json::parse(content2);
+
+			if (firstBlock["_version"] == nullptr || firstBlock["_version"] == "" || firstBlock["_version"] != BLOCK_VERSION)
+				UpgradeBlock(firstBlock, BLOCK_VERSION);
+
 			for (int tr = 0; tr < firstBlock["transactions"].size(); tr++) {
 				std::string fromAddr = (std::string)firstBlock["transactions"][tr]["tx"]["fromAddr"];
 				std::string toAddr = (std::string)firstBlock["transactions"][tr]["tx"]["toAddr"];
 				float amount = firstBlock["transactions"][tr]["tx"]["amount"];
-				uint32_t txNum = firstBlock["transactions"][tr]["tx"]["txNum"];
 				std::string signature = decode64((std::string)firstBlock["transactions"][tr]["sec"]["signature"]);
 				std::string publicKey = (std::string)firstBlock["transactions"][tr]["sec"]["pubKey"];
 				std::string note = (std::string)firstBlock["transactions"][tr]["sec"]["note"];
@@ -268,6 +271,44 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					tmpFunds -= amount;
 				else if ((std::string)walletInfo["Address"] == toAddr)
 					tmpFunds += amount;
+			}
+			// Save upgraded block
+			std::ofstream blockFile("./wwwdata/blockchain/block1.dccblock");
+			if (blockFile.is_open())
+			{
+				blockFile << firstBlock.dump();
+				blockFile.close();
+			}
+
+			// Make sure it is valid:
+			cons.Write("\r");
+			cons.WriteBulleted("Validating block: " + std::to_string(1), 3);
+			char sha256OutBuffer[65];
+			std::string lastHash = firstBlock["lastHash"];
+			std::string currentHash = firstBlock["hash"];
+			std::string nonce = firstBlock["nonce"];
+			// The data we will actually be hashing is a hash of the
+			// transactions and header, so we don't need to do calculations on
+			// massive amounts of data
+			std::string txData; // Only use the `tx` portion of each transaction objects' data
+			for (size_t i = 0; i < firstBlock["transactions"].size(); i++)
+			{
+				txData += (std::string)firstBlock["transactions"][i]["tx"].dump();
+			}
+			std::string fDat = (std::string)firstBlock["lastHash"] + txData;
+			sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
+			std::string hData = std::string(sha256OutBuffer);
+
+			sha256_string((char*)(hData + nonce).c_str(), sha256OutBuffer);
+			std::string blockHash = sha256OutBuffer;
+
+			if (blockHash != currentHash)
+			{
+				std::string rr = "";
+				if (blockHash != currentHash)
+					rr += "1";
+				cons.WriteLine("    X Bad Block X  " + std::to_string(1) + " R" + rr, cons.redFGColor, "");
+				return false;
 			}
 		}
 	}
@@ -327,7 +368,12 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			// The data we will actually be hashing is a hash of the
 			// transactions and header, so we don't need to do calculations on
 			// massive amounts of data
-			std::string fDat = (std::string)o["lastHash"] + o["transactions"].dump();
+			std::string txData; // Only use the `tx` portion of each transaction objects' data
+			for (size_t i = 0; i < o["transactions"].size(); i++)
+			{
+				txData += (std::string)o["transactions"][i]["tx"].dump();
+			}
+			std::string fDat = (std::string)o["lastHash"] + txData;
 			sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
 			std::string hData = std::string(sha256OutBuffer);
 
@@ -352,7 +398,6 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				std::string fromAddr = (std::string)o["transactions"][tr]["tx"]["fromAddr"];
 				std::string toAddr = (std::string)o["transactions"][tr]["tx"]["toAddr"];
 				float amount = o["transactions"][tr]["tx"]["amount"];
-				uint32_t txNum = o["transactions"][tr]["tx"]["txNum"];
 				std::string signature = decode64((std::string)o["transactions"][tr]["sec"]["signature"]);
 				std::string publicKey = (std::string)o["transactions"][tr]["sec"]["pubKey"];
 				std::string note = (std::string)o["transactions"][tr]["sec"]["note"];
@@ -475,21 +520,32 @@ std::string CalculateDifficulty(json& walletInfo) {
 
 	// Get average of middle 600 block times
 	uint32_t avgTotal = 0;
-	for (int i = 60; i < 660; i++)
+	for (int i = 60; i < 640; i++)
 		avgTotal += secondCounts[i];
-	uint32_t average = avgTotal / 600;  // Divide by total, which gives the average
+	uint32_t average = avgTotal / (640-60);  // Divide by total, which gives the average
 
-	// Expected: 86400 seconds total,or 120 seconds average
+	// Expected: 86400 seconds total (24 hours per 720 blocks), or 120 seconds average
 
-	// Get the previous target difficulty (from 720 blocks ago)
+	// Get the previous target difficulty
+	std::ifstream tt("./wwwdata/blockchain/block" + std::to_string(blockCount) + ".dccblock");
+	std::stringstream buffert;
+	buffert << tt.rdbuf();
+	json oo = json::parse(buffert.str());
+	std::string mostRecentDifficulty = (std::string)oo["targetDifficulty"];
 	try
 	{
-		std::ifstream tt("./wwwdata/blockchain/block" + std::to_string(blockCount - 719) + ".dccblock");
-		std::stringstream buffert;
-		buffert << tt.rdbuf();
-		json o = json::parse(buffert.str());
+		for (size_t i = blockCount - 1; i > 0; i--)
+		{
+			std::ifstream tt("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
+			std::stringstream buffert;
+			buffert << tt.rdbuf();
+			json o = json::parse(buffert.str());
 
-		targetDifficulty = (std::string)o["targetDifficulty"];
+			if ((std::string)o["targetDifficulty"] != mostRecentDifficulty || (i < blockCount - 700)) {
+				targetDifficulty = (std::string)o["targetDifficulty"];
+				break;
+			}
+		}
 	}
 	catch (const std::exception&)
 	{
@@ -589,15 +645,18 @@ void CreateSuperblock() {
 // Upgrade a block to a newer version
 json UpgradeBlock(json& b, std::string toVersion)
 {
-	if (constants::debugPrint == true) {
-		cons.BlockCheckerPrint();
-		cons.WriteLine("Upgrading block to version " + toVersion);
-	}
+	//if (constants::debugPrint == true) {
+	cons.BlockCheckerPrint();
+	cons.Write("Upgrading block to version ");
+	cons.WriteLine(BLOCK_VERSION, cons.cyanFGColor, "");
+	//}
+
+	std::string currentVersion = (std::string)b["_version"];
 
 	// Changes:
 	// * Add version field
 	// * Update version
-	if (toVersion == "v0.01alpha-coin")
+	if (CompareVersions(currentVersion, "v0.0.1-alpha-coin") == false)
 	{
 		b["_version"] = toVersion;
 	}
@@ -605,7 +664,7 @@ json UpgradeBlock(json& b, std::string toVersion)
 	// Changes:
 	// * Convert all transactions from list array to object
 	// * Update version
-	if (toVersion == "v0.2.0-alpha-coin")
+	if (CompareVersions(currentVersion, "v0.2.0-alpha-coin") == false)
 	{
 		b["_version"] = toVersion;
 	}
@@ -613,9 +672,38 @@ json UpgradeBlock(json& b, std::string toVersion)
 	// Changes:
 	// * Add new targetDifficulty variable
 	// * Update version
-	if (toVersion == "v0.3.0-alpha-coin")
+	if (CompareVersions(currentVersion, "v0.3.0-alpha-coin") == false)
 	{
 		b["targetDifficulty"] = "0000000FFFF0000000000000000000000000000000000000000000000000000";
+		b["_version"] = toVersion;
+	}
+
+	// Changes:
+	// * Remove txNum
+	// * Add unlockTime
+	// * Update version
+	if (CompareVersions(currentVersion, "v0.4.0-alpha-coin") == false)
+	{
+		// Add unlockTime variable to each transaction
+		for (int tr = 0; tr < b["transactions"].size(); tr++) {
+			b["transactions"][tr]["unlockTime"] = 0;
+			b["transactions"][tr].erase("txNum");
+		}
+		b["_version"] = toVersion;
+	}
+
+	// Changes:
+	// * Remove txNum (actually)
+	// * Add unlockTime (actually)
+	// * Update version
+	if (CompareVersions(currentVersion, "v0.5.0-alpha-coin") == false)
+	{
+		// Add unlockTime variable to each transaction
+		for (int tr = 0; tr < b["transactions"].size(); tr++) {
+			b["transactions"][tr]["tx"]["unlockTime"] = 0;
+			b["transactions"][tr]["tx"].erase("txNum");
+			b["transactions"][tr].erase("unlockTime");
+		}
 		b["_version"] = toVersion;
 	}
 

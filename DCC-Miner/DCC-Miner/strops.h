@@ -24,11 +24,13 @@ bool StringStartsWith(std::string str, std::string substr);
 bool CharStrStartsWith(unsigned char* str, char* substr, int len);
 std::string CommaLargeNumber(long num);
 std::string CommaLargeNumberF(float num);
+std::string CommaLargeNumberF(double num);
 std::string multiplyHexByInteger(const std::string& hexNumber, int multiplier);
 std::string divideHexByFloat(const std::string& hexNumber, float divisor);
 std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier);
 float clampf(float x, float min, float max);
 std::string FormatHPS(float input);
 double round(float value, int decimal_places);
+bool CompareVersions(std::string a, std::string b);
 
 #endif

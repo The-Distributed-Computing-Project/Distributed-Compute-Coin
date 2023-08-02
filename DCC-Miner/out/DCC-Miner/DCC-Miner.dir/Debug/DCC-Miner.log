@@ -1,63 +1,17 @@
 ﻿cl : command line  warning D9002: ignoring unknown option '-O3'
-  Blockchain.cpp
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.cpp(508,23): warning C4244: 'initializing': conversion from 'uint64_t' to 'uint16_t', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.cpp(554,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.cpp(562,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Main.cpp
   Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
   Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(533,37): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(754,93): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(826,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(849,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  P2PClient.cpp
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(63,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(75,12): warning C4244: '+=': conversion from 'SSIZE_T' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(80,17): warning C4244: '-=': conversion from 'SSIZE_T' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(408,17): warning C4267: 'initializing': conversion from 'size_t' to 'uint16_t', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(468,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(468,14): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(476,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(476,14): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(484,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(484,14): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(500,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(500,14): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(515,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(515,14): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(530,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(530,14): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(543,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(543,14): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(552,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(552,14): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(562,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(562,14): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(573,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(573,14): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(584,42): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(584,14): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(427,31): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
-  System.cpp
-  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
-  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
-  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
-  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\System.cpp(15,41): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\System.cpp(40,31): warning C4101: 'e': unreferenced local variable
-  strops.cpp
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(28,9): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(42,8): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(58,9): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(99,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(103,25): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(252,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(324,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(347,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(348,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(356,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(376,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(528,26): warning C4477: 'sprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(528,26): message : consider using '%lld' in the format string
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(528,26): message : consider using '%Id' in the format string
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(528,26): message : consider using '%I64d' in the format string
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(538,119): warning C4244: 'argument': conversion from 'unsigned __int64' to 'long', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(539,37): warning C4244: 'argument': conversion from 'unsigned __int64' to 'float', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(528,4): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(759,93): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(831,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(854,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   DCC-Miner.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\DCC-Miner\Debug\DCC-Miner.exe

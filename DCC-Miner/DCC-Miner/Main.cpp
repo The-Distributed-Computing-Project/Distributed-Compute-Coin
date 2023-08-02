@@ -497,15 +497,15 @@ int Mine(json currentBlockJson, int blockNum)
 		char sha256OutBuffer[65];
 
 		//Checks Hash
-		unsigned long nonce = 0;
-		unsigned char hash[32] = "fffffffffffffffffffffffffffffff";
+		unsigned long long nonce = 0;
+		unsigned char hash[32];
 		std::string dif = (std::string)walletInfo["targetDifficulty"];
 		unsigned char* c_difficulty = (unsigned char*)hexstr_to_cstr(dif);
 
 		uint8_t difficultyLen = 65;
 		auto hashStart = std::chrono::steady_clock::now();
-		unsigned int hashesPerSecond = 0;
-		unsigned int hashesAtStart = 0;
+		unsigned long long hashesPerSecond = 0;
+		unsigned long long hashesAtStart = 0;
 
 		// The data we will actually be mining for is a hash of the
 		// transactions and header, so we don't need to do calculations on
@@ -518,10 +518,16 @@ int Mine(json currentBlockJson, int blockNum)
 		std::string fDat = (std::string)currentBlockJson["lastHash"] + txData;
 		sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
 		std::string hData = std::string(sha256OutBuffer);
+		char* hDataChars = (char*)hData.c_str();
 
 		// While hash is not less than the target difficulty number
-		while (!CompareCharNumbers(c_difficulty, hash))
+		char numberstring[20];
+		do
 		{
+			nonce++;
+			sprintf(numberstring, "%d", nonce);
+			sha256_full_cstr(hDataChars + *numberstring, hash);
+
 			if ((since(hashStart).count() / 1000) >= 1)
 			{
 				hashesPerSecond = nonce - hashesAtStart;
@@ -531,11 +537,10 @@ int Mine(json currentBlockJson, int blockNum)
 				cstr_to_hexstr(hash, 32, sha256OutBuffer);
 				console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
 				console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
+				//std::cout << numberstring;
 			}
-
-			nonce++;
-			sha256_full_cstr((char*)(hData + std::to_string(nonce)).c_str(), hash);
-		}
+		} 
+		while (!CompareCharNumbers(c_difficulty, hash));
 
 		std::cout << std::endl;
 

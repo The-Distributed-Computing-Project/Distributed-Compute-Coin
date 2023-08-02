@@ -448,8 +448,8 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 
 
 			if (i % 10 == 0 || i >= chainLength - 2) {
-				cons.Write("\tTransactions: " + std::to_string(o["transactions"].size()));
-				cons.Write(" \tOk  ", cons.greenFGColor, "");
+				cons.Write("     Transactions: " + std::to_string(o["transactions"].size()));
+				cons.Write("   Ok  ", cons.greenFGColor, "");
 			}
 		}
 		// If there is a failure state, assume that block is bad or does not exist.
@@ -541,7 +541,7 @@ std::string CalculateDifficulty(json& walletInfo) {
 			buffert << tt.rdbuf();
 			json o = json::parse(buffert.str());
 
-			if ((std::string)o["targetDifficulty"] != mostRecentDifficulty || (i < blockCount - 700)) {
+			if ((std::string)o["targetDifficulty"] != mostRecentDifficulty || (i < blockCount - 15)) {
 				targetDifficulty = (std::string)o["targetDifficulty"];
 				break;
 			}
@@ -551,11 +551,12 @@ std::string CalculateDifficulty(json& walletInfo) {
 	{
 	}
 
-	double ratio = clampf((double)avgTotal / 86400.0, 0.25, 4.0);
+	// 69600 minutes for (640-60) = 580 blocks
+	double ratio = clampf((double)avgTotal / 69600.0, 0.25, 4.0);
 
 	cons.WriteBulleted("Average time: " + std::to_string(average) + "s\n", 3);
 	cons.WriteBulleted("Min/Max: " + std::to_string(highest) + "s / " + std::to_string(lowest) + "s\n", 3);
-	cons.WriteBulleted("Ratio: " + std::to_string(ratio) + "\n", 3);
+	cons.WriteBulleted("Ratio: " + std::to_string(ratio) + ",  unclamped: " + std::to_string((double)avgTotal / 69600.0) + "\n", 3);
 	cons.WriteBulleted("Last target difficulty: " + targetDifficulty + "\n", 3);
 
 

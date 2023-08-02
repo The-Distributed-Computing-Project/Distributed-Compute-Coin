@@ -492,14 +492,14 @@ int Mine(json currentBlockJson, int blockNum)
 
 		console.RustPrint();
 		console.WriteLine("Starting program... ");
-		boost::process::child cargoProc = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + (std::string)walletInfo["ProgramID"] + "/Cargo.toml", false);
+		boost::process::child cargoProc = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + "/Cargo.toml", false);
 
 		char sha256OutBuffer[65];
 
 		//Checks Hash
-		unsigned long long nonce = 0;
+		unsigned long long int nonce = 0;
 		unsigned char hash[32];
-		std::string dif = (std::string)walletInfo["targetDifficulty"];
+		std::string dif = (std::string)(walletInfo["targetDifficulty"]);
 		unsigned char* c_difficulty = (unsigned char*)hexstr_to_cstr(dif);
 
 		uint8_t difficultyLen = 65;
@@ -513,20 +513,25 @@ int Mine(json currentBlockJson, int blockNum)
 		std::string txData; // Only use the `tx` portion of each transaction objects' data
 		for (size_t i = 0; i < currentBlockJson["transactions"].size(); i++)
 		{
-			txData += (std::string)currentBlockJson["transactions"][i]["tx"].dump();
+			txData += (std::string)(currentBlockJson["transactions"][i]["tx"].dump());
 		}
 		std::string fDat = (std::string)currentBlockJson["lastHash"] + txData;
 		sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
 		std::string hData = std::string(sha256OutBuffer);
 		char* hDataChars = (char*)hData.c_str();
 
+		char numberstring[17];
+		char databuffer[128];
+		strncpy(databuffer, hDataChars, sizeof(databuffer));
 		// While hash is not less than the target difficulty number
-		char numberstring[20];
 		do
 		{
 			nonce++;
-			sprintf(numberstring, "%d", nonce);
-			sha256_full_cstr(hDataChars + *numberstring, hash);
+			sprintf(numberstring, "%x", nonce);
+			strncpy(databuffer, hDataChars, 65);
+			strncat(databuffer, numberstring, 17);
+			sha256_full_cstr(databuffer, hash);
+			//std::cout << sizeof(hashesPerSecond) << std::endl;
 
 			if ((since(hashStart).count() / 1000) >= 1)
 			{
@@ -535,12 +540,11 @@ int Mine(json currentBlockJson, int blockNum)
 				hashesAtStart = nonce;
 
 				cstr_to_hexstr(hash, 32, sha256OutBuffer);
-				console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
+				console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + FormatWithCommas<unsigned long long int>(nonce) + " # " + std::string(sha256OutBuffer));
 				console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
-				//std::cout << numberstring;
+				//std::cout << std::endl <<  databuffer << std::endl;
 			}
-		} 
-		while (!CompareCharNumbers(c_difficulty, hash));
+		} while (!CompareCharNumbers(c_difficulty, hash));
 
 		std::cout << std::endl;
 
@@ -550,12 +554,13 @@ int Mine(json currentBlockJson, int blockNum)
 
 
 		// Convert hash into hexadecimal string
-		sha256_string((char*)(hData + std::to_string(nonce)).c_str(), sha256OutBuffer);
+		sha256_string((char*)(hData + numberstring).c_str(), sha256OutBuffer);
 		std::string hashStr = std::string(sha256OutBuffer);
 
 		currentBlockJson["hash"] = hashStr;
+		currentBlockJson["_version"] = BLOCK_VERSION;
 		currentBlockJson["targetDifficulty"] = (std::string)walletInfo["targetDifficulty"];
-		currentBlockJson["nonce"] = std::to_string(nonce);
+		currentBlockJson["nonce"] = (std::string)numberstring;
 		// Get current unix time in seconds
 		uint64_t sec = duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		currentBlockJson["time"] = sec;
@@ -619,8 +624,8 @@ int Mine(json currentBlockJson, int blockNum)
 	}
 	catch (const std::exception& e)
 	{
-		if (constants::debugPrint == true)
-			std::cerr << e.what() << std::endl;
+		//if (constants::debugPrint == true)
+		std::cerr << e.what() << std::endl;
 		return 0;
 	}
 }

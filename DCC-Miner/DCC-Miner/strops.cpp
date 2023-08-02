@@ -21,15 +21,17 @@ std::string JoinArrayPieces(std::vector<std::string> input)
 	return outStr;
 }
 
-std::string CommaLargeNumber(long long num) {
-	long long v = num;
+
+
+std::string CommaLargeNumber(unsigned long long int num) {
+	unsigned long long int v = num;
 	std::string s = std::to_string(v);
 
-	long long n = s.length() - 3;
-	long long end = (v >= 0) ? 0 : 1; // Support for negative numbers
+	unsigned long long int n = s.length() - 3;
+	unsigned long long int end = (v >= 0) ? 0 : 1; // Support for negative numbers
 	while (n > end) {
 		s.insert(n, ",");
-		n -= (long long)3;
+		n -= 3;
 	}
 
 	return s;

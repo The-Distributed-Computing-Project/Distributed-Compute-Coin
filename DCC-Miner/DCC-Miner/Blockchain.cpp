@@ -197,8 +197,9 @@ int GetProgram(json& walletInfo)
 		}
 		return 1;
 	}
-	catch (const std::exception&)
+	catch (const std::exception& e)
 	{
+		std::cerr << e.what() << std::endl;
 		return 0;
 	}
 }
@@ -368,17 +369,17 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			// The data we will actually be hashing is a hash of the
 			// transactions and header, so we don't need to do calculations on
 			// massive amounts of data
-			std::string txData; // Only use the `tx` portion of each transaction objects' data
+			std::string txData = ""; // Only use the `tx` portion of each transaction objects' data
 			for (size_t i = 0; i < o["transactions"].size(); i++)
 			{
-				txData += (std::string)o["transactions"][i]["tx"].dump();
+				txData += (std::string)(o["transactions"][i]["tx"].dump());
 			}
 			std::string fDat = (std::string)o["lastHash"] + txData;
 			sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
 			std::string hData = std::string(sha256OutBuffer);
-
-			sha256_string((char*)(hData + nonce).c_str(), sha256OutBuffer);
-			std::string blockHash = sha256OutBuffer;
+			
+			sha256_string((char*)(hData + nonce.c_str()).c_str(), sha256OutBuffer);
+			std::string blockHash = std::string(sha256OutBuffer);
 
 			if ((blockHash[0] != '0' && blockHash[1] != '0') || blockHash != currentHash || lastRealHash != lastHash)
 			{
@@ -389,7 +390,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					rr += "1";
 				if (lastRealHash != lastHash)
 					rr += "2";
-				cons.WriteLine("    X Bad Block X  " + std::to_string(i) + " R" + rr, cons.redFGColor, "");
+				cons.WriteLine("    X Bad Block X  " + std::to_string(i) + " R" + rr + "   # " + blockHash, cons.redFGColor, "");
 				return false;
 			}
 			float tmpFunds2 = 0;

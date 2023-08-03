@@ -479,7 +479,7 @@ Options:
 // Mine a single block with specified data and using the difficulty stored in walletInfo["MineDifficulty"]
 int Mine(json currentBlockJson, int blockNum)
 {
-	//walletInfo["targetDifficulty"] = "00000FFFFFF00000000000000000000000000000000000000000000000000000";
+	walletInfo["targetDifficulty"] = "00000009FFFFF000000000000000000000000000000000000000000000000000";
 	console.MiningPrint();
 	console.Write("Mining ");
 	console.Write("block " + std::to_string(blockNum), console.whiteBGColor, console.blackFGColor);

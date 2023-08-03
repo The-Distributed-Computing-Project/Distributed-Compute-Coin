@@ -257,7 +257,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			json firstBlock = json::parse(content2);
 
 			if (firstBlock["_version"] == nullptr || firstBlock["_version"] == "" || firstBlock["_version"] != BLOCK_VERSION)
-				UpgradeBlock(firstBlock, BLOCK_VERSION);
+				UpgradeBlock(firstBlock);
 
 			for (int tr = 0; tr < firstBlock["transactions"].size(); tr++) {
 				std::string fromAddr = (std::string)firstBlock["transactions"][tr]["tx"]["fromAddr"];
@@ -338,7 +338,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 
 			if (o["_version"] == nullptr || o["_version"] == "" || o["_version"] != BLOCK_VERSION)
 			{
-				UpgradeBlock(o, BLOCK_VERSION);
+				UpgradeBlock(o);
 				std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 				if (blockFile.is_open())
 				{
@@ -645,41 +645,45 @@ void CreateSuperblock() {
 }
 
 // Upgrade a block to a newer version
-json UpgradeBlock(json& b, std::string toVersion)
+json UpgradeBlock(json& b)
 {
 	//if (constants::debugPrint == true) {
 	cons.BlockCheckerPrint();
-	cons.Write("Upgrading block to version ");
-	cons.WriteLine(BLOCK_VERSION, cons.cyanFGColor, "");
+	cons.Write("   Upgrading block to version ");
+	cons.Write(BLOCK_VERSION, cons.cyanFGColor, "");
 	//}
 
 	std::string currentVersion = (std::string)b["_version"];
 
+	// v0.0.1-alpha-coin
 	// Changes:
 	// * Add version field
 	// * Update version
 	if (CompareVersions(currentVersion, "v0.0.1-alpha-coin") == false)
 	{
-		b["_version"] = toVersion;
+		b["_version"] = "v0.0.1-alpha-coin";
 	}
 
+	// v0.2.0-alpha-coin
 	// Changes:
 	// * Convert all transactions from list array to object
 	// * Update version
 	if (CompareVersions(currentVersion, "v0.2.0-alpha-coin") == false)
 	{
-		b["_version"] = toVersion;
+		b["_version"] = "v0.2.0-alpha-coin";
 	}
 
+	// v0.3.0-alpha-coin
 	// Changes:
 	// * Add new targetDifficulty variable
 	// * Update version
 	if (CompareVersions(currentVersion, "v0.3.0-alpha-coin") == false)
 	{
 		b["targetDifficulty"] = "0000000FFFF0000000000000000000000000000000000000000000000000000";
-		b["_version"] = toVersion;
+		b["_version"] = "v0.3.0-alpha-coin";
 	}
 
+	// v0.4.0-alpha-coin
 	// Changes:
 	// * Remove txNum
 	// * Add unlockTime
@@ -691,9 +695,10 @@ json UpgradeBlock(json& b, std::string toVersion)
 			b["transactions"][tr]["unlockTime"] = 0;
 			b["transactions"][tr].erase("txNum");
 		}
-		b["_version"] = toVersion;
+		b["_version"] = "v0.4.0-alpha-coin";
 	}
 
+	// v0.5.0-alpha-coin
 	// Changes:
 	// * Remove txNum (actually)
 	// * Add unlockTime (actually)
@@ -706,7 +711,25 @@ json UpgradeBlock(json& b, std::string toVersion)
 			b["transactions"][tr]["tx"].erase("txNum");
 			b["transactions"][tr].erase("unlockTime");
 		}
-		b["_version"] = toVersion;
+		b["_version"] = "v0.5.0-alpha-coin";
+	}
+
+	// v0.6.0-alpha-coin
+	// Changes:
+	// * Switch to using hexadecimal format for nonce.
+	//       (This is optional, so no changes need to be made to the block.)
+	// * Update version
+	if (CompareVersions(currentVersion, "v0.6.0-alpha-coin") == false)
+	{
+		b["_version"] = "v0.6.0-alpha-coin";
+	}
+
+	// Make sure there is always an upgrade step. If there isn't, then throw error
+	if (b["_version"] != BLOCK_VERSION) {
+		cons.ErrorPrint();
+		cons.Write("No block upgrade step found for version:", cons.redFGColor, "");
+		cons.Write(" \"" + BLOCK_VERSION + "\"", cons.cyanFGColor, "");
+		cons.ExitError("");
 	}
 
 	return b;

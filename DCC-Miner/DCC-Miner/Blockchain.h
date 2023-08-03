@@ -31,7 +31,7 @@ int GetProgram(json& walletInfo);
 float GetProgramLifeLeft();
 bool IsChainValid(P2P& p2p, json& walletInfo);
 std::string CalculateDifficulty(json& walletInfo);
-json UpgradeBlock(json& b, std::string toVersion);
+json UpgradeBlock(json& b);
 void CreateSuperblock();
 
 #endif

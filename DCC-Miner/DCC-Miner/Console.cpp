@@ -75,10 +75,10 @@ void Console::PrintColored(std::string text, std::string fgColor, std::string bg
 	#endif
 #else
 	#if MULTITHREADED_SAFE
-	printQueue.push(fgColor + bgColor + name + resetColor);
+	printQueue.push(fgColor + bgColor + text + resetColor);
 	ConsoleQueueHandle();
 	#else
-	cout << fgColor + bgColor + name + resetColor;
+	std::cout << fgColor + bgColor + text + resetColor;
 	#endif
 #endif
 }

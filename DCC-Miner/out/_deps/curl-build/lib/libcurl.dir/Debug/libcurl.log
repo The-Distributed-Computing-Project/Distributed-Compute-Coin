@@ -1,2 +1,92 @@
-﻿  Auto build dll exports
-  libcurl.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\Debug\libcurl-d.dll
+﻿  Building Custom Rule D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/curl-src/lib/CMakeLists.txt
+  CMake is re-running because D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/curl-build/lib/CMakeFiles/generate.stamp is out-of-date.
+    the file 'D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/curl-build/lib/Makefile.inc.cmake'
+    is newer than 'D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/curl-build/lib/CMakeFiles/generate.stamp.depend'
+    result='-1'
+  -- Selecting Windows SDK version 10.0.22000.0 to target Windows 10.0.19045.
+  -- C++ Requests CMake Options
+  -- =======================================================
+  --   CPR_GENERATE_COVERAGE: OFF
+  --   CPR_CURL_NOSIGNAL: OFF
+  --   CPR_USE_SYSTEM_GTEST: OFF
+  --   CPR_FORCE_USE_SYSTEM_CURL: OFF
+  --   CPR_ENABLE_SSL: ON
+  --   CPR_FORCE_OPENSSL_BACKEND: OFF
+  --   CPR_FORCE_WINSSL_BACKEND: OFF
+  --   CPR_FORCE_DARWINSSL_BACKEND: OFF
+  --   CPR_FORCE_MBEDTLS_BACKEND: OFF
+  --   CPR_ENABLE_LINTING: OFF
+  --   CPR_ENABLE_CPPCHECK: OFF
+  --   CPR_BUILD_TESTS: OFF
+  --   CPR_BUILD_TESTS_SSL: OFF
+  -- =======================================================
+  -- Automatically detecting SSL backend.
+  -- Detecting SSL backend...
+  -- SSL auto detect: Using WinSSL.
+  -- Configuring build in curl...
+  -- Using CMake version 3.21.4
+  -- ZLIB_HEADER_VERSION: 1.2.11
+  -- ZLIBNG_HEADER_VERSION: 2.0.5
+  -- Arch detected: 'x86_64'
+  -- Basearch of 'x86_64' has been detected as: 'x86'
+  -- Architecture supports unaligned reads
+  -- Architecture supports unaligned reads of > 4 bytes
+  -- Architecture-specific source files: arch/x86/x86.c;arch/x86/slide_avx.c;arch/x86/chunkset_avx.c;arch/x86/compare258_avx.c;arch/x86/adler32_avx.c;arch/x86/insert_string_sse.c;arch/x86/compare258_sse.c;arch/x86/chunkset_sse.c;arch/x86/slide_sse.c;arch/x86/adler32_ssse3.c;arch/x86/crc_folding.c
+  -- The following features have been enabled:
+  
+   * CMAKE_BUILD_TYPE, Build type: Release (selected)
+   * WITH_GZFILEOP, Compile with support for gzFile related functions
+   * ZLIB_COMPAT, Compile with zlib compatible API
+   * WITH_OPTIM, Build with optimisation
+   * WITH_NEW_STRATEGIES, Use new strategies
+   * WITH_UNALIGNED, Support unaligned reads on platforms that support it
+   * WITH_AVX2, Build with AVX2
+   * WITH_SSE2, Build with SSE2
+   * WITH_SSSE3, Build with SSSE3
+   * WITH_SSE4, Build with SSE4
+   * WITH_PCLMULQDQ, Build with PCLMULQDQ
+   * AVX2_SLIDEHASH, Support AVX2 optimized slide_hash, using ""
+   * AVX_CHUNKSET, Support AVX optimized chunkset, using ""
+   * AVX2_COMPARE258, Support AVX2 optimized compare258, using ""
+   * AVX2_ADLER32, Support AVX2-accelerated adler32, using ""
+   * SSE42_CRC, Support SSE4.2 optimized CRC hash generation, using ""
+   * SSE42_COMPARE258, Support SSE4.2 optimized compare258, using ""
+   * SSSE3_ADLER32, Support SSSE3-accelerated adler32, using ""
+   * PCLMUL_CRC, Support CRC hash generation using PCLMULQDQ, using "  "
+  
+  -- The following OPTIONAL packages have been found:
+  
+   * Git
+  
+  -- The following features have been disabled:
+  
+   * ZLIB_ENABLE_TESTS, Build test binaries
+   * ZLIB_DUAL_LINK, Dual link tests against system zlib
+   * WITH_FUZZERS, Build test/fuzz
+   * WITH_NATIVE_INSTRUCTIONS, Instruct the compiler to use the full instruction set on this host (gcc/clang -march=native)
+   * WITH_MAINTAINER_WARNINGS, Build with project maintainer warnings
+   * WITH_CODE_COVERAGE, Enable code coverage reporting
+   * WITH_INFLATE_STRICT, Build with strict inflate distance checking
+   * WITH_INFLATE_ALLOW_INVALID_DIST, Build with zero fill for inflate invalid distances
+   * INSTALL_UTILS, Copy minigzip and minideflate during install
+  
+  -- Enabled curl SSL
+  -- curl version=[7.80.0]
+  -- Could NOT find ZLIB (missing: ZLIB_LIBRARY ZLIB_INCLUDE_DIR) 
+  -- Could NOT find LibSSH2 (missing: LIBSSH2_LIBRARY LIBSSH2_INCLUDE_DIR) 
+  -- Enabled features: SSL IPv6 unixsockets AsynchDNS Largefile SSPI alt-svc HSTS SPNEGO Kerberos NTLM
+  -- Enabled protocols: HTTP HTTPS
+  -- Enabled SSL backends: Schannel
+  CMake Error at C:/Program Files/CMake/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
+    Could NOT find Boost (missing: Boost_INCLUDE_DIR) (Required is at least
+    version "1.78.0")
+  Call Stack (most recent call first):
+    C:/Program Files/CMake/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake:594 (_FPHSA_FAILURE_MESSAGE)
+    C:/Program Files/CMake/share/cmake-3.21/Modules/FindBoost.cmake:2360 (find_package_handle_standard_args)
+    DCC-Miner/CMakeLists.txt:41 (FIND_PACKAGE)
+  
+  
+  -- Configuring incomplete, errors occurred!
+  See also "D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeOutput.log".
+  See also "D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/CMakeError.log".
+C:\Program Files\Microsoft Visual Studio\2022\Preview\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(248,5): error MSB8066: Custom build for 'D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\lib\CMakeLists.txt' exited with code 1.

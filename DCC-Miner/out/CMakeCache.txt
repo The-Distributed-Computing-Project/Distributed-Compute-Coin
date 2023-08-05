@@ -27,7 +27,7 @@ BUILD_TESTING:BOOL=OFF
 Boost_DIR:PATH=Boost_DIR-NOTFOUND
 
 //Path to a file.
-Boost_INCLUDE_DIR:PATH=D:/Code/boost
+Boost_INCLUDE_DIR:PATH=Boost_INCLUDE_DIR-NOTFOUND
 
 //Path to a program.
 CMAKE_AR:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.37.32705/bin/Hostx64/x64/lib.exe
@@ -735,8 +735,6 @@ ADDRESS_SANITIZER_AVAILABLE_EXITCODE:INTERNAL=FAILED_TO_RUN
 BUILD_CURL_EXE:INTERNAL=OFF
 //ADVANCED property for variable: Boost_DIR
 Boost_DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: Boost_INCLUDE_DIR
-Boost_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created

@@ -346,7 +346,7 @@ int main()
 					std::string name = SplitString(entry.path().filename().string(), "block")[1];
 					name = SplitString(name, ".dcc")[0];
 					// Delete old pending blocks, or ones that are too high
-					if (stoi(name) <= walletInfo["BlockchainLength"] || (stoi(name) >= walletInfo["BlockchainLength"] + 2 && isFirst)) {
+					if (stoi(name) <= walletInfo["BlockchainLength"] || (stoi(name) >= (int)walletInfo["BlockchainLength"] + 2 && isFirst)) {
 						fs::remove(entry);
 						console.MiningPrint();
 						console.WriteLine("Removing unneeded block: " + entry.path().filename().string());

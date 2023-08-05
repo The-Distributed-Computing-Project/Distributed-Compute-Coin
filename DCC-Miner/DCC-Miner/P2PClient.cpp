@@ -1,4 +1,7 @@
 
+// if windows
+#if defined(_MSC_VER)
+
 
 #include "P2PClient.h"
 
@@ -639,3 +642,5 @@ void P2P::SenderThread()
 	closesocket(localSocket);
 	WSACleanup();
 }
+
+#endif

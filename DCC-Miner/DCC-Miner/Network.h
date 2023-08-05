@@ -15,21 +15,21 @@ class Http
 {
 	Console console;
 public:
-	std::string blockVersion = "";
 	//string StartHttpWebRequest(string URL, vector<string> args_vals);
 	std::string StartHttpWebRequest(std::string URL, std::vector<std::string> args_vals)
 	{
 		std::string html = "";
 
 		std::string url = URL;
+		if (args_vals.size() >= 1)
+			url += "?";
 		for (int i = 0; i < args_vals.size(); i++)
 		{
 			if (i > 0)
 				url += "&";
 			url += args_vals.at(i);
 		}
-		if (blockVersion != "")
-			url += "&Version=" + blockVersion;
+		std::cout << "url: \"" << url << "\"" << std::endl;
 
 		auto response = cpr::Get(cpr::Url{ url });
 		html = response.text;

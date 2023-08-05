@@ -17,6 +17,7 @@ namespace fs = std::filesystem;
 void Help();
 void Logo();
 int Mine(json currentBlockJson, int blockNum);
+int PoolMine(std::string poolURL);
 int MineAnyBlock(int blockNum, std::string& difficulty);
 int SendFunds(std::string& toAddress, float amount);
 
@@ -338,17 +339,19 @@ int main()
 				console.MiningPrint();
 				console.WriteLine("Blockchain length: " + std::to_string((int)walletInfo["BlockchainLength"]));
 
-				// Make sure the pending blocks are newer than the confirmed chain height
+				// Make sure the pending blocks are newer than the confirmed chain height, but not from the future
 				std::string path = "./wwwdata/pendingblocks/";
+				bool isFirst = true;
 				for (const auto& entry : fs::directory_iterator(path)) {
 					std::string name = SplitString(entry.path().filename().string(), "block")[1];
 					name = SplitString(name, ".dcc")[0];
-					// Delete old pending blocks
-					if (stoi(name) <= walletInfo["BlockchainLength"]) {
+					// Delete old pending blocks, or ones that are too high
+					if (stoi(name) <= walletInfo["BlockchainLength"] || (stoi(name) >= walletInfo["BlockchainLength"] + 2 && isFirst)) {
 						fs::remove(entry);
 						console.MiningPrint();
-						console.WriteLine("Removing outdated block: " + entry.path().filename().string());
+						console.WriteLine("Removing unneeded block: " + entry.path().filename().string());
 					}
+					isFirst = false;
 				}
 
 				// If there are no blocks to mine, stop process.
@@ -401,6 +404,8 @@ int main()
 					ConnectionError();
 					continue;
 				}
+
+				std::cout << "\n\n";
 			}
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--MINEANY" || SplitString(ToUpper(command), " ")[0] == "-MA")
@@ -409,6 +414,13 @@ int main()
 			if (SplitString(command, " ").size() == 3)
 				diff = SplitString(command, " ")[2];
 			MineAnyBlock(stoi(SplitString(command, " ")[1]), diff);
+		}
+		else if (SplitString(ToUpper(command), " ")[0] == "--POOL" || SplitString(ToUpper(command), " ")[0] == "-P")
+		{
+			std::string poolURL = "http://dccpool.us.to:3333";
+			if (SplitString(command, " ").size() == 2)
+				poolURL = SplitString(command, " ")[1];
+			PoolMine(poolURL);
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--SUPERBLOCK" || SplitString(ToUpper(command), " ")[0] == "-SP")
 		{
@@ -469,7 +481,9 @@ Options:
   --funds                             Count and print the funds of the user
   --difficulty                        Calculate the expected block's difficulty
   -sn, --send <addr> <amount>         Sends the <amount> of DCC to a receiving address <addr>
+  -sp, --superblock                   Generates a debug superblock to summarize all transactions
   -vf, --verify                       Verify the entire blockchain to make sure all blocks are valid
+  -p, --pool <url>                    Start mining at a pool, given by <url>. Default is http://dccpool.us.to:3333
 
 )V0G0N");
 }
@@ -479,12 +493,12 @@ Options:
 // Mine a single block with specified data and using the difficulty stored in walletInfo["MineDifficulty"]
 int Mine(json currentBlockJson, int blockNum)
 {
-	walletInfo["targetDifficulty"] = "00000009FFFFF000000000000000000000000000000000000000000000000000";
+	//walletInfo["targetDifficulty"] = "0000000FFFFFF000000000000000000000000000000000000000000000000000";
 	console.MiningPrint();
 	console.Write("Mining ");
-	console.Write("block " + std::to_string(blockNum), console.whiteBGColor, console.blackFGColor);
+	console.Write("block " + std::to_string(blockNum), console.cyanFGColor, "");
 	console.Write(" at difficulty ");
-	console.Write((std::string)walletInfo["targetDifficulty"], console.whiteBGColor, console.blackFGColor);
+	console.Write((std::string)walletInfo["targetDifficulty"], console.cyanFGColor, "");
 	console.Write(" :\n");
 	try
 	{
@@ -495,6 +509,12 @@ int Mine(json currentBlockJson, int blockNum)
 		boost::process::child cargoProc = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + "/Cargo.toml", false);
 
 		char sha256OutBuffer[65];
+
+		// Get hash from previous block
+		std::ifstream blockFile("./wwwdata/blockchain/block" + std::to_string((int)walletInfo["BlockchainLength"]) + ".dccblock");
+		std::stringstream blockBuffer;
+		blockBuffer << blockFile.rdbuf();
+		currentBlockJson["lastHash"] = (std::string)(json::parse(blockBuffer.str())["hash"]);
 
 		//Checks Hash
 		unsigned long long int nonce = 0;
@@ -628,6 +648,152 @@ int Mine(json currentBlockJson, int blockNum)
 		std::cerr << e.what() << std::endl;
 		return 0;
 	}
+}
+
+// Mine blocks for a pool
+int PoolMine(std::string poolURL)
+{
+	console.NetworkPrint();
+	console.Write("Use pool ");
+	console.WriteLine(poolURL, console.brightCyanFGColor, "");
+	while (true)
+	{
+		unsigned int blockNumber = 0;
+		std::string difficulty = "";
+		std::string hData = "";
+		unsigned long long int nonce = 0;
+		unsigned long long int maxNonce = 0;
+
+		// Request the data to mine from the pool, and receive the hash along with a nonce range.
+		try
+		{
+			Http http;
+			std::vector<std::string> args = { "query=requestData", "lastNonce=" + std::to_string(maxNonce) };
+			std::string html = http.StartHttpWebRequest(poolURL, args);
+			std::cout <<"\"" << html <<"\""<< std::endl;
+
+			if (html.find("ERR") != std::string::npos || html == "")
+				throw 0;
+			json poolData = json::parse(html);
+			blockNumber = (unsigned int)poolData["blockNumber"];
+			difficulty = (std::string)poolData["difficulty"];
+			hData = (std::string)poolData["hData"];
+			nonce = (unsigned long long int)poolData["startNonce"];
+			maxNonce = (unsigned long long int)poolData["endNonce"];
+
+			console.NetworkPrint();
+			console.Write("new job ", console.magentaFGColor, "");
+			console.WriteLine("from " + poolURL + " nonces " + std::to_string(maxNonce - nonce) + " height " + std::to_string(blockNumber));
+		}
+		catch (const std::exception& e)
+		{
+			console.NetworkErrorPrint();
+			console.WriteLine("Connection error.");
+			std::cerr << e.what() << std::endl;
+			return 0;
+		}
+
+		//walletInfo["targetDifficulty"] = "0000000FFFFFF000000000000000000000000000000000000000000000000000";
+		console.MiningPrint();
+		console.Write("Mining ");
+		console.Write("block " + std::to_string(blockNumber), console.cyanFGColor, "");
+		console.Write(" at difficulty ");
+		console.Write(difficulty, console.cyanFGColor, "");
+		console.Write(" :\n");
+		try
+		{
+			auto startTime = std::chrono::steady_clock::now();
+
+			// The rust program execution needs to be thought out more, because it would need changes for pool mining.
+			//console.RustPrint();
+			//console.WriteLine("Starting program... ");
+			//boost::process::child cargoProc = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + "/Cargo.toml", false);
+
+			char sha256OutBuffer[65];
+
+			unsigned char hash[32];
+			unsigned char* c_difficulty = (unsigned char*)hexstr_to_cstr(difficulty);
+
+			uint8_t difficultyLen = 65;
+			auto hashStart = std::chrono::steady_clock::now();
+			unsigned long long hashesPerSecond = 0;
+			unsigned long long hashesAtStart = 0;
+
+			char* hDataChars = (char*)hData.c_str();
+
+			char numberstring[17];
+			char databuffer[128];
+			strncpy(databuffer, hDataChars, sizeof(databuffer));
+			// While hash is not less than the target difficulty number, and nonces are not exhausted
+			do
+			{
+				nonce++;
+				sprintf(numberstring, "%x", nonce);
+				strncpy(databuffer, hDataChars, 65);
+				strncat(databuffer, numberstring, 17);
+				sha256_full_cstr(databuffer, hash);
+				//std::cout << sizeof(hashesPerSecond) << std::endl;
+
+				if ((since(hashStart).count() / 1000) >= 1)
+				{
+					hashesPerSecond = nonce - hashesAtStart;
+					hashStart = std::chrono::steady_clock::now();
+					hashesAtStart = nonce;
+
+					cstr_to_hexstr(hash, 32, sha256OutBuffer);
+					console.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + FormatWithCommas<unsigned long long int>(nonce) + " # " + std::string(sha256OutBuffer));
+					console.Write("   " + FormatHPS(hashesPerSecond) + "            ");
+					//std::cout << std::endl <<  databuffer << std::endl;
+				}
+			} while (!CompareCharNumbers(c_difficulty, hash) && nonce <= maxNonce);
+
+			std::cout << std::endl;
+
+			// If the nonce is exhausted and the hash is still wrong, request new job from the server
+			if (nonce > maxNonce && !CompareCharNumbers(c_difficulty, hash))
+				continue;
+
+
+			//// Wait for the rust program to finish running
+			//if (cargoProc.running())
+			//	cargoProc.wait();
+
+
+			// Return the nonce to the server if it is correct
+			try
+			{
+				Http http;
+				std::vector<std::string> args = { "query=solved", "nonce=" + (std::string)numberstring, "id=" + (std::string)walletInfo["Address"] };
+				std::string html = http.StartHttpWebRequest(poolURL, args);
+
+				if (html.find("ERR") != std::string::npos || html == "")
+					throw 0;
+				//json poolData = json::parse(html);
+				console.NetworkPrint();
+				console.Write("accepted ", console.greenFGColor, "");
+				console.WriteLine("nonces " + (std::string)numberstring);
+			}
+			catch (const std::exception& e)
+			{
+				console.NetworkErrorPrint();
+				console.WriteLine("Connection error.");
+				std::cerr << e.what() << std::endl;
+				return 0;
+			}
+
+
+			console.MiningPrint();
+			console.WriteLine("Mined in " + std::to_string(std::round(since(startTime).count() / 1000)) + " s.");
+
+		}
+		catch (const std::exception& e)
+		{
+			//if (constants::debugPrint == true)
+			std::cerr << e.what() << std::endl;
+			return 0;
+		}
+	}
+	return 1;
 }
 
 // Send funds to another address, by first checking if the user has enough funds in the first place,

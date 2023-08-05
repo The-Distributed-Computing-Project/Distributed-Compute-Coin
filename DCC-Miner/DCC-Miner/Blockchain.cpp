@@ -125,9 +125,8 @@ int GetProgram(json& walletInfo)
 			}
 
 			Http http;
-			http.blockVersion = BLOCK_VERSION;
 			std::vector<std::string> args = { "query=assignProgram" };
-			std::string assignedProgram = http.StartHttpWebRequest(serverURL + "/dcc/?", args);
+			std::string assignedProgram = http.StartHttpWebRequest(serverURL + "/dcc/", args);
 
 			cons.NetworkPrint();
 			cons.WriteLine("Assigning Program...");
@@ -168,9 +167,8 @@ int GetProgram(json& walletInfo)
 		std::string ourHash = sha256OutBuffer;
 
 		Http http1;
-		http1.blockVersion = BLOCK_VERSION;
 		std::vector<std::string> args1 = { "query=hashProgram", "programID=" + programID };
-		std::string theirHash = http1.StartHttpWebRequest(serverURL + "/dcc/?", args1);
+		std::string theirHash = http1.StartHttpWebRequest(serverURL + "/dcc/", args1);
 
 		if (ourHash != theirHash)
 		{
@@ -210,9 +208,8 @@ float GetProgramLifeLeft()
 	try
 	{
 		Http http;
-		http.blockVersion = BLOCK_VERSION;
 		std::vector<std::string> args = { "query=getProgramLifeLeft", "programID=" + programID };
-		std::string html = http.StartHttpWebRequest(serverURL + "/dcc/?", args);
+		std::string html = http.StartHttpWebRequest(serverURL + "/dcc/", args);
 
 		if (html.find("ERR") != std::string::npos || html == "")
 			return -100;
@@ -477,7 +474,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 // Calculates the difficulty of the next block by looking at the past 720 blocks,
 // and averaging the time it took between each block to keep it within the 2 min (120 second) range
 std::string CalculateDifficulty(json& walletInfo) {
-	std::string targetDifficulty = "0000000FFFF0000000000000000000000000000000000000000000000000000";
+	std::string targetDifficulty = "0000000FFFFFF000000000000000000000000000000000000000000000000000";
 
 	int blockCount = FileCount("./wwwdata/blockchain/");
 
@@ -659,7 +656,7 @@ json UpgradeBlock(json& b)
 	// Changes:
 	// * Add version field
 	// * Update version
-	if (CompareVersions(currentVersion, "v0.0.1-alpha-coin") == false)
+	if (IsVersionGreaterOrEqual(currentVersion, "v0.0.1-alpha-coin") == false)
 	{
 		b["_version"] = "v0.0.1-alpha-coin";
 	}
@@ -668,7 +665,7 @@ json UpgradeBlock(json& b)
 	// Changes:
 	// * Convert all transactions from list array to object
 	// * Update version
-	if (CompareVersions(currentVersion, "v0.2.0-alpha-coin") == false)
+	if (IsVersionGreaterOrEqual(currentVersion, "v0.2.0-alpha-coin") == false)
 	{
 		b["_version"] = "v0.2.0-alpha-coin";
 	}
@@ -677,7 +674,7 @@ json UpgradeBlock(json& b)
 	// Changes:
 	// * Add new targetDifficulty variable
 	// * Update version
-	if (CompareVersions(currentVersion, "v0.3.0-alpha-coin") == false)
+	if (IsVersionGreaterOrEqual(currentVersion, "v0.3.0-alpha-coin") == false)
 	{
 		b["targetDifficulty"] = "0000000FFFF0000000000000000000000000000000000000000000000000000";
 		b["_version"] = "v0.3.0-alpha-coin";
@@ -688,7 +685,7 @@ json UpgradeBlock(json& b)
 	// * Remove txNum
 	// * Add unlockTime
 	// * Update version
-	if (CompareVersions(currentVersion, "v0.4.0-alpha-coin") == false)
+	if (IsVersionGreaterOrEqual(currentVersion, "v0.4.0-alpha-coin") == false)
 	{
 		// Add unlockTime variable to each transaction
 		for (int tr = 0; tr < b["transactions"].size(); tr++) {
@@ -703,7 +700,7 @@ json UpgradeBlock(json& b)
 	// * Remove txNum (actually)
 	// * Add unlockTime (actually)
 	// * Update version
-	if (CompareVersions(currentVersion, "v0.5.0-alpha-coin") == false)
+	if (IsVersionGreaterOrEqual(currentVersion, "v0.5.0-alpha-coin") == false)
 	{
 		// Add unlockTime variable to each transaction
 		for (int tr = 0; tr < b["transactions"].size(); tr++) {
@@ -719,10 +716,27 @@ json UpgradeBlock(json& b)
 	// * Switch to using hexadecimal format for nonce.
 	//       (This is optional, so no changes need to be made to the block.)
 	// * Update version
-	if (CompareVersions(currentVersion, "v0.6.0-alpha-coin") == false)
+	if (IsVersionGreaterOrEqual(currentVersion, "v0.6.0-alpha-coin") == false)
 	{
 		b["_version"] = "v0.6.0-alpha-coin";
 	}
+
+	// v0.7.0-alpha-coin
+	// Changes:
+	// * Add transactionFee to each transaction
+	// * Update version
+	if (IsVersionGreaterOrEqual(currentVersion, "v0.7.0-alpha-coin") == false)
+	{
+		// Add transactionFee to each transaction
+		for (int tr = 0; tr < b["transactions"].size(); tr++) {
+			b["transactions"][tr]["tx"]["transactionFee"] = 0.0;
+		}
+		b["_version"] = "v0.7.0-alpha-coin";
+	}
+
+
+
+
 
 	// Make sure there is always an upgrade step. If there isn't, then throw error
 	if (b["_version"] != BLOCK_VERSION) {

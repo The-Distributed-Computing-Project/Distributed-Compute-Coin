@@ -215,7 +215,7 @@ bool CharStrStartsWith(unsigned char* str, char* substr, int len)
 	return true;
 }
 
-// Function to compare two char* representing numbers
+// Function to compare two char* representing numbers. Returns true if a > b
 bool CompareCharNumbers(const unsigned char* number1, const unsigned char* number2) {
 	//// Skip leading zeros
 	//while (*number1 == '0' && *(number1 + 1) != '\0') {
@@ -446,8 +446,8 @@ double round(float value, int decimal_places)
 	return std::round(value * multiplier) / multiplier;
 }
 
-// Returns true if <a> is a version greater than or equal to <b>
-bool CompareVersions(std::string a, std::string b) {
+// Returns true if <a> is greater than or equal to <b>
+bool IsVersionGreaterOrEqual(std::string a, std::string b) {
 	if (a == b)
 		return true;
 

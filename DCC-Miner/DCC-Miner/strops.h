@@ -34,7 +34,7 @@ std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier);
 float clampf(float x, float min, float max);
 std::string FormatHPS(float input);
 double round(float value, int decimal_places);
-bool CompareVersions(std::string a, std::string b);
+bool IsVersionGreaterOrEqual(std::string a, std::string b);
 
 
 

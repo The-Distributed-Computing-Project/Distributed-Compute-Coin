@@ -2,7 +2,7 @@
 
 
 const std::string VERSION = "v0.4.0-alpha";
-const std::string BLOCK_VERSION = "v0.6.0-alpha-coin";
+const std::string BLOCK_VERSION = "v0.7.0-alpha-coin";
 
 const std::string serverURL = "http://api.achillium.us.to";
 

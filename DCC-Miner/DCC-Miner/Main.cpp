@@ -129,27 +129,7 @@ int main()
 	walletInfo["Address"] = wallet;
 
 
-	std::string line;
-	std::ifstream peerFile("./wwwdata/peerlist.list");
-	// If the peer list file does not exist, create it
-	if (!peerFile)
-	{
-		console.ErrorPrint();
-		console.WriteLine("Error opening peer file", console.redFGColor, "");
-
-		// Create the peer list file
-		std::ofstream peerFileW("./wwwdata/peerlist.list");
-		if (peerFileW.is_open())
-		{
-			peerFileW << "";
-			peerFileW.close();
-		}
-		peerFileW.close();
-	}
-	else
-		while (std::getline(peerFile, line))
-			peerList.push_back(line);
-	peerFile.close();
+	p2p.InitPeerList();
 
 
 	// Load the wallet config file and get the P2P port and IP

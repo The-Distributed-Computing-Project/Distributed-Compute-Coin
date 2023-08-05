@@ -24,9 +24,9 @@ std::atomic_bool thread_running = false;
 std::vector<std::string> peerList;
 //P2P p2p;
 
+#if defined(_MSC_VER)
 // Get the IP:Port combination from SOCKADDR_IN struct, and return it as a string
 std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
-#if defined(_MSC_VER)
 	char peerIP[16];
 	ZeroMemory(peerIP, 16);
 	inet_ntop(AF_INET, &addr.sin_addr, peerIP, 16);
@@ -45,10 +45,8 @@ std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 	res += ":" + std::to_string(port);
 
 	return res;
-#else
-	return "";
-#endif
 }
+#endif
 
 // Safely send some data as a string, and split large amounts of data into multiple segments to be sent sequentially.
 int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen)

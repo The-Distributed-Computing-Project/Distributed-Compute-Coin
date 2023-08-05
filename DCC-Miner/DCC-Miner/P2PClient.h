@@ -81,6 +81,7 @@ public:
 	int OpenP2PSocket(int port);
 	void SenderThread();
 	int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen);
+	void InitPeerList();
 };
 
 #endif

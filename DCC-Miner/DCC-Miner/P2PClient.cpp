@@ -363,6 +363,31 @@ void P2P::ListenerThread(int update_interval)
 	}
 }
 
+void P2P::InitPeerList() {
+	std::string line;
+	std::ifstream peerFile("./wwwdata/peerlist.list");
+	// If the peer list file does not exist, create it
+	if (!peerFile)
+	{
+		Console console;
+		console.ErrorPrint();
+		console.WriteLine("Error opening peer file", console.redFGColor, "");
+
+		// Create the peer list file
+		std::ofstream peerFileW("./wwwdata/peerlist.list");
+		if (peerFileW.is_open())
+		{
+			peerFileW << "";
+			peerFileW.close();
+		}
+		peerFileW.close();
+	}
+	else
+		while (std::getline(peerFile, line))
+			peerList.push_back(line);
+	peerFile.close();
+}
+
 
 // The function to open the socket required for the P2P connection
 int P2P::OpenP2PSocket(int port)

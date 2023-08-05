@@ -8,7 +8,9 @@
 #include <iostream>
 
 #include <boost/process.hpp>
+#if defined(_MSC_VER)
 #include <boost/process/windows.hpp>
+#endif
 
 #include "strops.h"
 

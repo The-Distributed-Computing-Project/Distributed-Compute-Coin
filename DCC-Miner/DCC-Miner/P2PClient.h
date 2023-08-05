@@ -31,7 +31,9 @@ extern std::vector<std::string> peerList;
 class P2P
 {
 private:
+#if defined(_MSC_VER)
 	SOCKET localSocket;
+#endif
 	int MSG_PART = 0;
 	//int messageStatus = 0;
 	std::vector<std::string> CONNECTION_PARTS = { "" };
@@ -70,7 +72,9 @@ public:
 	std::string peerIP;
 	int peerPort;
 
+#if defined(_MSC_VER)
 	std::string NormalizedIPString(SOCKADDR_IN addr);
+#endif
 	void ListenerThread(int update_interval);
 	void RandomizePeer();
 	//int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen);

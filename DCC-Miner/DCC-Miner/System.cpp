@@ -6,6 +6,7 @@
 // Execute a command in the main thread and print the output
 std::string ExecuteCommand(const char* cmd)
 {
+#if defined(_MSC_VER)
 	std::array<char, 128> buffer;
 	std::string result;
 	std::unique_ptr<FILE, decltype(&_pclose)> pipe(_popen(cmd, "r"), _pclose);
@@ -16,6 +17,10 @@ std::string ExecuteCommand(const char* cmd)
 		result += buffer.data();
 		std::cout << buffer.data();
 	}
+#else
+	system(cmd);
+#endif
+
 
 	return "";
 }
@@ -33,7 +38,12 @@ boost::process::child ExecuteAsync(std::string cmd, bool printOutput)
 		{
 			args += splitCommand[i] + " ";
 		}
+
+#if defined(_MSC_VER)
 		bp::child c(cmd, ::boost::process::windows::create_no_window);
+#else
+		bp::child c(cmd, bp::std_out > bp::null);
+#endif
 
 		return c;
 	}

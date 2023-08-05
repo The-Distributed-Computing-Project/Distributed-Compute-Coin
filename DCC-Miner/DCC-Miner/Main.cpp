@@ -656,14 +656,13 @@ int PoolMine(std::string poolURL)
 	console.NetworkPrint();
 	console.Write("Use pool ");
 	console.WriteLine(poolURL, console.brightCyanFGColor, "");
+	unsigned int blockNumber = 0;
+	std::string difficulty = "";
+	std::string hData = "";
+	unsigned long long int nonce = 0;
+	unsigned long long int maxNonce = 0;
 	while (true)
 	{
-		unsigned int blockNumber = 0;
-		std::string difficulty = "";
-		std::string hData = "";
-		unsigned long long int nonce = 0;
-		unsigned long long int maxNonce = 0;
-
 		// Request the data to mine from the pool, and receive the hash along with a nonce range.
 		try
 		{
@@ -763,7 +762,7 @@ int PoolMine(std::string poolURL)
 			try
 			{
 				Http http;
-				std::vector<std::string> args = { "query=solved", "nonce=" + (std::string)numberstring, "id=" + (std::string)walletInfo["Address"] };
+				std::vector<std::string> args = { "query=solved", "nonce=" + std::to_string(nonce), "id=" + (std::string)walletInfo["Address"] };
 				std::string html = http.StartHttpWebRequest(poolURL, args);
 
 				if (html.find("ERR") != std::string::npos || html == "")

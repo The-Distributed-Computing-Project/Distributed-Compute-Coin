@@ -1,6 +1,4 @@
 
-// if windows
-#if defined(_MSC_VER)
 
 
 #include "P2PClient.h"
@@ -14,7 +12,9 @@ char buffer[BUFFERLENGTH];
 int blockchainLength = 0;
 int peerBlockchainLength = 0;
 
+#if defined(_MSC_VER)
 SOCKADDR_IN otherAddr;
+#endif
 std::string otherAddrStr;
 int otherSize;
 std::atomic_bool stop_thread_1 = false;
@@ -26,6 +26,7 @@ std::vector<std::string> peerList;
 
 // Get the IP:Port combination from SOCKADDR_IN struct, and return it as a string
 std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
+#if defined(_MSC_VER)
 	char peerIP[16];
 	ZeroMemory(peerIP, 16);
 	inet_ntop(AF_INET, &addr.sin_addr, peerIP, 16);
@@ -44,11 +45,16 @@ std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 	res += ":" + std::to_string(port);
 
 	return res;
+#else
+	return "";
+#endif
 }
 
 // Safely send some data as a string, and split large amounts of data into multiple segments to be sent sequentially.
 int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen)
 {
+#if defined(_MSC_VER)
+
 	int total = 0;        // how many bytes we've sent
 	int bytesLeft = len; // how many we have left to send
 	SSIZE_T n = 0;
@@ -93,11 +99,16 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 	len = total; // return number actually sent here
 
 	return n == -1 ? -1 : 0; // return -1 on failure, 0 on success
+#else
+	return 0;
+#endif
 }
 
 // The function that is run in a thread in order to listen for received data in the background
 void P2P::ListenerThread(int update_interval)
 {
+#if defined(_MSC_VER)
+
 	thread_running = true;
 	while (true) {
 		Console console;
@@ -361,6 +372,7 @@ void P2P::ListenerThread(int update_interval)
 			}
 		}
 	}
+#endif
 }
 
 void P2P::InitPeerList() {
@@ -392,6 +404,8 @@ void P2P::InitPeerList() {
 // The function to open the socket required for the P2P connection
 int P2P::OpenP2PSocket(int port)
 {
+#if defined(_MSC_VER)
+
 	Console console;
 	Http http;
 
@@ -428,6 +442,8 @@ int P2P::OpenP2PSocket(int port)
 	setsockopt(localSocket, SOL_SOCKET, SO_SNDBUF, (char*)&val, sizeof(val));
 	setsockopt(localSocket, SOL_SOCKET, SO_RCVBUF, (char*)&val, sizeof(val));
 
+#endif
+
 	return 0;
 }
 
@@ -441,6 +457,8 @@ void P2P::RandomizePeer() {
 // The function that is run in a thread in order to reply or send data to a peer in the background
 void P2P::SenderThread()
 {
+#if defined(_MSC_VER)
+
 	Console console;
 	Http http;
 
@@ -666,6 +684,6 @@ void P2P::SenderThread()
 
 	closesocket(localSocket);
 	WSACleanup();
-}
 
 #endif
+}

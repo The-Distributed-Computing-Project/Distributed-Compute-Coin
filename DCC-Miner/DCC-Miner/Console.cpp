@@ -16,7 +16,10 @@
 #include <queue>
 #include <sstream>
 #include "Console.h"
+
+#if WINDOWS
 #include "include/color.hpp"
+#endif
 
 
 std::queue<std::ostream> printQueue;

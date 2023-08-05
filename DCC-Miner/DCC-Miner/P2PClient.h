@@ -3,9 +3,13 @@
 
 #include <string>
 #include <vector>
+
+#if WINDOWS
 #include <winsock2.h>
 #include <Ws2tcpip.h>
 #include <windows.h>
+#endif
+
 #include <iostream>
 #include <thread>
 #include <math.h>

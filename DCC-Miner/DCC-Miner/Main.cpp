@@ -649,7 +649,7 @@ int PoolMine(std::string poolURL)
 			Http http;
 			std::vector<std::string> args = { "query=requestData", "lastNonce=" + std::to_string(maxNonce) };
 			std::string html = http.StartHttpWebRequest(poolURL, args);
-			std::cout <<"\"" << html <<"\""<< std::endl;
+			std::cout << "\"" << html << "\"" << std::endl;
 
 			if (html.find("ERR") != std::string::npos || html == "")
 				throw 0;

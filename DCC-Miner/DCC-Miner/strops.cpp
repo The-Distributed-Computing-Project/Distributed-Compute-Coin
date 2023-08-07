@@ -314,7 +314,8 @@ std::string multiplyHexByInteger(const std::string& hexNumber, int multiplier) {
 // Function to divide a large hexadecimal number by a float
 std::string divideHexByFloat(const std::string& hexNumber, float divisor) {
 	std::string quotientHex;
-	int dividend = 0;
+	//int dividend = 0;
+	int carry = 0;
 	bool nonZeroFound = false;
 
 	// Iterate over each digit in the hexadecimal number
@@ -334,33 +335,53 @@ std::string divideHexByFloat(const std::string& hexNumber, float divisor) {
 			return "";
 		}
 
-		dividend = dividend * 16 + dividendDigit;
+		//dividend = dividend * 16 + dividendDigit;
 
-		if (dividend >= divisor) {
-			int quotient = dividend / divisor;
-			char hexQuotient;
-			if (quotient < 10) {
-				hexQuotient = '0' + quotient;
-			}
-			else {
-				hexQuotient = 'A' + quotient - 10;
-			}
+		int dividend = (carry << 4) | dividendDigit;
+		int quotient = static_cast<int>(dividend / divisor);
+		carry = dividendDigit % static_cast<int>(divisor);
+		//std::cout << dividend << " / " << divisor << " = " << quotient << std::endl;
+
+		//quotientHex.push_back(quotient);
+		char hexQuotient;
+		if (quotient < 10) {
+			hexQuotient = '0' + quotient;
+		}
+		else {
+			hexQuotient = 'A' + quotient - 10;
+		}
+
+		//if (!quotientHex.empty() || quotient != 0) {
 			quotientHex += hexQuotient;
-			nonZeroFound = true;
-			dividend = dividend % static_cast<int>(divisor);
-		}
-		else if (nonZeroFound) {
-			quotientHex += '0';
-		}
+		//}
+		//if (dividend >= divisor) {
+		//	int quotient = dividend / divisor;
+		//	char hexQuotient;
+		//	if (quotient < 10) {
+		//		hexQuotient = '0' + quotient;
+		//	}
+		//	else {
+		//		hexQuotient = 'A' + quotient - 10;
+		//	}
+		//	quotientHex += hexQuotient;
+		//	nonZeroFound = true;
+		//	dividend = dividend % static_cast<int>(divisor);
+		//}
+		//else if (nonZeroFound) {
+		//	quotientHex += '0';
+		//}
 	}
 
-	return quotientHex;
+	//if (quotientHex.empty())
+	//	return "0";
+	//else
+		return quotientHex;
 }
 
 std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier) {
 
-	if (true) {
-		int divisor = 1.0 / (multiplier - (long)multiplier);
+	if (multiplier < 1) {
+		float divisor = 1.0 / (multiplier);
 		return divideHexByFloat(hexNumber, divisor);
 	}
 	else {
@@ -390,10 +411,10 @@ std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier) {
 
 			// Perform the multiplication and add the carry
 			int product = digitValue * multiplier + carry;
-			carry = product / 16;
+			carry = product >> 4;
 
 			// Convert the product back to hexadecimal digit
-			int remainder = product % 16;
+			int remainder = product & 0xf;
 			char hexResult;
 			if (remainder < 10) {
 				hexResult = '0' + remainder;

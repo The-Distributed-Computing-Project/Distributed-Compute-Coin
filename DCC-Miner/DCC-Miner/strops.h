@@ -7,6 +7,7 @@
 #include <cmath>
 #include <iomanip>
 #include <locale>
+#include <iostream>
 
 
 std::string JoinArrayPieces(std::string input[]);

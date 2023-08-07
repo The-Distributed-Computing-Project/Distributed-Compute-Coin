@@ -539,7 +539,7 @@ std::string CalculateDifficulty(json& walletInfo) {
 			buffert << tt.rdbuf();
 			json o = json::parse(buffert.str());
 
-			if ((std::string)o["targetDifficulty"] != mostRecentDifficulty || (i < blockCount - 15)) {
+			if ((std::string)o["targetDifficulty"] != mostRecentDifficulty || (i < blockCount - 360)) {
 				targetDifficulty = (std::string)o["targetDifficulty"];
 				break;
 			}
@@ -559,6 +559,9 @@ std::string CalculateDifficulty(json& walletInfo) {
 
 
 	std::string newDifficulty = PadString(multiplyHexByFloat(targetDifficulty, ratio), '0', 64);
+
+	cons.WriteBulleted("New target difficulty:  " + newDifficulty + "\n", 3);
+
 	walletInfo["targetDifficulty"] = newDifficulty;
 	walletInfo["MineDifficulty"] = ExtractPaddedChars(targetDifficulty, '0');
 

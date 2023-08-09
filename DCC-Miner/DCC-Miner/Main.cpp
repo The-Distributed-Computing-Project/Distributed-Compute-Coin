@@ -57,6 +57,12 @@ int main()
 {
 	Logo();
 
+	console.WriteLine("hextest: ");
+	console.WriteLine("\"" + divideHexByFloat("ffffff", 1.3) + "\"");
+	console.WriteLine("\"" + divideHexByFloat("0f0", 2) + "\"");
+	console.WriteLine("\"" + divideHexByFloat("0fff0", 2) + "\"");
+	console.WriteLine("\"" + multiplyHexByFloat("ff00", 2) + "\"");
+
 	// Create required directories if they don't exist
 	for (std::string dir : directoryList)
 		if (!fs::is_directory(dir) || !fs::exists(dir)) {

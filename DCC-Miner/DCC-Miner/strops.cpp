@@ -227,20 +227,21 @@ bool CompareCharNumbers(const unsigned char* number1, const unsigned char* numbe
 
 	int it = 0;
 	// Compare the remaining digits
-	while (it < 32) {
-		if (*number1 < *number2) {
+	while (it < 60) {
+		if (number1[it] < number2[it]) {
 			return false;
 		}
-		else if (*number1 > *number2) {
+		else if (number1[it] > number2[it]) {
 			return true;
 		}
-		number1++;
-		number2++;
+		else
+		//number1++;
+		//number2++;
 		it++;
 	}
 
 	// If one number has more digits, the shorter one is considered smaller
-	return *number1 == '\0' && *number2 != '\0';
+	return true;
 }
 
 // Replace all instances of the escape symbol '\n' with the string "\\n"
@@ -311,15 +312,39 @@ std::string multiplyHexByInteger(const std::string& hexNumber, int multiplier) {
 	return resultHex;
 }
 
+void subOneFromHex(std::string& hexNumber, int index) {
+	for (int i = index; i >= 0; --i) {
+		char hexDigit = hexNumber[i];
+		//hexNumber[i] = (char)hexNumber[i] - 1;
+		if (hexDigit > '0' && hexDigit <= '9') {
+			hexNumber[i] = (char)hexNumber[i] - 1;
+		}
+		else if (hexDigit > 'A' && hexDigit <= 'F') {
+			hexNumber[i] = (char)hexNumber[i] - 1;
+		}
+		else if (hexDigit == 'A') {
+			hexNumber[i] = '9';
+		}
+		else if (hexDigit == '0') {
+			hexNumber[i] = 'F';
+			continue;
+		}
+		break;
+	}
+}
+
 // Function to divide a large hexadecimal number by a float
 std::string divideHexByFloat(const std::string& hexNumber, float divisor) {
 	std::string quotientHex;
+	std::string hexNum = hexNumber;
 	//int dividend = 0;
 	int carry = 0;
 	bool nonZeroFound = false;
 
 	// Iterate over each digit in the hexadecimal number
+	int i = 0;
 	for (char hexDigit : hexNumber) {
+
 		int dividendDigit;
 		if (hexDigit >= '0' && hexDigit <= '9') {
 			dividendDigit = hexDigit - '0';
@@ -337,9 +362,18 @@ std::string divideHexByFloat(const std::string& hexNumber, float divisor) {
 
 		//dividend = dividend * 16 + dividendDigit;
 
-		int dividend = (carry << 4) | dividendDigit;
-		int quotient = static_cast<int>(dividend / divisor);
-		carry = dividendDigit % static_cast<int>(divisor);
+		int dividend = (carry) + dividendDigit;
+		if (std::round(((float)dividend / divisor)- (std::round(((float)dividend / divisor)))) != 0) { // if dividend has fraction (ie, has remainder), carry
+			carry = (dividend % (int)std::round(divisor)) << 4;
+			//if (carry == 0)
+			//	carry = 1;
+			//subOneFromHex(hexNum, i);
+			dividend--;
+		}
+		else
+			carry = 0;
+		int quotient = std::round((float)dividend / divisor);
+		//carry = (dividendDigit % (int)std::round(divisor))<<4;
 		//std::cout << dividend << " / " << divisor << " = " << quotient << std::endl;
 
 		//quotientHex.push_back(quotient);
@@ -352,7 +386,7 @@ std::string divideHexByFloat(const std::string& hexNumber, float divisor) {
 		}
 
 		//if (!quotientHex.empty() || quotient != 0) {
-			quotientHex += hexQuotient;
+		quotientHex += hexQuotient;
 		//}
 		//if (dividend >= divisor) {
 		//	int quotient = dividend / divisor;
@@ -370,6 +404,7 @@ std::string divideHexByFloat(const std::string& hexNumber, float divisor) {
 		//else if (nonZeroFound) {
 		//	quotientHex += '0';
 		//}
+		i++;
 	}
 
 	//if (quotientHex.empty())

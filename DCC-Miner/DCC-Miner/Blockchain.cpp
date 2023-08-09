@@ -525,11 +525,12 @@ std::string CalculateDifficulty(json& walletInfo) {
 	// Expected: 86400 seconds total (24 hours per 720 blocks), or 120 seconds average
 
 	// Get the previous target difficulty
-	std::ifstream tt("./wwwdata/blockchain/block" + std::to_string(blockCount) + ".dccblock");
+	std::ifstream tt("./wwwdata/blockchain/block" + std::to_string(blockCount-360) + ".dccblock");
 	std::stringstream buffert;
 	buffert << tt.rdbuf();
 	json oo = json::parse(buffert.str());
 	std::string mostRecentDifficulty = (std::string)oo["targetDifficulty"];
+	//targetDifficulty = mostRecentDifficulty;
 	try
 	{
 		for (size_t i = blockCount - 1; i > 0; i--)
@@ -539,7 +540,7 @@ std::string CalculateDifficulty(json& walletInfo) {
 			buffert << tt.rdbuf();
 			json o = json::parse(buffert.str());
 
-			if ((std::string)o["targetDifficulty"] != mostRecentDifficulty || (i < blockCount - 360)) {
+			if (((std::string)o["targetDifficulty"] != mostRecentDifficulty || (i < blockCount - 720)) && i <= blockCount - 360) {
 				targetDifficulty = (std::string)o["targetDifficulty"];
 				break;
 			}

@@ -5,6 +5,7 @@
 #include <string>
 #include "Console.h"
 #include <cmath>
+#include <math.h>
 #include <iomanip>
 #include <locale>
 #include <iostream>

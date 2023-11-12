@@ -21,7 +21,7 @@
 #include "include/color.hpp"
 #endif
 
-
+#if MULTITHREADED_SAFE
 std::queue<std::ostream> printQueue;
 
 
@@ -36,6 +36,7 @@ void ConsoleQueueHandle(){
 		printQueue.pop();
 	}	
 }
+#endif
 
 std::string Console::colorText(std::string name, std::string color) {
 	return color + name + resetColor;
@@ -171,7 +172,9 @@ void Console::WriteLine(std::string message, std::string fgColor, std::string bg
 void Console::Write()
 {
 	//std::cout;
+#if MULTITHREADED_SAFE
 	ConsoleQueueHandle();
+#endif
 }
 void Console::Write(std::string message)
 {

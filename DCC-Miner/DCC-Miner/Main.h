@@ -22,14 +22,15 @@
 
 //#include <boost/process/windows.hpp>
 
+#include "System.h"
 #include "FileManip.h"
 #include "Network.h"
 #include "P2PClient.h"
+#include "Miner.h"
 #include "strops.h"
 #include "SettingsConsts.h"
 #include "Blockchain.h"
 #include "crypto.h"
 #include "Miner.h"
-#include "System.h"
 
 #endif

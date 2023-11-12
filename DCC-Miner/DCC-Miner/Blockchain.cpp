@@ -34,6 +34,9 @@ int SyncPending(P2P& p2p, int whichBlock)
 // Sync a single solid block from a peer
 int SyncBlock(P2P& p2p, int whichBlock)
 {
+	if (fs::exists("./wwwdata/blockchain/block" + std::to_string(whichBlock) + ".dccblock"))
+		return 1;
+
 	p2p.messageStatus = p2p.requesting_block;
 	p2p.messageAttempt = 0;
 	p2p.reqDat = whichBlock;
@@ -226,248 +229,262 @@ float GetProgramLifeLeft()
 // Check every single block to make sure the nonce is valid, the hash matches the earlier and later blocks, and each transaction has a valid signature.
 bool IsChainValid(P2P& p2p, json& walletInfo)
 {
-	while (FileCount("./wwwdata/blockchain/") < walletInfo["BlockchainLength"])
-	{
-		if (SyncBlock(p2p, FileCount("./wwwdata/blockchain/") + 1) == 0)
+	try {
+		/*while (FileCount("./wwwdata/blockchain/") < walletInfo["BlockchainLength"])
 		{
-			ConnectionError();
-			break;
-		}
-	}
-
-	int chainLength = FileCount("./wwwdata/blockchain/");
-
-	double tmpFunds = 0;
-	int txNPending = 0;
-
-	cons.BlockCheckerPrint();
-	cons.WriteLine("Checking blocks...");
-
-	// Apply funds to user from the first block separately
-	try
-	{
-		if (chainLength >= 1) {
-			std::ifstream th("./wwwdata/blockchain/block1.dccblock");
-			std::stringstream buffer2;
-			buffer2 << th.rdbuf();
-			std::string content2 = buffer2.str();
-			json firstBlock = json::parse(content2);
-
-			if (firstBlock["_version"] == nullptr || firstBlock["_version"] == "" || firstBlock["_version"] != BLOCK_VERSION)
-				UpgradeBlock(firstBlock);
-
-			for (int tr = 0; tr < firstBlock["transactions"].size(); tr++) {
-				std::string fromAddr = (std::string)firstBlock["transactions"][tr]["tx"]["fromAddr"];
-				std::string toAddr = (std::string)firstBlock["transactions"][tr]["tx"]["toAddr"];
-				float amount = firstBlock["transactions"][tr]["tx"]["amount"];
-				std::string signature = decode64((std::string)firstBlock["transactions"][tr]["sec"]["signature"]);
-				std::string publicKey = (std::string)firstBlock["transactions"][tr]["sec"]["pubKey"];
-				std::string note = (std::string)firstBlock["transactions"][tr]["sec"]["note"];
-
-				// Check if the sending or receiving address is the same as the user's
-				if ((std::string)walletInfo["Address"] == fromAddr)
-					tmpFunds -= amount;
-				else if ((std::string)walletInfo["Address"] == toAddr)
-					tmpFunds += amount;
-			}
-			// Save upgraded block
-			std::ofstream blockFile("./wwwdata/blockchain/block1.dccblock");
-			if (blockFile.is_open())
+			if (SyncBlock(p2p, FileCount("./wwwdata/blockchain/") + 1) == 0)
 			{
-				blockFile << firstBlock.dump();
-				blockFile.close();
-			}
-
-			// Make sure it is valid:
-			cons.Write("\r");
-			cons.WriteBulleted("Validating block: " + std::to_string(1), 3);
-			char sha256OutBuffer[65];
-			std::string lastHash = firstBlock["lastHash"];
-			std::string currentHash = firstBlock["hash"];
-			std::string nonce = firstBlock["nonce"];
-			// The data we will actually be hashing is a hash of the
-			// transactions and header, so we don't need to do calculations on
-			// massive amounts of data
-			std::string txData; // Only use the `tx` portion of each transaction objects' data
-			for (size_t i = 0; i < firstBlock["transactions"].size(); i++)
-			{
-				txData += (std::string)firstBlock["transactions"][i]["tx"].dump();
-			}
-			std::string fDat = (std::string)firstBlock["lastHash"] + txData;
-			sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
-			std::string hData = std::string(sha256OutBuffer);
-
-			sha256_string((char*)(hData + nonce).c_str(), sha256OutBuffer);
-			std::string blockHash = sha256OutBuffer;
-
-			if (blockHash != currentHash)
-			{
-				std::string rr = "";
-				if (blockHash != currentHash)
-					rr += "1";
-				cons.WriteLine("    X Bad Block X  " + std::to_string(1) + " R" + rr, cons.redFGColor, "");
-				return false;
+				ConnectionError();
+				break;
 			}
 		}
-	}
-	catch (const std::exception& e)
-	{
-		if (constants::debugPrint == true) {
-			std::cerr << std::endl << e.what() << std::endl;
-		}
-		cons.ExitError("Failure, exiting 854");
-	}
+		for (size_t i = 1; i < FileCount("./wwwdata/blockchain/")+1; i++)
+		{
+			cons.Write("\rChecking existence of block " + std::to_string(i));
+			SyncBlock(p2p, i);
+		}*/
 
-	// Then process the rest of the blocks
-	for (int i = 2; i <= chainLength; i++)
-	{
+		int chainLength = FileCount("./wwwdata/blockchain/");
+
+		double tmpFunds = 0;
+		int txNPending = 0;
+
+		cons.BlockCheckerPrint();
+		cons.WriteLine("Checking blocks...");
+
+		// Apply funds to user from the first block separately
 		try
 		{
-			std::ifstream t("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
-			std::stringstream buffer;
-			buffer << t.rdbuf();
-			std::string content = buffer.str();
-			t.close();
+			if (chainLength >= 1) {
+				std::ifstream th("./wwwdata/blockchain/block1.dccblock");
+				std::stringstream buffer2;
+				buffer2 << th.rdbuf();
+				std::string content2 = buffer2.str();
+				json firstBlock = json::parse(content2);
 
-			bool changedBlockData = false;
-			json o = json::parse(content);
+				if (firstBlock["_version"] == nullptr || firstBlock["_version"] == "" || firstBlock["_version"] != BLOCK_VERSION)
+					UpgradeBlock(firstBlock);
 
+				for (int tr = 0; tr < firstBlock["transactions"].size(); tr++) {
+					std::string fromAddr = (std::string)firstBlock["transactions"][tr]["tx"]["fromAddr"];
+					std::string toAddr = (std::string)firstBlock["transactions"][tr]["tx"]["toAddr"];
+					float amount = firstBlock["transactions"][tr]["tx"]["amount"];
+					std::string signature = decode64((std::string)firstBlock["transactions"][tr]["sec"]["signature"]);
+					std::string publicKey = (std::string)firstBlock["transactions"][tr]["sec"]["pubKey"];
+					std::string note = (std::string)firstBlock["transactions"][tr]["sec"]["note"];
 
-			if (o["_version"] == nullptr || o["_version"] == "" || o["_version"] != BLOCK_VERSION)
-			{
-				UpgradeBlock(o);
-				std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
+					// Check if the sending or receiving address is the same as the user's
+					if ((std::string)walletInfo["Address"] == fromAddr)
+						tmpFunds -= amount;
+					else if ((std::string)walletInfo["Address"] == toAddr)
+						tmpFunds += amount;
+				}
+				// Save upgraded block
+				std::ofstream blockFile("./wwwdata/blockchain/block1.dccblock");
 				if (blockFile.is_open())
 				{
-					blockFile << o.dump();
+					blockFile << firstBlock.dump();
 					blockFile.close();
 				}
-			}
 
-			std::string lastHash = o["lastHash"];
-			std::string currentHash = o["hash"];
-			std::string nonce = o["nonce"];
-
-			// Get the previous block
-			std::ifstream td("./wwwdata/blockchain/block" + std::to_string(i - 1) + ".dccblock");
-			std::stringstream bufferd;
-			bufferd << td.rdbuf();
-			td.close();
-			std::string nextBlockText = bufferd.str();
-			json o2 = json::parse(nextBlockText);
-
-			std::string lastRealHash = o2["hash"];
-
-			if (i % 10 == 0 || i >= chainLength - 2) {
+				// Make sure it is valid:
 				cons.Write("\r");
-				cons.WriteBulleted("Validating block: " + std::to_string(i), 3);
-			}
-			char sha256OutBuffer[65];
-			// The data we will actually be hashing is a hash of the
-			// transactions and header, so we don't need to do calculations on
-			// massive amounts of data
-			std::string txData = ""; // Only use the `tx` portion of each transaction objects' data
-			for (size_t i = 0; i < o["transactions"].size(); i++)
-			{
-				txData += (std::string)(o["transactions"][i]["tx"].dump());
-			}
-			std::string fDat = (std::string)o["lastHash"] + txData;
-			sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
-			std::string hData = std::string(sha256OutBuffer);
-			
-			sha256_string((char*)(hData + nonce.c_str()).c_str(), sha256OutBuffer);
-			std::string blockHash = std::string(sha256OutBuffer);
+				cons.WriteBulleted("Validating block: " + std::to_string(1), 3);
+				char sha256OutBuffer[65];
+				std::string lastHash = firstBlock["lastHash"];
+				std::string currentHash = firstBlock["hash"];
+				std::string nonce = firstBlock["nonce"];
+				// The data we will actually be hashing is a hash of the
+				// transactions and header, so we don't need to do calculations on
+				// massive amounts of data
+				std::string txData; // Only use the `tx` portion of each transaction objects' data
+				for (size_t i = 0; i < firstBlock["transactions"].size(); i++)
+				{
+					txData += (std::string)firstBlock["transactions"][i]["tx"].dump();
+				}
+				std::string fDat = (std::string)firstBlock["lastHash"] + txData;
+				sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
+				std::string hData = std::string(sha256OutBuffer);
 
-			if ((blockHash[0] != '0' && blockHash[1] != '0') || blockHash != currentHash || lastRealHash != lastHash)
-			{
-				std::string rr = "";
-				if ((blockHash[0] != '0' && blockHash[1] != '0'))
-					rr += "0";
+				sha256_string((char*)(hData + nonce).c_str(), sha256OutBuffer);
+				std::string blockHash = sha256OutBuffer;
+
 				if (blockHash != currentHash)
-					rr += "1";
-				if (lastRealHash != lastHash)
-					rr += "2";
-				cons.WriteLine("    X Bad Block X  " + std::to_string(i) + " R" + rr + "   # " + blockHash, cons.redFGColor, "");
-				return false;
-			}
-			float tmpFunds2 = 0;
-			// Check all transactions to see if they have a valid signature
-			for (int tr = 0; tr < o["transactions"].size(); tr++) {
-				std::string fromAddr = (std::string)o["transactions"][tr]["tx"]["fromAddr"];
-				std::string toAddr = (std::string)o["transactions"][tr]["tx"]["toAddr"];
-				float amount = o["transactions"][tr]["tx"]["amount"];
-				std::string signature = decode64((std::string)o["transactions"][tr]["sec"]["signature"]);
-				std::string publicKey = (std::string)o["transactions"][tr]["sec"]["pubKey"];
-				std::string note = (std::string)o["transactions"][tr]["sec"]["note"];
-
-				// If this is the first transaction, that is the block reward, so it should be handled differently:
-				if (tr == 0) {
-					if ((std::string)walletInfo["Address"] == toAddr) { // If this is the receiving address, then give reward
-						tmpFunds2 += amount;
-					}
-					continue;
+				{
+					std::string rr = "";
+					if (blockHash != currentHash)
+						rr += "1";
+					cons.WriteLine("    X Bad Block X  " + std::to_string(1) + " R" + rr, cons.redFGColor, "");
+					return false;
 				}
-
-				// The from address should be the same as the hash of the public key, so check that first:
-				char walletBuffer[65];
-				sha256_string((char*)(publicKey).c_str(), walletBuffer);
-				std::string expectedWallet = walletBuffer;
-				if (fromAddr != expectedWallet) {
-					o["transactions"].erase(o["transactions"].begin() + tr);
-					continue;
-				}
-
-				// Hash transaction data
-				sha256_string((char*)(o["transactions"][tr]["tx"].dump()).c_str(), sha256OutBuffer);
-				std::string transHash = sha256OutBuffer;
-
-				// Verify signature by decrypting hash with public key
-				std::string decryptedSig = rsa_pub_decrypt(signature, publicKey);
-
-				// The decrypted signature should be the same as the hash we just generated
-				if (decryptedSig != transHash) {
-					o["transactions"].erase(o["transactions"].begin() + tr);
-					cons.Write("  Bad signature on T:" + std::to_string(tr), cons.redFGColor, "");
-					continue;
-				}
-
-				// Now check if the sending or receiving address is the same as the user's
-				if ((std::string)walletInfo["Address"] == fromAddr) {
-					tmpFunds2 -= amount;
-					txNPending++;
-				}
-				else if ((std::string)walletInfo["Address"] == toAddr)
-					tmpFunds2 += amount;
-			}
-
-			// Update funds and transaction number
-			tmpFunds += tmpFunds2;
-			walletInfo["transactionNumber"] = txNPending;
-
-
-			if (i % 10 == 0 || i >= chainLength - 2) {
-				cons.Write("     Transactions: " + std::to_string(o["transactions"].size()));
-				cons.Write("   Ok  ", cons.greenFGColor, "");
 			}
 		}
-		// If there is a failure state, assume that block is bad or does not exist.
 		catch (const std::exception& e)
 		{
 			if (constants::debugPrint == true) {
 				std::cerr << std::endl << e.what() << std::endl;
 			}
-
-			cons.WriteLine();
-			SyncBlock(p2p, i);
-
-			i -= 2;
-			// Then recount, because we need to know if the synced block is new or overwrote an existing one.
-			chainLength = FileCount("./wwwdata/blockchain/");
+			cons.ExitError("Failure, exiting 854");
 		}
+
+		// Then process the rest of the blocks
+		for (int i = 2; i <= chainLength; i++)
+		{
+			try
+			{
+				std::ifstream t("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
+				std::stringstream buffer;
+				buffer << t.rdbuf();
+				std::string content = buffer.str();
+				t.close();
+
+				bool changedBlockData = false;
+				json o = json::parse(content);
+
+
+				if (o["_version"] == nullptr || o["_version"] == "" || o["_version"] != BLOCK_VERSION)
+				{
+					UpgradeBlock(o);
+					std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
+					if (blockFile.is_open())
+					{
+						blockFile << o.dump();
+						blockFile.close();
+					}
+				}
+
+				std::string lastHash = o["lastHash"];
+				std::string currentHash = o["hash"];
+				std::string nonce = o["nonce"];
+
+				// Get the previous block
+				std::ifstream td("./wwwdata/blockchain/block" + std::to_string(i - 1) + ".dccblock");
+				std::stringstream bufferd;
+				bufferd << td.rdbuf();
+				td.close();
+				std::string nextBlockText = bufferd.str();
+				json o2 = json::parse(nextBlockText);
+
+				std::string lastRealHash = o2["hash"];
+
+				if (i % 10 == 0 || i >= chainLength - 2) {
+					cons.Write("\r");
+					cons.WriteBulleted("Validating block: " + std::to_string(i), 3);
+				}
+				char sha256OutBuffer[65];
+				// The data we will actually be hashing is a hash of the
+				// transactions and header, so we don't need to do calculations on
+				// massive amounts of data
+				std::string txData = ""; // Only use the `tx` portion of each transaction objects' data
+				for (size_t i = 0; i < o["transactions"].size(); i++)
+				{
+					txData += (std::string)(o["transactions"][i]["tx"].dump());
+				}
+				std::string fDat = (std::string)o["lastHash"] + txData;
+				sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
+				std::string hData = std::string(sha256OutBuffer);
+
+				sha256_string((char*)(hData + nonce.c_str()).c_str(), sha256OutBuffer);
+				std::string blockHash = std::string(sha256OutBuffer);
+
+				if ((blockHash[0] != '0' && blockHash[1] != '0') || blockHash != currentHash || lastRealHash != lastHash)
+				{
+					std::string rr = "";
+					if ((blockHash[0] != '0' && blockHash[1] != '0'))
+						rr += "0";
+					if (blockHash != currentHash)
+						rr += "1";
+					if (lastRealHash != lastHash)
+						rr += "2";
+					cons.WriteLine("    X Bad Block X  " + std::to_string(i) + " R" + rr + "   # " + blockHash, cons.redFGColor, "");
+					return false;
+				}
+				float tmpFunds2 = 0;
+				// Check all transactions to see if they have a valid signature
+				for (int tr = 0; tr < o["transactions"].size(); tr++) {
+					std::string fromAddr = (std::string)o["transactions"][tr]["tx"]["fromAddr"];
+					std::string toAddr = (std::string)o["transactions"][tr]["tx"]["toAddr"];
+					float amount = o["transactions"][tr]["tx"]["amount"];
+					std::string signature = decode64((std::string)o["transactions"][tr]["sec"]["signature"]);
+					std::string publicKey = (std::string)o["transactions"][tr]["sec"]["pubKey"];
+					std::string note = (std::string)o["transactions"][tr]["sec"]["note"];
+
+					// If this is the first transaction, that is the block reward, so it should be handled differently:
+					if (tr == 0) {
+						if ((std::string)walletInfo["Address"] == toAddr) { // If this is the receiving address, then give reward
+							tmpFunds2 += amount;
+						}
+						continue;
+					}
+
+					// The from address should be the same as the hash of the public key, so check that first:
+					char walletBuffer[65];
+					sha256_string((char*)(publicKey).c_str(), walletBuffer);
+					std::string expectedWallet = walletBuffer;
+					if (fromAddr != expectedWallet) {
+						o["transactions"].erase(o["transactions"].begin() + tr);
+						continue;
+					}
+
+					// Hash transaction data
+					sha256_string((char*)(o["transactions"][tr]["tx"].dump()).c_str(), sha256OutBuffer);
+					std::string transHash = sha256OutBuffer;
+
+					// Verify signature by decrypting hash with public key
+					std::string decryptedSig = rsa_pub_decrypt(signature, publicKey);
+
+					// The decrypted signature should be the same as the hash we just generated
+					if (decryptedSig != transHash) {
+						o["transactions"].erase(o["transactions"].begin() + tr);
+						cons.Write("  Bad signature on T:" + std::to_string(tr), cons.redFGColor, "");
+						continue;
+					}
+
+					// Now check if the sending or receiving address is the same as the user's
+					if ((std::string)walletInfo["Address"] == fromAddr) {
+						tmpFunds2 -= amount;
+						txNPending++;
+					}
+					else if ((std::string)walletInfo["Address"] == toAddr)
+						tmpFunds2 += amount;
+				}
+
+				// Update funds and transaction number
+				tmpFunds += tmpFunds2;
+				walletInfo["transactionNumber"] = txNPending;
+
+
+				if (i % 10 == 0 || i >= chainLength - 2) {
+					cons.Write("     Transactions: " + std::to_string(o["transactions"].size()));
+					cons.Write("   Ok  ", cons.greenFGColor, "");
+				}
+			}
+			// If there is a failure state, assume that block is bad or does not exist.
+			catch (const std::exception& e)
+			{
+				if (constants::debugPrint == true) {
+					std::cerr << std::endl << e.what() << std::endl;
+				}
+
+				cons.WriteLine();
+				SyncBlock(p2p, i);
+
+				i -= 2;
+				// Then recount, because we need to know if the synced block is new or overwrote an existing one.
+				chainLength = FileCount("./wwwdata/blockchain/");
+			}
+		}
+
+		cons.WriteLine();
+		walletInfo["Funds"] = tmpFunds;
+		return true;
 	}
-	cons.WriteLine();
-	walletInfo["Funds"] = tmpFunds;
-	return true;
+	catch (const std::exception& e)
+	{
+		std::cerr << "Error validating chain, 479" << std::endl;
+		std::cerr << e.what() << std::endl;
+	}
+	return false;
 }
 
 
@@ -520,7 +537,7 @@ std::string CalculateDifficulty(json& walletInfo) {
 	uint32_t avgTotal = 0;
 	for (int i = 60; i < 640; i++)
 		avgTotal += secondCounts[i];
-	uint32_t average = avgTotal / (640-60);  // Divide by total, which gives the average
+	uint32_t average = avgTotal / (640 - 60);  // Divide by total, which gives the average
 
 	// Expected: 86400 seconds total (24 hours per 720 blocks), or 120 seconds average
 

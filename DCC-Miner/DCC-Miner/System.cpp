@@ -54,3 +54,4 @@ boost::process::child ExecuteAsync(std::string cmd, bool printOutput)
 
 	return boost::process::child();
 }
+

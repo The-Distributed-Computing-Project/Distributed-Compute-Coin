@@ -13,7 +13,9 @@
 	And retry sending each of these until an adequate response is received, and both eventually ACK.
 * Moving from C# to C++. It is currently in a windows-only state, so my goal is to have it be more cross-platform, for linux and mac, and also be lower-level for performance.
 
-# Distributed Compute Coin
+
+
+# <img src="https://raw.githubusercontent.com/sam-astro/Distributed-Compute-Coin/optimizations-and-port-to-p2p/DCC-Miner/DCC-Logo.png" height="30rem" style="margin:auto"> Distributed Compute Coin
 A unique P2P blockchain built in C++, with a trading client and a miner. This crypto can be bought, traded, sold, or used just like any other. What sets it apart though is how it can be used. It is based on sharing mining hardware with developers to run their programs better and compute a lot of data, quickly, using Distributed Computing. Anybody can submit code using the client to be run across the peer-to-peer network, and will pay for that using this crypto.
 
 If you want to learn more, please feel free to go to [the wiki.](https://github.com/sam-astro/DC-Blockchain-Cryptocurrency/wiki)
@@ -36,7 +38,7 @@ Options:
 ```
 Inputting one of these commands and pressing the Enter key will execute the command. To begin mining, simply type "mine" (and a block amount, if you want to mine more than one).
 
-## Exampls of block format:
+## Example of block format:
 ```
 {
 	"Version": null,
@@ -68,4 +70,3 @@ Inputting one of these commands and pressing the Enter key will execute the comm
 ## Using:
 * OpenSSL
 * cURL
-* dOpenSSL (maybe)

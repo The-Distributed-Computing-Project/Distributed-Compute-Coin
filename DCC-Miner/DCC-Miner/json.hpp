@@ -13867,6 +13867,8 @@ namespace nlohmann
 #include <cstddef> // size_t
 #include <iterator> // back_inserter
 #include <memory> // shared_ptr, make_shared
+#pragma once
+
 #include <string> // basic_string
 #include <vector> // vector
 

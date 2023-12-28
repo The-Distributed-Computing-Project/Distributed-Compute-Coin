@@ -2,10 +2,13 @@
 # project specific logic here.
 #
 cmake_minimum_required (VERSION 3.0 FATAL_ERROR)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
 
 # Add source to this project's executable.
-add_executable (DCC-Miner "json.hpp" "Main.h" "Main.cpp" "Console.h" "Console.cpp" "FileManip.h" "FileManip.cpp" "Network.h" "Network.cpp" "strops.h" "strops.cpp" "P2PClient.h" "P2PClient.cpp" "Network.h" "Network.cpp" "crypto.h")
+add_executable (DCC-Miner "json.hpp" "Main.h" "Main.cpp" "Console.h" "Console.cpp" "FileManip.h" "FileManip.cpp" "Network.h" "Network.cpp" "strops.h" "strops.cpp" "P2PClient.h" "P2PClient.cpp" "Network.h" "Network.cpp" "crypto.h" "crypto.cpp" "Blockchain.cpp" "Blockchain.h" "Miner.cpp" "Miner.h" "SettingsConsts.h" "System.cpp" "System.h")
 
 
 #add_subdirectory(extlibs/elzip) # Path to the 11zip
@@ -31,21 +34,33 @@ FetchContent_MakeAvailable(cpr)
 #find_package(OpenSSL REQUIRED)
 #target_link_libraries(DCC-Miner OpenSSL::SSL)
 
+if(WIN32)
 set(Boost_ADDITIONAL_VERSIONS 1.78.0 1.78)
-set(Boost_USE_STATIC_LIBS OFF) 
-set(Boost_USE_MULTITHREADED ON)  
-set(Boost_USE_STATIC_RUNTIME OFF) 
-FIND_PACKAGE(Boost 1.78.0 REQUIRED) 
-include_directories(${Boost_INCLUDE_DIRS}) 
+set(Boost_USE_STATIC_LIBS OFF)
+set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_RUNTIME OFF)
+FIND_PACKAGE(Boost 1.78.0 REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
+else()
+set(Boost_ADDITIONAL_VERSIONS 1.74.0 1.74)
+set(Boost_USE_STATIC_LIBS OFF)
+set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_RUNTIME OFF)
+FIND_PACKAGE(Boost 1.74.0 REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
+endif()
 
 
-#find_package(CURL REQUIRED) 
+
+#find_package(CURL REQUIRED)
 #add_executable (DCC-Miner convert.cpp)
 #include_directories(${CURL_INCLUDE_DIR})
 #target_link_libraries(DCC-Miner ${CURL_LIBRARIES})
 
+if(WIN32)
 set(CURL_INCLUDE_DIR "C:\\curl\\include")
 set(CURL_LIBRARY "C:\\curl")
+endif()
 
 #set(LIB_CRYPTO "lib/libcrypto.lib")
 
@@ -54,10 +69,18 @@ add_definitions(-DCURL_STATICLIB)
 find_package(CURL REQUIRED)
 include_directories(${CURL_INCLUDE_DIR})
 
+#include_directories("C:\\Program Files\\OpenSSL-Win64\\")
+if(WIN32)
+set(OPENSSL_ROOT_DIR "C:\\Program Files\\OpenSSL-Win64\\")
+endif()
 set(OPENSSL_USE_STATIC_LIBS TRUE)
 find_package(OpenSSL REQUIRED)
 
+if(WIN32)
 target_link_libraries(DCC-Miner ${CURL_LIBRARY} ${Boost_LIBRARIES} "D:\\Code\\boost\\stage\\lib\\libboost_filesystem-vc143-mt-gd-x64-1_78.lib" OpenSSL::SSL cpr::cpr OpenSSL::Crypto)
+else()
+target_link_libraries(DCC-Miner ${CURL_LIBRARY} ${Boost_LIBRARIES} OpenSSL::SSL cpr::cpr OpenSSL::Crypto)
+endif()
 
 #set(ELZIP_LIBRARY include/lib/libcurl_a_debug)
 #target_link_libraries(DCC-Miner )

@@ -1,9 +1,15 @@
 {
+  "OutputFoldersPerTargetSystem": {
+    "Local Machine": [
+      "out\\build\\x64-Debug",
+      "out\\install\\x64-Debug"
+    ]
+  },
   "ExpandedNodes": [
     "",
     "\\DCC-Miner",
-    "\\DCC-Miner\\extlibs",
     "\\DCC-Miner\\lib"
   ],
+  "SelectedNode": "\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }

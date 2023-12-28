@@ -6,6 +6,7 @@
 // Declare the global print queue
 extern std::queue<std::ostream> printQueue;
 
+void ConnectionError();
 
 class Console
 {
@@ -80,6 +81,8 @@ public:
 	void WriteBulleted(std::string message, std::string fgColor, std::string bgColor, int indents);
 	void WriteBulleted(std::string message, int indents, std::string bullet);
 	void WriteBulleted(std::string message, int indents);
+
+	void WriteLineCharArrayOfLen(char* message, int len);
 
 	std::string ReadLine();
 

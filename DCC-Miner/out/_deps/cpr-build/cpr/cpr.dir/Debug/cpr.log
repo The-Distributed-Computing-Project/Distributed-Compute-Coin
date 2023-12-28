@@ -1,23 +1,4 @@
-﻿  Building Custom Rule D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-src/cpr/CMakeLists.txt
-  auth.cpp
-  bearer.cpp
-  cookies.cpp
-  cprtypes.cpp
-  curl_container.cpp
-  curlholder.cpp
-  error.cpp
-  multipart.cpp
-  parameters.cpp
-  payload.cpp
-  proxies.cpp
-  proxyauth.cpp
-  session.cpp
-  timeout.cpp
-  unix_socket.cpp
-  util.cpp
-  response.cpp
-  redirect.cpp
-  Generating Code...
-  Auto build dll exports
+﻿  Auto build dll exports
+  LINK : D:\Code\DC-Cryptocurrency\DCC-Miner\out\Debug\cpr.dll not found or not built by the last incremental link; performing full link
      Creating library D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-build/cpr/Debug/cpr.lib and object D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/cpr-build/cpr/Debug/cpr.exp
   cpr.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\Debug\cpr.dll

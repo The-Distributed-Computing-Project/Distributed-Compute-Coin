@@ -2,7 +2,7 @@
 * The actual 'crypto' aspect of it, and making RSA dual-key encryption for better verification.
 	- [ ] Implement a library like dopenssl or just use openssl for deterministic key generation from a non-deterministic seed.
 * P2P Networking, allowing people to use clients independently of a server. **The server is often down**, due to development, and since P2P is still in progress, the clients basically don't work.
-	- [ ] Better handling, requests still aren't verified if they reached the other peer. It should be
+	- [X] Better handling, requests still aren't verified if they reached the other peer. It should be
 	```
 	REQ: Client Request -> Server
 	RES: Server Response -> Client
@@ -13,7 +13,9 @@
 	And retry sending each of these until an adequate response is received, and both eventually ACK.
 * Moving from C# to C++. It is currently in a windows-only state, so my goal is to have it be more cross-platform, for linux and mac, and also be lower-level for performance.
 
-# Distributed Compute Coin
+
+
+# <img src="https://raw.githubusercontent.com/sam-astro/Distributed-Compute-Coin/optimizations-and-port-to-p2p/DCC-Miner/DCC-Logo.png" height="30rem" style="margin:auto"> Distributed Compute Coin
 A unique P2P blockchain built in C++, with a trading client and a miner. This crypto can be bought, traded, sold, or used just like any other. What sets it apart though is how it can be used. It is based on sharing mining hardware with developers to run their programs better and compute a lot of data, quickly, using Distributed Computing. Anybody can submit code using the client to be run across the peer-to-peer network, and will pay for that using this crypto.
 
 If you want to learn more, please feel free to go to [the wiki.](https://github.com/sam-astro/DC-Blockchain-Cryptocurrency/wiki)
@@ -36,7 +38,35 @@ Options:
 ```
 Inputting one of these commands and pressing the Enter key will execute the command. To begin mining, simply type "mine" (and a block amount, if you want to mine more than one).
 
+## Example of block format:
+```
+{
+	"Version": null,
+	"hash": "dccba5e70246993b252c8ceb8394e4cd97f6313fbf78c3b9113d694b0ff2016b",
+	"lastHash": "0000000000000000000000000000000000000000000000000000000000000000",
+	"nonce": "394849135",
+	"time": "0",
+	"transactionTimes": [
+		1664574203
+	],
+	"transactions": [
+		{
+			"tx": {
+				"fromAddr": "",
+				"toAddr": "fd394f214e71e4aaf995914207d44181ca9e92c2f508afadf06d367f06151f84",
+				"amount": 1000000000,
+				"txNum": 0
+			},
+			"sec": {
+				"signature": "",
+				"pubKey": "",
+				"note": ""
+			}
+		}
+	]
+}
+```
+
 ## Using:
 * OpenSSL
 * cURL
-* dOpenSSL (maybe)

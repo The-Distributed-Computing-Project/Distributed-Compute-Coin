@@ -14,14 +14,24 @@ If you want to learn more, please feel free to go to [the wiki.](https://github.
 3. A change from the C# version, is that all functionality is now combined into a single program, which can handle transactions, submitting programs, and mining. It is also currently a command-line only interface while in development. 
 4. **If you are interested in earning DCC, then you can use the Mining aspect of the client.** The miner verifies the blockchain network, and also run programs created by developers. Just like the developers, programs are written in a language called Rust and you will need to install Rust before using the Miner. You can do that by going to the [Rust website](https://www.rust-lang.org/tools/install) and following the instructions there, which should only take a few minutes. Just use the `--mine` command to start mining a single block. You can also specify how many blocks you want to mine after the command like: `--mine 10` will mine 10 blocks. Using `-1` will mine until you stop the program.
 ```
-Usage: miner [options]
+Usage: DCC-Miner.exe [options]
 		 OR (while in interactive mode)
-	   DCC >  [options]
+       Input: [options]
 Options:
-  -h, --help						  Display this help menu
-  -s, --sync						  Manually re-sync blockchain
-  -m, --mine <amount>			      Mine <amount> number of blocks, defaults to 1 if not specified
-  -ma, --mineany <block num> <dif>	  (Debug) Mines the block specified by <block num> at the given difficulty <dif>
+  -h, --help                          Display this help menu
+  -v, --version                       Print the current wallet and block version
+  -s, --sync                          Manually re-sync blockchain
+  -sb, --syncblock                    Manually re-sync a single block on the blockchain
+  -m, --mine <amount>                 Mine <amount> number of blocks, defaults to 1 if not specified
+  -ma, --mineany <block num> <dif>    (Debug) Mines the block specified by <block num> at the given 
+                                          difficulty <dif>
+  --funds                             Count and print the funds of the user
+  --difficulty                        Calculate the expected block's difficulty
+  -sn, --send <addr> <amount>         Sends the <amount> of DCC to a receiving address <addr>
+  -sp, --superblock                   Generates a debug superblock to summarize all transactions
+  -vf, --verify                       Verify the entire blockchain to make sure all blocks are valid
+  -p, --pool <url>                    Start mining at a pool, given by <url>. Default is
+                                          http://dccpool.us.to:3333
 ```
 Inputting one of these commands and pressing the Enter key will execute the command. To begin mining, simply type "mine" (and a block amount, if you want to mine more than one).
 

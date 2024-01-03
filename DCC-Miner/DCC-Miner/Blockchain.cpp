@@ -256,7 +256,8 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 		try
 		{
 			if (chainLength >= 1) {
-				std::ifstream th("./wwwdata/blockchain/block1.dccblock");
+				std::ifstream th;
+				th.open("./wwwdata/blockchain/block1.dccblock");
 				std::stringstream buffer2;
 				buffer2 << th.rdbuf();
 				std::string content2 = buffer2.str();
@@ -332,7 +333,8 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 		{
 			try
 			{
-				std::ifstream t("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
+				std::ifstream t;
+				t.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 				std::stringstream buffer;
 				buffer << t.rdbuf();
 				std::string content = buffer.str();
@@ -358,7 +360,8 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				std::string nonce = o["nonce"];
 
 				// Get the previous block
-				std::ifstream td("./wwwdata/blockchain/block" + std::to_string(i - 1) + ".dccblock");
+				std::ifstream td;
+				td.open("./wwwdata/blockchain/block" + std::to_string(i - 1) + ".dccblock");
 				std::stringstream bufferd;
 				bufferd << td.rdbuf();
 				td.close();
@@ -506,7 +509,8 @@ std::string CalculateDifficulty(json& walletInfo) {
 	uint64_t lastTime = 0;
 
 	// Get first block time
-	std::ifstream t("./wwwdata/blockchain/block" + std::to_string(blockCount - 720) + ".dccblock");
+	std::ifstream t;
+	t.open("./wwwdata/blockchain/block" + std::to_string(blockCount - 720) + ".dccblock");
 	std::stringstream buffer;
 	buffer << t.rdbuf();
 	json ot = json::parse(buffer.str());
@@ -514,7 +518,8 @@ std::string CalculateDifficulty(json& walletInfo) {
 
 	// Iterate last 720 blocks and add their time difference to the vector
 	for (int i = blockCount - 719; i <= blockCount; i++) {
-		std::ifstream tt("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
+		std::ifstream tt;
+		tt.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 		std::stringstream buffert;
 		buffert << tt.rdbuf();
 		json o = json::parse(buffert.str());
@@ -544,7 +549,8 @@ std::string CalculateDifficulty(json& walletInfo) {
 	std::map<std::string, int> difficultyOccurrences;
 	// Get the most common previous target difficulty in the past 720 blocks
 	for (int i = blockCount - 719; i <= blockCount; i++) {
-		std::ifstream tt("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
+		std::ifstream tt;
+		tt.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 		std::stringstream buffert;
 		buffert << tt.rdbuf();
 		json o = json::parse(buffert.str());

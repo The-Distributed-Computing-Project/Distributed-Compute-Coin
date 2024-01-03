@@ -1,18 +1,3 @@
-## Working on:
-* The actual 'crypto' aspect of it, and making RSA dual-key encryption for better verification.
-	- [ ] Implement a library like dopenssl or just use openssl for deterministic key generation from a non-deterministic seed.
-* P2P Networking, allowing people to use clients independently of a server. **The server is often down**, due to development, and since P2P is still in progress, the clients basically don't work.
-	- [X] Better handling, requests still aren't verified if they reached the other peer. It should be
-	```
-	REQ: Client Request -> Server
-	RES: Server Response -> Client
-	ACK1: Client Acknowledge -> Server
-	ACK2: Server Acknowledge -> Client
-	FIN.
-	```
-	And retry sending each of these until an adequate response is received, and both eventually ACK.
-* Moving from C# to C++. It is currently in a windows-only state, so my goal is to have it be more cross-platform, for linux and mac, and also be lower-level for performance.
-
 
 
 # <img src="https://raw.githubusercontent.com/sam-astro/Distributed-Compute-Coin/optimizations-and-port-to-p2p/DCC-Miner/DCC-Logo.png" height="30rem" style="margin:auto"> Distributed Compute Coin
@@ -39,6 +24,7 @@ Options:
 Inputting one of these commands and pressing the Enter key will execute the command. To begin mining, simply type "mine" (and a block amount, if you want to mine more than one).
 
 ## Example of block format:
+> This is the genesis block
 ```
 {
 	"Version": null,

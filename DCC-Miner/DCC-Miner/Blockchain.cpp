@@ -16,6 +16,8 @@ json programConfig;
 
 //P2P p2p;
 
+#define FATAL_ERROR( msg ) std::cerr << "[" << __FILE__ << ", at line: " << __LINE__ << "] " << msg << std::endl;
+
 // Sync a single pending block from a peer
 int SyncPending(P2P& p2p, int whichBlock)
 {
@@ -258,6 +260,8 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			if (chainLength >= 1) {
 				std::ifstream th;
 				th.open("./wwwdata/blockchain/block1.dccblock");
+				if(!th.is_open())
+					FATAL_ERROR("Could not open file");
 				std::stringstream buffer2;
 				buffer2 << th.rdbuf();
 				std::string content2 = buffer2.str();
@@ -335,6 +339,8 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			{
 				std::ifstream t;
 				t.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
+				if(!t.is_open())
+					FATAL_ERROR("Could not open file");
 				std::stringstream buffer;
 				buffer << t.rdbuf();
 				std::string content = buffer.str();
@@ -362,6 +368,8 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				// Get the previous block
 				std::ifstream td;
 				td.open("./wwwdata/blockchain/block" + std::to_string(i - 1) + ".dccblock");
+				if(!td.is_open())
+					FATAL_ERROR("Could not open file");
 				std::stringstream bufferd;
 				bufferd << td.rdbuf();
 				td.close();
@@ -520,6 +528,8 @@ std::string CalculateDifficulty(json& walletInfo) {
 	for (int i = blockCount - 719; i <= blockCount; i++) {
 		std::ifstream tt;
 		tt.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
+		if(!tt.is_open())
+			FATAL_ERROR("Could not open file");
 		std::stringstream buffert;
 		buffert << tt.rdbuf();
 		json o = json::parse(buffert.str());
@@ -551,6 +561,8 @@ std::string CalculateDifficulty(json& walletInfo) {
 	for (int i = blockCount - 719; i <= blockCount; i++) {
 		std::ifstream tt;
 		tt.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
+		if(!tt.is_open())
+			FATAL_ERROR("Could not open file");
 		std::stringstream buffert;
 		buffert << tt.rdbuf();
 		json o = json::parse(buffert.str());

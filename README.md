@@ -1,6 +1,9 @@
 
 
 # <img src="https://raw.githubusercontent.com/sam-astro/Distributed-Compute-Coin/optimizations-and-port-to-p2p/DCC-Miner/DCC-Logo.png" height="30rem" style="margin:auto"> Distributed Compute Coin
+
+[![Badge License]][License]   [![Button Discord]][Discord Server]
+
 A unique P2P blockchain built in C++, with a trading client and a miner. This crypto can be bought, traded, sold, or used just like any other. What sets it apart though is how it can be used. It is based on sharing mining hardware with developers to run their programs better and compute a lot of data, quickly, using Distributed Computing. Anybody can submit code using the client to be run across the peer-to-peer network, and will pay for that using this crypto.
 
 If you want to learn more, please feel free to go to [the wiki.](https://github.com/sam-astro/DC-Blockchain-Cryptocurrency/wiki)
@@ -56,3 +59,15 @@ Inputting one of these commands and pressing the Enter key will execute the comm
 ## Using:
 * OpenSSL
 * cURL
+
+
+<!----------------------------------------------------------------------------->
+
+[License]: LICENSE
+[Discord Server]: https://discord.gg/9p82dTEdkN
+
+
+<!----------------------------------[ Badges ]--------------------------------->
+
+[Badge License]: https://img.shields.io/badge/license-DCC-brightgreen
+[Button Discord]: https://img.shields.io/badge/Discord_Server-573f75.svg?style=social&logo=Discord

@@ -1,44 +1,42 @@
-## Working on:
-* The actual 'crypto' aspect of it, and making RSA dual-key encryption for better verification.
-	- [ ] Implement a library like dopenssl or just use openssl for deterministic key generation from a non-deterministic seed.
-* P2P Networking, allowing people to use clients independently of a server. **The server is often down**, due to development, and since P2P is still in progress, the clients basically don't work.
-	- [X] Better handling, requests still aren't verified if they reached the other peer. It should be
-	```
-	REQ: Client Request -> Server
-	RES: Server Response -> Client
-	ACK1: Client Acknowledge -> Server
-	ACK2: Server Acknowledge -> Client
-	FIN.
-	```
-	And retry sending each of these until an adequate response is received, and both eventually ACK.
-* Moving from C# to C++. It is currently in a windows-only state, so my goal is to have it be more cross-platform, for linux and mac, and also be lower-level for performance.
-
 
 
 # <img src="https://raw.githubusercontent.com/sam-astro/Distributed-Compute-Coin/optimizations-and-port-to-p2p/DCC-Miner/DCC-Logo.png" height="30rem" style="margin:auto"> Distributed Compute Coin
-A unique P2P blockchain built in C++, with a trading client and a miner. This crypto can be bought, traded, sold, or used just like any other. What sets it apart though is how it can be used. It is based on sharing mining hardware with developers to run their programs better and compute a lot of data, quickly, using Distributed Computing. Anybody can submit code using the client to be run across the peer-to-peer network, and will pay for that using this crypto.
+
+[![Badge License]][License]   [![Button Discord]][Discord Server]
+
+A unique P2P blockchain built in C++, with a trading client and a miner. This crypto can be bought, traded, sold, mined, or used just like any other. What sets it apart though is how it can be used, and the technique for mining. It is based on sharing mining computing hardware with developers to run their programs better and compute a large amount of data quickly, using Distributed Computing. Anybody can submit code using the client to be run across the peer-to-peer network, and will pay for that using this crypto.
 
 If you want to learn more, please feel free to go to [the wiki.](https://github.com/sam-astro/DC-Blockchain-Cryptocurrency/wiki)
 
 ## Installation / Use:
 1. First, either clone with `git clone https://github.com/sam-astro/DC-Blockchain-Cryptocurrency` or download it as a ZIP file, and extract it.
-2. All of the builds are packaged in this folder. They all follow the same directory map, and the binary is located at `(Program Name) -> bin -> Debug -> (Program Name).exe`.
-3. **If you wish to remain as secure as possible and only trade, then you should use the Cold-Wallet.** It won't allow you to upload programs, so it is ideal for sending and receiving. The first time it starts up, your keys will be generated and stored in your .dccwallet file. This may take a minute or two, and progress will be written to the console.
-4. **Are you a developer? Then you should use the Standard-Wallet.** Programs are written in a language called Rust. You will need to install that before using ClientCSForm. You can do that by going to the [Rust website](https://www.rust-lang.org/tools/install) and following the instructions there, which is easy and should only take a few minutes. Further instructions on uploads are located at the DCC wiki [here](https://github.com/sam-astro/DC-Blockchain-Cryptocurrency/wiki#upload-program), make sure you have read these and know the rules before uploading your first program.
-5. **If you are interested in earning DCC, then you can use the Miner.** The miner verifies the blockchain network, and also run programs created by clients. Just like the clients, programs are written in a language called Rust and you will need to install Rust before using the Miner. You can do that by going to the [Rust website](https://www.rust-lang.org/tools/install) and following the instructions there, which should only take a few minutes. The miner uses a console interface instead of the GUIs of the clients, but it is very simple to use. You will first be prompted to enter your wallet address. This is the address you will receive payment for each block you mine. If you don't have a wallet address yet, then open the Staandard-Wallet or Cold-Wallet and sign in. Your wallet will be generated and shown at the top of the window. Next, you will be asked if you want to stay signed in. This will only store your wallet address so you don't need to sign in the next time you open this program. After that, there are a few options for you:
+2. All of the builds are packaged in this folder. They all follow the same directory map, and the binary is located at `DCC-Miner/out/DCC-Miner/Debug/DCC-Miner.exe`.
+3. A change from the C# version, is that all functionality is now combined into a single program, which can handle transactions, submitting programs, and mining. It is also currently a command-line only interface while in development. 
+4. **If you are interested in earning DCC, then you can use the Mining aspect of the client.** The miner verifies the blockchain network, and also run programs created by developers. Just like the developers, programs are written in a language called Rust and you will need to install Rust before using the Miner. You can do that by going to the [Rust website](https://www.rust-lang.org/tools/install) and following the instructions there, which should only take a few minutes. Just use the `--mine` command to start mining a single block. You can also specify how many blocks you want to mine after the command like: `--mine 10` will mine 10 blocks. Using `-1` will mine until you stop the program.
 ```
-Usage: miner [options]
+Usage: DCC-Miner.exe [options]
 		 OR (while in interactive mode)
-	   DCC >  [options]
+       Input: [options]
 Options:
-  -h, --help						  Display this help menu
-  -s, --sync						  Manually re-sync blockchain
-  -m, --mine <amount>			      Mine <amount> number of blocks, defaults to 1 if not specified
-  -ma, --mineany <block num> <dif>	  (Debug) Mines the block specified by <block num> at the given difficulty <dif>
+  -h, --help                          Display this help menu
+  -v, --version                       Print the current wallet and block version
+  -s, --sync                          Manually re-sync blockchain
+  -sb, --syncblock                    Manually re-sync a single block on the blockchain
+  -m, --mine <amount>                 Mine <amount> number of blocks, defaults to 1 if not specified
+  -ma, --mineany <block num> <dif>    (Debug) Mines the block specified by <block num> at the given 
+                                          difficulty <dif>
+  --funds                             Count and print the funds of the user
+  --difficulty                        Calculate the expected block's difficulty
+  -sn, --send <addr> <amount>         Sends the <amount> of DCC to a receiving address <addr>
+  -sp, --superblock                   Generates a debug superblock to summarize all transactions
+  -vf, --verify                       Verify the entire blockchain to make sure all blocks are valid
+  -p, --pool <url>                    Start mining at a pool, given by <url>. Default is
+                                          http://dccpool.us.to:3333
 ```
 Inputting one of these commands and pressing the Enter key will execute the command. To begin mining, simply type "mine" (and a block amount, if you want to mine more than one).
 
 ## Example of block format:
+> This is the genesis block
 ```
 {
 	"Version": null,
@@ -70,3 +68,15 @@ Inputting one of these commands and pressing the Enter key will execute the comm
 ## Using:
 * OpenSSL
 * cURL
+
+
+<!----------------------------------------------------------------------------->
+
+[License]: LICENSE
+[Discord Server]: https://discord.gg/9p82dTEdkN
+
+
+<!----------------------------------[ Badges ]--------------------------------->
+
+[Badge License]: https://img.shields.io/badge/license-DCC-brightgreen
+[Button Discord]: https://img.shields.io/badge/Discord_Server-573f75.svg?style=social&logo=Discord

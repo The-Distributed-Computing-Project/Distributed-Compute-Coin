@@ -269,18 +269,6 @@ std::string des_decrypt(const std::string& cipherText, const std::string& key)
 std::string GenerateWalletPhrase()
 //std::vector<std::string> GenerateWalletPhrase()
 {
-	BIGNUM *r;
-	static const char rnd_seed[] = "string to make the random number generator think it has entropy";
-
-	r = BN_new();
-	RAND_seed(rnd_seed, sizeof rnd_seed); /* or BN_generate_prime_ex may fail */
-
-	BN_generate_prime_ex(r, 512, 0, NULL, NULL, NULL);
-	std::cout << r << std::endl;
-
-	BN_free(r);
-	
-	return "";
 	
 	//OpenSSL_add_all_algorithms();
 
@@ -304,14 +292,10 @@ std::string GenerateWalletPhrase()
 
 	RAND_set_rand_method(NULL);
 
-	// Seeding, haven't tried yet...
-	//static const char rnd_seed[] = "This is the seed"; // This will be replaced by the 16 word passphrase and block height
-	srand(0);
-	RAND_seed(rnd_seed, sizeof(rnd_seed));
 
 	std::vector<std::string> wordlist;
 	std::string line;
-	std::ifstream fin("./wordlist");
+	std::ifstream fin("./bip39.txt");
 	while (getline(fin, line)) {
 		wordlist.push_back(line);
 	}

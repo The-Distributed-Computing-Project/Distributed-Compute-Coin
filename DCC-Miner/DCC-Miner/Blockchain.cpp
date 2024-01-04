@@ -16,7 +16,7 @@ json programConfig;
 
 //P2P p2p;
 
-#define FATAL_ERROR( msg ) std::cerr << "[" << __FILE__ << ", at line: " << __LINE__ << "] " << msg << std::endl;
+#define ERRORMSG( msg ) std::cerr << "[" << __FILE__ << ", at line: " << __LINE__ << "] " << msg << std::endl;
 
 // Sync a single pending block from a peer
 int SyncPending(P2P& p2p, int whichBlock)
@@ -61,7 +61,7 @@ int Sync(P2P& p2p, json& walletInfo)
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << "Failed to sync chain : " << e.what() << std::endl;
+		ERRORMSG("Failed to sync chain\n" + e.what());
 		return 0;
 	}
 }
@@ -202,7 +202,7 @@ int GetProgram(json& walletInfo)
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		ERRORMSG("Error getting program\n" + e.what());
 		return 0;
 	}
 }
@@ -261,7 +261,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				std::ifstream th;
 				th.open("./wwwdata/blockchain/block1.dccblock");
 				if(!th.is_open())
-					FATAL_ERROR("Could not open file");
+					ERRORMSG("Could not open file");
 				std::stringstream buffer2;
 				buffer2 << th.rdbuf();
 				std::string content2 = buffer2.str();
@@ -327,7 +327,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 		catch (const std::exception& e)
 		{
 			if (constants::debugPrint == true) {
-				std::cerr << std::endl << e.what() << std::endl;
+				ERRORMSG("Error\n" + e.what());
 			}
 			cons.ExitError("Failure, exiting 854");
 		}
@@ -340,7 +340,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				std::ifstream t;
 				t.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 				if(!t.is_open())
-					FATAL_ERROR("Could not open file");
+					ERRORMSG("Could not open file");
 				std::stringstream buffer;
 				buffer << t.rdbuf();
 				std::string content = buffer.str();
@@ -369,7 +369,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				std::ifstream td;
 				td.open("./wwwdata/blockchain/block" + std::to_string(i - 1) + ".dccblock");
 				if(!td.is_open())
-					FATAL_ERROR("Could not open file");
+					ERRORMSG("Could not open file");
 				std::stringstream bufferd;
 				bufferd << td.rdbuf();
 				td.close();
@@ -474,7 +474,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			catch (const std::exception& e)
 			{
 				if (constants::debugPrint == true) {
-					std::cerr << std::endl << e.what() << std::endl;
+					ERRORMSG("Error\n" + e.what());
 				}
 
 				cons.WriteLine();
@@ -492,7 +492,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 	}
 	catch (const std::exception& e)
 	{
-		FATAL_ERROR("Error validating chain:\n" + e.what());
+		ERRORMSG("Error validating chain:\n" + e.what());
 	}
 	return false;
 }
@@ -528,7 +528,7 @@ std::string CalculateDifficulty(json& walletInfo) {
 		std::ifstream tt;
 		tt.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 		if(!tt.is_open())
-			FATAL_ERROR("Could not open file");
+			ERRORMSG("Could not open file");
 		std::stringstream buffert;
 		buffert << tt.rdbuf();
 		json o = json::parse(buffert.str());
@@ -561,7 +561,7 @@ std::string CalculateDifficulty(json& walletInfo) {
 		std::ifstream tt;
 		tt.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 		if(!tt.is_open())
-			FATAL_ERROR("Could not open file");
+			ERRORMSG("Could not open file");
 		std::stringstream buffert;
 		buffert << tt.rdbuf();
 		json o = json::parse(buffert.str());

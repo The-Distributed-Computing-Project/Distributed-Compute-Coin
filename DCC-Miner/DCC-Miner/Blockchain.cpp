@@ -492,8 +492,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << "Error validating chain, 479" << std::endl;
-		std::cerr << e.what() << std::endl;
+		FATAL_ERROR("Error validating chain:\n" + e.what());
 	}
 	return false;
 }

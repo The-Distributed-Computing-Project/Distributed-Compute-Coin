@@ -1,5 +1,4 @@
-#ifndef SETTINGSCONSTS_H
-#define SETTINGSCONSTS_H
+
 #pragma once
 
 
@@ -14,4 +13,3 @@ namespace constants
     constexpr bool debugPrint{ false };
 
 }
-#endif

@@ -76,7 +76,7 @@ while test $# -gt 0; do
         ;;
 
     --cc)
-        echo "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.36.32502/bin/Hostx64/x64/cl.exe"
+        echo "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.37.32705/bin/Hostx64/x64/cl.exe"
         ;;
 
     --prefix)

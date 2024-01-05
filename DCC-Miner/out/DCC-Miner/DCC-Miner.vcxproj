@@ -87,6 +87,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -131,6 +132,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -175,6 +177,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -219,6 +222,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -317,7 +321,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\DCC-Miner\SettingsConsts.h" />
     <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\json.hpp" />
     <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.h" />
     <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp" />
@@ -332,6 +335,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.h" />
     <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp" />
     <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\crypto.h" />
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\crypto.cpp" />
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.cpp" />
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.h" />
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Miner.cpp" />
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Miner.h" />
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\SettingsConsts.h" />
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\System.cpp" />
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\System.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\Code\DC-Cryptocurrency\DCC-Miner\out\ZERO_CHECK.vcxproj">

@@ -4,30 +4,84 @@
 #include <string>
 #include <vector>
 
+#if WINDOWS
+#include <winsock2.h>
+#include <Ws2tcpip.h>
+#include <windows.h>
+#endif
+
+#include <iostream>
+#include <thread>
+#include <math.h>
+
+#include "strops.h"
+#include "Console.h"
+#include <boost/process.hpp>
+#include <chrono>
+#include "Network.h"
+#include "FileManip.h"
+#include "SettingsConsts.h"
+
 
 extern std::vector<std::string> peerList;
+
+//extern P2P p2p;
 
 
 class P2P
 {
 private:
+#if defined(_MSC_VER)
 	SOCKET localSocket;
+#endif
+	int MSG_PART = 0;
+	//int messageStatus = 0;
+	std::vector<std::string> CONNECTION_PARTS = { "" };
 public:
 	//using namespace std;
 	//
 	//std::string NormalizedIPString(SOCKADDR_IN addr);
 	//
 	//void TaskRec();
-	int MSG_PART = 0;
-	bool CONNECTED_TO_PEER = false;
-	int messageStatus = 0;
-	int messageAttempt = 0;
-	std::vector<std::string> CONNECTION_PARTS = {""};
+	std::atomic_bool CONNECTED_TO_PEER = false;
 
+	int messageAttempt = 0;
+	int differentPeerAttempts = 0;
+
+	uint8_t role = -1; //   -1 == offline,  0 == requester,  1 == answerer
+
+	std::atomic_int messageStatus = -1;
+	enum MsgStatus {
+		idle = -1,
+		initial_connect_request = 0,
+		disconnect_request = 9,
+		await_first_success = 1,
+		await_second_success = 2,
+		replying_height = 3,
+		replying_block = 4,
+		replying_pendingblock = 11,
+		requesting_height = 5,
+		requesting_block = 6,
+		requesting_pendingblock = 10,
+		requesting_peer_list = 7,
+		replying_peer_list = 8,
+	};
+
+	int reqDat = -1;
+
+	std::string peerIP;
+	int peerPort;
+
+#if defined(_MSC_VER)
 	std::string NormalizedIPString(SOCKADDR_IN addr);
-	void TaskRec(int update_interval);
-	int SafeSend(SOCKET s, char* buf, int buflen);
-	int StartP2P(std::string addr, std::string port, std::string peerPort);
+#endif
+	void ListenerThread(int update_interval);
+	void RandomizePeer();
+	//int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen);
+	int OpenP2PSocket(int port);
+	void SenderThread();
+	int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen);
+	void InitPeerList();
 };
 
 #endif

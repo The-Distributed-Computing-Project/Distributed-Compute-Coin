@@ -16,9 +16,12 @@
 #include <queue>
 #include <sstream>
 #include "Console.h"
+
+#if WINDOWS
 #include "include/color.hpp"
+#endif
 
-
+#if MULTITHREADED_SAFE
 std::queue<std::ostream> printQueue;
 
 
@@ -33,6 +36,7 @@ void ConsoleQueueHandle(){
 		printQueue.pop();
 	}	
 }
+#endif
 
 std::string Console::colorText(std::string name, std::string color) {
 	return color + name + resetColor;
@@ -72,10 +76,10 @@ void Console::PrintColored(std::string text, std::string fgColor, std::string bg
 	#endif
 #else
 	#if MULTITHREADED_SAFE
-	printQueue.push(fgColor + bgColor + name + resetColor);
+	printQueue.push(fgColor + bgColor + text + resetColor);
 	ConsoleQueueHandle();
 	#else
-	cout << fgColor + bgColor + name + resetColor;
+	std::cout << fgColor + bgColor + text + resetColor;
 	#endif
 #endif
 }
@@ -168,7 +172,9 @@ void Console::WriteLine(std::string message, std::string fgColor, std::string bg
 void Console::Write()
 {
 	//std::cout;
+#if MULTITHREADED_SAFE
 	ConsoleQueueHandle();
+#endif
 }
 void Console::Write(std::string message)
 {
@@ -222,6 +228,13 @@ void Console::WriteBulleted(std::string message, int indents)
 		ind += "\t";
 	Console::PrintColored(ind + "- " + message, "", "");
 }
+void Console::WriteLineCharArrayOfLen(char* message, int len)
+{
+	for (size_t i = 0; i < len; i++)
+		std::cout << message[i];
+
+	std::cout << std::endl;
+}
 //void Console::WriteDialogueAuthor(std::string coloredType)
 //{
 //	Console::PrintColored(coloredType, "", "");
@@ -241,4 +254,13 @@ void Console::ExitError(std::string errMessage)
 	std::cout << "Press Enter to Continue";
 	std::cin.ignore();
 	exit(1);
+}
+
+// Print a connection error dialog
+void ConnectionError()
+{
+	//connectionStatus = 0;
+	Console console;
+	console.NetworkErrorPrint();
+	console.WriteLine("Failed To Connect");
 }

@@ -48,6 +48,10 @@ std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 }
 #endif
 
+bool P2P::isAwaiting(){
+	return reqDat != -1;
+}
+
 // Safely send some data as a string, and split large amounts of data into multiple segments to be sent sequentially.
 int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen)
 {

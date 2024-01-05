@@ -61,7 +61,7 @@ int Sync(P2P& p2p, json& walletInfo)
 	}
 	catch (const std::exception& e)
 	{
-		ERRORMSG("Failed to sync chain\n" + e.what());
+		ERRORMSG("Failed to sync chain\n" << e.what());
 		return 0;
 	}
 }
@@ -202,7 +202,7 @@ int GetProgram(json& walletInfo)
 	}
 	catch (const std::exception& e)
 	{
-		ERRORMSG("Error getting program\n" + e.what());
+		ERRORMSG("Error getting program\n" << e.what());
 		return 0;
 	}
 }
@@ -327,7 +327,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 		catch (const std::exception& e)
 		{
 			if (constants::debugPrint == true) {
-				ERRORMSG("Error\n" + e.what());
+				ERRORMSG("Error\n" << e.what());
 			}
 			cons.ExitError("Failure, exiting 854");
 		}
@@ -474,7 +474,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			catch (const std::exception& e)
 			{
 				if (constants::debugPrint == true) {
-					ERRORMSG("Error\n" + e.what());
+					ERRORMSG("Error\n" << e.what());
 				}
 
 				cons.WriteLine();
@@ -492,7 +492,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 	}
 	catch (const std::exception& e)
 	{
-		ERRORMSG("Error validating chain:\n" + e.what());
+		ERRORMSG("Error validating chain:\n" << e.what());
 	}
 	return false;
 }

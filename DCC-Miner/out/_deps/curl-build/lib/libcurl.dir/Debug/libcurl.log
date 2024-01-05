@@ -1,2 +1,4 @@
 ﻿  Auto build dll exports
+  LINK : D:\Code\DC-Cryptocurrency\DCC-Miner\out\Debug\libcurl-d.dll not found or not built by the last incremental link; performing full link
+     Creating library D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/curl-build/lib/Debug/libcurl-d_imp.lib and object D:/Code/DC-Cryptocurrency/DCC-Miner/out/_deps/curl-build/lib/Debug/libcurl-d_imp.exp
   libcurl.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\Debug\libcurl-d.dll

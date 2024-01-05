@@ -28,7 +28,7 @@ int SyncPending(P2P& p2p, int whichBlock)
 	p2p.messageAttempt = 0;
 	p2p.reqDat = whichBlock;
 
-	while (p2p.reqDat != -1) {}
+	while (p2p.isAwaiting()) {}
 
 	return 1;
 }
@@ -43,7 +43,7 @@ int SyncBlock(P2P& p2p, int whichBlock)
 	p2p.messageAttempt = 0;
 	p2p.reqDat = whichBlock;
 
-	while (p2p.reqDat != -1) {}
+	while (p2p.isAwaiting()) {}
 
 	return 1;
 }

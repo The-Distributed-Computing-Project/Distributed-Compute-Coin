@@ -228,6 +228,29 @@ float GetProgramLifeLeft()
 	}
 }
 
+bool VerifyTransaction(json& tx, uint32_t id = 0){
+	std::string signature = decode64((std::string)tx["sec"]["signature"]);
+	
+	// Hash transaction data
+	sha256_string((char*)(tx["tx"].dump()).c_str(), sha256OutBuffer);
+	std::string transHash = sha256OutBuffer;
+
+	// Verify signature by decrypting signature with public key
+	std::string decryptedSig = rsa_pub_decrypt(signature, publicKey);
+
+	// Make sure the signature is valid by seeing if the decrypted version 
+	// is the same as the hash of the transaction
+	if (decryptedSig != transHash) {
+		cons.Write("  Bad signature on T:" + std::to_string(id), cons.redFGColor, "");
+		return false;
+	}
+	return true;
+}
+
+void CreateTransaction(P2P& p2p, json& walletInfo, double& amount){
+
+}
+
 // Check every single block to make sure the nonce is valid, the hash matches the earlier and later blocks, and each transaction has a valid signature.
 bool IsChainValid(P2P& p2p, json& walletInfo)
 {
@@ -441,10 +464,10 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					sha256_string((char*)(o["transactions"][tr]["tx"].dump()).c_str(), sha256OutBuffer);
 					std::string transHash = sha256OutBuffer;
 
-					// Verify signature by decrypting hash with public key
+					// Verify signature by decrypting signature with public key
 					std::string decryptedSig = rsa_pub_decrypt(signature, publicKey);
 
-					// The decrypted signature should be the same as the hash we just generated
+					// The decrypted signature should be the same as the hash of this transaction we just generated
 					if (decryptedSig != transHash) {
 						o["transactions"].erase(o["transactions"].begin() + tr);
 						cons.Write("  Bad signature on T:" + std::to_string(tr), cons.redFGColor, "");

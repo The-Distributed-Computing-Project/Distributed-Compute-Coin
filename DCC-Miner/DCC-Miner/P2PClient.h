@@ -75,6 +75,7 @@ public:
 #if defined(_MSC_VER)
 	std::string NormalizedIPString(SOCKADDR_IN addr);
 #endif
+	bool isAwaiting();
 	void ListenerThread(int update_interval);
 	void RandomizePeer();
 	//int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen);

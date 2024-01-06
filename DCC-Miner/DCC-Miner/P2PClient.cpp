@@ -301,6 +301,65 @@ void P2P::ListenerThread(int update_interval)
 							// If peer is asking for this peer's peerList
 							else if (SplitString(totalMessage, "$$$")[1] == "peerlist")
 								messageStatus = replying_peer_list;
+							// If peer is asking for you to process and record a transaction
+							else if (SplitString(totalMessage, "$$$")[1] == "transactionprocess") {
+								messageStatus = await_first_success;
+								std::string transactionString = SplitString(totalMessage, "$$$")[2];
+
+
+								// Verify the transaction:
+								//	* First ensure it has a valid signature
+								//  * Then see if the user has enough DCC to send
+
+								json transaction = json::parse(transactionString);
+								std::string signature = transaction["sec"]["signature"];
+
+								// Check signature length
+								if (signature.size() == 0)
+									continue;
+
+								// Check if transaction is valid
+								if (VerifyTransaction(transaction, 0, true)) {
+									// Save transaction data to file
+									try
+									{
+										json pendingTransactions = json();
+										pendingTransactions["transactions"] = json::array();
+
+										// Read existing pending transactions file, if it exists
+										std::ifstream transactionsFileRead("./wwwdata/pendingtransactions.dcctxs");
+										if (transactionsFileRead.is_open())
+										{
+											std::stringstream bufferd;
+											bufferd << transactionsFileRead.rdbuf();
+											std::string blockText = bufferd.str();
+											transactionsFileRead.close();
+										}
+
+										// Append the new transaction
+										pendingTransactions["transactions"].push_back(transaction);
+
+										// Save the new transaction list
+										std::ofstream transactionsFileWrite("./wwwdata/pendingtransactions.dcctxs");
+										if (transactionsFileWrite.is_open())
+										{
+											transactionsFileWrite << pendingTransactions.dump();
+											transactionsFileWrite.close();
+											if (constants::debugPrint)
+												console.WriteLine("\nSaved new transaction");
+										}
+									}
+									catch (const std::exception& e)
+									{
+										std::cerr << e.what() << std::endl;
+									}
+
+									if (constants::debugPrint) {
+										console.WriteLine("received transaction: " + (std::string)transaction["tx"]["fromAddr"], console.greenFGColor, "");
+									}
+								}
+
+							}
 
 							if (constants::debugPrint) {
 								console.WriteLine("request " + std::to_string(messageStatus), console.greenFGColor, "");
@@ -657,6 +716,17 @@ void P2P::SenderThread()
 					//// Wait extra 3 seconds
 					//noinput = true;
 				}
+				// Else if requesting other client processes a transaction
+				else if (messageStatus == requesting_transaction_process) {
+					msg = "request$$$transactionprocess$$$" + ReplaceEscapeSymbols(extraData);
+					role = 0;
+					if (constants::debugPrint) {
+						console.Write(msg + "\n");
+					}
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+					//// Wait extra 3 seconds
+					//noinput = true;
+				}
 
 				// Wait 50 milliseconds before sending next message
 				Sleep(50);
@@ -719,4 +789,100 @@ void P2P::SenderThread()
 	WSACleanup();
 
 #endif
+}
+
+bool VerifyTransaction(json& tx, uint32_t id, bool thorough) {
+
+	std::string signature = decode64((std::string)tx["sec"]["signature"]);
+	std::string fromAddress = (std::string)tx["tx"]["fromAddr"];
+	float amountToSend = (float)tx["tx"]["amount"];
+
+	// Hash transaction data
+	char sha256OutBuffer[65];
+	sha256_string((char*)(tx["tx"].dump()).c_str(), sha256OutBuffer);
+	std::string transHash = sha256OutBuffer;
+
+	// Verify signature by decrypting signature with public key
+	std::string decryptedSig = rsa_pub_decrypt(signature, tx["sec"]["pubKey"]);
+
+	// Make sure the signature is valid by seeing if the decrypted version 
+	// is the same as the hash of the transaction
+	if (decryptedSig != transHash) {
+		//console.Write("  Bad signature on T:" + std::to_string(id), cons.redFGColor, "");
+		return false;
+	}
+	else if (!thorough)
+		return true;
+
+
+	// Now that it passed the signature test, go back through the 
+	// blockchain to ensure they have enough for the transaction
+
+	int blockCount = FileCount("./wwwdata/blockchain/");
+
+	// Iterate all blocks until the total value for that address is enough to pay
+	int i;
+	float funds = 0;
+	for (i = blockCount - 10; i > 0; i--) {
+		std::ifstream tt;
+		tt.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
+		//if (!tt.is_open())
+		//	ERRORMSG("Could not open file");
+		std::stringstream buffert;
+		buffert << tt.rdbuf();
+		json o = json::parse(buffert.str());
+
+		// Check all transactions to see if they have a valid signature
+		for (int tr = 0; tr < o["transactions"].size(); tr++) {
+			std::string fromAddr = (std::string)o["transactions"][tr]["tx"]["fromAddr"];
+			std::string toAddr = (std::string)o["transactions"][tr]["tx"]["toAddr"];
+			float amount = o["transactions"][tr]["tx"]["amount"];
+			std::string signature = decode64((std::string)o["transactions"][tr]["sec"]["signature"]);
+			std::string publicKey = (std::string)o["transactions"][tr]["sec"]["pubKey"];
+
+			// If this is the first transaction, that is the block reward, so it should be handled differently:
+			if (tr == 0) {
+				if (fromAddress == toAddr) // If this is the receiving address, then give reward
+					funds += amount;
+				continue;
+			}
+
+			// The from address should be the same as the hash of the public key, so check that first:
+			char walletBuffer[65];
+			sha256_string((char*)(publicKey).c_str(), walletBuffer);
+			std::string expectedWallet = walletBuffer;
+			if (fromAddr != expectedWallet) {
+				o["transactions"].erase(o["transactions"].begin() + tr);
+				continue;
+			}
+
+			// Hash transaction data
+			sha256_string((char*)(o["transactions"][tr]["tx"].dump()).c_str(), sha256OutBuffer);
+			transHash = sha256OutBuffer;
+
+			// Verify signature by decrypting signature with public key
+			decryptedSig = rsa_pub_decrypt(signature, publicKey);
+
+			// The decrypted signature should be the same as the hash of this transaction we just generated
+			if (decryptedSig != transHash) {
+				o["transactions"].erase(o["transactions"].begin() + tr);
+				//cons.Write("  Bad signature on T:" + std::to_string(tr), cons.redFGColor, "");
+				continue;
+			}
+
+			// Now check if the sending or receiving address is the same as the user's
+			if (fromAddress == fromAddr)
+				funds -= amount;
+			else if (fromAddress == toAddr)
+				funds += amount;
+		}
+
+		// Check if the required amount of funds have been counted yet
+		// If Yes, the transaction is now counted as valid.
+		if (funds >= amountToSend)
+			return true;
+	}
+
+	// If all blocks are exhausted without enough funds, transaction is invalid.
+	return false;
 }

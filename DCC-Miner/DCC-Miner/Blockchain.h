@@ -1,5 +1,4 @@
-#ifndef BLOCKCHAIN_H
-#define BLOCKCHAIN_H
+#pragma once
 
 #include "json.hpp"
 #include "strops.h"
@@ -23,7 +22,7 @@ namespace fs = std::filesystem;
 
 
 int SyncPending(P2P& p2p, int whichBlock);
-int SyncBlock(P2P& p2p, int whichBlock);
+int SyncBlock(P2P& p2p, int whichBlock, bool force = false);
 int Sync(P2P& p2p, json& walletInfo);
 json ReadProgramConfig();
 int WriteProgramConfig();
@@ -34,4 +33,3 @@ std::string CalculateDifficulty(json& walletInfo);
 json UpgradeBlock(json& b);
 void CreateSuperblock();
 
-#endif

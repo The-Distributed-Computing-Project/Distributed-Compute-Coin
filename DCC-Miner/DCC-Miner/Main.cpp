@@ -154,22 +154,6 @@ int main()
 	console.SystemPrint();
 	console.WriteLine("Getting wallet info...");
 
-	walletInfo["Funds"] = 0.0f;
-	walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
-	walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
-
-	console.MiningPrint();
-	console.Write("There are ");
-	console.Write(std::to_string((int)walletInfo["PendingLength"]), console.greenFGColor, "");
-	console.WriteLine(" Block(s) to compute");
-
-	console.SystemPrint();
-	console.WriteLine("Calculating difficulty...");
-	std::string dif = CalculateDifficulty(walletInfo);
-	console.SystemPrint();
-	console.Write("The current difficulty looks like: ");
-	console.WriteLine(ExtractPaddedChars(dif, '0'), console.redFGColor, "");
-
 	console.NetworkPrint();
 	console.WriteLine("Syncing blocks...");
 	Sync(p2p, walletInfo);
@@ -191,6 +175,26 @@ int main()
 	console.SystemPrint();
 	console.Write("You have: ");
 	console.WriteLine("$" + CommaLargeNumberF((double)walletInfo["Funds"]) + " credits\n", console.yellowFGColor, "");
+	/*console.Write("Your address is:\n");
+	console.WriteLine((std::string)walletInfo["Address"], console.g, "");*/
+
+
+	walletInfo["Funds"] = 0.0f;
+	walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
+	walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
+
+	console.MiningPrint();
+	console.Write("There are ");
+	console.Write(std::to_string((int)walletInfo["PendingLength"]), console.greenFGColor, "");
+	console.WriteLine(" Block(s) to compute");
+
+	console.SystemPrint();
+	console.WriteLine("Calculating difficulty...");
+	std::string dif = CalculateDifficulty(walletInfo);
+	console.SystemPrint();
+	console.Write("The current difficulty looks like: ");
+	console.WriteLine(ExtractPaddedChars(dif, '0'), console.redFGColor, "");
+
 
 
 	//
@@ -205,6 +209,14 @@ int main()
 			console.ErrorPrint();
 			console.WriteLine("Invalid command");
 			continue;
+		}
+
+		// Allow for no -- or - prefix
+		if (!StringStartsWith(command, "-")) {
+			if (command.size() <= 2)
+				command = "-" + command;
+			else
+				command = "--" + command;
 		}
 
 		if (SplitString(ToUpper(command), " ")[0] == "--HELP" || SplitString(ToUpper(command), " ")[0] == "-H")
@@ -237,14 +249,17 @@ int main()
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--SYNCBLOCK" || SplitString(ToUpper(command), " ")[0] == "-SB")
 		{
-			int blockNum;
+			int blockNum = 0;
 			try
 			{
 				blockNum = stoi(SplitString(ToUpper(command), " ")[1]);
-				SyncBlock(p2p, blockNum);
+				console.NetworkPrint();
+				console.WriteLine("Syncing block " + std::to_string(blockNum));
+				SyncBlock(p2p, blockNum, true);
 			}
 			catch (const std::exception& e)
 			{
+				console.NetworkErrorPrint();
 				console.WriteLine("Error syncing. : " + (std::string)e.what(), "", console.redFGColor);
 			}
 		}

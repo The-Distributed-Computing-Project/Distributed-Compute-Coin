@@ -1,3 +1,5 @@
+#pragma once
+
 
 #include "Blockchain.h"
 
@@ -34,9 +36,9 @@ int SyncPending(P2P& p2p, int whichBlock)
 }
 
 // Sync a single solid block from a peer
-int SyncBlock(P2P& p2p, int whichBlock)
+int SyncBlock(P2P& p2p, int whichBlock, bool force)
 {
-	if (fs::exists("./wwwdata/blockchain/block" + std::to_string(whichBlock) + ".dccblock"))
+	if (fs::exists("./wwwdata/blockchain/block" + std::to_string(whichBlock) + ".dccblock") && !force)
 		return 1;
 
 	p2p.messageStatus = p2p.requesting_block;
@@ -226,25 +228,6 @@ float GetProgramLifeLeft()
 	{
 		return 0;
 	}
-}
-
-bool VerifyTransaction(json& tx, uint32_t id = 0){
-	std::string signature = decode64((std::string)tx["sec"]["signature"]);
-	
-	// Hash transaction data
-	sha256_string((char*)(tx["tx"].dump()).c_str(), sha256OutBuffer);
-	std::string transHash = sha256OutBuffer;
-
-	// Verify signature by decrypting signature with public key
-	std::string decryptedSig = rsa_pub_decrypt(signature, publicKey);
-
-	// Make sure the signature is valid by seeing if the decrypted version 
-	// is the same as the hash of the transaction
-	if (decryptedSig != transHash) {
-		cons.Write("  Bad signature on T:" + std::to_string(id), cons.redFGColor, "");
-		return false;
-	}
-	return true;
 }
 
 void CreateTransaction(P2P& p2p, json& walletInfo, double& amount){

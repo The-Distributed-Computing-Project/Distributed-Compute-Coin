@@ -1,5 +1,4 @@
-#ifndef p2pclient_h
-#define p2pclient_h
+#pragma once
 
 #include <string>
 #include <vector>
@@ -14,6 +13,7 @@
 #include <thread>
 #include <math.h>
 
+#include "json.hpp"
 #include "strops.h"
 #include "Console.h"
 #include <boost/process.hpp>
@@ -21,9 +21,12 @@
 #include "Network.h"
 #include "FileManip.h"
 #include "SettingsConsts.h"
+#include "crypto.h"
 
 
 extern std::vector<std::string> peerList;
+
+using json = nlohmann::json;
 
 //extern P2P p2p;
 
@@ -48,26 +51,35 @@ public:
 	int messageAttempt = 0;
 	int differentPeerAttempts = 0;
 
-	uint8_t role = -1; //   -1 == offline,  0 == requester,  1 == answerer
+	int_least8_t role = -1; //   -1 == offline,  0 == requester,  1 == answerer
 
 	std::atomic_int messageStatus = -1;
 	enum MsgStatus {
 		idle = -1,
 		initial_connect_request = 0,
 		disconnect_request = 9,
+
 		await_first_success = 1,
 		await_second_success = 2,
-		replying_height = 3,
-		replying_block = 4,
-		replying_pendingblock = 11,
+
 		requesting_height = 5,
+		replying_height = 3,
+
 		requesting_block = 6,
-		requesting_pendingblock = 10,
+		replying_block = 4,
+
 		requesting_peer_list = 7,
 		replying_peer_list = 8,
+
+		requesting_pendingblock = 10,
+		replying_pendingblock = 11,
+
+		requesting_transaction_process = 12,
+		replying_transaction_process = 13,
 	};
 
 	int reqDat = -1;
+	std::string extraData = "";
 
 	std::string peerIP;
 	int peerPort;
@@ -85,4 +97,5 @@ public:
 	void InitPeerList();
 };
 
-#endif
+bool VerifyTransaction(json& tx, uint32_t id = 0, bool thorough = false);
+

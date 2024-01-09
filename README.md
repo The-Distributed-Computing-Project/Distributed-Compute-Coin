@@ -51,8 +51,9 @@ Through this update, the uploading process should also be finalized, so as to co
 
 The new command will be:
 ```
---buy-computation <funds> <container> [cpu-power] [gpu-power]      Create a program on the network, and allocate <funds> to be paid to the respective miners. Optionally, the [cpu-power] option can specify an integer between 0-10, between lowest cpu power required and max cpu power required. The [gpu-power] option is similar.
+--buy-computation <funds> <container> [cpu-power] [gpu-power] [memory]     Create a program on the network, and allocate <funds> to be paid to the respective miners.
 ```
+Optionally, the `[cpu-power]` option can specify an integer between 0-10, between lowest cpu power required and max cpu power required. The `[gpu-power]` option is similar. The `[memory]` option is used to specify how much RAM the container has access to in GB. By default, this value is 2 GB.
 
 ## Using:
 * OpenSSL

@@ -123,8 +123,8 @@ void Console::CompilerErrorPrint()
 void Console::BlockCheckerPrint()
 {
 	Console::PrintColored("[", yellowFGColor, "");
-	Console::PrintColored("Block-Checker", greenFGColor, cyanBGColor);
-	Console::PrintColored("]  - ", yellowFGColor, "");
+	Console::PrintColored("Blockchain", greenFGColor, cyanBGColor);
+	Console::PrintColored("]     - ", yellowFGColor, "");
 }
 void Console::DebugPrint()
 {

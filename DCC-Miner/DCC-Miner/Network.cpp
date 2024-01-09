@@ -26,24 +26,6 @@
 //	return html;
 //}
 
-int DownloadFile(std::string url, std::string saveAs)
-{
-	CURL* curl;
-	FILE* fp;
-	CURLcode res;
-	curl = curl_easy_init();
-	if (curl)
-	{
-		fp = fopen(saveAs.c_str(), "wb");
-		curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, NULL);
-		curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
-		res = curl_easy_perform(curl);
-		curl_easy_cleanup(curl);
-		fclose(fp);
-	}
-	return 0;
-}
 int DownloadFile(std::string url, std::string saveAs, bool printStatus)
 {
 	Console console;

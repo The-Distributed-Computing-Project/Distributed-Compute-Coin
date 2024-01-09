@@ -109,7 +109,7 @@ int GetProgram(json& walletInfo)
 			walletInfo["ProgramID"] = programID;
 			life = GetProgramLifeLeft();
 			cons.MiningPrint();
-			cons.WriteLine("Program life is " + std::to_string(life));
+			cons.WriteLine("Program life is " + std::to_string(life) + " mins.");
 			break;
 		}
 	}
@@ -237,6 +237,8 @@ void CreateTransaction(P2P& p2p, json& walletInfo, double& amount){
 // Check every single block to make sure the nonce is valid, the hash matches the earlier and later blocks, and each transaction has a valid signature.
 bool IsChainValid(P2P& p2p, json& walletInfo)
 {
+	cons.BlockCheckerPrint();
+	cons.WriteLine("Validating blockchain...");
 	try {
 		/*while (FileCount("./wwwdata/blockchain/") < walletInfo["BlockchainLength"])
 		{
@@ -332,10 +334,11 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 		}
 		catch (const std::exception& e)
 		{
-			if (constants::debugPrint == true) {
+			//if (constants::debugPrint == true) {
+			std::cerr << "\n";
 				ERRORMSG("Error\n" << e.what());
-			}
-			cons.ExitError("Failure, exiting 854");
+			//}
+			//cons.ExitError("Failure, exiting 854");
 		}
 
 		// Then process the rest of the blocks
@@ -355,7 +358,9 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				bool changedBlockData = false;
 				json o = json::parse(content);
 
+				std::string rewardedAddress; // The address that is awarded the gas fees and block reward
 
+				// Make sure block is up-to-date
 				if (o["_version"] == nullptr || o["_version"] == "" || o["_version"] != BLOCK_VERSION)
 				{
 					UpgradeBlock(o);
@@ -431,6 +436,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 						if ((std::string)walletInfo["Address"] == toAddr) { // If this is the receiving address, then give reward
 							tmpFunds2 += amount;
 						}
+						rewardedAddress = toAddr;
 						continue;
 					}
 
@@ -464,6 +470,8 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					}
 					else if ((std::string)walletInfo["Address"] == toAddr)
 						tmpFunds2 += amount;
+					else if (rewardedAddress == (std::string)walletInfo["Address"]) // If you are the one that mined this block, add gas fees
+						tmpFunds2 += (float)o["transactions"][tr]["tx"]["transactionFee"];
 				}
 
 				// Update funds and transaction number
@@ -492,14 +500,20 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			}
 		}
 
-		cons.WriteLine();
+		//cons.WriteLine();
 		walletInfo["Funds"] = tmpFunds;
+		cons.Write("\r");
+		cons.BlockCheckerPrint();
+		cons.Write("Done!                                                         \n");
 		return true;
 	}
 	catch (const std::exception& e)
 	{
 		ERRORMSG("Error validating chain:\n" << e.what());
 	}
+	cons.Write("\r");
+	cons.BlockCheckerPrint();
+	cons.Write("Done! (there were problems)                                                        \n");
 	return false;
 }
 
@@ -507,11 +521,11 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 // Calculates the difficulty of the next block by looking at the past 720 blocks,
 // and averaging the time it took between each block to keep it within the 2 min (120 second) range
 std::string CalculateDifficulty(json& walletInfo) {
-	std::string targetDifficulty = "0000000FFFFFF000000000000000000000000000000000000000000000000000";
+	std::string targetDifficulty = "000000FFFFFF0000000000000000000000000000000000000000000000000000";
 
 	int blockCount = FileCount("./wwwdata/blockchain/");
 
-	// Default difficulty 7 for the first 720 blocks 
+	// Default difficulty 6 for the first 720 blocks 
 	if (blockCount <= 721) {
 		walletInfo["targetDifficulty"] = targetDifficulty;
 		walletInfo["MineDifficulty"] = ExtractPaddedChars(targetDifficulty, '0');
@@ -621,17 +635,21 @@ void CreateSuperblock() {
 		buffert << tt.rdbuf();
 		json o = json::parse(buffert.str());
 
+		std::string rewardedAddress; // The address that is awarded the gas fees and block reward
+
 		// Add / subtract value from each address in the transactions
 		for (int tr = 0; tr < o["transactions"].size(); tr++) {
 			std::string fromAddr = (std::string)o["transactions"][tr]["tx"]["fromAddr"];
 			std::string toAddr = (std::string)o["transactions"][tr]["tx"]["toAddr"];
 			double amount = o["transactions"][tr]["tx"]["amount"];
+			double transactionFee = o["transactions"][tr]["tx"]["transactionFee"];
 
 			if (tr == 0) {
 				if (walletBalances.contains(toAddr))
 					walletBalances[toAddr] += amount;
 				else
 					walletBalances[toAddr] = amount;
+				rewardedAddress = toAddr;
 			}
 			else {
 				if (walletBalances.contains(fromAddr))
@@ -643,6 +661,11 @@ void CreateSuperblock() {
 					walletBalances[toAddr] += amount;
 				else
 					walletBalances[toAddr] = amount;
+
+				if (walletBalances.contains(rewardedAddress))
+					walletBalances[rewardedAddress] += transactionFee;
+				else
+					walletBalances[rewardedAddress] = transactionFee;
 			}
 		}
 	}
@@ -775,6 +798,19 @@ json UpgradeBlock(json& b)
 		}
 		b["_version"] = "v0.7.0-alpha-coin";
 	}
+
+	//// v0.7.1-alpha-coin
+	//// Changes:
+	//// * Enforce transactionFee variable
+	//// * Update version
+	//if (IsVersionGreaterOrEqual(currentVersion, "v0.7.1-alpha-coin") == false)
+	//{
+	//	// Add transactionFee to each transaction
+	//	for (int tr = 0; tr < b["transactions"].size(); tr++) {
+	//		b["transactions"][tr]["tx"]["transactionFee"] = 0.0;
+	//	}
+	//	b["_version"] = "v0.7.1-alpha-coin";
+	//}
 
 
 

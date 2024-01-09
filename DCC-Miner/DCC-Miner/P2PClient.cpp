@@ -820,6 +820,7 @@ bool VerifyTransaction(json& tx, uint32_t id, bool thorough) {
 
 	int blockCount = FileCount("./wwwdata/blockchain/");
 
+
 	// Iterate all blocks until the total value for that address is enough to pay
 	int i;
 	float funds = 0;
@@ -831,6 +832,8 @@ bool VerifyTransaction(json& tx, uint32_t id, bool thorough) {
 		std::stringstream buffert;
 		buffert << tt.rdbuf();
 		json o = json::parse(buffert.str());
+
+		std::string rewardedAddress; // The address that is awarded the gas fees and block reward
 
 		// Check all transactions to see if they have a valid signature
 		for (int tr = 0; tr < o["transactions"].size(); tr++) {
@@ -844,6 +847,7 @@ bool VerifyTransaction(json& tx, uint32_t id, bool thorough) {
 			if (tr == 0) {
 				if (fromAddress == toAddr) // If this is the receiving address, then give reward
 					funds += amount;
+				rewardedAddress = toAddr;
 				continue;
 			}
 
@@ -871,10 +875,12 @@ bool VerifyTransaction(json& tx, uint32_t id, bool thorough) {
 			}
 
 			// Now check if the sending or receiving address is the same as the user's
-			if (fromAddress == fromAddr)
+			if (fromAddress == fromAddr) // If sending funds
 				funds -= amount;
-			else if (fromAddress == toAddr)
+			else if (fromAddress == toAddr) // If receiving funds
 				funds += amount;
+			else if (rewardedAddress == fromAddress) // If you are the one that mined this block, add gas fees
+				funds += (float)o["transactions"][tr]["tx"]["transactionFee"];
 		}
 
 		// Check if the required amount of funds have been counted yet

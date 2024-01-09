@@ -1,6 +1,6 @@
 
 
-# <img src="https://raw.githubusercontent.com/sam-astro/Distributed-Compute-Coin/optimizations-and-port-to-p2p/DCC-Miner/DCC-Logo.png" height="30rem" style="margin:auto"> Distributed Compute Coin
+# <img src="https://raw.githubusercontent.com/sam-astro/Distributed-Compute-Coin/main/DCC-Miner/DCC-Logo.png" height="30rem" style="margin:auto"> Distributed Compute Coin
 
 [![Badge License]][License]   [![Button Discord]][Discord Server]
 

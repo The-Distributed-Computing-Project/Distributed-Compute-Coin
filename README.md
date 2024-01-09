@@ -37,6 +37,7 @@ Inputting one of these commands and pressing the Enter key will execute the comm
 
 ## Docker Update
 For a much increased ability to compute, better portability, and fine control of the permissions programs are able to exercise, Docker containers will be replacing Rust programs in the near future.
+
 A set of commands for managing task may look like:
 ```ruby
 # Start container with limited network and file access 
@@ -45,6 +46,12 @@ docker run --network none --rm --name=<taskID> -v "C:\Program Files\DCC\TaskData
 docker wait <taskID>;
 # Stop the container
 docker stop <taskID>;
+```
+Through this update, the uploading process should also be finalized, so as to completely remove the the server that has been passing out and managing programs since the C# implementation.
+
+The new command will be:
+```
+--buy-computation <funds> <container> [cpu-power] [gpu-power]      Create a program on the network, and allocate <funds> to be paid to the respective miners. Optionally, the [cpu-power] option can specify an integer between 0-10, between lowest cpu power required and max cpu power required. The [gpu-power] option is similar.
 ```
 
 ## Using:

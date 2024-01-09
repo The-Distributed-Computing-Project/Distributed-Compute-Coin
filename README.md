@@ -1,15 +1,17 @@
 
 
-# <img src="https://raw.githubusercontent.com/sam-astro/Distributed-Compute-Coin/dev/DCC-Miner/DCC-Logo.png" height="30rem" style="margin:auto"> Distributed Compute Coin
+# <img src="./DCC-Miner/DCC-Logo.png" height="30rem" style="margin:auto"> Distributed Compute Coin
 
 [![Badge License]][License]   [![Button Discord]][Discord Server]
 
 A unique P2P blockchain built in C++, with a trading client and a miner. This crypto can be bought, traded, sold, mined, or used just like any other. What sets it apart though is how it can be used, and the technique for mining. It is based on sharing mining computing hardware with developers to run their programs better and compute a large amount of data quickly, using Distributed Computing. Anybody can submit code using the client to be run across the peer-to-peer network, and will pay for that using this crypto.
 
-If you want to learn more, please feel free to go to [the wiki.](https://github.com/sam-astro/DC-Blockchain-Cryptocurrency/wiki)
+If you want to learn more, please feel free to go to [the wiki.](https://github.com/sam-astro/Distributed-Compute-Coin/wiki)
+
+<hr>
 
 ## Installation / Use:
-1. First, either clone with `git clone https://github.com/sam-astro/DC-Blockchain-Cryptocurrency` or download it as a ZIP file, and extract it.
+1. First, either clone with `git clone https://github.com/sam-astro/Distributed-Compute-Coin` or download it as a ZIP file, and extract it.
 2. All of the builds are packaged in this folder. They all follow the same directory map, and the binary is located at `DCC-Miner/out/DCC-Miner/Debug/DCC-Miner.exe`.
 3. A change from the C# version, is that all functionality is now combined into a single program, which can handle transactions, submitting programs, and mining. It is also currently a command-line only interface while in development. 
 4. **If you are interested in earning DCC, then you can use the Mining aspect of the client.** The miner verifies the blockchain network, and also run programs created by developers. Just like the developers, programs are written in a language called Rust and you will need to install Rust before using the Miner. You can do that by going to the [Rust website](https://www.rust-lang.org/tools/install) and following the instructions there, which should only take a few minutes. Just use the `--mine` command to start mining a single block. You can also specify how many blocks you want to mine after the command like: `--mine 10` will mine 10 blocks. Using `-1` will mine until you stop the program.
@@ -35,7 +37,9 @@ Options:
 ```
 Inputting one of these commands and pressing the Enter key will execute the command. To begin mining, simply type "mine" (and a block amount, if you want to mine more than one).
 
-## Docker Update
+<hr>
+
+# The Docker Update
 For a much increased ability to compute, better portability, and fine control of the permissions programs are able to exercise, Docker containers will be replacing Rust programs in the near future.
 
 A set of commands for managing task may look like:
@@ -47,6 +51,8 @@ docker wait <taskID>;
 # Stop the container
 docker stop <taskID>;
 ```
+
+## Computation Buying
 Through this update, the uploading process should also be finalized, so as to completely remove the the server that has been passing out and managing programs since the C# implementation.
 
 The new command will be:
@@ -55,9 +61,13 @@ The new command will be:
 ```
 Optionally, the `[cpu-power]` option can specify an integer between 0-10, between lowest cpu power required and max cpu power required. The `[gpu-power]` option is similar. The `[memory]` option is used to specify how much RAM the container has access to in GB. By default, this value is 2 GB.
 
-## Using:
-* OpenSSL
-* cURL
+There will also be a command to verify the readiness of a container before releasing, to ensure it works with the limited file, network, and resource access:
+```
+--verify-container <container> [cpu-power] [gpu-power] [memory]
+```
+The above options still apply, so you can test how well they will perform on your own hardware.
+
+<hr>
 
 
 ## Example of block format:
@@ -90,7 +100,27 @@ Optionally, the `[cpu-power]` option can specify an integer between 0-10, betwee
 }
 ```
 
+<hr>
 
+## Here is how the system works in 5 simplified steps:
+
+### 1. Announce program to peers, with reward as payment
+<img src="./Media/Steps_1.png">
+
+### 2. Peers download program
+<img src="./Media/Steps_2.png">
+
+### 3. They compute program while they mine
+<img src="./Media/Steps_3.png">
+
+### 4. They send the computed data back to the developer, which is compiled into a large block, computed in a fraction of the time it would normally have taken
+<img src="./Media/Steps_4.png">
+
+<hr>
+
+## Using:
+* OpenSSL
+* cURL
 
 <!----------------------------------------------------------------------------->
 

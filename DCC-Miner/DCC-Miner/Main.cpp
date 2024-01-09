@@ -16,7 +16,7 @@ namespace fs = std::filesystem;
 
 void Help();
 void Logo();
-int SendFunds(std::string& toAddress, float amount);
+int SendFunds(P2P& p2p, std::string& toAddress, float amount);
 
 
 
@@ -45,11 +45,13 @@ int main()
 {
 	Logo();
 
-	console.WriteLine("hextest: ");
-	console.WriteLine("\"" + divideHexByFloat("ffffff", 1.3) + "\"");
-	console.WriteLine("\"" + divideHexByFloat("0f0", 2) + "\"");
-	console.WriteLine("\"" + divideHexByFloat("0fff0", 2) + "\"");
-	console.WriteLine("\"" + multiplyHexByFloat("ff00", 2) + "\"");
+	if (constants::debugPrint) {
+		console.WriteLine("hextest: ");
+		console.WriteLine("\"" + divideHexByFloat("ffffff", 1.3) + "\"");
+		console.WriteLine("\"" + divideHexByFloat("0f0", 2) + "\"");
+		console.WriteLine("\"" + divideHexByFloat("0fff0", 2) + "\"");
+		console.WriteLine("\"" + multiplyHexByFloat("ff00", 2) + "\"");
+	}
 
 	// Create required directories if they don't exist
 	for (std::string dir : directoryList)
@@ -58,6 +60,15 @@ int main()
 			console.WriteLine("Creating " + dir);
 			fs::create_directory(dir);
 		}
+
+	// Get public IP address
+	console.NetworkPrint();
+	console.WriteLine("Getting public IP address...");
+	Http http;
+	std::vector<std::string> args;
+	std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
+	console.NetworkPrint();
+	console.WriteLine("Done.");
 
 	// Create config.cfg file if it doesn't exist 
 	console.SystemPrint();
@@ -70,15 +81,6 @@ int main()
 		std::cin >> prt;
 		if (prt <= 0 || prt > 65535)
 			prt = 5000;
-
-		// Get public IP address
-		console.NetworkPrint();
-		console.WriteLine("Getting public IP address...");
-		Http http;
-		std::vector<std::string> args;
-		std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
-		console.NetworkPrint();
-		console.WriteLine("Done.");
 
 		std::ofstream configFile("./config.cfg");
 		if (configFile.is_open())
@@ -142,7 +144,7 @@ int main()
 	// Open the socket required to accept P2P requests and send responses
 	p2p.OpenP2PSocket((int)walletConfig["port"]);
 	// Start the P2P listener thread
-	std::thread t1(&P2P::ListenerThread, &p2p, 500);
+	std::thread t1(&P2P::ListenerThread, &p2p, 10);
 	// Start the P2P sender thread
 	std::thread t2(&P2P::SenderThread, &p2p);
 
@@ -159,13 +161,7 @@ int main()
 	Sync(p2p, walletInfo);
 	try
 	{
-		console.BlockCheckerPrint();
-		console.WriteLine("Validating blockchain...");
-
 		IsChainValid(p2p, walletInfo);
-
-		console.BlockCheckerPrint();
-		console.WriteLine("Done!");
 	}
 	catch (const std::exception&)
 	{
@@ -179,7 +175,7 @@ int main()
 	console.WriteLine((std::string)walletInfo["Address"], console.g, "");*/
 
 
-	walletInfo["Funds"] = 0.0f;
+	//walletInfo["Funds"] = 0.0f;
 	walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
 	walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
 
@@ -272,7 +268,7 @@ int main()
 				toAddr = SplitString(command, " ")[1];
 				amnt = stof(SplitString(ToUpper(command), " ")[2]);
 
-				if (SendFunds(toAddr, amnt) == 0)
+				if (SendFunds(p2p, toAddr, amnt) == 0)
 				{
 					ConnectionError();
 					continue;
@@ -287,13 +283,7 @@ int main()
 		{
 			try
 			{
-				console.BlockCheckerPrint();
-				console.WriteLine("Validating blockchain...");
-
 				IsChainValid(p2p, walletInfo);
-
-				console.BlockCheckerPrint();
-				console.WriteLine("Done!");
 			}
 			catch (const std::exception&)
 			{
@@ -371,7 +361,8 @@ int main()
 						{"fromAddr", "Block Reward"},
 						{"toAddr", (std::string)walletInfo["Address"]},
 						{"amount", 1},
-						{"unlockTime", 10}
+						{"unlockTime", 10},
+						{"transactionFee", 0.01}
 				};
 				txDat["sec"] = {
 						{"signature", ""},
@@ -445,7 +436,7 @@ void Logo()
  _| |_.' /\ `.___.'\\ `.___.'\ 
 |______.'  `.____ .' `.____ .' 
 
-DCC, copyright (c) AstroSam (sam-astro) 2021-2023
+DCC, copyright (c) AstroSam (sam-astro) 2021-2024
 )V0G0N", console.cyanFGColor, "");
 	console.WriteLine("client: " + VERSION, console.cyanFGColor, "");
 	console.WriteLine("block: " + BLOCK_VERSION + "\n\n", console.cyanFGColor, "");
@@ -481,7 +472,7 @@ Options:
 
 // Send funds to another address, by first checking if the user has enough funds in the first place,
 // then adding the transaction and signature to a pending block
-int SendFunds(std::string& toAddress, float amount)
+int SendFunds(P2P& p2p, std::string& toAddress, float amount)
 {
 	console.DebugPrint();
 	console.Write("Sending ");
@@ -494,50 +485,8 @@ int SendFunds(std::string& toAddress, float amount)
 	console.WriteLine("Syncing blocks...");
 	Sync(p2p, walletInfo);
 
-	// If there are no pending blocks, create one
-	if (FileCount("./wwwdata/pendingblocks/") == 0) {
-		// Load last block to get the hash
-		std::ifstream blockFile("./wwwdata/blockchain/block" + std::to_string(FileCount("./wwwdata/blockchain/")) + ".dccblock");
-		std::stringstream blockBuffer;
-		blockBuffer << blockFile.rdbuf();
-		std::string content = blockBuffer.str();
-		blockFile.close();
-		json lastBlockJson = json::parse(content);
-
-
-		json blockJson = json();
-
-		blockJson["hash"] = "0000000000000000000000000000000000000000000000000000000000000000";
-		blockJson["lastHash"] = (std::string)lastBlockJson["hash"];
-		blockJson["nonce"] = "";
-		blockJson["time"] = "";
-		blockJson["targetDifficulty"] = "";
-		blockJson["_version"] = BLOCK_VERSION;
-		blockJson["transactions"] = json::array();
-		blockJson["id"] = FileCount("./wwwdata/blockchain/") + 1;
-
-		// Save new json data to file into finished blockchain folder
-		try
-		{
-			std::ofstream blockFilew("./wwwdata/pendingblocks/block" + std::to_string(FileCount("./wwwdata/blockchain/") + 1) + ".dccblock");
-			if (blockFilew.is_open())
-			{
-				blockFilew << blockJson.dump();
-				blockFilew.close();
-			}
-		}
-		catch (const std::exception& e)
-		{
-			if (constants::debugPrint == true) {
-				std::cerr << e.what() << std::endl;
-			}
-			return 0;
-		}
-	}
-
-	walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
-	walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
-
+	
+	// Make sure chain is completely valid
 	while (!IsChainValid(p2p, walletInfo))
 	{
 		for (auto oldBlock : fs::directory_iterator("./wwwdata/blockchain/"))
@@ -569,86 +518,46 @@ int SendFunds(std::string& toAddress, float amount)
 		return 0;
 	}
 
+	// If the transaction appears possible, create it:
 
-	try
-	{
-		// Read contents of last pending block
-		std::ifstream blkData("./wwwdata/pendingblocks/block" + std::to_string((int)walletInfo["BlockchainLength"] + (int)walletInfo["PendingLength"]) + ".dccblock");
-		std::stringstream bufferd;
-		bufferd << blkData.rdbuf();
-		std::string blockText = bufferd.str();
-		if (constants::debugPrint == true) {
-			std::cout << "read from: " << ("./wwwdata/pendingblocks/block" + std::to_string((int)walletInfo["BlockchainLength"] + (int)walletInfo["PendingLength"]) + ".dccblock") << std::endl;
-			std::cout << "textread: " << blockText << std::endl;
-		}
-		json blockJson = json::parse(blockText);
+	// Hash transaction data
+	char sha256OutBuffer[65];
+	json txDat = json::object({});
+	txDat["tx"] = {
+			{"fromAddr", (std::string)walletInfo["Address"]},
+			{"toAddr", toAddress},
+			{"amount", amount},
+			{"unlockTime", 10},
+			{"transactionFee", 0.01}
+	};
+	txDat["sec"] = {
+			{"signature", ""},
+			{"pubKey", keypair[0]},
+			{"note", ""}
+	};
 
+	console.WriteLine();
+	console.NetworkPrint();
+	console.WriteLine("Transaction info for your reference:");
+	std::cout << std::setw(4) << txDat << std::endl;
 
-		// Get current unix time in seconds
-		uint64_t sec = duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+	sha256_string((char*)(txDat["tx"].dump()).c_str(), sha256OutBuffer);
+	std::string hash = sha256OutBuffer;
 
-		// Hash transaction data
-		char sha256OutBuffer[65];
-		json txDat = json::object({});
-		txDat["tx"] = {
-				{"fromAddr", (std::string)walletInfo["Address"]},
-				{"toAddr", toAddress},
-				{"amount", amount},
-				{"unlockTime", 10}
-		};
-		txDat["sec"] = {
-				{"signature", ""},
-				{"pubKey", keypair[0]},
-				{"note", ""}
-		};
+	// Generate signature by encrypting hash with private key
+	std::string signature = rsa_pri_encrypt(hash, keypair[1]);
+	std::string sigBase64 = encode64((const unsigned char*)signature.c_str(), signature.length());
 
-		std::cout << std::setw(4) << txDat << std::endl;
-
-		sha256_string((char*)(txDat["tx"].dump()).c_str(), sha256OutBuffer);
-		std::string hash = sha256OutBuffer;
-
-		// Generate signature by encrypting hash with private key
-		std::string signature = rsa_pri_encrypt(hash, keypair[1]);
-
-		std::string sigBase64 = encode64((const unsigned char*)signature.c_str(), signature.length());
-
-		txDat["sec"]["signature"] = sigBase64;
-
-		// Append transaction to list
-		blockJson["transactions"].push_back(txDat);
-
-		// Save new json data to file
-		try
-		{
-			std::ofstream blockFile("./wwwdata/pendingblocks/block" + std::to_string((int)walletInfo["BlockchainLength"] + (int)walletInfo["PendingLength"]) + ".dccblock");
-			if (blockFile.is_open())
-			{
-				blockFile << blockJson.dump();
-				blockFile.close();
-			}
-		}
-		catch (const std::exception& e)
-		{
-			if (constants::debugPrint == true) {
-				std::cerr << e.what() << std::endl;
-				std::cerr << "line 1350" << std::endl;
-			}
-			return 0;
-		}
+	txDat["sec"]["signature"] = sigBase64;
 
 
-		console.DebugPrint();
-		console.Write("Success", console.whiteBGColor, console.blackFGColor);
-		console.Write("\n");
+	// Now announce the transaction to peers
+	p2p.messageStatus = p2p.requesting_transaction_process;
+	p2p.messageAttempt = 0;
+	p2p.reqDat = 0;
+	p2p.extraData = ReplaceEscapeSymbols(txDat.dump());
 
-		return 1;
-	}
-	catch (const std::exception& e)
-	{
-		if (constants::debugPrint == true) {
-			std::cerr << e.what() << std::endl;
-			std::cerr << "line 1365" << std::endl;
-		}
-		return 0;
-	}
+	while (p2p.isAwaiting()) {}
+
+	return 1;
 }

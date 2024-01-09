@@ -29,7 +29,8 @@ public:
 				url += "&";
 			url += args_vals.at(i);
 		}
-		std::cout << "url: \"" << url << "\"" << std::endl;
+		console.NetworkPrint();
+		console.WriteIndented("Accessing url: \"" + url + "\"\n", "", "", 1);
 
 		auto response = cpr::Get(cpr::Url{ url });
 		html = response.text;
@@ -41,8 +42,7 @@ public:
 	}
 };
 
-int DownloadFile(std::string url, std::string saveAs);
-int DownloadFile(std::string url, std::string saveAs, bool printStatus);
+int DownloadFile(std::string url, std::string saveAs, bool printStatus = false);
 std::string UploadFile(std::string url, std::string filePath);
 //string GetPeerAddress();
 

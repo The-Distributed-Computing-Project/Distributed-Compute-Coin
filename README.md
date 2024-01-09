@@ -1,6 +1,6 @@
 
 
-# <img src="https://raw.githubusercontent.com/sam-astro/Distributed-Compute-Coin/optimizations-and-port-to-p2p/DCC-Miner/DCC-Logo.png" height="30rem" style="margin:auto"> Distributed Compute Coin
+# <img src="https://raw.githubusercontent.com/sam-astro/Distributed-Compute-Coin/dev/DCC-Miner/DCC-Logo.png" height="30rem" style="margin:auto"> Distributed Compute Coin
 
 [![Badge License]][License]   [![Button Discord]][Discord Server]
 
@@ -35,9 +35,26 @@ Options:
 ```
 Inputting one of these commands and pressing the Enter key will execute the command. To begin mining, simply type "mine" (and a block amount, if you want to mine more than one).
 
+## Docker Update
+For a much increased ability to compute, better portability, and fine control of the permissions programs are able to exercise, Docker containers will be replacing Rust programs in the near future.
+A set of commands similar to:
+```ruby
+# Start container with limited network and file access 
+docker run --network none -v "C:\Program Files\DCC\TaskData\<taskID>:/out/" <taskID> --rm --name=<taskID>;
+# Wait for the container to exit and return exit code (This will be done in a background thread, and will time out when mining ends)
+docker wait <taskID>;
+# Stop the container
+docker stop <taskID>;
+```
+
+## Using:
+* OpenSSL
+* cURL
+
+
 ## Example of block format:
 > This is the genesis block
-```
+```json
 {
 	"Version": null,
 	"hash": "dccba5e70246993b252c8ceb8394e4cd97f6313fbf78c3b9113d694b0ff2016b",
@@ -65,9 +82,6 @@ Inputting one of these commands and pressing the Enter key will execute the comm
 }
 ```
 
-## Using:
-* OpenSSL
-* cURL
 
 
 <!----------------------------------------------------------------------------->

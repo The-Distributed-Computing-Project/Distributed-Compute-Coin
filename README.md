@@ -40,7 +40,7 @@ For a much increased ability to compute, better portability, and fine control of
 A set of commands for managing task may look like:
 ```ruby
 # Start container with limited network and file access 
-docker run --network none --rm --name=<taskID> -v "C:\Program Files\DCC\TaskData\<taskID>:/out/" <taskIDImg> /bin/bash run.sh;
+docker run --network none --rm --name=<taskID> -v "C:\Program Files\DCC\TaskData\<taskID>:/dcc_output/" <taskIDImg> /bin/bash run.sh;
 # Wait for the container to exit and return exit code (This will be done in a background thread, and will time out when mining ends)
 docker wait <taskID>;
 # Stop the container

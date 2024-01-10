@@ -105,16 +105,16 @@ The above options still apply, so you can test how well they will perform on you
 ## Here is how the system works in 5 simplified steps:
 
 ### 1. Announce program to peers, with reward as payment
-<img src="./Media/Steps_1.png">
+<img src="./Media/Steps_1.png" style="width:35vw;">
 
 ### 2. Peers download program
-<img src="./Media/Steps_2.png">
+<img src="./Media/Steps_2.png" style="width:35vw;">
 
 ### 3. They compute program while they mine
-<img src="./Media/Steps_3.png">
+<img src="./Media/Steps_3.png" style="width:35vw;">
 
 ### 4. They send the computed data back to the developer, which is compiled into a large block, computed in a fraction of the time it would normally have taken
-<img src="./Media/Steps_4.png">
+<img src="./Media/Steps_4.png" style="width:35vw;">
 
 <hr>
 

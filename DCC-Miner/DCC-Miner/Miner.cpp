@@ -20,7 +20,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 
 		cons_miner.RustPrint();
 		cons_miner.WriteLine("Starting program... ");
-		boost::process::child cargoProc = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + "/Cargo.toml", false);
+		boost::process::child containerProcess = ExecuteAsync("docker run --network none --rm --name="+(std::string)(walletInfo["ProgramID"])+" -v ./wwwdata/programs/"+(std::string)(walletInfo["ProgramID"])+":/out/ "+(std::string)(walletInfo["ProgramID"])+" /bin/bash run.sh", false);
 
 		char sha256OutBuffer[65];
 
@@ -83,8 +83,8 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		std::cout << std::endl;
 
 		// Wait for the rust program to finish running
-		if (cargoProc.running())
-			cargoProc.wait();
+		if (containerProcess.running())
+			containerProcess.wait();
 
 
 		// Convert hash into hexadecimal string
@@ -220,7 +220,7 @@ int PoolMine(std::string poolURL, json& walletInfo)
 			// The rust program execution needs to be thought out more, because it would need changes for pool mining.
 			//cons_miner.RustPrint();
 			//cons_miner.WriteLine("Starting program... ");
-			//boost::process::child cargoProc = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + "/Cargo.toml", false);
+			//boost::process::child containerProcess = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + "/Cargo.toml", false);
 
 			char sha256OutBuffer[65];
 
@@ -268,8 +268,8 @@ int PoolMine(std::string poolURL, json& walletInfo)
 
 
 			//// Wait for the rust program to finish running
-			//if (cargoProc.running())
-			//	cargoProc.wait();
+			//if (containerProcess.running())
+			//	containerProcess.wait();
 
 
 			// Return the nonce to the server if it is correct

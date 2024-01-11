@@ -33,7 +33,7 @@ std::string peerPort = "";
 
 //int transactionNumber = 0;
 
-Console console;
+//Console console;
 
 struct stat info;
 
@@ -46,38 +46,38 @@ int main()
 	Logo();
 
 	if (constants::debugPrint) {
-		console.WriteLine("hextest: ");
-		console.WriteLine("\"" + divideHexByFloat("ffffff", 1.3) + "\"");
-		console.WriteLine("\"" + divideHexByFloat("0f0", 2) + "\"");
-		console.WriteLine("\"" + divideHexByFloat("0fff0", 2) + "\"");
-		console.WriteLine("\"" + multiplyHexByFloat("ff00", 2) + "\"");
+		console::WriteLine("hextest: ");
+		console::WriteLine("\"" + divideHexByFloat("ffffff", 1.3) + "\"");
+		console::WriteLine("\"" + divideHexByFloat("0f0", 2) + "\"");
+		console::WriteLine("\"" + divideHexByFloat("0fff0", 2) + "\"");
+		console::WriteLine("\"" + multiplyHexByFloat("ff00", 2) + "\"");
 	}
 
 	// Create required directories if they don't exist
 	for (std::string dir : directoryList)
 		if (!fs::is_directory(dir) || !fs::exists(dir)) {
-			console.SystemPrint();
-			console.WriteLine("Creating " + dir);
+			console::SystemPrint();
+			console::WriteLine("Creating " + dir);
 			fs::create_directory(dir);
 		}
 
 	// Get public IP address
-	console.NetworkPrint();
-	console.WriteLine("Getting public IP address...");
+	console::NetworkPrint();
+	console::WriteLine("Getting public IP address...");
 	Http http;
 	std::vector<std::string> args;
 	std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
-	console.NetworkPrint();
-	console.WriteLine("Done.");
+	console::NetworkPrint();
+	console::WriteLine("Done.");
 
 	// Create config.cfg file if it doesn't exist 
-	console.SystemPrint();
-	console.WriteLine("Checking config.cfg");
+	console::SystemPrint();
+	console::WriteLine("Checking config.cfg");
 	if (!fs::exists("./config.cfg"))
 	{
 		int prt;
-		console.ErrorPrint();
-		console.Write("Config file not found. \nPlease input the port # you want to use \n(default 5000): ");
+		console::ErrorPrint();
+		console::Write("Config file not found. \nPlease input the port # you want to use \n(default 5000): ");
 		std::cin >> prt;
 		if (prt <= 0 || prt > 65535)
 			prt = 5000;
@@ -91,12 +91,12 @@ int main()
 	}
 
 	// Generate and save keypair if it doesn't exist
-	console.SystemPrint();
-	console.WriteLine("Checking keypairs...");
+	console::SystemPrint();
+	console::WriteLine("Checking keypairs...");
 	if (!fs::exists("./sec/prikey.pem"))
 	{
-		console.SystemPrint();
-		console.WriteLine("None found, generating keypairs...");
+		console::SystemPrint();
+		console::WriteLine("None found, generating keypairs...");
 		keypair = GenerateKeypair();
 		std::cout << "Public key: " << std::endl;
 		std::cout << keypair[0] << std::endl;
@@ -119,9 +119,9 @@ int main()
 	sha256_string((char*)(keypair[0]).c_str(), walletBuffer);
 	std::string wallet = walletBuffer;
 
-	console.SystemPrint();
-	console.Write("Your wallet: ");
-	console.WriteLine(wallet, console.greenFGColor, "");
+	console::SystemPrint();
+	console::Write("Your wallet: ");
+	console::WriteLine(wallet, console::greenFGColor, "");
 	walletInfo["Address"] = wallet;
 
 
@@ -137,8 +137,8 @@ int main()
 	endpointAddr = (std::string)walletConfig["ip"];
 	endpointPort = std::to_string((int)walletConfig["port"]);
 
-	console.SystemPrint();
-	console.WriteLine("Client endpoint: " + (std::string)walletConfig["ip"] + ":" + std::to_string((int)walletConfig["port"]));
+	console::SystemPrint();
+	console::WriteLine("Client endpoint: " + (std::string)walletConfig["ip"] + ":" + std::to_string((int)walletConfig["port"]));
 
 
 	// Open the socket required to accept P2P requests and send responses
@@ -153,11 +153,11 @@ int main()
 	// Gather wallet information, validate blockchain, and print information.
 	//	
 
-	console.SystemPrint();
-	console.WriteLine("Getting wallet info...");
+	console::SystemPrint();
+	console::WriteLine("Getting wallet info...");
 
-	console.NetworkPrint();
-	console.WriteLine("Syncing blocks...");
+	console::NetworkPrint();
+	console::WriteLine("Syncing blocks...");
 	Sync(p2p, walletInfo);
 	try
 	{
@@ -168,28 +168,28 @@ int main()
 		Sync(p2p, walletInfo);
 	}
 
-	console.SystemPrint();
-	console.Write("You have: ");
-	console.WriteLine("$" + CommaLargeNumberF((double)walletInfo["Funds"]) + " credits\n", console.yellowFGColor, "");
-	/*console.Write("Your address is:\n");
-	console.WriteLine((std::string)walletInfo["Address"], console.g, "");*/
+	console::SystemPrint();
+	console::Write("You have: ");
+	console::WriteLine("$" + CommaLargeNumberF((double)walletInfo["Funds"]) + " credits\n", console::yellowFGColor, "");
+	/*console::Write("Your address is:\n");
+	console::WriteLine((std::string)walletInfo["Address"], console::g, "");*/
 
 
 	//walletInfo["Funds"] = 0.0f;
 	walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
 	walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
 
-	console.MiningPrint();
-	console.Write("There are ");
-	console.Write(std::to_string((int)walletInfo["PendingLength"]), console.greenFGColor, "");
-	console.WriteLine(" Block(s) to compute");
+	console::MiningPrint();
+	console::Write("There are ");
+	console::Write(std::to_string((int)walletInfo["PendingLength"]), console::greenFGColor, "");
+	console::WriteLine(" Block(s) to compute");
 
-	console.SystemPrint();
-	console.WriteLine("Calculating difficulty...");
+	console::SystemPrint();
+	console::WriteLine("Calculating difficulty...");
 	std::string dif = CalculateDifficulty(walletInfo);
-	console.SystemPrint();
-	console.Write("The current difficulty looks like: ");
-	console.WriteLine(ExtractPaddedChars(dif, '0'), console.redFGColor, "");
+	console::SystemPrint();
+	console::Write("The current difficulty looks like: ");
+	console::WriteLine(ExtractPaddedChars(dif, '0'), console::redFGColor, "");
 
 
 
@@ -198,12 +198,12 @@ int main()
 	//
 	while (true)
 	{
-		console.Write("Input:  ");
-		std::string command = console.ReadLine();
+		console::Write("Input:  ");
+		std::string command = console::ReadLine();
 
 		if (command == "") {
-			console.ErrorPrint();
-			console.WriteLine("Invalid command");
+			console::ErrorPrint();
+			console::WriteLine("Invalid command");
 			continue;
 		}
 
@@ -224,19 +224,19 @@ int main()
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--FUNDS")
 		{
-			console.SystemPrint();
-			console.Write("You have: ");
-			console.WriteLine("$" + CommaLargeNumberF((double)walletInfo["Funds"]) + " credits\n", console.yellowFGColor, "");
+			console::SystemPrint();
+			console::Write("You have: ");
+			console::WriteLine("$" + CommaLargeNumberF((double)walletInfo["Funds"]) + " credits\n", console::yellowFGColor, "");
 			continue;
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--DIFFICULTY")
 		{
-			console.SystemPrint();
-			console.WriteLine("Calculating difficulty...");
+			console::SystemPrint();
+			console::WriteLine("Calculating difficulty...");
 			std::string dif = CalculateDifficulty(walletInfo);
-			console.SystemPrint();
-			console.Write("The current difficulty looks like: ");
-			console.WriteLine(ExtractPaddedChars(dif, '0'), console.redFGColor, "");
+			console::SystemPrint();
+			console::Write("The current difficulty looks like: ");
+			console::WriteLine(ExtractPaddedChars(dif, '0'), console::redFGColor, "");
 			continue;
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--SYNC" || SplitString(ToUpper(command), " ")[0] == "-S")
@@ -249,14 +249,14 @@ int main()
 			try
 			{
 				blockNum = stoi(SplitString(ToUpper(command), " ")[1]);
-				console.NetworkPrint();
-				console.WriteLine("Syncing block " + std::to_string(blockNum));
+				console::NetworkPrint();
+				console::WriteLine("Syncing block " + std::to_string(blockNum));
 				SyncBlock(p2p, blockNum, true);
 			}
 			catch (const std::exception& e)
 			{
-				console.NetworkErrorPrint();
-				console.WriteLine("Error syncing. : " + (std::string)e.what(), "", console.redFGColor);
+				console::NetworkErrorPrint();
+				console::WriteLine("Error syncing. : " + (std::string)e.what(), "", console::redFGColor);
 			}
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--SEND" || SplitString(ToUpper(command), " ")[0] == "-SN")
@@ -276,7 +276,7 @@ int main()
 			}
 			catch (const std::exception& e)
 			{
-				console.WriteLine("Error sending : " + (std::string)e.what(), "", console.redFGColor);
+				console::WriteLine("Error sending : " + (std::string)e.what(), "", console::redFGColor);
 			}
 		}
 		else if (SplitString(ToUpper(command), " ")[0] == "--VERIFY" || SplitString(ToUpper(command), " ")[0] == "-VF")
@@ -315,8 +315,8 @@ int main()
 					walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
 				}
 
-				console.MiningPrint();
-				console.WriteLine("Blockchain length: " + std::to_string((int)walletInfo["BlockchainLength"]));
+				console::MiningPrint();
+				console::WriteLine("Blockchain length: " + std::to_string((int)walletInfo["BlockchainLength"]));
 
 				// Make sure the pending blocks are newer than the confirmed chain height, but not from the future
 				std::string path = "./wwwdata/pendingblocks/";
@@ -327,8 +327,8 @@ int main()
 					// Delete old pending blocks, or ones that are too high
 					if (stoi(name) <= walletInfo["BlockchainLength"] || (stoi(name) >= (int)walletInfo["BlockchainLength"] + 2 && isFirst)) {
 						fs::remove(entry);
-						console.MiningPrint();
-						console.WriteLine("Removing unneeded block: " + entry.path().filename().string());
+						console::MiningPrint();
+						console::WriteLine("Removing unneeded block: " + entry.path().filename().string());
 					}
 					isFirst = false;
 				}
@@ -336,8 +336,8 @@ int main()
 				// If there are no blocks to mine, stop process.
 				walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
 				if (walletInfo["PendingLength"] == 0) {
-					console.MiningErrorPrint();
-					console.WriteLine("No pending blocks found. Wait for transactions on network.");
+					console::MiningErrorPrint();
+					console::WriteLine("No pending blocks found. Wait for transactions on network.");
 					break;
 				}
 
@@ -350,9 +350,9 @@ int main()
 				json blockJson = json::parse(content);
 
 				std::string dif = CalculateDifficulty(walletInfo);
-				console.SystemPrint();
-				console.WriteLine("The current difficulty is: " + dif);
-				console.WriteLine("Which looks like: " + ExtractPaddedChars(dif, '0'));
+				console::SystemPrint();
+				console::WriteLine("The current difficulty is: " + dif);
+				console::WriteLine("Which looks like: " + ExtractPaddedChars(dif, '0'));
 
 				// Add the mine award to the front of transactions before starting to mine,
 				// which will verify this as the recipient should it succeed.
@@ -415,12 +415,12 @@ int main()
 		//	peerPort = SplitString(command, " ")[2];
 
 		//	p2p.StartP2P(endpointAddr, endpointPort, peerPort);
-		//	console.NetworkPrint();
-		//	console.WriteLine("Closed P2P");
+		//	console::NetworkPrint();
+		//	console::WriteLine("Closed P2P");
 		//}
 		else {
-			console.ErrorPrint();
-			console.WriteLine("Invalid command");
+			console::ErrorPrint();
+			console::WriteLine("Invalid command");
 		}
 		connectionStatus = 1;
 	}
@@ -429,7 +429,7 @@ int main()
 // Print the logo art
 void Logo()
 {
-	console.WriteLine(R"V0G0N( ______      ______    ______  
+	console::WriteLine(R"V0G0N( ______      ______    ______  
 |_   _ `.  .' ___  | .' ___  | 
   | | `. \/ .'   \_|/ .'   \_| 
   | |  | || |       | |        
@@ -437,15 +437,15 @@ void Logo()
 |______.'  `.____ .' `.____ .' 
 
 DCC, copyright (c) AstroSam (sam-astro) 2021-2024
-)V0G0N", console.cyanFGColor, "");
-	console.WriteLine("client: " + VERSION, console.cyanFGColor, "");
-	console.WriteLine("block: " + BLOCK_VERSION + "\n\n", console.cyanFGColor, "");
+)V0G0N", console::cyanFGColor, "");
+	console::WriteLine("client: " + VERSION, console::cyanFGColor, "");
+	console::WriteLine("block: " + BLOCK_VERSION + "\n\n", console::cyanFGColor, "");
 }
 
 // Print the help menu
 void Help()
 {
-	console.WriteLine(R"V0G0N(
+	console::WriteLine(R"V0G0N(
 
 Usage: miner.exe [options]
 		 OR (while in interactive mode)
@@ -474,15 +474,15 @@ Options:
 // then adding the transaction and signature to a pending block
 int SendFunds(P2P& p2p, std::string& toAddress, float amount)
 {
-	console.DebugPrint();
-	console.Write("Sending ");
-	console.Write("$" + std::to_string(amount), console.whiteBGColor, console.blackFGColor);
-	console.Write(" to ");
-	console.Write(toAddress, "", console.greenFGColor);
-	console.WriteLine("...");
+	console::DebugPrint();
+	console::Write("Sending ");
+	console::Write("$" + std::to_string(amount), console::whiteBGColor, console::blackFGColor);
+	console::Write(" to ");
+	console::Write(toAddress, "", console::greenFGColor);
+	console::WriteLine("...");
 
-	console.NetworkPrint();
-	console.WriteLine("Syncing blocks...");
+	console::NetworkPrint();
+	console::WriteLine("Syncing blocks...");
 	Sync(p2p, walletInfo);
 
 	
@@ -497,8 +497,8 @@ int SendFunds(P2P& p2p, std::string& toAddress, float amount)
 			}
 			catch (const std::exception&)
 			{
-				console.ErrorPrint();
-				console.WriteLine("Error removing \"" + oldBlock.path().string() + "\"");
+				console::ErrorPrint();
+				console::WriteLine("Error removing \"" + oldBlock.path().string() + "\"");
 			}
 		}
 		for (int a = 0; a < walletInfo["BlockchainLength"]; a++)
@@ -513,8 +513,8 @@ int SendFunds(P2P& p2p, std::string& toAddress, float amount)
 
 	// Check if user even has enough funds for the transaction
 	if ((float)walletInfo["Funds"] < amount) {
-		console.MiningErrorPrint();
-		console.WriteLine("Not enough funds", "", console.redFGColor);
+		console::MiningErrorPrint();
+		console::WriteLine("Not enough funds", "", console::redFGColor);
 		return 0;
 	}
 
@@ -536,9 +536,9 @@ int SendFunds(P2P& p2p, std::string& toAddress, float amount)
 			{"note", ""}
 	};
 
-	console.WriteLine();
-	console.NetworkPrint();
-	console.WriteLine("Transaction info for your reference:");
+	console::WriteLine();
+	console::NetworkPrint();
+	console::WriteLine("Transaction info for your reference:");
 	std::cout << std::setw(4) << txDat << std::endl;
 
 	sha256_string((char*)(txDat["tx"].dump()).c_str(), sha256OutBuffer);

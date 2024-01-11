@@ -10,6 +10,7 @@
 #include <locale>
 #include <iostream>
 
+#define ERRORMSG( msg ) std::cerr << "[" << __FILE__ << ", at line: " << __LINE__ << "] " << msg << std::endl;
 
 std::string JoinArrayPieces(std::string input[]);
 std::string JoinArrayPieces(std::vector<std::string> input);

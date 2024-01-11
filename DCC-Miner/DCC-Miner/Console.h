@@ -3,14 +3,14 @@
 
 #include <queue>
 
-// Declare the global print queue
-extern std::queue<std::ostream> printQueue;
 
-void ConnectionError();
-
-class Console
+namespace Console
 {
-public:
+	// Declare the global print queue
+	extern std::queue<std::ostream> printQueue;
+	
+	void ConnectionError();
+
 	// Foreground colors
 	const std::string blackFGColor = "\x1B[30m";
 	const std::string redFGColor = "\x1B[31m";
@@ -90,7 +90,7 @@ public:
 
 	
 	//Console();
-};
+}
 
 
 #endif

@@ -18,8 +18,6 @@ json programConfig;
 
 //P2P p2p;
 
-#define ERRORMSG( msg ) std::cerr << "[" << __FILE__ << ", at line: " << __LINE__ << "] " << msg << std::endl;
-
 // Sync a single pending block from a peer
 int SyncPending(P2P& p2p, int whichBlock)
 {

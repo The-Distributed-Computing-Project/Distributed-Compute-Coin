@@ -20,7 +20,8 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 
 		cons_miner.RustPrint();
 		cons_miner.WriteLine("Starting program... ");
-		boost::process::child containerProcess = ExecuteAsync("docker run --network none --rm --name="+(std::string)(walletInfo["ProgramID"])+" -v ./wwwdata/programs/"+(std::string)(walletInfo["ProgramID"])+":/out/ "+(std::string)(walletInfo["ProgramID"])+" /bin/bash run.sh", false);
+		ExecuteAsync("docker run --network none --rm --name="+(std::string)(walletInfo["ProgramID"])+" -v ./wwwdata/programs/"+(std::string)(walletInfo["ProgramID"])+":/out/ "+(std::string)(walletInfo["ProgramID"])+" /bin/bash run.sh", false);
+		boost::process::child containerProcess = ExecuteAsync("docker wait "+(std::string)(walletInfo["ProgramID"]), false);
 
 		char sha256OutBuffer[65];
 
@@ -82,9 +83,12 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 
 		std::cout << std::endl;
 
-		// Wait for the rust program to finish running
-		if (containerProcess.running())
-			containerProcess.wait();
+		//// Wait for the rust program to finish running
+		//if (containerProcess.running())
+		//	containerProcess.wait();
+
+		// Kill the program if it is still running
+		ExecuteAsync("docker stop "+(std::string)(walletInfo["ProgramID"]), false);
 
 
 		// Convert hash into hexadecimal string

@@ -11,7 +11,6 @@
 //json UpgradeBlock(json& b, std::string toVersion);
 
 
-Console cons;
 
 std::string programID;
 json programConfig;
@@ -106,8 +105,8 @@ int GetProgram(json& walletInfo)
 			programID = SplitString(SplitString((item.path()).string(), ".cfg")[0], "/programs/")[1];
 			walletInfo["ProgramID"] = programID;
 			life = GetProgramLifeLeft();
-			cons.MiningPrint();
-			cons.WriteLine("Program life is " + std::to_string(life) + " mins.");
+			console::MiningPrint();
+			console::WriteLine("Program life is " + std::to_string(life) + " mins.");
 			break;
 		}
 	}
@@ -124,8 +123,8 @@ int GetProgram(json& walletInfo)
 				}
 				catch (const std::exception&)
 				{
-					cons.ErrorPrint();
-					cons.WriteLine("Error removing \"" + oldProgram.path().string() + "\"");
+					console::ErrorPrint();
+					console::WriteLine("Error removing \"" + oldProgram.path().string() + "\"");
 				}
 			}
 
@@ -133,14 +132,14 @@ int GetProgram(json& walletInfo)
 			std::vector<std::string> args = { "query=assignProgram" };
 			std::string assignedProgram = http.StartHttpWebRequest(serverURL + "/dcc/", args);
 
-			cons.NetworkPrint();
-			cons.WriteLine("Assigning Program...");
+			console::NetworkPrint();
+			console::WriteLine("Assigning Program...");
 
 			programID = assignedProgram;
 
 			if (constants::debugPrint == true) {
-				cons.NetworkPrint();
-				cons.WriteLine("./wwwdata/programs/" + programID + ".cfg");
+				console::NetworkPrint();
+				console::WriteLine("./wwwdata/programs/" + programID + ".cfg");
 			}
 
 			DownloadFile(serverURL + "/dcc/programs/" + programID + ".cfg", "./wwwdata/programs/" + programID + ".cfg", true);
@@ -177,8 +176,8 @@ int GetProgram(json& walletInfo)
 
 		if (ourHash != theirHash)
 		{
-			cons.MiningErrorPrint();
-			cons.WriteLine("Assigned program has been modified, re-downloading...");
+			console::MiningErrorPrint();
+			console::WriteLine("Assigned program has been modified, re-downloading...");
 			GetProgram(walletInfo);
 		}
 
@@ -186,14 +185,14 @@ int GetProgram(json& walletInfo)
 
 		if (programConfig["Built"] == false)
 		{
-			cons.MiningPrint();
-			cons.WriteLine("Building assigned program, wait until it's finished to start mining");
+			console::MiningPrint();
+			console::WriteLine("Building assigned program, wait until it's finished to start mining");
 
-			cons.RustPrint();
-			cons.WriteLine("Compiling program... ");
+			console::RustPrint();
+			console::WriteLine("Compiling program... ");
 			ExecuteCommand(("cargo build --release --manifest-path ./wwwdata/programs/" + programID + "/Cargo.toml").c_str());
-			cons.RustPrint();
-			cons.WriteLine("Done Compiling");
+			console::RustPrint();
+			console::WriteLine("Done Compiling");
 
 			programConfig["Built"] = true;
 			WriteProgramConfig();
@@ -235,8 +234,8 @@ void CreateTransaction(P2P& p2p, json& walletInfo, double& amount){
 // Check every single block to make sure the nonce is valid, the hash matches the earlier and later blocks, and each transaction has a valid signature.
 bool IsChainValid(P2P& p2p, json& walletInfo)
 {
-	cons.BlockCheckerPrint();
-	cons.WriteLine("Validating blockchain...");
+	console::BlockCheckerPrint();
+	console::WriteLine("Validating blockchain...");
 	try {
 		/*while (FileCount("./wwwdata/blockchain/") < walletInfo["BlockchainLength"])
 		{
@@ -248,7 +247,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 		}
 		for (size_t i = 1; i < FileCount("./wwwdata/blockchain/")+1; i++)
 		{
-			cons.Write("\rChecking existence of block " + std::to_string(i));
+			console::Write("\rChecking existence of block " + std::to_string(i));
 			SyncBlock(p2p, i);
 		}*/
 
@@ -257,8 +256,8 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 		double tmpFunds = 0;
 		int txNPending = 0;
 
-		cons.BlockCheckerPrint();
-		cons.WriteLine("Checking blocks...");
+		console::BlockCheckerPrint();
+		console::WriteLine("Checking blocks...");
 
 		// Apply funds to user from the first block separately
 		try
@@ -299,8 +298,8 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				}
 
 				// Make sure it is valid:
-				cons.Write("\r");
-				cons.WriteBulleted("Validating block: " + std::to_string(1), 3);
+				console::Write("\r");
+				console::WriteBulleted("Validating block: " + std::to_string(1), 3);
 				char sha256OutBuffer[65];
 				std::string lastHash = firstBlock["lastHash"];
 				std::string currentHash = firstBlock["hash"];
@@ -325,7 +324,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					std::string rr = "";
 					if (blockHash != currentHash)
 						rr += "1";
-					cons.WriteLine("    X Bad Block X  " + std::to_string(1) + " R" + rr, cons.redFGColor, "");
+					console::WriteLine("    X Bad Block X  " + std::to_string(1) + " R" + rr, console::redFGColor, "");
 					return false;
 				}
 			}
@@ -336,7 +335,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			std::cerr << "\n";
 				ERRORMSG("Error\n" << e.what());
 			//}
-			//cons.ExitError("Failure, exiting 854");
+			//console::ExitError("Failure, exiting 854");
 		}
 
 		// Then process the rest of the blocks
@@ -388,8 +387,8 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				std::string lastRealHash = o2["hash"];
 
 				if (i % 10 == 0 || i >= chainLength - 2) {
-					cons.Write("\r");
-					cons.WriteBulleted("Validating block: " + std::to_string(i), 3);
+					console::Write("\r");
+					console::WriteBulleted("Validating block: " + std::to_string(i), 3);
 				}
 				char sha256OutBuffer[65];
 				// The data we will actually be hashing is a hash of the
@@ -416,7 +415,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 						rr += "1";
 					if (lastRealHash != lastHash)
 						rr += "2";
-					cons.WriteLine("    X Bad Block X  " + std::to_string(i) + " R" + rr + "   # " + blockHash, cons.redFGColor, "");
+					console::WriteLine("    X Bad Block X  " + std::to_string(i) + " R" + rr + "   # " + blockHash, console::redFGColor, "");
 					return false;
 				}
 				float tmpFunds2 = 0;
@@ -457,7 +456,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					// The decrypted signature should be the same as the hash of this transaction we just generated
 					if (decryptedSig != transHash) {
 						o["transactions"].erase(o["transactions"].begin() + tr);
-						cons.Write("  Bad signature on T:" + std::to_string(tr), cons.redFGColor, "");
+						console::Write("  Bad signature on T:" + std::to_string(tr), console::redFGColor, "");
 						continue;
 					}
 
@@ -478,8 +477,8 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 
 
 				if (i % 10 == 0 || i >= chainLength - 2) {
-					cons.Write("     Transactions: " + std::to_string(o["transactions"].size()));
-					cons.Write("   Ok  ", cons.greenFGColor, "");
+					console::Write("     Transactions: " + std::to_string(o["transactions"].size()));
+					console::Write("   Ok  ", console::greenFGColor, "");
 				}
 			}
 			// If there is a failure state, assume that block is bad or does not exist.
@@ -489,7 +488,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					ERRORMSG("Error\n" << e.what());
 				}
 
-				cons.WriteLine();
+				console::WriteLine();
 				SyncBlock(p2p, i);
 
 				i -= 2;
@@ -498,20 +497,20 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			}
 		}
 
-		//cons.WriteLine();
+		//console::WriteLine();
 		walletInfo["Funds"] = tmpFunds;
-		cons.Write("\r");
-		cons.BlockCheckerPrint();
-		cons.Write("Done!                                                         \n");
+		console::Write("\r");
+		console::BlockCheckerPrint();
+		console::Write("Done!                                                         \n");
 		return true;
 	}
 	catch (const std::exception& e)
 	{
 		ERRORMSG("Error validating chain:\n" << e.what());
 	}
-	cons.Write("\r");
-	cons.BlockCheckerPrint();
-	cons.Write("Done! (there were problems)                                                        \n");
+	console::Write("\r");
+	console::BlockCheckerPrint();
+	console::Write("Done! (there were problems)                                                        \n");
 	return false;
 }
 
@@ -603,15 +602,15 @@ std::string CalculateDifficulty(json& walletInfo) {
 	// 69600 minutes for (640-60) = 580 blocks
 	double ratio = clampf((double)avgTotal / 69600.0, 0.25, 4.0);
 
-	cons.WriteBulleted("Average time: " + std::to_string(average) + "s\n", 3);
-	cons.WriteBulleted("Min/Max: " + std::to_string(highest) + "s / " + std::to_string(lowest) + "s\n", 3);
-	cons.WriteBulleted("Ratio: " + std::to_string(ratio) + ",  unclamped: " + std::to_string((double)avgTotal / 69600.0) + "\n", 3);
-	cons.WriteBulleted("Last target difficulty: " + targetDifficulty + "\n", 3);
+	console::WriteBulleted("Average time: " + std::to_string(average) + "s\n", 3);
+	console::WriteBulleted("Min/Max: " + std::to_string(highest) + "s / " + std::to_string(lowest) + "s\n", 3);
+	console::WriteBulleted("Ratio: " + std::to_string(ratio) + ",  unclamped: " + std::to_string((double)avgTotal / 69600.0) + "\n", 3);
+	console::WriteBulleted("Last target difficulty: " + targetDifficulty + "\n", 3);
 
 
 	std::string newDifficulty = PadString(multiplyHexByFloat(targetDifficulty, ratio), '0', 64);
 
-	cons.WriteBulleted("New target difficulty:  " + newDifficulty + "\n", 3);
+	console::WriteBulleted("New target difficulty:  " + newDifficulty + "\n", 3);
 
 	walletInfo["targetDifficulty"] = newDifficulty;
 	walletInfo["MineDifficulty"] = ExtractPaddedChars(targetDifficulty, '0');
@@ -708,9 +707,9 @@ void CreateSuperblock() {
 json UpgradeBlock(json& b)
 {
 	//if (constants::debugPrint == true) {
-	cons.BlockCheckerPrint();
-	cons.Write("   Upgrading block to version ");
-	cons.Write(BLOCK_VERSION, cons.cyanFGColor, "");
+	console::BlockCheckerPrint();
+	console::Write("   Upgrading block to version ");
+	console::Write(BLOCK_VERSION, console::cyanFGColor, "");
 	//}
 
 	std::string currentVersion = (std::string)b["_version"];
@@ -816,10 +815,10 @@ json UpgradeBlock(json& b)
 
 	// Make sure there is always an upgrade step. If there isn't, then throw error
 	if (b["_version"] != BLOCK_VERSION) {
-		cons.ErrorPrint();
-		cons.Write("No block upgrade step found for version:", cons.redFGColor, "");
-		cons.Write(" \"" + BLOCK_VERSION + "\"", cons.cyanFGColor, "");
-		cons.ExitError("");
+		console::ErrorPrint();
+		console::Write("No block upgrade step found for version:", console::redFGColor, "");
+		console::Write(" \"" + BLOCK_VERSION + "\"", console::cyanFGColor, "");
+		console::ExitError("");
 	}
 
 	return b;

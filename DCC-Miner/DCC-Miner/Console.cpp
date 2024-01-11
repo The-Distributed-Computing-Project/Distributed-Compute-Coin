@@ -251,8 +251,7 @@ namespace console{
 	
 	void ExitError(std::string errMessage)
 	{
-		Console console;
-		console.WriteLine(errMessage);
+		WriteLine(errMessage);
 		std::cout << "Press Enter to Continue";
 		std::cin.ignore();
 		exit(1);
@@ -261,10 +260,8 @@ namespace console{
 	// Print a connection error dialog
 	void ConnectionError()
 	{
-		//connectionStatus = 0;
-		Console console;
-		console.NetworkErrorPrint();
-		console.WriteLine("Failed To Connect");
+		NetworkErrorPrint();
+		WriteLine("Failed To Connect");
 	}
 
 }

@@ -13,7 +13,6 @@
 
 class Http
 {
-	Console console;
 public:
 	//string StartHttpWebRequest(string URL, vector<string> args_vals);
 	std::string StartHttpWebRequest(std::string URL, std::vector<std::string> args_vals)
@@ -29,14 +28,14 @@ public:
 				url += "&";
 			url += args_vals.at(i);
 		}
-		console.NetworkPrint();
-		console.WriteIndented("Accessing url: \"" + url + "\"\n", "", "", 1);
+		console::NetworkPrint();
+		console::WriteIndented("Accessing url: \"" + url + "\"\n", "", "", 1);
 
 		auto response = cpr::Get(cpr::Url{ url });
 		html = response.text;
 
-		//console.DebugPrint();
-		//console.WriteLine(html);
+		//console::DebugPrint();
+		//console::WriteLine(html);
 
 		return html;
 	}

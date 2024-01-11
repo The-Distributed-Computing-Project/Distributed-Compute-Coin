@@ -1,25 +1,23 @@
 
 #include "Miner.h"
 
-Console cons_miner = Console();
-
 
 // Mine a single block with specified data and using the difficulty stored in walletInfo["MineDifficulty"]
 int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 {
 	//walletInfo["targetDifficulty"] = "0000000FFFFFF000000000000000000000000000000000000000000000000000";
-	cons_miner.MiningPrint();
-	cons_miner.Write("Mining ");
-	cons_miner.Write("block " + std::to_string(blockNum), cons_miner.cyanFGColor, "");
-	cons_miner.Write(" at difficulty ");
-	cons_miner.Write((std::string)walletInfo["targetDifficulty"], cons_miner.cyanFGColor, "");
-	cons_miner.Write(" :\n");
+	console::MiningPrint();
+	console::Write("Mining ");
+	console::Write("block " + std::to_string(blockNum), console::cyanFGColor, "");
+	console::Write(" at difficulty ");
+	console::Write((std::string)walletInfo["targetDifficulty"], console::cyanFGColor, "");
+	console::Write(" :\n");
 	try
 	{
 		auto startTime = std::chrono::steady_clock::now();
 
-		cons_miner.RustPrint();
-		cons_miner.WriteLine("Starting program... ");
+		console::RustPrint();
+		console::WriteLine("Starting program... ");
 		ExecuteAsync("docker run --network none --rm --name="+(std::string)(walletInfo["ProgramID"])+" -v ./wwwdata/programs/"+(std::string)(walletInfo["ProgramID"])+":/out/ "+(std::string)(walletInfo["ProgramID"])+" /bin/bash run.sh", false);
 		boost::process::child containerProcess = ExecuteAsync("docker wait "+(std::string)(walletInfo["ProgramID"]), false);
 
@@ -75,8 +73,8 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 				hashesAtStart = nonce;
 
 				cstr_to_hexstr(hash, 32, sha256OutBuffer);
-				cons_miner.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + FormatWithCommas<unsigned long long int>(nonce) + " # " + std::string(sha256OutBuffer));
-				cons_miner.Write("   " + FormatHPS(hashesPerSecond) + "            ");
+				console::Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + FormatWithCommas<unsigned long long int>(nonce) + " # " + std::string(sha256OutBuffer));
+				console::Write("   " + FormatHPS(hashesPerSecond) + "            ");
 				//std::cout << std::endl <<  databuffer << std::endl;
 			}
 		} while (!CompareCharNumbers(c_difficulty, hash));
@@ -155,8 +153,8 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		}
 
 
-		cons_miner.MiningPrint();
-		cons_miner.WriteLine("Mined in " + std::to_string(std::round(since(startTime).count() / 1000)) + " s.");
+		console::MiningPrint();
+		console::WriteLine("Mined in " + std::to_string(std::round(since(startTime).count() / 1000)) + " s.");
 
 		return 1;
 	}
@@ -171,9 +169,9 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 // Mine blocks for a pool
 int PoolMine(std::string poolURL, json& walletInfo)
 {
-	cons_miner.NetworkPrint();
-	cons_miner.Write("Use pool ");
-	cons_miner.WriteLine(poolURL, cons_miner.brightCyanFGColor, "");
+	console::NetworkPrint();
+	console::Write("Use pool ");
+	console::WriteLine(poolURL, console::brightCyanFGColor, "");
 	unsigned int blockNumber = 0;
 	std::string difficulty = "";
 	std::string hData = "";
@@ -198,32 +196,32 @@ int PoolMine(std::string poolURL, json& walletInfo)
 			nonce = (unsigned long long int)poolData["startNonce"];
 			maxNonce = (unsigned long long int)poolData["endNonce"];
 
-			cons_miner.NetworkPrint();
-			cons_miner.Write("new job ", cons_miner.magentaFGColor, "");
-			cons_miner.WriteLine("from " + poolURL + " nonces " + std::to_string(maxNonce - nonce) + " height " + std::to_string(blockNumber));
+			console::NetworkPrint();
+			console::Write("new job ", console::magentaFGColor, "");
+			console::WriteLine("from " + poolURL + " nonces " + std::to_string(maxNonce - nonce) + " height " + std::to_string(blockNumber));
 		}
 		catch (const std::exception& e)
 		{
-			cons_miner.NetworkErrorPrint();
-			cons_miner.WriteLine("Connection error.");
+			console::NetworkErrorPrint();
+			console::WriteLine("Connection error.");
 			std::cerr << e.what() << std::endl;
 			return 0;
 		}
 
 		//walletInfo["targetDifficulty"] = "0000000FFFFFF000000000000000000000000000000000000000000000000000";
-		cons_miner.MiningPrint();
-		cons_miner.Write("Mining ");
-		cons_miner.Write("block " + std::to_string(blockNumber), cons_miner.cyanFGColor, "");
-		cons_miner.Write(" at difficulty ");
-		cons_miner.Write(difficulty, cons_miner.cyanFGColor, "");
-		cons_miner.Write(" :\n");
+		console::MiningPrint();
+		console::Write("Mining ");
+		console::Write("block " + std::to_string(blockNumber), console::cyanFGColor, "");
+		console::Write(" at difficulty ");
+		console::Write(difficulty, console::cyanFGColor, "");
+		console::Write(" :\n");
 		try
 		{
 			auto startTime = std::chrono::steady_clock::now();
 
 			// The rust program execution needs to be thought out more, because it would need changes for pool mining.
-			//cons_miner.RustPrint();
-			//cons_miner.WriteLine("Starting program... ");
+			//console::RustPrint();
+			//console::WriteLine("Starting program... ");
 			//boost::process::child containerProcess = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + "/Cargo.toml", false);
 
 			char sha256OutBuffer[65];
@@ -258,8 +256,8 @@ int PoolMine(std::string poolURL, json& walletInfo)
 					hashesAtStart = nonce;
 
 					cstr_to_hexstr(hash, 32, sha256OutBuffer);
-					cons_miner.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + FormatWithCommas<unsigned long long int>(nonce) + " # " + std::string(sha256OutBuffer));
-					cons_miner.Write("   " + FormatHPS(hashesPerSecond) + "            ");
+					console::Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + FormatWithCommas<unsigned long long int>(nonce) + " # " + std::string(sha256OutBuffer));
+					console::Write("   " + FormatHPS(hashesPerSecond) + "            ");
 					//std::cout << std::endl <<  databuffer << std::endl;
 				}
 			} while (!CompareCharNumbers(c_difficulty, hash) && nonce <= maxNonce);
@@ -286,21 +284,21 @@ int PoolMine(std::string poolURL, json& walletInfo)
 				if (html.find("ERR") != std::string::npos || html == "")
 					throw 0;
 				//json poolData = json::parse(html);
-				cons_miner.NetworkPrint();
-				cons_miner.Write("accepted ", cons_miner.greenFGColor, "");
-				cons_miner.WriteLine("nonces " + (std::string)numberstring);
+				console::NetworkPrint();
+				console::Write("accepted ", console::greenFGColor, "");
+				console::WriteLine("nonces " + (std::string)numberstring);
 			}
 			catch (const std::exception& e)
 			{
-				cons_miner.NetworkErrorPrint();
-				cons_miner.WriteLine("Connection error.");
+				console::NetworkErrorPrint();
+				console::WriteLine("Connection error.");
 				std::cerr << e.what() << std::endl;
 				return 0;
 			}
 
 
-			cons_miner.MiningPrint();
-			cons_miner.WriteLine("Mined in " + std::to_string(std::round(since(startTime).count() / 1000)) + " s.");
+			console::MiningPrint();
+			console::WriteLine("Mined in " + std::to_string(std::round(since(startTime).count() / 1000)) + " s.");
 
 		}
 		catch (const std::exception& e)
@@ -365,8 +363,8 @@ int MineAnyBlock(int blockNum, std::string& difficulty)
 			hashesAtStart = nonce;
 
 			cstr_to_hexstr(hash, 32, sha256OutBuffer);
-			cons_miner.Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
-			cons_miner.Write("   " + FormatHPS(hashesPerSecond) + "            ");
+			console::Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
+			console::Write("   " + FormatHPS(hashesPerSecond) + "            ");
 		}
 
 		nonce++;
@@ -374,15 +372,15 @@ int MineAnyBlock(int blockNum, std::string& difficulty)
 	}
 
 	std::cout << std::endl;
-	cons_miner.MiningPrint();
-	cons_miner.WriteLine("Debug mined in " + std::to_string(std::round(since(startTime).count() / 1000)) + " s.");
-	cons_miner.MiningPrint();
+	console::MiningPrint();
+	console::WriteLine("Debug mined in " + std::to_string(std::round(since(startTime).count() / 1000)) + " s.");
+	console::MiningPrint();
 	cstr_to_hexstr(hash, 32, sha256OutBuffer);
-	cons_miner.Write("Final value: hash # ");
-	cons_miner.WriteLine(std::string(sha256OutBuffer), "", cons_miner.greenFGColor);
-	cons_miner.MiningPrint();
-	cons_miner.Write("Final value: nonce # ");
-	cons_miner.WriteLine(std::to_string(nonce), "", cons_miner.greenFGColor);
+	console::Write("Final value: hash # ");
+	console::WriteLine(std::string(sha256OutBuffer), "", console::greenFGColor);
+	console::MiningPrint();
+	console::Write("Final value: nonce # ");
+	console::WriteLine(std::to_string(nonce), "", console::greenFGColor);
 
 	return 0;
 }

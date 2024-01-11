@@ -4,7 +4,7 @@
 #include <queue>
 
 
-namespace Console
+namespace console
 {
 	// Declare the global print queue
 	extern std::queue<std::ostream> printQueue;

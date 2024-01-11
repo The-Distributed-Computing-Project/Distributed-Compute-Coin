@@ -28,16 +28,14 @@
 
 int DownloadFile(std::string url, std::string saveAs, bool printStatus)
 {
-	Console console;
-	
 	CURL* curl;
 	FILE* fp;
 	CURLcode res;
 	curl = curl_easy_init();
 	if (curl)
 	{
-		console.NetworkPrint();
-		console.WriteLine("Downloading from: \"" + url + "\"");
+		console::NetworkPrint();
+		console::WriteLine("Downloading from: \"" + url + "\"");
 		
 		fp = fopen(saveAs.c_str(), "wb");
 		curl_easy_setopt(curl, CURLOPT_URL, url.c_str());

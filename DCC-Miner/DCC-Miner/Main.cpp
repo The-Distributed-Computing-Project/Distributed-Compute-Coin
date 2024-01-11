@@ -270,7 +270,7 @@ int main()
 
 				if (SendFunds(p2p, toAddr, amnt) == 0)
 				{
-					ConnectionError();
+					console::ConnectionError();
 					continue;
 				}
 			}
@@ -302,7 +302,7 @@ int main()
 
 				if (GetProgram(walletInfo) == 0)
 				{
-					ConnectionError();
+					console::ConnectionError();
 					continue;
 				}
 
@@ -373,7 +373,7 @@ int main()
 
 				if (Mine(blockJson, ((int)walletInfo["BlockchainLength"] + 1), walletInfo) == 0)
 				{
-					ConnectionError();
+					console::ConnectionError();
 					continue;
 				}
 
@@ -381,7 +381,7 @@ int main()
 				walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
 				if (walletInfo.is_null())
 				{
-					ConnectionError();
+					console::ConnectionError();
 					continue;
 				}
 
@@ -505,7 +505,7 @@ int SendFunds(P2P& p2p, std::string& toAddress, float amount)
 		{
 			if (SyncBlock(p2p, 1 + a) == 0)
 			{
-				ConnectionError();
+				console::ConnectionError();
 				break;
 			}
 		}

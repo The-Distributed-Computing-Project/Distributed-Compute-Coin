@@ -21,246 +21,250 @@
 #include "include/color.hpp"
 #endif
 
-#if MULTITHREADED_SAFE
-std::queue<std::ostream> printQueue;
-
-
-void ConsoleQueueHandle(){
-	while (!printQueue.empty())
+namespace console{
+	
+	#if MULTITHREADED_SAFE
+	std::queue<std::ostream> printQueue;
+	
+	
+	void ConsoleQueueHandle(){
+		while (!printQueue.empty())
+		{
+			// Output front of the queue
+			std::stringbuf str;
+			printQueue.front().rdbuf(&str); // uses str
+			std::cout << str.str();
+			// Pop the queue item
+			printQueue.pop();
+		}	
+	}
+	#endif
+	
+	std::string colorText(std::string name, std::string color) {
+		return color + name + resetColor;
+	}
+	std::string colorText(std::string name, std::string fgColor, std::string bgColor)
 	{
-		// Output front of the queue
-		std::stringbuf str;
-		printQueue.front().rdbuf(&str); // uses str
-		std::cout << str.str();
-		// Pop the queue item
-		printQueue.pop();
-	}	
-}
-#endif
-
-std::string Console::colorText(std::string name, std::string color) {
-	return color + name + resetColor;
-}
-std::string Console::colorText(std::string name, std::string fgColor, std::string bgColor)
-{
-	return fgColor + bgColor + name + resetColor;
-}
-
-void Console::PrintColored(std::string text, std::string fgColor, std::string bgColor)
-{
-#if WINDOWS
-	auto fg = dye::white(text);
-	if (fgColor == blackFGColor)
-		fg = dye::black(text);
-	else if (fgColor == redFGColor)
-		fg = dye::red(text);
-	else if (fgColor == greenFGColor)
-		fg = dye::green(text);
-	else if (fgColor == yellowFGColor)
-		fg = dye::yellow(text);
-	else if (fgColor == blueFGColor)
-		fg = dye::blue(text);
-	else if (fgColor == magentaFGColor)
-		fg = dye::purple(text);
-	else if (fgColor == cyanFGColor)
-		fg = dye::aqua(text);
-	else if (fgColor == whiteFGColor)
-		fg = dye::white(text);
-	#if MULTITHREADED_SAFE
-	std::stringstream ss;
-	ss << fg;
-	printQueue.push((std::ostream)fg);
-	ConsoleQueueHandle();
+		return fgColor + bgColor + name + resetColor;
+	}
+	
+	void PrintColored(std::string text, std::string fgColor, std::string bgColor)
+	{
+	#if WINDOWS
+		auto fg = dye::white(text);
+		if (fgColor == blackFGColor)
+			fg = dye::black(text);
+		else if (fgColor == redFGColor)
+			fg = dye::red(text);
+		else if (fgColor == greenFGColor)
+			fg = dye::green(text);
+		else if (fgColor == yellowFGColor)
+			fg = dye::yellow(text);
+		else if (fgColor == blueFGColor)
+			fg = dye::blue(text);
+		else if (fgColor == magentaFGColor)
+			fg = dye::purple(text);
+		else if (fgColor == cyanFGColor)
+			fg = dye::aqua(text);
+		else if (fgColor == whiteFGColor)
+			fg = dye::white(text);
+		#if MULTITHREADED_SAFE
+		std::stringstream ss;
+		ss << fg;
+		printQueue.push((std::ostream)fg);
+		ConsoleQueueHandle();
+		#else
+		std::cout << fg;
+		#endif
 	#else
-	std::cout << fg;
+		#if MULTITHREADED_SAFE
+		printQueue.push(fgColor + bgColor + text + resetColor);
+		ConsoleQueueHandle();
+		#else
+		std::cout << fgColor + bgColor + text + resetColor;
+		#endif
 	#endif
-#else
+	}
+	
+	void NetworkPrint()
+	{
+		PrintColored("[", yellowFGColor, "");
+		PrintColored("Network", cyanFGColor, "");
+		PrintColored("]        - ", yellowFGColor, "");
+	}
+	void NetworkErrorPrint()
+	{
+		PrintColored("[", yellowFGColor, "");
+		PrintColored("Network-Error", redFGColor, "");
+		PrintColored("]  - ", yellowFGColor, "");
+	}
+	void MiningPrint()
+	{
+		PrintColored("[", yellowFGColor, "");
+		PrintColored("Mining", greenFGColor, "");
+		PrintColored("]         - ", yellowFGColor, "");
+	}
+	void MiningErrorPrint()
+	{
+		PrintColored("[", yellowFGColor, "");
+		PrintColored("Mining-Error", redFGColor, "");
+		PrintColored("]   - ", yellowFGColor, "");
+	}
+	void RustPrint()
+	{
+		PrintColored("[", yellowFGColor, "");
+		PrintColored("Rust", magentaFGColor, "");
+		PrintColored("]           - ", yellowFGColor, "");
+	}
+	void CompilerErrorPrint()
+	{
+		PrintColored("[", yellowFGColor, "");
+		PrintColored("Rust-Error", redFGColor, "");
+		PrintColored("]     - ", yellowFGColor, "");
+	}
+	void BlockCheckerPrint()
+	{
+		PrintColored("[", yellowFGColor, "");
+		PrintColored("Blockchain", greenFGColor, cyanBGColor);
+		PrintColored("]     - ", yellowFGColor, "");
+	}
+	void DebugPrint()
+	{
+		PrintColored("[", yellowFGColor, "");
+		PrintColored("Debug", yellowFGColor, "");
+		PrintColored("]          - ", yellowFGColor, "");
+	}
+	void SystemPrint()
+	{
+		PrintColored("[", yellowFGColor, "");
+		PrintColored("System", blueFGColor, "");
+		PrintColored("]         - ", yellowFGColor, "");
+	}
+	void ErrorPrint()
+	{
+		PrintColored("[", yellowFGColor, "");
+		PrintColored("Error", redFGColor, "");
+		PrintColored("]          - ", yellowFGColor, "");
+	}
+	
+	void WriteLine()
+	{
+		#if MULTITHREADED_SAFE
+		printQueue.push("\n");
+		ConsoleQueueHandle();
+		#else
+		std::cout << std::endl;
+		#endif
+	}
+	void WriteLine(std::string message)
+	{
+		#if MULTITHREADED_SAFE
+		printQueue.push(message + "\n");
+		ConsoleQueueHandle();
+		#else
+		std::cout << message << std::endl;
+		#endif
+	}
+	void WriteLine(std::string message, std::string fgColor, std::string bgColor)
+	{
+		PrintColored(message, fgColor, bgColor);
+		WriteLine();
+	}
+	
+	void Write()
+	{
+		//std::cout;
 	#if MULTITHREADED_SAFE
-	printQueue.push(fgColor + bgColor + text + resetColor);
-	ConsoleQueueHandle();
-	#else
-	std::cout << fgColor + bgColor + text + resetColor;
+		ConsoleQueueHandle();
 	#endif
-#endif
-}
+	}
+	void Write(std::string message)
+	{
+		#if MULTITHREADED_SAFE
+		printQueue.push(message);
+		ConsoleQueueHandle();
+		#else
+		std::cout << message;
+		#endif
+	}
+	void Write(std::string message, std::string color)
+	{
+		PrintColored(message, color, "");
+	}
+	void Write(std::string message, std::string fgColor, std::string bgColor)
+	{
+		PrintColored(message, fgColor, bgColor);
+	}
+	void WriteIndented(std::string message, std::string fgColor, std::string bgColor, int indents)
+	{
+		std::string ind = "";
+		for (size_t i = 0; i < indents; i++)
+			ind += "\t";
+		PrintColored(ind + "  " + message, fgColor, bgColor);
+	}
+	void WriteBulleted(std::string message, std::string fgColor, std::string bgColor, int indents, std::string bullet)
+	{
+		std::string ind = "";
+		for (size_t i = 0; i < indents; i++)
+			ind += "\t";
+		PrintColored(ind + bullet + " " + message, fgColor, bgColor);
+	}
+	void WriteBulleted(std::string message, std::string fgColor, std::string bgColor, int indents)
+	{
+		std::string ind = "";
+		for (size_t i = 0; i < indents; i++)
+			ind += "\t";
+		PrintColored(ind + "- " + message, fgColor, bgColor);
+	}
+	void WriteBulleted(std::string message, int indents, std::string bullet)
+	{
+		std::string ind = "";
+		for (size_t i = 0; i < indents; i++)
+			ind += "\t";
+		PrintColored(ind + bullet + " " + message, "", "");
+	}
+	void WriteBulleted(std::string message, int indents)
+	{
+		std::string ind = "";
+		for (size_t i = 0; i < indents; i++)
+			ind += "\t";
+		PrintColored(ind + "- " + message, "", "");
+	}
+	void WriteLineCharArrayOfLen(char* message, int len)
+	{
+		for (size_t i = 0; i < len; i++)
+			std::cout << message[i];
+	
+		std::cout << std::endl;
+	}
+	//void WriteDialogueAuthor(std::string coloredType)
+	//{
+	//	PrintColored(coloredType, "", "");
+	//}
+	
+	std::string ReadLine()
+	{
+		std::string s;
+		std::getline(std::cin, s);
+		return s;
+	}
+	
+	void ExitError(std::string errMessage)
+	{
+		Console console;
+		console.WriteLine(errMessage);
+		std::cout << "Press Enter to Continue";
+		std::cin.ignore();
+		exit(1);
+	}
+	
+	// Print a connection error dialog
+	void ConnectionError()
+	{
+		//connectionStatus = 0;
+		Console console;
+		console.NetworkErrorPrint();
+		console.WriteLine("Failed To Connect");
+	}
 
-void Console::NetworkPrint()
-{
-	Console::PrintColored("[", yellowFGColor, "");
-	Console::PrintColored("Network", cyanFGColor, "");
-	Console::PrintColored("]        - ", yellowFGColor, "");
-}
-void Console::NetworkErrorPrint()
-{
-	Console::PrintColored("[", yellowFGColor, "");
-	Console::PrintColored("Network-Error", redFGColor, "");
-	Console::PrintColored("]  - ", yellowFGColor, "");
-}
-void Console::MiningPrint()
-{
-	Console::PrintColored("[", yellowFGColor, "");
-	Console::PrintColored("Mining", greenFGColor, "");
-	Console::PrintColored("]         - ", yellowFGColor, "");
-}
-void Console::MiningErrorPrint()
-{
-	Console::PrintColored("[", yellowFGColor, "");
-	Console::PrintColored("Mining-Error", redFGColor, "");
-	Console::PrintColored("]   - ", yellowFGColor, "");
-}
-void Console::RustPrint()
-{
-	Console::PrintColored("[", yellowFGColor, "");
-	Console::PrintColored("Rust", magentaFGColor, "");
-	Console::PrintColored("]           - ", yellowFGColor, "");
-}
-void Console::CompilerErrorPrint()
-{
-	Console::PrintColored("[", yellowFGColor, "");
-	Console::PrintColored("Rust-Error", redFGColor, "");
-	Console::PrintColored("]     - ", yellowFGColor, "");
-}
-void Console::BlockCheckerPrint()
-{
-	Console::PrintColored("[", yellowFGColor, "");
-	Console::PrintColored("Blockchain", greenFGColor, cyanBGColor);
-	Console::PrintColored("]     - ", yellowFGColor, "");
-}
-void Console::DebugPrint()
-{
-	Console::PrintColored("[", yellowFGColor, "");
-	Console::PrintColored("Debug", yellowFGColor, "");
-	Console::PrintColored("]          - ", yellowFGColor, "");
-}
-void Console::SystemPrint()
-{
-	Console::PrintColored("[", yellowFGColor, "");
-	Console::PrintColored("System", blueFGColor, "");
-	Console::PrintColored("]         - ", yellowFGColor, "");
-}
-void Console::ErrorPrint()
-{
-	Console::PrintColored("[", yellowFGColor, "");
-	Console::PrintColored("Error", redFGColor, "");
-	Console::PrintColored("]          - ", yellowFGColor, "");
-}
-
-void Console::WriteLine()
-{
-	#if MULTITHREADED_SAFE
-	printQueue.push("\n");
-	ConsoleQueueHandle();
-	#else
-	std::cout << std::endl;
-	#endif
-}
-void Console::WriteLine(std::string message)
-{
-	#if MULTITHREADED_SAFE
-	printQueue.push(message + "\n");
-	ConsoleQueueHandle();
-	#else
-	std::cout << message << std::endl;
-	#endif
-}
-void Console::WriteLine(std::string message, std::string fgColor, std::string bgColor)
-{
-	Console::PrintColored(message, fgColor, bgColor);
-	Console::WriteLine();
-}
-
-void Console::Write()
-{
-	//std::cout;
-#if MULTITHREADED_SAFE
-	ConsoleQueueHandle();
-#endif
-}
-void Console::Write(std::string message)
-{
-	#if MULTITHREADED_SAFE
-	printQueue.push(message);
-	ConsoleQueueHandle();
-	#else
-	std::cout << message;
-	#endif
-}
-void Console::Write(std::string message, std::string color)
-{
-	Console::PrintColored(message, color, "");
-}
-void Console::Write(std::string message, std::string fgColor, std::string bgColor)
-{
-	Console::PrintColored(message, fgColor, bgColor);
-}
-void Console::WriteIndented(std::string message, std::string fgColor, std::string bgColor, int indents)
-{
-	std::string ind = "";
-	for (size_t i = 0; i < indents; i++)
-		ind += "\t";
-	Console::PrintColored(ind + "  " + message, fgColor, bgColor);
-}
-void Console::WriteBulleted(std::string message, std::string fgColor, std::string bgColor, int indents, std::string bullet)
-{
-	std::string ind = "";
-	for (size_t i = 0; i < indents; i++)
-		ind += "\t";
-	Console::PrintColored(ind + bullet + " " + message, fgColor, bgColor);
-}
-void Console::WriteBulleted(std::string message, std::string fgColor, std::string bgColor, int indents)
-{
-	std::string ind = "";
-	for (size_t i = 0; i < indents; i++)
-		ind += "\t";
-	Console::PrintColored(ind + "- " + message, fgColor, bgColor);
-}
-void Console::WriteBulleted(std::string message, int indents, std::string bullet)
-{
-	std::string ind = "";
-	for (size_t i = 0; i < indents; i++)
-		ind += "\t";
-	Console::PrintColored(ind + bullet + " " + message, "", "");
-}
-void Console::WriteBulleted(std::string message, int indents)
-{
-	std::string ind = "";
-	for (size_t i = 0; i < indents; i++)
-		ind += "\t";
-	Console::PrintColored(ind + "- " + message, "", "");
-}
-void Console::WriteLineCharArrayOfLen(char* message, int len)
-{
-	for (size_t i = 0; i < len; i++)
-		std::cout << message[i];
-
-	std::cout << std::endl;
-}
-//void Console::WriteDialogueAuthor(std::string coloredType)
-//{
-//	Console::PrintColored(coloredType, "", "");
-//}
-
-std::string Console::ReadLine()
-{
-	std::string s;
-	std::getline(std::cin, s);
-	return s;
-}
-
-void Console::ExitError(std::string errMessage)
-{
-	Console console;
-	console.WriteLine(errMessage);
-	std::cout << "Press Enter to Continue";
-	std::cin.ignore();
-	exit(1);
-}
-
-// Print a connection error dialog
-void ConnectionError()
-{
-	//connectionStatus = 0;
-	Console console;
-	console.NetworkErrorPrint();
-	console.WriteLine("Failed To Connect");
 }

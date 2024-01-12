@@ -27,3 +27,5 @@ DCC-Miner/out/build/x64-debug/DCC-Miner/DCC-Miner.pdb
 *.pem
 */config.cfg
 *.list
+DCC-Miner/out/_deps/cpr-src/
+DCC-Miner/out/_deps/zlib-src/

@@ -110,17 +110,17 @@ namespace console{
 		PrintColored("Mining-Error", redFGColor, "");
 		PrintColored("]   - ", yellowFGColor, "");
 	}
-	void RustPrint()
+	void DockerPrint()
 	{
 		PrintColored("[", yellowFGColor, "");
-		PrintColored("Rust", magentaFGColor, "");
-		PrintColored("]           - ", yellowFGColor, "");
+		PrintColored("Docker", magentaFGColor, "");
+		PrintColored("]         - ", yellowFGColor, "");
 	}
 	void CompilerErrorPrint()
 	{
 		PrintColored("[", yellowFGColor, "");
-		PrintColored("Rust-Error", redFGColor, "");
-		PrintColored("]     - ", yellowFGColor, "");
+		PrintColored("Docker-Error", redFGColor, "");
+		PrintColored("]   - ", yellowFGColor, "");
 	}
 	void BlockCheckerPrint()
 	{

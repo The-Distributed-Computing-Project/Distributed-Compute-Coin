@@ -22,7 +22,7 @@ int SendFunds(P2P& p2p, std::string& toAddress, float amount);
 
 
 int connectionStatus = 1;
-const std::string directoryList[] = { "./sec", "./wwwdata", "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/programs", "./wwwdata/superchain" };
+const std::string directoryList[] = { "./sec", "./wwwdata", "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/taskcontainers", "./wwwdata/superchain" };
 
 json walletConfig;
 json walletInfo;
@@ -215,21 +215,27 @@ int main()
 				command = "--" + command;
 		}
 
-		if (SplitString(ToUpper(command), " ")[0] == "--HELP" || SplitString(ToUpper(command), " ")[0] == "-H")
+		// Make uppercase
+		command = ToUpper(command);
+
+		// Get parts split by space character
+		std::vector<std::string> commandParts = SplitString(command, " ");
+
+		if (commandParts[0] == "--HELP" || commandParts[0] == "-H")
 			Help();
-		else if (SplitString(ToUpper(command), " ")[0] == "--VERSION" || SplitString(ToUpper(command), " ")[0] == "-V")
+		else if (commandParts[0] == "--VERSION" || commandParts[0] == "-V")
 		{
 			Logo();
 			continue;
 		}
-		else if (SplitString(ToUpper(command), " ")[0] == "--FUNDS")
+		else if (commandParts[0] == "--FUNDS")
 		{
 			console::SystemPrint();
 			console::Write("You have: ");
 			console::WriteLine("$" + CommaLargeNumberF((double)walletInfo["Funds"]) + " credits\n", console::yellowFGColor, "");
 			continue;
 		}
-		else if (SplitString(ToUpper(command), " ")[0] == "--DIFFICULTY")
+		else if (commandParts[0] == "--DIFFICULTY")
 		{
 			console::SystemPrint();
 			console::WriteLine("Calculating difficulty...");
@@ -239,16 +245,16 @@ int main()
 			console::WriteLine(ExtractPaddedChars(dif, '0'), console::redFGColor, "");
 			continue;
 		}
-		else if (SplitString(ToUpper(command), " ")[0] == "--SYNC" || SplitString(ToUpper(command), " ")[0] == "-S")
+		else if (commandParts[0] == "--SYNC" || commandParts[0] == "-S")
 		{
 			if (Sync(p2p, walletInfo) == 0) continue;
 		}
-		else if (SplitString(ToUpper(command), " ")[0] == "--SYNCBLOCK" || SplitString(ToUpper(command), " ")[0] == "-SB")
+		else if (commandParts[0] == "--SYNCBLOCK" || commandParts[0] == "-SB")
 		{
 			int blockNum = 0;
 			try
 			{
-				blockNum = stoi(SplitString(ToUpper(command), " ")[1]);
+				blockNum = stoi(commandParts[1]);
 				console::NetworkPrint();
 				console::WriteLine("Syncing block " + std::to_string(blockNum));
 				SyncBlock(p2p, blockNum, true);
@@ -259,14 +265,14 @@ int main()
 				console::WriteLine("Error syncing. : " + (std::string)e.what(), "", console::redFGColor);
 			}
 		}
-		else if (SplitString(ToUpper(command), " ")[0] == "--SEND" || SplitString(ToUpper(command), " ")[0] == "-SN")
+		else if (commandParts[0] == "--SEND" || commandParts[0] == "-SN")
 		{
 			std::string toAddr;
 			float amnt;
 			try
 			{
-				toAddr = SplitString(command, " ")[1];
-				amnt = stof(SplitString(ToUpper(command), " ")[2]);
+				toAddr = commandParts[1];
+				amnt = stof(commandParts[2]);
 
 				if (SendFunds(p2p, toAddr, amnt) == 0)
 				{
@@ -279,7 +285,7 @@ int main()
 				console::WriteLine("Error sending : " + (std::string)e.what(), "", console::redFGColor);
 			}
 		}
-		else if (SplitString(ToUpper(command), " ")[0] == "--VERIFY" || SplitString(ToUpper(command), " ")[0] == "-VF")
+		else if (commandParts[0] == "--VERIFY" || commandParts[0] == "-VF")
 		{
 			try
 			{
@@ -290,11 +296,11 @@ int main()
 				Sync(p2p, walletInfo);
 			}
 		}
-		else if (SplitString(ToUpper(command), " ")[0] == "--MINE" || SplitString(ToUpper(command), " ")[0] == "-M")
+		else if (commandParts[0] == "--MINE" || commandParts[0] == "-M")
 		{
 			int iterations = 1;
-			if (SplitString(command, " ").size() > 1)
-				iterations = stoi(SplitString(command, " ")[1]);
+			if (commandParts.size() > 1)
+				iterations = stoi(commandParts[1]);
 
 			for (int i = 0; i < iterations; i++)
 			{
@@ -388,31 +394,31 @@ int main()
 				std::cout << "\n\n";
 			}
 		}
-		else if (SplitString(ToUpper(command), " ")[0] == "--MINEANY" || SplitString(ToUpper(command), " ")[0] == "-MA")
+		else if (commandParts[0] == "--MINEANY" || commandParts[0] == "-MA")
 		{
 			std::string diff = "";
-			if (SplitString(command, " ").size() == 3)
-				diff = SplitString(command, " ")[2];
-			MineAnyBlock(stoi(SplitString(command, " ")[1]), diff);
+			if (commandParts.size() == 3)
+				diff = commandParts[2];
+			MineAnyBlock(stoi(commandParts[1]), diff);
 		}
-		else if (SplitString(ToUpper(command), " ")[0] == "--POOL" || SplitString(ToUpper(command), " ")[0] == "-P")
+		else if (commandParts[0] == "--POOL" || commandParts[0] == "-P")
 		{
 			std::string poolURL = "http://dccpool.us.to:3333";
-			if (SplitString(command, " ").size() == 2)
-				poolURL = SplitString(command, " ")[1];
+			if (commandParts.size() == 2)
+				poolURL = commandParts[1];
 			PoolMine(poolURL, walletInfo);
 		}
-		else if (SplitString(ToUpper(command), " ")[0] == "--SUPERBLOCK" || SplitString(ToUpper(command), " ")[0] == "-SP")
+		else if (commandParts[0] == "--SUPERBLOCK" || commandParts[0] == "-SP")
 		{
 			CreateSuperblock();
 		}
-		//else if (SplitString(ToUpper(command), " ")[0] == "--CONNECT" || SplitString(ToUpper(command), " ")[0] == "-C")
+		//else if (commandParts[0] == "--CONNECT" || commandParts[0] == "-C")
 		//{
-		//	if (SplitString(command, " ").size() < 3)
+		//	if (commandParts.size() < 3)
 		//		continue;
 
-		//	endpointPort = SplitString(command, " ")[1];
-		//	peerPort = SplitString(command, " ")[2];
+		//	endpointPort = commandParts[1];
+		//	peerPort = commandParts[2];
 
 		//	p2p.StartP2P(endpointAddr, endpointPort, peerPort);
 		//	console::NetworkPrint();

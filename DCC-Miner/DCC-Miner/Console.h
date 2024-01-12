@@ -59,7 +59,7 @@ namespace console
 	void NetworkErrorPrint();
 	void MiningPrint();
 	void MiningErrorPrint();
-	void RustPrint();
+	void DockerPrint();
 	void CompilerErrorPrint();
 	void BlockCheckerPrint();
 	void DebugPrint();

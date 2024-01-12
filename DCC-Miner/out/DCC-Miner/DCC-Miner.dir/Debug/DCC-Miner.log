@@ -1,6 +1,4 @@
 ﻿cl : command line  warning D9002: ignoring unknown option '-O3'
-  Network.cpp
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Network.cpp(40,8): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   P2PClient.cpp
   Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
@@ -37,6 +35,5 @@ D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(722,43): warning C42
 D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(722,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
 D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(554,32): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
 D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(542,7): warning C4101: 'http': unreferenced local variable
-  Generating Code...
 D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\P2PClient.cpp(114): warning C4715: 'P2P::mySendTo': not all control paths return a value
   DCC-Miner.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\DCC-Miner\Debug\DCC-Miner.exe

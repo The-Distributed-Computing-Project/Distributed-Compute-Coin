@@ -16,7 +16,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 	{
 		auto startTime = std::chrono::steady_clock::now();
 
-		console::RustPrint();
+		console::DockerPrint();
 		console::WriteLine("Starting program... ");
 		ExecuteAsync("docker run --network none --rm --name="+(std::string)(walletInfo["ProgramID"])+" -v ./wwwdata/programs/"+(std::string)(walletInfo["ProgramID"])+":/out/ "+(std::string)(walletInfo["ProgramID"])+" /bin/bash run.sh", false);
 		boost::process::child containerProcess = ExecuteAsync("docker wait "+(std::string)(walletInfo["ProgramID"]), false);
@@ -81,7 +81,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 
 		std::cout << std::endl;
 
-		//// Wait for the rust program to finish running
+		//// Wait for the Docker program to finish running
 		//if (containerProcess.running())
 		//	containerProcess.wait();
 
@@ -219,8 +219,8 @@ int PoolMine(std::string poolURL, json& walletInfo)
 		{
 			auto startTime = std::chrono::steady_clock::now();
 
-			// The rust program execution needs to be thought out more, because it would need changes for pool mining.
-			//console::RustPrint();
+			// The Docker program execution needs to be thought out more, because it would need changes for pool mining.
+			//console::DockerPrint();
 			//console::WriteLine("Starting program... ");
 			//boost::process::child containerProcess = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + "/Cargo.toml", false);
 
@@ -269,7 +269,7 @@ int PoolMine(std::string poolURL, json& walletInfo)
 				continue;
 
 
-			//// Wait for the rust program to finish running
+			//// Wait for the Docker program to finish running
 			//if (containerProcess.running())
 			//	containerProcess.wait();
 

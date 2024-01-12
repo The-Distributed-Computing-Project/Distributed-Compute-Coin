@@ -76,6 +76,9 @@ public:
 
 		requesting_transaction_process = 12,
 		replying_transaction_process = 13,
+
+		requesting_task_container = 14,
+		replying_task_container = 15,
 	};
 
 	int reqDat = -1;

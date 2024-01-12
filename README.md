@@ -67,6 +67,9 @@ There will also be a command to verify the readiness of a container before relea
 ```
 The above options still apply, so you can test how well they will perform on your own hardware.
 
+## Computation Verification
+In order to verify the results of the computation of the container task, a method called Verification by replication, used by SETI@Home, will be used. This will involve a number of miners getting the same task, and their hashes of the computed data will be compared. Once a minimum of them match, the value will be saved.
+
 <hr>
 
 

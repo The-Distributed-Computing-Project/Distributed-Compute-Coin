@@ -1,7 +1,7 @@
-                       DCC GENERAL PUBLIC LICENSE
-                       Version 1, 22 November 2021
+         THE DISTRIBUTED COMPUTING PROJECT GENERAL PUBLIC LICENSE
+                       Version 2, 12 January 2024
 
-                    Copyright (c) 2021-2021, Astro-Sam
+               Copyright (c) 2021-2024, AstroSam (sam-astro)
 
                           All rights reserved.
 
@@ -65,13 +65,7 @@ the terms of this License in conveying all material for which you do
 not control copyright.  Those thus making or running the covered works
 for you must do so exclusively on your behalf, under your direction
 and control, on terms that prohibit them from making any copies of
-your copyrighted material outside their relationship with you. You may
-not attempt to use covered works in the open network, unless given
-express written permission. You may contribute to the official GitHub
-(GitHub, Inc. www.github.com) source and submit modifications on the
-work to be accepted or denied by the original author of the work.
-If your approved program begins to appear malicious, it may taken down
-at the author's discretion.
+your copyrighted material outside their relationship with you.
 
   Conveying under any other circumstances is permitted solely under
 the conditions stated below.  Sublicensing is not allowed; section 10

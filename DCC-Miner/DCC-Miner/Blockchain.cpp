@@ -188,10 +188,10 @@ int GetProgram(json& walletInfo)
 			console::MiningPrint();
 			console::WriteLine("Building assigned program, wait until it's finished to start mining");
 
-			console::RustPrint();
+			console::DockerPrint();
 			console::WriteLine("Compiling program... ");
 			ExecuteCommand(("cargo build --release --manifest-path ./wwwdata/programs/" + programID + "/Cargo.toml").c_str());
-			console::RustPrint();
+			console::DockerPrint();
 			console::WriteLine("Done Compiling");
 
 			programConfig["Built"] = true;

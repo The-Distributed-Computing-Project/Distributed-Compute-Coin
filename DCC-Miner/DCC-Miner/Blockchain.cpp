@@ -190,7 +190,13 @@ int GetProgram(json& walletInfo)
 
 			console::DockerPrint();
 			console::WriteLine("Compiling program... ");
-			ExecuteCommand(("cargo build --release --manifest-path ./wwwdata/programs/" + programID + "/Cargo.toml").c_str());
+			//ExecuteCommand(("cargo build --release --manifest-path ./wwwdata/programs/" + programID + "/Cargo.toml").c_str());
+
+			ExecuteAsync("docker run -d --network none --rm --name=" + (std::string)(walletInfo["ProgramID"]) + " -v ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + ":/out/ " + (std::string)(walletInfo["ProgramID"]) + " /bin/bash build.sh", true);
+			boost::process::child containerProcess = ExecuteAsync("docker wait " + (std::string)(walletInfo["ProgramID"]), false);
+
+			while(containerProcess.running()){}
+
 			console::DockerPrint();
 			console::WriteLine("Done Compiling");
 
@@ -234,7 +240,7 @@ void CreateTransaction(P2P& p2p, json& walletInfo, double& amount){
 // Check every single block to make sure the nonce is valid, the hash matches the earlier and later blocks, and each transaction has a valid signature.
 bool IsChainValid(P2P& p2p, json& walletInfo)
 {
-	console::BlockCheckerPrint();
+	console::BlockchainPrint();
 	console::WriteLine("Validating blockchain...");
 	try {
 		/*while (FileCount("./wwwdata/blockchain/") < walletInfo["BlockchainLength"])
@@ -256,7 +262,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 		double tmpFunds = 0;
 		int txNPending = 0;
 
-		console::BlockCheckerPrint();
+		console::BlockchainPrint();
 		console::WriteLine("Checking blocks...");
 
 		// Apply funds to user from the first block separately
@@ -301,7 +307,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				console::Write("\r");
 				console::WriteBulleted("Validating block: " + std::to_string(1), 3);
 				char sha256OutBuffer[65];
-				std::string lastHash = firstBlock["lastHash"];
+				std::string pprev = firstBlock["pprev"];
 				std::string currentHash = firstBlock["hash"];
 				std::string nonce = firstBlock["nonce"];
 				// The data we will actually be hashing is a hash of the
@@ -312,10 +318,12 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				{
 					txData += (std::string)firstBlock["transactions"][i]["tx"].dump();
 				}
-				std::string fDat = (std::string)firstBlock["lastHash"] + txData;
+				// Compile all data into shorter format:
+				std::string fDat = (std::string)firstBlock["pprev"] + txData;
 				sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
 				std::string hData = std::string(sha256OutBuffer);
 
+				// Check what the hash is with the nonce:
 				sha256_string((char*)(hData + nonce).c_str(), sha256OutBuffer);
 				std::string blockHash = sha256OutBuffer;
 
@@ -369,7 +377,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					}
 				}
 
-				std::string lastHash = o["lastHash"];
+				std::string pprev = o["pprev"];
 				std::string currentHash = o["hash"];
 				std::string nonce = o["nonce"];
 
@@ -399,21 +407,21 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				{
 					txData += (std::string)(o["transactions"][i]["tx"].dump());
 				}
-				std::string fDat = (std::string)o["lastHash"] + txData;
+				std::string fDat = (std::string)o["pprev"] + txData;
 				sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
 				std::string hData = std::string(sha256OutBuffer);
 
 				sha256_string((char*)(hData + nonce.c_str()).c_str(), sha256OutBuffer);
 				std::string blockHash = std::string(sha256OutBuffer);
 
-				if ((blockHash[0] != '0' && blockHash[1] != '0') || blockHash != currentHash || lastRealHash != lastHash)
+				if ((blockHash[0] != '0' && blockHash[1] != '0') || blockHash != currentHash || lastRealHash != pprev)
 				{
 					std::string rr = "";
 					if ((blockHash[0] != '0' && blockHash[1] != '0'))
 						rr += "0";
 					if (blockHash != currentHash)
 						rr += "1";
-					if (lastRealHash != lastHash)
+					if (lastRealHash != pprev)
 						rr += "2";
 					console::WriteLine("    X Bad Block X  " + std::to_string(i) + " R" + rr + "   # " + blockHash, console::redFGColor, "");
 					return false;
@@ -500,7 +508,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 		//console::WriteLine();
 		walletInfo["Funds"] = tmpFunds;
 		console::Write("\r");
-		console::BlockCheckerPrint();
+		console::BlockchainPrint();
 		console::Write("Done!                                                         \n");
 		return true;
 	}
@@ -509,7 +517,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 		ERRORMSG("Error validating chain:\n" << e.what());
 	}
 	console::Write("\r");
-	console::BlockCheckerPrint();
+	console::BlockchainPrint();
 	console::Write("Done! (there were problems)                                                        \n");
 	return false;
 }
@@ -648,7 +656,7 @@ void CreateSuperblock() {
 					walletBalances[toAddr] = amount;
 				rewardedAddress = toAddr;
 			}
-			else {
+			else if (fromAddr != "Block Reward") {
 				if (walletBalances.contains(fromAddr))
 					walletBalances[fromAddr] -= amount;
 				else
@@ -670,7 +678,7 @@ void CreateSuperblock() {
 	json superblockJson = json();
 
 	//superblockJson["hash"] = "0000000000000000000000000000000000000000000000000000000000000000";
-	//superblockJson["lastHash"] = hashStr;
+	//superblockJson["pprev"] = hashStr;
 	//superblockJson["nonce"] = "";
 	//superblockJson["time"] = "";
 	//superblockJson["targetDifficulty"] = "";
@@ -682,9 +690,12 @@ void CreateSuperblock() {
 	std::map<std::string, double>::iterator it = walletBalances.begin();
 
 	// Iterate through the map and add the elements to the array
+	console::WriteLine();
+	console::WriteLine("List of all wallet balances:");
 	while (it != walletBalances.end())
 	{
-		std::cout << "Wallet: " << it->first << ", Balance: $" << (float)(it->second) << std::endl;
+		console::WriteBulleted("", 1);
+		std::printf("Wallet: %s, Balance: $%f\n", it->first.c_str(), it->second);
 		json item = json::object({});
 		item = {
 				{"address", it->first},
@@ -693,6 +704,7 @@ void CreateSuperblock() {
 		superblockJson["balances"].insert(superblockJson["balances"].begin(), item);
 		++it;
 	}
+	console::WriteLine();
 
 	int superblockCount = FileCount("./wwwdata/superchain/");
 	std::ofstream blockFilew("./wwwdata/superchain/" + std::to_string(superblockCount + 1) + ".dccsuper");
@@ -707,8 +719,11 @@ void CreateSuperblock() {
 json UpgradeBlock(json& b)
 {
 	//if (constants::debugPrint == true) {
-	console::BlockCheckerPrint();
-	console::Write("   Upgrading block to version ");
+	console::WriteLine();
+	console::BlockchainPrint();
+	console::WriteIndented("Upgrading block ", "", "", 1);
+	console::Write(std::to_string((uint64_t)b["id"]), console::greenFGColor, "");
+	console::Write(" to version ");
 	console::Write(BLOCK_VERSION, console::cyanFGColor, "");
 	//}
 
@@ -796,18 +811,58 @@ json UpgradeBlock(json& b)
 		b["_version"] = "v0.7.0-alpha-coin";
 	}
 
-	//// v0.7.1-alpha-coin
-	//// Changes:
-	//// * Enforce transactionFee variable
-	//// * Update version
-	//if (IsVersionGreaterOrEqual(currentVersion, "v0.7.1-alpha-coin") == false)
-	//{
-	//	// Add transactionFee to each transaction
-	//	for (int tr = 0; tr < b["transactions"].size(); tr++) {
-	//		b["transactions"][tr]["tx"]["transactionFee"] = 0.0;
-	//	}
-	//	b["_version"] = "v0.7.1-alpha-coin";
-	//}
+	// v0.8.0-alpha-coin
+	// Changes:
+	// * Create containerTask section of block for holding task data sources and hashes
+	// * Update version
+	if (IsVersionGreaterOrEqual(currentVersion, "v0.8.0-alpha-coin") == false)
+	{
+		// Add containerTask to each transaction
+		b["containerTask"]["taskID"] = "";
+		b["containerTask"]["taskInstances"] = json::array();
+		b["containerTask"]["taskInstances"].push_back(json::parse("{\"seed\":\"\",\"taskDataHash\":\"\",\"responsiblePeers\":[]}"));
+		b["_version"] = "v0.8.0-alpha-coin";
+	}
+
+	// v0.8.1-alpha-coin
+	// Changes:
+	// * Make containerTask object into containerTasks array
+	// * Update version
+	if (IsVersionGreaterOrEqual(currentVersion, "v0.8.1-alpha-coin") == false)
+	{
+		// Add containerTask to each transaction
+		b.erase("containerTask");
+		b["containerTasks"] = json::array();
+		b["_version"] = "v0.8.1-alpha-coin";
+	}
+
+	// v0.8.2-alpha-coin
+	// Changes:
+	// * Change `lastHash` to `pprev`
+	// * Add `pnext`
+	// * Update version
+	if (IsVersionGreaterOrEqual(currentVersion, "v0.8.2-alpha-coin") == false)
+	{
+		// pprev
+		b["pprev"] = b["lastHash"];
+		b.erase("lastHash");
+		// pnext
+		std::ifstream t;
+		t.open("./wwwdata/blockchain/block" + std::to_string((uint64_t)b["id"]+1) + ".dccblock");
+		if (!t.is_open()) {
+			ERRORMSG("Could not open file, skipping `pnext` upgrade");
+			b["pnext"] = "";
+		}
+		else {
+			std::stringstream buffer;
+			buffer << t.rdbuf();
+			std::string content = buffer.str();
+			t.close();
+			b["pnext"] = (json::parse(content))["hash"];
+		}
+
+		b["_version"] = "v0.8.2-alpha-coin";
+	}
 
 
 
@@ -815,9 +870,12 @@ json UpgradeBlock(json& b)
 
 	// Make sure there is always an upgrade step. If there isn't, then throw error
 	if (b["_version"] != BLOCK_VERSION) {
+		console::WriteLine();
 		console::ErrorPrint();
-		console::Write("No block upgrade step found for version:", console::redFGColor, "");
-		console::Write(" \"" + BLOCK_VERSION + "\"", console::cyanFGColor, "");
+		console::Write("No block upgrade step found from version ", console::redFGColor, "");
+		console::Write("\"" + (std::string)b["_version"] + "\"", console::cyanFGColor, "");
+		console::Write(" to ", console::redFGColor, "");
+		console::Write("\"" + BLOCK_VERSION + "\"", console::cyanFGColor, "");
 		console::ExitError("");
 	}
 

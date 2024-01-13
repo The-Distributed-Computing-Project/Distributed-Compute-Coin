@@ -122,7 +122,7 @@ namespace console{
 		PrintColored("Docker-Error", redFGColor, "");
 		PrintColored("]   - ", yellowFGColor, "");
 	}
-	void BlockCheckerPrint()
+	void BlockchainPrint()
 	{
 		PrintColored("[", yellowFGColor, "");
 		PrintColored("Blockchain", greenFGColor, cyanBGColor);

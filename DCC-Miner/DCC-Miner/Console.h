@@ -61,7 +61,7 @@ namespace console
 	void MiningErrorPrint();
 	void DockerPrint();
 	void CompilerErrorPrint();
-	void BlockCheckerPrint();
+	void BlockchainPrint();
 	void DebugPrint();
 	void SystemPrint();
 	void ErrorPrint();

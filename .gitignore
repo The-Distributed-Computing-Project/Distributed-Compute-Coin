@@ -12,6 +12,7 @@ FileContentIndex
 *.dccwallet
 *.lnk
 *.dccblock
+*.dccsuper
 programs
 slnx.sqlite
 DCC-Miner/.vs/slnx.sqlite

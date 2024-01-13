@@ -1,18 +1,6 @@
 ﻿cl : command line  warning D9002: ignoring unknown option '-O3'
-  strops.cpp
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(44,9): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(58,8): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(74,9): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(115,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(119,25): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(269,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(375,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(419,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(428,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(448,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   Blockchain.cpp
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.cpp(554,23): warning C4244: 'initializing': conversion from 'uint64_t' to 'uint16_t', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.cpp(603,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.cpp(611,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.cpp(562,23): warning C4244: 'initializing': conversion from 'uint64_t' to 'uint16_t', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.cpp(611,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Blockchain.cpp(619,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   DCC-Miner.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\DCC-Miner\Debug\DCC-Miner.exe

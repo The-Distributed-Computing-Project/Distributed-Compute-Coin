@@ -27,7 +27,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		std::ifstream blockFile("./wwwdata/blockchain/block" + std::to_string((int)walletInfo["BlockchainLength"]) + ".dccblock");
 		std::stringstream blockBuffer;
 		blockBuffer << blockFile.rdbuf();
-		currentBlockJson["lastHash"] = (std::string)(json::parse(blockBuffer.str())["hash"]);
+		currentBlockJson["pprev"] = (std::string)(json::parse(blockBuffer.str())["hash"]);
 
 		//Checks Hash
 		unsigned long long int nonce = 0;
@@ -48,7 +48,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		{
 			txData += (std::string)(currentBlockJson["transactions"][i]["tx"].dump());
 		}
-		std::string fDat = (std::string)currentBlockJson["lastHash"] + txData;
+		std::string fDat = (std::string)currentBlockJson["pprev"] + txData;
 		sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
 		std::string hData = std::string(sha256OutBuffer);
 		char* hDataChars = (char*)hData.c_str();
@@ -126,7 +126,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 			json blockJson = json();
 
 			blockJson["hash"] = "0000000000000000000000000000000000000000000000000000000000000000";
-			blockJson["lastHash"] = hashStr;
+			blockJson["pprev"] = hashStr;
 			blockJson["nonce"] = "";
 			blockJson["time"] = "";
 			blockJson["targetDifficulty"] = "";
@@ -332,7 +332,7 @@ int MineAnyBlock(int blockNum, std::string& difficulty)
 		txData += (std::string)o["transactions"][i]["tx"].dump();
 	}
 	std::string currentHash = o["hash"];
-	std::string lastHash = o["lastHash"];
+	std::string pprev = o["pprev"];
 
 	char sha256OutBuffer[65];
 
@@ -349,7 +349,7 @@ int MineAnyBlock(int blockNum, std::string& difficulty)
 	// The data we will actually be mining for is a hash of the
 	// transactions and header, so we don't need to do calculations on
 	// massive amounts of data
-	std::string fDat = lastHash + txData;
+	std::string fDat = pprev + txData;
 	sha256_string((char*)(fDat.c_str()), sha256OutBuffer);
 	std::string hData = std::string(sha256OutBuffer);
 

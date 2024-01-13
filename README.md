@@ -80,29 +80,43 @@ There will be added support for OpenAlias, and such URLs as http://dccpool.us.to
 > This is the genesis block
 ```json
 {
-	"Version": null,
-	"hash": "dccba5e70246993b252c8ceb8394e4cd97f6313fbf78c3b9113d694b0ff2016b",
-	"lastHash": "0000000000000000000000000000000000000000000000000000000000000000",
-	"nonce": "394849135",
-	"time": "0",
-	"transactionTimes": [
-		1664574203
-	],
-	"transactions": [
-		{
-			"tx": {
-				"fromAddr": "",
-				"toAddr": "fd394f214e71e4aaf995914207d44181ca9e92c2f508afadf06d367f06151f84",
-				"amount": 1000000000,
-				"txNum": 0
-			},
-			"sec": {
-				"signature": "",
-				"pubKey": "",
-				"note": ""
-			}
-		}
-	]
+    "_version": "v0.8.0-alpha-coin",
+    "containerTasks": [
+        {
+            "taskID": "",
+            "taskInstances": [
+                {
+                    "responsiblePeers": [],
+                    "seed": "",
+                    "taskDataHash": ""
+                }
+            ]
+        }
+    ],
+    "hash": "dccba5e885fda6209b50397c3d97ab416da0928d7d49b5f0bc9835cd88f756d6",
+    "lastHash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "nonce": "1275615",
+    "targetDifficulty": "0000000ffff0000000000000000000000000000000000000000000000000000",
+    "time": "0",
+    "transactionTimes": [
+        1664574203
+    ],
+    "transactions": [
+        {
+            "sec": {
+                "note": "",
+                "pubKey": "",
+                "signature": ""
+            },
+            "tx": {
+                "amount": 1000000000,
+                "fromAddr": "",
+                "toAddr": "fd394f214e71e4aaf995914207d44181ca9e92c2f508afadf06d367f06151f84",
+                "transactionFee": 0,
+                "unlockTime": 0
+            }
+        }
+    ]
 }
 ```
 

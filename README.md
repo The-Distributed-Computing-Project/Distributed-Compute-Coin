@@ -150,5 +150,5 @@ There will be added support for OpenAlias, and such URLs as http://dccpool.us.to
 
 <!----------------------------------[ Badges ]--------------------------------->
 
-[Badge License]: https://img.shields.io/badge/license-DCC--GPL-brightgreen
+[Badge License]: https://img.shields.io/badge/license-DCP--GPL-brightgreen
 [Button Discord]: https://img.shields.io/badge/Discord_Server-573f75.svg?style=social&logo=Discord

@@ -137,7 +137,7 @@ int GetProgram(json& walletInfo)
 
 			programID = assignedProgram;
 
-			if (constants::debugPrint == true) {
+			if (WalletSettingValues::debugPrint == true) {
 				console::NetworkPrint();
 				console::WriteLine("./wwwdata/programs/" + programID + ".cfg");
 			}
@@ -195,7 +195,7 @@ int GetProgram(json& walletInfo)
 			ExecuteAsync("docker run -d --network none --rm --name=" + (std::string)(walletInfo["ProgramID"]) + " -v ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + ":/out/ " + (std::string)(walletInfo["ProgramID"]) + " /bin/bash build.sh", true);
 			boost::process::child containerProcess = ExecuteAsync("docker wait " + (std::string)(walletInfo["ProgramID"]), false);
 
-			while(containerProcess.running()){}
+			while (containerProcess.running()) {}
 
 			console::DockerPrint();
 			console::WriteLine("Done Compiling");
@@ -233,7 +233,7 @@ float GetProgramLifeLeft()
 	}
 }
 
-void CreateTransaction(P2P& p2p, json& walletInfo, double& amount){
+void CreateTransaction(P2P& p2p, json& walletInfo, double& amount) {
 
 }
 
@@ -271,7 +271,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			if (chainLength >= 1) {
 				std::ifstream th;
 				th.open("./wwwdata/blockchain/block1.dccblock");
-				if(!th.is_open())
+				if (!th.is_open())
 					ERRORMSG("Could not open file");
 				std::stringstream buffer2;
 				buffer2 << th.rdbuf();
@@ -339,9 +339,9 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 		}
 		catch (const std::exception& e)
 		{
-			//if (constants::debugPrint == true) {
+			//if (WalletSettingValues::debugPrint == true) {
 			std::cerr << "\n";
-				ERRORMSG("Error\n" << e.what());
+			ERRORMSG("Error\n" << e.what());
 			//}
 			//console::ExitError("Failure, exiting 854");
 		}
@@ -353,7 +353,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			{
 				std::ifstream t;
 				t.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
-				if(!t.is_open())
+				if (!t.is_open())
 					ERRORMSG("Could not open file");
 				std::stringstream buffer;
 				buffer << t.rdbuf();
@@ -384,7 +384,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				// Get the previous block
 				std::ifstream td;
 				td.open("./wwwdata/blockchain/block" + std::to_string(i - 1) + ".dccblock");
-				if(!td.is_open())
+				if (!td.is_open())
 					ERRORMSG("Could not open file");
 				std::stringstream bufferd;
 				bufferd << td.rdbuf();
@@ -492,7 +492,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			// If there is a failure state, assume that block is bad or does not exist.
 			catch (const std::exception& e)
 			{
-				if (constants::debugPrint == true) {
+				if (WalletSettingValues::debugPrint == true) {
 					ERRORMSG("Error\n" << e.what());
 				}
 
@@ -523,15 +523,15 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 }
 
 
-// Calculates the difficulty of the next block by looking at the past 720 blocks,
+// Calculates the difficulty of the next block by looking at the past 288 blocks,
 // and averaging the time it took between each block to keep it within the 2 min (120 second) range
 std::string CalculateDifficulty(json& walletInfo) {
 	std::string targetDifficulty = "000000FFFFFF0000000000000000000000000000000000000000000000000000";
 
 	int blockCount = FileCount("./wwwdata/blockchain/");
 
-	// Default difficulty 6 for the first 720 blocks 
-	if (blockCount <= 721) {
+	// Default difficulty 6 for the first 288 blocks  (24 hours)
+	if (blockCount <= 289) {
 		walletInfo["targetDifficulty"] = targetDifficulty;
 		walletInfo["MineDifficulty"] = ExtractPaddedChars(targetDifficulty, '0');
 		return targetDifficulty;
@@ -542,17 +542,17 @@ std::string CalculateDifficulty(json& walletInfo) {
 
 	// Get first block time
 	std::ifstream t;
-	t.open("./wwwdata/blockchain/block" + std::to_string(blockCount - 720) + ".dccblock");
+	t.open("./wwwdata/blockchain/block" + std::to_string(blockCount - 288) + ".dccblock");
 	std::stringstream buffer;
 	buffer << t.rdbuf();
 	json ot = json::parse(buffer.str());
 	lastTime = (uint64_t)ot["time"];
 
-	// Iterate last 720 blocks and add their time difference to the vector
-	for (int i = blockCount - 719; i <= blockCount; i++) {
+	// Iterate last 288 blocks and add their time difference to the vector
+	for (int i = blockCount - 287; i <= blockCount; i++) {
 		std::ifstream tt;
 		tt.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
-		if(!tt.is_open())
+		if (!tt.is_open())
 			ERRORMSG("Could not open file");
 		std::stringstream buffert;
 		buffert << tt.rdbuf();
@@ -570,22 +570,22 @@ std::string CalculateDifficulty(json& walletInfo) {
 	std::sort(secondCounts.begin(), secondCounts.end());
 
 	uint32_t highest = secondCounts[60];
-	uint32_t lowest = secondCounts[660];
+	uint32_t lowest = secondCounts[288 - 60];
 
 	// Get average of middle 600 block times
 	uint32_t avgTotal = 0;
-	for (int i = 60; i < 640; i++)
+	for (int i = 60; i < 288 - 60; i++)
 		avgTotal += secondCounts[i];
-	uint32_t average = avgTotal / (640 - 60);  // Divide by total, which gives the average
+	uint32_t average = avgTotal / (288 - 60 - 60);  // Divide by total, which gives the average
 
-	// Expected: 86400 seconds total (24 hours per 720 blocks), or 120 seconds average
+	// Expected: 86400 seconds total (24 hours per 288 blocks), or 300 seconds average
 
 	std::map<std::string, int> difficultyOccurrences;
-	// Get the most common previous target difficulty in the past 720 blocks
-	for (int i = blockCount - 719; i <= blockCount; i++) {
+	// Get the most common previous target difficulty in the past 288 blocks
+	for (int i = blockCount - 287; i <= blockCount; i++) {
 		std::ifstream tt;
 		tt.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
-		if(!tt.is_open())
+		if (!tt.is_open())
 			ERRORMSG("Could not open file");
 		std::stringstream buffert;
 		buffert << tt.rdbuf();
@@ -607,18 +607,22 @@ std::string CalculateDifficulty(json& walletInfo) {
 		}
 	}
 
-	// 69600 minutes for (640-60) = 580 blocks
-	double ratio = clampf((double)avgTotal / 69600.0, 0.25, 4.0);
+	// 50400 seconds for (288-60-60) = 168 blocks * 300 seconds
+	double ratio = clampf((double)avgTotal / 50400.0, 0.25, 4.0);
 
 	console::WriteBulleted("Average time: " + std::to_string(average) + "s\n", 3);
 	console::WriteBulleted("Min/Max: " + std::to_string(highest) + "s / " + std::to_string(lowest) + "s\n", 3);
-	console::WriteBulleted("Ratio: " + std::to_string(ratio) + ",  unclamped: " + std::to_string((double)avgTotal / 69600.0) + "\n", 3);
+	console::WriteBulleted("Ratio: " + std::to_string(ratio) + ",  unclamped: " + std::to_string((double)avgTotal / 50400.0) + "\n", 3);
 	console::WriteBulleted("Last target difficulty: " + targetDifficulty + "\n", 3);
 
 
 	std::string newDifficulty = PadString(multiplyHexByFloat(targetDifficulty, ratio), '0', 64);
 
 	console::WriteBulleted("New target difficulty:  " + newDifficulty + "\n", 3);
+	if (WalletSettingValues::debugPrint) {
+		console::WriteBulleted("Test long division:  " + longDivision("123878287", 328) + "\n", 3);
+		console::WriteBulleted("Test hex division:  " + hexLongDivision("FF76200", 40) + "\n", 3);
+	}
 
 	walletInfo["targetDifficulty"] = newDifficulty;
 	walletInfo["MineDifficulty"] = ExtractPaddedChars(targetDifficulty, '0');
@@ -718,7 +722,7 @@ void CreateSuperblock() {
 // Upgrade a block to a newer version
 json UpgradeBlock(json& b)
 {
-	//if (constants::debugPrint == true) {
+	//if (WalletSettingValues::debugPrint == true) {
 	console::WriteLine();
 	console::BlockchainPrint();
 	console::WriteIndented("Upgrading block ", "", "", 1);
@@ -848,7 +852,7 @@ json UpgradeBlock(json& b)
 		b.erase("lastHash");
 		// pnext
 		std::ifstream t;
-		t.open("./wwwdata/blockchain/block" + std::to_string((uint64_t)b["id"]+1) + ".dccblock");
+		t.open("./wwwdata/blockchain/block" + std::to_string((uint64_t)b["id"] + 1) + ".dccblock");
 		if (!t.is_open()) {
 			ERRORMSG("Could not open file, skipping `pnext` upgrade");
 			b["pnext"] = "";

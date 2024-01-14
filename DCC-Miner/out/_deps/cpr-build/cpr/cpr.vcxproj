@@ -102,7 +102,6 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -164,7 +163,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -226,7 +224,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -288,7 +285,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -349,7 +345,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -O3 -fsanitize=thread</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) -fsanitize=thread</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>

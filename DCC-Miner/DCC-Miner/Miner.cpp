@@ -113,7 +113,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		}
 		catch (const std::exception& e)
 		{
-			if (constants::debugPrint == true)
+			if (WalletSettingValues::debugPrint == true)
 				std::cerr << e.what() << std::endl;
 			return 0;
 		}
@@ -146,7 +146,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 			}
 			catch (const std::exception& e)
 			{
-				if (constants::debugPrint == true)
+				if (WalletSettingValues::debugPrint == true)
 					std::cerr << e.what() << std::endl;
 				return 0;
 			}
@@ -160,7 +160,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 	}
 	catch (const std::exception& e)
 	{
-		//if (constants::debugPrint == true)
+		//if (WalletSettingValues::debugPrint == true)
 		std::cerr << e.what() << std::endl;
 		return 0;
 	}
@@ -303,7 +303,7 @@ int PoolMine(std::string poolURL, json& walletInfo)
 		}
 		catch (const std::exception& e)
 		{
-			//if (constants::debugPrint == true)
+			//if (WalletSettingValues::debugPrint == true)
 			std::cerr << e.what() << std::endl;
 			return 0;
 		}

@@ -1,7 +1,7 @@
 ﻿  Checking Build System
-  CMake is re-running because D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/generate.stamp is out-of-date.
-    the file 'D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/3.21.4/CMakeCCompiler.cmake'
-    is newer than 'D:/Code/DC-Cryptocurrency/DCC-Miner/out/CMakeFiles/generate.stamp.depend'
+  CMake is re-running because D:/Code/DC-Cryptocurrency/DCC-Miner/out/DCC-Miner/CMakeFiles/generate.stamp is out-of-date.
+    the file 'D:/Code/DC-Cryptocurrency/DCC-Miner/DCC-Miner/CMakeLists.txt'
+    is newer than 'D:/Code/DC-Cryptocurrency/DCC-Miner/out/DCC-Miner/CMakeFiles/generate.stamp.depend'
     result='-1'
   -- Selecting Windows SDK version 10.0.22000.0 to target Windows 10.0.19045.
   -- C++ Requests CMake Options

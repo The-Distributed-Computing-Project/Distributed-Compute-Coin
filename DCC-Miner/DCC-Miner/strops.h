@@ -3,12 +3,15 @@
 
 #include <vector>
 #include <string>
+#include <sstream>
+#include <algorithm> 
 #include "Console.h"
 #include <cmath>
 #include <math.h>
 #include <iomanip>
 #include <locale>
 #include <iostream>
+#include "BaseConverter.h"
 
 #define ERRORMSG( msg ) std::cerr << "[" << __FILE__ << ", at line: " << __LINE__ << "] " << msg << std::endl;
 
@@ -32,14 +35,14 @@ std::string CommaLargeNumber(unsigned long long int num);
 std::string CommaLargeNumberF(float num);
 std::string CommaLargeNumberF(double num);
 std::string multiplyHexByInteger(const std::string& hexNumber, int multiplier);
+std::string longDivision(const std::string& number, uint32_t divisor);
+std::string hexLongDivision(const std::string& number, uint32_t divisor);
 std::string divideHexByFloat(const std::string& hexNumber, float divisor);
 std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier);
 float clampf(float x, float min, float max);
 std::string FormatHPS(float input);
 double round(float value, int decimal_places);
 bool IsVersionGreaterOrEqual(std::string a, std::string b);
-
-
 
 template<class T>
 std::string FormatWithCommas(T value)

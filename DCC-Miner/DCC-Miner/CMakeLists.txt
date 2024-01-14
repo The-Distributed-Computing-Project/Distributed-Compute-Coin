@@ -4,11 +4,11 @@
 cmake_minimum_required (VERSION 3.0 FATAL_ERROR)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 
 # Add source to this project's executable.
-add_executable (DCC-Miner "json.hpp" "Main.h" "Main.cpp" "Console.h" "Console.cpp" "FileManip.h" "FileManip.cpp" "Network.h" "Network.cpp" "strops.h" "strops.cpp" "P2PClient.h" "P2PClient.cpp" "Network.h" "Network.cpp" "crypto.h" "crypto.cpp" "Blockchain.cpp" "Blockchain.h" "Miner.cpp" "Miner.h" "SettingsConsts.h" "System.cpp" "System.h")
+add_executable (DCC-Miner "json.hpp" "Main.h" "Main.cpp" "Console.h" "Console.cpp" "FileManip.h" "FileManip.cpp" "Network.h" "Network.cpp" "strops.h" "strops.cpp" "P2PClient.h" "P2PClient.cpp" "Network.h" "Network.cpp" "crypto.h" "crypto.cpp" "Blockchain.cpp" "Blockchain.h" "Miner.cpp" "Miner.h" "SettingsConsts.h" "System.cpp" "System.h" "BaseConverter.cpp" "BaseConverter.h" "uint128.h" "uint256.h" "uint128.inl" "uint256.inl")
 
 
 #add_subdirectory(extlibs/elzip) # Path to the 11zip

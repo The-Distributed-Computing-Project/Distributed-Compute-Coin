@@ -45,7 +45,7 @@ int main()
 {
 	Logo();
 
-	if (constants::debugPrint) {
+	if (WalletSettingValues::debugPrint) {
 		console::WriteLine("hextest: ");
 		console::WriteLine("\"" + divideHexByFloat("ffffff", 1.3) + "\"");
 		console::WriteLine("\"" + divideHexByFloat("0f0", 2) + "\"");

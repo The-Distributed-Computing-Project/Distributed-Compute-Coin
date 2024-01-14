@@ -333,6 +333,47 @@ void subOneFromHex(std::string& hexNumber, int index) {
 	}
 }
 
+// A function to perform division of large numbers
+std::string longDivision(const std::string& number, uint32_t divisor)
+{
+	// As result can be very large store it in string also
+	std::string ans;
+
+	// Find prefix of number that is larger
+	// than divisor.
+	int idx = 0;
+	int temp = number[0] - '0';
+	while (idx < (number.size() - 1) && temp < divisor)
+		temp = temp * 10 + (number[++idx] - '0');
+
+	// Repeatedly divide divisor with temp. After
+	// every division, update temp to include one
+	// more digit.
+	while ((number.size() - 1) >= idx) {
+		// Store result in answer i.e. temp / divisor
+		ans += (temp / divisor) + '0';
+
+		// Take next digit of number
+		temp = (temp % divisor) * 10 + number[++idx] - '0';
+	}
+
+	// If divisor is greater than number
+	if (ans.length() == 0)
+		return "0";
+
+	// else return ans
+	return ans;
+}
+
+
+const BaseConverter& hex2dec = BaseConverter::HexToDecimalConverter();
+const BaseConverter& dec2hex = BaseConverter::DecimalToHexConverter();
+// A function to perform division of large hex numbers
+std::string hexLongDivision(const std::string& number, uint32_t divisor)
+{
+	return dec2hex.Convert(longDivision(hex2dec.Convert(number), divisor));
+}
+
 // Function to divide a large hexadecimal number by a float
 std::string divideHexByFloat(const std::string& hexNumber, float divisor) {
 	std::string quotientHex;
@@ -417,7 +458,7 @@ std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier) {
 
 	if (multiplier < 1) {
 		float divisor = 1.0 / (multiplier);
-		return divideHexByFloat(hexNumber, divisor);
+		return hexLongDivision(hexNumber, divisor);
 	}
 	else {
 

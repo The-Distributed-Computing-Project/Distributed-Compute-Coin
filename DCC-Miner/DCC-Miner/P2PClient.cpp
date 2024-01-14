@@ -86,7 +86,7 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 				- segSize; // Don't include segment info when counting data, so subtract this
 			if (n <= -1) { break; }
 			total += n;
-			if (constants::debugPrint) {
+			if (WalletSettingValues::debugPrint) {
 				std::cout << std::to_string((int)round(100 * ((float)total / (float)len))) << "% sent" << std::endl;
 			}
 			if (bytesLeft < 1000)
@@ -96,7 +96,7 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 
 			segmentCount++;
 		}
-		if (constants::debugPrint) {
+		if (WalletSettingValues::debugPrint) {
 			std::cout << "Done." << std::endl;
 		}
 
@@ -150,7 +150,7 @@ void P2P::ListenerThread(int update_interval)
 				else {
 					int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
 
-					if (constants::debugPrint)
+					if (WalletSettingValues::debugPrint)
 						std::cout << "iResult: " << std::to_string(iResult) << std::endl;
 
 					if (iResult > 0) {
@@ -178,7 +178,7 @@ void P2P::ListenerThread(int update_interval)
 						int maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
 						std::string content = SplitString(textVal, "\376")[1];
 
-						if (constants::debugPrint)
+						if (WalletSettingValues::debugPrint)
 							console::WriteLine("received -- " + segInfo, console::yellowFGColor, "");
 
 						// If we are currently still waiting for more data to be received
@@ -223,7 +223,7 @@ void P2P::ListenerThread(int update_interval)
 
 						// If the peer is requesting to connect
 						if (totalMessage == "peer\377connect") {
-							if (constants::debugPrint) {
+							if (WalletSettingValues::debugPrint) {
 								console::DebugPrint();
 								console::WriteLine("Received initial connection, awaiting confirmation...", console::greenFGColor, "");
 							}
@@ -266,7 +266,7 @@ void P2P::ListenerThread(int update_interval)
 						}
 						// If the peer is requesting message received confirmation
 						else if (totalMessage == "peer\377success" && (messageStatus >= 0)) {
-							if (constants::debugPrint) {
+							if (WalletSettingValues::debugPrint) {
 								console::DebugPrint();
 								console::WriteLine("Dual Confirmation", console::greenFGColor, "");
 							}
@@ -277,7 +277,7 @@ void P2P::ListenerThread(int update_interval)
 						}
 						// If the peer is idling
 						else if (totalMessage == "peer\377idle") {
-							if (constants::debugPrint) {
+							if (WalletSettingValues::debugPrint) {
 								console::DebugPrint();
 								console::WriteLine("idle...", console::yellowFGColor, "");
 							}
@@ -344,7 +344,7 @@ void P2P::ListenerThread(int update_interval)
 										{
 											transactionsFileWrite << pendingTransactions.dump();
 											transactionsFileWrite.close();
-											if (constants::debugPrint)
+											if (WalletSettingValues::debugPrint)
 												console::WriteLine("\nSaved new transaction");
 										}
 									}
@@ -353,14 +353,14 @@ void P2P::ListenerThread(int update_interval)
 										std::cerr << e.what() << std::endl;
 									}
 
-									if (constants::debugPrint) {
+									if (WalletSettingValues::debugPrint) {
 										console::WriteLine("received transaction: " + (std::string)transaction["tx"]["fromAddr"], console::greenFGColor, "");
 									}
 								}
 
 							}
 
-							if (constants::debugPrint) {
+							if (WalletSettingValues::debugPrint) {
 								console::WriteLine("request " + std::to_string(messageStatus), console::greenFGColor, "");
 							}
 						}
@@ -370,7 +370,7 @@ void P2P::ListenerThread(int update_interval)
 							if (SplitString(totalMessage, "\377")[1] == "height") {
 								peerBlockchainLength = std::stoi(SplitString(totalMessage, "\377")[2]);
 								messageStatus = await_first_success;
-								if (constants::debugPrint) {
+								if (WalletSettingValues::debugPrint) {
 									console::WriteLine("answer height: " + std::to_string(peerBlockchainLength), console::greenFGColor, "");
 								}
 							}
@@ -404,7 +404,7 @@ void P2P::ListenerThread(int update_interval)
 								// Save block data to file
 								try
 								{
-									if (constants::debugPrint)
+									if (WalletSettingValues::debugPrint)
 										console::WriteLine("\nSaved block: " + std::to_string(num));
 									std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(num) + ".dccblock");
 									if (blockFile.is_open())
@@ -418,18 +418,18 @@ void P2P::ListenerThread(int update_interval)
 									std::cerr << e.what() << std::endl;
 								}
 
-								if (constants::debugPrint) {
+								if (WalletSettingValues::debugPrint) {
 									console::WriteLine("received block: " + std::to_string(num), console::greenFGColor, "");
 								}
 							}
 							messageAttempt = 0;
 
 						}
-						if (constants::debugPrint) {
+						if (WalletSettingValues::debugPrint) {
 							console::WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + totalMessage + "\t status: " + std::to_string(messageStatus));
 						}
 					}
-					else if (WSAGetLastError() != WSAETIMEDOUT && constants::debugPrint) {
+					else if (WSAGetLastError() != WSAETIMEDOUT && WalletSettingValues::debugPrint) {
 						console::NetworkErrorPrint();
 						console::WriteLine("Error, Peer closed.");
 						CONNECTED_TO_PEER = false;
@@ -570,7 +570,7 @@ void P2P::SenderThread()
 				// Stop sending if the message status switches to idle
 				if (messageStatus == idle)
 				{
-					if (constants::debugPrint)
+					if (WalletSettingValues::debugPrint)
 						console::WriteLine("Send/receive complete", console::greenFGColor, "");
 					else
 						console::WriteLine();
@@ -589,7 +589,7 @@ void P2P::SenderThread()
 				// If doing initial connect request
 				if (messageStatus == initial_connect_request) {
 					msg = "peer\377connect";
-					if (constants::debugPrint) {
+					if (WalletSettingValues::debugPrint) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -597,7 +597,7 @@ void P2P::SenderThread()
 				// If doing disconnect request
 				else if (messageStatus == disconnect_request) {
 					msg = "peer\377disconnect";
-					if (constants::debugPrint) {
+					if (WalletSettingValues::debugPrint) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -605,7 +605,7 @@ void P2P::SenderThread()
 				// If doing peer confirmation
 				else if ((messageStatus == initial_connect_request || messageStatus == await_first_success || messageStatus == await_second_success)) {
 					msg = "peer\377success";
-					if (constants::debugPrint) {
+					if (WalletSettingValues::debugPrint) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -621,7 +621,7 @@ void P2P::SenderThread()
 				else if (messageStatus == replying_height) {
 					role = 1;
 					msg = "answer\377height\377" + std::to_string(blockchainLength);
-					if (constants::debugPrint) {
+					if (WalletSettingValues::debugPrint) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -636,7 +636,7 @@ void P2P::SenderThread()
 					std::string blockText = bufferd.str();
 
 					msg = "answer\377pendingblock\377" + std::to_string(reqDat) + "\377" + ReplaceEscapeSymbols(blockText);
-					if (constants::debugPrint) {
+					if (WalletSettingValues::debugPrint) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -651,7 +651,7 @@ void P2P::SenderThread()
 					std::string blockText = bufferd.str();
 
 					msg = "answer\377block\377" + std::to_string(reqDat) + "\377" + ReplaceEscapeSymbols(blockText);
-					if (constants::debugPrint) {
+					if (WalletSettingValues::debugPrint) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -664,7 +664,7 @@ void P2P::SenderThread()
 						totalPeersString += peerList[i] + ((i == peerList.size() - 1 || i == 9) ? "" : ",");
 
 					msg = "answer\377peerlist\377" + totalPeersString;
-					if (constants::debugPrint) {
+					if (WalletSettingValues::debugPrint) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -673,7 +673,7 @@ void P2P::SenderThread()
 				else if (messageStatus == requesting_height) {
 					msg = "request\377height";
 					role = 0;
-					if (constants::debugPrint) {
+					if (WalletSettingValues::debugPrint) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -683,7 +683,7 @@ void P2P::SenderThread()
 				else if (messageStatus == requesting_pendingblock) {
 					msg = "request\377pendingblock\377" + std::to_string(reqDat);
 					role = 0;
-					if (constants::debugPrint) {
+					if (WalletSettingValues::debugPrint) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -694,7 +694,7 @@ void P2P::SenderThread()
 				else if (messageStatus == requesting_block) {
 					msg = "request\377block\377" + std::to_string(reqDat);
 					role = 0;
-					if (constants::debugPrint) {
+					if (WalletSettingValues::debugPrint) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -705,7 +705,7 @@ void P2P::SenderThread()
 				else if (messageStatus == requesting_peer_list) {
 					msg = "request\377peerlist";
 					role = 0;
-					if (constants::debugPrint) {
+					if (WalletSettingValues::debugPrint) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -716,7 +716,7 @@ void P2P::SenderThread()
 				else if (messageStatus == requesting_transaction_process) {
 					msg = "request\377transactionprocess\377" + ReplaceEscapeSymbols(extraData);
 					role = 0;
-					if (constants::debugPrint) {
+					if (WalletSettingValues::debugPrint) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);

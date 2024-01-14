@@ -101,7 +101,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -118,10 +118,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CPR_ENABLE_SSL;CMAKE_INTDIR=\"Debug\";cpr_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -162,7 +162,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -179,10 +179,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CPR_ENABLE_SSL;CMAKE_INTDIR=\"Release\";cpr_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -223,7 +223,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -240,10 +240,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CPR_ENABLE_SSL;CMAKE_INTDIR=\"MinSizeRel\";cpr_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -284,7 +284,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -300,10 +300,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CPR_ENABLE_SSL;CMAKE_INTDIR=\"RelWithDebInfo\";cpr_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -344,7 +344,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) -fsanitize=thread</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -362,10 +362,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CPR_ENABLE_SSL;CMAKE_INTDIR=\"ThreadSan\";cpr_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\cpr;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\DCC-Miner\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>

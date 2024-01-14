@@ -78,6 +78,42 @@
   -- Enabled protocols: HTTP HTTPS
   -- Enabled SSL backends: Schannel
   -- Configuring done
+  CMake Warning (dev) in DCC-Miner/CMakeLists.txt:
+    AUTOGEN: No valid Qt version found for target DCC-Miner.  AUTORCC disabled.
+    Consider adding:
+  
+      find_package(Qt<QTVERSION> COMPONENTS Core)
+  
+    to your CMakeLists.txt file.
+  This warning is for project developers.  Use -Wno-dev to suppress it.
+  
+  CMake Warning (dev) in out/_deps/zlib-src/CMakeLists.txt:
+    AUTOGEN: No valid Qt version found for target zlib.  AUTORCC disabled.
+    Consider adding:
+  
+      find_package(Qt<QTVERSION> COMPONENTS Core)
+  
+    to your CMakeLists.txt file.
+  This warning is for project developers.  Use -Wno-dev to suppress it.
+  
+  CMake Warning (dev) in out/_deps/curl-src/lib/CMakeLists.txt:
+    AUTOGEN: No valid Qt version found for target libcurl.  AUTORCC disabled.
+    Consider adding:
+  
+      find_package(Qt<QTVERSION> COMPONENTS Core)
+  
+    to your CMakeLists.txt file.
+  This warning is for project developers.  Use -Wno-dev to suppress it.
+  
+  CMake Warning (dev) in out/_deps/cpr-src/cpr/CMakeLists.txt:
+    AUTOGEN: No valid Qt version found for target cpr.  AUTORCC disabled.
+    Consider adding:
+  
+      find_package(Qt<QTVERSION> COMPONENTS Core)
+  
+    to your CMakeLists.txt file.
+  This warning is for project developers.  Use -Wno-dev to suppress it.
+  
 CUSTOMBUILD : warning : Target "DCC-Miner" requests linking to directory "C:\curl".  Targets may link only to libraries.  CMake is dropping the item.
 CUSTOMBUILD : warning : Target "DCC-Miner" requests linking to directory "C:\curl".  Targets may link only to libraries.  CMake is dropping the item.
 CUSTOMBUILD : warning : Target "DCC-Miner" requests linking to directory "C:\curl".  Targets may link only to libraries.  CMake is dropping the item.

@@ -1,0 +1,179 @@
+﻿  Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/dcc_client/CMakeLists.txt
+cl : command line  warning D9002: ignoring unknown option '-O3'
+  Main.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Main.cpp(50,55): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Main.cpp(560,92): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  Console.cpp
+  FileManip.cpp
+  Network.cpp
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Network.cpp(37,8): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Network.cpp(60,8): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  strops.cpp
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(44,9): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(58,8): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(74,9): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(115,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(119,25): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(269,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(375,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(419,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(428,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(448,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  P2PClient.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(76,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(88,13): warning C4244: '+=': conversion from 'SSIZE_T' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(93,18): warning C4244: '-=': conversion from 'SSIZE_T' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(530,18): warning C4267: 'initializing': conversion from 'size_t' to 'uint16_t', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(599,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(599,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(607,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(607,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(615,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(615,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(631,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(631,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(646,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(646,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(661,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(661,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(674,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(674,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(683,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(683,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(693,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(693,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(704,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(704,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(715,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(715,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(726,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(726,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(558,32): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  crypto.cpp
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(68,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(79,40): warning C4267: '=': conversion from 'size_t' to 'unsigned char', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(96,39): warning C4267: '=': conversion from 'size_t' to 'unsigned char', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(123,3): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(115,2): warning C4996: 'MD5': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(122,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(160,3): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(159,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(203,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(204,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(183,2): warning C4996: 'DES_set_key_unchecked': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(194,3): warning C4996: 'DES_ecb_encrypt': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(207,3): warning C4996: 'DES_ecb_encrypt': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(252,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(253,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(233,2): warning C4996: 'DES_set_key_unchecked': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(243,3): warning C4996: 'DES_ecb_encrypt': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(256,3): warning C4996: 'DES_ecb_encrypt': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(293,2): warning C4996: 'RAND_set_rand_method': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(305,11): warning C4996: 'RAND_pseudo_bytes': Since OpenSSL 1.1.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(361,25): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(362,25): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(340,17): warning C4996: 'RSA_generate_key': Since OpenSSL 0.9.8
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(350,2): warning C4996: 'PEM_write_bio_RSAPrivateKey': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(351,2): warning C4996: 'PEM_write_bio_RSAPublicKey': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(372,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(381,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(391,2): warning C4996: 'RSA_free': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(422,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(414,23): warning C4996: 'RSA_new': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(415,8): warning C4996: 'PEM_read_bio_RSAPublicKey': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(417,12): warning C4996: 'RSA_size': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(422,12): warning C4996: 'RSA_public_encrypt': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(429,2): warning C4996: 'RSA_free': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(454,39): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(447,9): warning C4996: 'PEM_read_bio_RSAPrivateKey': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(449,13): warning C4996: 'RSA_size': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(454,13): warning C4996: 'RSA_private_encrypt': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(461,3): warning C4996: 'RSA_free': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(490,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(475,13): warning C4996: 'RSA_new': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(483,8): warning C4996: 'PEM_read_bio_RSAPrivateKey': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(485,12): warning C4996: 'RSA_size': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(490,12): warning C4996: 'RSA_private_decrypt': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(497,2): warning C4996: 'RSA_free': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(516,48): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(506,13): warning C4996: 'RSA_new': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(509,8): warning C4996: 'PEM_read_bio_RSAPublicKey': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(511,12): warning C4996: 'RSA_size': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(516,12): warning C4996: 'RSA_public_decrypt': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(523,2): warning C4996: 'RSA_free': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(613,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(624,2): warning C4996: 'SHA256_Init': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(625,2): warning C4996: 'SHA256_Update': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(626,2): warning C4996: 'SHA256_Final': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(630,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(640,2): warning C4996: 'SHA256_Init': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(641,2): warning C4996: 'SHA256_Update': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(642,2): warning C4996: 'SHA256_Final': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(638,16): warning C4101: 'hash': unreferenced local variable
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(655,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(666,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(720,27): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(710,15): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(715,2): warning C4996: 'SHA256_Init': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(722,3): warning C4996: 'SHA256_Update': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(724,2): warning C4996: 'SHA256_Final': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(749,6): warning C4996: 'RSA_new': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(750,8): warning C4996: 'RSA_generate_key_ex': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(757,8): warning C4996: 'PEM_write_bio_RSAPublicKey': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(764,8): warning C4996: 'PEM_write_bio_RSAPrivateKey': Since OpenSSL 3.0
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp(771,2): warning C4996: 'RSA_free': Since OpenSSL 3.0
+  Blockchain.cpp
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Blockchain.cpp(543,23): warning C4244: 'initializing': conversion from 'uint64_t' to 'uint16_t', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Blockchain.cpp(592,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Blockchain.cpp(600,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Miner.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(64,26): warning C4477: 'sprintf' : format string '%x' requires an argument of type 'unsigned int', but variadic argument 1 has type 'unsigned __int64'
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(64,26): message : consider using '%llx' in the format string
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(64,26): message : consider using '%Ix' in the format string
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(64,26): message : consider using '%I64x' in the format string
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(78,40): warning C4244: 'argument': conversion from 'unsigned __int64' to 'float', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(59,3): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(64,4): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(65,4): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(66,4): warning C4996: 'strncat': This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(244,27): warning C4477: 'sprintf' : format string '%x' requires an argument of type 'unsigned int', but variadic argument 1 has type 'unsigned __int64'
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(244,27): message : consider using '%llx' in the format string
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(244,27): message : consider using '%Ix' in the format string
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(244,27): message : consider using '%I64x' in the format string
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(258,41): warning C4244: 'argument': conversion from 'unsigned __int64' to 'float', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(239,4): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(244,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(245,5): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(246,5): warning C4996: 'strncat': This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(342,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp(365,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  System.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\System.cpp(16,41): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\System.cpp(50,31): warning C4101: 'e': unreferenced local variable
+  Generating Code...
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(114): warning C4715: 'P2P::mySendTo': not all control paths return a value
+libboost_filesystem-vc143-mt-gd-x64-1_78.lib(path_traits.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in Main.obj
+libboost_filesystem-vc143-mt-gd-x64-1_78.lib(path_traits.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in Main.obj
+libboost_filesystem-vc143-mt-gd-x64-1_78.lib(path.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in Main.obj
+libboost_filesystem-vc143-mt-gd-x64-1_78.lib(path.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in Main.obj
+libboost_filesystem-vc143-mt-gd-x64-1_78.lib(codecvt_error_category.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in Main.obj
+libboost_filesystem-vc143-mt-gd-x64-1_78.lib(codecvt_error_category.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in Main.obj
+libboost_filesystem-vc143-mt-gd-x64-1_78.lib(windows_file_codecvt.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in Main.obj
+libboost_filesystem-vc143-mt-gd-x64-1_78.lib(windows_file_codecvt.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in Main.obj
+LINK : fatal error LNK1104: cannot open file 'libboost_filesystem-vc143-mt-x64-1_78.lib'

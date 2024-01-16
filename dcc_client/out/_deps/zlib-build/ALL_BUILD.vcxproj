@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ThreadSan|x64">
+      <Configuration>ThreadSan</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{97DF40C1-145D-3DC9-BB88-DED644D0F312}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceRuns.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build\zconf.h.cmakein;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-arch.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-coverage.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-install-dirs.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-sanitizer.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\zlib.pc.cmakein;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceRuns.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build\zconf.h.cmakein;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-arch.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-coverage.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-install-dirs.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-sanitizer.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\zlib.pc.cmakein;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceRuns.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build\zconf.h.cmakein;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-arch.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-coverage.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-install-dirs.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-sanitizer.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\zlib.pc.cmakein;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceRuns.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build\zconf.h.cmakein;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-arch.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-coverage.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-install-dirs.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-sanitizer.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\zlib.pc.cmakein;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceRuns.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build\zconf.h.cmakein;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-arch.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-coverage.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-install-dirs.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\cmake\detect-sanitizer.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src\zlib.pc.cmakein;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\Code\DC-Cryptocurrency\dcc_client\out\ZERO_CHECK.vcxproj">
+      <Project>{DFB1439E-748B-361B-89E7-E0D2267CD605}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build\zlib.vcxproj">
+      <Project>{22FEAD61-CAAB-3351-A0A3-6E5806724516}</Project>
+      <Name>zlib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Console.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\FileManip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Network.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Blockchain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\BaseConverter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Console.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\FileManip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Network.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Blockchain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\SettingsConsts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\System.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\BaseConverter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\uint128.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\uint256.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\uint128.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\uint256.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\DCC-Logo.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{71A5EDF8-C477-3090-8B13-0BC113FEA573}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ABA25449-E4BA-31F3-9DED-E0F7845C9AE5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

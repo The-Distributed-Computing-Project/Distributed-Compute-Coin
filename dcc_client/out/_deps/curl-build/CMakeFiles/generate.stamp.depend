@@ -1,0 +1,38 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.21/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakePushCheckState.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCSourceRuns.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCXXSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckFunctionExists.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckIncludeFiles.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckStructHasMember.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindCygwin.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindMsys.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindPerl.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindThreads.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindZLIB.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/SelectLibraryConfigurations.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/WriteBasicConfigVersionFile.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/CurlSymbolHiding.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/FindLibSSH2.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/Macros.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/OtherTests.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/Platforms/WindowsCache.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/Utilities.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/cmake_uninstall.cmake.in
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/curl-config.cmake.in
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMakeLists.txt
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/curl-config.in
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/libcurl.pc.in

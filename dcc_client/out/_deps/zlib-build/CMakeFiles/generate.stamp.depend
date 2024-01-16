@@ -1,0 +1,21 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCSourceRuns.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckFunctionExists.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FeatureSummary.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/Internal/CheckCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/Internal/CheckSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/Internal/CheckSourceRuns.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/zconf.h.cmakein
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/CMakeLists.txt
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/cmake/detect-arch.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/cmake/detect-coverage.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/cmake/detect-install-dirs.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/cmake/detect-sanitizer.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/zlib.pc.cmakein

@@ -335,14 +335,40 @@ void subOneFromHex(std::string& hexNumber, int index) {
 
 
 void addOneToHexStr(char* num, int len) {
-	for (int i = len-1; i >= 0; i--)
+	for (int i = len - 1; i >= 0; i--)
 	{
-		num[i] = num[i]+1;
+		num[i] = num[i] + 1;
 		if ((num[i] >= '0' && num[i] <= '9') || (num[i] >= 'a' && num[i] <= 'z')) {
 			break;
 		}
 		else if (num[i] > '9' && num[i] < 'a') {
 			num[i] = 'a';
+			break;
+		}
+		else if (num[i] < '0') {
+			num[i] = '0';
+			break;
+		}
+		else if (num[i] > 'z') {
+			num[i] = '0';
+		}
+	}
+}
+
+
+void addOneToHexStrInRange(char* num, int start, int len) {
+	for (int i = start+len - 1; i >= start; i--)
+	{
+		num[i] = num[i] + 1;
+		if ((num[i] >= '0' && num[i] <= '9') || (num[i] >= 'a' && num[i] <= 'z')) {
+			break;
+		}
+		else if (num[i] > '9' && num[i] < 'a') {
+			num[i] = 'a';
+			break;
+		}
+		else if (num[i] < '0') {
+			num[i] = '0';
 			break;
 		}
 		else if (num[i] > 'z') {

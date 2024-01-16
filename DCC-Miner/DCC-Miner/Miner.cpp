@@ -9,17 +9,21 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 	console::MiningPrint();
 	console::Write("Mining ");
 	console::Write("block " + std::to_string(blockNum), console::cyanFGColor, "");
-	console::Write(" at difficulty ");
-	console::Write((std::string)walletInfo["targetDifficulty"], console::cyanFGColor, "");
+	if (WalletSettingValues::verbose >= 2) {
+		console::Write(" at difficulty ");
+		console::Write((std::string)walletInfo["targetDifficulty"], console::cyanFGColor, "");
+	}
 	console::Write(" :\n");
 	try
 	{
 		auto startTime = std::chrono::steady_clock::now();
 
-		console::DockerPrint();
-		console::WriteLine("Starting program... ");
-		ExecuteAsync("docker run -d --network none --rm --name="+(std::string)(walletInfo["ProgramID"])+" -v ./wwwdata/programs/"+(std::string)(walletInfo["ProgramID"])+":/out/ "+(std::string)(walletInfo["ProgramID"])+" /bin/bash run.sh", false);
-		boost::process::child containerProcess = ExecuteAsync("docker wait "+(std::string)(walletInfo["ProgramID"]), false);
+		if (WalletSettingValues::verbose >= 2) {
+			console::DockerPrint();
+			console::WriteLine("Starting program... ");
+		}
+		ExecuteAsync("docker run -d --network none --rm --name=" + (std::string)(walletInfo["ProgramID"]) + " -v ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + ":/out/ " + (std::string)(walletInfo["ProgramID"]) + " /bin/bash run.sh", false);
+		boost::process::child containerProcess = ExecuteAsync("docker wait " + (std::string)(walletInfo["ProgramID"]), false);
 
 		char sha256OutBuffer[65];
 
@@ -28,6 +32,13 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		std::stringstream blockBuffer;
 		blockBuffer << blockFile.rdbuf();
 		currentBlockJson["pprev"] = (std::string)(json::parse(blockBuffer.str())["hash"]);
+
+		// Print controls
+		console::Write("\nPress ");
+		console::Write("P", console::greenFGColor, "");
+		console::Write(" to pause, ");
+		console::Write("Q", console::redFGColor, "");
+		console::Write(" to quit\n");
 
 		//Checks Hash
 		unsigned long long int nonce = 0;
@@ -53,32 +64,47 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		std::string hData = std::string(sha256OutBuffer);
 		char* hDataChars = (char*)hData.c_str();
 
-		char numberstring[] = { '0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0', '\0'};
-		char databuffer[128];
+		char numberstring[] = { '-' ,'-' ,'-' ,'-' ,'-' ,'-' ,'-' ,'-' ,'-' ,'-' ,'-' ,'-' ,'0' ,'0' ,'0' ,'0' ,'0', '\0' };
+		char databuffer[82];
 		strncpy(databuffer, hDataChars, sizeof(databuffer));
 		// While hash is not less than the target difficulty number
 		do
 		{
 			nonce++;
-			addOneToHexStr(numberstring, sizeof(numberstring)/sizeof(char)-1);
-			//sprintf(numberstring, "%x", nonce);
+			addOneToHexStr(numberstring, sizeof(numberstring) / sizeof(char) - 1);
 			strncpy(databuffer, hDataChars, 65);
 			strncat(databuffer, numberstring, sizeof(numberstring) / sizeof(char));
-			sha256_full_cstr(databuffer, hash);
-			//std::cout << sizeof(hashesPerSecond) << std::endl;
 
+			// Hash data
+			sha256_full_cstr(databuffer, hash);
+
+			// print status
 			if ((since(hashStart).count()) >= 1000)
 			{
 				hashesPerSecond = nonce - hashesAtStart;
 				hashStart = std::chrono::steady_clock::now();
 				hashesAtStart = nonce;
-
+				//std::cout<<std::endl << databuffer << std::endl;
 				cstr_to_hexstr(hash, 32, sha256OutBuffer);
 				console::Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + numberstring + " # " + std::string(sha256OutBuffer));
-				console::Write("   " + FormatHPS(hashesPerSecond) + "            ");
-				//std::cout << std::endl <<  databuffer << std::endl;
+				console::Write("   " + FormatHPS(hashesPerSecond) + " ");
+
+				[[unlikely]]
+				if (GetAsyncKeyState(0x51)) // Q Key for quit loop
+					if (kbhit())
+						if (getch() == 'q')
+							return 2;
+				[[unlikely]]
+				if (GetAsyncKeyState(0x50)) // P Key for pause loop
+					if (kbhit())
+						if (getch() == 'p')
+							return 3;
 			}
 		} while (!CompareCharNumbers(c_difficulty, hash));
+
+		// Print a final time so the miner can see the result
+		console::Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + numberstring + " # ");
+		console::Write(std::string(sha256OutBuffer), console::greenFGColor, "");
 
 		std::cout << std::endl;
 
@@ -87,7 +113,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		//	containerProcess.wait();
 
 		// Kill the program if it is still running
-		ExecuteAsync("docker stop "+(std::string)(walletInfo["ProgramID"]), false);
+		ExecuteAsync("docker stop " + (std::string)(walletInfo["ProgramID"]), false);
 
 
 		// Convert hash into hexadecimal string
@@ -114,7 +140,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		}
 		catch (const std::exception& e)
 		{
-			if (WalletSettingValues::debugPrint == true)
+			if (WalletSettingValues::verbose >= 1)
 				std::cerr << e.what() << std::endl;
 			return 0;
 		}
@@ -147,7 +173,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 			}
 			catch (const std::exception& e)
 			{
-				if (WalletSettingValues::debugPrint == true)
+				if (WalletSettingValues::verbose >= 1)
 					std::cerr << e.what() << std::endl;
 				return 0;
 			}
@@ -161,7 +187,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 	}
 	catch (const std::exception& e)
 	{
-		//if (WalletSettingValues::debugPrint == true)
+		//if (WalletSettingValues::verbose == true)
 		std::cerr << e.what() << std::endl;
 		return 0;
 	}
@@ -304,7 +330,7 @@ int PoolMine(std::string poolURL, json& walletInfo)
 		}
 		catch (const std::exception& e)
 		{
-			//if (WalletSettingValues::debugPrint == true)
+			//if (WalletSettingValues::verbose == true)
 			std::cerr << e.what() << std::endl;
 			return 0;
 		}

@@ -8,6 +8,7 @@
 #include "Console.h"
 //#include "P2PClient.cpp"
 //#include <Urlmon.h>
+#include "SettingsConsts.h"
 #include <curl/curl.h>
 #include "Console.h"
 
@@ -28,8 +29,10 @@ public:
 				url += "&";
 			url += args_vals.at(i);
 		}
-		console::NetworkPrint();
-		console::WriteIndented("Accessing url: \"" + url + "\"\n", "", "", 1);
+		if (WalletSettingValues::verbose >= 2) {
+			console::NetworkPrint();
+			console::WriteIndented("Accessing url: \"" + url + "\"\n", "", "", 1);
+		}
 
 		auto response = cpr::Get(cpr::Url{ url });
 		html = response.text;

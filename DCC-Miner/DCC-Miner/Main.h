@@ -19,16 +19,17 @@
 #include <stdio.h>
 #include <chrono>
 #include <boost/process.hpp>
+#include <conio.h>
 
 //#include <boost/process/windows.hpp>
 
+#include "SettingsConsts.h"
 #include "System.h"
 #include "FileManip.h"
 #include "Network.h"
 #include "P2PClient.h"
 #include "Miner.h"
 #include "strops.h"
-#include "SettingsConsts.h"
 #include "Blockchain.h"
 #include "crypto.h"
 #include "Miner.h"

@@ -45,7 +45,7 @@ int main()
 {
 	Logo();
 
-	if (WalletSettingValues::debugPrint) {
+	if (WalletSettingValues::verbose >= 3) {
 		console::WriteLine("hextest: ");
 		console::WriteLine("\"" + divideHexByFloat("ffffff", 1.3) + "\"");
 		console::WriteLine("\"" + divideHexByFloat("0f0", 2) + "\"");
@@ -321,8 +321,10 @@ int main()
 					walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
 				}
 
-				console::MiningPrint();
-				console::WriteLine("Blockchain length: " + std::to_string((int)walletInfo["BlockchainLength"]));
+				if (WalletSettingValues::verbose >= 1) {
+					console::MiningPrint();
+					console::WriteLine("Blockchain length: " + std::to_string((int)walletInfo["BlockchainLength"]));
+				}
 
 				// Make sure the pending blocks are newer than the confirmed chain height, but not from the future
 				std::string path = "./wwwdata/pendingblocks/";
@@ -356,9 +358,11 @@ int main()
 				json blockJson = json::parse(content);
 
 				std::string dif = CalculateDifficulty(walletInfo);
-				console::SystemPrint();
-				console::WriteLine("The current difficulty is: " + dif);
-				console::WriteLine("Which looks like: " + ExtractPaddedChars(dif, '0'));
+				if (WalletSettingValues::verbose >= 1) {
+					console::SystemPrint();
+					console::WriteLine("The current difficulty is: " + dif);
+					console::WriteLine("Which looks like: " + ExtractPaddedChars(dif, '0'));
+				}
 
 				// Add the mine award to the front of transactions before starting to mine,
 				// which will verify this as the recipient should it succeed.
@@ -377,10 +381,25 @@ int main()
 				};
 				blockJson["transactions"].insert(blockJson["transactions"].begin(), txDat);
 
-				if (Mine(blockJson, ((int)walletInfo["BlockchainLength"] + 1), walletInfo) == 0)
+				int returnVal = Mine(blockJson, ((int)walletInfo["BlockchainLength"] + 1), walletInfo);
+				if (returnVal == 0)
 				{
 					console::ConnectionError();
 					continue;
+				}
+				// End early
+				else if (returnVal == 2) {
+					std::cout << "\n\n";
+					//getch();
+					break;
+				}
+				// Pause
+				else if (returnVal == 3) {
+					console::Write("\nPaused, press");
+					console::Write(" R ", console::greenFGColor, "");
+					console::WriteLine("to resume");
+					while (!GetAsyncKeyState(0x52));
+					getch();
 				}
 
 				walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");

@@ -105,8 +105,10 @@ int GetProgram(json& walletInfo)
 			programID = SplitString(SplitString((item.path()).string(), ".cfg")[0], "/programs/")[1];
 			walletInfo["ProgramID"] = programID;
 			life = GetProgramLifeLeft();
-			console::MiningPrint();
-			console::WriteLine("Program life is " + std::to_string(life) + " mins.");
+			if (WalletSettingValues::verbose >= 2) {
+				console::MiningPrint();
+				console::WriteLine("Program life is " + std::to_string(life) + " mins.");
+			}
 			break;
 		}
 	}
@@ -137,7 +139,7 @@ int GetProgram(json& walletInfo)
 
 			programID = assignedProgram;
 
-			if (WalletSettingValues::debugPrint == true) {
+			if (WalletSettingValues::verbose >= 2) {
 				console::NetworkPrint();
 				console::WriteLine("./wwwdata/programs/" + programID + ".cfg");
 			}
@@ -339,7 +341,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 		}
 		catch (const std::exception& e)
 		{
-			//if (WalletSettingValues::debugPrint == true) {
+			//if (WalletSettingValues::verbose == true) {
 			std::cerr << "\n";
 			ERRORMSG("Error\n" << e.what());
 			//}
@@ -492,7 +494,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			// If there is a failure state, assume that block is bad or does not exist.
 			catch (const std::exception& e)
 			{
-				if (WalletSettingValues::debugPrint == true) {
+				if (WalletSettingValues::verbose >= 1) {
 					ERRORMSG("Error\n" << e.what());
 				}
 
@@ -610,16 +612,20 @@ std::string CalculateDifficulty(json& walletInfo) {
 	// 50400 seconds for (288-60-60) = 168 blocks * 300 seconds
 	double ratio = clampf((double)avgTotal / 50400.0, 0.25, 4.0);
 
-	console::WriteBulleted("Average time: " + std::to_string(average) + "s\n", 3);
-	console::WriteBulleted("Min/Max: " + std::to_string(highest) + "s / " + std::to_string(lowest) + "s\n", 3);
-	console::WriteBulleted("Ratio: " + std::to_string(ratio) + ",  unclamped: " + std::to_string((double)avgTotal / 50400.0) + "\n", 3);
-	console::WriteBulleted("Last target difficulty: " + targetDifficulty + "\n", 3);
+	if (WalletSettingValues::verbose >= 2) {
+		console::WriteBulleted("Average time: " + std::to_string(average) + "s\n", 3);
+		console::WriteBulleted("Min/Max: " + std::to_string(highest) + "s / " + std::to_string(lowest) + "s\n", 3);
+		console::WriteBulleted("Ratio: " + std::to_string(ratio) + ",  unclamped: " + std::to_string((double)avgTotal / 50400.0) + "\n", 3);
+		console::WriteBulleted("Last target difficulty: " + targetDifficulty + "\n", 3);
+	}
 
 
 	std::string newDifficulty = PadString(multiplyHexByFloat(targetDifficulty, ratio), '0', 64);
-
+	
+	if (WalletSettingValues::verbose >= 2)
 	console::WriteBulleted("New target difficulty:  " + newDifficulty + "\n", 3);
-	if (WalletSettingValues::debugPrint) {
+
+	if (WalletSettingValues::verbose >= 3) {
 		console::WriteBulleted("Test long division:  " + longDivision("123878287", 328) + "\n", 3);
 		console::WriteBulleted("Test hex division:  " + hexLongDivision("FF76200", 40) + "\n", 3);
 	}
@@ -722,7 +728,7 @@ void CreateSuperblock() {
 // Upgrade a block to a newer version
 json UpgradeBlock(json& b)
 {
-	//if (WalletSettingValues::debugPrint == true) {
+	//if (WalletSettingValues::verbose == true) {
 	console::WriteLine();
 	console::BlockchainPrint();
 	console::WriteIndented("Upgrading block ", "", "", 1);

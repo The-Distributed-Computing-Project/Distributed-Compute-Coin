@@ -574,7 +574,7 @@ std::string CalculateDifficulty(json& walletInfo) {
 	uint32_t highest = secondCounts[60];
 	uint32_t lowest = secondCounts[288 - 60];
 
-	// Get average of middle 600 block times
+	// Get average of middle 288 block times
 	uint32_t avgTotal = 0;
 	for (int i = 60; i < 288 - 60; i++)
 		avgTotal += secondCounts[i];

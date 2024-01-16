@@ -29,7 +29,7 @@ public:
 				url += "&";
 			url += args_vals.at(i);
 		}
-		if (WalletSettingValues::verbose >= 2) {
+		if (WalletSettingValues::verbose >= 3) {
 			console::NetworkPrint();
 			console::WriteIndented("Accessing url: \"" + url + "\"\n", "", "", 1);
 		}

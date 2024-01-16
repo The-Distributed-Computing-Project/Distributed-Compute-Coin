@@ -502,58 +502,39 @@ std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier) {
 
 	if (multiplier < 1) {
 		float divisor = 1.0 / (multiplier);
-		return hexLongDivision(hexNumber, divisor);
+		return multiplyHexByFloat(hexLongDivision(hexNumber, divisor*256), 256);
 	}
 	else {
 
-		std::string resultHex;
+		try
+		{
 
-		// Perform multiplication digit by digit
-		int carry = 0;
-		for (int i = hexNumber.length() - 1; i >= 0; --i) {
-			char hexDigit = hexNumber[i];
+			std::string decNumber = hex2dec.Convert(hexNumber);
+			std::string resultDec = decNumber;
 
-			// Convert the hexadecimal digit to its decimal value
-			int digitValue;
-			if (hexDigit >= '0' && hexDigit <= '9') {
-				digitValue = hexDigit - '0';
-			}
-			else if (hexDigit >= 'A' && hexDigit <= 'F') {
-				digitValue = hexDigit - 'A' + 10;
-			}
-			else if (hexDigit >= 'a' && hexDigit <= 'f') {
-				digitValue = hexDigit - 'a' + 10;
-			}
-			else {
-				// Invalid character in the hexadecimal string
-				return "";
+			// Perform multiplication digit by digit
+			int carry = 0;
+			for (int i = decNumber.length() - 1; i >= 0; --i) {
+				int digitValue = decNumber[i] - '0';
+
+				// Perform the multiplication and add the carry
+				int product = (int)(digitValue * multiplier + carry) % 10;
+				carry = (int)(digitValue * multiplier + carry) / 10;
+
+				resultDec[i] = product + '0';
 			}
 
-			// Perform the multiplication and add the carry
-			int product = digitValue * multiplier + carry;
-			carry = product >> 4;
+			// Convert back to hex
+			std::string hexStr = dec2hex.Convert(resultDec);
 
-			// Convert the product back to hexadecimal digit
-			int remainder = product & 0xf;
-			char hexResult;
-			if (remainder < 10) {
-				hexResult = '0' + remainder;
-			}
-			else {
-				hexResult = 'A' + remainder - 10;
-			}
-
-			// Add the hexadecimal digit to the result string
-			resultHex = hexResult + resultHex;
+			return hexStr;
+			return "0";
 		}
-
-		// Add the carry if any
-		if (carry > 0) {
-			char hexCarry = '0' + carry;
-			resultHex = hexCarry + resultHex;
+		catch (const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+			return "0";
 		}
-
-		return resultHex;
 	}
 
 }

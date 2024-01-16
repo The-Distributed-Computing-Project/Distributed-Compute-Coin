@@ -15,6 +15,7 @@ namespace fs = std::filesystem;
 
 
 void Help();
+void Version();
 void Logo();
 int SendFunds(P2P& p2p, std::string& toAddress, float amount);
 
@@ -225,8 +226,12 @@ int main()
 			Help();
 		else if (commandParts[0] == "--VERSION" || commandParts[0] == "-V")
 		{
-			Logo();
+			Version();
 			continue;
+		}
+		else if (commandParts[0] == "--QUIT" || commandParts[0] == "--EXIT")
+		{
+			exit(0);
 		}
 		else if (commandParts[0] == "--FUNDS")
 		{
@@ -451,6 +456,13 @@ int main()
 	}
 }
 
+// Print the client and block versions
+void Version()
+{
+	console::WriteLine("client: " + VERSION, console::cyanFGColor, "");
+	console::WriteLine("block: " + BLOCK_VERSION + "\n\n", console::cyanFGColor, "");
+}
+
 // Print the logo art
 void Logo()
 {
@@ -463,8 +475,7 @@ void Logo()
 
 DCC, copyright (c) AstroSam (sam-astro) 2021-2024
 )V0G0N", console::cyanFGColor, "");
-	console::WriteLine("client: " + VERSION, console::cyanFGColor, "");
-	console::WriteLine("block: " + BLOCK_VERSION + "\n\n", console::cyanFGColor, "");
+	Version();
 }
 
 // Print the help menu

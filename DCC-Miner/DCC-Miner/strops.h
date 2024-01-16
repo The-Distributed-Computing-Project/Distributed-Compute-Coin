@@ -43,6 +43,7 @@ float clampf(float x, float min, float max);
 std::string FormatHPS(float input);
 double round(float value, int decimal_places);
 bool IsVersionGreaterOrEqual(std::string a, std::string b);
+void addOneToHexStr(char* num, int len);
 
 template<class T>
 std::string FormatWithCommas(T value)

@@ -333,6 +333,24 @@ void subOneFromHex(std::string& hexNumber, int index) {
 	}
 }
 
+
+void addOneToHexStr(char* num, int len) {
+	for (int i = len-1; i >= 0; i--)
+	{
+		num[i] = num[i]+1;
+		if ((num[i] >= '0' && num[i] <= '9') || (num[i] >= 'a' && num[i] <= 'z')) {
+			break;
+		}
+		else if (num[i] > '9' && num[i] < 'a') {
+			num[i] = 'a';
+			break;
+		}
+		else if (num[i] > 'z') {
+			num[i] = '0';
+		}
+	}
+}
+
 // A function to perform division of large numbers
 std::string longDivision(const std::string& number, uint32_t divisor)
 {

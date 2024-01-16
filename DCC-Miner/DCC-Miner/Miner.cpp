@@ -53,27 +53,28 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		std::string hData = std::string(sha256OutBuffer);
 		char* hDataChars = (char*)hData.c_str();
 
-		char numberstring[17];
+		char numberstring[] = { '0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0' ,'0', '\0'};
 		char databuffer[128];
 		strncpy(databuffer, hDataChars, sizeof(databuffer));
 		// While hash is not less than the target difficulty number
 		do
 		{
 			nonce++;
-			sprintf(numberstring, "%x", nonce);
+			addOneToHexStr(numberstring, sizeof(numberstring)/sizeof(char)-1);
+			//sprintf(numberstring, "%x", nonce);
 			strncpy(databuffer, hDataChars, 65);
-			strncat(databuffer, numberstring, 17);
+			strncat(databuffer, numberstring, sizeof(numberstring) / sizeof(char));
 			sha256_full_cstr(databuffer, hash);
 			//std::cout << sizeof(hashesPerSecond) << std::endl;
 
-			if ((since(hashStart).count() / 1000) >= 1)
+			if ((since(hashStart).count()) >= 1000)
 			{
 				hashesPerSecond = nonce - hashesAtStart;
 				hashStart = std::chrono::steady_clock::now();
 				hashesAtStart = nonce;
 
 				cstr_to_hexstr(hash, 32, sha256OutBuffer);
-				console::Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + FormatWithCommas<unsigned long long int>(nonce) + " # " + std::string(sha256OutBuffer));
+				console::Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + numberstring + " # " + std::string(sha256OutBuffer));
 				console::Write("   " + FormatHPS(hashesPerSecond) + "            ");
 				//std::cout << std::endl <<  databuffer << std::endl;
 			}

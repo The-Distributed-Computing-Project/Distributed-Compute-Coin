@@ -1,1 +1,14 @@
-﻿  DCC-Miner.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\DCC-Miner\Debug\DCC-Miner.exe
+﻿  strops.cpp
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(44,9): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(58,8): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(74,9): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(115,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(119,25): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(269,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(364,43): warning C4018: '<': signed/unsigned mismatch
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(434,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(478,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(479,37): warning C4244: 'argument': conversion from 'float' to 'uint32_t', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(487,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\strops.cpp(507,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  DCC-Miner.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\DCC-Miner\Debug\DCC-Miner.exe

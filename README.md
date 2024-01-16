@@ -4,7 +4,7 @@
 
 [![Badge License]][License]   [![Button Discord]][Discord Server]
 
-A unique P2P blockchain built in C++, with a trading client and a miner. This crypto can be bought, traded, sold, mined, or used just like any other. What sets it apart though is how it can be used, and the technique for mining. It is based on sharing mining computing hardware with developers to run their programs better and compute a large amount of data quickly, using Distributed Computing. Anybody can submit code using the client to be run across the peer-to-peer network, and will pay for that using this crypto.
+A unique P2P blockchain built in C++, with a trading client and a miner. This crypto can be bought, traded, sold, mined, or used just like any other. What sets it apart though is how it can be used, and the technique for mining. It is based on sharing mining computing hardware with developers to run their programs better and compute a large amount of data quickly, using Distributed Computing. Anybody can submit code using the client to be run across the peer-to-peer network, and will pay for that using this crypto. [What sets this crypto apart?](./#condensing).
 
 If you want to learn more, please feel free to go to [the wiki.](https://github.com/sam-astro/Distributed-Compute-Coin/wiki)
 
@@ -72,6 +72,16 @@ In order to verify the results of the computation of the container task, a metho
 
 ## URL Address Aliases
 There will be added support for OpenAlias, and such URLs as http://dccpool.us.to will get the TXT record, and return `oa1:dcc recipient_address=fd394f214e71e4aaf995914207d44181ca9e92c2f508afadf06d367f06151f84;`
+
+<hr>
+
+# Condensing
+
+The idea of the Distributed Computing Network likely seems a little backwards to begin with. *Why use your computer to run others' programs to save up DCC to run your own, when you can just run it on your own PC?* The answer to this is simple: when you use and run DCC, it is **not** an exchange. Rather, it is a ***condensing*** of your computing power, to be used on-demand at a later date.
+
+Most of the worlds computers run at a capacity far below their maximum, because of *idling*. When you are not running your program, your computer has nothing to do, right? And you only utilize that maximum it can reach sparsely, when you need something more demanding done. So most of the time, the power of your computer goes to waste.
+
+Instead of allowing this to happen, DCC allows you to **condense** this idle computing time (***condensing** is comparable to mining in other cryptocurrencies*), storing it physically in the form of DCC$, and letting you use it at a later time to exhert far more computing power than you could originally utilize.
 
 <hr>
 

@@ -65,20 +65,22 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		char* hDataChars = (char*)hData.c_str();
 
 		char numberstring[] = { '-' ,'-' ,'-' ,'-' ,'-' ,'-' ,'-' ,'-' ,'-' ,'-' ,'-' ,'-' ,'0' ,'0' ,'0' ,'0' ,'0', '\0' };
-		char databuffer[82];
+		char databuffer[83];
 		strncpy(databuffer, hDataChars, sizeof(databuffer));
+		//strncat(databuffer, numberstring, 18);
 		// While hash is not less than the target difficulty number
 		do
 		{
 			nonce++;
-			addOneToHexStr(numberstring, sizeof(numberstring) / sizeof(char) - 1);
-			strncpy(databuffer, hDataChars, 65);
+			addOneToHexStr(numberstring, 17);
+			strncpy(databuffer, hDataChars, 82);
 			strncat(databuffer, numberstring, sizeof(numberstring) / sizeof(char));
+			//addOneToHexStrInRange(databuffer, 65, 17);
 
 			// Hash data
 			sha256_full_cstr(databuffer, hash);
 
-			// print status
+			// print status every second
 			if ((since(hashStart).count()) >= 1000)
 			{
 				hashesPerSecond = nonce - hashesAtStart;
@@ -103,6 +105,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		} while (!CompareCharNumbers(c_difficulty, hash));
 
 		// Print a final time so the miner can see the result
+		cstr_to_hexstr(hash, 32, sha256OutBuffer);
 		console::Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + numberstring + " # ");
 		console::Write(std::string(sha256OutBuffer), console::greenFGColor, "");
 

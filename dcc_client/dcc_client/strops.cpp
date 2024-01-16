@@ -225,7 +225,7 @@ bool CompareCharNumbers(const unsigned char* number1, const unsigned char* numbe
 	//	number2++;
 	//}
 
-	int it = 0;
+	uint8_t it = 0;
 	// Compare the remaining digits
 	while (it < 60) {
 		if (number1[it] < number2[it]) {

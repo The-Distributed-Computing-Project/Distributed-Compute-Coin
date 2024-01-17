@@ -498,16 +498,25 @@ std::string divideHexByFloat(const std::string& hexNumber, float divisor) {
 		return quotientHex;
 }
 
+std::string shiftHexNumber(const std::string& hexNumber, int digits) {
+	std::string outNum = hexNumber;
+	if (digits < 0) {
+		outNum = outNum.substr(abs(digits), outNum.length() + digits);
+		for (digits < 0; digits++;)
+		{
+			outNum += '0';
+		}
+	}
+	return outNum;
+}
+
 std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier) {
 
 	if (multiplier < 1) {
 		float divisor = 1.0 / (multiplier);
-		return multiplyHexByFloat(hexLongDivision(hexNumber, divisor*256), 256);
+		return shiftHexNumber(PadString(hexLongDivision(hexNumber, divisor*256), '0', 64), -2);
 	}
 	else {
-
-		try
-		{
 
 			std::string decNumber = hex2dec.Convert(hexNumber);
 			std::string resultDec = decNumber;
@@ -528,13 +537,7 @@ std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier) {
 			std::string hexStr = dec2hex.Convert(resultDec);
 
 			return hexStr;
-			return "0";
-		}
-		catch (const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-			return "0";
-		}
+
 	}
 
 }

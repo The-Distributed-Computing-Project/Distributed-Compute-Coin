@@ -7,7 +7,8 @@ D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(119,25): warning C426
 D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(269,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(390,43): warning C4018: '<': signed/unsigned mismatch
 D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(460,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(504,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(505,63): warning C4244: 'argument': conversion from 'float' to 'uint32_t', possible loss of data
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(517,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(505,15): warning C4552: '<': result of expression not used
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(516,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(517,69): warning C4244: 'argument': conversion from 'float' to 'uint32_t', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(526,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   dcc_client.vcxproj -> D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client\Debug\dcc_client.exe

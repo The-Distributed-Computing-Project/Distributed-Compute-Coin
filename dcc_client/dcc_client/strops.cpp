@@ -235,9 +235,9 @@ bool CompareCharNumbers(const unsigned char* number1, const unsigned char* numbe
 			return true;
 		}
 		else
-		//number1++;
-		//number2++;
-		it++;
+			//number1++;
+			//number2++;
+			it++;
 	}
 
 	// If one number has more digits, the shorter one is considered smaller
@@ -357,7 +357,7 @@ void addOneToHexStr(char* num, int len) {
 
 
 void addOneToHexStrInRange(char* num, int start, int len) {
-	for (int i = start+len - 1; i >= start; i--)
+	for (int i = start + len - 1; i >= start; i--)
 	{
 		num[i] = num[i] + 1;
 		if ((num[i] >= '0' && num[i] <= '9') || (num[i] >= 'a' && num[i] <= 'z')) {
@@ -447,8 +447,8 @@ std::string divideHexByFloat(const std::string& hexNumber, float divisor) {
 
 		//dividend = dividend * 16 + dividendDigit;
 
-		int dividend = (carry) + dividendDigit;
-		if (std::round(((float)dividend / divisor)- (std::round(((float)dividend / divisor)))) != 0) { // if dividend has fraction (ie, has remainder), carry
+		int dividend = (carry)+dividendDigit;
+		if (std::round(((float)dividend / divisor) - (std::round(((float)dividend / divisor)))) != 0) { // if dividend has fraction (ie, has remainder), carry
 			carry = (dividend % (int)std::round(divisor)) << 4;
 			//if (carry == 0)
 			//	carry = 1;
@@ -495,7 +495,7 @@ std::string divideHexByFloat(const std::string& hexNumber, float divisor) {
 	//if (quotientHex.empty())
 	//	return "0";
 	//else
-		return quotientHex;
+	return quotientHex;
 }
 
 std::string shiftHexNumber(const std::string& hexNumber, int digits) {
@@ -507,36 +507,67 @@ std::string shiftHexNumber(const std::string& hexNumber, int digits) {
 			outNum += '0';
 		}
 	}
+	else if(digits>0) {
+		outNum = outNum.substr(0, outNum.length() - digits);
+	}
 	return outNum;
+}
+
+std::string addHexNumbers(const std::string& hexNumberA, const std::string& hexNumberB) {
+
+	std::string decNumberA = PadString(hex2dec.Convert(hexNumberA), '0', 80);
+	std::string decNumberB = PadString(hex2dec.Convert(hexNumberB), '0', 80);
+	std::string resultDec = decNumberA;
+	//std::cout << hexNumberA << " + " << hexNumberB << std::endl;
+
+	// Perform addition digit by digit
+	int carry = 0;
+	for (int i = decNumberA.length() - 1; i >= 0; --i) {
+		int digitValueA = decNumberA[i] - '0';
+		int digitValueB = decNumberB[i] - '0';
+
+		// Perform the addition and add the carry
+		int sum = (int)(digitValueA + digitValueB + carry) % 10;
+		carry = (int)floor((double)(digitValueA + digitValueB) / 10.);
+
+		resultDec[i] = sum + '0';
+	}
+
+	// Convert back to hex
+	std::string hexStr = dec2hex.Convert(resultDec);
+
+	return hexStr;
+
+
 }
 
 std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier) {
 
 	if (multiplier < 1) {
 		float divisor = 1.0 / (multiplier);
-		return shiftHexNumber(PadString(hexLongDivision(hexNumber, divisor*256), '0', 64), -2);
+		return shiftHexNumber(PadString(hexLongDivision(hexNumber, divisor * 256), '0', 64), -2);
 	}
 	else {
 
-			std::string decNumber = hex2dec.Convert(hexNumber);
-			std::string resultDec = decNumber;
+		std::string decNumber = hex2dec.Convert(hexNumber);
+		std::string resultDec = decNumber;
 
-			// Perform multiplication digit by digit
-			int carry = 0;
-			for (int i = decNumber.length() - 1; i >= 0; --i) {
-				int digitValue = decNumber[i] - '0';
+		// Perform multiplication digit by digit
+		int carry = 0;
+		for (int i = decNumber.length() - 1; i >= 0; --i) {
+			int digitValue = decNumber[i] - '0';
 
-				// Perform the multiplication and add the carry
-				int product = (int)(digitValue * multiplier + carry) % 10;
-				carry = (int)(digitValue * multiplier + carry) / 10;
+			// Perform the multiplication and add the carry
+			int product = (int)(digitValue * multiplier + carry) % 10;
+			carry = (int)(digitValue * multiplier) / 10;
 
-				resultDec[i] = product + '0';
-			}
+			resultDec[i] = product + '0';
+		}
 
-			// Convert back to hex
-			std::string hexStr = dec2hex.Convert(resultDec);
+		// Convert back to hex
+		std::string hexStr = dec2hex.Convert(resultDec);
 
-			return hexStr;
+		return hexStr;
 
 	}
 

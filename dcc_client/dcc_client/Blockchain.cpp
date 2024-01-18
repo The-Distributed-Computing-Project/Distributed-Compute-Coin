@@ -582,9 +582,10 @@ std::string CalculateDifficulty(json& walletInfo) {
 
 	// Expected: 86400 seconds total (24 hours per 288 blocks), or 300 seconds average
 
-	std::map<std::string, int> difficultyOccurrences;
-	// Get the most common previous target difficulty in the past 288 blocks
-	for (int i = blockCount - 287; i <= blockCount; i++) {
+	//std::map<std::string, int> difficultyOccurrences;
+	std::string averageDifficulty = "0000000000000000000000000000000000000000000000000000000000000000";
+	// Get the average of previous target difficulties in the past 256 blocks
+	for (int i = blockCount - 256; i <= blockCount; i++) {
 		std::ifstream tt;
 		tt.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 		if (!tt.is_open())
@@ -594,20 +595,20 @@ std::string CalculateDifficulty(json& walletInfo) {
 		json o = json::parse(buffert.str());
 		std::string mostRecentDifficulty = (std::string)o["targetDifficulty"];
 
-		if (difficultyOccurrences.count(mostRecentDifficulty) > 0)
-			difficultyOccurrences[mostRecentDifficulty] += 1;
-		else
-			difficultyOccurrences[mostRecentDifficulty] = 1;
+		averageDifficulty = addHexNumbers(averageDifficulty, mostRecentDifficulty);
 	}
-	// Select the difficulty with the highest number of occurrences
-	uint16_t occ = 0;
-	std::map<std::string, int>::iterator itr;
-	for (itr = difficultyOccurrences.begin(); itr != difficultyOccurrences.end(); ++itr) {
-		if (itr->second > occ) {
-			occ = itr->second;
-			targetDifficulty = itr->first;
-		}
-	}
+	// Divide averageDifficulty by 288
+	averageDifficulty = shiftHexNumber(averageDifficulty, 2);
+	targetDifficulty = PadString(averageDifficulty, '0', 64);
+	//// Get the average of all the recent difficulties
+	//uint16_t occ = 0;
+	//std::map<std::string, int>::iterator itr;
+	//for (itr = difficultyOccurrences.begin(); itr != difficultyOccurrences.end(); ++itr) {
+	//	if (itr->second > occ) {
+	//		occ = itr->second;
+	//		targetDifficulty = itr->first;
+	//	}
+	//}
 
 	// 50400 seconds for (288-60-60) = 168 blocks * 300 seconds
 	double ratio = clampf((double)avgTotal / 50400.0, 0.25, 4.0);

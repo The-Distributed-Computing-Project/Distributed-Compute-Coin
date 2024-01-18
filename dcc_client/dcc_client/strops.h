@@ -38,6 +38,8 @@ std::string multiplyHexByInteger(const std::string& hexNumber, int multiplier);
 std::string longDivision(const std::string& number, uint32_t divisor);
 std::string hexLongDivision(const std::string& number, uint32_t divisor);
 std::string divideHexByFloat(const std::string& hexNumber, float divisor);
+std::string shiftHexNumber(const std::string& hexNumber, int digits);
+std::string addHexNumbers(const std::string& hexNumberA, const std::string& hexNumberB);
 std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier);
 float clampf(float x, float min, float max);
 std::string FormatHPS(float input);

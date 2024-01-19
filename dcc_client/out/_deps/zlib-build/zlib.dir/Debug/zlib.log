@@ -1,4 +1,4 @@
-﻿  Auto build dll exports
+  Auto build dll exports
   LINK : D:\Code\DC-Cryptocurrency\dcc_client\out\Debug\zlib.dll not found or not built by the last incremental link; performing full link
      Creating library D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/Debug/zlib.lib and object D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/Debug/zlib.exp
   zlib.vcxproj -> D:\Code\DC-Cryptocurrency\dcc_client\out\Debug\zlib.dll

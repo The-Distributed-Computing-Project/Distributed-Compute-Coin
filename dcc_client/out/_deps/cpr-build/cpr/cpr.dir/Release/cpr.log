@@ -1,4 +1,4 @@
-﻿  Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src/cpr/CMakeLists.txt
+  Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src/cpr/CMakeLists.txt
 cl : command line  warning D9002: ignoring unknown option '-O3'
   auth.cpp
   bearer.cpp

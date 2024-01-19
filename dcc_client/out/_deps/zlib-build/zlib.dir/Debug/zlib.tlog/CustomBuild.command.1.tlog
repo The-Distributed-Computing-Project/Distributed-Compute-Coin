@@ -1,4 +1,4 @@
-^D:\CODE\DC-CRYPTOCURRENCY\DCC-MINER\OUT\_DEPS\ZLIB-SRC\CMAKELISTS.TXT
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SRC\CMAKELISTS.TXT
 setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd

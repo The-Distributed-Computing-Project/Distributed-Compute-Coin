@@ -1,4 +1,4 @@
-^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\CMAKEFILES\FC6B967E9E040ECD54A9B5BCEE98EC2C\GENERATE.STAMP.RULE
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\CMAKEFILES\5EA65C78EEFAF51F4B996EA2C077C31F\GENERATE.STAMP.RULE
 setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Code/DC-Cryptocurrency/dcc_client/out/dcc_client.sln
 if %errorlevel% neq 0 goto :cmEnd

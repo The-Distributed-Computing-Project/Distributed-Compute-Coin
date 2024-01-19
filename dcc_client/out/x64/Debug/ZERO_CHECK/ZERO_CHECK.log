@@ -1,4 +1,4 @@
-﻿  Checking Build System
+  Checking Build System
   CMake is re-running because D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build/CMakeFiles/generate.stamp is out-of-date.
     the file 'D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src/CMakeLists.txt'
     is newer than 'D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build/CMakeFiles/generate.stamp.depend'

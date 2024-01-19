@@ -1,4 +1,4 @@
-﻿  Blockchain.cpp
+  Blockchain.cpp
 D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Blockchain.cpp(565,23): warning C4244: 'initializing': conversion from 'uint64_t' to 'uint16_t', possible loss of data
 D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Blockchain.cpp(615,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Blockchain.cpp(625,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data

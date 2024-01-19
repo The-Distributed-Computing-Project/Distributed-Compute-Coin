@@ -1,4 +1,4 @@
-﻿# CMakeList.txt : CMake project for dcc_client, include source and define
+# CMakeList.txt : CMake project for dcc_client, include source and define
 # project specific logic here.
 #
 cmake_minimum_required (VERSION 3.0 FATAL_ERROR)

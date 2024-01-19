@@ -50,6 +50,17 @@ static int stdlib_rand_bytes(unsigned char* buf, int num)
     return 1;
 }
 
+// Fill the buffer with random numbers 0-9.  For each byte in the buffer, we generate
+// a random number and clamp it to the range 0-9.
+static int stdlib_rand_numeric_string(unsigned char* buf, int num)
+{
+    for (int index = 0; index < num; ++index)
+    {
+        buf[index] = (rand() % 10) + '0';
+    }
+    return 1;
+}
+
 // Create the table that will link OpenSSL's rand API to our functions.
 static RAND_METHOD stdlib_rand_meth = {
     stdlib_rand_seed,

@@ -1,15 +1,5 @@
-﻿  strops.cpp
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(44,9): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(58,8): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(74,9): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(115,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(119,25): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(269,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(390,43): warning C4018: '<': signed/unsigned mismatch
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(460,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(505,15): warning C4552: '<': result of expression not used
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(525,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(547,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(548,70): warning C4244: 'argument': conversion from 'float' to 'uint32_t', possible loss of data
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp(557,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+﻿  Blockchain.cpp
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Blockchain.cpp(565,23): warning C4244: 'initializing': conversion from 'uint64_t' to 'uint16_t', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Blockchain.cpp(615,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Blockchain.cpp(625,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   dcc_client.vcxproj -> D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client\Debug\dcc_client.exe

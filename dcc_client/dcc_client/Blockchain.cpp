@@ -527,6 +527,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 
 // Calculates the difficulty of the next block by looking at the past 288 blocks,
 // and averaging the time it took between each block to keep it within the 2 min (120 second) range
+#define BLOCK_DIFFICULTY_CUTOFF_RANGE 48 // 48*5mins = 4 hours
 std::string CalculateDifficulty(json& walletInfo) {
 	std::string targetDifficulty = "000000FFFFFF0000000000000000000000000000000000000000000000000000";
 
@@ -571,14 +572,14 @@ std::string CalculateDifficulty(json& walletInfo) {
 	// Sort the vector so we can exclude the 60 lowest and 60 highest times
 	std::sort(secondCounts.begin(), secondCounts.end());
 
-	uint32_t highest = secondCounts[60];
-	uint32_t lowest = secondCounts[288 - 60];
+	uint32_t highest = secondCounts[BLOCK_DIFFICULTY_CUTOFF_RANGE];
+	uint32_t lowest = secondCounts[288 - BLOCK_DIFFICULTY_CUTOFF_RANGE];
 
 	// Get average of middle 288 block times
 	uint32_t avgTotal = 0;
-	for (int i = 60; i < 288 - 60; i++)
+	for (int i = BLOCK_DIFFICULTY_CUTOFF_RANGE; i < 288 - BLOCK_DIFFICULTY_CUTOFF_RANGE; i++)
 		avgTotal += secondCounts[i];
-	uint32_t average = avgTotal / (288 - 60 - 60);  // Divide by total, which gives the average
+	uint32_t average = avgTotal / (288 - BLOCK_DIFFICULTY_CUTOFF_RANGE - BLOCK_DIFFICULTY_CUTOFF_RANGE);  // Divide by total, which gives the average
 
 	// Expected: 86400 seconds total (24 hours per 288 blocks), or 300 seconds average
 
@@ -614,7 +615,7 @@ std::string CalculateDifficulty(json& walletInfo) {
 	double ratio = clampf((double)avgTotal / 50400.0, 0.25, 4.0);
 
 	if (WalletSettingValues::verbose >= 2) {
-		console::WriteBulleted("Average time: " + std::to_string(average) + "s\n", 3);
+		console::WriteBulleted("Average time: " + std::to_string(average) + "s  of  300\n", 3);
 		console::WriteBulleted("Min/Max: " + std::to_string(highest) + "s / " + std::to_string(lowest) + "s\n", 3);
 		console::WriteBulleted("Ratio: " + std::to_string(ratio) + ",  unclamped: " + std::to_string((double)avgTotal / 50400.0) + "\n", 3);
 		console::WriteBulleted("Last target difficulty: " + targetDifficulty + "\n", 3);

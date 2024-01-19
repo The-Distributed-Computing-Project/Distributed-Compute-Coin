@@ -528,7 +528,7 @@ std::string addHexNumbers(const std::string& hexNumberA, const std::string& hexN
 
 		// Perform the addition and add the carry
 		int sum = (int)(digitValueA + digitValueB + carry) % 10;
-		carry = (int)floor((double)(digitValueA + digitValueB) / 10.);
+		carry = (int)floor((double)(digitValueA + digitValueB+carry) / 10.);
 
 		resultDec[i] = sum + '0';
 	}
@@ -558,8 +558,8 @@ std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier) {
 			int digitValue = decNumber[i] - '0';
 
 			// Perform the multiplication and add the carry
-			int product = (int)(digitValue * multiplier + carry) % 10;
-			carry = (int)(digitValue * multiplier) / 10;
+			int product = (int)((float)digitValue * multiplier + carry) % 10;
+			carry = (int)((float)digitValue * multiplier + carry) /10;
 
 			resultDec[i] = product + '0';
 		}

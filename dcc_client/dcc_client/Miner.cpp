@@ -14,6 +14,9 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		console::Write((std::string)walletInfo["targetDifficulty"], console::cyanFGColor, "");
 	}
 	console::Write(" :\n");
+
+	char seedStr[16];
+	stdlib_rand_numeric_string(seedStr, 16);
 	try
 	{
 		auto startTime = std::chrono::steady_clock::now();
@@ -22,7 +25,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 			console::DockerPrint();
 			console::WriteLine("Starting program... ");
 		}
-		ExecuteAsync("docker run -d --network none --rm --name=" + (std::string)(walletInfo["ProgramID"]) + " -v ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + ":/out/ " + (std::string)(walletInfo["ProgramID"]) + " /bin/bash run.sh", false);
+		ExecuteAsync("docker run -d --network none --rm --name=" + (std::string)(walletInfo["ProgramID"]) + " -v ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + ":/out/ " + (std::string)(walletInfo["ProgramID"]) + " /bin/bash run.sh --seed " + seedStr, false);
 		boost::process::child containerProcess = ExecuteAsync("docker wait " + (std::string)(walletInfo["ProgramID"]), false);
 
 		char sha256OutBuffer[65];

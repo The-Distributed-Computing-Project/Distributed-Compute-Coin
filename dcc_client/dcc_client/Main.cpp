@@ -45,6 +45,7 @@ P2P p2p;
 int main()
 {
 	Logo();
+	srand(time(0));
 
 	if (WalletSettingValues::verbose >= 3) {
 		console::WriteLine("hextest: ");

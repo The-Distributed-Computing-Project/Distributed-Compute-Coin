@@ -612,7 +612,7 @@ std::string CalculateDifficulty(json& walletInfo) {
 	//}
 
 	// 50400 seconds for (288-60-60) = 168 blocks * 300 seconds
-	double ratio = clampf((double)avgTotal / 50400.0, 0.25, 4.0);
+	double ratio = clampf(average / 300.0, 0.25, 4.0);
 
 	if (WalletSettingValues::verbose >= 2) {
 		console::WriteBulleted("Average time: " + std::to_string(average) + "s  of  300\n", 3);

@@ -55,5 +55,6 @@ void cstr_to_hexstr(unsigned char*, int);
 char* hexstr_to_cstr(const std::string&);
 int sha256_file(char*, char outputBuffer[65]);
 bool generate_key();
+int stdlib_rand_numeric_string(char* buf, int num);
 
 #endif

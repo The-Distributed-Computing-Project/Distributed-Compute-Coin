@@ -525,6 +525,17 @@ std::string rsa_pub_decrypt(const std::string& cipherText, const std::string& pu
 	return strRet;
 }
 
+// Fill the buffer with random numbers 0-9.  For each byte in the buffer, we generate
+// a random number and clamp it to the range 0-9.
+int stdlib_rand_numeric_string(char* buf, int num)
+{
+	for (int index = 0; index < num; index++)
+	{
+		buf[index] = (rand() % 9) + '0';
+	}
+	return 1;
+}
+
 std::vector<std::string> GenerateKeypair()
 {
 	std::string kp[2];

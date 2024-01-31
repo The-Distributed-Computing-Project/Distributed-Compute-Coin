@@ -26,6 +26,81 @@
 //	return html;
 //}
 
+bool TestPortConnection(std::string ip, int port) {
+
+	//creates a socket on your machine and connects to the port of the IP address specified
+	struct sockaddr_in address;
+	int myNetworkSocket = -1;
+	
+	address.sin_family = AF_INET;
+	address.sin_addr.s_addr = inet_addr(ip.c_str());
+	address.sin_port = htons(port);
+	
+	myNetworkSocket = socket(AF_INET, SOCK_STREAM, 0);
+	
+	if (myNetworkSocket==-1) {
+		std::cout << "Socket creation failed on port " << port << std::endl;
+		return false;
+	}
+	
+	fcntl(myNetworkSocket, F_SETFL, O_NONBLOCK);
+	
+	connect(myNetworkSocket, (struct sockaddr *)&address, sizeof(address)); 
+	
+	//creates a file descriptor set and timeout interval
+	fd_set fileDescriptorSet;
+	struct timeval timeout;
+	
+	FD_ZERO(&fileDescriptorSet);
+	FD_SET(myNetworkSocket, &fileDescriptorSet);
+	timeout.tv_sec = 2;
+	timeout.tv_usec = 0;
+	
+	//int connectionResponse = select(myNetworkSocket + 1, NULL, &fileDescriptorSet, NULL, &timeout);
+	
+	const int BUFFERLENGTH = 1024 * 8;
+	char buffer[BUFFERLENGTH];
+	
+	int iResult = recvfrom(myNetworkSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&address, &address);
+	//if (connectionResponse == 1) {
+	if (iResult > 0){
+		// Read the received data buffer into a string
+		std::string textVal = std::string(buffer, buffer + iResult);
+		
+		// If the returned data contains the segment header, it must be the DCC client port
+		try{
+			std::string segInfo = SplitString(textVal, "\376")[0];
+			int segNumber = std::stoi(SplitString(segInfo, ":")[1]);
+			int maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
+			std::string content = SplitString(textVal, "\376")[1];
+				
+			close(myNetworkSocket);
+			return true;
+		}
+		catch(...){
+			close(myNetworkSocket);
+			return false;
+		}
+	}
+	close(myNetworkSocket);
+	return false;
+}
+
+int ScanAllPorts(std::string hostNameArg) {
+	int port;
+
+	for(port < 65535; port++;){
+		//test connection
+		if (TestPortConnection(hostNameArg, port)){
+			std::cout << "Port " << port << " is open!" << std::endl;
+			return port;
+		}
+		else {
+			std::cout << "Port " << port << " is closed." << std::endl;
+		}
+	}
+}
+
 int DownloadFile(std::string url, std::string saveAs, bool printStatus)
 {
 	CURL* curl;

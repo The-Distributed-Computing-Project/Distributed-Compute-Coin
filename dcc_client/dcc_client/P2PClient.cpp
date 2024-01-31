@@ -108,9 +108,8 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 		std::cerr << e.what() << std::endl;
 	}
 
-#else
-	return 0;
 #endif
+	return 0;
 }
 
 // The function that is run in a thread in order to listen for received data in the background
@@ -539,7 +538,7 @@ void P2P::SenderThread()
 {
 #if defined(_MSC_VER)
 
-	Http http;
+	//Http http;
 
 	stop_thread_2 = false;
 

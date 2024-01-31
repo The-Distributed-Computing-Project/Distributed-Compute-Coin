@@ -138,7 +138,7 @@ unsigned int BaseConverter::base2dec(const std::string& baseDigits, const std::s
 {
     unsigned int numberBase = (unsigned int)baseDigits.length();
     unsigned int result = 0;
-    for (size_t i = 0; i < value.length(); ++i)
+    for (int i = 0; i < value.length(); ++i)
     {
         result *= numberBase;
         int c = baseDigits.find(value[i]);

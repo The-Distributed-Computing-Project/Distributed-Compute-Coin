@@ -13,7 +13,7 @@ std::string ExecuteCommand(const char* cmd)
 	if (!pipe) {
 		throw std::runtime_error("_popen() failed!");
 	}
-	while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
+	while (fgets(buffer.data(), (int)(buffer.size()), pipe.get()) != nullptr) {
 		result += buffer.data();
 		std::cout << buffer.data();
 	}
@@ -47,7 +47,7 @@ boost::process::child ExecuteAsync(std::string cmd, bool printOutput)
 
 		return c;
 	}
-	catch (const std::exception& e)
+	catch (const std::exception&)
 	{
 		return boost::process::child();
 	}

@@ -23,6 +23,8 @@
 #include "SettingsConsts.h"
 #include "crypto.h"
 
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+
 
 extern std::vector<std::string> peerList;
 

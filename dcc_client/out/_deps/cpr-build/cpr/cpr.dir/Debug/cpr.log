@@ -1,2 +1,23 @@
-﻿  Auto build dll exports
+﻿  Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src/cpr/CMakeLists.txt
+  auth.cpp
+  bearer.cpp
+  cookies.cpp
+  cprtypes.cpp
+  curl_container.cpp
+  curlholder.cpp
+  error.cpp
+  multipart.cpp
+  parameters.cpp
+  payload.cpp
+  proxies.cpp
+  proxyauth.cpp
+  session.cpp
+  timeout.cpp
+  unix_socket.cpp
+  util.cpp
+  response.cpp
+  redirect.cpp
+  Generating Code...
+  Auto build dll exports
+     Creating library D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build/cpr/Debug/cpr.lib and object D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build/cpr/Debug/cpr.exp
   cpr.vcxproj -> D:\Code\DC-Cryptocurrency\dcc_client\out\Debug\cpr.dll

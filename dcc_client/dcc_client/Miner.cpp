@@ -96,7 +96,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 				//std::cout<<std::endl << databuffer << std::endl;
 				cstr_to_hexstr(hash, 32, sha256OutBuffer);
 				console::Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + numberstring + " # " + std::string(sha256OutBuffer));
-				console::Write("   " + FormatHPS(hashesPerSecond) + " ");
+				console::Write("   " + FormatHPS((float)hashesPerSecond) + " ");
 
 				[[unlikely]]
 				if (GetAsyncKeyState(0x51)) // Q Key for quit loop
@@ -401,7 +401,7 @@ int MineAnyBlock(int blockNum, std::string& difficulty)
 
 			cstr_to_hexstr(hash, 32, sha256OutBuffer);
 			console::Write("\r" + std::to_string((int)std::round(since(startTime).count() / 1000)) + "s :	" + CommaLargeNumber(nonce) + " # " + std::string(sha256OutBuffer));
-			console::Write("   " + FormatHPS(hashesPerSecond) + "            ");
+			console::Write("   " + FormatHPS((float)hashesPerSecond) + "            ");
 		}
 
 		nonce++;

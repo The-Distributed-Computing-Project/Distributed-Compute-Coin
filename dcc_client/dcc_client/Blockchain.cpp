@@ -562,7 +562,7 @@ std::string CalculateDifficulty(json& walletInfo) {
 		json o = json::parse(buffert.str());
 
 		// Get difference between last block time and this one, then add to vector of differences
-		uint16_t difference = (uint64_t)o["time"] - lastTime;
+		uint16_t difference = (uint16_t)((uint64_t)o["time"] - lastTime);
 		secondCounts.push_back(difference);
 
 		// Set new last time
@@ -612,17 +612,17 @@ std::string CalculateDifficulty(json& walletInfo) {
 	//}
 
 	// 50400 seconds for (288-60-60) = 168 blocks * 300 seconds
-	double ratio = clampf(average / 300.0, 0.25, 4.0);
+	float ratio = clampf(average / 300.0f, 0.25f, 4.0f);
 
 	if (WalletSettingValues::verbose >= 2) {
 		console::WriteBulleted("Average time: " + std::to_string(average) + "s  of  300\n", 3);
 		console::WriteBulleted("Min/Max: " + std::to_string(highest) + "s / " + std::to_string(lowest) + "s\n", 3);
-		console::WriteBulleted("Ratio: " + std::to_string(ratio) + ",  unclamped: " + std::to_string((double)avgTotal / 50400.0) + "\n", 3);
+		console::WriteBulleted("Ratio: " + std::to_string(ratio) + ",  unclamped: " + std::to_string(average / 300.0) + "\n", 3);
 		console::WriteBulleted("Last target difficulty: " + targetDifficulty + "\n", 3);
 	}
 
 
-	std::string newDifficulty = PadString(multiplyHexByFloat(targetDifficulty, ratio), '0', 64);
+	std::string newDifficulty = PadString(multiplyHexByFloat(targetDifficulty, (float)ratio), '0', 64);
 	
 	if (WalletSettingValues::verbose >= 2)
 	console::WriteBulleted("New target difficulty:  " + newDifficulty + "\n", 3);

@@ -166,8 +166,11 @@ void P2P::ListenerThread(int update_interval)
 							otherAddrStr = fromIPString;
 
 						// If connected but different, ignore.
-						else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0])
+						else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0]){
+							// Send blank confirming message
+							mySendTo(localSocket, "DCC_PEER", "DCC_PEER".length(), 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
 							continue;
+						}
 
 						// Read the received data buffer into a string
 						std::string textVal = std::string(buffer, buffer + iResult);

@@ -53,6 +53,8 @@ public:
 	int messageAttempt = 0;
 	int differentPeerAttempts = 0;
 
+	int peerListID = 0;
+
 	int role = -1; //   -1 == offline,  0 == requester,  1 == answerer
 
 	std::atomic_int messageStatus = -1;

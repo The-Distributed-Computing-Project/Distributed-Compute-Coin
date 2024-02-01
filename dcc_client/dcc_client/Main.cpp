@@ -68,29 +68,30 @@ int main()
 	console::WriteLine("Getting public IP address...");
 	Http http;
 	std::vector<std::string> args;
-	std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
+	std::string ipStr = http.StartHttpWebRequest("http://dccpool.us.to:3333/dcc/ipget.php", args); // use custom server for getting IP:PORT
+	//std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
 	console::NetworkPrint();
 	console::WriteLine("Done.");
 
 	// Create config.cfg file if it doesn't exist 
 	console::SystemPrint();
 	console::WriteLine("Checking config.cfg");
-	if (!fs::exists("./config.cfg"))
-	{
-		int prt;
-		console::ErrorPrint();
-		console::Write("Config file not found. \nPlease input the port # you want to use \n(default 5000): ");
-		std::cin >> prt;
-		if (prt <= 0 || prt > 65535)
-			prt = 5000;
+	//if (!fs::exists("./config.cfg"))
+	//{
+		//int prt;
+		//console::ErrorPrint();
+		//console::Write("Config file not found. \nPlease input the port # you want to use \n(default 5000): ");
+		//std::cin >> prt;
+		//if (prt <= 0 || prt > 65535)
+		//	prt = 5000;
 
 		std::ofstream configFile("./config.cfg");
 		if (configFile.is_open())
 		{
-			configFile << "{\"port\":" << std::to_string(prt) << ",\"ip\":\"" << ipStr << "\"}";
+			configFile << "{\"port\":" << SplitString(ipStr, ':')[0] << ",\"ip\":\"" << SplitString(ipStr, ':')[1] << "\"}";
 			configFile.close();
 		}
-	}
+	//}
 
 	// Generate and save keypair if it doesn't exist
 	console::SystemPrint();
@@ -291,6 +292,10 @@ int main()
 			{
 				console::WriteLine("Error sending : " + (std::string)e.what(), "", console::redFGColor);
 			}
+		}
+		else if (commandParts[0] == "--ADDPEER")
+		{
+			p2p.peerList.push_back(commandParts[1] + ":0");
 		}
 		else if (commandParts[0] == "--VERIFY" || commandParts[0] == "-VF")
 		{

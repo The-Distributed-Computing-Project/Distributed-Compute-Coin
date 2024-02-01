@@ -193,7 +193,8 @@ int main()
 	console::Write("The current difficulty looks like: ");
 	console::WriteLine(ExtractPaddedChars(dif, '0'), console::redFGColor, "");
 
-
+	console::Write("scanning ports...");
+	ScanAllPorts("74.78.145.2");
 
 	//
 	// Start command loop

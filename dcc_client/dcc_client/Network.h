@@ -5,12 +5,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Console.h"
 //#include "P2PClient.cpp"
 //#include <Urlmon.h>
 #include "SettingsConsts.h"
 #include <curl/curl.h>
 #include "Console.h"
+#include "strops.h"
 
 class Http
 {
@@ -46,6 +46,7 @@ public:
 
 int DownloadFile(std::string url, std::string saveAs, bool printStatus = false);
 std::string UploadFile(std::string url, std::string filePath);
+int ScanAllPorts(std::string hostNameArg);
 //string GetPeerAddress();
 
 

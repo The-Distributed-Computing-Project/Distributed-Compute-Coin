@@ -48,7 +48,7 @@ std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 }
 #endif
 
-bool P2P::isAwaiting(){
+bool P2P::isAwaiting() {
 	return reqDat != -1;
 }
 
@@ -165,15 +165,16 @@ void P2P::ListenerThread(int update_interval)
 							otherAddrStr = fromIPString;
 
 						// If connected but different, ignore.
-						else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0]){
+						else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0]) {
 							// Send blank confirming message
-							mySendTo(localSocket, "DCC_PEER", "DCC_PEER".length(), 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
+							std::string tmpMsg = "DCC_PEER";
+							mySendTo(localSocket, tmpMsg, tmpMsg.length(), 0, (sockaddr*)&remoteAddr, remoteAddrLen);
 							continue;
 						}
 
 						// Read the received data buffer into a string
 						std::string textVal = std::string(buffer, buffer + iResult);
-						
+
 						// Get the segment information from the received data
 						std::string segInfo = SplitString(textVal, "\376")[0];
 						int segNumber = std::stoi(SplitString(segInfo, ":")[1]);
@@ -778,13 +779,11 @@ void P2P::SenderThread()
 		//stop_thread_1 = false;
 
 		//closesocket(localSocket);
-		//WSACleanup();
 
 		continue;
 	}
 
-	closesocket(localSocket);
-	WSACleanup();
+	//closesocket(localSocket);
 
 #endif
 }

@@ -160,6 +160,25 @@ void P2P::ListenerThread(int update_interval)
 						// set this one as the current connection and continue.
 						std::string fromIPString = NormalizedIPString(remoteAddr);
 
+						// See if peer is somewhere in the peerlist
+						int ipIndex = -1;
+						for(int i = 0; i < peerList.size(); i++){
+							if(SplitString(peerList[i], ':')[0]+":"+SplitString(peerList[i], ':')[1] == fromIPString){
+								ipIndex = i;
+								break;
+							}
+						}
+						// If it is, reset life
+						if(ipIndex != -1){
+							// Reset life of this peer to 0
+							peerList[ipIndex] = SplitString(peerList[i], ':')[0]+":"+SplitString(peerList[i], ':')[1]+":0";
+						}
+						else{
+							// Otherwise, add to list since not present
+							peerList.push_back(fromIPString + ":0");
+						}
+						SavePeerList();
+
 						// If not currently connected, accept this connection.
 						if (otherAddrStr == "")
 							otherAddrStr = fromIPString;
@@ -238,23 +257,14 @@ void P2P::ListenerThread(int update_interval)
 							// Add item to peer list, and save to file
 							bool alreadyInList = false;
 							for (int y = 0; y < peerList.size(); y++) {
-								if (otherAddrStr == peerList[y]) {
+								if (otherAddrStr == SplitString(peerList[i], ':')[0]+":"+SplitString(peerList[i], ':')[1]) {
 									alreadyInList = true;
 									break;
 								}
 							}
 							if (alreadyInList == false) {
-								peerList.push_back(otherAddrStr);
-								std::string totalList = "";
-								for (int y = 0; y < peerList.size(); y++)
-									totalList += peerList[y] + "\n";
-								std::ofstream peerFileW("./wwwdata/peerlist.list");
-								if (peerFileW.is_open())
-								{
-									peerFileW << totalList;
-									peerFileW.close();
-								}
-								peerFileW.close();
+								peerList.push_back(otherAddrStr+":0");
+								SavePeerList();
 							}
 						}
 						// If the peer is ending the connection
@@ -378,7 +388,7 @@ void P2P::ListenerThread(int update_interval)
 							}
 							// If peer is giving peer list
 							else if (SplitString(totalMessage, "\377")[1] == "peerlist") {
-								std::vector<std::string> receivedPeers = SplitString(SplitString(totalMessage, "\377")[2], ",");
+								std::vector<std::string> receivedPeers = SplitString(SplitString(totalMessage, "\377")[2], ":");
 								// Iterate all received peers, and only add them to our list if it is not already on it
 								for (int x = 0; x < receivedPeers.size(); x++) {
 									bool wasFound = false;
@@ -388,9 +398,10 @@ void P2P::ListenerThread(int update_interval)
 											break;
 										}
 									}
-									if (wasFound == true)
-										peerList.push_back(receivedPeers[x]);
+									if (wasFound == false)
+										peerList.push_back(SplitString(receivedPeers[x], ':')[0]+":"+SplitString(receivedPeers[x], ':')[1]+":0");
 								}
+								SavePeerList();
 								messageStatus = await_first_success;
 							}
 							// If peer is giving a block's data
@@ -475,6 +486,21 @@ void P2P::InitPeerList() {
 	peerFile.close();
 }
 
+void P2P::SavePeerList() {
+	std::ofstream peerFile("./wwwdata/peerlist.list");
+	// If the peer list file does not exist, create it
+	if (!peerFile)
+	{
+		console::ErrorPrint();
+		console::WriteLine("Failed to save to peer file", console::redFGColor, "");
+	}
+	else{
+		std::ostream_iterator<std::string> output_iterator(peerFile, "\n");
+		std::copy(std::begin(peerList), std::end(peerList), output_iterator);
+	}
+	peerFile.close();
+}
+
 
 // The function to open the socket required for the P2P connection
 int P2P::OpenP2PSocket(int port)
@@ -525,8 +551,8 @@ int P2P::OpenP2PSocket(int port)
 void P2P::RandomizePeer() {
 	try
 	{
-
 		uint16_t randI = rand() % peerList.size();
+		peerListID = randI;
 		peerIP = SplitString(peerList[randI], ":")[0];
 		peerPort = stoi(SplitString(peerList[randI], ":")[1]);
 	}
@@ -743,7 +769,15 @@ void P2P::SenderThread()
 					if (differentPeerAttempts < 4) {
 						console::NetworkPrint();
 						console::WriteLine("Finding another peer...");
+						// Decrease life of current peer
+						char newLife = ((char)(SplitString(peerList[peerListID], ':')[2])+1);
+						if(newLife >= '9') // If life is 9, remove it from list
+							peerList.erase(peerList.begin() + peerListID);
+						else // Otherwise just increment by 1
+							peerList[peerListID] = SplitString(peerList[peerListID], ':')[0]+":"+SplitString(peerList[peerListID], ':')[1]+","+newLife;
+						// Then select another
 						RandomizePeer();
+						SavePeerList();
 						differentPeerAttempts++;
 					}
 					// If at least 5 have been tried, stop.

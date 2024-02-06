@@ -328,6 +328,84 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 	return 0;
 }
 
+// Verify a Deluge file for a program
+bool VerifyDeluge(json& delugeJson, std::string& path)
+{
+	FILE* pFile;
+	pFile = fopen(path.c_str(), "rb");
+	fseek(pFile, 0L, SEEK_END);
+	size_t size = ftell(pFile);
+	fseek(pFile, 0L, SEEK_SET);
+	char* byteArray = new char[size+1];
+	byteArray[size] = '\0';
+	if (pFile != NULL)
+	{
+		int counter = 0;
+		do {
+			byteArray[counter] = fgetc(pFile);
+			counter++;
+		} while (counter <= size);
+		fclose(pFile);
+	}
+
+	std::cout << "total size: " << size << " bytes\n";
+
+	// Create hash for each 32kb chunk of the file, and verify it with the one in the deluge
+	std::string allHashesString;
+	int ind = 0;
+	uint16_t chunks = 0;
+	unsigned char outBuffer[20];
+	char strOutBuffer[] = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+	int actualSize = 0;
+	do
+	{
+		csubstr(byteArray, outDatArray, ind, DELUGE_CHUNK_SIZE, size, actualSize);
+		cConcatInt(outDatArray, outDatArray, actualSize, chunks);
+		sha1_str(outDatArray, outBuffer);
+		cstr_to_hexstr(outBuffer, 20, strOutBuffer);
+
+		std::string expectedHash = (std::string)delugeJson["hashList"][chunks];
+		if(expectedHash.size() < 20) // If the length of the string is less than the hash size, it is referencing another index
+			expectedHash = (std::string)delugeJson["hashList"][std::stoi(expectedHash)];
+
+		if(strOutBuffer != expectedHash){
+			delete[] byteArray;
+			return false;
+		}
+
+		std::cout << "Checking part `" << PadString(std::to_string(chunks), '0', 4) << "`  ,  " << PadString(std::to_string(ind), '0', std::to_string(size).size()) << " of " << size << " bytes" << "   =>   " << hashList.at(hashList.size()-1) << std::endl;
+		allHashesString += strOutBuffer;
+		ind += DELUGE_CHUNK_SIZE;
+		chunks++;
+	} while (ind < size && chunks < 2000);
+
+	// If the total number of chunks is 2000 and the index is still less than the total size,
+	// then we cannot continue because this program is too large
+	if (chunks >= 2000 && ind < size) {
+		console::ErrorPrint();
+		console::WriteLine("Could not complete, file is too large.");
+		// Free memory allocated using `new`
+		delete[] byteArray;
+		return false;
+	}
+
+	// Hash one last time, this time using all hashes as a total file checksum, and SHA256
+	char sha256OutBuffer[65];
+	unsigned char hash[32];
+	sha256_string((char*)(allHashesString.c_str()), sha256OutBuffer);
+	std::string hData = std::string(sha256OutBuffer);
+
+	if(hData != (std::string)(std::string)delugeJson["_totalHash"]){
+		delete[] byteArray;
+		return false;
+	}
+
+	// Free memory allocated using `new`
+	delete[] byteArray;
+
+	return 0;
+}
+
 // Get the amount of time left of the current assigned rust program, by asking the server     // TODO: change to ask peers instead of the server
 float GetProgramLifeLeft()
 {

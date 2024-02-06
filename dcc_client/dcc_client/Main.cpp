@@ -145,7 +145,7 @@ int main()
 			// Verify the deluge, by checking each chunk with its expected hash, and then the full hash
 			if(VerifyDeluge(delugeJson, "./wwwdata/taskcontainers/" + (std::string)delugeJson["_totalHash"].subtr(0,32)+".img")){
 				// Add deluge full hash to list with it's path as a value
-				delugeList[(std::string)delugeJson["_totalHash"]] = deluge.path();
+				//completeDelugeList[(std::string)delugeJson["_totalHash"]] = deluge.path();
 			}
 			// If the deluge is invalid, remove it's file
 			else{

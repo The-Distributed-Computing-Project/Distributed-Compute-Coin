@@ -82,8 +82,11 @@ public:
 		requesting_transaction_process = 12,
 		replying_transaction_process = 13,
 
-		requesting_task_container = 14,
-		replying_task_container = 15,
+		requesting_deluge_file = 14,
+		replying_deluge_file = 15,
+
+		requesting_deluge_chunk = 16,
+		replying_deluge_chunk = 17,
 	};
 
 	int reqDat = -1;

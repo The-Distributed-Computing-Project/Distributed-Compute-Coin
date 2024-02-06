@@ -28,7 +28,7 @@
 
 extern std::vector<std::string> peerList;
 
-extern std::map<std::string, std::string> delugeList;
+extern std::map<std::string, std::map<std::string, std::string>> completeDelugeList;
 
 using json = nlohmann::json;
 

@@ -23,7 +23,7 @@ int SendFunds(P2P& p2p, std::string& toAddress, float amount);
 
 
 int connectionStatus = 1;
-const std::string directoryList[] = { "./sec", "./wwwdata", "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/taskcontainers", "./wwwdata/superchain", "./wwwdata/developing-programs" };
+const std::string directoryList[] = { "./sec", "./wwwdata", "./wwwdata/blockchain", "./wwwdata/pendingblocks", " ", "./wwwdata/taskdeluges", "./wwwdata/superchain", "./wwwdata/developing-programs" };
 
 json walletConfig;
 json walletInfo;
@@ -131,6 +131,21 @@ int main()
 	console::WriteLine(wallet, console::greenFGColor, "");
 	walletInfo["Address"] = wallet;
 
+	// Get all deluge files, and ensure they are complete
+	//walletInfo["FullPrograms"] = json::array();
+	for (auto deluge : fs::directory_iterator("./wwwdata/taskdeluges/"))
+	{
+		std::ifstream delugeFile(deluge.path());
+		if (delugeFile.is_open()) {
+			std::stringstream delugeFilebuf;
+			delugeFilebuf << delugeFile.rdbuf();
+			json delugeJson = json::parse(delugeFilebuf.str());
+			delugeFile.close();
+
+			// Add deluge full hash to list with it's path as a value
+			delugeList[(std::string)delugeJson["_totalHash"]] = deluge.path();
+		}
+	}
 
 	p2p.InitPeerList();
 

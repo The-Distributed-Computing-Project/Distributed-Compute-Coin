@@ -11,6 +11,26 @@ std::string JoinArrayPieces(std::string input[])
 	return outStr;
 }
 
+std::string SplitGetLastAfterChar(std::string str, std::string delim)
+{
+	std::vector<std::string> splittedString;
+	int startIndex = 0;
+	int  endIndex = 0;
+	while ((endIndex = str.find(delim, startIndex)) < str.size())
+	{
+		//std::string val = str.substr(startIndex, endIndex - startIndex);
+		//splittedString.push_back(val);
+		startIndex = endIndex + delim.size();
+	}
+	if (startIndex < str.size())
+	{
+		std::string val = str.substr(startIndex);
+		//splittedString.push_back(val);
+		return val;
+	}
+	return "";
+}
+
 std::string JoinArrayPieces(std::vector<std::string> input)
 {
 	std::string outStr = "";

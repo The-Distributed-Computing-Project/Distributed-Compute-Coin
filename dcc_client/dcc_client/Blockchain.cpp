@@ -244,6 +244,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 
 	// Create hash for each 32kb chunk of the file, and add to list
 	std::vector<std::string> hashList;
+	std::string allHashesString;
 	int ind = 0;
 	uint16_t chunks = 0;
 	unsigned char outBuffer[20];
@@ -271,6 +272,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		}
 
 		std::cout << "Building part `" << PadString(std::to_string(chunks), '0', 4) << "`  ,  " << PadString(std::to_string(ind), '0', std::to_string(size).size()) << " of " << size << " bytes" << "   =>   " << hashList.at(hashList.size()-1) << std::endl;
+		allHashesString += strOutBuffer;
 		ind += DELUGE_CHUNK_SIZE;
 		chunks++;
 	} while (ind < size && chunks < 2000);
@@ -285,15 +287,25 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		return 1;
 	}
 
+	// Hash one last time, this time using all hashes as a total file checksum, and SHA256
+	char sha256OutBuffer[65];
+	unsigned char hash[32];
+	sha256_string((char*)(allHashesString.c_str()), sha256OutBuffer);
+	std::string hData = std::string(sha256OutBuffer);
+
 	// Create json object storing the program data
 	json programData = json::object({});
 	programData = {
 			{"hashList", hashList},
 			{"_ip", walletConfig["ip"]},
 			{"_address", walletInfo["Address"]},
+			{"_totalHash", hData},
+			{"_chunkSizeB", DELUGE_CHUNK_SIZE},
+			{"_name", SplitGetLastAfterChar(path,"/").substr(0, 32)}, // Use path as name, also truncate to only 32 chars
 	};
 
-	std::ofstream programDeluge("./wwwdata/testprogram.deluge");
+	// Output name will be the total hash
+	std::ofstream programDeluge("./wwwdata/developing-programs/" + hData.substr(0, 32) + ".deluge");
 	if (programDeluge.is_open())
 	{
 		programDeluge << programData.dump();

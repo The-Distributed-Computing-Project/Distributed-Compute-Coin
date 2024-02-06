@@ -28,6 +28,8 @@
 
 extern std::vector<std::string> peerList;
 
+extern std::map<std::string, std::string> delugeList;
+
 using json = nlohmann::json;
 
 //extern P2P p2p;

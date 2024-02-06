@@ -53,6 +53,7 @@ public:
 	int messageAttempt = 0;
 	int differentPeerAttempts = 0;
 
+	std::vector<std::string> peerList;
 	int peerListID = 0;
 
 	int role = -1; //   -1 == offline,  0 == requester,  1 == answerer
@@ -102,6 +103,7 @@ public:
 	void SenderThread();
 	int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen);
 	void InitPeerList();
+	void SavePeerList();
 };
 
 bool VerifyTransaction(json& tx, uint32_t id = 0, bool thorough = false);

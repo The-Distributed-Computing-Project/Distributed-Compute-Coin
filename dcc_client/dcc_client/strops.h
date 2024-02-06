@@ -47,6 +47,8 @@ double round(float value, int decimal_places);
 bool IsVersionGreaterOrEqual(std::string a, std::string b);
 void addOneToHexStr(char* num, int len);
 void addOneToHexStrInRange(char* num, int start, int len);
+void csubstr(char* arr, char* outArr, int begin, int len, int totalLen, int& actualSize);
+void cConcatInt(char* arr, char* outArr, int len, int x);
 
 template<class T>
 std::string FormatWithCommas(T value)

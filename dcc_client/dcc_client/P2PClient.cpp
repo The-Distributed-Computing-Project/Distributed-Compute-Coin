@@ -21,7 +21,6 @@ std::atomic_bool stop_thread_1 = false;
 std::atomic_bool stop_thread_2 = false;
 std::atomic_bool thread_running = false;
 
-std::vector<std::string> peerList;
 //P2P p2p;
 
 #if defined(_MSC_VER)
@@ -163,7 +162,7 @@ void P2P::ListenerThread(int update_interval)
 						// See if peer is somewhere in the peerlist
 						int ipIndex = -1;
 						for(int i = 0; i < peerList.size(); i++){
-							if(SplitString(peerList[i], ':')[0]+":"+SplitString(peerList[i], ':')[1] == fromIPString){
+							if (SplitString(peerList[i], ":")[0] + ":" + SplitString(peerList[i], ":")[1] == fromIPString) {
 								ipIndex = i;
 								break;
 							}
@@ -171,7 +170,7 @@ void P2P::ListenerThread(int update_interval)
 						// If it is, reset life
 						if(ipIndex != -1){
 							// Reset life of this peer to 0
-							peerList[ipIndex] = SplitString(peerList[i], ':')[0]+":"+SplitString(peerList[i], ':')[1]+":0";
+							peerList[ipIndex] = SplitString(peerList[ipIndex], ":")[0]+":"+SplitString(peerList[ipIndex], ":")[1]+":0";
 						}
 						else{
 							// Otherwise, add to list since not present
@@ -258,7 +257,7 @@ void P2P::ListenerThread(int update_interval)
 							// Add item to peer list, and save to file
 							bool alreadyInList = false;
 							for (int y = 0; y < peerList.size(); y++) {
-								if (otherAddrStr == SplitString(peerList[i], ':')[0]+":"+SplitString(peerList[i], ':')[1]) {
+								if (otherAddrStr == SplitString(peerList[y], ":")[0]+":"+SplitString(peerList[y], ":")[1]) {
 									alreadyInList = true;
 									break;
 								}
@@ -400,7 +399,7 @@ void P2P::ListenerThread(int update_interval)
 										}
 									}
 									if (wasFound == false)
-										peerList.push_back(SplitString(receivedPeers[x], ':')[0]+":"+SplitString(receivedPeers[x], ':')[1]+":0");
+										peerList.push_back(SplitString(receivedPeers[x], ":")[0]+":"+SplitString(receivedPeers[x], ":")[1]+":0");
 								}
 								SavePeerList();
 								messageStatus = await_first_success;
@@ -550,6 +549,8 @@ int P2P::OpenP2PSocket(int port)
 
 // Function to get random peer credentials from the peerList
 void P2P::RandomizePeer() {
+	if (peerList.size() == 0)
+		return;
 	try
 	{
 		uint16_t randI = rand() % peerList.size();
@@ -771,11 +772,11 @@ void P2P::SenderThread()
 						console::NetworkPrint();
 						console::WriteLine("Finding another peer...");
 						// Decrease life of current peer
-						char newLife = ((char)(SplitString(peerList[peerListID], ':')[2])+1);
+						char newLife = (SplitString(peerList[peerListID], ":")[2]).c_str()[0] + 1;
 						if(newLife >= '9') // If life is 9, remove it from list
 							peerList.erase(peerList.begin() + peerListID);
 						else // Otherwise just increment by 1
-							peerList[peerListID] = SplitString(peerList[peerListID], ':')[0]+":"+SplitString(peerList[peerListID], ':')[1]+","+newLife;
+							peerList[peerListID] = SplitString(peerList[peerListID], ":")[0]+":"+SplitString(peerList[peerListID], ":")[1]+","+newLife;
 						// Then select another
 						RandomizePeer();
 						SavePeerList();

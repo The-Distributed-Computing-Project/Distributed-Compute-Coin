@@ -47,6 +47,7 @@ int main()
 	Logo();
 	srand(time(0));
 
+
 	if (WalletSettingValues::verbose >= 3) {
 		console::WriteLine("hextest: ");
 		console::WriteLine("\"" + divideHexByFloat("ffffff", 1.3) + "\"");
@@ -68,8 +69,9 @@ int main()
 	console::WriteLine("Getting public IP address...");
 	Http http;
 	std::vector<std::string> args;
-	std::string ipStr = http.StartHttpWebRequest("http://dccpool.us.to:3333/dcc/ipget.php", args); // use custom server for getting IP:PORT
+	std::string ipStr = http.StartHttpWebRequest("http://dccpool.us.to/dcc/ipget.php", args); // use custom server for getting IP:PORT
 	//std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
+	//console::WriteLine(ipStr);
 	console::NetworkPrint();
 	console::WriteLine("Done.");
 
@@ -88,9 +90,11 @@ int main()
 		std::ofstream configFile("./config.cfg");
 		if (configFile.is_open())
 		{
-			configFile << "{\"port\":" << SplitString(ipStr, ':')[0] << ",\"ip\":\"" << SplitString(ipStr, ':')[1] << "\"}";
+			configFile << "{\"port\":" << SplitString(ipStr, ":")[1] << ",\"ip\":\"" << SplitString(ipStr, ":")[0] << "\"}";
 			configFile.close();
 		}
+		/*walletConfig["ip"] = SplitString(ipStr, ":")[0];
+			walletConfig["port"] = SplitString(ipStr, ":")[1];*/
 	//}
 
 	// Generate and save keypair if it doesn't exist
@@ -133,9 +137,12 @@ int main()
 
 	// Load the wallet config file and get the P2P port and IP
 	std::ifstream conf("./config.cfg");
-	std::stringstream confbuf;
-	confbuf << conf.rdbuf();
-	walletConfig = json::parse(confbuf.str());
+	if (conf.is_open()) {
+		std::stringstream confbuf;
+		confbuf << conf.rdbuf();
+		walletConfig = json::parse(confbuf.str());
+		conf.close();
+	}
 
 	endpointAddr = (std::string)walletConfig["ip"];
 	endpointPort = std::to_string((int)walletConfig["port"]);
@@ -194,8 +201,8 @@ int main()
 	console::Write("The current difficulty looks like: ");
 	console::WriteLine(ExtractPaddedChars(dif, '0'), console::redFGColor, "");
 
-	console::Write("scanning ports...");
-	ScanAllPorts("74.78.145.2");
+	//console::Write("scanning ports...");
+	//ScanAllPorts("74.78.145.2");
 
 	//
 	// Start command loop
@@ -434,7 +441,7 @@ int main()
 		}
 		else if (commandParts[0] == "--POOL" || commandParts[0] == "-P")
 		{
-			std::string poolURL = "http://dccpool.us.to:3333";
+			std::string poolURL = "http://dccpool.us.to";
 			if (commandParts.size() == 2)
 				poolURL = commandParts[1];
 			PoolMine(poolURL, walletInfo);
@@ -442,6 +449,12 @@ int main()
 		else if (commandParts[0] == "--SUPERBLOCK" || commandParts[0] == "-SP")
 		{
 			CreateSuperblock();
+		}
+		else if (commandParts[0] == "--MAKE-CONTAINER" || commandParts[0] == "-MK")
+		{
+			if (commandParts.size() == 2) {
+				MakeProgram(walletInfo, walletConfig, commandParts[1]);
+			}
 		}
 		//else if (commandParts[0] == "--CONNECT" || commandParts[0] == "-C")
 		//{
@@ -506,7 +519,8 @@ Options:
   -sn, --send <addr> <amount>         Sends the <amount> of DCC to a receiving address <addr>
   -sp, --superblock                   Generates a debug superblock to summarize all transactions
   -vf, --verify                       Verify the entire blockchain to make sure all blocks are valid
-  -p, --pool <url>                    Start mining at a pool, given by <url>. Default is http://dccpool.us.to:3333
+  -p, --pool <url>                    Start mining at a pool, given by <url>. Default is http://dccpool.us.to
+  -mk, --make-container <path>        Create a new Deluge for sharing a container (this won't publish it yet)
 
 )V0G0N");
 }

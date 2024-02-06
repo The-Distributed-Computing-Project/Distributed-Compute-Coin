@@ -657,18 +657,19 @@ void sha256_full_cstr(char* str, unsigned char outputBuffer[SHA256_DIGEST_LENGTH
 char charArray[32];
 char charArray64[65];
 
-// Convert the SHA-256 unsigned char* <hash> into a hex encoding, outputing into char[] <outputBuffer>
-void cstr_to_hexstr(unsigned char* str, int clen, char outputBuffer[65])
+// Convert the SHA unsigned char* <hash> into a hex encoding, outputing into char[] <outputBuffer>
+void cstr_to_hexstr(unsigned char* str, int clen, char outputBuffer[])
 {
 	//int i = 0;
 	for (int i = 0; i < clen; i++)
 	{
 		sprintf(outputBuffer + (i * 2), "%02x", str[i]);
+		//printf("%i+%s\n",i,outputBuffer);
 	}
-	outputBuffer[64] = 0;
+	//outputBuffer[clen*2-1] = 0;
 }
 
-// Convert the SHA-256 unsigned char* <hash> into a hex encoding, outputing into char[] <outputBuffer>
+// Convert the SHA unsigned char* <hash> into a hex encoding, outputting into char[] charArray64
 void cstr_to_hexstr(unsigned char* str, int clen)
 {
 	//int i = 0;
@@ -676,7 +677,7 @@ void cstr_to_hexstr(unsigned char* str, int clen)
 	{
 		sprintf(charArray64 + (i * 2), "%02x", str[i]);
 	}
-	charArray64[64] = 0;
+	//charArray64[clen*2-1] = 0;
 }
 
 // Function to convert a hexadecimal string into a char*
@@ -738,6 +739,14 @@ int sha256_file(char* path, char outputBuffer[65])
 	fclose(file);
 	free(buffer);
 	return 0;
+}
+
+void sha1_str(char* str, unsigned char outputBuffer[20]) {
+	unsigned char* iBuf = (unsigned char*)str;
+
+	SHA1(iBuf, strlen((char*)iBuf), outputBuffer);
+
+	int i;
 }
 
 bool generate_key()

@@ -1,11 +1,12 @@
 #ifndef settings_h
 #define settings_h
 
+#define DELUGE_CHUNK_SIZE 32768
 
 const std::string VERSION = "v0.6.0-alpha";
 const std::string BLOCK_VERSION = "v0.8.2-alpha-coin";
 
-const std::string serverURL = "http://dccpool.us.to:3030";
+const std::string serverURL = "http://dccpool.us.to";
 
 
 namespace WalletSettingValues

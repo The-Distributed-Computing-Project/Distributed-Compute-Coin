@@ -55,7 +55,7 @@ int Sync(P2P& p2p, json& walletInfo)
 		for (int i = 1; i < walletInfo["BlockchainLength"]; i++)
 			if (!fs::exists("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock"))
 				SyncBlock(p2p, i);
-		GetProgram(walletInfo);
+		//GetProgram(walletInfo);
 		return 1;
 	}
 	catch (const std::exception& e)
@@ -212,6 +212,98 @@ int GetProgram(json& walletInfo)
 		ERRORMSG("Error getting program\n" << e.what());
 		return 0;
 	}
+}
+
+char outDatArray[DELUGE_CHUNK_SIZE + 5];
+// Make a Docker container and Deluge file for a program
+int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
+{
+	FILE* pFile;
+	pFile = fopen(path.c_str(), "rb");
+	fseek(pFile, 0L, SEEK_END);
+	size_t size = ftell(pFile);
+	fseek(pFile, 0L, SEEK_SET);
+	char* byteArray = new char[size+1];
+	byteArray[size] = '\0';
+	if (pFile != NULL)
+	{
+		int counter = 0;
+		do {
+			byteArray[counter] = fgetc(pFile);
+			counter++;
+		} while (counter <= size);
+		fclose(pFile);
+	}
+
+	//std::ifstream t(path);
+	//if (t.is_open()) {
+		//std::stringstream buffer;
+		//buffer << t.rdbuf();
+		//std::string content = buffer.str();
+	std::cout << "total size: " << size << " bytes\n";
+
+	// Create hash for each 32kb chunk of the file, and add to list
+	std::vector<std::string> hashList;
+	int ind = 0;
+	uint16_t chunks = 0;
+	unsigned char outBuffer[20];
+	char strOutBuffer[] = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+	int actualSize = 0;
+	do
+	{
+		csubstr(byteArray, outDatArray, ind, DELUGE_CHUNK_SIZE, size, actualSize);
+		cConcatInt(outDatArray, outDatArray, actualSize, chunks);
+		sha1_str(outDatArray, outBuffer);
+		cstr_to_hexstr(outBuffer, 20, strOutBuffer);
+
+		auto it = std::find(hashList.begin(), hashList.end(), strOutBuffer);
+
+		// If element was found, only add index of it
+		if (it != hashList.end())
+		{
+			int index = it - hashList.begin();
+			hashList.push_back(std::to_string(index));
+		}
+		// Else, add as new element
+		else
+		{
+			hashList.push_back(strOutBuffer);
+		}
+
+		std::cout << "Building part `" << PadString(std::to_string(chunks), '0', 4) << "`  ,  " << PadString(std::to_string(ind), '0', std::to_string(size).size()) << " of " << size << " bytes" << "   =>   " << hashList.at(hashList.size()-1) << std::endl;
+		ind += DELUGE_CHUNK_SIZE;
+		chunks++;
+	} while (ind < size && chunks < 2000);
+
+	// If the total number of chunks is 2000 and the index is still less than the total size,
+	// then we cannot continue because this program is too large
+	if (chunks >= 2000 && ind < size) {
+		console::ErrorPrint();
+		console::WriteLine("Could not complete, file is too large.");
+		// Free memory allocated using `new`
+		delete[] byteArray;
+		return 1;
+	}
+
+	// Create json object storing the program data
+	json programData = json::object({});
+	programData = {
+			{"hashList", hashList},
+			{"_ip", walletConfig["ip"]},
+			{"_address", walletInfo["Address"]},
+	};
+
+	std::ofstream programDeluge("./wwwdata/testprogram.deluge");
+	if (programDeluge.is_open())
+	{
+		programDeluge << programData.dump();
+		programDeluge.close();
+	}
+
+	// Free memory allocated using `new`
+	delete[] byteArray;
+
+	return 0;
 }
 
 // Get the amount of time left of the current assigned rust program, by asking the server     // TODO: change to ask peers instead of the server
@@ -623,9 +715,9 @@ std::string CalculateDifficulty(json& walletInfo) {
 
 
 	std::string newDifficulty = PadString(multiplyHexByFloat(targetDifficulty, (float)ratio), '0', 64);
-	
+
 	if (WalletSettingValues::verbose >= 2)
-	console::WriteBulleted("New target difficulty:  " + newDifficulty + "\n", 3);
+		console::WriteBulleted("New target difficulty:  " + newDifficulty + "\n", 3);
 
 	if (WalletSettingValues::verbose >= 3) {
 		console::WriteBulleted("Test long division:  " + longDivision("123878287", 328) + "\n", 3);

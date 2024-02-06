@@ -602,6 +602,25 @@ double round(float value, int decimal_places)
 	return std::round(value * multiplier) / multiplier;
 }
 
+void csubstr(char* arr, char* outArr, int begin, int len, int totalLen, int &actualSize)
+{
+	if (begin + len >= totalLen)
+		len = totalLen - begin;
+	actualSize = len;
+	for (int i = 0; i < len; i++)
+		outArr[i] = *(arr + begin + i);
+	outArr[len] = 0;
+}
+
+void cConcatInt(char* arr, char* outArr, int len, int x)
+{
+	std::string sVal = std::to_string(x);
+	strcpy(outArr, arr);
+	for (int i = 0; i < sVal.size(); i++)
+		outArr[i+len-1] = sVal[i];
+	outArr[len + sVal.size() - 1] = 0;
+}
+
 // Returns true if <a> is greater than or equal to <b>
 bool IsVersionGreaterOrEqual(std::string a, std::string b) {
 	if (a == b)

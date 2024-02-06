@@ -32,4 +32,5 @@ bool IsChainValid(P2P& p2p, json& walletInfo);
 std::string CalculateDifficulty(json& walletInfo);
 json UpgradeBlock(json& b);
 void CreateSuperblock();
+int MakeProgram(json& walletInfo, json& walletConfig, std::string& path);
 

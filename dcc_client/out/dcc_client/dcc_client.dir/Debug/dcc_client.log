@@ -1,5 +1,10 @@
-﻿  Network.cpp
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Network.cpp(37,29): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Network.cpp(137,8): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Network.cpp(124): warning C4715: 'ScanAllPorts': not all control paths return a value
+﻿  Main.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Main.cpp(48,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Main.cpp(53,56): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Main.cpp(421,6): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Main.cpp(606,92): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
   dcc_client.vcxproj -> D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client\Debug\dcc_client.exe

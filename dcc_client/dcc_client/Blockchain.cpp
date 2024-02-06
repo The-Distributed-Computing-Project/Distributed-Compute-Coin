@@ -322,6 +322,10 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		programDeluge.close();
 	}
 
+	// Build the container
+	//ExecuteCommand("docker build " + path + " -t dccfile/" + hData.substr(0, 32));
+	//ExecuteCommand("docker save -o " + hData.substr(0, 32) + ".tar dccfile/" + hData.substr(0, 32) + ":latest");
+
 	// Free memory allocated using `new`
 	delete[] byteArray;
 

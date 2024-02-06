@@ -23,7 +23,7 @@ int SendFunds(P2P& p2p, std::string& toAddress, float amount);
 
 
 int connectionStatus = 1;
-const std::string directoryList[] = { "./sec", "./wwwdata", "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/taskcontainers", "./wwwdata/superchain" };
+const std::string directoryList[] = { "./sec", "./wwwdata", "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/taskcontainers", "./wwwdata/superchain", "./wwwdata/developing-programs" };
 
 json walletConfig;
 json walletInfo;

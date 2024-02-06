@@ -23,7 +23,7 @@ int SendFunds(P2P& p2p, std::string& toAddress, float amount);
 
 
 int connectionStatus = 1;
-const std::string directoryList[] = { "./sec", "./wwwdata", "./wwwdata/blockchain", "./wwwdata/pendingblocks", "taskcontatiners", "./wwwdata/taskdeluges", "./wwwdata/superchain", "./wwwdata/developing-programs" };
+const std::string directoryList[] = { "./sec", "./wwwdata", "./wwwdata/blockchain", "./wwwdata/pendingblocks", "./wwwdata/containers", "./wwwdata/deluges", "./wwwdata/developing-containers", "./wwwdata/developing-deluges", "./wwwdata/superchain" };
 
 json walletConfig;
 json walletInfo;
@@ -133,7 +133,7 @@ int main()
 
 	// Get all deluge files, and ensure they are complete
 	//walletInfo["FullPrograms"] = json::array();
-	for (auto deluge : fs::directory_iterator("./wwwdata/taskdeluges/"))
+	for (auto deluge : fs::directory_iterator("./wwwdata/deluges/"))
 	{
 		std::ifstream delugeFile(deluge.path());
 		if (delugeFile.is_open()) {
@@ -143,7 +143,8 @@ int main()
 			delugeFile.close();
 
 			// Verify the deluge, by checking each chunk with its expected hash, and then the full hash
-			if(VerifyDeluge(delugeJson, "./wwwdata/taskcontainers/" + (std::string)delugeJson["_totalHash"].subtr(0,32)+".img")){
+			std::string delugePath = "./wwwdata/containers/" + ((std::string)delugeJson["_totalHash"]).substr(0, 32) + ".tar.zip";
+			if(VerifyDeluge(delugeJson, delugePath)){
 				// Add deluge full hash to list with it's path as a value
 				//completeDelugeList[(std::string)delugeJson["_totalHash"]] = deluge.path();
 			}
@@ -251,11 +252,11 @@ int main()
 				command = "--" + command;
 		}
 
-		// Make uppercase
-		command = ToUpper(command);
-
 		// Get parts split by space character
 		std::vector<std::string> commandParts = SplitString(command, " ");
+
+		// Make (only first cmd part) uppercase
+		commandParts[0] = ToUpper(commandParts[0]);
 
 		if (commandParts[0] == "--HELP" || commandParts[0] == "-H")
 			Help();
@@ -350,7 +351,7 @@ int main()
 			{
 				IsChainValid(p2p, walletInfo);
 
-				if (GetProgram(walletInfo) == 0)
+				if (GetProgram(p2p,walletInfo) == 0)
 				{
 					console::ConnectionError();
 					continue;

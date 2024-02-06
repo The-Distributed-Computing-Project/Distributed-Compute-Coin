@@ -68,8 +68,8 @@ namespace console
 
 	void WriteLine();
 	void WriteLine(std::string message);
-	void WriteLine(std::string message, std::string coloredType);
-	void WriteLine(std::string message, std::string fgColor, std::string bgColor);
+	//void WriteLine(std::string message, std::string coloredType);
+	void WriteLine(std::string message, std::string fgColor, std::string bgColor = "");
 
 	void Write();
 	void Write(std::string message);

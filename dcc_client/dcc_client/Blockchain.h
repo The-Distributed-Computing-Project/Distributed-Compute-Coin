@@ -26,11 +26,12 @@ int SyncBlock(P2P& p2p, int whichBlock, bool force = false);
 int Sync(P2P& p2p, json& walletInfo);
 json ReadProgramConfig();
 int WriteProgramConfig();
-int GetProgram(json& walletInfo);
+int GetProgram(P2P& p2p, json& walletInfo);
 float GetProgramLifeLeft();
 bool IsChainValid(P2P& p2p, json& walletInfo);
 std::string CalculateDifficulty(json& walletInfo);
 json UpgradeBlock(json& b);
 void CreateSuperblock();
 int MakeProgram(json& walletInfo, json& walletConfig, std::string& path);
+bool VerifyDeluge(json& delugeJson, std::string& path);
 

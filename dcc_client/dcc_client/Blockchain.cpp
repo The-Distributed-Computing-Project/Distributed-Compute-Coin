@@ -95,7 +95,7 @@ int WriteProgramConfig()
 }
 
 // Make sure a rust program is assigned. If one is not, or it's life is 0, then download a new one     // TODO: Change to download from peers instead of server
-int GetProgram(json& walletInfo)
+int GetProgram(P2P& p2p, json& walletInfo)
 {
 	p2p.messageStatus = p2p.requesting_deluge_file;
 	p2p.messageAttempt = 0;
@@ -187,7 +187,7 @@ int GetProgram(json& walletInfo)
 		{
 			console::MiningErrorPrint();
 			console::WriteLine("Assigned program has been modified, re-downloading...");
-			GetProgram(walletInfo);
+			GetProgram(p2p, walletInfo);
 		}
 
 		programConfig = ReadProgramConfig();
@@ -225,8 +225,23 @@ char outDatArray[DELUGE_CHUNK_SIZE + 5];
 // Make a Docker container and Deluge file for a program
 int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 {
+	console::WriteLine();
+
+	// Build the container with temporary tag
+	console::DockerPrint();
+	console::Write("Docker is building the application using \""+path+"/Dockerfile\"");
+	system(("docker build -q --rm -f " + path + "/Dockerfile -t dcc/temporaryimage:latest " + path + " 1>nul 2>nul").c_str());
+	console::Write(" Done\n", console::greenFGColor);
+	// Save to tar archive
+	console::DockerPrint();
+	console::Write("Archiving the application ...");
+	ExecuteCommand("docker save -o temporaryimage.tar dcc/temporaryimage:latest"); // Save it to file
+	ExecuteCommand("tar -a -c -f temporaryimage.tar.zip temporaryimage.tar"); // Compress the file using tar
+	console::Write(" Done\n", console::greenFGColor);
+
+
 	FILE* pFile;
-	pFile = fopen(path.c_str(), "rb");
+	pFile = fopen("temporaryimage.tar.zip", "rb");
 	fseek(pFile, 0L, SEEK_END);
 	size_t size = ftell(pFile);
 	fseek(pFile, 0L, SEEK_SET);
@@ -247,24 +262,26 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		//std::stringstream buffer;
 		//buffer << t.rdbuf();
 		//std::string content = buffer.str();
-	std::cout << "total size: " << size << " bytes\n";
+	console::DockerPrint();
+	std::cout << "Total size: " << size << " bytes\n";
 
 	// Create hash for each 32kb chunk of the file, and add to list
 	std::vector<std::string> hashList;
 	std::string allHashesString;
 	int ind = 0;
 	uint16_t chunks = 0;
-	unsigned char outBuffer[20];
-	char strOutBuffer[] = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
+	char sha256OutBuffer[65];
+	unsigned char hash[32];
+	//char strOutBuffer[] = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0";
 	int actualSize = 0;
 	do
 	{
 		csubstr(byteArray, outDatArray, ind, DELUGE_CHUNK_SIZE, size, actualSize);
-		cConcatInt(outDatArray, outDatArray, actualSize, chunks);
-		sha1_str(outDatArray, outBuffer);
-		cstr_to_hexstr(outBuffer, 20, strOutBuffer);
+		//cConcatInt(outDatArray, outDatArray, actualSize, chunks);
+		sha256_string((char*)(allHashesString.c_str()), sha256OutBuffer);
+		std::string hData = std::string(sha256OutBuffer);
 
-		auto it = std::find(hashList.begin(), hashList.end(), strOutBuffer);
+		auto it = std::find(hashList.begin(), hashList.end(), sha256OutBuffer);
 
 		// If element was found, only add index of it
 		if (it != hashList.end())
@@ -275,14 +292,16 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		// Else, add as new element
 		else
 		{
-			hashList.push_back(strOutBuffer);
+			hashList.push_back(sha256OutBuffer);
 		}
-
-		std::cout << "Building part `" << PadString(std::to_string(chunks), '0', 4) << "`  ,  " << PadString(std::to_string(ind), '0', std::to_string(size).size()) << " of " << size << " bytes" << "   =>   " << hashList.at(hashList.size()-1) << std::endl;
-		allHashesString += strOutBuffer;
+		console::DockerPrint();
+		std::cout << "Building part " << PadString(std::to_string(chunks), '0', 4) << "  ,  " << PadString(std::to_string(ind), '0', std::to_string(size).size()) << " of " << size << " bytes" << "   =>   " << hashList.at(hashList.size()-1).substr(0,20)+"...\r";
+		allHashesString += sha256OutBuffer;
 		ind += DELUGE_CHUNK_SIZE;
 		chunks++;
 	} while (ind < size && chunks < 2000);
+	console::WriteLine();
+
 
 	// If the total number of chunks is 2000 and the index is still less than the total size,
 	// then we cannot continue because this program is too large
@@ -294,9 +313,10 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		return 1;
 	}
 
+	console::DockerPrint();
+	console::WriteLine("Done building all parts", console::greenFGColor);
+
 	// Hash one last time, this time using all hashes as a total file checksum, and SHA256
-	char sha256OutBuffer[65];
-	unsigned char hash[32];
 	sha256_string((char*)(allHashesString.c_str()), sha256OutBuffer);
 	std::string hData = std::string(sha256OutBuffer);
 
@@ -312,22 +332,28 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 			{"_name", SplitGetLastAfterChar(path,"/").substr(0, 32)}, // Use path as name, also truncate to only 32 chars
 			{"peers", json::array()}, // List of peers that say have this file, add self for original distribution
 	};
-	programData["peers"].push_back({(std::string)walletConfig["ip"], std::stoi((std::string)walletConfig["port"])});
+	programData["peers"].push_back({(std::string)walletConfig["ip"], (int)walletConfig["port"]});
 
 	// Output name will be the total hash (only the first 32 characters)
-	std::ofstream programDeluge("./wwwdata/developing-programs/" + hData.substr(0, 32) + ".deluge");
+	console::DockerPrint();
+	console::WriteLine("Saving to file \"./wwwdata/developing-deluges/" + hData.substr(0, 32) + ".deluge" +"\"");
+	std::ofstream programDeluge("./wwwdata/developing-deluges/" + hData.substr(0, 32) + ".deluge");
 	if (programDeluge.is_open())
 	{
 		programDeluge << programData.dump();
 		programDeluge.close();
 	}
 
-	// Build the container
-	//ExecuteCommand("docker build " + path + " -t dccfile/" + hData.substr(0, 32));
-	//ExecuteCommand("docker save -o " + hData.substr(0, 32) + ".tar dccfile/" + hData.substr(0, 32) + ":latest");
+	//ExecuteCommand(("docker image tag dccfile/temporaryimage:latest dcc/" + hData.substr(0, 32)+":latest").c_str());
+	// Move the old file to a new one with it's unique name
+	//ExecuteCommand(("mv temporaryimage.tar.zip " + hData.substr(0, 32) + ".tar.zip").c_str());
+	rename("temporaryimage.tar.zip", ("./wwwdata/developing-containers/"+hData.substr(0, 32) + ".tar.zip").c_str());
+	remove("temporaryimage.tar");
 
 	// Free memory allocated using `new`
 	delete[] byteArray;
+
+	console::WriteLine();
 
 	return 0;
 }
@@ -377,7 +403,7 @@ bool VerifyDeluge(json& delugeJson, std::string& path)
 			return false;
 		}
 
-		std::cout << "Checking part `" << PadString(std::to_string(chunks), '0', 4) << "`  ,  " << PadString(std::to_string(ind), '0', std::to_string(size).size()) << " of " << size << " bytes" << "   =>   " << hashList.at(hashList.size()-1) << std::endl;
+		std::cout << "Checking part `" << PadString(std::to_string(chunks), '0', 4) << "`  ,  " << PadString(std::to_string(ind), '0', std::to_string(size).size()) << " of " << size << " bytes" << "   =>   " << expectedHash << std::endl;
 		allHashesString += strOutBuffer;
 		ind += DELUGE_CHUNK_SIZE;
 		chunks++;

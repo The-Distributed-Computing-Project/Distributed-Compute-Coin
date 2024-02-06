@@ -301,6 +301,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 			{"_address", walletInfo["Address"]},
 			{"_totalHash", hData},
 			{"_chunkSizeB", DELUGE_CHUNK_SIZE},
+			{"_version", DELUGE_VERSION},
 			{"_name", SplitGetLastAfterChar(path,"/").substr(0, 32)}, // Use path as name, also truncate to only 32 chars
 	};
 

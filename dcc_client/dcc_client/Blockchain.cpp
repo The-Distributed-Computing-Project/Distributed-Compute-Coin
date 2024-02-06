@@ -97,6 +97,13 @@ int WriteProgramConfig()
 // Make sure a rust program is assigned. If one is not, or it's life is 0, then download a new one     // TODO: Change to download from peers instead of server
 int GetProgram(json& walletInfo)
 {
+	p2p.messageStatus = p2p.requesting_deluge_file;
+	p2p.messageAttempt = 0;
+	//p2p.reqDat = whichBlock;
+
+	while (p2p.isAwaiting()) {}
+
+	
 	float life = 0;
 	for (auto item : fs::directory_iterator("./wwwdata/programs/"))
 	{
@@ -297,15 +304,17 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 	json programData = json::object({});
 	programData = {
 			{"hashList", hashList},
-			{"_ip", walletConfig["ip"]},
-			{"_address", walletInfo["Address"]},
+			{"_ip", (std::string)walletConfig["ip"]},
+			{"_address", (std::string)walletInfo["Address"]},
 			{"_totalHash", hData},
 			{"_chunkSizeB", DELUGE_CHUNK_SIZE},
 			{"_version", DELUGE_VERSION},
 			{"_name", SplitGetLastAfterChar(path,"/").substr(0, 32)}, // Use path as name, also truncate to only 32 chars
+			{"peers", json::array()}, // List of peers that say have this file, add self for original distribution
 	};
+	programData["peers"].push_back({(std::string)walletConfig["ip"], std::stoi((std::string)walletConfig["port"])});
 
-	// Output name will be the total hash
+	// Output name will be the total hash (only the first 32 characters)
 	std::ofstream programDeluge("./wwwdata/developing-programs/" + hData.substr(0, 32) + ".deluge");
 	if (programDeluge.is_open())
 	{

@@ -229,7 +229,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 
 	// Build the container with temporary tag
 	console::DockerPrint();
-	console::Write("Docker is building the application using \""+path+"/Dockerfile\"");
+	console::Write("Docker is building the application using \""+path+"/Dockerfile\" ...");
 	system(("docker build -q --rm -f " + path + "/Dockerfile -t dcc/temporaryimage:latest " + path + " 1>nul 2>nul").c_str());
 	console::Write(" Done\n", console::greenFGColor);
 	// Save to tar archive
@@ -328,6 +328,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 			{"_address", (std::string)walletInfo["Address"]},
 			{"_totalHash", hData},
 			{"_chunkSizeB", DELUGE_CHUNK_SIZE},
+			{"_totalSizeB", size},
 			{"_version", DELUGE_VERSION},
 			{"_name", SplitGetLastAfterChar(path,"/").substr(0, 32)}, // Use path as name, also truncate to only 32 chars
 			{"peers", json::array()}, // List of peers that say have this file, add self for original distribution

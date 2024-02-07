@@ -73,6 +73,9 @@ In order to verify the results of the computation of the container task, a metho
 ## URL Address Aliases
 There will be added support for OpenAlias, and such URLs as http://dccpool.us.to will get the TXT record, and return `oa1:dcc recipient_address=fd394f214e71e4aaf995914207d44181ca9e92c2f508afadf06d367f06151f84;`
 
+## Deluges
+The implementation of a filesharing system, similar to torrent. [See here for more details](./FileSharing.md).
+
 <hr>
 
 # Condensing

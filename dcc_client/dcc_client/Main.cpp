@@ -482,6 +482,41 @@ int main()
 				MakeProgram(walletInfo, walletConfig, commandParts[1]);
 			}
 		}
+		else if (commandParts[0] == "--LIST-CONTAINERS" || commandParts[0] == "-LS")
+		{
+			const std::string delugeDirectories[2] = {"./wwwdata/deluges/", "./wwwdata/developing-deluges/"};
+			for (std::string delugeDir : delugeDirectories){
+				console::WriteLine("Deluges in directory: \"" + delugeDir + "\"");
+				console::WriteIndented("Name:                            ID", 1);
+				for (auto deluge : fs::directory_iterator(delugeDir))
+				{
+					std::ifstream delugeFile(deluge.path());
+					if (delugeFile.is_open()) {
+						std::stringstream delugeFilebuf;
+						delugeFilebuf << delugeFile.rdbuf();
+						json delugeJson = json::parse(delugeFilebuf.str());
+						delugeFile.close();
+
+						console::WriteIndented(PadString((std::string)delugeJson["_name"], ' ', 32) + "  ", 1);
+						console::WriteIndented((std::string)delugeJson["_totalHash"].substr(0,20)+"...\n", 1);
+			
+						// Verify the deluge, by checking each chunk with its expected hash, and then the full hash
+						std::string delugePath = "./wwwdata/containers/" + ((std::string)delugeJson["_totalHash"]).substr(0, 32) + ".tar.zip";
+						if(VerifyDeluge(delugeJson, delugePath)){
+							// Add deluge full hash to list with it's path as a value
+							//completeDelugeList[(std::string)delugeJson["_totalHash"]] = deluge.path();
+						}
+						// If the deluge is invalid, remove it's file
+						else{
+							try{
+								remove(deluge.path());
+							}
+							catch(...){}
+						}
+					}
+				}
+			}
+		}
 		//else if (commandParts[0] == "--CONNECT" || commandParts[0] == "-C")
 		//{
 		//	if (commandParts.size() < 3)

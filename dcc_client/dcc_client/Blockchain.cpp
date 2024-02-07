@@ -299,15 +299,16 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		allHashesString += sha256OutBuffer;
 		ind += DELUGE_CHUNK_SIZE;
 		chunks++;
-	} while (ind < size && chunks < 2000);
+	} while (ind < size && chunks < DELUGE_MAX_CHUNKS);
 	console::WriteLine();
 
 
-	// If the total number of chunks is 2000 and the index is still less than the total size,
+	// If the total number of chunks is DELUGE_MAX_CHUNKS but the index is still less than the total size,
 	// then we cannot continue because this program is too large
-	if (chunks >= 2000 && ind < size) {
+	if (chunks >= DELUGE_MAX_CHUNKS && ind < size) {
 		console::ErrorPrint();
 		console::WriteLine("Could not complete, file is too large.");
+		console::WriteIndented("Please use a file no more than " + std::to_string(DELUGE_MAX_SIZE_B) + " bytes large", 1);
 		// Free memory allocated using `new`
 		delete[] byteArray;
 		return 1;

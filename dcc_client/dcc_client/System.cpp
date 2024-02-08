@@ -4,7 +4,7 @@
 
 
 // Execute a command in the main thread and print the output
-std::string ExecuteCommand(const char* cmd)
+std::string ExecuteCommand(const char* cmd, bool printout)
 {
 #if defined(_MSC_VER)
 	std::array<char, 128> buffer;
@@ -15,6 +15,7 @@ std::string ExecuteCommand(const char* cmd)
 	}
 	while (fgets(buffer.data(), (int)(buffer.size()), pipe.get()) != nullptr) {
 		result += buffer.data();
+		if(printout)
 		std::cout << buffer.data();
 	}
 #else

@@ -229,13 +229,23 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 
 	// Build the container with temporary tag
 	console::DockerPrint();
-	console::Write("Docker is building the application using \""+path+"/Dockerfile\" ...");
+	console::Write("Docker is building the application using \""+path+"/Dockerfile\" ... ");
 	system(("docker build -q --rm -f " + path + "/Dockerfile -t dcc/temporaryimage:latest " + path + " 1>nul 2>nul").c_str());
 	console::Write(" Done\n", console::greenFGColor);
 	// Save to tar archive
 	console::DockerPrint();
-	console::Write("Archiving the application ...");
-	ExecuteCommand("docker save -o temporaryimage.tar dcc/temporaryimage:latest"); // Save it to file
+	console::Write("Archiving the application ... ");
+	int dockerStatus = system("docker save -o temporaryimage.tar dcc/temporaryimage:latest"); // Save it to file
+
+	// Make sure docker did not give an error
+	if (dockerStatus != 0) {
+		console::ErrorPrint();
+		console::WriteLine("Docker encountered an error with your application. Is the daemon running?", console::redFGColor);
+		/*console::ErrorPrint();
+		console::WriteLine(dockerStatus, console::redFGColor);*/
+		return 1;
+	}
+	
 	ExecuteCommand("tar -a -c -f temporaryimage.tar.zip temporaryimage.tar"); // Compress the file using tar
 	console::Write(" Done\n", console::greenFGColor);
 
@@ -308,7 +318,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 	if (chunks >= DELUGE_MAX_CHUNKS && ind < size) {
 		console::ErrorPrint();
 		console::WriteLine("Could not complete, file is too large.");
-		console::WriteIndented("Please use a file no more than " + std::to_string(DELUGE_MAX_SIZE_B) + " bytes large", 1);
+		console::WriteIndented("Please use a file no more than " + std::to_string(DELUGE_MAX_SIZE_B) + " bytes large", "","",1);
 		// Free memory allocated using `new`
 		delete[] byteArray;
 		return 1;
@@ -419,7 +429,7 @@ bool VerifyDeluge(json& delugeJson, std::string& path)
 	if (chunks >= DELUGE_MAX_CHUNKS && ind < size) {
 		console::ErrorPrint();
 		console::WriteLine("Could not complete, file is too large.");
-		console::WriteIndented("Please use a file no more than " + std::to_string(DELUGE_MAX_SIZE_B) + " bytes large", 1);
+		console::WriteIndented("Please use a file no more than " + std::to_string(DELUGE_MAX_SIZE_B) + " bytes large", "", "", 1);
 		// Free memory allocated using `new`
 		delete[] byteArray;
 		return 1;

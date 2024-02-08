@@ -14,7 +14,7 @@
 
 #include "strops.h"
 
-std::string ExecuteCommand(const char* cmd);
+std::string ExecuteCommand(const char* cmd, bool printout=true);
 boost::process::child ExecuteAsync(std::string cmd, bool printOutput);
 
 template <

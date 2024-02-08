@@ -18,8 +18,10 @@
 std::string JoinArrayPieces(std::string input[]);
 std::string JoinArrayPieces(std::vector<std::string> input);
 std::string PadString(const std::string& input, char padChar, size_t desiredLength);
+std::string PadStringRight(const std::string& input, char padChar, size_t desiredLength);
 std::string ExtractPaddedChars(const std::string& input, char padChar);
 std::vector<std::string> SplitString(std::string str, std::string delim);
+bool StringContains(std::string str, std::string check);
 void ltrim(std::string& s);
 void rtrim(std::string& s);
 // Overridden by boost::trim

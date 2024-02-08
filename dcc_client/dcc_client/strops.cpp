@@ -112,6 +112,15 @@ std::string PadString(const std::string& input, char padChar, size_t desiredLeng
 	return result;
 }
 
+// Function to pad the back of a string with a character to make it a certain length
+std::string PadStringRight(const std::string& input, char padChar, size_t desiredLength) {
+	std::string result = input;
+	while (result.length() < desiredLength) {
+		result += padChar;
+	}
+	return result;
+}
+
 // Function to extract the padded characters from the front of a string until another character is found
 std::string ExtractPaddedChars(const std::string& input, char padChar) {
 	std::string result;
@@ -144,6 +153,16 @@ std::vector<std::string> SplitString(std::string str, std::string delim)
 		splittedString.push_back(val);
 	}
 	return splittedString;
+}
+
+// See if a string <str> contains another <check>
+bool StringContains(std::string str, std::string check)
+{
+	if (str.find(check, 0) < str.size())
+	{
+		return true;
+	}
+	return false;
 }
 
 // trim from start (in place)

@@ -484,10 +484,26 @@ int main()
 		}
 		else if (commandParts[0] == "--LIST-CONTAINERS" || commandParts[0] == "-LS")
 		{
+			console::WriteLine();
 			const std::string delugeDirectories[2] = {"./wwwdata/deluges/", "./wwwdata/developing-deluges/"};
 			for (std::string delugeDir : delugeDirectories){
-				console::WriteLine("Deluges in directory: \"" + delugeDir + "\"");
-				console::WriteIndented("Name:                            ID", 1);
+				console::Write("\nDeluges in directory: ");
+				console::WriteLine("\"" + delugeDir + "\"", console::yellowFGColor);
+
+				// Make table
+				console::WriteIndented("+---------------------------------+-------------------------+--------+\n", "", "", 1);
+
+				// Colored headers
+				console::WriteIndented("| ", "", "", 1);
+				console::Write("Name:", console::cyanFGColor);
+				console::Write("                           |");
+				console::Write(" ID", console::cyanFGColor, "");
+				console::Write("                      |");
+				console::Write(" Peers", console::cyanFGColor, "");
+				console::Write("  |");
+				console::WriteLine();
+
+				console::WriteIndented("+---------------------------------+-------------------------+--------+\n", "", "", 1);
 				for (auto deluge : fs::directory_iterator(delugeDir))
 				{
 					std::ifstream delugeFile(deluge.path());
@@ -497,24 +513,27 @@ int main()
 						json delugeJson = json::parse(delugeFilebuf.str());
 						delugeFile.close();
 
-						console::WriteIndented(PadString((std::string)delugeJson["_name"], ' ', 32) + "  ", 1);
-						console::WriteIndented((std::string)delugeJson["_totalHash"].substr(0,20)+"...\n", 1);
+						console::WriteIndented("| "+PadStringRight((std::string)delugeJson["_name"], ' ', 32) + "| ", "", "", 1);
+						console::Write(((std::string)delugeJson["_totalHash"]).substr(0, 20) + "... |");
+						console::Write(PadString(std::to_string(delugeJson["peers"].size()), ' ', 7) + " |");
+						console::WriteLine();
 			
-						// Verify the deluge, by checking each chunk with its expected hash, and then the full hash
-						std::string delugePath = "./wwwdata/containers/" + ((std::string)delugeJson["_totalHash"]).substr(0, 32) + ".tar.zip";
-						if(VerifyDeluge(delugeJson, delugePath)){
-							// Add deluge full hash to list with it's path as a value
-							//completeDelugeList[(std::string)delugeJson["_totalHash"]] = deluge.path();
-						}
-						// If the deluge is invalid, remove it's file
-						else{
-							try{
-								remove(deluge.path());
-							}
-							catch(...){}
-						}
+						//// Verify the deluge, by checking each chunk with its expected hash, and then the full hash
+						//std::string delugePath = "./wwwdata/containers/" + ((std::string)delugeJson["_totalHash"]).substr(0, 32) + ".tar.zip";
+						//if(VerifyDeluge(delugeJson, delugePath)){
+						//	// Add deluge full hash to list with it's path as a value
+						//	//completeDelugeList[(std::string)delugeJson["_totalHash"]] = deluge.path();
+						//}
+						//// If the deluge is invalid, remove it's file
+						//else{
+						//	try{
+						//		remove(deluge.path());
+						//	}
+						//	catch(...){}
+						//}
 					}
 				}
+				console::WriteIndented("+---------------------------------+-------------------------+--------+\n", "", "", 1);
 			}
 		}
 		//else if (commandParts[0] == "--CONNECT" || commandParts[0] == "-C")

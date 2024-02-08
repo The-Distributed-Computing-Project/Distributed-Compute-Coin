@@ -197,7 +197,13 @@ void P2P::ListenerThread(int update_interval)
 						std::string segInfo = SplitString(textVal, "\376")[0];
 						int segNumber = std::stoi(SplitString(segInfo, ":")[1]);
 						int maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
-						std::string content = SplitString(textVal, "\376")[1];
+						//char* tempContent = buffer;
+						std::string content = "";
+						for(int i = segInfo.size()+2; i < BUFFERLENGTH; i++){
+							content += buffer[i];
+						}
+						//csubstr(buffer, tempContent, segInfo.size()+2, BUFFERLENGTH, nullptr);
+						//std::string content = textVal.substr(segInfo.size()+2); // Get all data after the end of the segment info
 
 						if (WalletSettingValues::verbose >= 2)
 							console::WriteLine("received -- " + segInfo, console::yellowFGColor, "");

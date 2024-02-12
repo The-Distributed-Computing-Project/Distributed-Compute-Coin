@@ -11,6 +11,16 @@ The Deluge will contain all necessary information for returning data back to the
 
 The background process that handles all Deluge related activities. These include but are not limited to: asking known peers for deluge files and IDs; replying to any peer asking for a chunk of a deluge file, given by it's ["totalHash"]["chunkHash"] pair; asking peers (from a deluge's "peers" array) for chunks if missing; adding peers to a deluge's "peers" array if they are known to have it's file.
 
+### Process of the lifetime of a Deluge
+
+* Developer creates deluge file, and shares it with as many of it's peers as will accept it.
+* Developer allows incoming connections requesting the container data, and should remain open until a sufficient number of peers can seed the data
+    * At the same time, each peer that takes a deluge adds it's own IP address to it, begins downloading the container, and shares with the other peers on the deluge list that it can now seed.
+* As peers recieve containers, they begin computing it if they are miners.
+    * After a peer computes for a given interval, the output data is placed in the folder `wwwdata/tempoutdata` with the temporary name `out.txt`. After the container is ended, the dcc-client will get the SHA-256 hash of the output data, and move the output file to `wwwdata/finaloutdata`, changing the name to the hash, for example: `wwwdata/finaloutdata/fd394f214e71e4aaf995914207d44181ca9e92c2f508afadf06d367f06151f84.txt`.
+    * The hash of the output data as well as the IP of the condenser is shared with every peer on the deluge list, as well as other condensers, and if this condenser is the one that solved this block, it will add it to the list within that block.
+
+
 ### Example Deluge File:
 
 ```json

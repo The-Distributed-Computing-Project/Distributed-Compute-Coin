@@ -32,6 +32,8 @@ std::string endpointAddr = "";
 std::string endpointPort = "";
 std::string peerPort = "";
 
+unsigned long long flops = 0;
+
 //int transactionNumber = 0;
 
 //Console console;
@@ -47,6 +49,7 @@ int main()
 	Logo();
 	srand(time(0));
 
+	flops = benchmark();
 
 	if (WalletSettingValues::verbose >= 3) {
 		console::WriteLine("hextest: ");

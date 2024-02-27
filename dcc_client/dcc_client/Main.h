@@ -33,5 +33,6 @@
 #include "Blockchain.h"
 #include "crypto.h"
 #include "Miner.h"
+#include "benchmark.h"
 
 #endif

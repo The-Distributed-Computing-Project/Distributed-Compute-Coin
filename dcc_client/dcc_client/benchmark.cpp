@@ -25,7 +25,7 @@ std::string truncateNum(double x){
 // them using sort function. We fill record
 // and print the time required by sort function
 #define FLOPS_SAMPLES 4
-double benchmark()
+unsigned long long benchmark()
 {
     double averageFlops = 0.0;
     for(int g = 0; g < FLOPS_SAMPLES; g++){
@@ -49,8 +49,7 @@ double benchmark()
     	averageFlops += 1000000.0/(double)(duration.count())*4000.0/(double)FLOPS_SAMPLES;
     }
 
-	cout << "FLOPS: "
-		<< truncateNum(averageFlops)  <<"flops"<< endl;
+	cout << "FLOPS: " << truncateNum(averageFlops)  <<"flops"<< endl;
 
-  return averageFlops;
+  return (unsigned long long)averageFlops;
 }

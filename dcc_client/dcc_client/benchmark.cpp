@@ -24,10 +24,10 @@ std::string truncateNum(double x){
 // a vector with random integers and then sort
 // them using sort function. We fill record
 // and print the time required by sort function
-double averageTime = 0.0;
 #define FLOPS_SAMPLES 4
 double benchmark()
 {
+    double averageFlops = 0.0;
     for(int g = 0; g < FLOPS_SAMPLES; g++){
         double secondValue = rand()+67858;
         double startValue = 123891.123871;
@@ -46,11 +46,11 @@ double benchmark()
     
     	auto duration = duration_cast<microseconds>(stop - start);
     	
-    	averageTime += 1000000.0/(double)(duration.count())*4000.0/(double)FLOPS_SAMPLES;
+    	averageFlops += 1000000.0/(double)(duration.count())*4000.0/(double)FLOPS_SAMPLES;
     }
 
 	cout << "FLOPS: "
-		<< truncateNum(averageTime)  <<"flops"<< endl;
+		<< truncateNum(averageFlops)  <<"flops"<< endl;
 
-  return averageTime;
+  return averageFlops;
 }

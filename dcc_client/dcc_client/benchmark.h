@@ -10,6 +10,6 @@
 using namespace std;
 using namespace std::chrono;
 
-double benchmark();
+unsigned long long benchmark();
 
 #endif

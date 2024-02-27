@@ -3,6 +3,7 @@
 #include <iostream>
 #include<vector>
 #include <string>
+#include "benchmark.h"
 using namespace std;
 using namespace std::chrono;
 

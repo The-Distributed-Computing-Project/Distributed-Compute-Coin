@@ -481,7 +481,7 @@ void P2P::InitPeerList() {
 		std::ofstream peerFileW("./wwwdata/peerlist.list");
 		if (peerFileW.is_open())
 		{
-			peerFileW << "";
+			peerFileW << "144.202.13.89:5060:0";
 			peerFileW.close();
 		}
 		peerFileW.close();

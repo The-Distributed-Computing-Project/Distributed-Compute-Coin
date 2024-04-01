@@ -341,6 +341,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\System.h" />
     <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\BaseConverter.cpp" />
     <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\BaseConverter.h" />
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\benchmark.cpp" />
     <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\uint128.h" />
     <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\uint256.h" />
     <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\uint128.inl" />

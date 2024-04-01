@@ -34,6 +34,9 @@
     <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\BaseConverter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\benchmark.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\json.hpp">

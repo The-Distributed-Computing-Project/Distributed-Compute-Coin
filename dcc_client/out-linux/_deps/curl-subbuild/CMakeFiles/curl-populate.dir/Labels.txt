@@ -1,0 +1,14 @@
+# Target labels
+ curl-populate
+# Source files and their labels
+/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/CMakeFiles/curl-populate
+/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/CMakeFiles/curl-populate.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/CMakeFiles/curl-populate-complete.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-install.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-mkdir.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-download.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-update.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-patch.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-configure.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-build.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-test.rule

@@ -584,9 +584,9 @@ int main()
 void Version()
 {
 	console::Write("client: " + VERSION, console::cyanFGColor, "");
-	console::WriteLine(EXTRAVERSTR, console::yellowFGColor, "");
+	console::WriteLine(PLATFORMSTR, PLATFORMCOLOR, "");
 	console::Write("block: " + BLOCK_VERSION, console::cyanFGColor, "");
-	console::WriteLine(EXTRAVERSTR "\n\n", console::yellowFGColor, "");
+	console::WriteLine(PLATFORMSTR "\n\n", PLATFORMCOLOR, "");
 }
 
 // Print the logo art
@@ -599,7 +599,9 @@ void Logo()
  _| |_.' /\ `.___.'\\ `.___.'\ 
 |______.'  `.____ .' `.____ .' 
 
-DCC, copyright (c) AstroSam (sam-astro) 2021-2024
+DCC, copyright (c) AstroSam (sam-astro) 
+   The-Distributed-Computing-Project 
+   2021-2024        
 )V0G0N", console::cyanFGColor, "");
 	Version();
 }

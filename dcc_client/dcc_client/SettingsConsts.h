@@ -7,9 +7,11 @@
 #define DELUGE_MAX_CHUNKS DELUGE_MAX_SIZE_B / DELUGE_CHUNK_SIZE
 
 #if UNIX
-#define EXTRAVERSTR " LINUX"
+#define PLATFORMSTR " LINUX"
+#define PLATFORMCOLOR console::yellowFGColor
 #else
-#define EXTRAVERSTR " LINUX"
+#define PLATFORMSTR " LINUX"
+#define PLATFORMCOLOR console::greenFGColor
 #endif
 
 const std::string VERSION = "v0.7.2-alpha";

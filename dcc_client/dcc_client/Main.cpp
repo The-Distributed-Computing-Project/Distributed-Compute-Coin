@@ -65,7 +65,7 @@ int main()
 
 	//flops = benchmark();
 
-	if (WalletSettingValues::verbose >= 3) {
+	if (WalletSettingValues::verbose >= 6) {
 		console::WriteLine("hextest: ");
 		console::WriteLine("\"" + divideHexByFloat("ffffff", 1.3) + "\"");
 		console::WriteLine("\"" + divideHexByFloat("0f0", 2) + "\"");
@@ -349,6 +349,10 @@ int main()
 		{
 			p2p.peerList.push_back(commandParts[1] + ":0");
 		}
+		//else if (commandParts[0] == "--VERBOSITY")
+		//{
+		//	WalletSettingValues::verbose = std::stoi(commandParts[1]);
+		//}
 		else if (commandParts[0] == "--VERIFY" || commandParts[0] == "-VF")
 		{
 			try
@@ -579,8 +583,10 @@ int main()
 // Print the client and block versions
 void Version()
 {
-	console::WriteLine("client: " + VERSION, console::cyanFGColor, "");
-	console::WriteLine("block: " + BLOCK_VERSION + "\n\n", console::cyanFGColor, "");
+	console::Write("client: " + VERSION, console::cyanFGColor, "");
+	console::WriteLine(EXTRAVERSTR, console::yellowFGColor, "");
+	console::Write("block: " + BLOCK_VERSION, console::cyanFGColor, "");
+	console::WriteLine(EXTRAVERSTR "\n\n", console::yellowFGColor, "");
 }
 
 // Print the logo art

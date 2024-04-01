@@ -177,6 +177,14 @@ Ws2tcpip.h
 -
 windows.h
 -
+unistd.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
 iostream
 -
 thread

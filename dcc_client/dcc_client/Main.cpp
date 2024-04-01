@@ -86,7 +86,7 @@ int main()
 	console::WriteLine("Getting public IP address...");
 	Http http;
 	std::vector<std::string> args;
-	std::string ipStr = http.StartHttpWebRequest("http://dccpool.us.to/dcc/ipget.php", args); // use custom server for getting IP:PORT
+	std::string ipStr = http.StartHttpWebRequest("http://dccpool.us.to/ipget.php", args); // use custom server for getting IP:PORT
 	if(ipStr == "")
 		ipStr = "127.0.0.1:5060";
 	//std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 

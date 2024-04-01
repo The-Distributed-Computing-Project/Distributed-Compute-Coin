@@ -1,7 +1,9 @@
 #ifndef network_h
 #define network_h
 
+#if WINDOWS
 #include <cpr/cpr.h>
+#endif
 #include <iostream>
 #include <string>
 #include <vector>
@@ -34,8 +36,10 @@ public:
 			console::WriteIndented("Accessing url: \"" + url + "\"\n", "", "", 1);
 		}
 
+#if WINDOWS
 		auto response = cpr::Get(cpr::Url{ url });
 		html = response.text;
+#endif
 
 		//console::DebugPrint();
 		//console::WriteLine(html);

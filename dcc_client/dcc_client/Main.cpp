@@ -10,6 +10,20 @@
 
 #include "Main.h"
 
+#include <curses.h>
+#if defined(__unix__)
+
+#define ISKEYDOWN(X) (getch() == X)
+
+#else
+
+#define ISKEYDOWN(X) GetAsyncKeyState(X)
+
+#endif
+
+
+
+
 using json = nlohmann::json;
 namespace fs = std::filesystem;
 
@@ -49,9 +63,9 @@ int main()
 	Logo();
 	srand(time(0));
 
-	flops = benchmark();
+	//flops = benchmark();
 
-	if (WalletSettingValues::verbose >= 3) {
+	if (WalletSettingValues::verbose >= 6) {
 		console::WriteLine("hextest: ");
 		console::WriteLine("\"" + divideHexByFloat("ffffff", 1.3) + "\"");
 		console::WriteLine("\"" + divideHexByFloat("0f0", 2) + "\"");
@@ -73,6 +87,8 @@ int main()
 	Http http;
 	std::vector<std::string> args;
 	std::string ipStr = http.StartHttpWebRequest("http://dccpool.us.to/dcc/ipget.php", args); // use custom server for getting IP:PORT
+	if(ipStr == "")
+		ipStr = "127.0.0.1:5060";
 	//std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
 	//console::WriteLine(ipStr);
 	console::NetworkPrint();
@@ -333,6 +349,10 @@ int main()
 		{
 			p2p.peerList.push_back(commandParts[1] + ":0");
 		}
+		//else if (commandParts[0] == "--VERBOSITY")
+		//{
+		//	WalletSettingValues::verbose = std::stoi(commandParts[1]);
+		//}
 		else if (commandParts[0] == "--VERIFY" || commandParts[0] == "-VF")
 		{
 			try
@@ -446,8 +466,9 @@ int main()
 					console::Write("\nPaused, press");
 					console::Write(" R ", console::greenFGColor, "");
 					console::WriteLine("to resume");
-					while (!GetAsyncKeyState(0x52));
-					getch();
+					while(!ISKEYDOWN(0x52));
+					//while (!GetAsyncKeyState(0x52));
+					//GETKEY();
 				}
 
 				walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
@@ -562,8 +583,10 @@ int main()
 // Print the client and block versions
 void Version()
 {
-	console::WriteLine("client: " + VERSION, console::cyanFGColor, "");
-	console::WriteLine("block: " + BLOCK_VERSION + "\n\n", console::cyanFGColor, "");
+	console::Write("client: " + VERSION, console::cyanFGColor, "");
+	console::WriteLine(PLATFORMSTR, PLATFORMCOLOR, "");
+	console::Write("block: " + BLOCK_VERSION, console::cyanFGColor, "");
+	console::WriteLine(PLATFORMSTR "\n\n", PLATFORMCOLOR, "");
 }
 
 // Print the logo art
@@ -576,7 +599,9 @@ void Logo()
  _| |_.' /\ `.___.'\\ `.___.'\ 
 |______.'  `.____ .' `.____ .' 
 
-DCC, copyright (c) AstroSam (sam-astro) 2021-2024
+DCC, copyright (c) AstroSam (sam-astro) 
+   The-Distributed-Computing-Project 
+   2021-2024        
 )V0G0N", console::cyanFGColor, "");
 	Version();
 }

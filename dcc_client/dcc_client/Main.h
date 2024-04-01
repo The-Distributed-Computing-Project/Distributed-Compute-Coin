@@ -19,7 +19,15 @@
 #include <stdio.h>
 #include <chrono>
 #include <boost/process.hpp>
-#include <conio.h>
+
+
+//#if WINDOWS
+//#include <conio.h>
+//#define GETKEY() getch()
+//#elif UNIX
+//#include <stdio.h>
+//#define GETKEY() getch()
+//#endif
 
 //#include <boost/process/windows.hpp>
 

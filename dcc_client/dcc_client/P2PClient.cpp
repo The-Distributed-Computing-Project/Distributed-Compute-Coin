@@ -14,6 +14,9 @@ int peerBlockchainLength = 0;
 
 #if defined(_MSC_VER)
 SOCKADDR_IN otherAddr;
+#define WINDOWS true
+#else
+#define UNIX true
 #endif
 std::string otherAddrStr;
 int otherSize;
@@ -110,6 +113,12 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 #endif
 	return 0;
 }
+
+#if UNIX
+int sockfd, newsockfd, portno;
+socklen_t clilen;
+struct sockaddr_in serv_addr, cli_addr;
+#endif
 
 // The function that is run in a thread in order to listen for received data in the background
 void P2P::ListenerThread(int update_interval)
@@ -465,7 +474,49 @@ void P2P::ListenerThread(int update_interval)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-#endif
+#else
+
+	int n;
+	try
+	{
+		thread_running = true;
+		while (true) {
+
+			if (stop_thread_1) {
+				thread_running = false;
+				return;
+			}
+
+			bool pendingReceiveData = false;
+			int currentPendingSegment = 0;
+			std::string totalMessage = "";
+
+			while (!stop_thread_1)
+			{
+				listen(sockfd,5);
+				clilen = sizeof(cli_addr);
+				newsockfd = accept(sockfd, 
+				(struct sockaddr *) &cli_addr, 
+				&clilen);
+				if (newsockfd < 0) 
+					printf("ERROR on accept");
+				bzero(buffer,256);
+				n = read(newsockfd,buffer,255);
+				if (n < 0) printf("ERROR reading from socket");
+				printf("Here is the message: %s\n",buffer);
+				n = write(newsockfd,"I got your message",18);
+				if (n < 0) printf("ERROR writing to socket");
+			}
+		}
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	
+	
+	#endif
 }
 
 void P2P::InitPeerList() {
@@ -481,7 +532,7 @@ void P2P::InitPeerList() {
 		std::ofstream peerFileW("./wwwdata/peerlist.list");
 		if (peerFileW.is_open())
 		{
-			peerFileW << "";
+			peerFileW << "144.202.13.89:5060:0";
 			peerFileW.close();
 		}
 		peerFileW.close();
@@ -511,7 +562,7 @@ void P2P::SavePeerList() {
 // The function to open the socket required for the P2P connection
 int P2P::OpenP2PSocket(int port)
 {
-#if defined(_MSC_VER)
+#if WINDOWS
 
 	Http http;
 
@@ -547,6 +598,24 @@ int P2P::OpenP2PSocket(int port)
 	int val = 2048;
 	setsockopt(localSocket, SOL_SOCKET, SO_SNDBUF, (char*)&val, sizeof(val));
 	setsockopt(localSocket, SOL_SOCKET, SO_RCVBUF, (char*)&val, sizeof(val));
+
+#else
+
+	sockfd = socket(AF_INET, SOCK_STREAM, 0);
+	if (sockfd < 0){
+		console::ErrorPrint();
+		console::WriteLine("ERROR opening socket");
+		exit(1);
+	}
+	bzero((char *) &serv_addr, sizeof(serv_addr));
+	portno = 5060;
+	serv_addr.sin_family = AF_INET;
+	serv_addr.sin_addr.s_addr = INADDR_ANY;
+	serv_addr.sin_port = htons(portno);
+	if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0){ 
+		console::ErrorPrint();
+		console::WriteLine("ERROR on binding");
+	}
 
 #endif
 

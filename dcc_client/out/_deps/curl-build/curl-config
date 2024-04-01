@@ -21,7 +21,7 @@
 #
 ###########################################################################
 
-prefix=C:/Program Files (x86)/dcc_client
+prefix=/usr/local
 exec_prefix=${prefix}
 includedir=${prefix}/include
 cppflag_curl_staticlib=
@@ -72,11 +72,11 @@ while test $# -gt 0; do
         ;;
 
     --ca)
-        echo 
+        echo /etc/ssl/certs/ca-certificates.crt
         ;;
 
     --cc)
-        echo "C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.37.32705/bin/Hostx64/x64/cl.exe"
+        echo "/usr/bin/cc"
         ;;
 
     --prefix)
@@ -84,7 +84,7 @@ while test $# -gt 0; do
         ;;
 
     --feature|--features)
-        for feature in SSL IPv6 unixsockets AsynchDNS Largefile SSPI alt-svc HSTS SPNEGO Kerberos NTLM ""; do
+        for feature in SSL IPv6 unixsockets libz AsynchDNS Largefile alt-svc HSTS NTLM HTTPS-proxy ""; do
             test -n "$feature" && echo "$feature"
         done
         ;;
@@ -155,24 +155,24 @@ while test $# -gt 0; do
         ;;
 
     --libs)
-        if test "XC:/Program Files (x86)/dcc_client/lib" != "X/usr/lib" -a "XC:/Program Files (x86)/dcc_client/lib" != "X/usr/lib64"; then
-           CURLLIBDIR="-LC:/Program Files (x86)/dcc_client/lib "
+        if test "X/usr/local/lib" != "X/usr/lib" -a "X/usr/local/lib" != "X/usr/lib64"; then
+           CURLLIBDIR="-L/usr/local/lib "
         else
            CURLLIBDIR=""
         fi
         if test "Xyes" = "Xno"; then
-          echo ${CURLLIBDIR}-lcurl  -lwinmm -lws2_32 -ladvapi32 -lcrypt32
+          echo ${CURLLIBDIR}-lcurl  -lgcc -lgcc_s -lc -lgcc -lgcc_s -ldl -lpthread /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libz.so
         else
           echo ${CURLLIBDIR}-lcurl
         fi
         ;;
     --ssl-backends)
-        echo "Schannel"
+        echo "OpenSSL"
         ;;
 
     --static-libs)
         if test "Xno" != "Xno" ; then
-          echo C:/Program Files (x86)/dcc_client/lib/libcurl.lib /machine:x64  -lwinmm -lws2_32 -ladvapi32 -lcrypt32
+          echo /usr/local/lib/libcurl.a   -lgcc -lgcc_s -lc -lgcc -lgcc_s -ldl -lpthread /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libz.so
         else
           echo "curl was built with static libraries disabled" >&2
           exit 1

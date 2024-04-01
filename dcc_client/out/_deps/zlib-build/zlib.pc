@@ -1,4 +1,4 @@
-prefix=C:/Program Files (x86)/dcc_client
+prefix=/usr/local
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 sharedlibdir=${libdir}

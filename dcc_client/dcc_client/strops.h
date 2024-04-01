@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <cstring>
 #include <sstream>
 #include <algorithm> 
 #include "Console.h"

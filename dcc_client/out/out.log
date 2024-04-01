@@ -1,0 +1,20 @@
+/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Miner.cpp: In function ‘int PoolMine(std::string, json&)’:
+/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Miner.cpp:293:29: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long long unsigned int’ [-Wformat=]
+  293 |     sprintf(numberstring, "%x", nonce);
+      |                            ~^   ~~~~~
+      |                             |   |
+      |                             |   long long unsigned int
+      |                             unsigned int
+      |                            %llx
+/usr/bin/ld: CMakeFiles/dcc_client.dir/Main.cpp.o: in function `main':
+/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Main.cpp:463: undefined reference to `stdscr'
+/usr/bin/ld: /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Main.cpp:463: undefined reference to `wgetch'
+/usr/bin/ld: CMakeFiles/dcc_client.dir/Miner.cpp.o: in function `Mine(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >, int, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >&)':
+/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Miner.cpp:112: undefined reference to `stdscr'
+/usr/bin/ld: /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Miner.cpp:112: undefined reference to `wgetch'
+/usr/bin/ld: /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Miner.cpp:117: undefined reference to `stdscr'
+/usr/bin/ld: /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Miner.cpp:117: undefined reference to `wgetch'
+collect2: error: ld returned 1 exit status
+make[2]: *** [dcc_client/CMakeFiles/dcc_client.dir/build.make:242: dcc_client/dcc_client] Error 1
+make[1]: *** [CMakeFiles/Makefile2:215: dcc_client/CMakeFiles/dcc_client.dir/all] Error 2
+make: *** [Makefile:130: all] Error 2

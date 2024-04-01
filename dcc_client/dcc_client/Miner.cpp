@@ -1,6 +1,16 @@
 
 #include "Miner.h"
 
+#if defined(__unix__)
+#include <curses.h>
+#include <stdio.h>
+#define ISKEYDOWN(X) (getch() == X)
+
+#else
+
+#define ISKEYDOWN(X) GetAsyncKeyState(X)
+
+#endif
 
 // Mine a single block with specified data and using the difficulty stored in walletInfo["MineDifficulty"]
 int Mine(json currentBlockJson, int blockNum, json& walletInfo)
@@ -99,14 +109,14 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 				console::Write("   " + FormatHPS((float)hashesPerSecond) + " ");
 
 				[[unlikely]]
-				if (GetAsyncKeyState(0x51)) // Q Key for quit loop
-					if (kbhit())
-						if (getch() == 'q')
+				if (ISKEYDOWN(0x51)) // Q Key for quit loop
+					//if (kbhit())
+					//	if (GETKEY() == 'q')
 							return 2;
 				[[unlikely]]
-				if (GetAsyncKeyState(0x50)) // P Key for pause loop
-					if (kbhit())
-						if (getch() == 'p')
+				if (ISKEYDOWN(0x50)) // P Key for pause loop
+					//if (kbhit())
+					//	if (GETKEY() == 'p')
 							return 3;
 			}
 		} while (!CompareCharNumbers(c_difficulty, hash));

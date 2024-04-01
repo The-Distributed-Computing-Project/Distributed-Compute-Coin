@@ -19,22 +19,22 @@
 # KIND, either express or implied.
 #
 ###########################################################################
-if(NOT EXISTS "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/install_manifest.txt")
+if(NOT EXISTS "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/install_manifest.txt")
+  message(FATAL_ERROR "Cannot find install manifest: /root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/install_manifest.txt")
 endif()
 
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/dcc_client")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 message(${CMAKE_INSTALL_PREFIX})
 
-file(READ "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/install_manifest.txt" files)
+file(READ "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 foreach(file ${files})
   message(STATUS "Uninstalling $ENV{DESTDIR}${file}")
   if(IS_SYMLINK "$ENV{DESTDIR}${file}" OR EXISTS "$ENV{DESTDIR}${file}")
     exec_program(
-      "C:/Program Files/CMake/bin/cmake.exe" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
+      "/usr/bin/cmake" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
       OUTPUT_VARIABLE rm_out
       RETURN_VALUE rm_retval
       )

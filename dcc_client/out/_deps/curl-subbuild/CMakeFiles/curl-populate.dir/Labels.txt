@@ -1,14 +1,14 @@
 # Target labels
  curl-populate
 # Source files and their labels
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/curl-populate
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/2b5075cb7f861474fa95ce88a5cc3c12/curl-populate.rule
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/3cfb9723786491c20e7ed49678dfb198/curl-populate-complete.rule
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-build.rule
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-configure.rule
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-download.rule
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-install.rule
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-mkdir.rule
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-patch.rule
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-test.rule
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-update.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/curl-populate
+/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/curl-populate.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/curl-populate-complete.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-install.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-mkdir.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-download.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-update.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-patch.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-configure.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-build.rule
+/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-test.rule

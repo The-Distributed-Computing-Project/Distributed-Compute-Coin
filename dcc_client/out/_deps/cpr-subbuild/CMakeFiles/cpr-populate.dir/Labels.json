@@ -2,37 +2,37 @@
 	"sources" : 
 	[
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/cpr-populate"
+			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/cpr-populate"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/2c1f79aed1fec07f5953c3caa8d67dae/cpr-populate.rule"
+			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/cpr-populate.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/11ff74300616eb17b9a25a4288276203/cpr-populate-complete.rule"
+			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/cpr-populate-complete.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/f8cdacda15f42d66ec9703a1b81a31dc/cpr-populate-build.rule"
+			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-install.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/f8cdacda15f42d66ec9703a1b81a31dc/cpr-populate-configure.rule"
+			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-mkdir.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/f8cdacda15f42d66ec9703a1b81a31dc/cpr-populate-download.rule"
+			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-download.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/f8cdacda15f42d66ec9703a1b81a31dc/cpr-populate-install.rule"
+			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-update.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/f8cdacda15f42d66ec9703a1b81a31dc/cpr-populate-mkdir.rule"
+			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-patch.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/f8cdacda15f42d66ec9703a1b81a31dc/cpr-populate-patch.rule"
+			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-configure.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/f8cdacda15f42d66ec9703a1b81a31dc/cpr-populate-test.rule"
+			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-build.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/f8cdacda15f42d66ec9703a1b81a31dc/cpr-populate-update.rule"
+			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-test.rule"
 		}
 	],
 	"target" : 

@@ -10,9 +10,9 @@
 
 #include "Main.h"
 
-#include <curses.h>
 #if defined(__unix__)
 
+#include <curses.h>
 #define ISKEYDOWN(X) (getch() == X)
 
 #else

@@ -10,7 +10,7 @@
 #define PLATFORMSTR " LINUX"
 #define PLATFORMCOLOR console::yellowFGColor
 #else
-#define PLATFORMSTR " LINUX"
+#define PLATFORMSTR " WINDOWS"
 #define PLATFORMCOLOR console::greenFGColor
 #endif
 

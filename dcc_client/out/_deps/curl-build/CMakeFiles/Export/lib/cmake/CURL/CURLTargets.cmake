@@ -4,7 +4,7 @@ if("${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}" LESS 2.5)
    message(FATAL_ERROR "CMake >= 2.6.0 required")
 endif()
 cmake_policy(PUSH)
-cmake_policy(VERSION 2.6)
+cmake_policy(VERSION 2.6...3.19)
 #----------------------------------------------------------------
 # Generated CMake target import file.
 #----------------------------------------------------------------
@@ -55,7 +55,7 @@ add_library(CURL::libcurl SHARED IMPORTED)
 
 set_target_properties(CURL::libcurl PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "dl;-lpthread;OpenSSL::SSL;OpenSSL::Crypto;ZLIB::ZLIB"
+  INTERFACE_LINK_LIBRARIES "winmm;ws2_32;advapi32;crypt32"
 )
 
 if(CMAKE_VERSION VERSION_LESS 2.8.12)

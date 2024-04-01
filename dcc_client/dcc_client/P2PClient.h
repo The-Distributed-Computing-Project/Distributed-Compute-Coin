@@ -7,7 +7,7 @@
 #include <winsock2.h>
 #include <Ws2tcpip.h>
 #include <windows.h>
-#else
+#elif defined(__unix__)
 #include <unistd.h>
 #include <sys/types.h> 
 #include <sys/socket.h>

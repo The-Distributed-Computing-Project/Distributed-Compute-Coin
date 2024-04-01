@@ -2,37 +2,37 @@
 	"sources" : 
 	[
 		{
-			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/zlib-populate"
+			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/zlib-populate"
 		},
 		{
-			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/zlib-populate.rule"
+			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/268708f7521af7c069be33f5fff0ca8e/zlib-populate.rule"
 		},
 		{
-			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/zlib-populate-complete.rule"
+			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/fc995356a878e5be91fb2dd1a6a0d000/zlib-populate-complete.rule"
 		},
 		{
-			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-install.rule"
+			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/f6a9fbf87c1bde7ec0636154359826e2/zlib-populate-build.rule"
 		},
 		{
-			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-mkdir.rule"
+			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/f6a9fbf87c1bde7ec0636154359826e2/zlib-populate-configure.rule"
 		},
 		{
-			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-download.rule"
+			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/f6a9fbf87c1bde7ec0636154359826e2/zlib-populate-download.rule"
 		},
 		{
-			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-update.rule"
+			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/f6a9fbf87c1bde7ec0636154359826e2/zlib-populate-install.rule"
 		},
 		{
-			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-patch.rule"
+			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/f6a9fbf87c1bde7ec0636154359826e2/zlib-populate-mkdir.rule"
 		},
 		{
-			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-configure.rule"
+			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/f6a9fbf87c1bde7ec0636154359826e2/zlib-populate-patch.rule"
 		},
 		{
-			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-build.rule"
+			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/f6a9fbf87c1bde7ec0636154359826e2/zlib-populate-test.rule"
 		},
 		{
-			"file" : "/root/dcc/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-test.rule"
+			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/f6a9fbf87c1bde7ec0636154359826e2/zlib-populate-update.rule"
 		}
 	],
 	"target" : 

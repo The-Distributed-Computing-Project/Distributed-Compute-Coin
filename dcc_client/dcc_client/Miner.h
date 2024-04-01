@@ -8,7 +8,15 @@
 #include <filesystem>
 #include <fstream>
 #include <chrono>
+#include <curses.h>
+#if WINDOWS
 #include <conio.h>
+#define GETKEY() getch()
+#elif UNIX
+#include <stdio.h>
+#define GETKEY() getch()
+#endif
+
 
 #include "json.hpp"
 #include "Console.h"

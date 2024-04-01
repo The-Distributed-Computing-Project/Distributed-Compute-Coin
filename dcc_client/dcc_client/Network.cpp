@@ -28,6 +28,8 @@
 
 bool TestPortConnection(std::string ip, int port) {
 
+#if WINDOWS
+
 	//creates a socket on your machine and connects to the port of the IP address specified
 	SOCKADDR_IN connAddr;
 	int connAddrLen = sizeof(connAddr);
@@ -103,6 +105,7 @@ bool TestPortConnection(std::string ip, int port) {
 	}*/
 
 	closesocket(myNetworkSocket);
+#endif
 	return false;
 }
 
@@ -121,6 +124,7 @@ int ScanAllPorts(std::string hostNameArg) {
 		port++;
 	}
 	std::cout << "No ports open!\n";
+	return 0;
 }
 
 int DownloadFile(std::string url, std::string saveAs, bool printStatus)
@@ -151,6 +155,7 @@ int DownloadFile(std::string url, std::string saveAs, bool printStatus)
 	return 0;
 }
 
+#if WINDOWS
 std::string UploadFile(std::string url, std::string filePath)
 {
 	cpr::Response r = cpr::Post(cpr::Url{ url },
@@ -197,7 +202,7 @@ std::string UploadFile(std::string url, std::string filePath)
 
 	//curl_easy_cleanup(curl);
 }
-
+#endif
 //string GetPeerAddress()
 //{
 //

@@ -10,6 +10,20 @@
 
 #include "Main.h"
 
+#include <curses.h>
+#if defined(__unix__)
+
+#define ISKEYDOWN(X) (getch() == X)
+
+#else
+
+#define ISKEYDOWN(X) GetAsyncKeyState(X)
+
+#endif
+
+
+
+
 using json = nlohmann::json;
 namespace fs = std::filesystem;
 
@@ -49,7 +63,7 @@ int main()
 	Logo();
 	srand(time(0));
 
-	flops = benchmark();
+	//flops = benchmark();
 
 	if (WalletSettingValues::verbose >= 3) {
 		console::WriteLine("hextest: ");
@@ -73,6 +87,8 @@ int main()
 	Http http;
 	std::vector<std::string> args;
 	std::string ipStr = http.StartHttpWebRequest("http://dccpool.us.to/dcc/ipget.php", args); // use custom server for getting IP:PORT
+	if(ipStr == "")
+		ipStr = "127.0.0.1:5060";
 	//std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
 	//console::WriteLine(ipStr);
 	console::NetworkPrint();
@@ -446,8 +462,9 @@ int main()
 					console::Write("\nPaused, press");
 					console::Write(" R ", console::greenFGColor, "");
 					console::WriteLine("to resume");
-					while (!GetAsyncKeyState(0x52));
-					getch();
+					while(!ISKEYDOWN(0x52));
+					//while (!GetAsyncKeyState(0x52));
+					//GETKEY();
 				}
 
 				walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");

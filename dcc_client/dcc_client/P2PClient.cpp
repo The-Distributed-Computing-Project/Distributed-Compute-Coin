@@ -48,6 +48,13 @@ std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 
 	return res;
 }
+#else
+std::string P2P::NormalizedIPString(sockaddr_in remoteAddr){
+	std::string fromIPString = inet_ntoa(remoteAddr.sin_addr);
+	fromIPString += ":";
+	fromIPString += ntohs(remoteAddr.sin_port);
+	return fromIPString;
+}
 #endif
 
 bool P2P::isAwaiting() {
@@ -115,9 +122,9 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 }
 
 #if UNIX
-int sockfd, newsockfd, portno;
-socklen_t clilen;
-struct sockaddr_in serv_addr, cli_addr;
+int localSocket, newlocalSocket, portno;
+socklen_t remoteAddrLen;
+struct sockaddr_in serv_addr, remoteAddr;
 #endif
 
 // The function that is run in a thread in order to listen for received data in the background
@@ -493,18 +500,18 @@ void P2P::ListenerThread(int update_interval)
 
 			while (!stop_thread_1)
 			{
-				listen(sockfd,5);
-				clilen = sizeof(cli_addr);
-				newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, &clilen);
-				if (newsockfd < 0) 
+				listen(localSocket,5);
+				remoteAddrLen = sizeof(remoteAddr);
+				newlocalSocket = accept(localSocket, (struct sockaddr *) &remoteAddr, &remoteAddrLen);
+				if (newlocalSocket < 0) 
 					printf("ERROR on accept");
 				bzero(buffer,256);
-				int iResult = read(newsockfd,buffer,255);
+				int iResult = read(newlocalSocket,buffer,255);
 				if (WalletSettingValues::verbose >= 3){
 					if (iResult < 0) printf("ERROR reading from socket");
 					printf("Here is the message: %s\n",buffer);
 				}
-				//n = write(newsockfd,"I got your message",18);
+				//n = write(newlocalSocket,"I got your message",18);
 				//if (n < 0) printf("ERROR writing to socket");
 
 
@@ -519,7 +526,9 @@ void P2P::ListenerThread(int update_interval)
 					// matches the expected one, continue. If it does not, then
 					// stop. If the current one is blank or has disconnected,
 					// set this one as the current connection and continue.
-					std::string fromIPString = NormalizedIPString(remoteAddr);
+					std::string fromIPString = inet_ntoa(remoteAddr.sin_addr);
+					fromIPString += ":";
+					fromIPString += ntohs(remoteAddr.sin_port);
 
 					// See if peer is somewhere in the peerlist
 					int ipIndex = -1;
@@ -810,6 +819,7 @@ void P2P::ListenerThread(int update_interval)
 						console::WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + totalMessage + "\t status: " + std::to_string(messageStatus));
 					}
 				}
+#if WINDOWS
 				else if (WSAGetLastError() != WSAETIMEDOUT && WalletSettingValues::verbose >= 2) {
 					console::NetworkErrorPrint();
 					console::WriteLine("Error, Peer closed.");
@@ -818,6 +828,7 @@ void P2P::ListenerThread(int update_interval)
 					//thread_running = false;
 					return;
 				}
+#endif
 			}
 		}
 	}
@@ -913,8 +924,8 @@ int P2P::OpenP2PSocket(int port)
 
 #else
 
-	sockfd = socket(AF_INET, SOCK_STREAM, 0);
-	if (sockfd < 0){
+	localSocket = socket(AF_INET, SOCK_STREAM, 0);
+	if (localSocket < 0){
 		console::ErrorPrint();
 		console::WriteLine("ERROR opening socket");
 		exit(1);
@@ -924,7 +935,7 @@ int P2P::OpenP2PSocket(int port)
 	serv_addr.sin_family = AF_INET;
 	serv_addr.sin_addr.s_addr = INADDR_ANY;
 	serv_addr.sin_port = htons(portno);
-	if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0){ 
+	if (bind(localSocket, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0){ 
 		console::ErrorPrint();
 		console::WriteLine("ERROR on binding");
 	}

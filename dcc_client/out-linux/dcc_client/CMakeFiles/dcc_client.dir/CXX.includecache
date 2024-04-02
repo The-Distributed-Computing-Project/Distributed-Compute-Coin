@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.cpp
-BaseConverter.h
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.h
-stdexcept
--
-algorithm
--
-
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.h
 string
 -
@@ -46,29 +38,9 @@ fstream
 map
 -
 
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Console.cpp
-iostream
--
-string
--
-vector
--
-queue
--
-sstream
--
-Console.h
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Console.h
-include/color.hpp
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/include/color.hpp
-
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Console.h
 queue
 -
-
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/FileManip.cpp
-FileManip.h
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/FileManip.h
 
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/FileManip.h
 iostream
@@ -142,14 +114,6 @@ Miner.h
 benchmark.h
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/benchmark.h
 
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Miner.cpp
-Miner.h
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Miner.h
-curses.h
--
-stdio.h
--
-
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Miner.h
 string
 -
@@ -187,10 +151,6 @@ Network.h
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Network.h
 FileManip.h
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/FileManip.h
-
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Network.cpp
-Network.h
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Network.h
 
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Network.h
 cpr/cpr.h
@@ -260,10 +220,6 @@ crypto.h
 
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/SettingsConsts.h
 
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/System.cpp
-System.h
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/System.h
-
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/System.h
 string
 -
@@ -282,20 +238,6 @@ boost/process/windows.hpp
 strops.h
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/strops.h
 
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/benchmark.cpp
-algorithm
--
-chrono
--
-iostream
--
-vector
--
-string
--
-benchmark.h
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/benchmark.h
-
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/benchmark.h
 algorithm
 -
@@ -307,10 +249,6 @@ vector
 -
 string
 -
-
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/crypto.cpp
-crypto.h
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/crypto.h
 
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/crypto.h
 iostream
@@ -348,24 +286,6 @@ boost/archive/iterators/base64_from_binary.hpp
 boost/archive/iterators/transform_width.hpp
 -
 boost/algorithm/string.hpp
--
-
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/include/color.hpp
-algorithm
--
-iostream
--
-list
--
-map
--
-string
--
-type_traits
--
-utility
--
-windows.h
 -
 
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/json.hpp
@@ -747,10 +667,6 @@ any
 -
 string_view
 -
-
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/strops.cpp
-strops.h
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/strops.h
 
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/strops.h
 vector

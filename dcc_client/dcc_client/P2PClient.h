@@ -104,6 +104,8 @@ public:
 
 #if defined(_MSC_VER)
 	std::string NormalizedIPString(SOCKADDR_IN addr);
+#else
+	std::string NormalizedIPString(sockaddr_in remoteAddr);
 #endif
 	bool isAwaiting();
 	void ListenerThread(int update_interval);

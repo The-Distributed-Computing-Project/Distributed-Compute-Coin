@@ -23,7 +23,7 @@ const std::string serverURL = "http://dccpool.us.to";
 
 namespace WalletSettingValues
 {
-    constexpr uint8_t verbose{ 4 };
+    constexpr uint8_t verbose{ 3 };
 
 }
 

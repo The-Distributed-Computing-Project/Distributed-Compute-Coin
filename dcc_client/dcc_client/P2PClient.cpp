@@ -850,8 +850,12 @@ void P2P::InitPeerList() {
 		peerFileW.close();
 	}
 	else
-		while (std::getline(peerFile, line))
-			peerList.push_back(line);
+		while (std::getline(peerFile, line)) {
+			if (line == "") // Make sure at least one instance of DCCARK peer is included
+				peerList.push_back("144.202.13.89:5060:0");
+			else
+				peerList.push_back(line);
+		}
 	peerFile.close();
 }
 

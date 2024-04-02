@@ -39,6 +39,8 @@ public:
 #if WINDOWS
 		auto response = cpr::Get(cpr::Url{ url });
 		html = response.text;
+		console::NetworkPrint();
+		console::WriteIndented("Output: \"" + html + "\"\n", "", "", 2);
 #endif
 
 		//console::DebugPrint();

@@ -125,7 +125,7 @@ namespace console{
 	void BlockchainPrint()
 	{
 		PrintColored("[", yellowFGColor, "");
-		PrintColored("Blockchain", greenFGColor, cyanBGColor);
+		PrintColored("Blockchain", greenFGColor, "");
 		PrintColored("]     - ", yellowFGColor, "");
 	}
 	void DebugPrint()

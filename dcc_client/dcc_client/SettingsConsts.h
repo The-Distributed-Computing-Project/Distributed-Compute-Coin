@@ -14,7 +14,7 @@
 #define PLATFORMCOLOR console::greenFGColor
 #endif
 
-const std::string VERSION = "v0.7.2-alpha";
+const std::string VERSION = "v0.7.3-alpha";
 const std::string BLOCK_VERSION = "v0.8.2-alpha-coin";
 const std::string DELUGE_VERSION = "v0.1.2-alpha-deluge";
 

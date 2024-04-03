@@ -225,7 +225,8 @@ int main()
 		console::WriteIndented("(The port is set permanently in the config file to ",console::yellowFGColor,"",3);
 		console::Write(std::to_string((int)walletConfig["port"]),console::blueFGColor,"");
 		console::Write(")\n",console::yellowFGColor,"");
-		console::WriteIndented("Make sure this port is opened in your firewall, or the system will not be able to communicate with peers.\n",console::yellowFGColor,"",3);
+		console::WriteIndented("Make sure this port is opened in your firewall, or the\n",console::yellowFGColor,"",3);
+		console::WriteIndented("system will not be able to communicate with peers.\n",console::yellowFGColor,"",3);
 	}
 
 	// Open the socket required to accept P2P requests and send responses
@@ -617,8 +618,9 @@ void Version()
 {
 	console::Write("client: " + VERSION, console::cyanFGColor, "");
 	console::WriteLine(PLATFORMSTR, PLATFORMCOLOR, "");
-	console::Write("block: " + BLOCK_VERSION, console::cyanFGColor, "");
-	console::WriteLine(PLATFORMSTR "\n\n", PLATFORMCOLOR, "");
+	console::WriteLine("block:  " + BLOCK_VERSION, console::cyanFGColor, "");
+	console::WriteLine("deluge: " + DELUGE_VERSION, console::cyanFGColor, "");
+	console::WriteLine("\n");
 }
 
 // Print the logo art

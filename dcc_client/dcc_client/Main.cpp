@@ -85,8 +85,7 @@ int main()
 	console::NetworkPrint();
 	console::WriteLine("Getting public IP address...");
 	Http http;
-	std::vector<std::string> args;
-	std::string ipStr = http.StartHttpWebRequest("http://dccpool.us.to/ipget.php", args); // use custom server for getting IP:PORT
+	std::string ipStr = DownloadFileAsString("http://dccpool.us.to/ipget.php"); // use custom server for getting IP:PORT
 	if(ipStr == "")
 		ipStr = "127.0.0.1:5060";
 	//std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
@@ -94,27 +93,54 @@ int main()
 	console::NetworkPrint();
 	console::WriteLine("Done.");
 
+	bool permanentPort = false;
+
 	// Create config.cfg file if it doesn't exist 
 	console::SystemPrint();
 	console::WriteLine("Checking config.cfg");
-	//if (!fs::exists("./config.cfg"))
-	//{
+	if (!fs::exists("./config.cfg"))
+	{
 		//int prt;
 		//console::ErrorPrint();
-		//console::Write("Config file not found. \nPlease input the port # you want to use \n(default 5000): ");
+		//console::Write("Config file not found. \nPlease input the port # you want to use \n(default 5060): ");
 		//std::cin >> prt;
 		//if (prt <= 0 || prt > 65535)
-		//	prt = 5000;
+		//	prt = 5060;
 
 		std::ofstream configFile("./config.cfg");
 		if (configFile.is_open())
 		{
-			configFile << "{\"port\":" << SplitString(ipStr, ":")[1] << ",\"ip\":\"" << SplitString(ipStr, ":")[0] << "\"}";
+			configFile << "{\"port\":" << SplitString(ipStr, ":")[1] << ",\"ip\":\"" << SplitString(ipStr, ":")[0] << "\",\"permanentPort\":false}";
 			configFile.close();
 		}
 		/*walletConfig["ip"] = SplitString(ipStr, ":")[0];
 			walletConfig["port"] = SplitString(ipStr, ":")[1];*/
-	//}
+	}
+	else{
+		std::ifstream conf("./config.cfg");
+		if (conf.is_open()) {
+			std::stringstream confbuf;
+			confbuf << conf.rdbuf();
+			walletConfig = json::parse(confbuf.str());
+			conf.close();
+		}
+		if(walletConfig["permanentPort"] == false){
+			std::ofstream configFile("./config.cfg");
+			if (configFile.is_open())
+			{
+				configFile << "{\"port\":" << SplitString(ipStr, ":")[1] << ",\"ip\":\"" << SplitString(ipStr, ":")[0] << "\",\"permanentPort\":false}";
+				configFile.close();
+			}
+		}
+		else{
+			std::ofstream configFile("./config.cfg");
+			if (configFile.is_open())
+			{
+				configFile << "{\"port\":" << walletConfig["port"] << ",\"ip\":\"" << SplitString(ipStr, ":")[0] << "\",\"permanentPort\":true}";
+				configFile.close();
+			}
+		}
+	}
 
 	// Generate and save keypair if it doesn't exist
 	console::SystemPrint();
@@ -195,6 +221,12 @@ int main()
 	console::SystemPrint();
 	console::WriteLine("Client endpoint: " + (std::string)walletConfig["ip"] + ":" + std::to_string((int)walletConfig["port"]));
 
+	if(walletConfig["permanentPort"]){
+		console::WriteIndented("(The port is set permanently in the config file to ",console::yellowFGColor,"",3);
+		console::Write(std::to_string((int)walletConfig["port"]),console::blueFGColor,"");
+		console::Write(")\n",console::yellowFGColor,"");
+		console::WriteIndented("Make sure this port is opened in your firewall, or the system will not be able to communicate with peers.\n",console::yellowFGColor,"",3);
+	}
 
 	// Open the socket required to accept P2P requests and send responses
 	p2p.OpenP2PSocket((int)walletConfig["port"]);

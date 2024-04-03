@@ -10,10 +10,6 @@
 string
 -
 
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Blockchain.cpp
-Blockchain.h
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Blockchain.h
-
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Blockchain.h
 json.hpp
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/json.hpp
@@ -169,10 +165,6 @@ Console.h
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/Console.h
 strops.h
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/strops.h
-
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/P2PClient.cpp
-P2PClient.h
-/root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/P2PClient.h
 
 /root/dcc/Distributed-Compute-Coin/dcc_client/dcc_client/P2PClient.h
 string

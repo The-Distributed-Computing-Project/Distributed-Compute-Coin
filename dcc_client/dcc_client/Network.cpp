@@ -155,6 +155,40 @@ int DownloadFile(std::string url, std::string saveAs, bool printStatus)
 	return 0;
 }
 
+size_t general_write_data(void* ptr, size_t size, size_t nmemb, void* str) {
+	std::string* s = static_cast<std::string*>(str);
+	std::copy((char*)ptr, (char*)ptr + (size + nmemb), std::back_inserter(*s));
+	return size * nmemb;
+}
+
+std::string DownloadFileAsString(std::string url, bool printStatus)
+{
+	CURL* curl;
+	FILE* fp;
+	CURLcode res;
+	curl = curl_easy_init();
+	std::string result = "";
+	if (curl)
+	{
+		console::NetworkPrint();
+		console::WriteLine("Downloading from: \"" + url + "\"");
+		
+		curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, general_write_data);
+		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &result);
+		res = curl_easy_perform(curl);
+		if (res != CURLE_OK) {
+			fprintf(stderr, "\ncurl_easy_perform() failed: %s\n",
+				curl_easy_strerror(res));
+		}
+		curl_easy_cleanup(curl);
+		curl_global_cleanup();
+	}
+	result.pop_back();
+	return result;
+}
+
 #if WINDOWS
 std::string UploadFile(std::string url, std::string filePath)
 {

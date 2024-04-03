@@ -51,6 +51,7 @@ public:
 };
 
 int DownloadFile(std::string url, std::string saveAs, bool printStatus = false);
+std::string DownloadFileAsString(std::string url, bool printStatus = false);
 std::string UploadFile(std::string url, std::string filePath);
 int ScanAllPorts(std::string hostNameArg);
 //string GetPeerAddress();

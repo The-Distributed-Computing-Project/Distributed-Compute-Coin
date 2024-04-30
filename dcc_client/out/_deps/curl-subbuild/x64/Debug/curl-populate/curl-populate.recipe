@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\x64\Debug\curl-populate</FullPath>
+      <FullPath>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\x64\Debug\curl-populate</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

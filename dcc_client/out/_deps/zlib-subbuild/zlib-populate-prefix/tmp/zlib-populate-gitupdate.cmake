@@ -3,10 +3,19 @@
 
 cmake_minimum_required(VERSION 3.5)
 
+function(do_fetch)
+  message(VERBOSE "Fetching latest from the remote origin")
+  execute_process(
+    COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git fetch --tags --force "origin"
+    WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
+    COMMAND_ERROR_IS_FATAL LAST
+  )
+endfunction()
+
 function(get_hash_for_ref ref out_var err_var)
   execute_process(
-    COMMAND "C:/Program Files/Git/cmd/git.exe" rev-parse "${ref}^0"
-    WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+    COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git rev-parse "${ref}^0"
+    WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
     RESULT_VARIABLE error_code
     OUTPUT_VARIABLE ref_hash
     ERROR_VARIABLE error_msg
@@ -27,23 +36,22 @@ endif()
 
 
 execute_process(
-  COMMAND "C:/Program Files/Git/cmd/git.exe" show-ref "2.0.5"
-  WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+  COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git show-ref "2.0.5"
+  WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
   OUTPUT_VARIABLE show_ref_output
 )
 if(show_ref_output MATCHES "^[a-z0-9]+[ \\t]+refs/remotes/")
   # Given a full remote/branch-name and we know about it already. Since
-  # branches can move around, we always have to fetch.
-  set(fetch_required YES)
+  # branches can move around, we should always fetch, if permitted.
+  if(can_fetch)
+    do_fetch()
+  endif()
   set(checkout_name "2.0.5")
 
 elseif(show_ref_output MATCHES "^[a-z0-9]+[ \\t]+refs/tags/")
   # Given a tag name that we already know about. We don't know if the tag we
-  # have matches the remote though (tags can move), so we should fetch.
-  set(fetch_required YES)
-  set(checkout_name "2.0.5")
-
-  # Special case to preserve backward compatibility: if we are already at the
+  # have matches the remote though (tags can move), so we should fetch. As a
+  # special case to preserve backward compatibility, if we are already at the
   # same commit as the tag we hold locally, don't do a fetch and assume the tag
   # hasn't moved on the remote.
   # FIXME: We should provide an option to always fetch for this case
@@ -53,12 +61,20 @@ elseif(show_ref_output MATCHES "^[a-z0-9]+[ \\t]+refs/tags/")
     return()
   endif()
 
+  if(can_fetch)
+    do_fetch()
+  endif()
+  set(checkout_name "2.0.5")
+
 elseif(show_ref_output MATCHES "^[a-z0-9]+[ \\t]+refs/heads/")
   # Given a branch name without any remote and we already have a branch by that
   # name. We might already have that branch checked out or it might be a
-  # different branch. It isn't safe to use a bare branch name without the
-  # remote, so do a fetch and replace the ref with one that includes the remote.
-  set(fetch_required YES)
+  # different branch. It isn't fully safe to use a bare branch name without the
+  # remote, so do a fetch (if allowed) and replace the ref with one that
+  # includes the remote.
+  if(can_fetch)
+    do_fetch()
+  endif()
   set(checkout_name "origin/2.0.5")
 
 else()
@@ -70,35 +86,32 @@ else()
 
   elseif(tag_sha STREQUAL "")
     # We don't know about this ref yet, so we have no choice but to fetch.
+    if(NOT can_fetch)
+      message(FATAL_ERROR
+        "Requested git ref \"2.0.5\" is not present locally, and not "
+        "allowed to contact remote due to UPDATE_DISCONNECTED setting."
+      )
+    endif()
+
     # We deliberately swallow any error message at the default log level
     # because it can be confusing for users to see a failed git command.
     # That failure is being handled here, so it isn't an error.
-    set(fetch_required YES)
-    set(checkout_name "2.0.5")
     if(NOT error_msg STREQUAL "")
       message(VERBOSE "${error_msg}")
     endif()
+    do_fetch()
+    set(checkout_name "2.0.5")
 
   else()
     # We have the commit, so we know we were asked to find a commit hash
     # (otherwise it would have been handled further above), but we don't
-    # have that commit checked out yet
-    set(fetch_required NO)
+    # have that commit checked out yet. We don't need to fetch from the remote.
     set(checkout_name "2.0.5")
     if(NOT error_msg STREQUAL "")
       message(WARNING "${error_msg}")
     endif()
 
   endif()
-endif()
-
-if(fetch_required)
-  message(VERBOSE "Fetching latest from the remote origin")
-  execute_process(
-    COMMAND "C:/Program Files/Git/cmd/git.exe" fetch --tags --force "origin"
-    WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
-    COMMAND_ERROR_IS_FATAL ANY
-  )
 endif()
 
 set(git_update_strategy "REBASE")
@@ -112,8 +125,8 @@ if(git_update_strategy MATCHES "^REBASE(_CHECKOUT)?$")
   # We can't if we aren't already on a branch and we shouldn't if that local
   # branch isn't tracking the one we want to checkout.
   execute_process(
-    COMMAND "C:/Program Files/Git/cmd/git.exe" symbolic-ref -q HEAD
-    WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+    COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git symbolic-ref -q HEAD
+    WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
     OUTPUT_VARIABLE current_branch
     OUTPUT_STRIP_TRAILING_WHITESPACE
     # Don't test for an error. If this isn't a branch, we get a non-zero error
@@ -128,8 +141,8 @@ if(git_update_strategy MATCHES "^REBASE(_CHECKOUT)?$")
 
   else()
     execute_process(
-      COMMAND "C:/Program Files/Git/cmd/git.exe" for-each-ref "--format='%(upstream:short)'" "${current_branch}"
-      WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+      COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git for-each-ref "--format=%(upstream:short)" "${current_branch}"
+      WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
       OUTPUT_VARIABLE upstream_branch
       OUTPUT_STRIP_TRAILING_WHITESPACE
       COMMAND_ERROR_IS_FATAL ANY  # There is no error if no upstream is set
@@ -151,8 +164,8 @@ endif()
 
 # Check if stash is needed
 execute_process(
-  COMMAND "C:/Program Files/Git/cmd/git.exe" status --porcelain
-  WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+  COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git status --porcelain
+  WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
   RESULT_VARIABLE error_code
   OUTPUT_VARIABLE repo_status
 )
@@ -165,22 +178,22 @@ string(LENGTH "${repo_status}" need_stash)
 # rebase or checkout without losing those changes permanently
 if(need_stash)
   execute_process(
-    COMMAND "C:/Program Files/Git/cmd/git.exe" stash save --quiet;--include-untracked
-    WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+    COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git stash save --quiet;--include-untracked
+    WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
     COMMAND_ERROR_IS_FATAL ANY
   )
 endif()
 
 if(git_update_strategy STREQUAL "CHECKOUT")
   execute_process(
-    COMMAND "C:/Program Files/Git/cmd/git.exe" checkout "${checkout_name}"
-    WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+    COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git checkout "${checkout_name}"
+    WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
     COMMAND_ERROR_IS_FATAL ANY
   )
 else()
   execute_process(
-    COMMAND "C:/Program Files/Git/cmd/git.exe" rebase "${checkout_name}"
-    WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+    COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git rebase "${checkout_name}"
+    WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
     RESULT_VARIABLE error_code
     OUTPUT_VARIABLE rebase_output
     ERROR_VARIABLE  rebase_output
@@ -188,19 +201,19 @@ else()
   if(error_code)
     # Rebase failed, undo the rebase attempt before continuing
     execute_process(
-      COMMAND "C:/Program Files/Git/cmd/git.exe" rebase --abort
-      WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+      COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git rebase --abort
+      WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
     )
 
     if(NOT git_update_strategy STREQUAL "REBASE_CHECKOUT")
       # Not allowed to do a checkout as a fallback, so cannot proceed
       if(need_stash)
         execute_process(
-          COMMAND "C:/Program Files/Git/cmd/git.exe" stash pop --index --quiet
-          WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+          COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git stash pop --index --quiet
+          WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
           )
       endif()
-      message(FATAL_ERROR "\nFailed to rebase in: 'D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src'."
+      message(FATAL_ERROR "\nFailed to rebase in: 'C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src'."
                           "\nOutput from the attempted rebase follows:"
                           "\n${rebase_output}"
                           "\n\nYou will have to resolve the conflicts manually")
@@ -218,16 +231,16 @@ else()
     message(WARNING "Rebase failed, output has been saved to ${error_log_file}"
                     "\nFalling back to checkout, previous commit tagged as ${tag_name}")
     execute_process(
-      COMMAND "C:/Program Files/Git/cmd/git.exe" tag -a
+      COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git tag -a
               -m "ExternalProject attempting to move from here to ${checkout_name}"
               ${tag_name}
-      WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+      WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
       COMMAND_ERROR_IS_FATAL ANY
     )
 
     execute_process(
-      COMMAND "C:/Program Files/Git/cmd/git.exe" checkout "${checkout_name}"
-      WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+      COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git checkout "${checkout_name}"
+      WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
       COMMAND_ERROR_IS_FATAL ANY
     )
   endif()
@@ -236,32 +249,32 @@ endif()
 if(need_stash)
   # Put back the stashed changes
   execute_process(
-    COMMAND "C:/Program Files/Git/cmd/git.exe" stash pop --index --quiet
-    WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+    COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git stash pop --index --quiet
+    WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
     RESULT_VARIABLE error_code
     )
   if(error_code)
     # Stash pop --index failed: Try again dropping the index
     execute_process(
-      COMMAND "C:/Program Files/Git/cmd/git.exe" reset --hard --quiet
-      WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+      COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git reset --hard --quiet
+      WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
     )
     execute_process(
-      COMMAND "C:/Program Files/Git/cmd/git.exe" stash pop --quiet
-      WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+      COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git stash pop --quiet
+      WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
       RESULT_VARIABLE error_code
     )
     if(error_code)
       # Stash pop failed: Restore previous state.
       execute_process(
-        COMMAND "C:/Program Files/Git/cmd/git.exe" reset --hard --quiet ${head_sha}
-        WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+        COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git reset --hard --quiet ${head_sha}
+        WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
       )
       execute_process(
-        COMMAND "C:/Program Files/Git/cmd/git.exe" stash pop --index --quiet
-        WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+        COMMAND "C:/Program Files/Git/cmd/git.exe" --git-dir=.git stash pop --index --quiet
+        WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
       )
-      message(FATAL_ERROR "\nFailed to unstash changes in: 'D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src'."
+      message(FATAL_ERROR "\nFailed to unstash changes in: 'C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src'."
                           "\nYou will have to resolve the conflicts manually")
     endif()
   endif()
@@ -270,8 +283,10 @@ endif()
 set(init_submodules "TRUE")
 if(init_submodules)
   execute_process(
-    COMMAND "C:/Program Files/Git/cmd/git.exe" submodule update --recursive --init 
-    WORKING_DIRECTORY "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src"
+    COMMAND "C:/Program Files/Git/cmd/git.exe"
+            --git-dir=.git 
+            submodule update --recursive --init 
+    WORKING_DIRECTORY "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src"
     COMMAND_ERROR_IS_FATAL ANY
   )
 endif()

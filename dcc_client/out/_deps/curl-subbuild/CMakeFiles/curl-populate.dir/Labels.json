@@ -2,37 +2,37 @@
 	"sources" : 
 	[
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/curl-populate"
+			"file" : "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/curl-populate"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/2b5075cb7f861474fa95ce88a5cc3c12/curl-populate.rule"
+			"file" : "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/b137379a7c6c51889c90adb48f45cc63/curl-populate.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/3cfb9723786491c20e7ed49678dfb198/curl-populate-complete.rule"
+			"file" : "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/57efab43b71974c01805e5c1cf15091d/curl-populate-complete.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-build.rule"
+			"file" : "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/624bb77fe6fd3fb32f277c5928fe46e0/curl-populate-build.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-configure.rule"
+			"file" : "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/624bb77fe6fd3fb32f277c5928fe46e0/curl-populate-configure.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-download.rule"
+			"file" : "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/624bb77fe6fd3fb32f277c5928fe46e0/curl-populate-download.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-install.rule"
+			"file" : "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/624bb77fe6fd3fb32f277c5928fe46e0/curl-populate-install.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-mkdir.rule"
+			"file" : "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/624bb77fe6fd3fb32f277c5928fe46e0/curl-populate-mkdir.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-patch.rule"
+			"file" : "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/624bb77fe6fd3fb32f277c5928fe46e0/curl-populate-patch.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-test.rule"
+			"file" : "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/624bb77fe6fd3fb32f277c5928fe46e0/curl-populate-test.rule"
 		},
 		{
-			"file" : "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/e7df297b6da318f6b46b1ecb807e8295/curl-populate-update.rule"
+			"file" : "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/624bb77fe6fd3fb32f277c5928fe46e0/curl-populate-update.rule"
 		}
 	],
 	"target" : 

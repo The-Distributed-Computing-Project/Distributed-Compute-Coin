@@ -3,6 +3,9 @@
   <PropertyGroup>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -26,9 +29,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{97DF40C1-145D-3DC9-BB88-DED644D0F312}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{F11446EB-3E9B-38CC-9291-D397DF03FE07}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>ALL_BUILD</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -76,7 +79,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -86,7 +89,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -96,7 +99,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -106,7 +109,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -116,7 +119,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -125,11 +128,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out --check-stamp-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -137,12 +140,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceRuns.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\clear_variable.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\code_coverage.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\cprver.h.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\sanitizer.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\zlib_external.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckSourceRuns.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\clear_variable.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\code_coverage.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\cprver.h.in;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\sanitizer.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\zlib_external.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out --check-stamp-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -150,12 +153,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceRuns.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\clear_variable.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\code_coverage.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\cprver.h.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\sanitizer.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\zlib_external.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckSourceRuns.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\clear_variable.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\code_coverage.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\cprver.h.in;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\sanitizer.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\zlib_external.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out --check-stamp-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -163,12 +166,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceRuns.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\clear_variable.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\code_coverage.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\cprver.h.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\sanitizer.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\zlib_external.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckSourceRuns.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\clear_variable.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\code_coverage.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\cprver.h.in;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\sanitizer.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\zlib_external.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out --check-stamp-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -176,12 +179,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceRuns.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\clear_variable.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\code_coverage.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\cprver.h.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\sanitizer.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\zlib_external.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckSourceRuns.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\clear_variable.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\code_coverage.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\cprver.h.in;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\sanitizer.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\zlib_external.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">Building Custom Rule C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out --check-stamp-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -189,30 +192,30 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CheckCXXSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Internal\CheckSourceRuns.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\clear_variable.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\code_coverage.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\cprver.h.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\sanitizer.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cmake\zlib_external.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CheckCXXSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Internal\CheckSourceRuns.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\clear_variable.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\code_coverage.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\cprver.h.in;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\sanitizer.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cmake\zlib_external.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='ThreadSan|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\Code\DC-Cryptocurrency\dcc_client\out\ZERO_CHECK.vcxproj">
-      <Project>{DFB1439E-748B-361B-89E7-E0D2267CD605}</Project>
+    <ProjectReference Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\ZERO_CHECK.vcxproj">
+      <Project>{106CB5B3-B9DE-38B2-9281-F30321634A66}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr\cpr.vcxproj">
-      <Project>{326911C3-B123-3ED3-8DA9-898F63244DF6}</Project>
+    <ProjectReference Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr\cpr.vcxproj">
+      <Project>{D94934F8-6E82-3A06-A219-37ABF18C1335}</Project>
       <Name>cpr</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build\lib\libcurl.vcxproj">
-      <Project>{C8AA6489-7F4A-3609-AD54-0ADA9AA23F3F}</Project>
+    <ProjectReference Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-build\lib\libcurl.vcxproj">
+      <Project>{71BC4C85-CE9E-32A0-BF33-022860C1E372}</Project>
       <Name>libcurl</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build\zlib.vcxproj">
-      <Project>{22FEAD61-CAAB-3351-A0A3-6E5806724516}</Project>
+    <ProjectReference Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-build\zlib.vcxproj">
+      <Project>{8A6B1059-691A-3D8A-96C9-DA69C5B515FF}</Project>
       <Name>zlib</Name>
     </ProjectReference>
   </ItemGroup>

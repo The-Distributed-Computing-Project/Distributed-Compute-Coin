@@ -3,7 +3,7 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd /mnt/d/Code/DC-Cryptocurrency/dcc_client/dcc_client
+cd ~/Code/Distributed-Compute-Coin/dcc_client/dcc_client
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -19,32 +19,18 @@ badd +236 term:///mnt/d/Code/DC-Cryptocurrency/dcc_client/dcc_client//731:/bin/b
 badd +421 P2PClient.cpp
 badd +53 P2PClient.h
 badd +924 term:///mnt/d/Code/DC-Cryptocurrency/dcc_client/dcc_client//189:/bin/bash
-badd +0 term:///mnt/d/Code/DC-Cryptocurrency/dcc_client/dcc_client//222:/bin/bash
+badd +1 term:///mnt/d/Code/DC-Cryptocurrency/dcc_client/dcc_client//222:/bin/bash
+badd +1 Block
+badd +1 Blockchain.h
+badd +0 Blockchain.cpp
 argglobal
 %argdel
 set stal=2
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
+tabnew +setlocal\ bufhidden=wipe
 tabrewind
 edit Main.cpp
-let s:save_splitbelow = &splitbelow
-let s:save_splitright = &splitright
-set splitbelow splitright
-wincmd _ | wincmd |
-split
-1wincmd k
-wincmd w
-let &splitbelow = s:save_splitbelow
-let &splitright = s:save_splitright
-wincmd t
-let s:save_winminheight = &winminheight
-let s:save_winminwidth = &winminwidth
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-exe '1resize ' . ((&lines * 44 + 32) / 64)
-exe '2resize ' . ((&lines * 16 + 32) / 64)
 argglobal
 setlocal fdm=expr
 setlocal fde=b:anyfold_ind_buffer[v:lnum-1]
@@ -54,24 +40,21 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-79
+61
 normal! zo
-94
+77
 normal! zo
-let s:l = 188 - ((21 * winheight(0) + 22) / 44)
+let s:l = 72 - ((10 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 188
-normal! 080|
-wincmd w
+keepjumps 72
+normal! 031|
+tabnext
+edit Blockchain.cpp
 argglobal
-if bufexists(fnamemodify("term:///mnt/d/Code/DC-Cryptocurrency/dcc_client/dcc_client//222:/bin/bash", ":p")) | buffer term:///mnt/d/Code/DC-Cryptocurrency/dcc_client/dcc_client//222:/bin/bash | else | edit term:///mnt/d/Code/DC-Cryptocurrency/dcc_client/dcc_client//222:/bin/bash | endif
-if &buftype ==# 'terminal'
-  silent file term:///mnt/d/Code/DC-Cryptocurrency/dcc_client/dcc_client//222:/bin/bash
-endif
-balt term:///mnt/d/Code/DC-Cryptocurrency/dcc_client/dcc_client//189:/bin/bash
-setlocal fdm=manual
+balt Blockchain.h
+setlocal fdm=expr
 setlocal fde=b:anyfold_ind_buffer[v:lnum-1]
 setlocal fmr={{{,}}}
 setlocal fdi=#
@@ -79,16 +62,12 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 252 - ((15 * winheight(0) + 8) / 16)
+let s:l = 1 - ((0 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 252
-normal! 070|
-wincmd w
-2wincmd w
-exe '1resize ' . ((&lines * 44 + 32) / 64)
-exe '2resize ' . ((&lines * 16 + 32) / 64)
+keepjumps 1
+normal! 0
 tabnext
 edit P2PClient.cpp
 argglobal
@@ -101,7 +80,7 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 609 - ((32 * winheight(0) + 30) / 61)
+let s:l = 609 - ((22 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -119,13 +98,13 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 48 - ((47 * winheight(0) + 30) / 61)
+let s:l = 48 - ((33 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 48
 normal! 0
-tabnext 1
+tabnext 2
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

@@ -103,122 +103,123 @@ int GetProgram(P2P& p2p, json& walletInfo)
 
 	while (p2p.isAwaiting()) {}
 
+	return 0;
 	
-	float life = 0;
-	for (auto item : fs::directory_iterator("./wwwdata/programs/"))
-	{
-		if ((item.path().string()).find(".cfg") != std::string::npos)
-		{
-			programID = SplitString(SplitString((item.path()).string(), ".cfg")[0], "/programs/")[1];
-			walletInfo["ProgramID"] = programID;
-			life = GetProgramLifeLeft();
-			if (WalletSettingValues::verbose >= 2) {
-				console::MiningPrint();
-				console::WriteLine("Program life is " + std::to_string(life) + " mins.");
-			}
-			break;
-		}
-	}
+	//float life = 0;
+	//for (auto item : fs::directory_iterator("./wwwdata/programs/"))
+	//{
+	//	if ((item.path().string()).find(".cfg") != std::string::npos)
+	//	{
+	//		programID = SplitString(SplitString((item.path()).string(), ".cfg")[0], "/programs/")[1];
+	//		walletInfo["ProgramID"] = programID;
+	//		life = GetProgramLifeLeft();
+	//		if (WalletSettingValues::verbose >= 2) {
+	//			console::MiningPrint();
+	//			console::WriteLine("Program life is " + std::to_string(life) + " mins.");
+	//		}
+	//		break;
+	//	}
+	//}
 
-	try
-	{
-		if (life <= 0)
-		{
-			for (auto oldProgram : fs::directory_iterator("./wwwdata/programs/"))
-			{
-				try
-				{
-					remove(oldProgram.path());
-				}
-				catch (const std::exception&)
-				{
-					console::ErrorPrint();
-					console::WriteLine("Error removing \"" + oldProgram.path().string() + "\"");
-				}
-			}
+	//try
+	//{
+	//	if (life <= 0)
+	//	{
+	//		for (auto oldProgram : fs::directory_iterator("./wwwdata/programs/"))
+	//		{
+	//			try
+	//			{
+	//				remove(oldProgram.path());
+	//			}
+	//			catch (const std::exception&)
+	//			{
+	//				console::ErrorPrint();
+	//				console::WriteLine("Error removing \"" + oldProgram.path().string() + "\"");
+	//			}
+	//		}
 
-			Http http;
-			std::vector<std::string> args = { "query=assignProgram" };
-			std::string assignedProgram = http.StartHttpWebRequest(serverURL + "/dcc/", args);
+	//		Http http;
+	//		std::vector<std::string> args = { "query=assignProgram" };
+	//		std::string assignedProgram = http.StartHttpWebRequest(serverURL + "/dcc/", args);
 
-			console::NetworkPrint();
-			console::WriteLine("Assigning Program...");
+	//		console::NetworkPrint();
+	//		console::WriteLine("Assigning Program...");
 
-			programID = assignedProgram;
+	//		programID = assignedProgram;
 
-			if (WalletSettingValues::verbose >= 2) {
-				console::NetworkPrint();
-				console::WriteLine("./wwwdata/programs/" + programID + ".cfg");
-			}
+	//		if (WalletSettingValues::verbose >= 2) {
+	//			console::NetworkPrint();
+	//			console::WriteLine("./wwwdata/programs/" + programID + ".cfg");
+	//		}
 
-			DownloadFile(serverURL + "/dcc/programs/" + programID + ".cfg", "./wwwdata/programs/" + programID + ".cfg", true);
-			DownloadFile(serverURL + "/dcc/programs/" + programID + ".zip", "./wwwdata/programs/" + programID + ".zip", true);
+	//		DownloadFile(serverURL + "/dcc/programs/" + programID + ".cfg", "./wwwdata/programs/" + programID + ".cfg", true);
+	//		DownloadFile(serverURL + "/dcc/programs/" + programID + ".zip", "./wwwdata/programs/" + programID + ".zip", true);
 
-			std::string tarExtractCommand = "tar -xf ./wwwdata/programs/" + programID + ".zip -C ./wwwdata/programs/";
+	//		std::string tarExtractCommand = "tar -xf ./wwwdata/programs/" + programID + ".zip -C ./wwwdata/programs/";
 
-			//ExecuteCommand(tarExtractCommand.c_str());
-			if (!fs::exists("./wwwdata/programs/" + programID)) {
-				//ExecuteCommand(("mkdir ./wwwdata/programs/" + programID).c_str());
-				//fs::create_directory("./wwwdata/programs/" + programID);
-				ExecuteCommand(tarExtractCommand.c_str());
-			}
-			//ExecuteCommand(("cargo build ./wwwdata/programs/" + programID + "/").c_str());
-			//ExtractZip("./wwwdata/programs/" + programID + ".zip", "./wwwdata/programs/" + programID);
+	//		//ExecuteCommand(tarExtractCommand.c_str());
+	//		if (!fs::exists("./wwwdata/programs/" + programID)) {
+	//			//ExecuteCommand(("mkdir ./wwwdata/programs/" + programID).c_str());
+	//			//fs::create_directory("./wwwdata/programs/" + programID);
+	//			ExecuteCommand(tarExtractCommand.c_str());
+	//		}
+	//		//ExecuteCommand(("cargo build ./wwwdata/programs/" + programID + "/").c_str());
+	//		//ExtractZip("./wwwdata/programs/" + programID + ".zip", "./wwwdata/programs/" + programID);
 
-		//// If improperly zipped (meaning Cargo.toml file is deeper in the directory than the base folder),
-		//// the contents will be moved up a single directory.
-		//if (!fs::exists("./wwwdata/programs/" + programID + "/Cargo.toml"))
-		//{
-		//	Directory.Move(Directory.GetDirectories("./wwwdata/programs/" + programID)[0], "./wwwdata/programs/tmpdir");
-		//	Directory.Delete("./wwwdata/programs/" + programID, true);
-		//	Directory.Move("./wwwdata/programs/tmpdir", "./wwwdata/programs/" + programID);
-		//}
-		}
+	//	//// If improperly zipped (meaning Cargo.toml file is deeper in the directory than the base folder),
+	//	//// the contents will be moved up a single directory.
+	//	//if (!fs::exists("./wwwdata/programs/" + programID + "/Cargo.toml"))
+	//	//{
+	//	//	Directory.Move(Directory.GetDirectories("./wwwdata/programs/" + programID)[0], "./wwwdata/programs/tmpdir");
+	//	//	Directory.Delete("./wwwdata/programs/" + programID, true);
+	//	//	Directory.Move("./wwwdata/programs/tmpdir", "./wwwdata/programs/" + programID);
+	//	//}
+	//	}
 
-		char sha256OutBuffer[65];
-		sha256_file((char*)("./wwwdata/programs/" + programID + ".zip").c_str(), sha256OutBuffer);
-		std::string ourHash = sha256OutBuffer;
+	//	char sha256OutBuffer[65];
+	//	sha256_file((char*)("./wwwdata/programs/" + programID + ".zip").c_str(), sha256OutBuffer);
+	//	std::string ourHash = sha256OutBuffer;
 
-		Http http1;
-		std::vector<std::string> args1 = { "query=hashProgram", "programID=" + programID };
-		std::string theirHash = http1.StartHttpWebRequest(serverURL + "/dcc/", args1);
+	//	Http http1;
+	//	std::vector<std::string> args1 = { "query=hashProgram", "programID=" + programID };
+	//	std::string theirHash = http1.StartHttpWebRequest(serverURL + "/dcc/", args1);
 
-		if (ourHash != theirHash)
-		{
-			console::MiningErrorPrint();
-			console::WriteLine("Assigned program has been modified, re-downloading...");
-			GetProgram(p2p, walletInfo);
-		}
+	//	if (ourHash != theirHash)
+	//	{
+	//		console::MiningErrorPrint();
+	//		console::WriteLine("Assigned program has been modified, re-downloading...");
+	//		GetProgram(p2p, walletInfo);
+	//	}
 
-		programConfig = ReadProgramConfig();
+	//	programConfig = ReadProgramConfig();
 
-		if (programConfig["Built"] == false)
-		{
-			console::MiningPrint();
-			console::WriteLine("Building assigned program, wait until it's finished to start mining");
+	//	if (programConfig["Built"] == false)
+	//	{
+	//		console::MiningPrint();
+	//		console::WriteLine("Building assigned program, wait until it's finished to start mining");
 
-			console::DockerPrint();
-			console::WriteLine("Compiling program... ");
-			//ExecuteCommand(("cargo build --release --manifest-path ./wwwdata/programs/" + programID + "/Cargo.toml").c_str());
+	//		console::DockerPrint();
+	//		console::WriteLine("Compiling program... ");
+	//		//ExecuteCommand(("cargo build --release --manifest-path ./wwwdata/programs/" + programID + "/Cargo.toml").c_str());
 
-			ExecuteAsync("docker run -d --network none --rm --name=" + (std::string)(walletInfo["ProgramID"]) + " -v ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + ":/out/ " + (std::string)(walletInfo["ProgramID"]) + " /bin/bash build.sh", true);
-			boost::process::child containerProcess = ExecuteAsync("docker wait " + (std::string)(walletInfo["ProgramID"]), false);
+	//		ExecuteAsync("docker run -d --network none --rm --name=" + (std::string)(walletInfo["ProgramID"]) + " -v ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + ":/out/ " + (std::string)(walletInfo["ProgramID"]) + " /bin/bash build.sh", true);
+	//		boost::process::child containerProcess = ExecuteAsync("docker wait " + (std::string)(walletInfo["ProgramID"]), false);
 
-			while (containerProcess.running()) {}
+	//		while (containerProcess.running()) {}
 
-			console::DockerPrint();
-			console::WriteLine("Done Compiling");
+	//		console::DockerPrint();
+	//		console::WriteLine("Done Compiling");
 
-			programConfig["Built"] = true;
-			WriteProgramConfig();
-		}
-		return 1;
-	}
-	catch (const std::exception& e)
-	{
-		ERRORMSG("Error getting program\n" << e.what());
-		return 0;
-	}
+	//		programConfig["Built"] = true;
+	//		WriteProgramConfig();
+	//	}
+	//	return 1;
+	//}
+	//catch (const std::exception& e)
+	//{
+	//	ERRORMSG("Error getting program\n" << e.what());
+	//	return 0;
+	//}
 }
 
 char outDatArray[DELUGE_CHUNK_SIZE + 5];
@@ -273,7 +274,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		//buffer << t.rdbuf();
 		//std::string content = buffer.str();
 	console::DockerPrint();
-	std::cout << "Total size: " << size << " bytes\n";
+	std::cout << "Total compressed container size: " << size << " bytes\n";
 
 	// Create hash for each 32kb chunk of the file, and add to list
 	std::vector<std::string> hashList;
@@ -318,7 +319,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 	if (chunks >= DELUGE_MAX_CHUNKS && ind < size) {
 		console::ErrorPrint();
 		console::WriteLine("Could not complete, file is too large.");
-		console::WriteIndented("Please use a file no more than " + std::to_string(DELUGE_MAX_SIZE_B) + " bytes large", "","",1);
+		console::WriteIndented("Please make sure your program is no more than " + std::to_string(DELUGE_MAX_SIZE_B) + " bytes large", "","",1);
 		// Free memory allocated using `new`
 		delete[] byteArray;
 		return 1;
@@ -390,7 +391,7 @@ bool VerifyDeluge(json& delugeJson, std::string& path)
 		fclose(pFile);
 	}
 
-	std::cout << "total size: " << size << " bytes\n";
+	std::cout << "total deluge size: " << size << " bytes\n";
 
 	// Create hash for each 32kb chunk of the file, and add to list
 	std::vector<std::string> hashList;

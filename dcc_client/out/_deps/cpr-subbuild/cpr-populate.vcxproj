@@ -8,44 +8,17 @@
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="MinSizeRel|x64">
-      <Configuration>MinSizeRel</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="RelWithDebInfo|x64">
-      <Configuration>RelWithDebInfo</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FBDA84E8-9016-3294-BDC7-568FA32B7049}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{B87F000A-F4F4-336F-A3F7-3CC6564500F1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>cpr-populate</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
@@ -60,9 +33,6 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
@@ -74,55 +44,14 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
-    <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
-    <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
-  </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\f8cdacda15f42d66ec9703a1b81a31dc\cpr-populate-mkdir.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\6fb8f89501fc3501c3325cb647093d93\cpr-populate-mkdir.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'cpr-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src
+"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp/cpr-populate-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-mkdir
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/Debug/cpr-populate-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -131,102 +60,21 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-mkdir
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-mkdir</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-mkdir
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-mkdir</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-mkdir
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-mkdir</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\f8cdacda15f42d66ec9703a1b81a31dc\cpr-populate-download.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\6fb8f89501fc3501c3325cb647093d93\cpr-populate-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'cpr-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps
+cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps
 if %errorlevel% neq 0 goto :cmEnd
-D:
+C:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp/cpr-populate-gitclone.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp/cpr-populate-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-download
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/Debug/cpr-populate-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -234,77 +82,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\cpr-populate-gitinfo.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\cpr-populate-gitinfo.txt;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing download step (git clone) for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp/cpr-populate-gitclone.cmake
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-download
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\cpr-populate-gitinfo.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing download step (git clone) for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp/cpr-populate-gitclone.cmake
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-download
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\cpr-populate-gitinfo.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing download step (git clone) for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp/cpr-populate-gitclone.cmake
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-download
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\cpr-populate-gitinfo.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\f8cdacda15f42d66ec9703a1b81a31dc\cpr-populate-update.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\6fb8f89501fc3501c3325cb647093d93\cpr-populate-update.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing update step for 'cpr-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src
+cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src
 if %errorlevel% neq 0 goto :cmEnd
-D:
+C:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp/cpr-populate-gitupdate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -P C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp/cpr-populate-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -312,73 +103,19 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\tmp\cpr-populate-gitupdate.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\cpr-populate-update-info.txt;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing update step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp/cpr-populate-gitupdate.cmake
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-update</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing update step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp/cpr-populate-gitupdate.cmake
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-update</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing update step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/tmp/cpr-populate-gitupdate.cmake
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-update</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\f8cdacda15f42d66ec9703a1b81a31dc\cpr-populate-patch.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\6fb8f89501fc3501c3325cb647093d93\cpr-populate-patch.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'cpr-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-patch
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/Debug/cpr-populate-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -386,71 +123,24 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\cpr-populate-patch-info.txt;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No patch step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-patch
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-patch</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No patch step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-patch
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-patch</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No patch step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-patch
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-patch</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\f8cdacda15f42d66ec9703a1b81a31dc\cpr-populate-configure.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\6fb8f89501fc3501c3325cb647093d93\cpr-populate-configure.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No configure step for 'cpr-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
+cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build
 if %errorlevel% neq 0 goto :cmEnd
-D:
+C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-configure
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/Debug/cpr-populate-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -458,79 +148,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\tmp\cpr-populate-cfgcmd.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\tmp\cpr-populate-cfgcmd.txt;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No configure step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-configure
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\tmp\cpr-populate-cfgcmd.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-configure</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No configure step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-configure
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\tmp\cpr-populate-cfgcmd.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-configure</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No configure step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-configure
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\tmp\cpr-populate-cfgcmd.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-configure</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\f8cdacda15f42d66ec9703a1b81a31dc\cpr-populate-build.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\6fb8f89501fc3501c3325cb647093d93\cpr-populate-build.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No build step for 'cpr-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
+cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build
 if %errorlevel% neq 0 goto :cmEnd
-D:
+C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-build
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/Debug/cpr-populate-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -538,79 +172,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No build step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-build
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-build</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No build step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-build
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-build</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No build step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-build
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-build</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\f8cdacda15f42d66ec9703a1b81a31dc\cpr-populate-install.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\6fb8f89501fc3501c3325cb647093d93\cpr-populate-install.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No install step for 'cpr-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
+cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build
 if %errorlevel% neq 0 goto :cmEnd
-D:
+C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-install
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/Debug/cpr-populate-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -618,79 +196,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No install step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-install
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-install</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No install step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-install
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-install</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No install step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-install
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-install</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\f8cdacda15f42d66ec9703a1b81a31dc\cpr-populate-test.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\6fb8f89501fc3501c3325cb647093d93\cpr-populate-test.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No test step for 'cpr-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
+cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build
 if %errorlevel% neq 0 goto :cmEnd
-D:
+C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-test
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/Debug/cpr-populate-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -698,77 +220,21 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No test step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-test
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-test</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No test step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-test
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-test</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No test step for 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-test
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-test</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\11ff74300616eb17b9a25a4288276203\cpr-populate-complete.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\ec3fb31df55c95b4112e17fb22ab6300\cpr-populate-complete.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'cpr-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/Debug
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/$(Configuration)/cpr-populate-complete
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/Debug/cpr-populate-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-done
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/Debug/cpr-populate-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -776,68 +242,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-install;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-mkdir;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-download;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-update;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-patch;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-configure;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\$(Configuration)\cpr-populate-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-install;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-mkdir;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-download;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-update;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-patch;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-configure;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-build;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\Debug\cpr-populate-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\Debug\cpr-populate-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Completed 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/$(Configuration)/cpr-populate-complete
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-done
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-install;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-mkdir;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-download;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-update;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-patch;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-configure;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\$(Configuration)\cpr-populate-complete</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Completed 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/$(Configuration)/cpr-populate-complete
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-done
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-install;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-mkdir;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-download;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-update;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-patch;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-configure;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\$(Configuration)\cpr-populate-complete</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Completed 'cpr-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/$(Configuration)/cpr-populate-complete
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/$(Configuration)/cpr-populate-done
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-install;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-mkdir;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-download;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-update;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-patch;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-configure;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\src\cpr-populate-stamp\$(Configuration)\cpr-populate-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\$(Configuration)\cpr-populate-complete</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\2c1f79aed1fec07f5953c3caa8d67dae\cpr-populate.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\2f3af7f7a3e93da4d0a1d6126e3a6a49\cpr-populate.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 :cmEnd
@@ -846,54 +259,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\$(Configuration)\cpr-populate-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\cpr-populate</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\Debug\cpr-populate-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\cpr-populate</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\$(Configuration)\cpr-populate-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\cpr-populate</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\$(Configuration)\cpr-populate-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\cpr-populate</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\$(Configuration)\cpr-populate-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\cpr-populate</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild --check-stamp-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -901,57 +278,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\3.21.4\CMakeSystem.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\tmp\cpr-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\PatchInfo.txt.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\UpdateInfo.txt.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\cfgcmd.txt.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\gitclone.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\mkdirs.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\3.29.2\CMakeSystem.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\tmp\cpr-populate-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\3.21.4\CMakeSystem.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\tmp\cpr-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\3.21.4\CMakeSystem.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\tmp\cpr-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\3.21.4\CMakeSystem.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\cpr-populate-prefix\tmp\cpr-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\cpr-populate">
+    <None Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\CMakeFiles\cpr-populate">
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-subbuild\ZERO_CHECK.vcxproj">
-      <Project>{DF5DDDFD-3635-36DC-96F2-EEC87383B4AF}</Project>
+    <ProjectReference Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-subbuild\ZERO_CHECK.vcxproj">
+      <Project>{3D0D8724-ECA8-3A44-A27F-AF7C7596FCA7}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

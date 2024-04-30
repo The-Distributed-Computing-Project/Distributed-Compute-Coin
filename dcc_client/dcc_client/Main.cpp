@@ -62,8 +62,7 @@ int main()
 {
 	Logo();
 	srand(time(0));
-
-	//flops = benchmark();
+	flops = benchmark();
 
 	if (WalletSettingValues::verbose >= 6) {
 		console::WriteLine("hextest: ");
@@ -86,7 +85,7 @@ int main()
 	console::WriteLine("Getting public IP address...");
 	Http http;
 	std::string ipStr = DownloadFileAsString("http://dccpool.us.to/ipget.php"); // use custom server for getting IP:PORT
-	if(ipStr == "")
+	if(ipStr == "") // Set default ip:port if no connection can be established
 		ipStr = "127.0.0.1:5060";
 	//std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
 	//console::WriteLine(ipStr);
@@ -157,14 +156,20 @@ int main()
 	}
 	// Load public key as keypair[0]
 	std::ifstream pkey("./sec/pubkey.pem");
-	std::stringstream keybuf;
-	keybuf << pkey.rdbuf();
-	keypair[0] = keybuf.str();
+	if (pkey.is_open()) {
+		std::stringstream keybuf;
+		keybuf << pkey.rdbuf();
+		keypair[0] = keybuf.str();
+		pkey.close();
+	}
 	// Load private key as keypair[1]
 	std::ifstream skey("./sec/prikey.pem");
-	std::stringstream skeybuf;
-	skeybuf << skey.rdbuf();
-	keypair[1] = skeybuf.str();
+	if (skey.is_open()) {
+		std::stringstream skeybuf;
+		skeybuf << skey.rdbuf();
+		keypair[1] = skeybuf.str();
+		skey.close();
+	}
 
 	// Calculate wallet from hash of public key
 	char walletBuffer[65];
@@ -191,7 +196,7 @@ int main()
 			std::string delugePath = "./wwwdata/containers/" + ((std::string)delugeJson["_totalHash"]).substr(0, 32) + ".tar.zip";
 			if(VerifyDeluge(delugeJson, delugePath)){
 				// Add deluge full hash to list with it's path as a value
-				//completeDelugeList[(std::string)delugeJson["_totalHash"]] = deluge.path();
+				//completeDelugeList[(std::string)delugeJson["_totalHash"]] = deluge.path().string();
 			}
 			// If the deluge is invalid, remove it's file
 			else{

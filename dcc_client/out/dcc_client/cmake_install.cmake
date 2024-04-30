@@ -1,4 +1,4 @@
-# Install script for directory: D:/Code/DC-Cryptocurrency/dcc_client/dcc_client
+# Install script for directory: C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/dcc_client
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build/cmake_install.cmake")
+  include("C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-build/cmake_install.cmake")
 
 endif()
 

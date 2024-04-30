@@ -8,44 +8,17 @@
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="MinSizeRel|x64">
-      <Configuration>MinSizeRel</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="RelWithDebInfo|x64">
-      <Configuration>RelWithDebInfo</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B1806DE4-9449-383A-A597-05914D1CF459}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{B11541BC-54F3-3FBF-A258-9CCC1D69D27F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>zlib-populate</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
@@ -60,9 +33,6 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
@@ -74,55 +44,14 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
-    <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
-    <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
-  </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-mkdir.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-mkdir.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'zlib-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src
+"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-mkdir
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -131,102 +60,21 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-mkdir
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-mkdir</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-mkdir
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-mkdir</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-mkdir
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-mkdir</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-download.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'zlib-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps
+cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps
 if %errorlevel% neq 0 goto :cmEnd
-D:
+C:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitclone.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-download
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -234,77 +82,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\zlib-populate-gitinfo.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\zlib-populate-gitinfo.txt;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing download step (git clone) for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitclone.cmake
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-download
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\zlib-populate-gitinfo.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing download step (git clone) for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitclone.cmake
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-download
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\zlib-populate-gitinfo.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing download step (git clone) for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitclone.cmake
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-download
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\zlib-populate-gitinfo.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-update.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-update.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing update step for 'zlib-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src
+cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-src
 if %errorlevel% neq 0 goto :cmEnd
-D:
+C:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitupdate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -P C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -312,73 +103,19 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\tmp\zlib-populate-gitupdate.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\zlib-populate-update-info.txt;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing update step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitupdate.cmake
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-update</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing update step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitupdate.cmake
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-update</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing update step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitupdate.cmake
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-update</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-patch.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-patch.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'zlib-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-patch
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -386,71 +123,24 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\zlib-populate-patch-info.txt;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No patch step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-patch
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-patch</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No patch step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-patch
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-patch</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No patch step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-patch
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-patch</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-configure.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-configure.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No configure step for 'zlib-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
+cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-build
 if %errorlevel% neq 0 goto :cmEnd
-D:
+C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-configure
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -458,79 +148,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\tmp\zlib-populate-cfgcmd.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\tmp\zlib-populate-cfgcmd.txt;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No configure step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-configure
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\tmp\zlib-populate-cfgcmd.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-configure</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No configure step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-configure
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\tmp\zlib-populate-cfgcmd.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-configure</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No configure step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-configure
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\tmp\zlib-populate-cfgcmd.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-configure</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-build.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-build.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No build step for 'zlib-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
+cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-build
 if %errorlevel% neq 0 goto :cmEnd
-D:
+C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-build
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -538,79 +172,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No build step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-build
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-build</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No build step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-build
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-build</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No build step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-build
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-build</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-install.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-install.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No install step for 'zlib-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
+cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-build
 if %errorlevel% neq 0 goto :cmEnd
-D:
+C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-install
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -618,79 +196,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No install step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-install
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-install</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No install step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-install
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-install</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No install step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-install
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-install</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-test.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-test.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No test step for 'zlib-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
+cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-build
 if %errorlevel% neq 0 goto :cmEnd
-D:
+C:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-test
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -698,77 +220,21 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No test step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-test
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-test</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No test step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-test
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-test</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No test step for 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
-if %errorlevel% neq 0 goto :cmEnd
-D:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-test
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-test</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\fc995356a878e5be91fb2dd1a6a0d000\zlib-populate-complete.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\7df0ea6e317bbd3ec7632cbd54a1f129\zlib-populate-complete.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'zlib-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/Debug
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/$(Configuration)/zlib-populate-complete
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/Debug/zlib-populate-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-done
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -776,68 +242,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-install;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-mkdir;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-download;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-update;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-patch;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-configure;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\$(Configuration)\zlib-populate-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-install;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-mkdir;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-download;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-update;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-patch;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-configure;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-build;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\Debug\zlib-populate-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\Debug\zlib-populate-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Completed 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/$(Configuration)/zlib-populate-complete
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-done
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-install;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-mkdir;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-download;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-update;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-patch;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-configure;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\$(Configuration)\zlib-populate-complete</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Completed 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/$(Configuration)/zlib-populate-complete
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-done
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-install;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-mkdir;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-download;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-update;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-patch;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-configure;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\$(Configuration)\zlib-populate-complete</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Completed 'zlib-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/$(Configuration)/zlib-populate-complete
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/$(Configuration)/zlib-populate-done
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-install;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-mkdir;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-download;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-update;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-patch;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-configure;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\src\zlib-populate-stamp\$(Configuration)\zlib-populate-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\$(Configuration)\zlib-populate-complete</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\268708f7521af7c069be33f5fff0ca8e\zlib-populate.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\1255c86601c3260a50cb424987f4191c\zlib-populate.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 :cmEnd
@@ -846,54 +259,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\$(Configuration)\zlib-populate-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\zlib-populate</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\Debug\zlib-populate-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\zlib-populate</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\$(Configuration)\zlib-populate-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\zlib-populate</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\$(Configuration)\zlib-populate-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\zlib-populate</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\$(Configuration)\zlib-populate-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\zlib-populate</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
-      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild --check-stamp-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -901,57 +278,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\3.21.4\CMakeSystem.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\tmp\zlib-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\PatchInfo.txt.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\UpdateInfo.txt.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\cfgcmd.txt.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\gitclone.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\mkdirs.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\3.29.2\CMakeSystem.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\tmp\zlib-populate-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\3.21.4\CMakeSystem.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\tmp\zlib-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\3.21.4\CMakeSystem.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\tmp\zlib-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\3.21.4\CMakeSystem.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\zlib-populate-prefix\tmp\zlib-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\zlib-populate">
+    <None Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\zlib-populate">
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\ZERO_CHECK.vcxproj">
-      <Project>{DE8623D6-BA13-39F7-BDD2-683C6F4071AD}</Project>
+    <ProjectReference Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\ZERO_CHECK.vcxproj">
+      <Project>{729F1061-2976-3C36-B446-8937854D0D1D}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

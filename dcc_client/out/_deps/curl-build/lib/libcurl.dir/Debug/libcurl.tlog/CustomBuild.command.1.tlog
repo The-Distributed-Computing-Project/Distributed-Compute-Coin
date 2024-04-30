@@ -1,6 +1,6 @@
-^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\CURL-SRC\LIB\CMAKELISTS.TXT
+^C:\USERS\SAMDA\CODE\DISTRIBUTED-COMPUTE-COIN\DCC_CLIENT\OUT\_DEPS\CURL-SRC\LIB\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/lib/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out --check-stamp-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/lib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

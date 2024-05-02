@@ -1195,7 +1195,7 @@ void P2P::SenderThread()
 						console::WriteLine("Finding another peer...");
 						// Decrease life of current peer
 						char newLife = (SplitString(peerList[peerListID], ":")[2]).c_str()[0] + 1;
-						if(newLife >= '9') // If life is 9, remove it from list
+						if(newLife >= '9' && keepPeersAlive == false) // If life is 9, remove it from list
 							peerList.erase(peerList.begin() + peerListID);
 						else // Otherwise just increment by 1
 							peerList[peerListID] = SplitString(peerList[peerListID], ":")[0]+":"+SplitString(peerList[peerListID], ":")[1]+","+newLife;

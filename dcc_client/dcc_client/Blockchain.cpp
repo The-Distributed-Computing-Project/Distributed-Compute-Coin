@@ -198,16 +198,16 @@ int GetProgram(P2P& p2p, json& walletInfo)
 	//		console::MiningPrint();
 	//		console::WriteLine("Building assigned program, wait until it's finished to start mining");
 
-	//		console::DockerPrint();
+	//		console::ContainerManagerPrint();
 	//		console::WriteLine("Compiling program... ");
 	//		//ExecuteCommand(("cargo build --release --manifest-path ./wwwdata/programs/" + programID + "/Cargo.toml").c_str());
 
-	//		ExecuteAsync("docker run -d --network none --rm --name=" + (std::string)(walletInfo["ProgramID"]) + " -v ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + ":/out/ " + (std::string)(walletInfo["ProgramID"]) + " /bin/bash build.sh", true);
-	//		boost::process::child containerProcess = ExecuteAsync("docker wait " + (std::string)(walletInfo["ProgramID"]), false);
+	//		ExecuteAsync("podman run -d --network none --rm --name=" + (std::string)(walletInfo["ProgramID"]) + " -v ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + ":/out/ " + (std::string)(walletInfo["ProgramID"]) + " /bin/bash build.sh", true);
+	//		boost::process::child containerProcess = ExecuteAsync("podman wait " + (std::string)(walletInfo["ProgramID"]), false);
 
 	//		while (containerProcess.running()) {}
 
-	//		console::DockerPrint();
+	//		console::ContainerManagerPrint();
 	//		console::WriteLine("Done Compiling");
 
 	//		programConfig["Built"] = true;
@@ -229,21 +229,27 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 	console::WriteLine();
 
 	// Build the container with temporary tag
-	console::DockerPrint();
-	console::Write("Docker is building the application using \""+path+"/Dockerfile\" ... ");
-	system(("docker build -q --rm -f " + path + "/Dockerfile -t dcc/temporaryimage:latest " + path + " 1>nul 2>nul").c_str());
+	console::ContainerManagerPrint();
+
+	std::string configFileName = "/Containerfile";
+	if (fs::exists(path + "/Dockerfile"))
+		configFileName = "/Dockerfile";
+
+	console::Write("Podman is building the application using \"" + path + configFileName + "\" ... ");
+	system(("podman build -f " + path + configFileName + " -t dcc/temporaryimage:latest " + path).c_str());
+
 	console::Write(" Done\n", console::greenFGColor);
 	// Save to tar archive
-	console::DockerPrint();
+	console::ContainerManagerPrint();
 	console::Write("Archiving the application ... ");
-	int dockerStatus = system("docker save -o temporaryimage.tar dcc/temporaryimage:latest"); // Save it to file
+	int podmanStatus = system("podman save -o temporaryimage.tar dcc/temporaryimage:latest"); // Save it to file
 
-	// Make sure docker did not give an error
-	if (dockerStatus != 0) {
+	// Make sure podman did not give an error
+	if (podmanStatus != 0) {
 		console::ErrorPrint();
-		console::WriteLine("Docker encountered an error with your application. Is the daemon running?", console::redFGColor);
+		console::WriteLine("Podman encountered an error with your application.", console::redFGColor);
 		/*console::ErrorPrint();
-		console::WriteLine(dockerStatus, console::redFGColor);*/
+		console::WriteLine(podmanStatus, console::redFGColor);*/
 		return 1;
 	}
 	
@@ -273,7 +279,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		//std::stringstream buffer;
 		//buffer << t.rdbuf();
 		//std::string content = buffer.str();
-	console::DockerPrint();
+	console::ContainerManagerPrint();
 	std::cout << "Total compressed container size: " << size << " bytes\n";
 
 	// Create hash for each 32kb chunk of the file, and add to list
@@ -305,7 +311,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		{
 			hashList.push_back(sha256OutBuffer);
 		}
-		console::DockerPrint();
+		console::ContainerManagerPrint();
 		std::cout << "Building part " << PadString(std::to_string(chunks), '0', 4) << "  ,  " << PadString(std::to_string(ind), '0', std::to_string(size).size()) << " of " << size << " bytes" << "   =>   " << hashList.at(hashList.size()-1).substr(0,20)+"...\r";
 		allHashesString += sha256OutBuffer;
 		ind += DELUGE_CHUNK_SIZE;
@@ -325,7 +331,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		return 1;
 	}
 
-	console::DockerPrint();
+	console::ContainerManagerPrint();
 	console::WriteLine("Done building all parts", console::greenFGColor);
 
 	// Hash one last time, this time using all hashes as a total file checksum, and SHA256
@@ -348,7 +354,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 	programData["peers"].push_back({(std::string)walletConfig["ip"], (int)walletConfig["port"]});
 
 	// Output name will be the total hash (only the first 32 characters)
-	console::DockerPrint();
+	console::ContainerManagerPrint();
 	console::WriteLine("Saving to file \"./wwwdata/developing-deluges/" + hData.substr(0, 32) + ".deluge" +"\"");
 	std::ofstream programDeluge("./wwwdata/developing-deluges/" + hData.substr(0, 32) + ".deluge");
 	if (programDeluge.is_open())
@@ -357,7 +363,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		programDeluge.close();
 	}
 
-	//ExecuteCommand(("docker image tag dccfile/temporaryimage:latest dcc/" + hData.substr(0, 32)+":latest").c_str());
+	//ExecuteCommand(("podman image tag dccfile/temporaryimage:latest dcc/" + hData.substr(0, 32)+":latest").c_str());
 	// Move the old file to a new one with it's unique name
 	//ExecuteCommand(("mv temporaryimage.tar.zip " + hData.substr(0, 32) + ".tar.zip").c_str());
 	rename("temporaryimage.tar.zip", ("./wwwdata/developing-containers/"+hData.substr(0, 32) + ".tar.zip").c_str());

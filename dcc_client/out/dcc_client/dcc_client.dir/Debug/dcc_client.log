@@ -1,41 +1,4 @@
-﻿  P2PClient.cpp
-  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
-  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
-  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
-  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(85,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(97,13): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(102,18): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(205,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(205,17): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(218,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(914,7): warning C4101: 'http': unreferenced local variable
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(978,18): warning C4267: 'initializing': conversion from 'size_t' to 'uint16_t', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1047,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1047,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1055,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1055,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1063,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1063,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1079,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1079,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1094,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1094,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1109,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1109,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1122,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1122,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1131,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1131,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1141,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1141,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1152,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1152,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1163,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1163,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1174,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1174,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
-C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp(1006,32): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+﻿  Console.cpp
   dcc_client.vcxproj -> C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client\Debug\dcc_client.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

@@ -110,16 +110,16 @@ namespace console{
 		PrintColored("Mining-Error", redFGColor, "");
 		PrintColored("]   - ", yellowFGColor, "");
 	}
-	void DockerPrint()
+	void ContainerManagerPrint()
 	{
 		PrintColored("[", yellowFGColor, "");
-		PrintColored("Docker", magentaFGColor, "");
+		PrintColored("Deluge", magentaFGColor, "");
 		PrintColored("]         - ", yellowFGColor, "");
 	}
 	void CompilerErrorPrint()
 	{
 		PrintColored("[", yellowFGColor, "");
-		PrintColored("Docker-Error", redFGColor, "");
+		PrintColored("Deluge-Error", redFGColor, "");
 		PrintColored("]   - ", yellowFGColor, "");
 	}
 	void BlockchainPrint()

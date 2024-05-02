@@ -236,7 +236,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		configFileName = "/Dockerfile";
 
 	console::Write("Podman is building the application using \"" + path + configFileName + "\" ... ");
-	system(("podman build -f " + path + configFileName + " -t dcc/temporaryimage:latest " + path).c_str());
+	system(("podman build -q --rm -f " + path + configFileName + " -t dcc/temporaryimage:latest " + path).c_str());
 
 	console::Write(" Done\n", console::greenFGColor);
 	// Save to tar archive
@@ -280,7 +280,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		//buffer << t.rdbuf();
 		//std::string content = buffer.str();
 	console::ContainerManagerPrint();
-	std::cout << "Total compressed container size: " << size << " bytes\n";
+	std::cout << "Total compressed Deluge size: " << size << " bytes\n";
 
 	// Create hash for each 32kb chunk of the file, and add to list
 	std::vector<std::string> hashList;

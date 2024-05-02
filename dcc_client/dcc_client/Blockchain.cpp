@@ -742,7 +742,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				}
 
 				console::WriteLine();
-				SyncBlock(p2p, i);
+				SyncBlock(p2p, i, true); // Force resync
 
 				i -= 2;
 				// Then recount, because we need to know if the synced block is new or overwrote an existing one.

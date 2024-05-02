@@ -104,7 +104,7 @@ int GetProgram(P2P& p2p, json& walletInfo)
 	while (p2p.isAwaiting()) {}
 
 	return 0;
-	
+
 	//float life = 0;
 	//for (auto item : fs::directory_iterator("./wwwdata/programs/"))
 	//{
@@ -252,7 +252,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		console::WriteLine(podmanStatus, console::redFGColor);*/
 		return 1;
 	}
-	
+
 	ExecuteCommand("tar -a -c -f temporaryimage.tar.zip temporaryimage.tar"); // Compress the file using tar
 	console::Write(" Done\n", console::greenFGColor);
 
@@ -262,7 +262,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 	fseek(pFile, 0L, SEEK_END);
 	size_t size = ftell(pFile);
 	fseek(pFile, 0L, SEEK_SET);
-	char* byteArray = new char[size+1];
+	char* byteArray = new char[size + 1];
 	byteArray[size] = '\0';
 	if (pFile != NULL)
 	{
@@ -312,7 +312,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 			hashList.push_back(sha256OutBuffer);
 		}
 		console::ContainerManagerPrint();
-		std::cout << "Building part " << PadString(std::to_string(chunks), '0', 4) << "  ,  " << PadString(std::to_string(ind), '0', std::to_string(size).size()) << " of " << size << " bytes" << "   =>   " << hashList.at(hashList.size()-1).substr(0,20)+"...\r";
+		std::cout << "Building part " << PadString(std::to_string(chunks), '0', 4) << "  ,  " << PadString(std::to_string(ind), '0', std::to_string(size).size()) << " of " << size << " bytes" << "   =>   " << hashList.at(hashList.size() - 1).substr(0, 20) + "...\r";
 		allHashesString += sha256OutBuffer;
 		ind += DELUGE_CHUNK_SIZE;
 		chunks++;
@@ -325,7 +325,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 	if (chunks >= DELUGE_MAX_CHUNKS && ind < size) {
 		console::ErrorPrint();
 		console::WriteLine("Could not complete, file is too large.");
-		console::WriteIndented("Please make sure your program is no more than " + std::to_string(DELUGE_MAX_SIZE_B) + " bytes large", "","",1);
+		console::WriteIndented("Please make sure your program is no more than " + std::to_string(DELUGE_MAX_SIZE_B) + " bytes large", "", "", 1);
 		// Free memory allocated using `new`
 		delete[] byteArray;
 		return 1;
@@ -351,11 +351,11 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 			{"_name", SplitGetLastAfterChar(path,"/").substr(0, 32)}, // Use path as name, also truncate to only 32 chars
 			{"peers", json::array()}, // List of peers that say have this file, add self for original distribution
 	};
-	programData["peers"].push_back({(std::string)walletConfig["ip"], (int)walletConfig["port"]});
+	programData["peers"].push_back({ (std::string)walletConfig["ip"], (int)walletConfig["port"] });
 
 	// Output name will be the total hash (only the first 32 characters)
 	console::ContainerManagerPrint();
-	console::WriteLine("Saving to file \"./wwwdata/developing-deluges/" + hData.substr(0, 32) + ".deluge" +"\"");
+	console::WriteLine("Saving to file \"./wwwdata/developing-deluges/" + hData.substr(0, 32) + ".deluge" + "\"");
 	std::ofstream programDeluge("./wwwdata/developing-deluges/" + hData.substr(0, 32) + ".deluge");
 	if (programDeluge.is_open())
 	{
@@ -366,7 +366,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 	//ExecuteCommand(("podman image tag dccfile/temporaryimage:latest dcc/" + hData.substr(0, 32)+":latest").c_str());
 	// Move the old file to a new one with it's unique name
 	//ExecuteCommand(("mv temporaryimage.tar.zip " + hData.substr(0, 32) + ".tar.zip").c_str());
-	rename("temporaryimage.tar.zip", ("./wwwdata/developing-containers/"+hData.substr(0, 32) + ".tar.zip").c_str());
+	rename("temporaryimage.tar.zip", ("./wwwdata/developing-containers/" + hData.substr(0, 32) + ".tar.zip").c_str());
 	remove("temporaryimage.tar");
 
 	// Free memory allocated using `new`
@@ -385,7 +385,7 @@ bool VerifyDeluge(json& delugeJson, std::string& path)
 	fseek(pFile, 0L, SEEK_END);
 	size_t size = ftell(pFile);
 	fseek(pFile, 0L, SEEK_SET);
-	char* byteArray = new char[size+1];
+	char* byteArray = new char[size + 1];
 	byteArray[size] = '\0';
 	if (pFile != NULL)
 	{
@@ -416,10 +416,10 @@ bool VerifyDeluge(json& delugeJson, std::string& path)
 		std::string hData = std::string(sha256OutBuffer);
 
 		std::string expectedHash = (std::string)delugeJson["hashList"][chunks];
-		if(expectedHash.size() < 20) // If the length of the string is less than the hash size, it is referencing another index
+		if (expectedHash.size() < 20) // If the length of the string is less than the hash size, it is referencing another index
 			expectedHash = (std::string)delugeJson["hashList"][std::stoi(expectedHash)];
 
-		if(hData != expectedHash){
+		if (hData != expectedHash) {
 			delete[] byteArray;
 			return false;
 		}
@@ -430,7 +430,7 @@ bool VerifyDeluge(json& delugeJson, std::string& path)
 		chunks++;
 	} while (ind < size && chunks < DELUGE_MAX_CHUNKS);
 
-	
+
 	// If the total number of chunks is DELUGE_MAX_CHUNKS but the index is still less than the total size,
 	// then we cannot continue because this program is too large
 	if (chunks >= DELUGE_MAX_CHUNKS && ind < size) {
@@ -446,7 +446,7 @@ bool VerifyDeluge(json& delugeJson, std::string& path)
 	sha256_string((char*)(allHashesString.c_str()), sha256OutBuffer);
 	std::string hData = std::string(sha256OutBuffer);
 
-	if(hData != (std::string)delugeJson["_totalHash"]){
+	if (hData != (std::string)delugeJson["_totalHash"]) {
 		delete[] byteArray;
 		return false;
 	}
@@ -511,6 +511,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 		console::WriteLine("Checking blocks...");
 
 		// Apply funds to user from the first block separately
+		checkFirstBlock:
 		try
 		{
 			if (chainLength >= 1) {
@@ -582,13 +583,20 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				}
 			}
 		}
-		catch (const std::exception& e)
+		// If there is a failure state, assume that block is bad or does not exist.
+		catch (...)
 		{
-			//if (WalletSettingValues::verbose == true) {
-			std::cerr << "\n";
-			ERRORMSG("Error\n" << e.what());
-			//}
-			//console::ExitError("Failure, exiting 854");
+			/*if (WalletSettingValues::verbose >= 1) {
+				ERRORMSG("Error\n" << e.what());
+			}*/
+
+			console::WriteLine();
+			SyncBlock(p2p, 0, true); // Force resync
+
+			// Then recount, because we need to know if the synced block is new or overwrote an existing one.
+			chainLength = FileCount("./wwwdata/blockchain/");
+
+			goto checkFirstBlock;
 		}
 
 		// Then process the rest of the blocks
@@ -598,8 +606,10 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			{
 				std::ifstream t;
 				t.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
-				if (!t.is_open())
-					ERRORMSG("Could not open file");
+				if (!t.is_open()) {
+					ERRORMSG("Could not open file" << " ./wwwdata/blockchain/block" << std::to_string(i) << ".dccblock ");
+					throw 1;
+				}
 				std::stringstream buffer;
 				buffer << t.rdbuf();
 				std::string content = buffer.str();
@@ -629,8 +639,10 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				// Get the previous block
 				std::ifstream td;
 				td.open("./wwwdata/blockchain/block" + std::to_string(i - 1) + ".dccblock");
-				if (!td.is_open())
+				if (!td.is_open()) {
 					ERRORMSG("Could not open file");
+					throw 1;
+				}
 				std::stringstream bufferd;
 				bufferd << td.rdbuf();
 				td.close();
@@ -669,7 +681,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					if (lastRealHash != pprev)
 						rr += "2";
 					console::WriteLine("    X Bad Block X  " + std::to_string(i) + " R" + rr + "   # " + blockHash, console::redFGColor, "");
-					return false;
+					throw 1;
 				}
 				float tmpFunds2 = 0;
 				// Check all transactions to see if they have a valid signature
@@ -735,14 +747,15 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				}
 			}
 			// If there is a failure state, assume that block is bad or does not exist.
-			catch (const std::exception& e)
+			catch (...)
 			{
-				if (WalletSettingValues::verbose >= 1) {
+				/*if (WalletSettingValues::verbose >= 1) {
 					ERRORMSG("Error\n" << e.what());
-				}
+				}*/
 
-				console::WriteLine();
+				console::Write("Attempting fix...");
 				SyncBlock(p2p, i, true); // Force resync
+				console::Write(" Done!", console::greenFGColor);
 
 				i -= 2;
 				// Then recount, because we need to know if the synced block is new or overwrote an existing one.

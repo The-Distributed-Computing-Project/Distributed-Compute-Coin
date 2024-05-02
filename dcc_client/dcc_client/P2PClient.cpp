@@ -75,7 +75,7 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 		const char* p = s.c_str();
 
 		int segmentCount = 1;
-		while (total < len) {
+		while (bytesLeft > 0) {
 			//std::string segInfo = "seg " + + " of " + + ", " + + " bytes|";
 			std::string segInfo = "seg :" + std::to_string(segmentCount) +
 				": of :" + std::to_string((int)ceil((float)len / 1000.0f)) +
@@ -93,7 +93,7 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 				to,
 				toLen)
 				- segSize; // Don't include segment info when counting data, so subtract this
-			if (n <= -1) { 
+			if (n <= -1) {
 				printf("sendto failed with error: %d\n", WSAGetLastError());
 				break;
 			}
@@ -169,7 +169,8 @@ void P2P::ListenerThread(int update_interval)
 					int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
 
 					if (WalletSettingValues::verbose >= 3)
-						std::cout << "iResult: " << std::to_string(iResult) << std::endl;
+						if (iResult != -1)
+							std::cout << "iResult: " << std::to_string(iResult) << std::endl;
 
 					if (iResult > 0) {
 
@@ -217,7 +218,7 @@ void P2P::ListenerThread(int update_interval)
 						std::string segInfo = SplitString(textVal, "&")[0];
 						int segNumber = std::stoi(SplitString(segInfo, ":")[1]);
 						int maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
-						int segLength = std::stoi(SplitString(segInfo, ":")[5]) + segInfo.size()+1;
+						int segLength = std::stoi(SplitString(segInfo, ":")[5]) + segInfo.size() + 1;
 						//char* tempContent = buffer;
 						std::string content = "";
 						for (int i = segInfo.size() + 1; i < segLength; i++) {
@@ -226,8 +227,10 @@ void P2P::ListenerThread(int update_interval)
 						//csubstr(buffer, tempContent, segInfo.size()+2, BUFFERLENGTH, nullptr);
 						//std::string content = textVal.substr(segInfo.size()+2); // Get all data after the end of the segment info
 
-						if (WalletSettingValues::verbose >= 2)
+						if (WalletSettingValues::verbose >= 4) {
 							console::WriteLine("received -- " + segInfo, console::yellowFGColor, "");
+							console::WriteLine("\n\n" + content + "\n\n", console::greenFGColor, "");
+						}
 
 						// If we are currently still waiting for more data to be received
 						if (pendingReceiveData) {
@@ -251,9 +254,10 @@ void P2P::ListenerThread(int update_interval)
 							}
 							// Else if the maximum number of segments was NOT reached,
 							// continue receiving pending data
-							else if (maxSegments > segNumber && segNumber == 1) {
-								currentPendingSegment++;
+							else if (maxSegments > segNumber || segNumber == 1) {
+								currentPendingSegment = segNumber;
 								totalPendingMessage += content;
+								totalMessage = totalPendingMessage;
 								//messageStatus = idle;
 								continue;
 							}
@@ -273,6 +277,9 @@ void P2P::ListenerThread(int update_interval)
 						// totalMessage` variable can be set to the content
 						else
 							totalMessage = content;
+
+						if (totalMessage.size() <= 1)
+							continue;
 
 						std::string messagePrefix = "";
 
@@ -473,13 +480,16 @@ void P2P::ListenerThread(int update_interval)
 								}
 
 								if (WalletSettingValues::verbose >= 2) {
-									console::WriteLine("received block: " + std::to_string(num) + "\ncontent: \n" + blockData, console::greenFGColor, "");
+									console::WriteLine("received block: " + std::to_string(num), console::greenFGColor, "");
+								}
+								if (WalletSettingValues::verbose >= 4) {
+									console::WriteLine("\ncontent: \n" + blockData, console::greenFGColor, "");
 								}
 							}
 							messageAttempt = 0;
 
 						}
-						if (WalletSettingValues::verbose >= 3) {
+						if (WalletSettingValues::verbose >= 4) {
 							console::WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + totalMessage + "\t status: " + std::to_string(messageStatus));
 						}
 					}
@@ -606,7 +616,7 @@ void P2P::ListenerThread(int update_interval)
 					//csubstr(buffer, tempContent, segInfo.size()+2, BUFFERLENGTH, nullptr);
 					//std::string content = textVal.substr(segInfo.size()+2); // Get all data after the end of the segment info
 
-					if (WalletSettingValues::verbose >= 2)
+					if (WalletSettingValues::verbose >= 4)
 						console::WriteLine("received -- " + segInfo, console::yellowFGColor, "");
 
 					// If we are currently still waiting for more data to be received
@@ -845,7 +855,7 @@ void P2P::ListenerThread(int update_interval)
 						messageAttempt = 0;
 
 					}
-					if (WalletSettingValues::verbose >= 3) {
+					if (WalletSettingValues::verbose >= 4) {
 						console::WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + totalMessage + "\t status: " + std::to_string(messageStatus));
 					}
 				}
@@ -870,7 +880,7 @@ void P2P::ListenerThread(int update_interval)
 
 
 #endif
-}
+	}
 
 void P2P::InitPeerList() {
 	std::string line;
@@ -986,8 +996,6 @@ void P2P::RandomizePeer() {
 	try
 	{
 		uint16_t randI = rand() % peerList.size();
-		if (WalletSettingValues::verbose >= 3)
-			std::cout << "randID: " << randI << std::endl;
 		peerListID = randI;
 		peerIP = SplitString(peerList[randI], ":")[0];
 		peerPort = stoi(SplitString(peerList[randI], ":")[1]);
@@ -1026,7 +1034,7 @@ void P2P::SenderThread()
 			if (messageStatus == idle)
 				continue;
 
-			int messageMaxAttempts = 10;
+			int messageMaxAttempts = 20;
 
 			// Begin sending messages, and stop when a reply is received, or max tries exceeded
 			for (messageAttempt = 0; messageAttempt < messageMaxAttempts; messageAttempt++)
@@ -1046,9 +1054,11 @@ void P2P::SenderThread()
 				// If not in idle state, continue sending messages
 				std::string msg = "";
 
-				std::cout << "\r\r";
-				console::NetworkPrint();
-				console::Write("Send attempt: " + std::to_string(messageAttempt) + "    ");
+				if (WalletSettingValues::verbose >= 2) {
+					std::cout << "\r\r";
+					console::NetworkPrint();
+					console::Write("Send attempt: " + std::to_string(messageAttempt) + "    ");
+				}
 
 				// If doing initial connect request
 				if (messageStatus == initial_connect_request) {
@@ -1207,11 +1217,9 @@ void P2P::SenderThread()
 						console::WriteLine("Finding another peer...");
 						try
 						{
-							std::cout << "made it to line: " << __LINE__ << std::endl;
 							// Decrease life of current peer
 							std::cout << peerList[peerListID] << std::endl;
 							char newLife = (SplitString(peerList[peerListID], ":")[2]).c_str()[0] + 1;
-							std::cout << "made it to line: " << __LINE__ << std::endl;
 
 							if (newLife >= '9' && keepPeersAlive == false) // If life is 9, remove it from list
 								peerList.erase(peerList.begin() + peerListID);
@@ -1227,7 +1235,6 @@ void P2P::SenderThread()
 							std::cerr << e.what() << std::endl;
 							std::cerr << __FILE__ << ", line: " << __LINE__ << std::endl;
 						}
-						std::cout << "made it to line: " << __LINE__ << std::endl;
 						// Then select another
 						RandomizePeer();
 						SavePeerList();

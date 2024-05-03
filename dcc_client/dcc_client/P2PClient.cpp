@@ -16,6 +16,7 @@ int peerBlockchainLength = 0;
 SOCKADDR_IN otherAddr;
 #define WINDOWS true
 #else
+sockaddr_in otherAddr;
 #define UNIX true
 #endif
 std::string otherAddrStr;
@@ -23,6 +24,12 @@ int otherSize;
 std::atomic_bool stop_thread_1 = false;
 std::atomic_bool stop_thread_2 = false;
 std::atomic_bool thread_running = false;
+
+#if UNIX
+int localSocket, newlocalSocket, portno;
+socklen_t remoteAddrLen;
+struct sockaddr_in serv_addr, remoteAddr;
+#endif
 
 //P2P p2p;
 
@@ -64,7 +71,6 @@ bool P2P::isAwaiting() {
 // Safely send some data as a string, and split large amounts of data into multiple segments to be sent sequentially.
 int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen)
 {
-	//#if defined(_MSC_VER)
 	try
 	{
 
@@ -86,18 +92,22 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 
 			segInfo += (p + total);
 
+//#if WINDOWS
 			n = sendto(socket,
 				segInfo.c_str(),
-				(bytesLeft < 1000) ? (bytesLeft + segSize) : (1000 + segSize),
+				sizeof(segInfo.c_str()),
+				//(bytesLeft < 1000) ? (bytesLeft + segSize) : (1000 + segSize),
 				0,
-				to,
-				toLen)
+				(struct sockaddr*)&to,
+				sizeof(to))
 				- segSize; // Don't include segment info when counting data, so subtract this
 			if (n <= -1) {
 				ERRORMSG("Sending data failed:\n");
 				printf("sendto failed with error: %d\n", WSAGetLastError());
 				break;
+
 			}
+
 			total += n;
 			if (WalletSettingValues::verbose >= 3) {
 				std::cout << std::to_string((int)round(100 * ((float)total / (float)len))) << "% sent" << std::endl;
@@ -110,7 +120,7 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 			segmentCount++;
 		}
 		if (WalletSettingValues::verbose >= 3) {
-			std::cout << "Done." << std::endl;
+			std::cout << "Done sending chunk" << std::endl;
 		}
 
 		len = total; // return number actually sent here
@@ -118,6 +128,8 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 	}
 	catch (const std::exception& e)
 	{
+		console::ErrorPrint();
+		console::Write("Sending thread encountered an error in (__FILE__, line: __LINE__):\n");
 		std::cerr << e.what() << std::endl;
 	}
 
@@ -125,11 +137,6 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 	return 0;
 }
 
-#if UNIX
-int localSocket, newlocalSocket, portno;
-socklen_t remoteAddrLen;
-struct sockaddr_in serv_addr, remoteAddr;
-#endif
 
 // The function that is run in a thread in order to listen for received data in the background
 void P2P::ListenerThread(int update_interval)
@@ -1026,7 +1033,7 @@ void P2P::SetPeer(int id) {
 // The function that is run in a thread in order to reply or send data to a peer in the background
 void P2P::SenderThread()
 {
-#if defined(_MSC_VER)
+//#if defined(_MSC_VER)
 
 	//Http http;
 
@@ -1043,6 +1050,9 @@ void P2P::SenderThread()
 			otherAddr.sin_addr.s_addr = inet_addr(peerIP.c_str());
 
 			otherSize = sizeof(otherAddr);
+
+			//if (connect(localSocket,(struct sockaddr *) &otherAddr,sizeof(otherAddr)) < 0) 
+			//	console::WriteLine("ERROR connecting");
 
 			bool noinput = false;
 
@@ -1189,6 +1199,7 @@ void P2P::SenderThread()
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
+					console::WriteLine("Sent request");
 					// Wait extra 3 seconds
 					//noinput = true;
 				}
@@ -1216,7 +1227,11 @@ void P2P::SenderThread()
 				}
 
 				// Wait 50 milliseconds before sending next message
+#if WINDOWS
 				Sleep(50);
+#else
+				sleep(50);
+#endif
 			}
 
 			if (messageAttempt == messageMaxAttempts) {
@@ -1295,7 +1310,7 @@ void P2P::SenderThread()
 
 	//closesocket(localSocket);
 
-#endif
+//#endif
 }
 
 bool VerifyTransaction(json& tx, uint32_t id, bool thorough) {

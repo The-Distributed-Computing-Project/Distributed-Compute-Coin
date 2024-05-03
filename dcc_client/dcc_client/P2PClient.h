@@ -33,7 +33,6 @@
 
 extern std::vector<std::string> peerList;
 
-extern std::map<std::string, std::map<std::string, std::string>> completeDelugeList;
 
 using json = nlohmann::json;
 
@@ -57,6 +56,9 @@ public:
 	//void TaskRec();
 	std::atomic_bool CONNECTED_TO_PEER = false;
 
+	// A list of deluges given by: [totalHash][partHash] => dataString
+	std::map<std::string, std::map<std::string, uint16_t>> completeDelugeList;
+	
 	int messageAttempt = 0;
 	int differentPeerAttempts = 0;
 

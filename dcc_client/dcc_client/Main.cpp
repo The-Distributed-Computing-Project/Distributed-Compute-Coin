@@ -83,7 +83,7 @@ int main()
 	// Get public IP address
 	console::NetworkPrint();
 	console::WriteLine("Getting public IP address...");
-	Http http;
+	//Http http;
 	std::string ipStr = DownloadFileAsString("http://dccpool.us.to/ipget.php"); // use custom server for getting IP:PORT
 	if (ipStr == "") // Set default ip:port if no connection can be established
 		ipStr = "127.0.0.1:5060";
@@ -94,6 +94,7 @@ int main()
 
 	bool permanentPort = false;
 
+	
 	// Create config.cfg file if it doesn't exist 
 	console::SystemPrint();
 	console::WriteLine("Checking config.cfg");
@@ -105,7 +106,7 @@ int main()
 		//std::cin >> prt;
 		//if (prt <= 0 || prt > 65535)
 		//	prt = 5060;
-
+	
 		std::ofstream configFile("./config.cfg");
 		if (configFile.is_open())
 		{
@@ -138,11 +139,13 @@ int main()
 		}
 	}
 
+
 	// Generate and save keypair if it doesn't exist
 	console::SystemPrint();
-	console::WriteLine("Checking keypairs...");
+	console::Write("Checking keypairs...");
 	if (!fs::exists("./sec/prikey.pem"))
 	{
+		console::WriteLine(" not found", console::redFGColor);
 		console::SystemPrint();
 		console::WriteLine("None found, generating keypairs...");
 		keypair = GenerateKeypair();
@@ -150,6 +153,9 @@ int main()
 		std::cout << keypair[0] << std::endl;
 		std::cout << "Private key: " << std::endl;
 		std::cout << keypair[1] << std::endl;
+	}
+	else{
+		console::WriteLine(" ok", console::greenFGColor);
 	}
 	// Load public key as keypair[0]
 	std::ifstream pkey("./sec/pubkey.pem");
@@ -191,9 +197,14 @@ int main()
 
 			// Verify the deluge, by checking each chunk with its expected hash, and then the full hash
 			std::string delugePath = "./wwwdata/containers/" + ((std::string)delugeJson["_totalHash"]).substr(0, 32) + ".tar.zip";
-			if (VerifyDeluge(delugeJson, delugePath)) {
-				// Add deluge full hash to list with it's path as a value
-				//completeDelugeList[(std::string)delugeJson["_totalHash"]] = deluge.path().string();
+
+
+			if(VerifyDeluge(delugeJson, delugePath)){
+				for(int hs = 0; hs < delugeJson["hashList"].size(); hs++){
+					p2p.completeDelugeList[(std::string)delugeJson["_totalHash"]][delugeJson["hashList"][hs]] = hs;
+				}
+				//// Add deluge full hash to list with it's path as a value
+				//completeDelugeList[(std::string)delugeJson["_totalHash"]] = delugeJson["_hashList"];
 			}
 			// If the deluge is invalid, remove it's file
 			else {

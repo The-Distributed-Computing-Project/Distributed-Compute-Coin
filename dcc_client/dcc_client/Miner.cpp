@@ -31,16 +31,16 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 	{
 		auto startTime = std::chrono::steady_clock::now();
 
-		std::string runCommand = "docker run -d --network none --rm --name=" + (std::string)(walletInfo["ProgramID"]) + " -v ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + ":/out/ " + (std::string)(walletInfo["ProgramID"]) + " /bin/bash run.sh --seed " + seedStr;
+		std::string runCommand = "podman run -d --network none --rm --name=" + (std::string)(walletInfo["ProgramID"]) + " -v ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + ":/out/ " + (std::string)(walletInfo["ProgramID"]) + " /bin/bash run.sh --seed " + seedStr;
 
 		if (WalletSettingValues::verbose >= 2) {
-			console::DockerPrint();
+			console::ContainerManagerPrint();
 			console::Write("Starting program with command: \"");
 			console::Write(runCommand);
 			console::WriteLine("\"");
 		}
 		ExecuteAsync(runCommand, false);
-		boost::process::child containerProcess = ExecuteAsync("docker wait " + (std::string)(walletInfo["ProgramID"]), false);
+		boost::process::child containerProcess = ExecuteAsync("podman wait " + (std::string)(walletInfo["ProgramID"]), false);
 
 		char sha256OutBuffer[65];
 
@@ -133,7 +133,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		//	containerProcess.wait();
 
 		// Kill the program if it is still running
-		ExecuteAsync("docker stop " + (std::string)(walletInfo["ProgramID"]), false);
+		ExecuteAsync("podman stop " + (std::string)(walletInfo["ProgramID"]), false);
 
 
 		// Convert hash into hexadecimal string
@@ -267,7 +267,7 @@ int PoolMine(std::string poolURL, json& walletInfo)
 			auto startTime = std::chrono::steady_clock::now();
 
 			// The Docker program execution needs to be thought out more, because it would need changes for pool mining.
-			//console::DockerPrint();
+			//console::ContainerManagerPrint();
 			//console::WriteLine("Starting program... ");
 			//boost::process::child containerProcess = ExecuteAsync("cargo run --manifest-path ./wwwdata/programs/" + (std::string)(walletInfo["ProgramID"]) + "/Cargo.toml", false);
 

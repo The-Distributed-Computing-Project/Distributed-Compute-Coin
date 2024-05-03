@@ -1,6 +1,6 @@
-^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\CPR-SUBBUILD\CMAKEFILES\2C1F79AED1FEC07F5953C3CAA8D67DAE\GENERATE.STAMP.RULE
+^C:\USERS\SAMDA\CODE\DISTRIBUTED-COMPUTE-COIN\DCC_CLIENT\OUT\_DEPS\CPR-SUBBUILD\CMAKEFILES\2F3AF7F7A3E93DA4D0A1D6126E3A6A49\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-subbuild/cpr-populate.sln
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-subbuild/cpr-populate.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

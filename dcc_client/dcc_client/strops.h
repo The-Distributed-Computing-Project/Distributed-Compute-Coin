@@ -14,7 +14,7 @@
 #include <iostream>
 #include "BaseConverter.h"
 
-#define ERRORMSG( msg ) std::cerr << "[" << __FILE__ << ", at line: " << __LINE__ << "] " << msg << std::endl;
+#define ERRORMSG( msg ) std::cerr << "\n\n[" << __FILE__ << ", at line: " << __LINE__ << "] " << msg << "  ";
 
 std::string JoinArrayPieces(std::string input[]);
 std::string JoinArrayPieces(std::vector<std::string> input);

@@ -62,8 +62,7 @@ int main()
 {
 	Logo();
 	srand(time(0));
-
-	//flops = benchmark();
+	flops = benchmark();
 
 	if (WalletSettingValues::verbose >= 6) {
 		console::WriteLine("hextest: ");
@@ -80,6 +79,18 @@ int main()
 			console::WriteLine("Creating " + dir);
 			fs::create_directory(dir);
 		}
+
+	// Get public IP address
+	console::NetworkPrint();
+	console::WriteLine("Getting public IP address...");
+	Http http;
+	std::string ipStr = DownloadFileAsString("http://dccpool.us.to/ipget.php"); // use custom server for getting IP:PORT
+	if(ipStr == "") // Set default ip:port if no connection can be established
+		ipStr = "127.0.0.1:5060";
+	//std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
+	//console::WriteLine(ipStr);
+	console::NetworkPrint();
+	console::WriteLine("Done.");
 
 	bool permanentPort = false;
 
@@ -99,7 +110,10 @@ int main()
 		std::ofstream configFile("./config.cfg");
 		if (configFile.is_open())
 		{
-			configFile << "{\"port\":" << std::to_string(5060) << ",\"ip\":\"\",\"permanentPort\":false,\"isServer\":false}";
+			configFile 
+				<< "{\"port\":" << SplitString(ipStr, ":")[1] 
+				<< ",\"ip\":\"" << SplitString(ipStr, ":")[0] 
+				<< "\",\"permanentPort\":false,\"keepAlive\":false}";
 			configFile.close();
 		}
 		/*walletConfig["ip"] = SplitString(ipStr, ":")[0];
@@ -113,7 +127,16 @@ int main()
 			walletConfig = json::parse(confbuf.str());
 			conf.close();
 			
-			console::WriteLine(" ok", console::greenFGColor);
+		}
+		if(walletConfig["permanentPort"] == false){
+			walletConfig["port"] = stoi(SplitString(ipStr, ":")[1]);
+			walletConfig["ip"] = SplitString(ipStr, ":")[0];
+			std::ofstream configFile("./config.cfg");
+			if (configFile.is_open())
+			{
+				configFile << walletConfig.dump();
+				configFile.close();
+			}
 		}
 	}
 	
@@ -165,14 +188,20 @@ int main()
 	}
 	// Load public key as keypair[0]
 	std::ifstream pkey("./sec/pubkey.pem");
-	std::stringstream keybuf;
-	keybuf << pkey.rdbuf();
-	keypair[0] = keybuf.str();
+	if (pkey.is_open()) {
+		std::stringstream keybuf;
+		keybuf << pkey.rdbuf();
+		keypair[0] = keybuf.str();
+		pkey.close();
+	}
 	// Load private key as keypair[1]
 	std::ifstream skey("./sec/prikey.pem");
-	std::stringstream skeybuf;
-	skeybuf << skey.rdbuf();
-	keypair[1] = skeybuf.str();
+	if (skey.is_open()) {
+		std::stringstream skeybuf;
+		skeybuf << skey.rdbuf();
+		keypair[1] = skeybuf.str();
+		skey.close();
+	}
 
 	// Calculate wallet from hash of public key
 	char walletBuffer[65];
@@ -242,6 +271,7 @@ int main()
 
 	// Open the socket required to accept P2P requests and send responses
 	p2p.OpenP2PSocket((int)walletConfig["port"]);
+	p2p.keepPeersAlive = (bool)walletConfig["keepAlive"];
 	// Start the P2P listener thread
 	std::thread t1(&P2P::ListenerThread, &p2p, 10);
 	// Start the P2P sender thread

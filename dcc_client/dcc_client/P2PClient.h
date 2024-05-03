@@ -103,6 +103,7 @@ public:
 
 	std::string peerIP;
 	int peerPort;
+	bool keepPeersAlive = false;
 
 #if defined(_MSC_VER)
 	std::string NormalizedIPString(SOCKADDR_IN addr);

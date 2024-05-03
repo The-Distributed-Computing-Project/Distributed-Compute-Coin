@@ -1,2 +1,2 @@
-PlatformToolSet=v143:VCToolArchitecture=Native64Bit:VCToolsVersion=14.37.32705:TargetPlatformVersion=10.0.22000.0:VcpkgTriplet=x64-windows:
-Debug|x64|D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\|
+PlatformToolSet=v143:VCToolArchitecture=Native64Bit:VCToolsVersion=14.39.33519:TargetPlatformVersion=10.0.22621.0:VcpkgTriplet=x64-windows:
+Debug|x64|C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\|

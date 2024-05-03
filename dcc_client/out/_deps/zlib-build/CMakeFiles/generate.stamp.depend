@@ -1,27 +1,21 @@
 # CMake generation dependency list for this directory.
-C:/Program Files/CMake/share/cmake-3.21/Modules/CMakeDependentOption.cmake
-C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCCompilerFlag.cmake
-C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCSourceCompiles.cmake
-C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCSourceRuns.cmake
-C:/Program Files/CMake/share/cmake-3.21/Modules/CheckFunctionExists.c
-C:/Program Files/CMake/share/cmake-3.21/Modules/CheckFunctionExists.cmake
-C:/Program Files/CMake/share/cmake-3.21/Modules/CheckIncludeFile.c.in
-C:/Program Files/CMake/share/cmake-3.21/Modules/CheckIncludeFile.cmake
-C:/Program Files/CMake/share/cmake-3.21/Modules/CheckIncludeFileCXX.cmake
-C:/Program Files/CMake/share/cmake-3.21/Modules/CheckSymbolExists.cmake
-C:/Program Files/CMake/share/cmake-3.21/Modules/CheckTypeSize.c.in
-C:/Program Files/CMake/share/cmake-3.21/Modules/CheckTypeSize.cmake
-C:/Program Files/CMake/share/cmake-3.21/Modules/FeatureSummary.cmake
-C:/Program Files/CMake/share/cmake-3.21/Modules/Internal/CheckCompilerFlag.cmake
-C:/Program Files/CMake/share/cmake-3.21/Modules/Internal/CheckSourceCompiles.cmake
-C:/Program Files/CMake/share/cmake-3.21/Modules/Internal/CheckSourceRuns.cmake
-D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/OFF64_T.c
-D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/_OFF64_T.c
-D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/__OFF64_T.c
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/zconf.h.cmakein
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/CMakeLists.txt
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/cmake/detect-arch.cmake
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/cmake/detect-coverage.cmake
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/cmake/detect-install-dirs.cmake
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/cmake/detect-sanitizer.cmake
-D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/zlib.pc.cmakein
+C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/CheckCCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/CheckCSourceRuns.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/CheckFunctionExists.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/FeatureSummary.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/Internal/CheckCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/Internal/CheckSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.29/Modules/Internal/CheckSourceRuns.cmake
+C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-build/zconf.h.cmakein
+C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src/CMakeLists.txt
+C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src/cmake/detect-arch.cmake
+C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src/cmake/detect-coverage.cmake
+C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src/cmake/detect-install-dirs.cmake
+C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src/cmake/detect-sanitizer.cmake
+C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src/zlib.pc.cmakein

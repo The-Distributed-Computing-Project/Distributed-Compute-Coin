@@ -1,4 +1,4 @@
-# Install script for directory: D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src
+# Install script for directory: C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,56 +34,60 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/lib/cmake_install.cmake")
+  include("C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/lib/cmake_install.cmake")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE FILE PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/curl-config")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE FILE PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/curl-config")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/libcurl.pc")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/libcurl.pc")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/include/curl" FILES_MATCHING REGEX "/[^/]*\\.h$")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-src/include/curl" FILES_MATCHING REGEX "/[^/]*\\.h$")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL/CURLTargets.cmake")
-    file(DIFFERENT EXPORT_FILE_CHANGED FILES
+    file(DIFFERENT _cmake_export_file_changed FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL/CURLTargets.cmake"
-         "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/CMakeFiles/Export/lib/cmake/CURL/CURLTargets.cmake")
-    if(EXPORT_FILE_CHANGED)
-      file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL/CURLTargets-*.cmake")
-      if(OLD_CONFIG_FILES)
-        message(STATUS "Old export file \"$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL/CURLTargets.cmake\" will be replaced.  Removing files [${OLD_CONFIG_FILES}].")
-        file(REMOVE ${OLD_CONFIG_FILES})
+         "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/CMakeFiles/Export/8e83d16133499b505bf3986f4f209a65/CURLTargets.cmake")
+    if(_cmake_export_file_changed)
+      file(GLOB _cmake_old_config_files "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL/CURLTargets-*.cmake")
+      if(_cmake_old_config_files)
+        string(REPLACE ";" ", " _cmake_old_config_files_text "${_cmake_old_config_files}")
+        message(STATUS "Old export file \"$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL/CURLTargets.cmake\" will be replaced.  Removing files [${_cmake_old_config_files_text}].")
+        unset(_cmake_old_config_files_text)
+        file(REMOVE ${_cmake_old_config_files})
       endif()
+      unset(_cmake_old_config_files)
     endif()
+    unset(_cmake_export_file_changed)
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/CMakeFiles/Export/lib/cmake/CURL/CURLTargets.cmake")
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/CMakeFiles/Export/lib/cmake/CURL/CURLTargets-debug.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/CMakeFiles/Export/8e83d16133499b505bf3986f4f209a65/CURLTargets.cmake")
+  if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/CMakeFiles/Export/8e83d16133499b505bf3986f4f209a65/CURLTargets-debug.cmake")
   endif()
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/CMakeFiles/Export/lib/cmake/CURL/CURLTargets-minsizerel.cmake")
+  if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/CMakeFiles/Export/8e83d16133499b505bf3986f4f209a65/CURLTargets-minsizerel.cmake")
   endif()
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/CMakeFiles/Export/lib/cmake/CURL/CURLTargets-relwithdebinfo.cmake")
+  if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/CMakeFiles/Export/8e83d16133499b505bf3986f4f209a65/CURLTargets-relwithdebinfo.cmake")
   endif()
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/CMakeFiles/Export/lib/cmake/CURL/CURLTargets-release.cmake")
+  if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/CMakeFiles/Export/8e83d16133499b505bf3986f4f209a65/CURLTargets-release.cmake")
   endif()
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Tt][Hh][Rr][Ee][Aa][Dd][Ss][Aa][Nn])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/CMakeFiles/Export/lib/cmake/CURL/CURLTargets-threadsan.cmake")
+  if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Tt][Hh][Rr][Ee][Aa][Dd][Ss][Aa][Nn])$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/CMakeFiles/Export/8e83d16133499b505bf3986f4f209a65/CURLTargets-threadsan.cmake")
   endif()
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES
-    "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/generated/CURLConfigVersion.cmake"
-    "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/generated/CURLConfig.cmake"
+    "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/generated/CURLConfigVersion.cmake"
+    "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/generated/CURLConfig.cmake"
     )
 endif()
 

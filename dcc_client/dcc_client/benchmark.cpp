@@ -20,15 +20,14 @@ std::string truncateNum(double x){
         return std::to_string(x);
 }
 
-// For demonstration purpose, we will fill up
-// a vector with random integers and then sort
-// them using sort function. We fill record
-// and print the time required by sort function
-#define FLOPS_SAMPLES 4
+#define FLOPS_SAMPLES 100000
 unsigned long long benchmark()
 {
     double averageFlops = 0.0;
     for(int g = 0; g < FLOPS_SAMPLES; g++){
+        if(g%10000 == 0)
+            std::cout << "Benchmarking...  " << (g) << " of " << FLOPS_SAMPLES << " samples complete          \r";
+
         double secondValue = rand()+67858;
         double startValue = 123891.123871;
         
@@ -46,10 +45,11 @@ unsigned long long benchmark()
     
     	auto duration = duration_cast<microseconds>(stop - start);
     	
-    	averageFlops += 1000000.0/(double)(duration.count())*4000.0/(double)FLOPS_SAMPLES;
+    	averageFlops += (1000000.0/(double)(duration.count())*4000.0)/(double)FLOPS_SAMPLES;
     }
 
+    std::cout << "                                                          \r";
 	cout << "FLOPS: " << truncateNum(averageFlops)  <<"flops"<< endl;
 
-  return (unsigned long long)averageFlops;
+    return (unsigned long long)averageFlops;
 }

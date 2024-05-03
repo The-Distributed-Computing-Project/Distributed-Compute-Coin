@@ -76,10 +76,10 @@ bool TestPortConnection(std::string ip, int port) {
 				return true;
 				// If the returned data contains the segment header, it must be the DCC client port
 				try {
-					std::string segInfo = SplitString(textVal, "\376")[0];
+					std::string segInfo = SplitString(textVal, "&")[0];
 					int segNumber = std::stoi(SplitString(segInfo, ":")[1]);
 					int maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
-					std::string content = SplitString(textVal, "\376")[1];
+					//std::string content = SplitString(textVal, "&")[1];
 
 					closesocket(myNetworkSocket);
 					return true;

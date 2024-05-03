@@ -22,9 +22,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{472A354F-658E-32B9-8B37-FA72F588B7C2}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{52CA90A4-8DC6-38F2-B383-940EA1E79AA4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>dcc_client</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">dcc_client.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">dcc_client</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">dcc_client.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">dcc_client</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">dcc_client.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">dcc_client</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">dcc_client.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">dcc_client</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -86,11 +86,13 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client;D:\Code\DC-Cryptocurrency\dcc_client\dcc_client;D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client;C:\Boost\include\boost-1_78;C:\curl\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr_generated_includes;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Program Files/OpenSSL-Win64/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <Optimization>Disabled</Optimization>
@@ -101,13 +103,14 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CURL_STATICLIB;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CURL_STATICLIB;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client;D:\Code\DC-Cryptocurrency\dcc_client\dcc_client;D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client;C:\Boost\include\boost-1_78;C:\curl\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr_generated_includes;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client;D:\Code\DC-Cryptocurrency\dcc_client\dcc_client;D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client;C:\Boost\include\boost-1_78;C:\curl\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr_generated_includes;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -115,13 +118,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>D:\Code\boost\stage\lib\libboost_filesystem-vc143-mt-gd-x64-1_78.lib;C:\Program Files\OpenSSL-Win64\lib\VC\static\libssl64MDd.lib;..\_deps\cpr-build\cpr\Debug\cpr.lib;C:\Program Files\OpenSSL-Win64\lib\VC\static\libcrypto64MDd.lib;..\_deps\curl-build\lib\Debug\libcurl-d_imp.lib;winmm.lib;ws2_32.lib;advapi32.lib;crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Boost\lib\libboost_filesystem-vc143-mt-gd-x64-1_78.lib;C:\Program Files\OpenSSL-Win64\lib\VC\x64\MDd\libssl_static.lib;..\_deps\cpr-build\cpr\Debug\cpr.lib;C:\Program Files\OpenSSL-Win64\lib\VC\x64\MDd\libcrypto_static.lib;..\_deps\curl-build\lib\Debug\libcurl-d_imp.lib;winmm.lib;ws2_32.lib;advapi32.lib;crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/Code/DC-Cryptocurrency/dcc_client/out/dcc_client/Debug/dcc_client.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/Code/DC-Cryptocurrency/dcc_client/out/dcc_client/Debug/dcc_client.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/dcc_client/Debug/dcc_client.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/dcc_client/Debug/dcc_client.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -130,9 +133,11 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client;D:\Code\DC-Cryptocurrency\dcc_client\dcc_client;D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client;C:\Boost\include\boost-1_78;C:\curl\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr_generated_includes;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Program Files/OpenSSL-Win64/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <Optimization>MaxSpeed</Optimization>
@@ -145,13 +150,14 @@
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CURL_STATICLIB;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client;D:\Code\DC-Cryptocurrency\dcc_client\dcc_client;D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client;C:\Boost\include\boost-1_78;C:\curl\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr_generated_includes;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client;D:\Code\DC-Cryptocurrency\dcc_client\dcc_client;D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client;C:\Boost\include\boost-1_78;C:\curl\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr_generated_includes;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -159,13 +165,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>D:\Code\boost\stage\lib\libboost_filesystem-vc143-mt-gd-x64-1_78.lib;C:\Program Files\OpenSSL-Win64\lib\VC\static\libssl64MD.lib;..\_deps\cpr-build\cpr\Release\cpr.lib;C:\Program Files\OpenSSL-Win64\lib\VC\static\libcrypto64MD.lib;..\_deps\curl-build\lib\Release\libcurl_imp.lib;winmm.lib;ws2_32.lib;advapi32.lib;crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Boost\lib\libboost_filesystem-vc143-mt-gd-x64-1_78.lib;C:\Program Files\OpenSSL-Win64\lib\VC\x64\MD\libssl_static.lib;..\_deps\cpr-build\cpr\Release\cpr.lib;C:\Program Files\OpenSSL-Win64\lib\VC\x64\MD\libcrypto_static.lib;..\_deps\curl-build\lib\Release\libcurl_imp.lib;winmm.lib;ws2_32.lib;advapi32.lib;crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/Code/DC-Cryptocurrency/dcc_client/out/dcc_client/Release/dcc_client.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/Code/DC-Cryptocurrency/dcc_client/out/dcc_client/Release/dcc_client.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/dcc_client/Release/dcc_client.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/dcc_client/Release/dcc_client.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -174,9 +180,11 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client;D:\Code\DC-Cryptocurrency\dcc_client\dcc_client;D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client;C:\Boost\include\boost-1_78;C:\curl\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr_generated_includes;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Program Files/OpenSSL-Win64/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <Optimization>MinSpace</Optimization>
@@ -189,13 +197,14 @@
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CURL_STATICLIB;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client;D:\Code\DC-Cryptocurrency\dcc_client\dcc_client;D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client;C:\Boost\include\boost-1_78;C:\curl\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr_generated_includes;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client;D:\Code\DC-Cryptocurrency\dcc_client\dcc_client;D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client;C:\Boost\include\boost-1_78;C:\curl\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr_generated_includes;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -203,13 +212,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>D:\Code\boost\stage\lib\libboost_filesystem-vc143-mt-gd-x64-1_78.lib;C:\Program Files\OpenSSL-Win64\lib\VC\static\libssl64MD.lib;..\_deps\cpr-build\cpr\MinSizeRel\cpr.lib;C:\Program Files\OpenSSL-Win64\lib\VC\static\libcrypto64MD.lib;..\_deps\curl-build\lib\MinSizeRel\libcurl_imp.lib;winmm.lib;ws2_32.lib;advapi32.lib;crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Boost\lib\libboost_filesystem-vc143-mt-gd-x64-1_78.lib;C:\Program Files\OpenSSL-Win64\lib\VC\x64\MD\libssl_static.lib;..\_deps\cpr-build\cpr\MinSizeRel\cpr.lib;C:\Program Files\OpenSSL-Win64\lib\VC\x64\MD\libcrypto_static.lib;..\_deps\curl-build\lib\MinSizeRel\libcurl_imp.lib;winmm.lib;ws2_32.lib;advapi32.lib;crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/Code/DC-Cryptocurrency/dcc_client/out/dcc_client/MinSizeRel/dcc_client.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/Code/DC-Cryptocurrency/dcc_client/out/dcc_client/MinSizeRel/dcc_client.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/dcc_client/MinSizeRel/dcc_client.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/dcc_client/MinSizeRel/dcc_client.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -218,10 +227,12 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client;D:\Code\DC-Cryptocurrency\dcc_client\dcc_client;D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client;C:\Boost\include\boost-1_78;C:\curl\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr_generated_includes;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Program Files/OpenSSL-Win64/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <Optimization>MaxSpeed</Optimization>
@@ -232,13 +243,14 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CURL_STATICLIB;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CURL_STATICLIB;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client;D:\Code\DC-Cryptocurrency\dcc_client\dcc_client;D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client;C:\Boost\include\boost-1_78;C:\curl\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr_generated_includes;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client;D:\Code\DC-Cryptocurrency\dcc_client\dcc_client;D:\Code\boost;C:\curl\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr_generated_includes;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client;C:\Boost\include\boost-1_78;C:\curl\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr_generated_includes;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-src\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -246,13 +258,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>D:\Code\boost\stage\lib\libboost_filesystem-vc143-mt-gd-x64-1_78.lib;C:\Program Files\OpenSSL-Win64\lib\VC\static\libssl64MD.lib;..\_deps\cpr-build\cpr\RelWithDebInfo\cpr.lib;C:\Program Files\OpenSSL-Win64\lib\VC\static\libcrypto64MD.lib;..\_deps\curl-build\lib\RelWithDebInfo\libcurl_imp.lib;winmm.lib;ws2_32.lib;advapi32.lib;crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Boost\lib\libboost_filesystem-vc143-mt-gd-x64-1_78.lib;C:\Program Files\OpenSSL-Win64\lib\VC\x64\MD\libssl_static.lib;..\_deps\cpr-build\cpr\RelWithDebInfo\cpr.lib;C:\Program Files\OpenSSL-Win64\lib\VC\x64\MD\libcrypto_static.lib;..\_deps\curl-build\lib\RelWithDebInfo\libcurl_imp.lib;winmm.lib;ws2_32.lib;advapi32.lib;crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/Code/DC-Cryptocurrency/dcc_client/out/dcc_client/RelWithDebInfo/dcc_client.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/Code/DC-Cryptocurrency/dcc_client/out/dcc_client/RelWithDebInfo/dcc_client.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/dcc_client/RelWithDebInfo/dcc_client.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/dcc_client/RelWithDebInfo/dcc_client.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -260,11 +272,11 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/dcc_client/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/dcc_client/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/dcc_client/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out --check-stamp-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/dcc_client/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -272,12 +284,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\FindBoost.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindCURL.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\FindBoost.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindCURL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/dcc_client/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/dcc_client/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/dcc_client/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out --check-stamp-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/dcc_client/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -285,12 +297,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\FindBoost.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindCURL.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\FindBoost.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindCURL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/dcc_client/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/dcc_client/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/dcc_client/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out --check-stamp-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/dcc_client/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -298,12 +310,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\FindBoost.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindCURL.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\FindBoost.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindCURL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/dcc_client/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/dcc_client/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client -BD:/Code/DC-Cryptocurrency/dcc_client/out --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/dcc_client/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out --check-stamp-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/dcc_client/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -311,56 +323,56 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\FindBoost.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindCURL.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\FindBoost.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindCURL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\dcc_client\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\json.hpp" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Main.h" />
-    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Main.cpp" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Console.h" />
-    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Console.cpp" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\FileManip.h" />
-    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\FileManip.cpp" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Network.h" />
-    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Network.cpp" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.h" />
-    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\strops.cpp" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.h" />
-    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.h" />
-    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\crypto.cpp" />
-    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Blockchain.cpp" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Blockchain.h" />
-    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.cpp" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Miner.h" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\SettingsConsts.h" />
-    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\System.cpp" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\System.h" />
-    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\BaseConverter.cpp" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\BaseConverter.h" />
-    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\benchmark.cpp" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\uint128.h" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\uint256.h" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\uint128.inl" />
-    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\uint256.inl" />
-    <ResourceCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\DCC-Logo.rc" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\json.hpp" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\Main.h" />
+    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\Main.cpp" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\Console.h" />
+    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\Console.cpp" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\FileManip.h" />
+    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\FileManip.cpp" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\Network.h" />
+    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\Network.cpp" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\strops.h" />
+    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\strops.cpp" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.h" />
+    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\P2PClient.cpp" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\crypto.h" />
+    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\crypto.cpp" />
+    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\Blockchain.cpp" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\Blockchain.h" />
+    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\Miner.cpp" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\Miner.h" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\SettingsConsts.h" />
+    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\System.cpp" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\System.h" />
+    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\BaseConverter.cpp" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\BaseConverter.h" />
+    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\benchmark.cpp" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\uint128.h" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\uint256.h" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\uint128.inl" />
+    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\uint256.inl" />
+    <ResourceCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\dcc_client\DCC-Logo.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\Code\DC-Cryptocurrency\dcc_client\out\ZERO_CHECK.vcxproj">
-      <Project>{DFB1439E-748B-361B-89E7-E0D2267CD605}</Project>
+    <ProjectReference Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\ZERO_CHECK.vcxproj">
+      <Project>{106CB5B3-B9DE-38B2-9281-F30321634A66}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr\cpr.vcxproj">
-      <Project>{326911C3-B123-3ED3-8DA9-898F63244DF6}</Project>
+    <ProjectReference Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr\cpr.vcxproj">
+      <Project>{D94934F8-6E82-3A06-A219-37ABF18C1335}</Project>
       <Name>cpr</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build\lib\libcurl.vcxproj">
-      <Project>{C8AA6489-7F4A-3609-AD54-0ADA9AA23F3F}</Project>
+    <ProjectReference Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-build\lib\libcurl.vcxproj">
+      <Project>{71BC4C85-CE9E-32A0-BF33-022860C1E372}</Project>
       <Name>libcurl</Name>
     </ProjectReference>
   </ItemGroup>

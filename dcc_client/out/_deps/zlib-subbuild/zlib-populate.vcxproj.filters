@@ -1,44 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-mkdir.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-download.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-update.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-patch.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-configure.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-build.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-install.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\f6a9fbf87c1bde7ec0636154359826e2\zlib-populate-test.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\679288596b41415ce2c2a8c39561a6b7\zlib-populate-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\fc995356a878e5be91fb2dd1a6a0d000\zlib-populate-complete.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\7df0ea6e317bbd3ec7632cbd54a1f129\zlib-populate-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\268708f7521af7c069be33f5fff0ca8e\zlib-populate.rule">
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\1255c86601c3260a50cb424987f4191c\zlib-populate.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\zlib-populate" />
+    <None Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\zlib-populate" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{4342EC03-1610-39F6-80D0-8C7DAA3DE8AD}</UniqueIdentifier>
+      <UniqueIdentifier>{2C77B86B-11D8-3BF1-8ECB-573C41790D53}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

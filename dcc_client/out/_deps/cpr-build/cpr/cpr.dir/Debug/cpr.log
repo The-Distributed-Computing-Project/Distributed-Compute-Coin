@@ -1,4 +1,4 @@
-﻿  Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src/cpr/CMakeLists.txt
+﻿  Building Custom Rule C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-src/cpr/CMakeLists.txt
   auth.cpp
   bearer.cpp
   cookies.cpp
@@ -19,5 +19,7 @@
   redirect.cpp
   Generating Code...
   Auto build dll exports
-     Creating library D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build/cpr/Debug/cpr.lib and object D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build/cpr/Debug/cpr.exp
-  cpr.vcxproj -> D:\Code\DC-Cryptocurrency\dcc_client\out\Debug\cpr.dll
+     Creating library C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-build/cpr/Debug/cpr.lib and object C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-build/cpr/Debug/cpr.exp
+  cpr.vcxproj -> C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\Debug\cpr.dll
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.

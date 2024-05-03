@@ -85,7 +85,7 @@ int main()
 	console::WriteLine("Getting public IP address...");
 	Http http;
 	std::string ipStr = DownloadFileAsString("http://dccpool.us.to/ipget.php"); // use custom server for getting IP:PORT
-	if(ipStr == "") // Set default ip:port if no connection can be established
+	if (ipStr == "") // Set default ip:port if no connection can be established
 		ipStr = "127.0.0.1:5060";
 	//std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
 	//console::WriteLine(ipStr);
@@ -109,16 +109,16 @@ int main()
 		std::ofstream configFile("./config.cfg");
 		if (configFile.is_open())
 		{
-			configFile 
-				<< "{\"port\":" << SplitString(ipStr, ":")[1] 
-				<< ",\"ip\":\"" << SplitString(ipStr, ":")[0] 
+			configFile
+				<< "{\"port\":" << SplitString(ipStr, ":")[1]
+				<< ",\"ip\":\"" << SplitString(ipStr, ":")[0]
 				<< "\",\"permanentPort\":false,\"keepAlive\":false}";
 			configFile.close();
 		}
 		/*walletConfig["ip"] = SplitString(ipStr, ":")[0];
 			walletConfig["port"] = SplitString(ipStr, ":")[1];*/
 	}
-	else{
+	else {
 		std::ifstream conf("./config.cfg");
 		if (conf.is_open()) {
 			std::stringstream confbuf;
@@ -126,7 +126,7 @@ int main()
 			walletConfig = json::parse(confbuf.str());
 			conf.close();
 		}
-		if(walletConfig["permanentPort"] == false){
+		if (walletConfig["permanentPort"] == false) {
 			walletConfig["port"] = stoi(SplitString(ipStr, ":")[1]);
 			walletConfig["ip"] = SplitString(ipStr, ":")[0];
 			std::ofstream configFile("./config.cfg");
@@ -191,16 +191,16 @@ int main()
 
 			// Verify the deluge, by checking each chunk with its expected hash, and then the full hash
 			std::string delugePath = "./wwwdata/containers/" + ((std::string)delugeJson["_totalHash"]).substr(0, 32) + ".tar.zip";
-			if(VerifyDeluge(delugeJson, delugePath)){
+			if (VerifyDeluge(delugeJson, delugePath)) {
 				// Add deluge full hash to list with it's path as a value
 				//completeDelugeList[(std::string)delugeJson["_totalHash"]] = deluge.path().string();
 			}
 			// If the deluge is invalid, remove it's file
-			else{
-				try{
+			else {
+				try {
 					remove(deluge.path());
 				}
-				catch(...){}
+				catch (...) {}
 			}
 		}
 	}
@@ -223,12 +223,12 @@ int main()
 	console::SystemPrint();
 	console::WriteLine("Client endpoint: " + (std::string)walletConfig["ip"] + ":" + std::to_string((int)walletConfig["port"]));
 
-	if(walletConfig["permanentPort"]){
-		console::WriteIndented("(The port is set permanently in the config file to ",console::yellowFGColor,"",3);
-		console::Write(std::to_string((int)walletConfig["port"]),console::blueFGColor,"");
-		console::Write(")\n",console::yellowFGColor,"");
-		console::WriteIndented("Make sure this port is opened in your firewall, or the\n",console::yellowFGColor,"",3);
-		console::WriteIndented("system will not be able to communicate with peers.\n",console::yellowFGColor,"",3);
+	if (walletConfig["permanentPort"]) {
+		console::WriteIndented("(The port is set permanently in the config file to ", console::yellowFGColor, "", 3);
+		console::Write(std::to_string((int)walletConfig["port"]), console::blueFGColor, "");
+		console::Write(")\n", console::yellowFGColor, "");
+		console::WriteIndented("Make sure this port is opened in your firewall, or the\n", console::yellowFGColor, "", 3);
+		console::WriteIndented("system will not be able to communicate with peers.\n", console::yellowFGColor, "", 3);
 	}
 
 	// Open the socket required to accept P2P requests and send responses
@@ -238,6 +238,8 @@ int main()
 	std::thread t1(&P2P::ListenerThread, &p2p, 10);
 	// Start the P2P sender thread
 	std::thread t2(&P2P::SenderThread, &p2p);
+
+	AnnounceToPeers(p2p);
 
 
 	//
@@ -410,7 +412,7 @@ int main()
 			{
 				IsChainValid(p2p, walletInfo);
 
-				if (GetProgram(p2p,walletInfo) == 0)
+				if (GetProgram(p2p, walletInfo) == 0)
 				{
 					console::ConnectionError();
 					continue;
@@ -502,7 +504,7 @@ int main()
 					console::Write("\nPaused, press");
 					console::Write(" R ", console::greenFGColor, "");
 					console::WriteLine("to resume");
-					while(!ISKEYDOWN(0x52));
+					while (!ISKEYDOWN(0x52));
 					//while (!GetAsyncKeyState(0x52));
 					//GETKEY();
 				}
@@ -545,8 +547,8 @@ int main()
 		else if (commandParts[0] == "--LIST-CONTAINERS" || commandParts[0] == "-LS")
 		{
 			console::WriteLine();
-			const std::string delugeDirectories[2] = {"./wwwdata/deluges/", "./wwwdata/developing-deluges/"};
-			for (std::string delugeDir : delugeDirectories){
+			const std::string delugeDirectories[2] = { "./wwwdata/deluges/", "./wwwdata/developing-deluges/" };
+			for (std::string delugeDir : delugeDirectories) {
 				console::Write("\nDeluges in directory: ");
 				console::WriteLine("\"" + delugeDir + "\"", console::yellowFGColor);
 
@@ -555,8 +557,8 @@ int main()
 
 				// Colored headers
 				console::WriteIndented("| ", "", "", 1);
-				console::Write("Name:", console::cyanFGColor);
-				console::Write("                           |");
+				console::Write("Name", console::cyanFGColor);
+				console::Write("                            |");
 				console::Write(" ID", console::cyanFGColor, "");
 				console::Write("                      |");
 				console::Write(" Peers", console::cyanFGColor, "");
@@ -573,11 +575,11 @@ int main()
 						json delugeJson = json::parse(delugeFilebuf.str());
 						delugeFile.close();
 
-						console::WriteIndented("| "+PadStringRight((std::string)delugeJson["_name"], ' ', 32) + "| ", "", "", 1);
+						console::WriteIndented("| " + PadStringRight((std::string)delugeJson["_name"], ' ', 32) + "| ", "", "", 1);
 						console::Write(((std::string)delugeJson["_totalHash"]).substr(0, 20) + "... |");
 						console::Write(PadString(std::to_string(delugeJson["peers"].size()), ' ', 7) + " |");
 						console::WriteLine();
-			
+
 						//// Verify the deluge, by checking each chunk with its expected hash, and then the full hash
 						//std::string delugePath = "./wwwdata/containers/" + ((std::string)delugeJson["_totalHash"]).substr(0, 32) + ".tar.zip";
 						//if(VerifyDeluge(delugeJson, delugePath)){
@@ -596,6 +598,48 @@ int main()
 				console::WriteIndented("+---------------------------------+-------------------------+--------+\n", "", "", 1);
 			}
 		}
+		else if (commandParts[0] == "--LIST-PEERS" || commandParts[0] == "-LP")
+		{
+			console::WriteLine();
+			console::Write("\nPeers: ");
+
+			// Make table
+			console::WriteIndented("+-----------------+-------+------------+-------+\n", "", "", 1);
+
+			// Colored headers
+			console::WriteIndented("| ", "", "", 1);
+			console::Write("IP", console::cyanFGColor);
+			console::Write("              |");
+			console::Write(" PORT", console::cyanFGColor, "");
+			console::Write("  |");
+			console::Write(" Status", console::cyanFGColor, "");
+			console::Write("     |");
+			console::Write(" Tries", console::cyanFGColor, "");
+			console::Write(" |");
+			console::WriteLine();
+
+			console::WriteIndented("+-----------------+-------+------------+-------+\n", "", "", 1);
+			for(std::string peer : p2p.peerList)
+			{
+					console::WriteIndented("| " + PadStringRight(SplitString(peer, ":")[0], ' ', 16) + "| ", "", "", 1);
+					console::Write(PadStringRight(SplitString(peer, ":")[1], ' ', 5) + " | ");
+					int statusNum = stoi(SplitString(peer, ":")[2]);
+					if (statusNum <= 1)
+						console::Write(PadStringRight("online", ' ', 10), console::greenFGColor);
+					else if (statusNum <= 5)
+						console::Write(PadStringRight("stalling", ' ', 10), console::yellowFGColor);
+					else if (statusNum <= 9)
+						console::Write(PadStringRight("offline", ' ', 10), console::redFGColor);
+					console::Write(" | ");
+
+					console::Write(PadStringRight(SplitString(peer, ":")[2], ' ', 5) + " | ");
+
+					console::WriteLine();
+
+			}
+			console::WriteIndented("+-----------------+-------+------------+-------+\n", "", "", 1);
+		}
+
 		//else if (commandParts[0] == "--CONNECT" || commandParts[0] == "-C")
 		//{
 		//	if (commandParts.size() < 3)
@@ -687,7 +731,7 @@ int SendFunds(P2P& p2p, std::string& toAddress, float amount)
 	console::WriteLine("Syncing blocks...");
 	Sync(p2p, walletInfo);
 
-	
+
 	// Make sure chain is completely valid
 	while (!IsChainValid(p2p, walletInfo))
 	{

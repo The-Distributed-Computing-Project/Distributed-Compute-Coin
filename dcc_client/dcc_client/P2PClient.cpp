@@ -94,6 +94,7 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 				toLen)
 				- segSize; // Don't include segment info when counting data, so subtract this
 			if (n <= -1) {
+				ERRORMSG("Sending data failed:\n");
 				printf("sendto failed with error: %d\n", WSAGetLastError());
 				break;
 			}
@@ -904,7 +905,7 @@ void P2P::InitPeerList() {
 		while (std::getline(peerFile, line)) {
 			if (line == "") // Make sure at least one instance of DCCARK peer is included
 				peerList.push_back("144.202.13.89:5060:0");
-			else
+			else if(line[0] != '#')
 				peerList.push_back(line);
 		}
 	peerFile.close();
@@ -999,6 +1000,22 @@ void P2P::RandomizePeer() {
 		peerListID = randI;
 		peerIP = SplitString(peerList[randI], ":")[0];
 		peerPort = stoi(SplitString(peerList[randI], ":")[1]);
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+}
+
+// Function to set specific peer credentials from the peerList
+void P2P::SetPeer(int id) {
+	if (peerList.size() == 0)
+		return;
+	try
+	{
+		peerListID = id;
+		peerIP = SplitString(peerList[id], ":")[0];
+		peerPort = stoi(SplitString(peerList[id], ":")[1]);
 	}
 	catch (const std::exception& e)
 	{

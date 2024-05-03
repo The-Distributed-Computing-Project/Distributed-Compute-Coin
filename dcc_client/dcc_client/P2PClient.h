@@ -111,6 +111,7 @@ public:
 	bool isAwaiting();
 	void ListenerThread(int update_interval);
 	void RandomizePeer();
+	void SetPeer(int id);
 	//int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen);
 	int OpenP2PSocket(int port);
 	void SenderThread();

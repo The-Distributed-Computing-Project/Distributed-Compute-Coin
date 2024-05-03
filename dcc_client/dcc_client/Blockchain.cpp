@@ -65,6 +65,30 @@ int Sync(P2P& p2p, json& walletInfo)
 	}
 }
 
+// Announce the current ip address and port to all of the peers in the peer list
+int AnnounceToPeers(P2P& p2p)
+{
+	try
+	{
+		for (int i = 0; i < p2p.peerList.size(); i++) {
+			p2p.SetPeer(i);
+
+			p2p.peerListID = i;
+			p2p.messageStatus = p2p.initial_connect_request;
+			p2p.messageAttempt = 0;
+
+			while (p2p.isAwaiting()) {}
+		}
+		//GetProgram(walletInfo);
+		return 1;
+	}
+	catch (const std::exception& e)
+	{
+		ERRORMSG("Failed to announce to peers\n" << e.what());
+		return 0;
+	}
+}
+
 // Read the configuration file of the assigned program, and return the JSON data
 json ReadProgramConfig()
 {

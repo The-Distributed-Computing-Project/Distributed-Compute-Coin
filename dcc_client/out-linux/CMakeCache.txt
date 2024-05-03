@@ -386,6 +386,10 @@ CURL_CA_BUNDLE_SET:BOOL=TRUE
 //Set ON to use built-in CA store of TLS backend. Defaults to OFF
 CURL_CA_FALLBACK:BOOL=OFF
 
+//Location of default CA path. Set 'none' to disable or 'auto'
+// for auto-detection. Defaults to 'auto'.
+CURL_CA_PATH:STRING=/etc/ssl/certs
+
 //Path to the CA bundle has been set
 CURL_CA_PATH_SET:BOOL=TRUE
 

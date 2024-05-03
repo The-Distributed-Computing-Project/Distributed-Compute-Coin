@@ -71,12 +71,6 @@ bool P2P::isAwaiting() {
 // Safely send some data as a string, and split large amounts of data into multiple segments to be sent sequentially.
 int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen)
 {
-<<<<<<< HEAD
-	//std::cout << to.addr << std::endl;
-//#if defined(_MSC_VER)
-=======
-	//#if defined(_MSC_VER)
->>>>>>> 8a14f743bcd15b9d8d6fc14ed66e845a1d0c8de7
 	try
 	{
 
@@ -107,28 +101,13 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 				(struct sockaddr*)&to,
 				sizeof(to))
 				- segSize; // Don't include segment info when counting data, so subtract this
-<<<<<<< HEAD
-//#else		
-//			n = write(socket,
-//				segInfo.c_str(),
-//				(bytesLeft < 1000) ? (bytesLeft + segSize) : (1000 + segSize),
-//				0,
-//				to,
-//				toLen)
-//				- segSize; // Don't include segment info when counting data, so subtract this
-//#endif
 
 			if (n <= -1) { 
 				std::cout << errno << std::endl;
 				console::ErrorPrint();
 				console::Write("Sending thread encountered an error in (__FILE__, line: __LINE__):\n");
-
-=======
-			if (n <= -1) {
-				printf("sendto failed with error: %d\n", WSAGetLastError());
->>>>>>> 8a14f743bcd15b9d8d6fc14ed66e845a1d0c8de7
-				break;
 			}
+
 			total += n;
 			if (WalletSettingValues::verbose >= 3) {
 				std::cout << std::to_string((int)round(100 * ((float)total / (float)len))) << "% sent" << std::endl;

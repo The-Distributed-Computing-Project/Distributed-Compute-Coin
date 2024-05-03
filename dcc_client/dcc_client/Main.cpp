@@ -83,7 +83,7 @@ int main()
 	// Get public IP address
 	console::NetworkPrint();
 	console::WriteLine("Getting public IP address...");
-	Http http;
+	//Http http;
 	std::string ipStr = DownloadFileAsString("http://dccpool.us.to/ipget.php"); // use custom server for getting IP:PORT
 	if(ipStr == "") // Set default ip:port if no connection can be established
 		ipStr = "127.0.0.1:5060";
@@ -94,9 +94,10 @@ int main()
 
 	bool permanentPort = false;
 
+	
 	// Create config.cfg file if it doesn't exist 
 	console::SystemPrint();
-	console::Write("Checking config.cfg...");
+	console::WriteLine("Checking config.cfg");
 	if (!fs::exists("./config.cfg"))
 	{
 		//int prt;
@@ -105,8 +106,7 @@ int main()
 		//std::cin >> prt;
 		//if (prt <= 0 || prt > 65535)
 		//	prt = 5060;
-		console::WriteLine(" not found", console::redFGColor);
-
+	
 		std::ofstream configFile("./config.cfg");
 		if (configFile.is_open())
 		{
@@ -126,7 +126,6 @@ int main()
 			confbuf << conf.rdbuf();
 			walletConfig = json::parse(confbuf.str());
 			conf.close();
-			
 		}
 		if(walletConfig["permanentPort"] == false){
 			walletConfig["port"] = stoi(SplitString(ipStr, ":")[1]);
@@ -138,34 +137,6 @@ int main()
 				configFile.close();
 			}
 		}
-	}
-	
-	// Get public IP address
-	console::NetworkPrint();
-	console::WriteLine("Getting public IP address...");
-	Http http;
-	std::string ipStr = DownloadFileAsString("http://dccpool.us.to/ipget.php"); // use custom server for getting IP:PORT
-	if(ipStr == "")
-		ipStr = "127.0.0.1:5060";
-	//std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
-	//console::WriteLine(ipStr);
-	console::WriteLine(" ok", console::greenFGColor);
-
-	uint16_t savePort = 0;
-	if(walletConfig["permanentPort"] == false){
-		savePort = stoi(SplitString(ipStr, ":")[1]);
-	}
-	else{
-		savePort = walletConfig["port"];
-	}
-
-	walletConfig["ip"] = SplitString(ipStr, ":")[0];
-	walletConfig["port"] = savePort;
-	std::ofstream configFile("./config.cfg");
-	if (configFile.is_open())
-	{
-		configFile << walletConfig.dump();
-		configFile.close();
 	}
 
 

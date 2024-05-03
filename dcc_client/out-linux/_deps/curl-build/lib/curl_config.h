@@ -31,7 +31,7 @@
 /* #undef CURL_CA_FALLBACK */
 
 /* Location of default ca path */
-/* #undef CURL_CA_PATH */
+#define CURL_CA_PATH "/etc/ssl/certs"
 
 /* disables alt-svc */
 /* #undef CURL_DISABLE_ALTSVC */

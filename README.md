@@ -97,22 +97,30 @@ Supercomputers are expensive to build, and equally as expensive for institutions
 > This is the genesis block
 ```json
 {
-    "_version": "v0.8.0-alpha-coin",
+    "_version": "v0.8.4-alpha-coin",
     "containerTasks": [
         {
             "taskID": "",
             "taskInstances": [
                 {
-                    "responsiblePeers": [],
-                    "seed": "",
+                    "responsiblePeers": [
+                        {
+                            "ip": "",
+                            "port": 0,
+                            "signature": ""
+                        }
+                    ],
+                    "seed": "00000000",
                     "taskDataHash": ""
                 }
             ]
         }
     ],
     "hash": "dccba5e885fda6209b50397c3d97ab416da0928d7d49b5f0bc9835cd88f756d6",
-    "lastHash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "id": 1,
     "nonce": "1275615",
+    "pnext": "000000f7f6b329107664488aa6395c1e9a18ca07f9b172a25d7663691ca77d7e",
+    "pprev": "0000000000000000000000000000000000000000000000000000000000000000",
     "targetDifficulty": "0000000ffff0000000000000000000000000000000000000000000000000000",
     "time": "0",
     "transactionTimes": [

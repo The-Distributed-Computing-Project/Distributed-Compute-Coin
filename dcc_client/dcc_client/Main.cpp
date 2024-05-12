@@ -62,7 +62,17 @@ int main()
 {
 	Logo();
 	srand(time(0));
+
+
+	console::SystemPrint();
+	console::WriteLine("Benchmarking... ");
 	flops = benchmark();
+	std::cout << "                                                          \r";
+	console::SystemPrint();
+	console::Write("Benchmark results: ");
+	console::Write(truncateNum(flops) + "Flops", console::cyanFGColor);
+	console::WriteLine(" ok", console::greenFGColor);
+
 
 	if (WalletSettingValues::verbose >= 6) {
 		console::WriteLine("hextest: ");
@@ -82,22 +92,21 @@ int main()
 
 	// Get public IP address
 	console::NetworkPrint();
-	console::WriteLine("Getting public IP address...");
+	console::Write("Getting public IP address...");
 	//Http http;
 	std::string ipStr = DownloadFileAsString("http://dccpool.us.to/ipget.php"); // use custom server for getting IP:PORT
 	if (ipStr == "") // Set default ip:port if no connection can be established
 		ipStr = "127.0.0.1:5060";
 	//std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
 	//console::WriteLine(ipStr);
-	console::NetworkPrint();
-	console::WriteLine("Done.");
+	console::WriteLine(" ok", console::greenFGColor);
 
 	bool permanentPort = false;
 
 	
 	// Create config.cfg file if it doesn't exist 
 	console::SystemPrint();
-	console::WriteLine("Checking config.cfg");
+	console::Write("Checking config.cfg");
 	if (!fs::exists("./config.cfg"))
 	{
 		//int prt;
@@ -106,6 +115,7 @@ int main()
 		//std::cin >> prt;
 		//if (prt <= 0 || prt > 65535)
 		//	prt = 5060;
+		console::Write(" creating.", console::yellowFGColor);
 	
 		std::ofstream configFile("./config.cfg");
 		if (configFile.is_open())
@@ -116,6 +126,8 @@ int main()
 				<< "\",\"permanentPort\":false,\"keepAlive\":false}";
 			configFile.close();
 		}
+
+		console::WriteLine(" ok", console::greenFGColor);
 		/*walletConfig["ip"] = SplitString(ipStr, ":")[0];
 			walletConfig["port"] = SplitString(ipStr, ":")[1];*/
 	}
@@ -126,6 +138,7 @@ int main()
 			confbuf << conf.rdbuf();
 			walletConfig = json::parse(confbuf.str());
 			conf.close();
+			console::WriteLine(" ok", console::greenFGColor);
 		}
 		if (walletConfig["permanentPort"] == false) {
 			walletConfig["port"] = stoi(SplitString(ipStr, ":")[1]);
@@ -181,7 +194,7 @@ int main()
 
 	console::SystemPrint();
 	console::Write("Your wallet: ");
-	console::WriteLine(wallet, console::greenFGColor, "");
+	console::WriteLine(wallet, console::cyanFGColor, "");
 	walletInfo["Address"] = wallet;
 
 	// Get all deluge files, and ensure they are complete
@@ -232,7 +245,8 @@ int main()
 	endpointPort = std::to_string((int)walletConfig["port"]);
 
 	console::SystemPrint();
-	console::WriteLine("Client endpoint: " + (std::string)walletConfig["ip"] + ":" + std::to_string((int)walletConfig["port"]));
+	console::Write("Client endpoint: ");
+	console::WriteLine((std::string)walletConfig["ip"] + ":" + std::to_string((int)walletConfig["port"]), console::cyanFGColor);
 
 	if (walletConfig["permanentPort"]) {
 		console::WriteIndented("(The port is set permanently in the config file to ", console::yellowFGColor, "", 3);
@@ -250,19 +264,15 @@ int main()
 	// Start the P2P sender thread
 	std::thread t2(&P2P::SenderThread, &p2p);
 
-	AnnounceToPeers(p2p);
-
 
 	//
 	// Gather wallet information, validate blockchain, and print information.
 	//	
 
-	console::SystemPrint();
-	console::WriteLine("Getting wallet info...");
-
 	console::NetworkPrint();
-	console::WriteLine("Syncing blocks...");
+	console::Write("Syncing blocks...");
 	Sync(p2p, walletInfo);
+	console::WriteLine(" ok", console::greenFGColor);
 	try
 	{
 		IsChainValid(p2p, walletInfo);
@@ -298,6 +308,8 @@ int main()
 	//console::Write("scanning ports...");
 	//ScanAllPorts("74.78.145.2");
 
+
+	AnnounceToPeers(p2p);
 	//
 	// Start command loop
 	//
@@ -397,6 +409,7 @@ int main()
 		else if (commandParts[0] == "--ADDPEER")
 		{
 			p2p.peerList.push_back(commandParts[1] + ":0");
+			p2p.SavePeerList();
 		}
 		//else if (commandParts[0] == "--VERBOSITY")
 		//{

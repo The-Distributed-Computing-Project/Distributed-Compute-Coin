@@ -11,5 +11,6 @@ using namespace std;
 using namespace std::chrono;
 
 unsigned long long benchmark();
+std::string truncateNum(double x);
 
 #endif

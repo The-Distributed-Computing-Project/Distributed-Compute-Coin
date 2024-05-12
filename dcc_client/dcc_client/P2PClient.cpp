@@ -92,20 +92,20 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 
 			segInfo += (p + total);
 
-//#if WINDOWS
+			//#if WINDOWS
 			n = sendto(socket,
 				segInfo.c_str(),
-				sizeof(segInfo.c_str()),
-				//(bytesLeft < 1000) ? (bytesLeft + segSize) : (1000 + segSize),
+				//sizeof(segInfo.c_str()),
+				(bytesLeft < 1000) ? (bytesLeft + segSize) : (1000 + segSize),
 				0,
 				(struct sockaddr*)&to,
-				sizeof(to))
+				toLen)
 				- segSize; // Don't include segment info when counting data, so subtract this
 			if (n <= -1) {
 				ERRORMSG("Sending data failed:\n");
 				printf("sendto failed with error: %d\n", WSAGetLastError());
+				return -1;
 				break;
-
 			}
 
 			total += n;
@@ -148,7 +148,9 @@ void P2P::ListenerThread(int update_interval)
 		while (true) {
 
 			SOCKADDR_IN remoteAddr;
-			int remoteAddrLen = sizeof(remoteAddr);
+			//remoteAddr.sin_family = AF_INET;
+			//remoteAddr.sin_addr.s_addr = INADDR_ANY;
+			socklen_t remoteAddrLen = sizeof(remoteAddr);
 
 			DWORD timeout = 10 * 1000;
 			setsockopt(localSocket, SOL_SOCKET, SO_RCVTIMEO, (char*)&timeout, sizeof(timeout));
@@ -174,11 +176,14 @@ void P2P::ListenerThread(int update_interval)
 					console::WriteLine("Error: Socket Error, trying again...");
 				}
 				else {
-					int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
+					int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (struct sockaddr*)&remoteAddr, &remoteAddrLen);
+
 
 					if (WalletSettingValues::verbose >= 3)
-						if (iResult != -1)
+						if (iResult != -1) {
 							std::cout << "iResult: " << std::to_string(iResult) << std::endl;
+							std::cout << "\n\nsin_family of received: " << remoteAddr.sin_family << "\n" << std::endl;
+						}
 
 					if (iResult > 0) {
 
@@ -912,7 +917,7 @@ void P2P::InitPeerList() {
 		while (std::getline(peerFile, line)) {
 			if (line == "") // Make sure at least one instance of DCCARK peer is included
 				peerList.push_back("144.202.13.89:5060:0");
-			else if(line[0] != '#')
+			else if (line[0] != '#')
 				peerList.push_back(line);
 		}
 	peerFile.close();
@@ -937,12 +942,12 @@ void P2P::SavePeerList() {
 // The function to open the socket required for the P2P connection
 int P2P::OpenP2PSocket(int port)
 {
+
+	console::NetworkPrint();
+	console::Write("Starting P2P Client...");
 #if WINDOWS
 
 	Http http;
-
-	console::NetworkPrint();
-	console::WriteLine("Starting P2P Client...");
 
 	// Start winsock
 	WSADATA wsaData;
@@ -994,6 +999,8 @@ int P2P::OpenP2PSocket(int port)
 
 #endif
 
+	console::WriteLine(" ok", console::greenFGColor);
+
 	return 0;
 }
 
@@ -1033,9 +1040,9 @@ void P2P::SetPeer(int id) {
 // The function that is run in a thread in order to reply or send data to a peer in the background
 void P2P::SenderThread()
 {
-//#if defined(_MSC_VER)
+	//#if defined(_MSC_VER)
 
-	//Http http;
+		//Http http;
 
 	stop_thread_2 = false;
 
@@ -1048,11 +1055,12 @@ void P2P::SenderThread()
 			otherAddr.sin_port = htons(peerPort);
 			otherAddr.sin_family = AF_INET;
 			otherAddr.sin_addr.s_addr = inet_addr(peerIP.c_str());
+			//std::cout << "peer: \""<<peerIP.c_str() << "\"" << std::endl;
 
 			otherSize = sizeof(otherAddr);
 
-			//if (connect(localSocket,(struct sockaddr *) &otherAddr,sizeof(otherAddr)) < 0) 
-			//	console::WriteLine("ERROR connecting");
+			if (connect(localSocket, (struct sockaddr*)&otherAddr, otherSize) < 0)
+				console::WriteLine("ERROR connecting");
 
 			bool noinput = false;
 

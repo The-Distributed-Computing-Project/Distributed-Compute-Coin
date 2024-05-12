@@ -179,6 +179,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 			blockJson["targetDifficulty"] = "";
 			blockJson["_version"] = BLOCK_VERSION;
 			blockJson["transactions"] = json::array();
+			blockJson["containerTasks"] = json::array();
 			blockJson["id"] = blockNum + 1;
 
 			// Save new json data to file into finished blockchain folder

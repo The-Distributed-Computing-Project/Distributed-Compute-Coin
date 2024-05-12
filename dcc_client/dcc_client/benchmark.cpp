@@ -48,8 +48,8 @@ unsigned long long benchmark()
     	averageFlops += (1000000.0/(double)(duration.count())*4000.0)/(double)FLOPS_SAMPLES;
     }
 
-    std::cout << "                                                          \r";
-	cout << "FLOPS: " << truncateNum(averageFlops)  <<"flops"<< endl;
+    /*std::cout << "                                                          \r";
+	cout << "FLOPS: " << truncateNum(averageFlops)  <<"flops"<< endl;*/
 
     return (unsigned long long)averageFlops;
 }

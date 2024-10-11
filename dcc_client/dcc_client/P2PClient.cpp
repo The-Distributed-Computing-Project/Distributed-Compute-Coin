@@ -103,7 +103,9 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 				- segSize; // Don't include segment info when counting data, so subtract this
 			if (n <= -1) {
 				ERRORMSG("Sending data failed:\n");
+#if WINDOWS
 				printf("sendto failed with error: %d\n", WSAGetLastError());
+#endif
 				return -1;
 				break;
 			}

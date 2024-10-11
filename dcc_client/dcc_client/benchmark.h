@@ -6,9 +6,12 @@
 #include <iostream>
 #include<vector>
 #include <string>
+#include <thread>
 
 using namespace std;
 using namespace std::chrono;
+
+const auto processor_count = std::thread::hardware_concurrency();
 
 unsigned long long benchmark();
 std::string truncateNum(double x);

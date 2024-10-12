@@ -72,7 +72,7 @@ int main()
 	console::Write("Benchmark results: ");
 	console::Write(truncateNum(flops) + "Flops", console::cyanFGColor);
 	console::Write(" across ");
-	console::Write(std::to_string(processor_count) + " cores", console::redFGColor);
+	console::Write(std::to_string(processor_count) + " cores", console::cyanFGColor);
 	console::WriteLine(" ok", console::greenFGColor);
 
 
@@ -81,24 +81,30 @@ int main()
 		console::WriteLine("\"" + divideHexByFloat("ffffff", 1.3) + "\"");
 		console::WriteLine("\"" + divideHexByFloat("0f0", 2) + "\"");
 		console::WriteLine("\"" + divideHexByFloat("0fff0", 2) + "\"");
-		console::WriteLine("\"" + multiplyHexByFloat("ff00", 2) + "\"");
+		//console::WriteLine("\"" + multiplyHexByFloat("ff00", 2) + "\"");
 	}
 
 	// Create required directories if they don't exist
-	for (std::string dir : directoryList)
-		if (!fs::is_directory(dir) || !fs::exists(dir)) {
-			console::SystemPrint();
-			console::WriteLine("Creating " + dir);
-			fs::create_directory(dir);
-		}
+	//for (std::string dir : directoryList)
+	//	if (!fs::is_directory(dir) || !fs::exists(dir)) {
+	//		console::SystemPrint();
+	//		console::WriteLine("Creating " + dir);
+	//		fs::create_directory(dir);
+	//	}
 
 	// Get public IP address
 	console::NetworkPrint();
 	console::Write("Getting public IP address...");
 	//Http http;
-	std::string ipStr = DownloadFileAsString("http://dccpool.us.to/ipget.php"); // use custom server for getting IP:PORT
-	if (ipStr == "") // Set default ip:port if no connection can be established
-		ipStr = "127.0.0.1:5060";
+	std::string ipStr;
+	try{
+		ipStr = DownloadFileAsString("http://dccpool.us.to/ipget.php"); // use custom server for getting IP:PORT
+	}
+	catch(...){
+		console::WriteLine(" failed", console::redFGColor);
+		//ERRORMSG("Connection to server timed out\n");
+		console::ExitError("Connection to server timed out");
+	}
 	//std::string ipStr = http.StartHttpWebRequest("https://api.ipify.org", args); // This is a free API that lets you get IP 
 	//console::WriteLine(ipStr);
 	console::WriteLine(" ok", console::greenFGColor);

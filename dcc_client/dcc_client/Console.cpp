@@ -251,8 +251,9 @@ namespace console{
 	
 	void ExitError(std::string errMessage)
 	{
-		WriteLine(errMessage);
-		std::cout << "Press Enter to Continue";
+		WriteLine();
+		WriteLine(errMessage, redFGColor);
+		std::cout << "Press Enter to Exit";
 		std::cin.ignore();
 		exit(1);
 	}

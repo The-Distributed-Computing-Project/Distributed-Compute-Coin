@@ -2,37 +2,37 @@
 	"sources" : 
 	[
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/CMakeFiles/zlib-populate"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/CMakeFiles/zlib-populate"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/CMakeFiles/zlib-populate.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/CMakeFiles/zlib-populate.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/CMakeFiles/zlib-populate-complete.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/CMakeFiles/zlib-populate-complete.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-build.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-build.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-configure.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-configure.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-download.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-download.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-install.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-install.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-mkdir.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-mkdir.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-patch.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-patch.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-test.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-test.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-update.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-update.rule"
 		}
 	],
 	"target" : 

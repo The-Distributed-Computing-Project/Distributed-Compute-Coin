@@ -2,37 +2,37 @@
 	"sources" : 
 	[
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/CMakeFiles/cpr-populate"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/CMakeFiles/cpr-populate"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/CMakeFiles/cpr-populate.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/CMakeFiles/cpr-populate.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/CMakeFiles/cpr-populate-complete.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/CMakeFiles/cpr-populate-complete.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-build.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-build.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-configure.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-configure.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-download.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-download.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-install.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-install.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-mkdir.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-mkdir.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-patch.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-patch.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-test.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-test.rule"
 		},
 		{
-			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-update.rule"
+			"file" : "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-subbuild/cpr-populate-prefix/src/cpr-populate-stamp/cpr-populate-update.rule"
 		}
 	],
 	"target" : 

@@ -1,11 +1,11 @@
 _deps/curl-build/lib/CMakeFiles/libcurl.dir/multi.c.o: \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/multi.c \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/multi.c \
  /usr/include/stdc-predef.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_setup.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/lib/curl_config.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/curl.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/curlver.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/system.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_setup.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/lib/curl_config.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/curl.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/curlver.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/system.h \
  /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/features.h \
  /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -21,7 +21,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/multi.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
- /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h /usr/include/endian.h \
  /usr/include/x86_64-linux-gnu/bits/endian.h \
  /usr/include/x86_64-linux-gnu/bits/endianness.h \
@@ -57,7 +57,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/multi.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
- /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
@@ -67,8 +67,8 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/multi.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
@@ -81,14 +81,14 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/multi.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/time.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/easy.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/multi.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/curl.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/urlapi.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/options.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/typecheck-gcc.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/easy.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/multi.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/curl.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/urlapi.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/options.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/typecheck-gcc.h \
  /usr/include/assert.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_setup_once.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_setup_once.h \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/string.h \
@@ -99,71 +99,71 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/multi.c.o: \
  /usr/include/x86_64-linux-gnu/sys/stat.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
  /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
- /usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h /usr/include/unistd.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h /usr/include/unistd.h \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_ctype.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/urldata.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/cookie.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/psl.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/formdata.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_ctype.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/urldata.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/cookie.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/psl.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/formdata.h \
  /usr/include/netinet/in.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/in.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/timeval.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/http_chunks.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/hostip.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/hash.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/llist.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_addrinfo.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/timeval.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/http_chunks.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/hostip.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/hash.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/llist.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_addrinfo.h \
  /usr/include/netdb.h /usr/include/rpc/netdb.h \
  /usr/include/x86_64-linux-gnu/bits/netdb.h /usr/include/arpa/inet.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/asyn.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/asyn.h \
  /usr/include/setjmp.h /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/splay.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/dynbuf.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/mime.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/imap.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/pingpong.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_sasl.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/bufref.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/pop3.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/smtp.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/ftp.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/file.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vssh/ssh.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_setup.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/http.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/rtsp.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/smb.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/mqtt.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/wildcard.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/multihandle.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/conncache.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/socketpair.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/quic.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/c-hyper.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/transfer.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/url.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/connect.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/nonblock.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/sockaddr.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/progress.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/easyif.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/share.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/multiif.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/sendf.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/select.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/splay.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/dynbuf.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/mime.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/imap.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/pingpong.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_sasl.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/bufref.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/pop3.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/smtp.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/ftp.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/file.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vssh/ssh.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_setup.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/http.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/rtsp.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/smb.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/mqtt.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/wildcard.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/multihandle.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/conncache.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/socketpair.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/quic.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/c-hyper.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/transfer.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/url.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/connect.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/nonblock.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/sockaddr.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/progress.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/easyif.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/share.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/multiif.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/sendf.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/select.h \
  /usr/include/poll.h /usr/include/x86_64-linux-gnu/sys/poll.h \
  /usr/include/x86_64-linux-gnu/bits/poll.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/warnless.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/speedcheck.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/sigpipe.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/warnless.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/speedcheck.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/sigpipe.h \
  /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum-generic.h \
  /usr/include/x86_64-linux-gnu/bits/signum-arch.h \
@@ -185,23 +185,23 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/multi.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/signal_ext.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/vtls.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/openssl.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/urldata.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/gtls.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/nssg.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/gskit.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/wolfssl.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/schannel.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/sectransp.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/mbedtls.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/mesalink.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/bearssl.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/rustls.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/http_proxy.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/http2.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/socks.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_printf.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/mprintf.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_memory.h \
- /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/memdebug.h
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/vtls.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/openssl.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/urldata.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/gtls.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/nssg.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/gskit.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/wolfssl.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/schannel.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/sectransp.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/mbedtls.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/mesalink.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/bearssl.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/vtls/rustls.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/http_proxy.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/http2.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/socks.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_printf.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/mprintf.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/curl_memory.h \
+ /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/lib/memdebug.h

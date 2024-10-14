@@ -85,12 +85,12 @@ int main()
 	}
 
 	// Create required directories if they don't exist
-	//for (std::string dir : directoryList)
-	//	if (!fs::is_directory(dir) || !fs::exists(dir)) {
-	//		console::SystemPrint();
-	//		console::WriteLine("Creating " + dir);
-	//		fs::create_directory(dir);
-	//	}
+	for (std::string dir : directoryList)
+		if (!fs::is_directory(dir) || !fs::exists(dir)) {
+			console::SystemPrint();
+			console::WriteLine("Creating " + dir);
+			fs::create_directory(dir);
+		}
 
 	// Get public IP address
 	console::NetworkPrint();
@@ -98,7 +98,7 @@ int main()
 	//Http http;
 	std::string ipStr;
 	try{
-		ipStr = DownloadFileAsString("http://dccpool.us.to/ipget.php"); // use custom server for getting IP:PORT
+		ipStr = DownloadFileAsString(serverURL+"/ipget.php"); // use custom server for getting IP:PORT
 	}
 	catch(...){
 		console::WriteLine(" failed", console::redFGColor);
@@ -561,7 +561,7 @@ int main()
 		}
 		else if (commandParts[0] == "--POOL" || commandParts[0] == "-P")
 		{
-			std::string poolURL = "http://dccpool.us.to";
+			std::string poolURL = serverURL;
 			if (commandParts.size() == 2)
 				poolURL = commandParts[1];
 			PoolMine(poolURL, walletInfo);

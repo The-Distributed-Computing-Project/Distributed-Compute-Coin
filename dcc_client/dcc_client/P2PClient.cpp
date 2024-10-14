@@ -31,6 +31,12 @@ socklen_t remoteAddrLen;
 struct sockaddr_in serv_addr, remoteAddr;
 #endif
 
+#if defined(_WIN32)
+#define GETSOCKETERRORNO() (WSAGetLastError())
+#else
+#define GETSOCKETERRORNO() (errno)
+#endif
+
 //P2P p2p;
 
 #if defined(_MSC_VER)
@@ -98,14 +104,12 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 				//sizeof(segInfo.c_str()),
 				(bytesLeft < 1000) ? (bytesLeft + segSize) : (1000 + segSize),
 				0,
-				(struct sockaddr*)&to,
+				to,
 				toLen)
 				- segSize; // Don't include segment info when counting data, so subtract this
-			if (n <= -1) {
+			if (n + segSize <= -1) {
 				ERRORMSG("Sending data failed:\n");
-#if WINDOWS
-				printf("sendto failed with error: %d\n", WSAGetLastError());
-#endif
+				printf("sendto failed with error: %d\n", GETSOCKETERRORNO());
 				return -1;
 				break;
 			}
@@ -991,12 +995,13 @@ int P2P::OpenP2PSocket(int port)
 		console::WriteLine("ERROR opening socket");
 		exit(1);
 	}
-	bzero((char*)&serv_addr, sizeof(serv_addr));
-	portno = 5060;
+	//bzero((char*)&serv_addr, sizeof(serv_addr));
+	memset(&serv_addr, 0, sizeof(serv_addr));
+	portno = port;
 	serv_addr.sin_family = AF_INET;
 	serv_addr.sin_addr.s_addr = INADDR_ANY;
 	serv_addr.sin_port = htons(portno);
-	if (bind(localSocket, (struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0) {
+	if (bind(localSocket, (const struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0) {
 		console::ErrorPrint();
 		console::WriteLine("ERROR on binding");
 	}

@@ -1,4 +1,4 @@
-# Install script for directory: /root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/include
+# Install script for directory: /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/include
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,11 +37,16 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/include/cpr")
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/bin/objdump")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr_generated_includes/cpr")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/include/cpr")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr_generated_includes/cpr")
 endif()
 

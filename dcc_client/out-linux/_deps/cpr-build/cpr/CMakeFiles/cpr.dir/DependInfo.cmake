@@ -1,55 +1,43 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
-  )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/auth.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/auth.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/bearer.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/bearer.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/cookies.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/cookies.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/cprtypes.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/cprtypes.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/curl_container.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/curl_container.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/curlholder.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/curlholder.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/error.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/error.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/multipart.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/multipart.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/parameters.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/parameters.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/payload.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/payload.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/proxies.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/proxies.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/proxyauth.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/proxyauth.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/redirect.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/redirect.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/response.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/response.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/session.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/session.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/timeout.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/timeout.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/unix_socket.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/unix_socket.cpp.o"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/util.cpp" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/CMakeFiles/cpr.dir/util.cpp.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
-
-# Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_CXX
-  "CPR_ENABLE_SSL"
-  "cpr_EXPORTS"
   )
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "_deps/cpr-build/cpr"
-  "_deps/cpr-src/cpr"
-  "_deps/cpr-src/include"
-  "_deps/cpr-build/cpr_generated_includes"
-  "_deps/curl-src/include"
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/auth.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/auth.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/auth.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/bearer.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/bearer.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/bearer.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/cookies.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/cookies.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/cookies.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/cprtypes.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/cprtypes.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/cprtypes.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/curl_container.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/curl_container.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/curl_container.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/curlholder.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/curlholder.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/curlholder.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/error.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/error.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/error.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/multipart.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/multipart.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/multipart.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/parameters.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/parameters.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/parameters.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/payload.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/payload.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/payload.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/proxies.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/proxies.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/proxies.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/proxyauth.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/proxyauth.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/proxyauth.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/redirect.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/redirect.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/redirect.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/response.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/response.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/response.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/session.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/session.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/session.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/timeout.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/timeout.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/timeout.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/unix_socket.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/unix_socket.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/unix_socket.cpp.o.d"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr/util.cpp" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/util.cpp.o" "gcc" "_deps/cpr-build/cpr/CMakeFiles/cpr.dir/util.cpp.o.d"
   )
 
 # Pairs of files generated by the same build rule.
 set(CMAKE_MULTIPLE_OUTPUT_PAIRS
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/libcpr.so" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/libcpr.so.1.8.2"
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/libcpr.so.1" "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/libcpr.so.1.8.2"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/libcpr.so" "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/libcpr.so.1.8.2"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/libcpr.so.1" "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/libcpr.so.1.8.2"
   )
 
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/lib/CMakeFiles/libcurl.dir/DependInfo.cmake"
+  "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/lib/CMakeFiles/libcurl.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

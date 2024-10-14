@@ -1,7 +1,7 @@
 # Make file names absolute:
 #
-get_filename_component(filename "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-7.80.0.tar.xz" ABSOLUTE)
-get_filename_component(directory "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src" ABSOLUTE)
+get_filename_component(filename "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-7.80.0.tar.xz" ABSOLUTE)
+get_filename_component(directory "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src" ABSOLUTE)
 
 message(STATUS "extracting...
      src='${filename}'

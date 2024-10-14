@@ -76,7 +76,7 @@ while test $# -gt 0; do
         ;;
 
     --cc)
-        echo "/usr/bin/cc"
+        echo "/bin/cc"
         ;;
 
     --prefix)
@@ -161,7 +161,7 @@ while test $# -gt 0; do
            CURLLIBDIR=""
         fi
         if test "Xyes" = "Xno"; then
-          echo ${CURLLIBDIR}-lcurl  -lgcc -lgcc_s -lc -lgcc -lgcc_s -ldl -lpthread /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libz.so
+          echo ${CURLLIBDIR}-lcurl  -lgcc -lgcc_s -lc -lgcc -lgcc_s -ldl /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libz.so
         else
           echo ${CURLLIBDIR}-lcurl
         fi
@@ -172,7 +172,7 @@ while test $# -gt 0; do
 
     --static-libs)
         if test "Xno" != "Xno" ; then
-          echo /usr/local/lib/libcurl.a   -lgcc -lgcc_s -lc -lgcc -lgcc_s -ldl -lpthread /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libz.so
+          echo /usr/local/lib/libcurl.a   -lgcc -lgcc_s -lc -lgcc -lgcc_s -ldl /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libz.so
         else
           echo "curl was built with static libraries disabled" >&2
           exit 1

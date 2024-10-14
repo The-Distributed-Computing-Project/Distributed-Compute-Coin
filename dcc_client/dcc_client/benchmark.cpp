@@ -1,21 +1,31 @@
 #include <algorithm>
 #include <chrono>
 #include <iostream>
-#include<vector>
+#include <iomanip>
+#include <vector>
 #include <string>
 #include "benchmark.h"
 using namespace std;
 using namespace std::chrono;
 
+
+inline static const string roundFloat(const double input, const int decimal_places)
+{
+    ostringstream str;
+    str << fixed << setprecision(decimal_places);
+    str << input;
+    return str.str();
+}
+
 std::string truncateNum(double x){
     if(x > 1000000000000)
-        return std::to_string((long long)x/1000000000000) + " T";
+        return roundFloat((float)((long long)x/10000000000)/100.0,2) + " T";
     else if(x > 1000000000)
-        return std::to_string((long)x/1000000000) + " B";
+        return roundFloat((float)((long)x/10000000)/100.0,2) + " B";
     else if(x > 1000000)
-        return std::to_string((long)x/1000000) + " M";
+        return roundFloat((float)((long)x/10000)/100.0,2) + " M";
     else if(x > 1000)
-        return std::to_string((long)x/1000) + " K";
+        return roundFloat((float)((long)x/10)/100.0,2) + " K";
     else
         return std::to_string(x);
 }
@@ -48,8 +58,8 @@ unsigned long long benchmark()
     	averageFlops += (1000000.0/(double)(duration.count())*4000.0)/(double)FLOPS_SAMPLES;
     }
 
-    std::cout << "                                                          \r";
-	cout << "FLOPS: " << truncateNum(averageFlops)  <<"flops"<< endl;
+    /*std::cout << "                                                          \r";
+	cout << "FLOPS: " << truncateNum(averageFlops)  <<"flops"<< endl;*/
 
-    return (unsigned long long)averageFlops;
+    return (unsigned long long)averageFlops * (unsigned long long)processor_count;
 }

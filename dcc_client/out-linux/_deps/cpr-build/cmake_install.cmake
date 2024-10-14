@@ -1,4 +1,4 @@
-# Install script for directory: /root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src
+# Install script for directory: /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,23 +37,28 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-build/cmake_install.cmake")
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/bin/objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/cmake_install.cmake")
+  include("/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-build/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/cmake_install.cmake")
+  include("/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/include/cmake_install.cmake")
+  include("/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/include/cmake_install.cmake")
 endif()
 

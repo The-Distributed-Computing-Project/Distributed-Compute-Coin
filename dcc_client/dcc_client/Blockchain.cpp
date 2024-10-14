@@ -608,14 +608,14 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 			}
 		}
 		// If there is a failure state, assume that block is bad or does not exist.
-		catch (...)
+		catch (std::exception& e)
 		{
-			/*if (WalletSettingValues::verbose >= 1) {
+			if (WalletSettingValues::verbose >= 1) {
 				ERRORMSG("Error\n" << e.what());
-			}*/
+			}
 
 			console::WriteLine();
-			SyncBlock(p2p, 0, true); // Force resync
+			SyncBlock(p2p, 1, true); // Force resync
 
 			// Then recount, because we need to know if the synced block is new or overwrote an existing one.
 			chainLength = FileCount("./wwwdata/blockchain/");
@@ -1156,6 +1156,44 @@ json UpgradeBlock(json& b)
 		b["_version"] = "v0.8.2-alpha-coin";
 	}
 
+	// v0.8.3-alpha-coin
+	// Changes:
+	// * Add signature, IP, and port to containerTasks object
+	if (IsVersionGreaterOrEqual(currentVersion, "v0.8.3-alpha-coin") == false)
+	{
+		// Add containerTask to each transaction
+		b["containerTasks"].push_back(json::object());
+		b["containerTasks"][0]["taskID"] = "";
+		b["containerTasks"][0]["taskInstances"] = json::array();
+		b["containerTasks"][0]["taskInstances"].push_back(json::object());
+		b["containerTasks"][0]["taskInstances"][0]["responsiblePeers"] = json::array();
+		b["containerTasks"][0]["taskInstances"][0]["responsiblePeers"].push_back(json::parse("{\"signature\":\"\",\"ip\":\"\",\"port\":0}"));
+
+		b["_version"] = "v0.8.3-alpha-coin";
+	}
+
+	// v0.8.4-alpha-coin
+	// Changes:
+	// * Add back seed
+	// * Add back taskDataHash
+	if (IsVersionGreaterOrEqual(currentVersion, "v0.8.4-alpha-coin") == false)
+	{
+		// Add containerTask to each transaction
+		b["containerTasks"][0]["taskInstances"][0]["seed"] = "00000000";
+		b["containerTasks"][0]["taskInstances"][0]["taskDataHash"] = "";
+
+		b["_version"] = "v0.8.4-alpha-coin";
+	}
+
+	// v0.8.5-alpha-coin
+	// Changes:
+	// * Remove legacy transactionTimes array
+	if (IsVersionGreaterOrEqual(currentVersion, "v0.8.5-alpha-coin") == false)
+	{
+		b.erase("transactionTimes");
+
+		b["_version"] = "v0.8.5-alpha-coin";
+	}
 
 
 

@@ -1,4 +1,4 @@
-# Install script for directory: /root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src
+# Install script for directory: /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,28 +37,33 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/bin/objdump")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/lib/cmake_install.cmake")
+  include("/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/lib/cmake_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE FILE PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE FILES "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/curl-config")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE FILE PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE FILES "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/curl-config")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/libcurl.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/libcurl.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl" FILES_MATCHING REGEX "/[^/]*\\.h$")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl" FILES_MATCHING REGEX "/[^/]*\\.h$")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL/CURLTargets.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL/CURLTargets.cmake"
-         "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/CMakeFiles/Export/lib/cmake/CURL/CURLTargets.cmake")
+         "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/CMakeFiles/Export/lib/cmake/CURL/CURLTargets.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL/CURLTargets-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -67,16 +72,16 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/CMakeFiles/Export/lib/cmake/CURL/CURLTargets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/CMakeFiles/Export/lib/cmake/CURL/CURLTargets.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/CMakeFiles/Export/lib/cmake/CURL/CURLTargets-debug.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/CMakeFiles/Export/lib/cmake/CURL/CURLTargets-debug.cmake")
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/CURL" TYPE FILE FILES
-    "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/generated/CURLConfigVersion.cmake"
-    "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/generated/CURLConfig.cmake"
+    "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/generated/CURLConfigVersion.cmake"
+    "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/generated/CURLConfig.cmake"
     )
 endif()
 

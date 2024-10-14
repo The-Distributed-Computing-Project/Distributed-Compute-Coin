@@ -1,4 +1,4 @@
-# Install script for directory: /root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr
+# Install script for directory: /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-src/cpr
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,6 +37,11 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/bin/objdump")
+endif()
+
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   foreach(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcpr.so.1.8.2"
@@ -50,8 +55,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endforeach()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/libcpr.so.1.8.2"
-    "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/libcpr.so.1"
+    "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/libcpr.so.1.8.2"
+    "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/libcpr.so.1"
     )
   foreach(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcpr.so.1.8.2"
@@ -61,10 +66,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
        NOT IS_SYMLINK "${file}")
       file(RPATH_CHANGE
            FILE "${file}"
-           OLD_RPATH "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/lib:"
+           OLD_RPATH "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/lib:"
            NEW_RPATH "")
       if(CMAKE_INSTALL_DO_STRIP)
-        execute_process(COMMAND "/usr/bin/strip" "${file}")
+        execute_process(COMMAND "/bin/strip" "${file}")
       endif()
     endif()
   endforeach()
@@ -77,15 +82,15 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcpr.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/libcpr.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cpr/libcpr.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcpr.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcpr.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcpr.so"
-         OLD_RPATH "/root/dcc/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/lib:"
+         OLD_RPATH "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcpr.so")
+      execute_process(COMMAND "/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcpr.so")
     endif()
   endif()
 endif()

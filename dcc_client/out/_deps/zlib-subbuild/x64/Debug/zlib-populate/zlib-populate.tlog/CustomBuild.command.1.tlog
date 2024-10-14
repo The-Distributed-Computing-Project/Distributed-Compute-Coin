@@ -1,8 +1,20 @@
-^C:\USERS\SAMDA\CODE\DISTRIBUTED-COMPUTE-COIN\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\679288596B41415CE2C2A8C39561A6B7\ZLIB-POPULATE-MKDIR.RULE
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-MKDIR.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-mkdirs.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-mkdir
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -10,15 +22,15 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\SAMDA\CODE\DISTRIBUTED-COMPUTE-COIN\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\679288596B41415CE2C2A8C39561A6B7\ZLIB-POPULATE-DOWNLOAD.RULE
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-DOWNLOAD.RULE
 setlocal
-cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitclone.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-download
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -26,13 +38,13 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\SAMDA\CODE\DISTRIBUTED-COMPUTE-COIN\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\679288596B41415CE2C2A8C39561A6B7\ZLIB-POPULATE-UPDATE.RULE
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-UPDATE.RULE
 setlocal
-cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-src
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -P C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitupdate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -40,11 +52,11 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\SAMDA\CODE\DISTRIBUTED-COMPUTE-COIN\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\679288596B41415CE2C2A8C39561A6B7\ZLIB-POPULATE-PATCH.RULE
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-PATCH.RULE
 setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-patch
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -52,15 +64,15 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\SAMDA\CODE\DISTRIBUTED-COMPUTE-COIN\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\679288596B41415CE2C2A8C39561A6B7\ZLIB-POPULATE-CONFIGURE.RULE
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-CONFIGURE.RULE
 setlocal
-cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-build
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-configure
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -68,15 +80,15 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\SAMDA\CODE\DISTRIBUTED-COMPUTE-COIN\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\679288596B41415CE2C2A8C39561A6B7\ZLIB-POPULATE-BUILD.RULE
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-BUILD.RULE
 setlocal
-cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-build
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-build
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -84,15 +96,15 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\SAMDA\CODE\DISTRIBUTED-COMPUTE-COIN\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\679288596B41415CE2C2A8C39561A6B7\ZLIB-POPULATE-INSTALL.RULE
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-INSTALL.RULE
 setlocal
-cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-build
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-install
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -100,15 +112,15 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\SAMDA\CODE\DISTRIBUTED-COMPUTE-COIN\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\679288596B41415CE2C2A8C39561A6B7\ZLIB-POPULATE-TEST.RULE
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-TEST.RULE
 setlocal
-cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-build
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-test
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -116,13 +128,13 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\SAMDA\CODE\DISTRIBUTED-COMPUTE-COIN\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\7DF0EA6E317BBD3EC7632CBD54A1F129\ZLIB-POPULATE-COMPLETE.RULE
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\FC995356A878E5BE91FB2DD1A6A0D000\ZLIB-POPULATE-COMPLETE.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/Debug
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/Debug
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/Debug/zlib-populate-complete
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/Debug/zlib-populate-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-done
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -130,7 +142,7 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\SAMDA\CODE\DISTRIBUTED-COMPUTE-COIN\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\1255C86601C3260A50CB424987F4191C\ZLIB-POPULATE.RULE
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\268708F7521AF7C069BE33F5FFF0CA8E\ZLIB-POPULATE.RULE
 setlocal
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -138,9 +150,9 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\USERS\SAMDA\CODE\DISTRIBUTED-COMPUTE-COIN\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKELISTS.TXT
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild --check-stamp-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

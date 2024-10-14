@@ -965,8 +965,10 @@ int P2P::OpenP2PSocket(int port)
 	{
 		console::ErrorPrint();
 		console::WriteLine("\n!!! Failed to bind socket !!!\n");
+		printf("WSA error: #%d\n", WSAGetLastError());
 		closesocket(localSocket);
 		WSACleanup();
+		FatalExit(1);
 		return 0;
 	}
 
@@ -976,7 +978,7 @@ int P2P::OpenP2PSocket(int port)
 
 #else
 
-	localSocket = socket(AF_INET, SOCK_STREAM, 0);
+	localSocket = socket(AF_INET, SOCK_DGRAM, 0);
 	if (localSocket < 0) {
 		console::ErrorPrint();
 		console::WriteLine("ERROR opening socket");

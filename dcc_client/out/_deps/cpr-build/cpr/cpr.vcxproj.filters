@@ -1,156 +1,156 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\auth.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\auth.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\bearer.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\bearer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\cookies.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\cookies.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\cprtypes.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\cprtypes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\curl_container.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\curl_container.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\curlholder.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\curlholder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\error.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\error.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\multipart.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\multipart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\parameters.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\parameters.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\payload.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\payload.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\proxies.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\proxies.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\proxyauth.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\proxyauth.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\session.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\session.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\timeout.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\timeout.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\unix_socket.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\unix_socket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\util.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\util.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\response.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\response.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\redirect.cpp">
+    <ClCompile Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\redirect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\api.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\api.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\auth.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\auth.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\bearer.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\bearer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\body.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\body.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\cookies.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\cookies.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\cpr.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\cpr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\cprtypes.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\cprtypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\curlholder.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\curlholder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\digest.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\digest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\error.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\error.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\limit_rate.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\limit_rate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\multipart.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\multipart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\ntlm.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\ntlm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\parameters.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\parameters.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\payload.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\payload.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\proxies.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\proxies.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\proxyauth.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\proxyauth.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\response.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\response.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\session.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\session.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\ssl_options.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\ssl_options.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\timeout.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\timeout.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\unix_socket.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\unix_socket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\util.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\verbose.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\verbose.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\interface.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\redirect.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\redirect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\include\cpr\http_version.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\include\cpr\http_version.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-build\cpr_generated_includes\cpr\cprver.h">
+    <ClInclude Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-build\cpr_generated_includes\cpr\cprver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\cpr-src\cpr\CMakeLists.txt" />
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\cpr-src\cpr\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{1EF03AEB-6CF7-30A2-94B8-431E404A869D}</UniqueIdentifier>
+      <UniqueIdentifier>{71A5EDF8-C477-3090-8B13-0BC113FEA573}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{96860713-7C3E-390C-8915-3FA9F495B81A}</UniqueIdentifier>
+      <UniqueIdentifier>{ABA25449-E4BA-31F3-9DED-E0F7845C9AE5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

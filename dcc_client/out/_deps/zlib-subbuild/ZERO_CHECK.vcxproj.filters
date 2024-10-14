@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\1255c86601c3260a50cb424987f4191c\generate.stamp.rule">
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-subbuild\CMakeFiles\268708f7521af7c069be33f5fff0ca8e\generate.stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{2C77B86B-11D8-3BF1-8ECB-573C41790D53}</UniqueIdentifier>
+      <UniqueIdentifier>{4342EC03-1610-39F6-80D0-8C7DAA3DE8AD}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

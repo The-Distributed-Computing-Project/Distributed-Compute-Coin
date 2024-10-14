@@ -549,13 +549,13 @@ void P2P::ListenerThread(int update_interval)
 			while (!stop_thread_1)
 			{
 
-				//// Set timer of 10 seconds for listening socket
-				//struct timeval tv;
+				// Set timer of 10 seconds for listening socket
+				struct timeval tv;
 				//fd_set rfds;
 				//FD_ZERO(&rfds);
 				//FD_SET(localSocket, &rfds);
-				//tv.tv_sec = 10;
-				//tv.tv_usec = 0;
+				tv.tv_sec = 2;
+				tv.tv_usec = 0;
 
 				////listen(localSocket,5);
 				//int iResult = select(localSocket, &rfds, (fd_set*)0, (fd_set*)0, &tv);
@@ -571,10 +571,12 @@ void P2P::ListenerThread(int update_interval)
 				//		printf("Here is the message: %s\n", buffer);
 				//	}
 				//}
-				//n = write(newlocalSocket,"I got your message",18);
-				//if (n < 0) printf("ERROR writing to socket");
+				////n = write(newlocalSocket,"I got your message",18);
+				////if (n < 0) printf("ERROR writing to socket");
 
 
+				if(setsockopt(localSocket, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv)) < 0)
+					ERRORMSG("Failed to set socket options");
 				int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
 
 				if (WalletSettingValues::verbose >= 3)

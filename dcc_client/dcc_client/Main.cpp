@@ -131,7 +131,7 @@ int main()
 			configFile
 				<< "{\"port\":" << SplitString(ipStr, ":")[1]
 				<< ",\"ip\":\"" << SplitString(ipStr, ":")[0]
-				<< "\",\"permanentPort\":false,\"keepAlive\":false}";
+				<< "\",\"permanentPort\":false,\"keepAlive\":false,\"isServer\":false}";
 			configFile.close();
 		}
 
@@ -267,6 +267,7 @@ int main()
 	// Open the socket required to accept P2P requests and send responses
 	p2p.OpenP2PSocket((int)walletConfig["port"]);
 	p2p.keepPeersAlive = (bool)walletConfig["keepAlive"];
+	p2p.isServer = (bool)walletConfig["isServer"];
 	// Start the P2P listener thread
 	std::thread t1(&P2P::ListenerThread, &p2p, 10);
 	// Start the P2P sender thread

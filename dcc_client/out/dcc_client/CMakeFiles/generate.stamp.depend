@@ -1,13 +1,12 @@
 # CMake generation dependency list for this directory.
-C:/Program Files/CMake/share/cmake-3.29/Modules/ExternalProject/shared_internal_commands.cmake
-C:/Program Files/CMake/share/cmake-3.29/Modules/FetchContent.cmake
-C:/Program Files/CMake/share/cmake-3.29/Modules/FetchContent/CMakeLists.cmake.in
-C:/Program Files/CMake/share/cmake-3.29/Modules/FindBoost.cmake
-C:/Program Files/CMake/share/cmake-3.29/Modules/FindCURL.cmake
-C:/Program Files/CMake/share/cmake-3.29/Modules/FindGit.cmake
-C:/Program Files/CMake/share/cmake-3.29/Modules/FindOpenSSL.cmake
-C:/Program Files/CMake/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake
-C:/Program Files/CMake/share/cmake-3.29/Modules/FindPackageMessage.cmake
-C:/Program Files/CMake/share/cmake-3.29/Modules/FindPkgConfig.cmake
-C:/Program Files/CMake/share/cmake-3.29/Modules/SelectLibraryConfigurations.cmake
-C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/dcc_client/CMakeLists.txt
+C:/Program Files/CMake/share/cmake-3.21/Modules/FetchContent.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FetchContent/CMakeLists.cmake.in
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindBoost.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindCURL.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindGit.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindOpenSSL.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindPkgConfig.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/SelectLibraryConfigurations.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/dcc_client/CMakeLists.txt

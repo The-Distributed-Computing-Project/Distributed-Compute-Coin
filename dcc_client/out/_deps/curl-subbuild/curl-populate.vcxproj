@@ -8,17 +8,44 @@
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5E9DB833-C0A8-3810-8D51-EFE68555B39C}</ProjectGuid>
-    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{C670F29B-FCD1-394C-A59F-9444C3BFA3FB}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
     <ProjectName>curl-populate</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
@@ -33,6 +60,9 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
@@ -44,14 +74,55 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\624bb77fe6fd3fb32f277c5928fe46e0\curl-populate-mkdir.rule">
-      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\e7df297b6da318f6b46b1ecb807e8295\curl-populate-mkdir.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'curl-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/tmp/curl-populate-mkdirs.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/Debug/curl-populate-mkdir
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/tmp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -60,25 +131,25 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\624bb77fe6fd3fb32f277c5928fe46e0\curl-populate-download.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (download, verify and extract) for 'curl-populate'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src
 if %errorlevel% neq 0 goto :cmEnd
-C:
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/download-curl-populate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/verify-curl-populate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/tmp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/extract-curl-populate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/Debug/curl-populate-download
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -86,18 +157,168 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\download-curl-populate.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\curl-populate-urlinfo.txt;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/tmp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/tmp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\624bb77fe6fd3fb32f277c5928fe46e0\curl-populate-update.rule">
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\e7df297b6da318f6b46b1ecb807e8295\curl-populate-download.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (download, verify and extract) for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/download-curl-populate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/verify-curl-populate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/extract-curl-populate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\curl-populate-urlinfo.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing download step (download, verify and extract) for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/download-curl-populate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/verify-curl-populate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/extract-curl-populate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\curl-populate-urlinfo.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing download step (download, verify and extract) for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/download-curl-populate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/verify-curl-populate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/extract-curl-populate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\curl-populate-urlinfo.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing download step (download, verify and extract) for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/download-curl-populate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/verify-curl-populate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/extract-curl-populate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\curl-populate-urlinfo.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\e7df297b6da318f6b46b1ecb807e8295\curl-populate-update.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No update step for 'curl-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/Debug/curl-populate-update
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-update
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -105,18 +326,63 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\curl-populate-update-info.txt;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No update step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-update
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No update step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-update
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No update step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-update
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\624bb77fe6fd3fb32f277c5928fe46e0\curl-populate-patch.rule">
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\e7df297b6da318f6b46b1ecb807e8295\curl-populate-patch.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'curl-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/Debug/curl-populate-patch
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -124,23 +390,67 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\curl-populate-patch-info.txt;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No patch step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No patch step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No patch step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\624bb77fe6fd3fb32f277c5928fe46e0\curl-populate-configure.rule">
-      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\e7df297b6da318f6b46b1ecb807e8295\curl-populate-configure.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No configure step for 'curl-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-build
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/Debug/curl-populate-configure
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -148,23 +458,79 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\tmp\curl-populate-cfgcmd.txt;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\tmp\curl-populate-cfgcmd.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No configure step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\tmp\curl-populate-cfgcmd.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No configure step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\tmp\curl-populate-cfgcmd.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No configure step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\tmp\curl-populate-cfgcmd.txt;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\624bb77fe6fd3fb32f277c5928fe46e0\curl-populate-build.rule">
-      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\e7df297b6da318f6b46b1ecb807e8295\curl-populate-build.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No build step for 'curl-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-build
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/Debug/curl-populate-build
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -172,23 +538,79 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No build step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No build step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No build step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\624bb77fe6fd3fb32f277c5928fe46e0\curl-populate-install.rule">
-      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\e7df297b6da318f6b46b1ecb807e8295\curl-populate-install.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No install step for 'curl-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-build
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/Debug/curl-populate-install
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -196,23 +618,79 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No install step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No install step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No install step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\624bb77fe6fd3fb32f277c5928fe46e0\curl-populate-test.rule">
-      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\e7df297b6da318f6b46b1ecb807e8295\curl-populate-test.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No test step for 'curl-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-build
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/Debug/curl-populate-test
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -220,21 +698,77 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No test step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-test</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No test step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-test</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No test step for 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-test</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\57efab43b71974c01805e5c1cf15091d\curl-populate-complete.rule">
-      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\3cfb9723786491c20e7ed49678dfb198\curl-populate-complete.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'curl-populate'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/Debug
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/Debug/curl-populate-complete
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/$(Configuration)/curl-populate-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/Debug/curl-populate-done
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -242,14 +776,64 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-install;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-mkdir;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-download;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-update;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-patch;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-configure;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-build;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\Debug\curl-populate-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\Debug\curl-populate-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-install;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-mkdir;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-download;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-update;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-patch;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-configure;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\$(Configuration)\curl-populate-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Completed 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/$(Configuration)/curl-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-install;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-mkdir;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-download;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-update;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-patch;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-configure;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\$(Configuration)\curl-populate-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Completed 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/$(Configuration)/curl-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-install;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-mkdir;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-download;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-update;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-patch;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-configure;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\$(Configuration)\curl-populate-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Completed 'curl-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/$(Configuration)/curl-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/$(Configuration)/curl-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-install;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-mkdir;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-download;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-update;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-patch;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-configure;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-build;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\src\curl-populate-stamp\$(Configuration)\curl-populate-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\$(Configuration)\curl-populate-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\b137379a7c6c51889c90adb48f45cc63\curl-populate.rule">
-      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\2b5075cb7f861474fa95ce88a5cc3c12\curl-populate.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 :cmEnd
@@ -258,18 +842,54 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\Debug\curl-populate-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\curl-populate</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\$(Configuration)\curl-populate-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\curl-populate</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\$(Configuration)\curl-populate-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\curl-populate</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\$(Configuration)\curl-populate-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\curl-populate</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\$(Configuration)\curl-populate-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\curl-populate</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeLists.txt">
+    <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild -BC:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild --check-stamp-file C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-subbuild/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -277,18 +897,57 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\PatchInfo.txt.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\UpdateInfo.txt.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\cfgcmd.txt.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\download.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\extractfile.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\mkdirs.cmake.in;C:\Program Files\CMake\share\cmake-3.29\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\3.29.2\CMakeSystem.cmake;C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\tmp\curl-populate-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-download.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\3.21.4\CMakeSystem.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\tmp\curl-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-download.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\3.21.4\CMakeSystem.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\tmp\curl-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-download.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\3.21.4\CMakeSystem.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\tmp\curl-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-download.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\3.21.4\CMakeSystem.cmake;D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\curl-populate-prefix\tmp\curl-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\CMakeFiles\curl-populate">
+    <None Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\CMakeFiles\curl-populate">
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\_deps\curl-subbuild\ZERO_CHECK.vcxproj">
-      <Project>{65032311-9163-3C35-8197-A0414F736A3C}</Project>
+    <ProjectReference Include="D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\curl-subbuild\ZERO_CHECK.vcxproj">
+      <Project>{BFD510D9-B12F-3FDB-A213-3E1C075ACA4B}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

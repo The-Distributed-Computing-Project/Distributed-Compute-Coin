@@ -1,4 +1,4 @@
-﻿  Building Custom Rule C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-src/lib/CMakeLists.txt
+﻿  Building Custom Rule D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/lib/CMakeLists.txt
   altsvc.c
   amigaos.c
   asyn-ares.c
@@ -154,7 +154,5 @@
   libssh2.c
   wolfssh.c
   Auto build dll exports
-     Creating library C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/lib/Debug/libcurl-d_imp.lib and object C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/curl-build/lib/Debug/libcurl-d_imp.exp
-  libcurl.vcxproj -> C:\Users\samda\Code\Distributed-Compute-Coin\dcc_client\out\Debug\libcurl-d.dll
-  'pwsh.exe' is not recognized as an internal or external command,
-  operable program or batch file.
+     Creating library D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/lib/Debug/libcurl-d_imp.lib and object D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/lib/Debug/libcurl-d_imp.exp
+  libcurl.vcxproj -> D:\Code\DC-Cryptocurrency\dcc_client\out\Debug\libcurl-d.dll

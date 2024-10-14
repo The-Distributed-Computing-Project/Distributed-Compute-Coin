@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src
+# Install script for directory: D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,8 +32,8 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
      "C:/Program Files (x86)/dcc_client/lib/zlib.lib")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -42,8 +42,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
       message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
-    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-build/Debug/zlib.lib")
-  elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
+    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/Debug/zlib.lib")
+  elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
      "C:/Program Files (x86)/dcc_client/lib/zlib.lib")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -52,8 +52,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
       message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
-    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-build/Release/zlib.lib")
-  elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
+    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/Release/zlib.lib")
+  elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
      "C:/Program Files (x86)/dcc_client/lib/zlib.lib")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -62,8 +62,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
       message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
-    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-build/MinSizeRel/zlib.lib")
-  elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
+    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/MinSizeRel/zlib.lib")
+  elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
      "C:/Program Files (x86)/dcc_client/lib/zlib.lib")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -72,8 +72,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
       message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
-    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-build/RelWithDebInfo/zlib.lib")
-  elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Tt][Hh][Rr][Ee][Aa][Dd][Ss][Aa][Nn])$")
+    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/RelWithDebInfo/zlib.lib")
+  elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Tt][Hh][Rr][Ee][Aa][Dd][Ss][Aa][Nn])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
      "C:/Program Files (x86)/dcc_client/lib/zlib.lib")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -82,12 +82,12 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
       message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
-    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-build/ThreadSan/zlib.lib")
+    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/ThreadSan/zlib.lib")
   endif()
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
      "C:/Program Files (x86)/dcc_client/bin/zlib.dll")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -96,8 +96,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
       message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
-    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/bin" TYPE SHARED_LIBRARY FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/Debug/zlib.dll")
-  elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
+    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/bin" TYPE SHARED_LIBRARY FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/Debug/zlib.dll")
+  elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
      "C:/Program Files (x86)/dcc_client/bin/zlib.dll")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -106,8 +106,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
       message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
-    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/bin" TYPE SHARED_LIBRARY FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/Release/zlib.dll")
-  elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
+    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/bin" TYPE SHARED_LIBRARY FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/Release/zlib.dll")
+  elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
      "C:/Program Files (x86)/dcc_client/bin/zlib.dll")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -116,8 +116,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
       message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
-    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/bin" TYPE SHARED_LIBRARY FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/MinSizeRel/zlib.dll")
-  elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
+    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/bin" TYPE SHARED_LIBRARY FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/MinSizeRel/zlib.dll")
+  elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
      "C:/Program Files (x86)/dcc_client/bin/zlib.dll")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -126,8 +126,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
       message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
-    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/bin" TYPE SHARED_LIBRARY FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/RelWithDebInfo/zlib.dll")
-  elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Tt][Hh][Rr][Ee][Aa][Dd][Ss][Aa][Nn])$")
+    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/bin" TYPE SHARED_LIBRARY FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/RelWithDebInfo/zlib.dll")
+  elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Tt][Hh][Rr][Ee][Aa][Dd][Ss][Aa][Nn])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
      "C:/Program Files (x86)/dcc_client/bin/zlib.dll")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -136,11 +136,11 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
       message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
-    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/bin" TYPE SHARED_LIBRARY FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/ThreadSan/zlib.dll")
+    file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/bin" TYPE SHARED_LIBRARY FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/ThreadSan/zlib.dll")
   endif()
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "C:/Program Files (x86)/dcc_client/include/zlib.h")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -149,10 +149,10 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/include" TYPE FILE RENAME "zlib.h" FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-src/zlib.h")
+  file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/include" TYPE FILE RENAME "zlib.h" FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src/zlib.h")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "C:/Program Files (x86)/dcc_client/include/zconf.h")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -161,10 +161,10 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/include" TYPE FILE RENAME "zconf.h" FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-build/zconf.h")
+  file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/include" TYPE FILE RENAME "zconf.h" FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/zconf.h")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "C:/Program Files (x86)/dcc_client/lib/pkgconfig/zlib.pc")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -173,6 +173,6 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/lib/pkgconfig" TYPE FILE FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/zlib-build/zlib.pc")
+  file(INSTALL DESTINATION "C:/Program Files (x86)/dcc_client/lib/pkgconfig" TYPE FILE FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build/zlib.pc")
 endif()
 

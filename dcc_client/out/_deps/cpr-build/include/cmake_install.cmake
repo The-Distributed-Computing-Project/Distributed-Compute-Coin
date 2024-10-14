@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-src/include
+# Install script for directory: D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src/include
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,11 +32,11 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-src/include/cpr")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-src/include/cpr")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "C:/Users/samda/Code/Distributed-Compute-Coin/dcc_client/out/_deps/cpr-build/cpr_generated_includes/cpr")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/cpr-build/cpr_generated_includes/cpr")
 endif()
 

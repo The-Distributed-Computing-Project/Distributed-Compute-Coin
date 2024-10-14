@@ -1064,7 +1064,8 @@ void P2P::SenderThread()
 			otherSize = sizeof(otherAddr);
 
 			if (connect(localSocket, (struct sockaddr*)&otherAddr, otherSize) < 0)
-				console::WriteLine("ERROR connecting");
+				if(WalletSettingValues::verbose >= 3)
+					console::WriteLine("ERROR connecting");
 
 			bool noinput = false;
 

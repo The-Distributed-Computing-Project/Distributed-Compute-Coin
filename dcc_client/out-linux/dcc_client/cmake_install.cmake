@@ -1,4 +1,4 @@
-# Install script for directory: /home/sam/Distributed-Compute-Coin/dcc_client/dcc_client
+# Install script for directory: /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,12 +39,12 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/bin/objdump")
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cmake_install.cmake")
+  include("/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/cpr-build/cmake_install.cmake")
 
 endif()
 

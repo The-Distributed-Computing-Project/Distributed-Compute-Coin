@@ -19,8 +19,8 @@
 # KIND, either express or implied.
 #
 ###########################################################################
-if(NOT EXISTS "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: /home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/install_manifest.txt")
+if(NOT EXISTS "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/install_manifest.txt")
+  message(FATAL_ERROR "Cannot find install manifest: /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/install_manifest.txt")
 endif()
 
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -28,7 +28,7 @@ if(NOT DEFINED CMAKE_INSTALL_PREFIX)
 endif()
 message(${CMAKE_INSTALL_PREFIX})
 
-file(READ "/home/sam/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/install_manifest.txt" files)
+file(READ "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-build/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 foreach(file ${files})
   message(STATUS "Uninstalling $ENV{DESTDIR}${file}")

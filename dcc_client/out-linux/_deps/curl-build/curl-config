@@ -76,7 +76,7 @@ while test $# -gt 0; do
         ;;
 
     --cc)
-        echo "/bin/cc"
+        echo "/usr/bin/cc"
         ;;
 
     --prefix)

@@ -548,33 +548,34 @@ void P2P::ListenerThread(int update_interval)
 
 			while (!stop_thread_1)
 			{
-				// Set timer of 10 seconds for listening socket
-				struct timeval tv;
-				fd_set rfds;
-				FD_ZERO(&rfds);
-				FD_SET(localSocket, &rfds);
-				tv.tv_sec = 10;
-				tv.tv_usec = 0;
 
-				//listen(localSocket,5);
-				int iResult = select(localSocket, &rfds, (fd_set*)0, (fd_set*)0, &tv);
-				if (iResult > 0) {
-					remoteAddrLen = sizeof(remoteAddr);
-					newlocalSocket = accept(localSocket, (struct sockaddr*)&remoteAddr, &remoteAddrLen);
-					if (newlocalSocket < 0)
-						printf("ERROR on accept");
-					bzero(buffer, BUFFERLENGTH);
-					iResult = read(newlocalSocket, buffer, BUFFERLENGTH - 1);
-					if (WalletSettingValues::verbose >= 3) {
-						if (iResult < 0) printf("ERROR reading from socket");
-						printf("Here is the message: %s\n", buffer);
-					}
-				}
+				//// Set timer of 10 seconds for listening socket
+				//struct timeval tv;
+				//fd_set rfds;
+				//FD_ZERO(&rfds);
+				//FD_SET(localSocket, &rfds);
+				//tv.tv_sec = 10;
+				//tv.tv_usec = 0;
+
+				////listen(localSocket,5);
+				//int iResult = select(localSocket, &rfds, (fd_set*)0, (fd_set*)0, &tv);
+				//if (iResult > 0) {
+				//	remoteAddrLen = sizeof(remoteAddr);
+				//	newlocalSocket = accept(localSocket, (struct sockaddr*)&remoteAddr, &remoteAddrLen);
+				//	if (newlocalSocket < 0)
+				//		printf("ERROR on accept");
+				//	bzero(buffer, BUFFERLENGTH);
+				//	iResult = read(newlocalSocket, buffer, BUFFERLENGTH - 1);
+				//	if (WalletSettingValues::verbose >= 3) {
+				//		if (iResult < 0) printf("ERROR reading from socket");
+				//		printf("Here is the message: %s\n", buffer);
+				//	}
+				//}
 				//n = write(newlocalSocket,"I got your message",18);
 				//if (n < 0) printf("ERROR writing to socket");
 
 
-				//int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
+				int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
 
 				if (WalletSettingValues::verbose >= 3)
 					std::cout << "iResult: " << std::to_string(iResult) << std::endl;

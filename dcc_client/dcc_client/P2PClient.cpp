@@ -910,7 +910,7 @@ void P2P::InitPeerList() {
 		std::ofstream peerFileW("./wwwdata/peerlist.list");
 		if (peerFileW.is_open())
 		{
-			peerFileW << "144.202.13.89:5060:0";
+			peerFileW << "18.18.239.22:5060:0";
 			peerFileW.close();
 		}
 		peerFileW.close();
@@ -918,7 +918,7 @@ void P2P::InitPeerList() {
 	else
 		while (std::getline(peerFile, line)) {
 			if (line == "") // Make sure at least one instance of DCCARK peer is included
-				peerList.push_back("144.202.13.89:5060:0");
+				peerList.push_back("18.18.239.22:5060:0");
 			else if (line[0] != '#')
 				peerList.push_back(line);
 		}

@@ -593,7 +593,7 @@ void P2P::ListenerThread(int update_interval)
 					// set this one as the current connection and continue.
 					std::string fromIPString = inet_ntoa(remoteAddr.sin_addr);
 					fromIPString += ":";
-					fromIPString += ntohs(remoteAddr.sin_port);
+					fromIPString += std::to_string(ntohs(remoteAddr.sin_port));
 
 					// See if peer is somewhere in the peerlist
 					int ipIndex = -1;

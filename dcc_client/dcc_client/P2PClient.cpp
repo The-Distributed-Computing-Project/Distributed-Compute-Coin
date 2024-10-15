@@ -1149,7 +1149,7 @@ void P2P::SenderThread()
 				std::string msg = "";
 
 				if (WalletSettingValues::verbose >= 4) {
-					console::Write("sending: attempt (" + std::to_string(messageAttempt) + ") -> "+otherAddrStr);
+					console::WriteLine("sending: attempt (" + std::to_string(messageAttempt) + ") -> "+otherAddrStr);
 				}
 
 				// If doing initial connect request

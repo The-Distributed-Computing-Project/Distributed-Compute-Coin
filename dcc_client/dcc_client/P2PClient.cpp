@@ -8,6 +8,7 @@
 const int BUFFERLENGTH = 1024 * 64; // 64 kb buffer for large files
 
 char buffer[BUFFERLENGTH];
+char sendbuffer[BUFFERLENGTH];
 
 int blockchainLength = 0;
 int peerBlockchainLength = 0;
@@ -77,14 +78,14 @@ bool P2P::isAwaiting() {
 // Safely send some data as a string, and split large amounts of data into multiple segments to be sent sequentially.
 int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen)
 {
+	
+	int total = 0;        // how many bytes we've sent
+	int bytesLeft = len; // how many we have left to send
+	int n = 0;
+	
+	const char* p = s.c_str();
 	try
 	{
-
-		int total = 0;        // how many bytes we've sent
-		int bytesLeft = len; // how many we have left to send
-		int n = 0;
-
-		const char* p = s.c_str();
 
 		int segmentCount = 1;
 		while (bytesLeft > 0) {
@@ -98,7 +99,6 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 
 			segInfo += (p + total);
 
-			//#if WINDOWS
 			n = sendto(socket,
 				segInfo.c_str(),
 				//sizeof(segInfo.c_str()),
@@ -138,6 +138,7 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 		console::Write("Sending thread encountered an error in (__FILE__, line: __LINE__):\n");
 		std::cerr << e.what() << std::endl;
 	}
+	delete p;
 
 	//#endif
 	return 0;
@@ -1134,7 +1135,7 @@ void P2P::SenderThread()
 					if (WalletSettingValues::verbose >= 3) {
 						console::Write(msg + "\n");
 					}
-					mySendTo(localSocket, msg, msg.size(), 0, (sockaddr*)&otherAddr, otherSize);
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 
 					// After multiple confirmations have been sent, switch back to idle mode
 					if (messageAttempt >= 2) {

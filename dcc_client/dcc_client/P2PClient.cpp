@@ -414,6 +414,7 @@ void P2P::ListenerThread(int update_interval)
 											bufferd << transactionsFileRead.rdbuf();
 											std::string blockText = bufferd.str();
 											transactionsFileRead.close();
+											pendingTransactions = json::parse(blockText);
 										}
 
 										// Append the new transaction

@@ -641,10 +641,19 @@ void P2P::ListenerThread(int update_interval)
 					std::string textVal = std::string(buffer, buffer + iResult-1);
 
 					// Get the segment information from the received data
-					std::string segInfo = SplitString(textVal, "&")[0];
-					int segNumber = std::stoi(SplitString(segInfo, ":")[1]);
-					int maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
-					int segLength = std::stoi(SplitString(segInfo, ":")[5]) + segInfo.size() + 1;
+					std::string segInfo;
+					int segNumber;
+					int maxSegments;
+					int segLength;
+					try{
+						segInfo = SplitString(textVal, "&")[0];
+						segNumber = std::stoi(SplitString(segInfo, ":")[1]);
+						maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
+						segLength = std::stoi(SplitString(segInfo, ":")[5]) + segInfo.size() + 1;
+					}
+					catch(...){ // If invalid segInfo header, ignore
+						continue;
+					}
 					//char* tempContent = buffer;
 					std::string content = "";
 					for (int i = segInfo.size() + 1; i < segLength; i++) {

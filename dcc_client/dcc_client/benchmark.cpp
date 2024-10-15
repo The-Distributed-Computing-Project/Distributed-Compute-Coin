@@ -4,7 +4,11 @@
 #include <iomanip>
 #include <vector>
 #include <string>
+#include <thread>
+
 #include "benchmark.h"
+#include "strops.h"
+
 using namespace std;
 using namespace std::chrono;
 
@@ -30,36 +34,126 @@ std::string truncateNum(double x){
         return std::to_string(x);
 }
 
-#define FLOPS_SAMPLES 100000
-unsigned long long benchmark()
-{
-    double averageFlops = 0.0;
-    for(int g = 0; g < FLOPS_SAMPLES; g++){
-        if(g%10000 == 0)
-            std::cout << "Benchmarking...  " << (g) << " of " << FLOPS_SAMPLES << " samples complete          \r";
 
-        double secondValue = rand()+67858;
-        double startValue = 123891.123871;
-        
-    	auto start = high_resolution_clock::now();
-    
-        // 4000 total operations (about)
-        for(int i = 0; i < 1000; i++){
-            startValue += secondValue;
-            startValue *= secondValue;
-            startValue -= secondValue;
-            startValue /= secondValue;
-        }
-        
-    	auto stop = high_resolution_clock::now();
-    
-    	auto duration = duration_cast<microseconds>(stop - start);
-    	
-    	averageFlops += (1000000.0/(double)(duration.count())*4000.0)/(double)FLOPS_SAMPLES;
-    }
+void calculateFLOPS(unsigned long long *p1, bool* isDone){
+	double a= 124.23525, b = 21.2412, c = 2342.23432, d = 23.324, e= 2.3412, f = 123.21, g = 1231.12, h =567.4, j = 34.4, k =24, l =342.24,
+	 m= 324.23525, n = 51.2412, o = 242.23432, p = 254.324, q= 112.3412, r = 853.21, s = 31.12, t =67.4, u = 34.4, v =4, w =3.24, x =89.131, y =123.23, z =123.123,
+	 v1 =12.3, v2 = 3, v3 = 56.5, v4 = 88.56, v5 = 787.43, v6 = 0, v7 = 0, v8 =0, v9 = 0, v10 = 1, v11 = 54, v12 = 12, v13= 45, v14 = 5.66, v15 = 123.12, v16 =1 ,
+	 v17 =1, v18 = 12, v19 =12, v20 = 12.1, v21 = 1.1, v22 = 12;
 
-    /*std::cout << "                                                          \r";
-	cout << "FLOPS: " << truncateNum(averageFlops)  <<"flops"<< endl;*/
+	/* total operations = 33
+		inside loop : 16 arithmatic and 17 assignment operations
+		while loop : 1 loop condition 
+	*/
+	unsigned long long noOfOperations = 0, loopOperations = 33;
+	int timeSec = 0;
+	unsigned long long maxValue = 0;
 
-    return (unsigned long long)averageFlops * (unsigned long long)processor_count;
+
+	// run the loop
+	while(*isDone == false)
+	{
+		a = a + b;
+		c = d + e;
+		f = g * h;
+		m = m + n;
+		j = k * l;
+
+
+		q = o + p;
+		s = r + s;
+		v = t * u;
+		m = k + n;
+		j = w * l;
+
+		x = x * y;
+		v6 = v1 + v2;
+		v7 = v3 * v4;
+		v8 = v5 * v5;
+		v9 = g * k;	
+
+		// calculate total number of floating point operations
+		noOfOperations = noOfOperations + loopOperations;		
+		*((unsigned long long *)p1) = noOfOperations;
+		//maxValue++;
+	}
+	return;
 }
+
+unsigned long long benchmark(){
+	pthread_t memThreads[1];
+	unsigned long long flops1[5];
+	unsigned long long flops = 0, tFlops1 = 0, prevFlops1 = 0; 
+
+
+	indicators::show_console_cursor(false);
+	using namespace indicators;
+	indicators::ProgressSpinner spinner{
+		option::PostfixText{"Benchmarking "},
+		option::ForegroundColor{Color::yellow},
+		option::SpinnerStates{std::vector<std::string>{"⠈", "⠐", "⠠", "⢀", "⡀", "⠄", "⠂", "⠁"}},
+		option::FontStyles{std::vector<FontStyle>{FontStyle::bold}},
+		option::ShowPercentage{false}
+	};
+
+
+	bool threadIsDone = false;
+	std::thread benchThread(&calculateFLOPS, &tFlops1, &threadIsDone);
+	//Calculates the 5 flops samples	
+	for(int i = 0 ; i < 5; i++)
+	{
+		// sleep the main thread for 1 second
+		for (int i = 0; i < 10; i++){
+			std::this_thread::sleep_for(std::chrono::milliseconds(100));
+			spinner.tick();
+		}
+
+		spinner.set_option(option::PostfixText{"Benchmarking "+truncateNum((double)(flops*processor_count))});
+		flops1[i] = tFlops1 - prevFlops1;
+		prevFlops1 = tFlops1;
+		flops += flops1[i]/5;
+	}
+	threadIsDone = true;
+	benchThread.join();
+
+	indicators::show_console_cursor(true);
+
+	//cancel all the created threads
+	//pthread_cancel(memThreads[0]);
+	return flops * processor_count;
+}
+
+//#define FLOPS_SAMPLES 100000
+//unsigned long long benchmark()
+//{
+//
+//    double averageFlops = 0.0;
+//    for(int g = 0; g < FLOPS_SAMPLES; g++){
+//        if(g%10000 == 0)
+//            std::cout << "Benchmarking...  " << (g) << " of " << FLOPS_SAMPLES << " samples complete          \r";
+//
+//        double secondValue = rand()+67858;
+//        double startValue = 123891.123871;
+//        
+//    	auto start = high_resolution_clock::now();
+//    
+//        // 4000 total operations (about)
+//        for(int i = 0; i < 1000; i++){
+//            startValue += secondValue;
+//            startValue *= secondValue;
+//            startValue -= secondValue;
+//            startValue /= secondValue;
+//        }
+//        
+//    	auto stop = high_resolution_clock::now();
+//    
+//    	auto duration = duration_cast<microseconds>(stop - start);
+//    	
+//    	averageFlops += (1000000.0/(double)(duration.count())*4000.0)/(double)FLOPS_SAMPLES;
+//    }
+//
+//    /*std::cout << "                                                          \r";
+//	cout << "FLOPS: " << truncateNum(averageFlops)  <<"flops"<< endl;*/
+//
+//    return (unsigned long long)averageFlops * (unsigned long long)processor_count;
+//}

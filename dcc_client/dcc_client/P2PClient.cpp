@@ -1270,9 +1270,11 @@ void P2P::SenderThread()
 			}
 
 			if (messageAttempt == messageMaxAttempts) {
-				console::NetworkErrorPrint();
-				console::Write("Peer Timed Out at ", console::redFGColor, "");
-				console::WriteLine(std::to_string(peerPort), console::cyanFGColor, "");
+				if(WalletSettingValues::verbose >= 4){
+					console::NetworkErrorPrint();
+					console::Write("Peer Timed Out at ", console::redFGColor, "");
+					console::WriteLine(std::to_string(peerPort), console::cyanFGColor, "");
+				}
 				otherAddrStr = "";
 				messageAttempt = 0;
 
@@ -1281,8 +1283,10 @@ void P2P::SenderThread()
 
 					// Try at least 5 different peers to get answer to request
 					if (differentPeerAttempts < 4) {
-						console::NetworkPrint();
-						console::WriteLine("Finding another peer...");
+						if(WalletSettingValues::verbose >= 4){
+							console::NetworkPrint();
+							console::WriteLine("Finding another peer...");
+						}
 						try
 						{
 							// Decrease life of current peer
@@ -1321,8 +1325,10 @@ void P2P::SenderThread()
 				else {
 					role = -1;
 					messageStatus = idle;
-					console::NetworkErrorPrint();
-					console::WriteLine("Asking peer went offline.", console::redFGColor, "");
+					if(WalletSettingValues::verbose >= 5){
+						console::NetworkErrorPrint();
+						console::WriteLine("Asking peer went offline.", console::redFGColor, "");
+					}
 					differentPeerAttempts = 0;
 					reqDat = -1;
 				}

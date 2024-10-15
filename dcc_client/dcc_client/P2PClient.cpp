@@ -745,7 +745,7 @@ void P2P::ListenerThread(int update_interval)
 					}
 					// If the peer is requesting message received confirmation
 					else if (totalMessage == "peer~success" && (messageStatus >= 0)) {
-						if (WalletSettingValues::verbose >= 4) {
+						if (WalletSettingValues::verbose >= 7) {
 							console::DebugPrint();
 							console::WriteLine("Dual Confirmation", console::greenFGColor, "");
 						}
@@ -1137,8 +1137,8 @@ void P2P::SenderThread()
 				// Stop sending if the message status switches to idle
 				if (messageStatus == idle)
 				{
-					if (WalletSettingValues::verbose >= 6)
-						console::WriteLine("Conversation complete", console::greenFGColor, "");
+					if (WalletSettingValues::verbose >= 4)
+						console::WriteLine("Conversation complete\n", console::greenFGColor, "");
 					otherAddrStr = "";
 					reqDat = -1;
 					role = -1;
@@ -1149,9 +1149,7 @@ void P2P::SenderThread()
 				std::string msg = "";
 
 				if (WalletSettingValues::verbose >= 4) {
-					std::cout << "\r\r";
-					console::NetworkPrint();
-					console::Write("Send attempt: " + std::to_string(messageAttempt) + ", to ("+otherAddrStr+")                               ");
+					console::Write("sending: attempt (" + std::to_string(messageAttempt) + ") -> "+otherAddrStr);
 				}
 
 				// If doing initial connect request

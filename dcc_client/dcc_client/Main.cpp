@@ -130,7 +130,7 @@ int main()
 			configFile
 				<< "{\"port\":" << SplitString(ipStr, ":")[1]
 				<< ",\"ip\":\"" << SplitString(ipStr, ":")[0]
-				<< "\",\"permanentPort\":false,\"keepAlive\":false,\"isServer\":false}";
+				<< "\",\"permanentPort\":false,\"keepAlive\":false,\"isServer\":false,\"verbosity\":-1}";
 			configFile.close();
 		}
 
@@ -251,6 +251,9 @@ int main()
 	endpointAddr = (std::string)walletConfig["ip"];
 	endpointPort = std::to_string((int)walletConfig["port"]);
 
+	if((int)walletConfig["verbosity"] != -1)
+		WalletSettingValues::verbose = (int)walletConfig["verbosity"];
+
 	console::SystemPrint();
 	console::Write("Client endpoint: ");
 	console::WriteLine((std::string)walletConfig["ip"] + ":" + std::to_string((int)walletConfig["port"]), console::cyanFGColor);
@@ -271,7 +274,6 @@ int main()
 	std::thread t1(&P2P::ListenerThread, &p2p, 10);
 	// Start the P2P sender thread
 	std::thread t2(&P2P::SenderThread, &p2p);
-
 
 	//
 	// Gather wallet information, validate blockchain, and print information.

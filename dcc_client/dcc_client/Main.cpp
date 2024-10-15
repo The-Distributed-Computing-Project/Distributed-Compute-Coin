@@ -445,9 +445,10 @@ int main()
 			{
 				IsChainValid(p2p, walletInfo);
 
-				if (GetProgram(p2p, walletInfo) == 0)
+				if (GetProgram(p2p, walletInfo) != 0)
 				{
-					console::ConnectionError();
+					//console::ConnectionError();
+					ERRORMSG("Failed to get deluge program");
 					continue;
 				}
 

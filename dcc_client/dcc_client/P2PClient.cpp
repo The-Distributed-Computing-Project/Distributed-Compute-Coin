@@ -1055,7 +1055,7 @@ void P2P::RandomizePeer() {
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		ERRORMSG("stoi() failed to parse input");
 	}
 }
 
@@ -1071,7 +1071,7 @@ void P2P::SetPeer(int id) {
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		ERRORMSG("stoi() failed to parse input");
 	}
 }
 

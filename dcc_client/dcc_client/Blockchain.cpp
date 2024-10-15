@@ -789,6 +789,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				if(WalletSettingValues::lightWeight == false)
 					if(i % (chainLength / 100 + 1) == 0){
 						progressAndFixingBar.set_option(option::PostfixText{"Checking ("+std::to_string(i)+"/"+std::to_string(chainLength)+")"});
+						progressAndFixingBar.set_option(option::ForegroundColor{indicators::Color::green});
 						progressAndFixingBar.tick();
 					}
 			}
@@ -812,12 +813,10 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					progressAndFixingBar.tick();
 				}
 
-				i -= 2;
+				i -= 1;
 				// Then recount, because we need to know if the synced block is new or overwrote an existing one.
 				chainLength = FileCount("./wwwdata/blockchain/");
 
-				progressAndFixingBar.set_option(option::PostfixText{"Checking ("+std::to_string(i)+"/"+std::to_string(chainLength)+")"});
-				progressAndFixingBar.set_option(option::ForegroundColor{indicators::Color::green});
 			}
 		}
 

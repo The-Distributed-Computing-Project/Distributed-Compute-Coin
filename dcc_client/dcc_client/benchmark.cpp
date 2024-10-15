@@ -91,7 +91,7 @@ unsigned long long benchmark(){
 	indicators::ProgressSpinner spinner{
 		option::PostfixText{"Benchmarking "},
 		option::ForegroundColor{Color::yellow},
-		option::SpinnerStates{std::vector<std::string>{"⠈", "⠐", "⠠", "⢀", "⡀", "⠄", "⠂", "⠁"}},
+		option::SpinnerStates{std::vector<std::string>{"-", "\\", "|", "/"}},
 		option::FontStyles{std::vector<FontStyle>{FontStyle::bold}},
 		option::ShowPercentage{false}
 	};

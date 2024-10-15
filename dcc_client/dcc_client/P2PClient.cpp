@@ -617,7 +617,10 @@ void P2P::ListenerThread(int update_interval)
 					// If not currently connected, accept this connection.
 					if (otherAddrStr == ""){
 						otherAddrStr = fromIPString;
-						SetPeer(ipIndex);
+						if(ipIndex != -1)
+							SetPeer(ipIndex);
+						else
+							SetPeer(peerList.size()-1);
 					}
 
 					// If connected but different, ignore.
@@ -1067,6 +1070,7 @@ void P2P::SenderThread()
 	stop_thread_2 = false;
 
 	RandomizePeer();
+	otherAddrStr = NormalizedIPString(otherAddr);
 
 	while (true) {
 		try

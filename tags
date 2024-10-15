@@ -1,20 +1,55 @@
+BUFFERLENGTH	dcc_client/dcc_client/P2PClient.cpp	/^const int BUFFERLENGTH = 1024 * 64; \/\/ 64 kb buffer for large files$/;"	v	typeref:typename:const int
+DCCARK_ADDR	dcc_client/dcc_client/P2PClient.cpp	/^#define DCCARK_ADDR /;"	d	file:
+GETSOCKETERRORNO	dcc_client/dcc_client/P2PClient.cpp	/^#define GETSOCKETERRORNO(/;"	d	file:
 Help	dcc_client/dcc_client/Main.cpp	/^void Help()$/;"	f	typeref:typename:void
 ISKEYDOWN	dcc_client/dcc_client/Main.cpp	/^#define ISKEYDOWN(/;"	d	file:
+InitPeerList	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::InitPeerList() {$/;"	f	class:P2P	typeref:typename:void
+ListenerThread	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::ListenerThread(int update_interval)$/;"	f	class:P2P	typeref:typename:void
 Logo	dcc_client/dcc_client/Main.cpp	/^void Logo()$/;"	f	typeref:typename:void
+MESSAGESIZE	dcc_client/dcc_client/P2PClient.cpp	/^const int MESSAGESIZE = 2048; \/\/ The rough size of each data packet, in bytes, excluding the h/;"	v	typeref:typename:const int
+NormalizedIPString	dcc_client/dcc_client/P2PClient.cpp	/^std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {$/;"	f	class:P2P	typeref:typename:std::string
+NormalizedIPString	dcc_client/dcc_client/P2PClient.cpp	/^std::string P2P::NormalizedIPString(sockaddr_in remoteAddr) {$/;"	f	class:P2P	typeref:typename:std::string
+OpenP2PSocket	dcc_client/dcc_client/P2PClient.cpp	/^int P2P::OpenP2PSocket(int port)$/;"	f	class:P2P	typeref:typename:int
+RandomizePeer	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::RandomizePeer() {$/;"	f	class:P2P	typeref:typename:void
+SavePeerList	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::SavePeerList() {$/;"	f	class:P2P	typeref:typename:void
 SendFunds	dcc_client/dcc_client/Main.cpp	/^int SendFunds(P2P& p2p, std::string& toAddress, float amount)$/;"	f	typeref:typename:int
+SenderThread	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::SenderThread()$/;"	f	class:P2P	typeref:typename:void
+SetPeer	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::SetPeer(int id) {$/;"	f	class:P2P	typeref:typename:void
 UNIX	dcc_client/dcc_client/Main.cpp	/^#define UNIX /;"	d	file:
+UNIX	dcc_client/dcc_client/P2PClient.cpp	/^#define UNIX /;"	d	file:
+VerifyTransaction	dcc_client/dcc_client/P2PClient.cpp	/^bool VerifyTransaction(json& tx, uint32_t id, bool thorough) {$/;"	f	typeref:typename:bool
 Version	dcc_client/dcc_client/Main.cpp	/^void Version()$/;"	f	typeref:typename:void
 WINDOWS	dcc_client/dcc_client/Main.cpp	/^#define WINDOWS /;"	d	file:
+WINDOWS	dcc_client/dcc_client/P2PClient.cpp	/^#define WINDOWS /;"	d	file:
+blockchainLength	dcc_client/dcc_client/P2PClient.cpp	/^int blockchainLength = 0;$/;"	v	typeref:typename:int
+buffer	dcc_client/dcc_client/P2PClient.cpp	/^char buffer[BUFFERLENGTH];$/;"	v	typeref:typename:char[]
 connectionStatus	dcc_client/dcc_client/Main.cpp	/^int connectionStatus = 1;$/;"	v	typeref:typename:int
 directoryList	dcc_client/dcc_client/Main.cpp	/^const std::string directoryList[] = { ".\/sec", ".\/wwwdata", ".\/wwwdata\/blockchain", ".\/wwwd/;"	v	typeref:typename:const std::string[]
 endpointAddr	dcc_client/dcc_client/Main.cpp	/^std::string endpointAddr = "";$/;"	v	typeref:typename:std::string
 endpointPort	dcc_client/dcc_client/Main.cpp	/^std::string endpointPort = "";$/;"	v	typeref:typename:std::string
 flops	dcc_client/dcc_client/Main.cpp	/^unsigned long long flops = 0;$/;"	v	typeref:typename:unsigned long long
 info	dcc_client/dcc_client/Main.cpp	/^struct stat info;$/;"	v	typeref:struct:stat
+isAwaiting	dcc_client/dcc_client/P2PClient.cpp	/^bool P2P::isAwaiting() {$/;"	f	class:P2P	typeref:typename:bool
 json	dcc_client/dcc_client/Main.cpp	/^using json = nlohmann::json;$/;"	t	typeref:typename:nlohmann::json	file:
 keypair	dcc_client/dcc_client/Main.cpp	/^std::vector<std::string> keypair = { "", "" };$/;"	v	typeref:typename:std::vector<std::string>
+localSocket	dcc_client/dcc_client/P2PClient.cpp	/^int localSocket, newlocalSocket, portno;$/;"	v	typeref:typename:int
 main	dcc_client/dcc_client/Main.cpp	/^int main()$/;"	f	typeref:typename:int
+mySendTo	dcc_client/dcc_client/P2PClient.cpp	/^int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toL/;"	f	class:P2P	typeref:typename:int
+newlocalSocket	dcc_client/dcc_client/P2PClient.cpp	/^int localSocket, newlocalSocket, portno;$/;"	v	typeref:typename:int
+otherAddr	dcc_client/dcc_client/P2PClient.cpp	/^SOCKADDR_IN otherAddr;$/;"	v	typeref:typename:SOCKADDR_IN
+otherAddr	dcc_client/dcc_client/P2PClient.cpp	/^sockaddr_in otherAddr;$/;"	v	typeref:typename:sockaddr_in
+otherAddrStr	dcc_client/dcc_client/P2PClient.cpp	/^std::string otherAddrStr;$/;"	v	typeref:typename:std::string
+otherSize	dcc_client/dcc_client/P2PClient.cpp	/^int otherSize;$/;"	v	typeref:typename:int
 p2p	dcc_client/dcc_client/Main.cpp	/^P2P p2p;$/;"	v	typeref:typename:P2P
+peerBlockchainLength	dcc_client/dcc_client/P2PClient.cpp	/^int peerBlockchainLength = 0;$/;"	v	typeref:typename:int
 peerPort	dcc_client/dcc_client/Main.cpp	/^std::string peerPort = "";$/;"	v	typeref:typename:std::string
+portno	dcc_client/dcc_client/P2PClient.cpp	/^int localSocket, newlocalSocket, portno;$/;"	v	typeref:typename:int
+remoteAddr	dcc_client/dcc_client/P2PClient.cpp	/^struct sockaddr_in serv_addr, remoteAddr;$/;"	v	typeref:struct:sockaddr_in
+remoteAddrLen	dcc_client/dcc_client/P2PClient.cpp	/^socklen_t remoteAddrLen;$/;"	v	typeref:typename:socklen_t
+sendbuffer	dcc_client/dcc_client/P2PClient.cpp	/^char sendbuffer[BUFFERLENGTH];$/;"	v	typeref:typename:char[]
+serv_addr	dcc_client/dcc_client/P2PClient.cpp	/^struct sockaddr_in serv_addr, remoteAddr;$/;"	v	typeref:struct:sockaddr_in
+stop_thread_1	dcc_client/dcc_client/P2PClient.cpp	/^std::atomic_bool stop_thread_1 = false;$/;"	v	typeref:typename:std::atomic_bool
+stop_thread_2	dcc_client/dcc_client/P2PClient.cpp	/^std::atomic_bool stop_thread_2 = false;$/;"	v	typeref:typename:std::atomic_bool
+thread_running	dcc_client/dcc_client/P2PClient.cpp	/^std::atomic_bool thread_running = false;$/;"	v	typeref:typename:std::atomic_bool
 walletConfig	dcc_client/dcc_client/Main.cpp	/^json walletConfig;$/;"	v	typeref:typename:json
 walletInfo	dcc_client/dcc_client/Main.cpp	/^json walletInfo;$/;"	v	typeref:typename:json

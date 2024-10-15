@@ -432,7 +432,7 @@ void P2P::ListenerThread(int update_interval)
 										std::cerr << e.what() << std::endl;
 									}
 
-									if (WalletSettingValues::verbose >= 2) {
+									if (WalletSettingValues::verbose >= 4) {
 										console::WriteLine("received transaction: " + (std::string)transaction["tx"]["fromAddr"], console::greenFGColor, "");
 									}
 								}
@@ -514,11 +514,11 @@ void P2P::ListenerThread(int update_interval)
 							messageAttempt = 0;
 
 						}
-						if (WalletSettingValues::verbose >= 4) {
+						if (WalletSettingValues::verbose >= 5) {
 							console::WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + totalMessage + "\t status: " + std::to_string(messageStatus));
 						}
 					}
-					else if (WSAGetLastError() != WSAETIMEDOUT && WalletSettingValues::verbose >= 2) {
+					else if (WSAGetLastError() != WSAETIMEDOUT && WalletSettingValues::verbose >= 5) {
 						console::NetworkErrorPrint();
 						console::WriteLine("Error, Peer closed.");
 						CONNECTED_TO_PEER = false;
@@ -711,9 +711,9 @@ void P2P::ListenerThread(int update_interval)
 
 					// If the peer is requesting to connect
 					if (totalMessage == "peer~connect") {
-						if (WalletSettingValues::verbose >= 3) {
+						if (WalletSettingValues::verbose >= 4) {
 							console::DebugPrint();
-							console::WriteLine("Received initial connection, awaiting confirmation...", console::greenFGColor, "");
+							console::WriteLine("Received initial connection from ("+otherAddrStr+")", console::greenFGColor, "");
 						}
 						messageStatus = await_first_success; // Awaiting confirmation status
 						messageAttempt = 0;
@@ -745,7 +745,7 @@ void P2P::ListenerThread(int update_interval)
 					}
 					// If the peer is requesting message received confirmation
 					else if (totalMessage == "peer~success" && (messageStatus >= 0)) {
-						if (WalletSettingValues::verbose >= 3) {
+						if (WalletSettingValues::verbose >= 4) {
 							console::DebugPrint();
 							console::WriteLine("Dual Confirmation", console::greenFGColor, "");
 						}
@@ -756,7 +756,7 @@ void P2P::ListenerThread(int update_interval)
 					}
 					// If the peer is idling
 					else if (totalMessage == "peer~idle") {
-						if (WalletSettingValues::verbose >= 3) {
+						if (WalletSettingValues::verbose >= 5) {
 							console::DebugPrint();
 							console::WriteLine("idle...", console::yellowFGColor, "");
 						}
@@ -823,7 +823,7 @@ void P2P::ListenerThread(int update_interval)
 									{
 										transactionsFileWrite << pendingTransactions.dump();
 										transactionsFileWrite.close();
-										if (WalletSettingValues::verbose >= 2)
+										if (WalletSettingValues::verbose >= 4)
 											console::WriteLine("\nSaved new transaction");
 									}
 								}
@@ -833,7 +833,7 @@ void P2P::ListenerThread(int update_interval)
 									std::cerr << e.what() << std::endl;
 								}
 
-								if (WalletSettingValues::verbose >= 2) {
+								if (WalletSettingValues::verbose >= 4) {
 									console::WriteLine("received transaction: " + (std::string)transaction["tx"]["fromAddr"], console::greenFGColor, "");
 								}
 							}
@@ -850,7 +850,7 @@ void P2P::ListenerThread(int update_interval)
 						if (SplitString(totalMessage, "~")[1] == "height") {
 							peerBlockchainLength = std::stoi(SplitString(totalMessage, "~")[2]);
 							messageStatus = await_first_success;
-							if (WalletSettingValues::verbose >= 3) {
+							if (WalletSettingValues::verbose >= 4) {
 								console::WriteLine("answer height: " + std::to_string(peerBlockchainLength), console::greenFGColor, "");
 							}
 						}
@@ -908,11 +908,12 @@ void P2P::ListenerThread(int update_interval)
 
 					}
 					if (WalletSettingValues::verbose >= 4) {
-						console::WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + totalMessage + "\t status: " + std::to_string(messageStatus));
+						console::Write("received: " + NormalizedIPString(remoteAddr) + " -> ");
+						console::WriteLine("\"" + totalMessage + "\"",console::yellowFGColor);
 					}
 				}
 #if WINDOWS
-				else if (WSAGetLastError() != WSAETIMEDOUT && WalletSettingValues::verbose >= 2) {
+				else if (WSAGetLastError() != WSAETIMEDOUT && WalletSettingValues::verbose >= 5) {
 					console::NetworkErrorPrint();
 					console::WriteLine("Error, Peer closed.");
 					CONNECTED_TO_PEER = false;

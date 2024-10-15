@@ -70,7 +70,7 @@ int main()
 	std::cout << "                                                          \r";
 	console::SystemPrint();
 	console::Write("Benchmark results: ");
-	console::Write(truncateNum(flops) + "Flops", console::cyanFGColor);
+	console::Write(truncateMetricNum(flops) + "Flops", console::cyanFGColor);
 	console::Write(" across ");
 	console::Write(std::to_string(processor_count) + " cores", console::cyanFGColor);
 	console::WriteLine(" ok", console::greenFGColor);

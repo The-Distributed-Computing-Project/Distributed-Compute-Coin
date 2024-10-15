@@ -10,6 +10,14 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(CMAKE_AUTORCC ON)
 
+if (NOT CMAKE_BUILD_TYPE)
+	set(CMAKE_BUILD_TYPE Release)
+endif()
+
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+
 
 # Add source to this project's executable.
 add_executable (dcc_client "json.hpp" "Main.h" "Main.cpp" "Console.h" "Console.cpp" "FileManip.h" "FileManip.cpp" "Network.h" "Network.cpp" "strops.h" "strops.cpp" "P2PClient.h" "P2PClient.cpp" "Network.h" "Network.cpp" "crypto.h" "crypto.cpp" "Blockchain.cpp" "Blockchain.h" "Miner.cpp" "Miner.h" "SettingsConsts.h" "SettingsConsts.cpp" "System.cpp" "System.h" "BaseConverter.cpp" "BaseConverter.h" "benchmark.cpp" "benchmark.cpp" "indicators.hpp" "uint128.h" "uint256.h" "uint128.inl" "uint256.inl" "DCC-Logo.rc")

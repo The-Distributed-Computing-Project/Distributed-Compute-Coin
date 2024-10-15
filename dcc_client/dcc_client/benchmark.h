@@ -14,6 +14,6 @@ using namespace std::chrono;
 const auto processor_count = std::thread::hardware_concurrency();
 
 unsigned long long benchmark();
-std::string truncateNum(double x);
+std::string truncateMetricNum(double x);
 
 #endif

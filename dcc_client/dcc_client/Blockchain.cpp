@@ -787,7 +787,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					}
 
 				if(WalletSettingValues::lightWeight == false)
-					if(i % (chainLength / 100 + 1) == 0){
+					if(i % 200 == 0){
 						progressAndFixingBar.set_option(option::PostfixText{"Checking ("+std::to_string(i)+"/"+std::to_string(chainLength)+")"});
 						progressAndFixingBar.set_option(option::ForegroundColor{indicators::Color::green});
 						progressAndFixingBar.tick();

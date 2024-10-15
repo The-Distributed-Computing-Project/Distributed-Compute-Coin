@@ -21,11 +21,11 @@ inline static const string roundFloat(const double input, const int decimal_plac
     return str.str();
 }
 
-std::string truncateNum(double x){
+std::string truncateMetricNum(double x){
     if(x > 1000000000000)
         return roundFloat((float)((long long)x/10000000000)/100.0,2) + " T";
     else if(x > 1000000000)
-        return roundFloat((float)((long)x/10000000)/100.0,2) + " B";
+        return roundFloat((float)((long)x/10000000)/100.0,2) + " G";
     else if(x > 1000000)
         return roundFloat((float)((long)x/10000)/100.0,2) + " M";
     else if(x > 1000)
@@ -46,8 +46,6 @@ void calculateFLOPS(unsigned long long *p1, bool* isDone){
 		while loop : 1 loop condition 
 	*/
 	unsigned long long noOfOperations = 0, loopOperations = 33;
-	int timeSec = 0;
-	unsigned long long maxValue = 0;
 
 
 	// run the loop
@@ -80,10 +78,11 @@ void calculateFLOPS(unsigned long long *p1, bool* isDone){
 	return;
 }
 
+#define BENCHMARK_SAMPLES 10
 unsigned long long benchmark(){
-	pthread_t memThreads[1];
-	unsigned long long flops1[5];
-	unsigned long long flops = 0, tFlops1 = 0, prevFlops1 = 0; 
+	unsigned long long flops1[BENCHMARK_SAMPLES];
+	unsigned long long flops = 0, prevFlops1 = 0; 
+	unsigned long long tFlops1 = 0; 
 
 
 	indicators::show_console_cursor(false);
@@ -93,6 +92,7 @@ unsigned long long benchmark(){
 		option::ForegroundColor{Color::yellow},
 		option::SpinnerStates{std::vector<std::string>{"-", "\\", "|", "/"}},
 		option::FontStyles{std::vector<FontStyle>{FontStyle::bold}},
+		option::ShowRemainingTime{true},
 		option::ShowPercentage{false}
 	};
 
@@ -100,18 +100,20 @@ unsigned long long benchmark(){
 	bool threadIsDone = false;
 	std::thread benchThread(&calculateFLOPS, &tFlops1, &threadIsDone);
 	//Calculates the 5 flops samples	
-	for(int i = 0 ; i < 5; i++)
+	for(int i = 0 ; i < BENCHMARK_SAMPLES; i++)
 	{
 		// sleep the main thread for 1 second
-		for (int i = 0; i < 10; i++){
-			std::this_thread::sleep_for(std::chrono::milliseconds(100));
-			spinner.tick();
-		}
+		//for (int j = 0; j < 10; j++){
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+			//spinner.set_progress(100*i/BENCHMARK_SAMPLES);
+		//}
 
-		spinner.set_option(option::PostfixText{"Benchmarking "+truncateNum((double)(flops*processor_count))});
-		flops1[i] = tFlops1 - prevFlops1;
+		spinner.set_progress(100*i/BENCHMARK_SAMPLES);
+		unsigned long long dif = tFlops1 - prevFlops1;
+		double difd = (double)dif;
+		spinner.set_option(option::PostfixText{"Benchmarking -- ("+truncateMetricNum(difd*processor_count) + "Flops)"});
 		prevFlops1 = tFlops1;
-		flops += flops1[i]/5;
+		flops += dif;
 	}
 	threadIsDone = true;
 	benchThread.join();
@@ -120,7 +122,7 @@ unsigned long long benchmark(){
 
 	//cancel all the created threads
 	//pthread_cancel(memThreads[0]);
-	return flops * processor_count;
+	return flops / BENCHMARK_SAMPLES * processor_count;
 }
 
 //#define FLOPS_SAMPLES 100000
@@ -153,7 +155,7 @@ unsigned long long benchmark(){
 //    }
 //
 //    /*std::cout << "                                                          \r";
-//	cout << "FLOPS: " << truncateNum(averageFlops)  <<"flops"<< endl;*/
+//	cout << "FLOPS: " << truncateMetricNum(averageFlops)  <<"flops"<< endl;*/
 //
 //    return (unsigned long long)averageFlops * (unsigned long long)processor_count;
 //}

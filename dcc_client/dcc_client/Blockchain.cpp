@@ -786,10 +786,11 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 						console::Write("   Ok  ", console::greenFGColor, "");
 					}
 
-				if(i % (chainLength / 1000 + 1) == 0){
-					progressAndFixingBar.set_option(option::PostfixText{"Checking ("+std::to_string(i)+"/"+std::to_string(chainLength)+")"});
-					progressAndFixingBar.tick();
-				}
+				if(WalletSettingValues::lightWeight == false)
+					if(i % (chainLength / 100 + 1) == 0){
+						progressAndFixingBar.set_option(option::PostfixText{"Checking ("+std::to_string(i)+"/"+std::to_string(chainLength)+")"});
+						progressAndFixingBar.tick();
+					}
 			}
 			// If there is a failure state, assume that block is bad or does not exist.
 			catch (...)
@@ -801,7 +802,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				//console::WriteLine();
 				console::Write("\r\r                                                                                                    ");
 
-				progressAndFixingBar.set_option(option::PostfixText{"Fixing  ("+std::to_string(i)+")"});
+				progressAndFixingBar.set_option(option::PostfixText{"Fixing   ("+std::to_string(i)+")"});
 				progressAndFixingBar.set_option(option::ForegroundColor{indicators::Color::yellow});
 
 				//console::Write("\nAttempting fix...");

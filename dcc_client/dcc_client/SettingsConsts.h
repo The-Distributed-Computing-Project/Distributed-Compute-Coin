@@ -24,6 +24,7 @@ const std::string serverURL = "http://mullichia.mit.edu:3333";
 namespace WalletSettingValues
 {
     constexpr uint8_t verbose{ 3 };
+    constexpr bool lightWeight{ false };
 
 }
 

@@ -1,9 +1,14 @@
 AnnounceToPeers	dcc_client/dcc_client/Blockchain.cpp	/^int AnnounceToPeers(P2P& p2p)$/;"	f	typeref:typename:int
 BLOCK_DIFFICULTY_CUTOFF_RANGE	dcc_client/dcc_client/Blockchain.cpp	/^#define BLOCK_DIFFICULTY_CUTOFF_RANGE /;"	d	file:
+BLOCK_VERSION	dcc_client/dcc_client/SettingsConsts.h	/^const std::string BLOCK_VERSION = "v0.8.5-alpha-coin";$/;"	v	typeref:typename:const std::string
 BUFFERLENGTH	dcc_client/dcc_client/P2PClient.cpp	/^const int BUFFERLENGTH = 1024 * 64; \/\/ 64 kb buffer for large files$/;"	v	typeref:typename:const int
 CalculateDifficulty	dcc_client/dcc_client/Blockchain.cpp	/^std::string CalculateDifficulty(json& walletInfo) {$/;"	f	typeref:typename:std::string
 CreateSuperblock	dcc_client/dcc_client/Blockchain.cpp	/^void CreateSuperblock() {$/;"	f	typeref:typename:void
 CreateTransaction	dcc_client/dcc_client/Blockchain.cpp	/^void CreateTransaction(P2P& p2p, json& walletInfo, double& amount) {$/;"	f	typeref:typename:void
+DELUGE_CHUNK_SIZE	dcc_client/dcc_client/SettingsConsts.h	/^#define DELUGE_CHUNK_SIZE /;"	d
+DELUGE_MAX_CHUNKS	dcc_client/dcc_client/SettingsConsts.h	/^#define DELUGE_MAX_CHUNKS /;"	d
+DELUGE_MAX_SIZE_B	dcc_client/dcc_client/SettingsConsts.h	/^#define DELUGE_MAX_SIZE_B /;"	d
+DELUGE_VERSION	dcc_client/dcc_client/SettingsConsts.h	/^const std::string DELUGE_VERSION = "v0.1.2-alpha-deluge";$/;"	v	typeref:typename:const std::string
 GETSOCKETERRORNO	dcc_client/dcc_client/P2PClient.cpp	/^#define GETSOCKETERRORNO(/;"	d	file:
 GetProgram	dcc_client/dcc_client/Blockchain.cpp	/^int GetProgram(P2P& p2p, json& walletInfo)$/;"	f	typeref:typename:int
 GetProgramLifeLeft	dcc_client/dcc_client/Blockchain.cpp	/^float GetProgramLifeLeft()$/;"	f	typeref:typename:float
@@ -14,6 +19,8 @@ MakeProgram	dcc_client/dcc_client/Blockchain.cpp	/^int MakeProgram(json& walletI
 NormalizedIPString	dcc_client/dcc_client/P2PClient.cpp	/^std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {$/;"	f	class:P2P	typeref:typename:std::string
 NormalizedIPString	dcc_client/dcc_client/P2PClient.cpp	/^std::string P2P::NormalizedIPString(sockaddr_in remoteAddr) {$/;"	f	class:P2P	typeref:typename:std::string
 OpenP2PSocket	dcc_client/dcc_client/P2PClient.cpp	/^int P2P::OpenP2PSocket(int port)$/;"	f	class:P2P	typeref:typename:int
+PLATFORMCOLOR	dcc_client/dcc_client/SettingsConsts.h	/^#define PLATFORMCOLOR /;"	d
+PLATFORMSTR	dcc_client/dcc_client/SettingsConsts.h	/^#define PLATFORMSTR /;"	d
 RandomizePeer	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::RandomizePeer() {$/;"	f	class:P2P	typeref:typename:void
 ReadProgramConfig	dcc_client/dcc_client/Blockchain.cpp	/^json ReadProgramConfig()$/;"	f	typeref:typename:json
 SavePeerList	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::SavePeerList() {$/;"	f	class:P2P	typeref:typename:void
@@ -24,13 +31,16 @@ SyncBlock	dcc_client/dcc_client/Blockchain.cpp	/^int SyncBlock(P2P& p2p, int whi
 SyncPending	dcc_client/dcc_client/Blockchain.cpp	/^int SyncPending(P2P& p2p, int whichBlock)$/;"	f	typeref:typename:int
 UNIX	dcc_client/dcc_client/P2PClient.cpp	/^#define UNIX /;"	d	file:
 UpgradeBlock	dcc_client/dcc_client/Blockchain.cpp	/^json UpgradeBlock(json& b)$/;"	f	typeref:typename:json
+VERSION	dcc_client/dcc_client/SettingsConsts.h	/^const std::string VERSION = "v0.8.0-alpha";$/;"	v	typeref:typename:const std::string
 VerifyDeluge	dcc_client/dcc_client/Blockchain.cpp	/^bool VerifyDeluge(json& delugeJson, std::string& path)$/;"	f	typeref:typename:bool
 VerifyTransaction	dcc_client/dcc_client/P2PClient.cpp	/^bool VerifyTransaction(json& tx, uint32_t id, bool thorough) {$/;"	f	typeref:typename:bool
 WINDOWS	dcc_client/dcc_client/P2PClient.cpp	/^#define WINDOWS /;"	d	file:
+WalletSettingValues	dcc_client/dcc_client/SettingsConsts.h	/^namespace WalletSettingValues$/;"	n
 WriteProgramConfig	dcc_client/dcc_client/Blockchain.cpp	/^int WriteProgramConfig()$/;"	f	typeref:typename:int
 blockchainLength	dcc_client/dcc_client/P2PClient.cpp	/^int blockchainLength = 0;$/;"	v	typeref:typename:int
 buffer	dcc_client/dcc_client/P2PClient.cpp	/^char buffer[BUFFERLENGTH];$/;"	v	typeref:typename:char[]
 isAwaiting	dcc_client/dcc_client/P2PClient.cpp	/^bool P2P::isAwaiting() {$/;"	f	class:P2P	typeref:typename:bool
+lightWeight	dcc_client/dcc_client/SettingsConsts.h	/^    constexpr bool lightWeight{ false };$/;"	v	namespace:WalletSettingValues	typeref:typename:bool
 localSocket	dcc_client/dcc_client/P2PClient.cpp	/^int localSocket, newlocalSocket, portno;$/;"	v	typeref:typename:int
 mySendTo	dcc_client/dcc_client/P2PClient.cpp	/^int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toL/;"	f	class:P2P	typeref:typename:int
 newlocalSocket	dcc_client/dcc_client/P2PClient.cpp	/^int localSocket, newlocalSocket, portno;$/;"	v	typeref:typename:int
@@ -47,6 +57,9 @@ remoteAddr	dcc_client/dcc_client/P2PClient.cpp	/^struct sockaddr_in serv_addr, r
 remoteAddrLen	dcc_client/dcc_client/P2PClient.cpp	/^socklen_t remoteAddrLen;$/;"	v	typeref:typename:socklen_t
 sendbuffer	dcc_client/dcc_client/P2PClient.cpp	/^char sendbuffer[BUFFERLENGTH];$/;"	v	typeref:typename:char[]
 serv_addr	dcc_client/dcc_client/P2PClient.cpp	/^struct sockaddr_in serv_addr, remoteAddr;$/;"	v	typeref:struct:sockaddr_in
+serverURL	dcc_client/dcc_client/SettingsConsts.h	/^const std::string serverURL = "http:\/\/mullichia.mit.edu:3333";$/;"	v	typeref:typename:const std::string
+settings_h	dcc_client/dcc_client/SettingsConsts.h	/^#define settings_h$/;"	d
 stop_thread_1	dcc_client/dcc_client/P2PClient.cpp	/^std::atomic_bool stop_thread_1 = false;$/;"	v	typeref:typename:std::atomic_bool
 stop_thread_2	dcc_client/dcc_client/P2PClient.cpp	/^std::atomic_bool stop_thread_2 = false;$/;"	v	typeref:typename:std::atomic_bool
 thread_running	dcc_client/dcc_client/P2PClient.cpp	/^std::atomic_bool thread_running = false;$/;"	v	typeref:typename:std::atomic_bool
+verbose	dcc_client/dcc_client/SettingsConsts.h	/^    constexpr uint8_t verbose{ 3 };$/;"	v	namespace:WalletSettingValues	typeref:typename:uint8_t

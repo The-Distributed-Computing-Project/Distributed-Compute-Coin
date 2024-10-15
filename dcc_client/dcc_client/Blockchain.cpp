@@ -785,11 +785,10 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					console::Write("   Ok  ", console::greenFGColor, "");
 				}
 
-				//bars.set_option<0>(option::PostfixText{
-      			//	std::to_string(i) + "/" + std::to_string(chainLength)
-    			//});
-				progressAndFixingBar.set_option(option::PostfixText{"Checking ("+std::to_string(i)+"/"+std::to_string(chainLength)+")"});
-				progressAndFixingBar.tick();
+				if(i % 10 == 0){
+					progressAndFixingBar.set_option(option::PostfixText{"Checking ("+std::to_string(i)+"/"+std::to_string(chainLength)+")"});
+					progressAndFixingBar.tick();
+				}
 			}
 			// If there is a failure state, assume that block is bad or does not exist.
 			catch (...)

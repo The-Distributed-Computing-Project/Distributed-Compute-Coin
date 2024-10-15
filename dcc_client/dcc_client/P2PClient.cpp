@@ -1077,11 +1077,11 @@ void P2P::SenderThread()
 
 			otherSize = sizeof(otherAddr);
 
-			if (connect(localSocket, (struct sockaddr*)&otherAddr, otherSize) < 0)
-				if(WalletSettingValues::verbose >= 3){
-					console::WriteLine("ERROR connecting");
-					printf("connect() failed with error: %d: %s\n", GETSOCKETERRORNO(), strerror(GETSOCKETERRORNO()));
-				}
+			//if (connect(localSocket, (struct sockaddr*)&otherAddr, otherSize) < 0)
+			//	if(WalletSettingValues::verbose >= 3){
+			//		console::WriteLine("ERROR connecting");
+			//		printf("connect() failed with error: %d: %s\n", GETSOCKETERRORNO(), strerror(GETSOCKETERRORNO()));
+			//	}
 
 			bool noinput = false;
 

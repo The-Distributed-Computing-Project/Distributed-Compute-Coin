@@ -160,6 +160,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 		}
 		catch (const std::exception& e)
 		{
+			ERRORMSG("Failed to save block");
 			if (WalletSettingValues::verbose >= 1)
 				std::cerr << e.what() << std::endl;
 			return 0;
@@ -194,6 +195,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 			}
 			catch (const std::exception& e)
 			{
+				ERRORMSG("Failed to save block");
 				if (WalletSettingValues::verbose >= 1)
 					std::cerr << e.what() << std::endl;
 				return 0;
@@ -209,6 +211,7 @@ int Mine(json currentBlockJson, int blockNum, json& walletInfo)
 	catch (const std::exception& e)
 	{
 		//if (WalletSettingValues::verbose == true)
+		ERRORMSG("");
 		std::cerr << e.what() << std::endl;
 		return 0;
 	}
@@ -351,6 +354,7 @@ int PoolMine(std::string poolURL, json& walletInfo)
 		}
 		catch (const std::exception& e)
 		{
+			ERRORMSG("");
 			//if (WalletSettingValues::verbose == true)
 			std::cerr << e.what() << std::endl;
 			return 0;

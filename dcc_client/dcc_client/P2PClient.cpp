@@ -428,6 +428,7 @@ void P2P::ListenerThread(int update_interval)
 									}
 									catch (const std::exception& e)
 									{
+										ERRORMSG("transaction ("<<transaction<<") had error while verifying");
 										std::cerr << e.what() << std::endl;
 									}
 
@@ -499,6 +500,7 @@ void P2P::ListenerThread(int update_interval)
 								}
 								catch (const std::exception& e)
 								{
+									ERRORMSG("Failed to save block data to file");
 									std::cerr << e.what() << std::endl;
 								}
 
@@ -531,6 +533,7 @@ void P2P::ListenerThread(int update_interval)
 	}
 	catch (const std::exception& e)
 	{
+		ERRORMSG("");
 		std::cerr << e.what() << std::endl;
 	}
 #else
@@ -815,6 +818,7 @@ void P2P::ListenerThread(int update_interval)
 								}
 								catch (const std::exception& e)
 								{
+									ERRORMSG("failed to save transaction data to file");
 									std::cerr << e.what() << std::endl;
 								}
 
@@ -881,6 +885,7 @@ void P2P::ListenerThread(int update_interval)
 							}
 							catch (const std::exception& e)
 							{
+								ERRORMSG("failed to save block data to file");
 								std::cerr << e.what() << std::endl;
 							}
 
@@ -910,6 +915,7 @@ void P2P::ListenerThread(int update_interval)
 	}
 	catch (const std::exception& e)
 	{
+		ERRORMSG("");
 		std::cerr << e.what() << std::endl;
 	}
 
@@ -1349,6 +1355,7 @@ void P2P::SenderThread()
 		}
 		catch (const std::exception& e)
 		{
+			ERRORMSG("");
 			console::ErrorPrint();
 			console::WriteLine(e.what());
 		}

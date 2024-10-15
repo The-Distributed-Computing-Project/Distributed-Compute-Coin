@@ -652,6 +652,8 @@ void P2P::ListenerThread(int update_interval)
 						segLength = std::stoi(SplitString(segInfo, ":")[5]) + segInfo.size() + 1;
 					}
 					catch(...){ // If invalid segInfo header, ignore
+						if (WalletSettingValues::verbose >= 4)
+							console::WriteLine("Received invalid segInfo header", console::redFGColor, "");
 						continue;
 					}
 					//char* tempContent = buffer;
@@ -959,7 +961,7 @@ void P2P::InitPeerList() {
 	while (std::getline(peerFile, line)) {
 		if (line[0] != '#'){
 			// Make sure at least one instance of DCCARK peer is included
-			if (SplitString(line, ":")[0] + ":" + SplitString(line, ":")[1] == DCCARK_ADDR ":0")
+			if (SplitString(line, ":")[0] + ":" + SplitString(line, ":")[1] == DCCARK_ADDR)
 				wasFound = true;
 			peerList.push_back(line);
 		}

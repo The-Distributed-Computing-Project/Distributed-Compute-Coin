@@ -1,5 +1,4 @@
-#ifndef settings_h
-#define settings_h
+#pragma once
 
 #define DELUGE_CHUNK_SIZE 32768
 #define DELUGE_MAX_SIZE_B 134217728 /* 2^27, also known as 128 megabytes */
@@ -20,12 +19,14 @@ const std::string DELUGE_VERSION = "v0.1.2-alpha-deluge";
 
 const std::string serverURL = "http://mullichia.mit.edu:3333";
 
+//extern uint8_t VERBOSITY = 3;
 
 namespace WalletSettingValues
 {
-    constexpr uint8_t verbose{ 3 };
-    constexpr bool lightWeight{ false };
+	extern uint8_t verbose;
+    //constexpr uint8_t verbose{ 3 };
+    extern bool lightWeight;
+    //constexpr bool lightWeight{ false };
 
 }
 
-#endif

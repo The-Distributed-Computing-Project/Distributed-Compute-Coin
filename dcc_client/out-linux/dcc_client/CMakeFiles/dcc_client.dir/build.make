@@ -195,10 +195,24 @@ dcc_client/CMakeFiles/dcc_client.dir/Miner.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dcc_client.dir/Miner.cpp.s"
 	cd /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/dcc_client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Miner.cpp -o CMakeFiles/dcc_client.dir/Miner.cpp.s
 
+dcc_client/CMakeFiles/dcc_client.dir/SettingsConsts.cpp.o: dcc_client/CMakeFiles/dcc_client.dir/flags.make
+dcc_client/CMakeFiles/dcc_client.dir/SettingsConsts.cpp.o: /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/SettingsConsts.cpp
+dcc_client/CMakeFiles/dcc_client.dir/SettingsConsts.cpp.o: dcc_client/CMakeFiles/dcc_client.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object dcc_client/CMakeFiles/dcc_client.dir/SettingsConsts.cpp.o"
+	cd /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/dcc_client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT dcc_client/CMakeFiles/dcc_client.dir/SettingsConsts.cpp.o -MF CMakeFiles/dcc_client.dir/SettingsConsts.cpp.o.d -o CMakeFiles/dcc_client.dir/SettingsConsts.cpp.o -c /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/SettingsConsts.cpp
+
+dcc_client/CMakeFiles/dcc_client.dir/SettingsConsts.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dcc_client.dir/SettingsConsts.cpp.i"
+	cd /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/dcc_client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/SettingsConsts.cpp > CMakeFiles/dcc_client.dir/SettingsConsts.cpp.i
+
+dcc_client/CMakeFiles/dcc_client.dir/SettingsConsts.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dcc_client.dir/SettingsConsts.cpp.s"
+	cd /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/dcc_client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/SettingsConsts.cpp -o CMakeFiles/dcc_client.dir/SettingsConsts.cpp.s
+
 dcc_client/CMakeFiles/dcc_client.dir/System.cpp.o: dcc_client/CMakeFiles/dcc_client.dir/flags.make
 dcc_client/CMakeFiles/dcc_client.dir/System.cpp.o: /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/System.cpp
 dcc_client/CMakeFiles/dcc_client.dir/System.cpp.o: dcc_client/CMakeFiles/dcc_client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object dcc_client/CMakeFiles/dcc_client.dir/System.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object dcc_client/CMakeFiles/dcc_client.dir/System.cpp.o"
 	cd /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/dcc_client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT dcc_client/CMakeFiles/dcc_client.dir/System.cpp.o -MF CMakeFiles/dcc_client.dir/System.cpp.o.d -o CMakeFiles/dcc_client.dir/System.cpp.o -c /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/System.cpp
 
 dcc_client/CMakeFiles/dcc_client.dir/System.cpp.i: cmake_force
@@ -212,7 +226,7 @@ dcc_client/CMakeFiles/dcc_client.dir/System.cpp.s: cmake_force
 dcc_client/CMakeFiles/dcc_client.dir/BaseConverter.cpp.o: dcc_client/CMakeFiles/dcc_client.dir/flags.make
 dcc_client/CMakeFiles/dcc_client.dir/BaseConverter.cpp.o: /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.cpp
 dcc_client/CMakeFiles/dcc_client.dir/BaseConverter.cpp.o: dcc_client/CMakeFiles/dcc_client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object dcc_client/CMakeFiles/dcc_client.dir/BaseConverter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object dcc_client/CMakeFiles/dcc_client.dir/BaseConverter.cpp.o"
 	cd /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/dcc_client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT dcc_client/CMakeFiles/dcc_client.dir/BaseConverter.cpp.o -MF CMakeFiles/dcc_client.dir/BaseConverter.cpp.o.d -o CMakeFiles/dcc_client.dir/BaseConverter.cpp.o -c /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.cpp
 
 dcc_client/CMakeFiles/dcc_client.dir/BaseConverter.cpp.i: cmake_force
@@ -226,7 +240,7 @@ dcc_client/CMakeFiles/dcc_client.dir/BaseConverter.cpp.s: cmake_force
 dcc_client/CMakeFiles/dcc_client.dir/benchmark.cpp.o: dcc_client/CMakeFiles/dcc_client.dir/flags.make
 dcc_client/CMakeFiles/dcc_client.dir/benchmark.cpp.o: /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/benchmark.cpp
 dcc_client/CMakeFiles/dcc_client.dir/benchmark.cpp.o: dcc_client/CMakeFiles/dcc_client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object dcc_client/CMakeFiles/dcc_client.dir/benchmark.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object dcc_client/CMakeFiles/dcc_client.dir/benchmark.cpp.o"
 	cd /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/dcc_client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT dcc_client/CMakeFiles/dcc_client.dir/benchmark.cpp.o -MF CMakeFiles/dcc_client.dir/benchmark.cpp.o.d -o CMakeFiles/dcc_client.dir/benchmark.cpp.o -c /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/benchmark.cpp
 
 dcc_client/CMakeFiles/dcc_client.dir/benchmark.cpp.i: cmake_force
@@ -248,6 +262,7 @@ dcc_client_OBJECTS = \
 "CMakeFiles/dcc_client.dir/crypto.cpp.o" \
 "CMakeFiles/dcc_client.dir/Blockchain.cpp.o" \
 "CMakeFiles/dcc_client.dir/Miner.cpp.o" \
+"CMakeFiles/dcc_client.dir/SettingsConsts.cpp.o" \
 "CMakeFiles/dcc_client.dir/System.cpp.o" \
 "CMakeFiles/dcc_client.dir/BaseConverter.cpp.o" \
 "CMakeFiles/dcc_client.dir/benchmark.cpp.o"
@@ -264,6 +279,7 @@ dcc_client/dcc_client: dcc_client/CMakeFiles/dcc_client.dir/P2PClient.cpp.o
 dcc_client/dcc_client: dcc_client/CMakeFiles/dcc_client.dir/crypto.cpp.o
 dcc_client/dcc_client: dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o
 dcc_client/dcc_client: dcc_client/CMakeFiles/dcc_client.dir/Miner.cpp.o
+dcc_client/dcc_client: dcc_client/CMakeFiles/dcc_client.dir/SettingsConsts.cpp.o
 dcc_client/dcc_client: dcc_client/CMakeFiles/dcc_client.dir/System.cpp.o
 dcc_client/dcc_client: dcc_client/CMakeFiles/dcc_client.dir/BaseConverter.cpp.o
 dcc_client/dcc_client: dcc_client/CMakeFiles/dcc_client.dir/benchmark.cpp.o
@@ -279,7 +295,7 @@ dcc_client/dcc_client: /usr/lib/x86_64-linux-gnu/libssl.so
 dcc_client/dcc_client: /usr/lib/x86_64-linux-gnu/libcrypto.so
 dcc_client/dcc_client: /usr/lib/x86_64-linux-gnu/libz.so
 dcc_client/dcc_client: dcc_client/CMakeFiles/dcc_client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable dcc_client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable dcc_client"
 	cd /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/dcc_client && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dcc_client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

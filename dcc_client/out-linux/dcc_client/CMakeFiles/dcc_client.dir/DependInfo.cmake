@@ -16,6 +16,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Miner.cpp" "dcc_client/CMakeFiles/dcc_client.dir/Miner.cpp.o" "gcc" "dcc_client/CMakeFiles/dcc_client.dir/Miner.cpp.o.d"
   "/home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Network.cpp" "dcc_client/CMakeFiles/dcc_client.dir/Network.cpp.o" "gcc" "dcc_client/CMakeFiles/dcc_client.dir/Network.cpp.o.d"
   "/home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/P2PClient.cpp" "dcc_client/CMakeFiles/dcc_client.dir/P2PClient.cpp.o" "gcc" "dcc_client/CMakeFiles/dcc_client.dir/P2PClient.cpp.o.d"
+  "/home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/SettingsConsts.cpp" "dcc_client/CMakeFiles/dcc_client.dir/SettingsConsts.cpp.o" "gcc" "dcc_client/CMakeFiles/dcc_client.dir/SettingsConsts.cpp.o.d"
   "/home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/System.cpp" "dcc_client/CMakeFiles/dcc_client.dir/System.cpp.o" "gcc" "dcc_client/CMakeFiles/dcc_client.dir/System.cpp.o.d"
   "/home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/benchmark.cpp" "dcc_client/CMakeFiles/dcc_client.dir/benchmark.cpp.o" "gcc" "dcc_client/CMakeFiles/dcc_client.dir/benchmark.cpp.o.d"
   "/home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/crypto.cpp" "dcc_client/CMakeFiles/dcc_client.dir/crypto.cpp.o" "gcc" "dcc_client/CMakeFiles/dcc_client.dir/crypto.cpp.o.d"

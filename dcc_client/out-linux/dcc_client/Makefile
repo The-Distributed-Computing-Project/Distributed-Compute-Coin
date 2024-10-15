@@ -367,6 +367,30 @@ P2PClient.cpp.s:
 	cd /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux && $(MAKE) $(MAKESILENT) -f dcc_client/CMakeFiles/dcc_client.dir/build.make dcc_client/CMakeFiles/dcc_client.dir/P2PClient.cpp.s
 .PHONY : P2PClient.cpp.s
 
+SettingsConsts.o: SettingsConsts.cpp.o
+.PHONY : SettingsConsts.o
+
+# target to build an object file
+SettingsConsts.cpp.o:
+	cd /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux && $(MAKE) $(MAKESILENT) -f dcc_client/CMakeFiles/dcc_client.dir/build.make dcc_client/CMakeFiles/dcc_client.dir/SettingsConsts.cpp.o
+.PHONY : SettingsConsts.cpp.o
+
+SettingsConsts.i: SettingsConsts.cpp.i
+.PHONY : SettingsConsts.i
+
+# target to preprocess a source file
+SettingsConsts.cpp.i:
+	cd /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux && $(MAKE) $(MAKESILENT) -f dcc_client/CMakeFiles/dcc_client.dir/build.make dcc_client/CMakeFiles/dcc_client.dir/SettingsConsts.cpp.i
+.PHONY : SettingsConsts.cpp.i
+
+SettingsConsts.s: SettingsConsts.cpp.s
+.PHONY : SettingsConsts.s
+
+# target to generate assembly for a file
+SettingsConsts.cpp.s:
+	cd /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux && $(MAKE) $(MAKESILENT) -f dcc_client/CMakeFiles/dcc_client.dir/build.make dcc_client/CMakeFiles/dcc_client.dir/SettingsConsts.cpp.s
+.PHONY : SettingsConsts.cpp.s
+
 System.o: System.cpp.o
 .PHONY : System.o
 
@@ -500,6 +524,9 @@ help:
 	@echo "... P2PClient.o"
 	@echo "... P2PClient.i"
 	@echo "... P2PClient.s"
+	@echo "... SettingsConsts.o"
+	@echo "... SettingsConsts.i"
+	@echo "... SettingsConsts.s"
 	@echo "... System.o"
 	@echo "... System.i"
 	@echo "... System.s"

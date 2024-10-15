@@ -12,7 +12,7 @@ set(CMAKE_AUTORCC ON)
 
 
 # Add source to this project's executable.
-add_executable (dcc_client "json.hpp" "Main.h" "Main.cpp" "Console.h" "Console.cpp" "FileManip.h" "FileManip.cpp" "Network.h" "Network.cpp" "strops.h" "strops.cpp" "P2PClient.h" "P2PClient.cpp" "Network.h" "Network.cpp" "crypto.h" "crypto.cpp" "Blockchain.cpp" "Blockchain.h" "Miner.cpp" "Miner.h" "SettingsConsts.h" "System.cpp" "System.h" "BaseConverter.cpp" "BaseConverter.h" "benchmark.cpp" "benchmark.cpp" "indicators.hpp" "uint128.h" "uint256.h" "uint128.inl" "uint256.inl" "DCC-Logo.rc")
+add_executable (dcc_client "json.hpp" "Main.h" "Main.cpp" "Console.h" "Console.cpp" "FileManip.h" "FileManip.cpp" "Network.h" "Network.cpp" "strops.h" "strops.cpp" "P2PClient.h" "P2PClient.cpp" "Network.h" "Network.cpp" "crypto.h" "crypto.cpp" "Blockchain.cpp" "Blockchain.h" "Miner.cpp" "Miner.h" "SettingsConsts.h" "SettingsConsts.cpp" "System.cpp" "System.h" "BaseConverter.cpp" "BaseConverter.h" "benchmark.cpp" "benchmark.cpp" "indicators.hpp" "uint128.h" "uint256.h" "uint128.inl" "uint256.inl" "DCC-Logo.rc")
 
 
 #add_subdirectory(extlibs/elzip) # Path to the 11zip

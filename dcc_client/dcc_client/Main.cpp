@@ -75,7 +75,6 @@ int main()
 	console::Write(std::to_string(processor_count) + " cores", console::cyanFGColor);
 	console::WriteLine(" ok", console::greenFGColor);
 
-
 	if (WalletSettingValues::verbose >= 6) {
 		console::WriteLine("hextest: ");
 		console::WriteLine("\"" + divideHexByFloat("ffffff", 1.3) + "\"");
@@ -347,346 +346,359 @@ int main()
 		// Make (only first cmd part) uppercase
 		commandParts[0] = ToUpper(commandParts[0]);
 
-		if (commandParts[0] == "--HELP" || commandParts[0] == "-H")
-			Help();
-		else if (commandParts[0] == "--VERSION" || commandParts[0] == "-V")
-		{
-			Version();
-			continue;
-		}
-		else if (commandParts[0] == "--QUIT" || commandParts[0] == "--EXIT")
-		{
-			exit(0);
-		}
-		else if (commandParts[0] == "--FUNDS")
-		{
-			console::SystemPrint();
-			console::Write("You have: ");
-			console::WriteLine("$" + CommaLargeNumberF((double)walletInfo["Funds"]) + " credits\n", console::yellowFGColor, "");
-			continue;
-		}
-		else if (commandParts[0] == "--DIFFICULTY")
-		{
-			console::SystemPrint();
-			console::WriteLine("Calculating difficulty...");
-			std::string dif = CalculateDifficulty(walletInfo);
-			console::SystemPrint();
-			console::Write("The current difficulty looks like: ");
-			console::WriteLine(ExtractPaddedChars(dif, '0'), console::redFGColor, "");
-			continue;
-		}
-		else if (commandParts[0] == "--SYNC" || commandParts[0] == "-S")
-		{
-			if (Sync(p2p, walletInfo) == 0) continue;
-		}
-		else if (commandParts[0] == "--SYNCBLOCK" || commandParts[0] == "-SB")
-		{
-			int blockNum = 0;
-			try
+		try{
+			if (commandParts[0] == "--HELP" || commandParts[0] == "-H")
+				Help();
+			else if (commandParts[0] == "--VERSION" || commandParts[0] == "-V")
 			{
-				blockNum = stoi(commandParts[1]);
-				console::NetworkPrint();
-				console::WriteLine("Syncing block " + std::to_string(blockNum));
-				SyncBlock(p2p, blockNum, true);
+				Version();
+				continue;
 			}
-			catch (const std::exception& e)
+			else if (commandParts[0] == "--QUIT" || commandParts[0] == "--EXIT")
 			{
-				console::NetworkErrorPrint();
-				console::WriteLine("Error syncing. : " + (std::string)e.what(), "", console::redFGColor);
+				exit(0);
 			}
-		}
-		else if (commandParts[0] == "--SEND" || commandParts[0] == "-SN")
-		{
-			std::string toAddr;
-			float amnt;
-			try
+			else if (commandParts[0] == "--FUNDS")
 			{
-				toAddr = commandParts[1];
-				amnt = stof(commandParts[2]);
-
-				if (SendFunds(p2p, toAddr, amnt) == 0)
+				console::SystemPrint();
+				console::Write("You have: ");
+				console::WriteLine("$" + CommaLargeNumberF((double)walletInfo["Funds"]) + " credits\n", console::yellowFGColor, "");
+				continue;
+			}
+			else if (commandParts[0] == "--DIFFICULTY")
+			{
+				console::SystemPrint();
+				console::WriteLine("Calculating difficulty...");
+				std::string dif = CalculateDifficulty(walletInfo);
+				console::SystemPrint();
+				console::Write("The current difficulty looks like: ");
+				console::WriteLine(ExtractPaddedChars(dif, '0'), console::redFGColor, "");
+				continue;
+			}
+			else if (commandParts[0] == "--SYNC" || commandParts[0] == "-S")
+			{
+				if (Sync(p2p, walletInfo) == 0) continue;
+			}
+			else if (commandParts[0] == "--SYNCBLOCK" || commandParts[0] == "-SB")
+			{
+				int blockNum = 0;
+				try
 				{
-					console::ConnectionError();
-					continue;
+					blockNum = stoi(commandParts[1]);
+					console::NetworkPrint();
+					console::WriteLine("Syncing block " + std::to_string(blockNum));
+					SyncBlock(p2p, blockNum, true);
+				}
+				catch (const std::exception& e)
+				{
+					console::NetworkErrorPrint();
+					console::WriteLine("Error syncing. : " + (std::string)e.what(), "", console::redFGColor);
 				}
 			}
-			catch (const std::exception& e)
+			else if (commandParts[0] == "--SEND" || commandParts[0] == "-SN")
 			{
-				console::WriteLine("Error sending : " + (std::string)e.what(), "", console::redFGColor);
-			}
-		}
-		else if (commandParts[0] == "--ADDPEER")
-		{
-			p2p.peerList.push_back(commandParts[1] + ":0");
-			p2p.SavePeerList();
-		}
-		//else if (commandParts[0] == "--VERBOSITY")
-		//{
-		//	WalletSettingValues::verbose = std::stoi(commandParts[1]);
-		//}
-		else if (commandParts[0] == "--VERIFY" || commandParts[0] == "-VF")
-		{
-			try
-			{
-				IsChainValid(p2p, walletInfo);
-			}
-			catch (const std::exception&)
-			{
-				Sync(p2p, walletInfo);
-			}
-		}
-		else if (commandParts[0] == "--MINE" || commandParts[0] == "-M")
-		{
-			int iterations = 1;
-			if (commandParts.size() > 1)
-				iterations = stoi(commandParts[1]);
-
-			for (int i = 0; i < iterations; i++)
-			{
-				IsChainValid(p2p, walletInfo);
-
-				if (GetProgram(p2p, walletInfo) != 0)
+				std::string toAddr;
+				float amnt;
+				try
 				{
-					//console::ConnectionError();
-					ERRORMSG("Failed to get deluge program");
-					continue;
+					toAddr = commandParts[1];
+					amnt = stof(commandParts[2]);
+
+					if (SendFunds(p2p, toAddr, amnt) == 0)
+					{
+						console::ConnectionError();
+						continue;
+					}
 				}
-
-				walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
-
-				// Create a superblock if the number is 262800 (the number of blocks created in a year)
-				if (walletInfo["BlockchainLength"] >= 262800)
+				catch (const std::exception& e)
 				{
+					console::WriteLine("Error sending : " + (std::string)e.what(), "", console::redFGColor);
+				}
+			}
+			else if (commandParts[0] == "--ADDPEER")
+			{
+				p2p.peerList.push_back(commandParts[1] + ":0");
+				p2p.SavePeerList();
+			}
+			//else if (commandParts[0] == "--VERBOSITY")
+			//{
+			//	WalletSettingValues::verbose = std::stoi(commandParts[1]);
+			//}
+			else if (commandParts[0] == "--VERIFY" || commandParts[0] == "-VF")
+			{
+				try
+				{
+					IsChainValid(p2p, walletInfo);
+				}
+				catch (const std::exception&)
+				{
+					Sync(p2p, walletInfo);
+				}
+			}
+			else if (commandParts[0] == "--MINE" || commandParts[0] == "-M")
+			{
+				int iterations = 1;
+				if (commandParts.size() > 1)
+					iterations = stoi(commandParts[1]);
+
+				for (int i = 0; i < iterations; i++)
+				{
+					IsChainValid(p2p, walletInfo);
+
+					if (GetProgram(p2p, walletInfo) != 0)
+					{
+						//console::ConnectionError();
+						ERRORMSG("Failed to get deluge program");
+						continue;
+					}
 
 					walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
-				}
 
-				if (WalletSettingValues::verbose >= 1) {
-					console::MiningPrint();
-					console::WriteLine("Blockchain length: " + std::to_string((int)walletInfo["BlockchainLength"]));
-				}
+					// Create a superblock if the number is 262800 (the number of blocks created in a year)
+					if (walletInfo["BlockchainLength"] >= 262800)
+					{
 
-				// Make sure the pending blocks are newer than the confirmed chain height, but not from the future
-				std::string path = "./wwwdata/pendingblocks/";
-				bool isFirst = true;
-				for (const auto& entry : fs::directory_iterator(path)) {
-					std::string name = SplitString(entry.path().filename().string(), "block")[1];
-					name = SplitString(name, ".dcc")[0];
-					// Delete old pending blocks, or ones that are too high
-					if (stoi(name) <= walletInfo["BlockchainLength"] || (stoi(name) >= (int)walletInfo["BlockchainLength"] + 2 && isFirst)) {
-						fs::remove(entry);
-						console::MiningPrint();
-						console::WriteLine("Removing unneeded block: " + entry.path().filename().string());
+						walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
 					}
-					isFirst = false;
-				}
 
-				// If there are no blocks to mine, stop process.
-				walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
-				if (walletInfo["PendingLength"] == 0) {
-					console::MiningErrorPrint();
-					console::WriteLine("No pending blocks found. Wait for transactions on network.");
-					break;
-				}
+					if (WalletSettingValues::verbose >= 1) {
+						console::MiningPrint();
+						console::WriteLine("Blockchain length: " + std::to_string((int)walletInfo["BlockchainLength"]));
+					}
 
-				std::ifstream blockFile("./wwwdata/pendingblocks/block" + std::to_string((int)walletInfo["BlockchainLength"] + 1) + ".dccblock");
-				std::stringstream blockBuffer;
-				blockBuffer << blockFile.rdbuf();
-				std::string content = blockBuffer.str();
-				blockFile.close();
+					// Make sure the pending blocks are newer than the confirmed chain height, but not from the future
+					std::string path = "./wwwdata/pendingblocks/";
+					bool isFirst = true;
+					for (const auto& entry : fs::directory_iterator(path)) {
+						std::string name = SplitString(entry.path().filename().string(), "block")[1];
+						name = SplitString(name, ".dcc")[0];
+						// Delete old pending blocks, or ones that are too high
+						if (stoi(name) <= walletInfo["BlockchainLength"] || (stoi(name) >= (int)walletInfo["BlockchainLength"] + 2 && isFirst)) {
+							fs::remove(entry);
+							console::MiningPrint();
+							console::WriteLine("Removing unneeded block: " + entry.path().filename().string());
+						}
+						isFirst = false;
+					}
 
-				json blockJson = json::parse(content);
+					// If there are no blocks to mine, stop process.
+					walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
+					if (walletInfo["PendingLength"] == 0) {
+						console::MiningErrorPrint();
+						console::WriteLine("No pending blocks found. Wait for transactions on network.");
+						break;
+					}
 
-				std::string dif = CalculateDifficulty(walletInfo);
-				if (WalletSettingValues::verbose >= 1) {
-					console::SystemPrint();
-					console::WriteLine("The current difficulty is: " + dif);
-					console::WriteLine("Which looks like: " + ExtractPaddedChars(dif, '0'));
-				}
+					std::ifstream blockFile("./wwwdata/pendingblocks/block" + std::to_string((int)walletInfo["BlockchainLength"] + 1) + ".dccblock");
+					std::stringstream blockBuffer;
+					blockBuffer << blockFile.rdbuf();
+					std::string content = blockBuffer.str();
+					blockFile.close();
 
-				// Add the mine award to the front of transactions before starting to mine,
-				// which will verify this as the recipient should it succeed.
-				json txDat = json::object({});
-				txDat["tx"] = {
-						{"fromAddr", "Block Reward"},
-						{"toAddr", (std::string)walletInfo["Address"]},
-						{"amount", 1},
-						{"unlockTime", 10},
-						{"transactionFee", 0.01}
-				};
-				txDat["sec"] = {
-						{"signature", ""},
-						{"pubKey", keypair[0]},
-						{"note", ""}
-				};
-				blockJson["transactions"].insert(blockJson["transactions"].begin(), txDat);
+					json blockJson = json::parse(content);
 
-				int returnVal = Mine(blockJson, ((int)walletInfo["BlockchainLength"] + 1), walletInfo);
-				if (returnVal == 0)
-				{
-					console::ConnectionError();
-					continue;
-				}
-				// End early
-				else if (returnVal == 2) {
+					std::string dif = CalculateDifficulty(walletInfo);
+					if (WalletSettingValues::verbose >= 1) {
+						console::SystemPrint();
+						console::WriteLine("The current difficulty is: " + dif);
+						console::WriteLine("Which looks like: " + ExtractPaddedChars(dif, '0'));
+					}
+
+					// Add the mine award to the front of transactions before starting to mine,
+					// which will verify this as the recipient should it succeed.
+					json txDat = json::object({});
+					txDat["tx"] = {
+							{"fromAddr", "Block Reward"},
+							{"toAddr", (std::string)walletInfo["Address"]},
+							{"amount", 1},
+							{"unlockTime", 10},
+							{"transactionFee", 0.01}
+					};
+					txDat["sec"] = {
+							{"signature", ""},
+							{"pubKey", keypair[0]},
+							{"note", ""}
+					};
+					blockJson["transactions"].insert(blockJson["transactions"].begin(), txDat);
+
+					int returnVal = Mine(blockJson, ((int)walletInfo["BlockchainLength"] + 1), walletInfo);
+					if (returnVal == 0)
+					{
+						console::ConnectionError();
+						continue;
+					}
+					// End early
+					else if (returnVal == 2) {
+						std::cout << "\n\n";
+						//getch();
+						break;
+					}
+					// Pause
+					else if (returnVal == 3) {
+						console::Write("\nPaused, press");
+						console::Write(" R ", console::greenFGColor, "");
+						console::WriteLine("to resume");
+						while (!ISKEYDOWN(0x52));
+						//while (!GetAsyncKeyState(0x52));
+						//GETKEY();
+					}
+
+					walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
+					walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
+					if (walletInfo.is_null())
+					{
+						console::ConnectionError();
+						continue;
+					}
+
 					std::cout << "\n\n";
-					//getch();
-					break;
 				}
-				// Pause
-				else if (returnVal == 3) {
-					console::Write("\nPaused, press");
-					console::Write(" R ", console::greenFGColor, "");
-					console::WriteLine("to resume");
-					while (!ISKEYDOWN(0x52));
-					//while (!GetAsyncKeyState(0x52));
-					//GETKEY();
-				}
-
-				walletInfo["BlockchainLength"] = FileCount("./wwwdata/blockchain/");
-				walletInfo["PendingLength"] = FileCount("./wwwdata/pendingblocks/");
-				if (walletInfo.is_null())
-				{
-					console::ConnectionError();
-					continue;
-				}
-
-				std::cout << "\n\n";
 			}
-		}
-		else if (commandParts[0] == "--MINEANY" || commandParts[0] == "-MA")
-		{
-			std::string diff = "";
-			if (commandParts.size() == 3)
-				diff = commandParts[2];
-			MineAnyBlock(stoi(commandParts[1]), diff);
-		}
-		else if (commandParts[0] == "--POOL" || commandParts[0] == "-P")
-		{
-			std::string poolURL = serverURL;
-			if (commandParts.size() == 2)
-				poolURL = commandParts[1];
-			PoolMine(poolURL, walletInfo);
-		}
-		else if (commandParts[0] == "--SUPERBLOCK" || commandParts[0] == "-SP")
-		{
-			CreateSuperblock();
-		}
-		else if (commandParts[0] == "--MAKE-CONTAINER" || commandParts[0] == "-MK")
-		{
-			if (commandParts.size() == 2) {
-				MakeProgram(walletInfo, walletConfig, commandParts[1]);
+			else if (commandParts[0] == "--VERBOSITY" || commandParts[0] == "-VB")
+			{
+				if (commandParts.size() == 2){
+					WalletSettingValues::verbose = stoi(commandParts[1]);
+					console::WriteLine("Changed verbosity to ("+std::to_string(WalletSettingValues::verbose)+")");
+				}
 			}
-		}
-		else if (commandParts[0] == "--LIST-CONTAINERS" || commandParts[0] == "-LS")
-		{
-			console::WriteLine();
-			const std::string delugeDirectories[2] = { "./wwwdata/deluges/", "./wwwdata/developing-deluges/" };
-			for (std::string delugeDir : delugeDirectories) {
-				console::Write("\nDeluges in directory: ");
-				console::WriteLine("\"" + delugeDir + "\"", console::yellowFGColor);
+			else if (commandParts[0] == "--MINEANY" || commandParts[0] == "-MA")
+			{
+				std::string diff = "";
+				if (commandParts.size() == 3)
+					diff = commandParts[2];
+				MineAnyBlock(stoi(commandParts[1]), diff);
+			}
+			else if (commandParts[0] == "--POOL" || commandParts[0] == "-P")
+			{
+				std::string poolURL = serverURL;
+				if (commandParts.size() == 2)
+					poolURL = commandParts[1];
+				PoolMine(poolURL, walletInfo);
+			}
+			else if (commandParts[0] == "--SUPERBLOCK" || commandParts[0] == "-SP")
+			{
+				CreateSuperblock();
+			}
+			else if (commandParts[0] == "--MAKE-CONTAINER" || commandParts[0] == "-MK")
+			{
+				if (commandParts.size() == 2) {
+					MakeProgram(walletInfo, walletConfig, commandParts[1]);
+				}
+			}
+			else if (commandParts[0] == "--LIST-CONTAINERS" || commandParts[0] == "-LS")
+			{
+				console::WriteLine();
+				const std::string delugeDirectories[2] = { "./wwwdata/deluges/", "./wwwdata/developing-deluges/" };
+				for (std::string delugeDir : delugeDirectories) {
+					console::Write("\nDeluges in directory: ");
+					console::WriteLine("\"" + delugeDir + "\"", console::yellowFGColor);
+
+					// Make table
+					console::WriteIndented("+---------------------------------+-------------------------+--------+\n", "", "", 1);
+
+					// Colored headers
+					console::WriteIndented("| ", "", "", 1);
+					console::Write("Name", console::cyanFGColor);
+					console::Write("                            |");
+					console::Write(" ID", console::cyanFGColor, "");
+					console::Write("                      |");
+					console::Write(" Peers", console::cyanFGColor, "");
+					console::Write("  |");
+					console::WriteLine();
+
+					console::WriteIndented("+---------------------------------+-------------------------+--------+\n", "", "", 1);
+					for (auto deluge : fs::directory_iterator(delugeDir))
+					{
+						std::ifstream delugeFile(deluge.path());
+						if (delugeFile.is_open()) {
+							std::stringstream delugeFilebuf;
+							delugeFilebuf << delugeFile.rdbuf();
+							json delugeJson = json::parse(delugeFilebuf.str());
+							delugeFile.close();
+
+							console::WriteIndented("| " + PadStringRight((std::string)delugeJson["_name"], ' ', 32) + "| ", "", "", 1);
+							console::Write(((std::string)delugeJson["_totalHash"]).substr(0, 20) + "... |");
+							console::Write(PadString(std::to_string(delugeJson["peers"].size()), ' ', 7) + " |");
+							console::WriteLine();
+
+							//// Verify the deluge, by checking each chunk with its expected hash, and then the full hash
+							//std::string delugePath = "./wwwdata/containers/" + ((std::string)delugeJson["_totalHash"]).substr(0, 32) + ".tar.zip";
+							//if(VerifyDeluge(delugeJson, delugePath)){
+							//	// Add deluge full hash to list with it's path as a value
+							//	//completeDelugeList[(std::string)delugeJson["_totalHash"]] = deluge.path();
+							//}
+							//// If the deluge is invalid, remove it's file
+							//else{
+							//	try{
+							//		remove(deluge.path());
+							//	}
+							//	catch(...){}
+							//}
+						}
+					}
+					console::WriteIndented("+---------------------------------+-------------------------+--------+\n", "", "", 1);
+				}
+			}
+			else if (commandParts[0] == "--LIST-PEERS" || commandParts[0] == "-LP")
+			{
+				console::WriteLine();
+				console::Write("\nPeers: ");
 
 				// Make table
-				console::WriteIndented("+---------------------------------+-------------------------+--------+\n", "", "", 1);
+				console::WriteIndented("+-----------------+-------+------------+-------+\n", "", "", 1);
 
 				// Colored headers
 				console::WriteIndented("| ", "", "", 1);
-				console::Write("Name", console::cyanFGColor);
-				console::Write("                            |");
-				console::Write(" ID", console::cyanFGColor, "");
-				console::Write("                      |");
-				console::Write(" Peers", console::cyanFGColor, "");
+				console::Write("IP", console::cyanFGColor);
+				console::Write("              |");
+				console::Write(" PORT", console::cyanFGColor, "");
 				console::Write("  |");
+				console::Write(" Status", console::cyanFGColor, "");
+				console::Write("     |");
+				console::Write(" Tries", console::cyanFGColor, "");
+				console::Write(" |");
 				console::WriteLine();
 
-				console::WriteIndented("+---------------------------------+-------------------------+--------+\n", "", "", 1);
-				for (auto deluge : fs::directory_iterator(delugeDir))
+				console::WriteIndented("+-----------------+-------+------------+-------+\n", "", "", 1);
+				for(std::string peer : p2p.peerList)
 				{
-					std::ifstream delugeFile(deluge.path());
-					if (delugeFile.is_open()) {
-						std::stringstream delugeFilebuf;
-						delugeFilebuf << delugeFile.rdbuf();
-						json delugeJson = json::parse(delugeFilebuf.str());
-						delugeFile.close();
+						console::WriteIndented("| " + PadStringRight(SplitString(peer, ":")[0], ' ', 16) + "| ", "", "", 1);
+						console::Write(PadStringRight(SplitString(peer, ":")[1], ' ', 5) + " | ");
+						int statusNum = stoi(SplitString(peer, ":")[2]);
+						if (statusNum <= 1)
+							console::Write(PadStringRight("online", ' ', 10), console::greenFGColor);
+						else if (statusNum <= 5)
+							console::Write(PadStringRight("stalling", ' ', 10), console::yellowFGColor);
+						else if (statusNum <= 9)
+							console::Write(PadStringRight("offline", ' ', 10), console::redFGColor);
+						console::Write(" | ");
 
-						console::WriteIndented("| " + PadStringRight((std::string)delugeJson["_name"], ' ', 32) + "| ", "", "", 1);
-						console::Write(((std::string)delugeJson["_totalHash"]).substr(0, 20) + "... |");
-						console::Write(PadString(std::to_string(delugeJson["peers"].size()), ' ', 7) + " |");
+						console::Write(PadStringRight(SplitString(peer, ":")[2], ' ', 5) + " | ");
+
 						console::WriteLine();
 
-						//// Verify the deluge, by checking each chunk with its expected hash, and then the full hash
-						//std::string delugePath = "./wwwdata/containers/" + ((std::string)delugeJson["_totalHash"]).substr(0, 32) + ".tar.zip";
-						//if(VerifyDeluge(delugeJson, delugePath)){
-						//	// Add deluge full hash to list with it's path as a value
-						//	//completeDelugeList[(std::string)delugeJson["_totalHash"]] = deluge.path();
-						//}
-						//// If the deluge is invalid, remove it's file
-						//else{
-						//	try{
-						//		remove(deluge.path());
-						//	}
-						//	catch(...){}
-						//}
-					}
 				}
-				console::WriteIndented("+---------------------------------+-------------------------+--------+\n", "", "", 1);
+				console::WriteIndented("+-----------------+-------+------------+-------+\n", "", "", 1);
+			}
+
+			//else if (commandParts[0] == "--CONNECT" || commandParts[0] == "-C")
+			//{
+			//	if (commandParts.size() < 3)
+			//		continue;
+
+			//	endpointPort = commandParts[1];
+			//	peerPort = commandParts[2];
+
+			//	p2p.StartP2P(endpointAddr, endpointPort, peerPort);
+			//	console::NetworkPrint();
+			//	console::WriteLine("Closed P2P");
+			//}
+			else {
+				console::ErrorPrint();
+				console::WriteLine("Invalid command");
 			}
 		}
-		else if (commandParts[0] == "--LIST-PEERS" || commandParts[0] == "-LP")
-		{
-			console::WriteLine();
-			console::Write("\nPeers: ");
-
-			// Make table
-			console::WriteIndented("+-----------------+-------+------------+-------+\n", "", "", 1);
-
-			// Colored headers
-			console::WriteIndented("| ", "", "", 1);
-			console::Write("IP", console::cyanFGColor);
-			console::Write("              |");
-			console::Write(" PORT", console::cyanFGColor, "");
-			console::Write("  |");
-			console::Write(" Status", console::cyanFGColor, "");
-			console::Write("     |");
-			console::Write(" Tries", console::cyanFGColor, "");
-			console::Write(" |");
-			console::WriteLine();
-
-			console::WriteIndented("+-----------------+-------+------------+-------+\n", "", "", 1);
-			for(std::string peer : p2p.peerList)
-			{
-					console::WriteIndented("| " + PadStringRight(SplitString(peer, ":")[0], ' ', 16) + "| ", "", "", 1);
-					console::Write(PadStringRight(SplitString(peer, ":")[1], ' ', 5) + " | ");
-					int statusNum = stoi(SplitString(peer, ":")[2]);
-					if (statusNum <= 1)
-						console::Write(PadStringRight("online", ' ', 10), console::greenFGColor);
-					else if (statusNum <= 5)
-						console::Write(PadStringRight("stalling", ' ', 10), console::yellowFGColor);
-					else if (statusNum <= 9)
-						console::Write(PadStringRight("offline", ' ', 10), console::redFGColor);
-					console::Write(" | ");
-
-					console::Write(PadStringRight(SplitString(peer, ":")[2], ' ', 5) + " | ");
-
-					console::WriteLine();
-
-			}
-			console::WriteIndented("+-----------------+-------+------------+-------+\n", "", "", 1);
-		}
-
-		//else if (commandParts[0] == "--CONNECT" || commandParts[0] == "-C")
-		//{
-		//	if (commandParts.size() < 3)
-		//		continue;
-
-		//	endpointPort = commandParts[1];
-		//	peerPort = commandParts[2];
-
-		//	p2p.StartP2P(endpointAddr, endpointPort, peerPort);
-		//	console::NetworkPrint();
-		//	console::WriteLine("Closed P2P");
-		//}
-		else {
+		catch(...){
 			console::ErrorPrint();
 			console::WriteLine("Invalid command");
 		}

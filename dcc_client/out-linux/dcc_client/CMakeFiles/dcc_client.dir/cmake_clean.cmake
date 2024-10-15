@@ -15,6 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/dcc_client.dir/Network.cpp.o.d"
   "CMakeFiles/dcc_client.dir/P2PClient.cpp.o"
   "CMakeFiles/dcc_client.dir/P2PClient.cpp.o.d"
+  "CMakeFiles/dcc_client.dir/SettingsConsts.cpp.o"
+  "CMakeFiles/dcc_client.dir/SettingsConsts.cpp.o.d"
   "CMakeFiles/dcc_client.dir/System.cpp.o"
   "CMakeFiles/dcc_client.dir/System.cpp.o.d"
   "CMakeFiles/dcc_client.dir/benchmark.cpp.o"

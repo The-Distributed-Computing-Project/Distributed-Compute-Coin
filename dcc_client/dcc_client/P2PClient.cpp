@@ -615,8 +615,10 @@ void P2P::ListenerThread(int update_interval)
 					SavePeerList();
 
 					// If not currently connected, accept this connection.
-					if (otherAddrStr == "")
+					if (otherAddrStr == ""){
 						otherAddrStr = fromIPString;
+						SetPeer(ipIndex);
+					}
 
 					// If connected but different, ignore.
 					else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0]) {
@@ -1090,7 +1092,7 @@ void P2P::SenderThread()
 			if (messageStatus == idle)
 				continue;
 
-			int messageMaxAttempts = 20;
+			int messageMaxAttempts = 10;
 
 			// Begin sending messages, and stop when a reply is received, or max tries exceeded
 			for (messageAttempt = 0; messageAttempt < messageMaxAttempts; messageAttempt++)
@@ -1266,6 +1268,7 @@ void P2P::SenderThread()
 				console::NetworkErrorPrint();
 				console::Write("Peer Timed Out at ", console::redFGColor, "");
 				console::WriteLine(std::to_string(peerPort), console::cyanFGColor, "");
+				otherAddrStr = "";
 				messageAttempt = 0;
 
 				// If this client is the asker, then try other peers.

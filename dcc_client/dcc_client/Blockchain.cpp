@@ -799,7 +799,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				console::WriteLine();
 
 				indicators::IndeterminateProgressBar fixingBar{
-				    indicators::option::BarWidth{40},
+				    indicators::option::BarWidth{20},
 				    indicators::option::Start{"["},
 				    indicators::option::Fill{"·"},
 				    indicators::option::Lead{"<==>"},

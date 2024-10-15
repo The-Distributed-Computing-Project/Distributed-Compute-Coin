@@ -23,7 +23,7 @@ const std::string serverURL = "http://mullichia.mit.edu:3333";
 
 namespace WalletSettingValues
 {
-    constexpr uint8_t verbose{ 7 };
+    constexpr uint8_t verbose{ 9 };
 
 }
 

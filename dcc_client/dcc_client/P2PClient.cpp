@@ -115,7 +115,7 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 			}
 
 			total += n;
-			if (WalletSettingValues::verbose >= 3) {
+			if (WalletSettingValues::verbose >= 7) {
 				std::cout << std::to_string((int)round(100 * ((float)total / (float)len))) << "% sent" << std::endl;
 			}
 			if (bytesLeft < 1000)
@@ -125,7 +125,7 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 
 			segmentCount++;
 		}
-		if (WalletSettingValues::verbose >= 3) {
+		if (WalletSettingValues::verbose >= 7) {
 			std::cout << "Done sending chunk" << std::endl;
 		}
 
@@ -247,7 +247,7 @@ void P2P::ListenerThread(int update_interval)
 						//csubstr(buffer, tempContent, segInfo.size()+2, BUFFERLENGTH, nullptr);
 						//std::string content = textVal.substr(segInfo.size()+2); // Get all data after the end of the segment info
 
-						if (WalletSettingValues::verbose >= 4) {
+						if (WalletSettingValues::verbose >= 8) {
 							console::WriteLine("received -- " + segInfo, console::yellowFGColor, "");
 							console::WriteLine("\n\n" + content + "\n\n", console::greenFGColor, "");
 						}
@@ -578,8 +578,8 @@ void P2P::ListenerThread(int update_interval)
 
 				remoteAddrLen = sizeof(remoteAddr);
 
-				//if(setsockopt(localSocket, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv)) < 0)
-				//	ERRORMSG("Failed to set socket options");
+				if(setsockopt(localSocket, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv)) < 0)
+					ERRORMSG("Failed to set socket options");
 				int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (sockaddr*)&remoteAddr, &remoteAddrLen);
 
 				if (WalletSettingValues::verbose >= 9)
@@ -642,7 +642,7 @@ void P2P::ListenerThread(int update_interval)
 					//csubstr(buffer, tempContent, segInfo.size()+2, BUFFERLENGTH, nullptr);
 					//std::string content = textVal.substr(segInfo.size()+2); // Get all data after the end of the segment info
 
-					if (WalletSettingValues::verbose >= 4) {
+					if (WalletSettingValues::verbose >= 8) {
 						console::WriteLine("received -- " + segInfo, console::yellowFGColor, "");
 						console::WriteLine("\n\n" + content + "\n\n", console::greenFGColor, "");
 					}

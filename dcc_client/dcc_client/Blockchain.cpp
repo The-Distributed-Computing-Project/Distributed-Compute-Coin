@@ -780,12 +780,13 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				walletInfo["transactionNumber"] = txNPending;
 
 
-				if (i % 10 == 0 || i >= chainLength - 2) {
-					console::Write("     Transactions: " + std::to_string(o["transactions"].size()));
-					console::Write("   Ok  ", console::greenFGColor, "");
-				}
+				if(WalletSettingValues::verbose >= 5)
+					if (i % 10 == 0 || i >= chainLength - 2) {
+						console::Write("     Transactions: " + std::to_string(o["transactions"].size()));
+						console::Write("   Ok  ", console::greenFGColor, "");
+					}
 
-				if(i % 10 == 0){
+				if(i % (chainLength / 1000) == 0){
 					progressAndFixingBar.set_option(option::PostfixText{"Checking ("+std::to_string(i)+"/"+std::to_string(chainLength)+")"});
 					progressAndFixingBar.tick();
 				}

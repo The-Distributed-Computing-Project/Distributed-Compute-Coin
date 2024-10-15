@@ -65,7 +65,7 @@ std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {
 std::string P2P::NormalizedIPString(sockaddr_in remoteAddr) {
 	std::string fromIPString = inet_ntoa(remoteAddr.sin_addr);
 	fromIPString += ":";
-	fromIPString += ntohs(remoteAddr.sin_port);
+	fromIPString += std::to_string(ntohs(remoteAddr.sin_port));
 	return fromIPString;
 }
 #endif
@@ -109,7 +109,7 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 				- segSize; // Don't include segment info when counting data, so subtract this
 			if (n + segSize <= -1) {
 				ERRORMSG("Sending data failed:\n");
-				printf("sendto failed with error: %d\n", GETSOCKETERRORNO());
+				printf("sendto failed with error: %d: %s\n", GETSOCKETERRORNO(), strerror(GETSOCKETERRORNO()));
 				return -1;
 				break;
 			}
@@ -626,7 +626,7 @@ void P2P::ListenerThread(int update_interval)
 					}
 
 					// Read the received data buffer into a string
-					std::string textVal = std::string(buffer, buffer + iResult);
+					std::string textVal = std::string(buffer, buffer + iResult-1);
 
 					// Get the segment information from the received data
 					std::string segInfo = SplitString(textVal, "&")[0];
@@ -1074,8 +1074,10 @@ void P2P::SenderThread()
 			otherSize = sizeof(otherAddr);
 
 			if (connect(localSocket, (struct sockaddr*)&otherAddr, otherSize) < 0)
-				if(WalletSettingValues::verbose >= 3)
+				if(WalletSettingValues::verbose >= 3){
 					console::WriteLine("ERROR connecting");
+					printf("connect() failed with error: %d: %s\n", GETSOCKETERRORNO(), strerror(GETSOCKETERRORNO()));
+				}
 
 			bool noinput = false;
 

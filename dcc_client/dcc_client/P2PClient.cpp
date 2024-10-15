@@ -8,6 +8,8 @@
 const int BUFFERLENGTH = 1024 * 64; // 64 kb buffer for large files
 const int MESSAGESIZE = 2048; // The rough size of each data packet, in bytes, excluding the header
 
+#define DCCARK_ADDR "18.18.239.22:5060"
+
 char buffer[BUFFERLENGTH];
 char sendbuffer[BUFFERLENGTH];
 
@@ -919,6 +921,7 @@ void P2P::ListenerThread(int update_interval)
 void P2P::InitPeerList() {
 	std::string line;
 	std::ifstream peerFile("./wwwdata/peerlist.list");
+
 	// If the peer list file does not exist, create it
 	if (!peerFile)
 	{
@@ -929,19 +932,30 @@ void P2P::InitPeerList() {
 		std::ofstream peerFileW("./wwwdata/peerlist.list");
 		if (peerFileW.is_open())
 		{
-			peerFileW << "18.18.239.22:5060:0";
+			peerFileW << DCCARK_ADDR ":0";
 			peerFileW.close();
 		}
 		peerFileW.close();
 	}
-	else
-		while (std::getline(peerFile, line)) {
-			if (line == "") // Make sure at least one instance of DCCARK peer is included
-				peerList.push_back("18.18.239.22:5060:0");
-			else if (line[0] != '#')
-				peerList.push_back(line);
+
+	// Load peer file
+	bool wasFound = false;
+	// Add all lines to peerList vector
+	while (std::getline(peerFile, line)) {
+		if (line[0] != '#'){
+			// Make sure at least one instance of DCCARK peer is included
+			if (SplitString(line, ":")[0] + ":" + SplitString(line, ":")[1] == DCCARK_ADDR ":0")
+				wasFound = true;
+			peerList.push_back(line);
 		}
+	}
+	// If DCCARK is not in peerlist, add it.
+	if (!wasFound) {
+		peerList.push_back(DCCARK_ADDR ":0");
+	}
+
 	peerFile.close();
+	SavePeerList();
 }
 
 void P2P::SavePeerList() {
@@ -1290,10 +1304,9 @@ void P2P::SenderThread()
 						try
 						{
 							// Decrease life of current peer
-							std::cout << peerList[peerListID] << std::endl;
 							char newLife = (SplitString(peerList[peerListID], ":")[2]).c_str()[0] + 1;
 
-							if (newLife >= '9' && keepPeersAlive == false) // If life is 9, remove it from list
+							if (newLife >= '9' && keepPeersAlive == false && SplitString(peerList[peerListID], ":")[0] + ":" + SplitString(peerList[peerListID], ":")[1] != DCCARK_ADDR) // If life is 9, remove it from list
 								peerList.erase(peerList.begin() + peerListID);
 							else if (keepPeersAlive)
 								peerList[peerListID] = SplitString(peerList[peerListID], ":")[0] + ":" + SplitString(peerList[peerListID], ":")[1] + ":0";

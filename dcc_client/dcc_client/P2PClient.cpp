@@ -6,6 +6,7 @@
 #pragma comment(lib,"ws2_32.lib")
 
 const int BUFFERLENGTH = 1024 * 64; // 64 kb buffer for large files
+const int MESSAGESIZE = 2048; // The rough size of each data packet, in bytes, excluding the header
 
 char buffer[BUFFERLENGTH];
 char sendbuffer[BUFFERLENGTH];
@@ -91,8 +92,8 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 		while (bytesLeft > 0) {
 			//std::string segInfo = "seg " + + " of " + + ", " + + " bytes|";
 			std::string segInfo = "seg :" + std::to_string(segmentCount) +
-				": of :" + std::to_string((int)ceil((float)len / 1000.0f)) +
-				": , :" + std::to_string((bytesLeft < 1000) ? bytesLeft : 1000) +
+				": of :" + std::to_string((int)ceil((float)len / (float)MESSAGESIZE)) +
+				": , :" + std::to_string((bytesLeft < MESSAGESIZE) ? bytesLeft : MESSAGESIZE) +
 				": bytes&";
 
 			int segSize = segInfo.size();
@@ -102,7 +103,7 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 			n = sendto(socket,
 				segInfo.c_str(),
 				//sizeof(segInfo.c_str()),
-				(bytesLeft < 1000) ? (bytesLeft + segSize) : (1000 + segSize),
+				(bytesLeft < MESSAGESIZE) ? (bytesLeft + segSize) : (MESSAGESIZE + segSize),
 				0,
 				to,
 				toLen)
@@ -118,10 +119,10 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 			if (WalletSettingValues::verbose >= 7) {
 				std::cout << std::to_string((int)round(100 * ((float)total / (float)len))) << "% sent" << std::endl;
 			}
-			if (bytesLeft < 1000)
+			if (bytesLeft < MESSAGESIZE)
 				bytesLeft -= n;
 			else
-				bytesLeft -= 1000;
+				bytesLeft -= MESSAGESIZE;
 
 			segmentCount++;
 		}

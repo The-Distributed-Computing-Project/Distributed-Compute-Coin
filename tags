@@ -15,6 +15,7 @@ GetProgramLifeLeft	dcc_client/dcc_client/Blockchain.cpp	/^float GetProgramLifeLe
 InitPeerList	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::InitPeerList() {$/;"	f	class:P2P	typeref:typename:void
 IsChainValid	dcc_client/dcc_client/Blockchain.cpp	/^bool IsChainValid(P2P& p2p, json& walletInfo)$/;"	f	typeref:typename:bool
 ListenerThread	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::ListenerThread(int update_interval)$/;"	f	class:P2P	typeref:typename:void
+MESSAGESIZE	dcc_client/dcc_client/P2PClient.cpp	/^const int MESSAGESIZE = 2048; \/\/ The rough size of each data packet, in bytes, excluding the h/;"	v	typeref:typename:const int
 MakeProgram	dcc_client/dcc_client/Blockchain.cpp	/^int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)$/;"	f	typeref:typename:int
 NormalizedIPString	dcc_client/dcc_client/P2PClient.cpp	/^std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {$/;"	f	class:P2P	typeref:typename:std::string
 NormalizedIPString	dcc_client/dcc_client/P2PClient.cpp	/^std::string P2P::NormalizedIPString(sockaddr_in remoteAddr) {$/;"	f	class:P2P	typeref:typename:std::string

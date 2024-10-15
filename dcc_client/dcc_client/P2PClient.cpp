@@ -225,7 +225,7 @@ void P2P::ListenerThread(int update_interval)
 						// If not currently connected, accept this connection.
 						if (otherAddrStr == ""){
 							if (WalletSettingValues::verbose >= 4)
-								console::WriteLine("\n↓ Conversation Started ↓", console::greenFGColor, "");
+								console::WriteLine("\nConversation Started", console::greenFGColor, "");
 							otherAddrStr = fromIPString;
 						}
 
@@ -625,6 +625,9 @@ void P2P::ListenerThread(int update_interval)
 
 					// If not currently connected, accept this connection.
 					if (otherAddrStr == ""){
+						if (WalletSettingValues::verbose >= 4)
+							console::WriteLine("\nConversation Started", console::greenFGColor, "");
+
 						otherAddrStr = fromIPString;
 						if(ipIndex != -1)
 							SetPeer(ipIndex);
@@ -1141,7 +1144,7 @@ void P2P::SenderThread()
 				if (messageStatus == idle)
 				{
 					if (WalletSettingValues::verbose >= 4)
-						console::WriteLine("↑ Conversation complete ↑\n", console::greenFGColor, "");
+						console::WriteLine("Conversation complete\n", console::greenFGColor, "");
 					otherAddrStr = "";
 					reqDat = -1;
 					role = -1;

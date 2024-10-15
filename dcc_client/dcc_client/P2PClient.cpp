@@ -557,7 +557,7 @@ void P2P::ListenerThread(int update_interval)
 				//FD_ZERO(&rfds);
 				//FD_SET(localSocket, &rfds);
 				tv.tv_sec = 0;
-				tv.tv_usec = 100000;
+				tv.tv_usec = 10000;
 
 				////listen(localSocket,5);
 				//int iResult = select(localSocket, &rfds, (fd_set*)0, (fd_set*)0, &tv);
@@ -1265,7 +1265,7 @@ void P2P::SenderThread()
 				Sleep(50);
 #else
 				//sleep(1);
-				std::this_thread::sleep_for(std::chrono::milliseconds(100));
+				std::this_thread::sleep_for(std::chrono::milliseconds(20));
 #endif
 			}
 

@@ -22,7 +22,7 @@ namespace fs = std::filesystem;
 
 
 int SyncPending(P2P& p2p, int whichBlock);
-int SyncBlock(P2P& p2p, int whichBlock, bool force = false);
+int SyncBlock(P2P& p2p, int whichBlock, bool force = false, bool awaitFinish = true);
 int Sync(P2P& p2p, json& walletInfo);
 int AnnounceToPeers(P2P& p2p);
 json ReadProgramConfig();

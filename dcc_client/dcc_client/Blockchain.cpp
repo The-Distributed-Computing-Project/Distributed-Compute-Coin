@@ -33,7 +33,7 @@ int SyncPending(P2P& p2p, int whichBlock)
 }
 
 // Sync a single solid block from a peer
-int SyncBlock(P2P& p2p, int whichBlock, bool force)
+int SyncBlock(P2P& p2p, int whichBlock, bool force, bool awaitFinish)
 {
 	if (fs::exists("./wwwdata/blockchain/block" + std::to_string(whichBlock) + ".dccblock") && !force)
 		return 1;
@@ -42,7 +42,7 @@ int SyncBlock(P2P& p2p, int whichBlock, bool force)
 	p2p.messageAttempt = 0;
 	p2p.reqDat = whichBlock;
 
-	while (p2p.isAwaiting()) {}
+	while (p2p.isAwaiting() && awaitFinish) {}
 
 	return 1;
 }
@@ -538,11 +538,12 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 
 		BlockProgressBar checkingProgressBar{
 			option::BarWidth{80},
+			option::PrefixText{"Checking "},
     		option::Start{"["},
     		option::End{"]"},
     		option::ForegroundColor{Color::white},
     		option::FontStyles{std::vector<FontStyle>{FontStyle::bold}},
-			option::MaxProgress{chainLength}
+			option::MaxProgress{chainLength},
 		};
 
 		// Apply funds to user from the first block separately
@@ -643,7 +644,8 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 				std::ifstream t;
 				t.open("./wwwdata/blockchain/block" + std::to_string(i) + ".dccblock");
 				if (!t.is_open()) {
-					ERRORMSG("Could not open file" << " ./wwwdata/blockchain/block" << std::to_string(i) << ".dccblock ");
+					if(WalletSettingValues::verbose >= 4)
+						ERRORMSG("Could not open file" << " ./wwwdata/blockchain/block" << std::to_string(i) << ".dccblock ");
 					throw 1;
 				}
 				std::stringstream buffer;
@@ -794,13 +796,33 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					ERRORMSG("Error\n" << e.what());
 				}*/
 
-				console::Write("\nAttempting fix...");
-				SyncBlock(p2p, i, true); // Force resync
-				console::Write(" Done!", console::greenFGColor);
+				console::WriteLine();
+
+				indicators::IndeterminateProgressBar fixingBar{
+				    indicators::option::BarWidth{40},
+				    indicators::option::Start{"["},
+				    indicators::option::Fill{"·"},
+				    indicators::option::Lead{"<==>"},
+				    indicators::option::End{"]"},
+				    indicators::option::PostfixText{"Attempting fix"},
+				    indicators::option::ForegroundColor{indicators::Color::yellow},
+				    indicators::option::FontStyles{
+				        std::vector<indicators::FontStyle>{indicators::FontStyle::bold}}
+				};
+
+				//console::Write("\nAttempting fix...");
+				SyncBlock(p2p, i, true, false); // Force resync
+				while (p2p.isAwaiting()) {
+					std::this_thread::sleep_for(std::chrono::milliseconds(50));
+					fixingBar.tick();
+				}
+				fixingBar.mark_as_completed();
+				//console::Write(" Done!", console::greenFGColor);
 
 				i -= 2;
 				// Then recount, because we need to know if the synced block is new or overwrote an existing one.
 				chainLength = FileCount("./wwwdata/blockchain/");
+				checkingProgressBar.set_progress(100*i/chainLength);
 			}
 		}
 

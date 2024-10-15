@@ -817,7 +817,7 @@ void P2P::ListenerThread(int update_interval)
 
 						}
 
-						if (WalletSettingValues::verbose >= 3) {
+						if (WalletSettingValues::verbose >= 7) {
 							console::WriteLine("request " + std::to_string(messageStatus), console::greenFGColor, "");
 						}
 					}

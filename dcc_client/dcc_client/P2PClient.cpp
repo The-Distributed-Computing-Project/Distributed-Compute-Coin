@@ -499,10 +499,10 @@ void P2P::ListenerThread(int update_interval)
 									std::cerr << e.what() << std::endl;
 								}
 
-								if (WalletSettingValues::verbose >= 2) {
+								if (WalletSettingValues::verbose >= 7) {
 									console::WriteLine("received block: " + std::to_string(num), console::greenFGColor, "");
 								}
-								if (WalletSettingValues::verbose >= 4) {
+								if (WalletSettingValues::verbose >= 8) {
 									console::WriteLine("\ncontent: \n" + blockData, console::greenFGColor, "");
 								}
 							}
@@ -1104,10 +1104,8 @@ void P2P::SenderThread()
 				// Stop sending if the message status switches to idle
 				if (messageStatus == idle)
 				{
-					if (WalletSettingValues::verbose >= 3)
-						console::WriteLine("Send/receive complete", console::greenFGColor, "");
-					else
-						console::WriteLine();
+					if (WalletSettingValues::verbose >= 6)
+						console::WriteLine("Conversation complete", console::greenFGColor, "");
 					otherAddrStr = "";
 					reqDat = -1;
 					role = -1;
@@ -1120,7 +1118,7 @@ void P2P::SenderThread()
 				if (WalletSettingValues::verbose >= 4) {
 					std::cout << "\r\r";
 					console::NetworkPrint();
-					console::Write("Send attempt: " + std::to_string(messageAttempt) + ", to ("+otherAddrStr+")    ");
+					console::Write("Send attempt: " + std::to_string(messageAttempt) + ", to ("+otherAddrStr+")                               ");
 				}
 
 				// If doing initial connect request
@@ -1265,7 +1263,8 @@ void P2P::SenderThread()
 #if WINDOWS
 				Sleep(50);
 #else
-				sleep(1);
+				//sleep(1);
+				std::this_thread::sleep_for(std::chrono::milliseconds(100));
 #endif
 			}
 

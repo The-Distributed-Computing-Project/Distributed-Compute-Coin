@@ -485,7 +485,7 @@ void P2P::ListenerThread(int update_interval)
 								// Save block data to file
 								try
 								{
-									if (WalletSettingValues::verbose >= 2)
+									if (WalletSettingValues::verbose >= 5)
 										console::WriteLine("\nSaved block: " + std::to_string(num));
 									std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(num) + ".dccblock");
 									if (blockFile.is_open())
@@ -867,7 +867,7 @@ void P2P::ListenerThread(int update_interval)
 							// Save block data to file
 							try
 							{
-								if (WalletSettingValues::verbose >= 2)
+								if (WalletSettingValues::verbose >= 5)
 									console::WriteLine("\nSaved block: " + std::to_string(num));
 								std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(num) + ".dccblock");
 								if (blockFile.is_open())
@@ -881,7 +881,7 @@ void P2P::ListenerThread(int update_interval)
 								std::cerr << e.what() << std::endl;
 							}
 
-							if (WalletSettingValues::verbose >= 2) {
+							if (WalletSettingValues::verbose >= 7) {
 								console::WriteLine("received block: " + std::to_string(num), console::greenFGColor, "");
 							}
 						}

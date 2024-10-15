@@ -786,7 +786,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 						console::Write("   Ok  ", console::greenFGColor, "");
 					}
 
-				if(i % (chainLength / 1000) == 0){
+				if(i % (chainLength / 1000 + 1) == 0){
 					progressAndFixingBar.set_option(option::PostfixText{"Checking ("+std::to_string(i)+"/"+std::to_string(chainLength)+")"});
 					progressAndFixingBar.tick();
 				}

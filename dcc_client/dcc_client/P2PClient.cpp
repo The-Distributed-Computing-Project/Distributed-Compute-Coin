@@ -1104,6 +1104,7 @@ void P2P::SenderThread()
 						console::WriteLine("Send/receive complete", console::greenFGColor, "");
 					else
 						console::WriteLine();
+					otherAddrStr = "";
 					reqDat = -1;
 					role = -1;
 					break;
@@ -1115,7 +1116,7 @@ void P2P::SenderThread()
 				if (WalletSettingValues::verbose >= 4) {
 					std::cout << "\r\r";
 					console::NetworkPrint();
-					console::Write("Send attempt: " + std::to_string(messageAttempt) + "    ");
+					console::Write("Send attempt: " + std::to_string(messageAttempt) + ", to ("+otherAddrStr+")    ");
 				}
 
 				// If doing initial connect request

@@ -1187,7 +1187,7 @@ void P2P::SenderThread()
 					std::string blockText = bufferd.str();
 
 					msg = "answer~block~" + std::to_string(reqDat) + "~" + ReplaceEscapeSymbols(blockText);
-					if (WalletSettingValues::verbose >= 3) {
+					if (WalletSettingValues::verbose >= 7) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);

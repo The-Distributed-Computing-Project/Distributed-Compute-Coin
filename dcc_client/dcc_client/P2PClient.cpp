@@ -633,16 +633,19 @@ void P2P::ListenerThread(int update_interval)
 					std::string segInfo = SplitString(textVal, "&")[0];
 					int segNumber = std::stoi(SplitString(segInfo, ":")[1]);
 					int maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
+					int segLength = std::stoi(SplitString(segInfo, ":")[5]) + segInfo.size() + 1;
 					//char* tempContent = buffer;
 					std::string content = "";
-					for (int i = segInfo.size() + 1; i < BUFFERLENGTH; i++) {
+					for (int i = segInfo.size() + 1; i < segLength; i++) {
 						content += buffer[i];
 					}
 					//csubstr(buffer, tempContent, segInfo.size()+2, BUFFERLENGTH, nullptr);
 					//std::string content = textVal.substr(segInfo.size()+2); // Get all data after the end of the segment info
 
-					if (WalletSettingValues::verbose >= 4)
+					if (WalletSettingValues::verbose >= 4) {
 						console::WriteLine("received -- " + segInfo, console::yellowFGColor, "");
+						console::WriteLine("\n\n" + content + "\n\n", console::greenFGColor, "");
+					}
 
 					// If we are currently still waiting for more data to be received
 					if (pendingReceiveData) {

@@ -1633,6 +1633,8 @@ dcc_client/CMakeFiles/dcc_client.dir/System.cpp.o: \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/strops.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Console.h \
  /usr/include/c++/12/queue /usr/include/c++/12/bits/stl_queue.h \
+ /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/indicators.hpp \
+ /usr/include/c++/12/iomanip /usr/include/c++/12/bits/quoted_string.h \
  /usr/include/c++/12/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -1654,6 +1656,6 @@ dcc_client/CMakeFiles/dcc_client.dir/System.cpp.o: \
  /usr/include/c++/12/tr1/modified_bessel_func.tcc \
  /usr/include/c++/12/tr1/poly_hermite.tcc \
  /usr/include/c++/12/tr1/poly_laguerre.tcc \
- /usr/include/c++/12/tr1/riemann_zeta.tcc /usr/include/c++/12/math.h \
- /usr/include/c++/12/iomanip /usr/include/c++/12/bits/quoted_string.h \
+ /usr/include/c++/12/tr1/riemann_zeta.tcc /usr/include/c++/12/thread \
+ /usr/include/c++/12/math.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.h

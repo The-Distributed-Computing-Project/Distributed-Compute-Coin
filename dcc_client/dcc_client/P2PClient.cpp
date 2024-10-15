@@ -186,7 +186,7 @@ void P2P::ListenerThread(int update_interval)
 					int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (struct sockaddr*)&remoteAddr, &remoteAddrLen);
 
 
-					if (WalletSettingValues::verbose >= 3)
+					if (WalletSettingValues::verbose >= 7)
 						if (iResult != -1) {
 							std::cout << "iResult: " << std::to_string(iResult) << std::endl;
 							std::cout << "\n\nsin_family of received: " << remoteAddr.sin_family << "\n" << std::endl;
@@ -305,7 +305,7 @@ void P2P::ListenerThread(int update_interval)
 
 						// If the peer is requesting to connect
 						if (totalMessage == "peer~connect") {
-							if (WalletSettingValues::verbose >= 3) {
+							if (WalletSettingValues::verbose >= 7) {
 								console::DebugPrint();
 								console::WriteLine("Received initial connection, awaiting confirmation...", console::greenFGColor, "");
 							}
@@ -339,7 +339,7 @@ void P2P::ListenerThread(int update_interval)
 						}
 						// If the peer is requesting message received confirmation
 						else if (totalMessage == "peer~success" && (messageStatus >= 0)) {
-							if (WalletSettingValues::verbose >= 3) {
+							if (WalletSettingValues::verbose >= 7) {
 								console::DebugPrint();
 								console::WriteLine("Dual Confirmation", console::greenFGColor, "");
 							}
@@ -350,7 +350,7 @@ void P2P::ListenerThread(int update_interval)
 						}
 						// If the peer is idling
 						else if (totalMessage == "peer~idle") {
-							if (WalletSettingValues::verbose >= 3) {
+							if (WalletSettingValues::verbose >= 7) {
 								console::DebugPrint();
 								console::WriteLine("idle...", console::yellowFGColor, "");
 							}
@@ -435,7 +435,7 @@ void P2P::ListenerThread(int update_interval)
 
 							}
 
-							if (WalletSettingValues::verbose >= 3) {
+							if (WalletSettingValues::verbose >= 7) {
 								console::WriteLine("request " + std::to_string(messageStatus), console::greenFGColor, "");
 							}
 						}
@@ -447,7 +447,7 @@ void P2P::ListenerThread(int update_interval)
 								messagePrefix += "height~";
 								peerBlockchainLength = std::stoi(totalMessage.substr(messagePrefix.size()));
 								messageStatus = await_first_success;
-								if (WalletSettingValues::verbose >= 3) {
+								if (WalletSettingValues::verbose >= 7) {
 									console::WriteLine("answer height: " + std::to_string(peerBlockchainLength), console::greenFGColor, "");
 								}
 							}
@@ -1110,7 +1110,7 @@ void P2P::SenderThread()
 				// If not in idle state, continue sending messages
 				std::string msg = "";
 
-				if (WalletSettingValues::verbose >= 2) {
+				if (WalletSettingValues::verbose >= 4) {
 					std::cout << "\r\r";
 					console::NetworkPrint();
 					console::Write("Send attempt: " + std::to_string(messageAttempt) + "    ");
@@ -1119,7 +1119,7 @@ void P2P::SenderThread()
 				// If doing initial connect request
 				if (messageStatus == initial_connect_request) {
 					msg = "peer~connect";
-					if (WalletSettingValues::verbose >= 3) {
+					if (WalletSettingValues::verbose >= 7) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -1127,7 +1127,7 @@ void P2P::SenderThread()
 				// If doing disconnect request
 				else if (messageStatus == disconnect_request) {
 					msg = "peer~disconnect";
-					if (WalletSettingValues::verbose >= 3) {
+					if (WalletSettingValues::verbose >= 7) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -1135,7 +1135,7 @@ void P2P::SenderThread()
 				// If doing peer confirmation
 				else if ((messageStatus == initial_connect_request || messageStatus == await_first_success || messageStatus == await_second_success)) {
 					msg = "peer~success";
-					if (WalletSettingValues::verbose >= 3) {
+					if (WalletSettingValues::verbose >= 7) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -1151,7 +1151,7 @@ void P2P::SenderThread()
 				else if (messageStatus == replying_height) {
 					role = 1;
 					msg = "answer~height~" + std::to_string(blockchainLength);
-					if (WalletSettingValues::verbose >= 3) {
+					if (WalletSettingValues::verbose >= 7) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -1166,7 +1166,7 @@ void P2P::SenderThread()
 					std::string blockText = bufferd.str();
 
 					msg = "answer~pendingblock~" + std::to_string(reqDat) + "~" + ReplaceEscapeSymbols(blockText);
-					if (WalletSettingValues::verbose >= 3) {
+					if (WalletSettingValues::verbose >= 7) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -1194,7 +1194,7 @@ void P2P::SenderThread()
 						totalPeersString += peerList[i] + ((i == peerList.size() - 1 || i == 9) ? "" : ":");
 
 					msg = "answer~peerlist~" + totalPeersString;
-					if (WalletSettingValues::verbose >= 3) {
+					if (WalletSettingValues::verbose >= 7) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -1203,7 +1203,7 @@ void P2P::SenderThread()
 				else if (messageStatus == requesting_height) {
 					msg = "request~height";
 					role = 0;
-					if (WalletSettingValues::verbose >= 3) {
+					if (WalletSettingValues::verbose >= 7) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -1213,7 +1213,7 @@ void P2P::SenderThread()
 				else if (messageStatus == requesting_pendingblock) {
 					msg = "request~pendingblock~" + std::to_string(reqDat);
 					role = 0;
-					if (WalletSettingValues::verbose >= 3) {
+					if (WalletSettingValues::verbose >= 7) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -1224,11 +1224,10 @@ void P2P::SenderThread()
 				else if (messageStatus == requesting_block) {
 					msg = "request~block~" + std::to_string(reqDat);
 					role = 0;
-					if (WalletSettingValues::verbose >= 3) {
+					if (WalletSettingValues::verbose >= 7) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
-					console::WriteLine("Sent request");
 					// Wait extra 3 seconds
 					//noinput = true;
 				}
@@ -1236,7 +1235,7 @@ void P2P::SenderThread()
 				else if (messageStatus == requesting_peer_list) {
 					msg = "request~peerlist";
 					role = 0;
-					if (WalletSettingValues::verbose >= 3) {
+					if (WalletSettingValues::verbose >= 7) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
@@ -1247,7 +1246,7 @@ void P2P::SenderThread()
 				else if (messageStatus == requesting_transaction_process) {
 					msg = "request~transactionprocess~" + ReplaceEscapeSymbols(extraData);
 					role = 0;
-					if (WalletSettingValues::verbose >= 3) {
+					if (WalletSettingValues::verbose >= 7) {
 						console::Write(msg + "\n");
 					}
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);

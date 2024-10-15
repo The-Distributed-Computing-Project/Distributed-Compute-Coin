@@ -270,8 +270,26 @@ dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o: \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Console.h \
  /usr/include/c++/12/queue /usr/include/c++/12/deque \
  /usr/include/c++/12/bits/stl_deque.h /usr/include/c++/12/bits/deque.tcc \
- /usr/include/c++/12/bits/stl_queue.h /usr/include/c++/12/math.h \
- /usr/include/c++/12/iostream \
+ /usr/include/c++/12/bits/stl_queue.h \
+ /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/indicators.hpp \
+ /usr/include/c++/12/iostream /usr/include/x86_64-linux-gnu/sys/ioctl.h \
+ /usr/include/x86_64-linux-gnu/bits/ioctls.h \
+ /usr/include/x86_64-linux-gnu/asm/ioctls.h \
+ /usr/include/asm-generic/ioctls.h /usr/include/linux/ioctl.h \
+ /usr/include/x86_64-linux-gnu/asm/ioctl.h \
+ /usr/include/asm-generic/ioctl.h \
+ /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
+ /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
+ /usr/include/c++/12/chrono /usr/include/c++/12/atomic \
+ /usr/include/c++/12/mutex /usr/include/c++/12/bits/unique_lock.h \
+ /usr/include/c++/12/thread /usr/include/c++/12/stop_token \
+ /usr/include/c++/12/bits/std_thread.h /usr/include/c++/12/semaphore \
+ /usr/include/c++/12/bits/semaphore_base.h \
+ /usr/include/c++/12/bits/atomic_timed_wait.h \
+ /usr/include/c++/12/bits/this_thread_sleep.h \
+ /usr/include/x86_64-linux-gnu/sys/time.h /usr/include/semaphore.h \
+ /usr/include/x86_64-linux-gnu/bits/semaphore.h \
+ /usr/include/c++/12/math.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Network.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/SettingsConsts.h \
@@ -294,7 +312,6 @@ dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o: \
  /usr/include/x86_64-linux-gnu/asm/sockios.h \
  /usr/include/asm-generic/sockios.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
- /usr/include/x86_64-linux-gnu/sys/time.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/easy.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/multi.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/curl.h \
@@ -754,7 +771,6 @@ dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o: \
  /usr/include/boost/system/detail/generic_category.hpp \
  /usr/include/boost/system/detail/system_category_posix.hpp \
  /usr/include/boost/system/detail/std_interoperability.hpp \
- /usr/include/c++/12/mutex /usr/include/c++/12/bits/unique_lock.h \
  /usr/include/boost/config/abi_prefix.hpp \
  /usr/include/boost/config/abi_suffix.hpp \
  /usr/include/boost/system/system_error.hpp \
@@ -781,12 +797,6 @@ dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o: \
  /usr/include/boost/process/detail/posix/on_exit.hpp \
  /usr/include/boost/process/detail/posix/async_handler.hpp \
  /usr/include/c++/12/future /usr/include/c++/12/condition_variable \
- /usr/include/c++/12/stop_token /usr/include/c++/12/atomic \
- /usr/include/c++/12/bits/std_thread.h /usr/include/c++/12/semaphore \
- /usr/include/c++/12/bits/semaphore_base.h \
- /usr/include/c++/12/bits/atomic_timed_wait.h \
- /usr/include/c++/12/bits/this_thread_sleep.h /usr/include/semaphore.h \
- /usr/include/x86_64-linux-gnu/bits/semaphore.h \
  /usr/include/c++/12/bits/atomic_futex.h \
  /usr/include/boost/asio/io_context.hpp \
  /usr/include/boost/asio/detail/config.hpp /usr/include/linux/version.h \
@@ -962,15 +972,7 @@ dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o: \
  /usr/include/linux/falloc.h /usr/include/x86_64-linux-gnu/sys/eventfd.h \
  /usr/include/x86_64-linux-gnu/bits/eventfd.h \
  /usr/include/boost/asio/detail/cstdint.hpp \
- /usr/include/boost/asio/detail/socket_types.hpp \
- /usr/include/x86_64-linux-gnu/sys/ioctl.h \
- /usr/include/x86_64-linux-gnu/bits/ioctls.h \
- /usr/include/x86_64-linux-gnu/asm/ioctls.h \
- /usr/include/asm-generic/ioctls.h /usr/include/linux/ioctl.h \
- /usr/include/x86_64-linux-gnu/asm/ioctl.h \
- /usr/include/asm-generic/ioctl.h \
- /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
- /usr/include/x86_64-linux-gnu/sys/ttydefaults.h /usr/include/poll.h \
+ /usr/include/boost/asio/detail/socket_types.hpp /usr/include/poll.h \
  /usr/include/x86_64-linux-gnu/sys/poll.h \
  /usr/include/x86_64-linux-gnu/bits/poll.h \
  /usr/include/x86_64-linux-gnu/sys/uio.h \
@@ -1015,7 +1017,7 @@ dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o: \
  /usr/include/boost/asio/impl/system_context.ipp \
  /usr/include/boost/asio/detail/handler_cont_helpers.hpp \
  /usr/include/boost/asio/handler_continuation_hook.hpp \
- /usr/include/boost/asio/detail/chrono.hpp /usr/include/c++/12/chrono \
+ /usr/include/boost/asio/detail/chrono.hpp \
  /usr/include/boost/asio/impl/io_context.hpp \
  /usr/include/boost/asio/detail/completion_handler.hpp \
  /usr/include/boost/asio/detail/handler_work.hpp \
@@ -1740,5 +1742,4 @@ dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o: \
  /usr/include/boost/process/start_dir.hpp \
  /usr/include/boost/process/detail/posix/start_dir.hpp \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/P2PClient.h \
- /usr/include/c++/12/thread \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/FileManip.h

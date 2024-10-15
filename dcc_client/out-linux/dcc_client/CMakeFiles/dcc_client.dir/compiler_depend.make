@@ -509,8 +509,32 @@ dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o: /home/sam/Code/Distribute
   /usr/include/c++/12/bits/stl_deque.h \
   /usr/include/c++/12/bits/deque.tcc \
   /usr/include/c++/12/bits/stl_queue.h \
-  /usr/include/c++/12/math.h \
+  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/indicators.hpp \
   /usr/include/c++/12/iostream \
+  /usr/include/x86_64-linux-gnu/sys/ioctl.h \
+  /usr/include/x86_64-linux-gnu/bits/ioctls.h \
+  /usr/include/x86_64-linux-gnu/asm/ioctls.h \
+  /usr/include/asm-generic/ioctls.h \
+  /usr/include/linux/ioctl.h \
+  /usr/include/x86_64-linux-gnu/asm/ioctl.h \
+  /usr/include/asm-generic/ioctl.h \
+  /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
+  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
+  /usr/include/c++/12/chrono \
+  /usr/include/c++/12/atomic \
+  /usr/include/c++/12/mutex \
+  /usr/include/c++/12/bits/unique_lock.h \
+  /usr/include/c++/12/thread \
+  /usr/include/c++/12/stop_token \
+  /usr/include/c++/12/bits/std_thread.h \
+  /usr/include/c++/12/semaphore \
+  /usr/include/c++/12/bits/semaphore_base.h \
+  /usr/include/c++/12/bits/atomic_timed_wait.h \
+  /usr/include/c++/12/bits/this_thread_sleep.h \
+  /usr/include/x86_64-linux-gnu/sys/time.h \
+  /usr/include/semaphore.h \
+  /usr/include/x86_64-linux-gnu/bits/semaphore.h \
+  /usr/include/c++/12/math.h \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.h \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Network.h \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/SettingsConsts.h \
@@ -534,7 +558,6 @@ dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o: /home/sam/Code/Distribute
   /usr/include/x86_64-linux-gnu/asm/sockios.h \
   /usr/include/asm-generic/sockios.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
-  /usr/include/x86_64-linux-gnu/sys/time.h \
   _deps/curl-src/include/curl/easy.h \
   _deps/curl-src/include/curl/multi.h \
   _deps/curl-src/include/curl/curl.h \
@@ -1052,8 +1075,6 @@ dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o: /home/sam/Code/Distribute
   /usr/include/boost/system/detail/generic_category.hpp \
   /usr/include/boost/system/detail/system_category_posix.hpp \
   /usr/include/boost/system/detail/std_interoperability.hpp \
-  /usr/include/c++/12/mutex \
-  /usr/include/c++/12/bits/unique_lock.h \
   /usr/include/boost/config/abi_prefix.hpp \
   /usr/include/boost/config/abi_suffix.hpp \
   /usr/include/boost/system/system_error.hpp \
@@ -1083,15 +1104,6 @@ dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o: /home/sam/Code/Distribute
   /usr/include/boost/process/detail/posix/async_handler.hpp \
   /usr/include/c++/12/future \
   /usr/include/c++/12/condition_variable \
-  /usr/include/c++/12/stop_token \
-  /usr/include/c++/12/atomic \
-  /usr/include/c++/12/bits/std_thread.h \
-  /usr/include/c++/12/semaphore \
-  /usr/include/c++/12/bits/semaphore_base.h \
-  /usr/include/c++/12/bits/atomic_timed_wait.h \
-  /usr/include/c++/12/bits/this_thread_sleep.h \
-  /usr/include/semaphore.h \
-  /usr/include/x86_64-linux-gnu/bits/semaphore.h \
   /usr/include/c++/12/bits/atomic_futex.h \
   /usr/include/boost/asio/io_context.hpp \
   /usr/include/boost/asio/detail/config.hpp \
@@ -1276,15 +1288,6 @@ dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o: /home/sam/Code/Distribute
   /usr/include/x86_64-linux-gnu/bits/eventfd.h \
   /usr/include/boost/asio/detail/cstdint.hpp \
   /usr/include/boost/asio/detail/socket_types.hpp \
-  /usr/include/x86_64-linux-gnu/sys/ioctl.h \
-  /usr/include/x86_64-linux-gnu/bits/ioctls.h \
-  /usr/include/x86_64-linux-gnu/asm/ioctls.h \
-  /usr/include/asm-generic/ioctls.h \
-  /usr/include/linux/ioctl.h \
-  /usr/include/x86_64-linux-gnu/asm/ioctl.h \
-  /usr/include/asm-generic/ioctl.h \
-  /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
-  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
   /usr/include/poll.h \
   /usr/include/x86_64-linux-gnu/sys/poll.h \
   /usr/include/x86_64-linux-gnu/bits/poll.h \
@@ -1334,7 +1337,6 @@ dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o: /home/sam/Code/Distribute
   /usr/include/boost/asio/detail/handler_cont_helpers.hpp \
   /usr/include/boost/asio/handler_continuation_hook.hpp \
   /usr/include/boost/asio/detail/chrono.hpp \
-  /usr/include/c++/12/chrono \
   /usr/include/boost/asio/impl/io_context.hpp \
   /usr/include/boost/asio/detail/completion_handler.hpp \
   /usr/include/boost/asio/detail/handler_work.hpp \
@@ -2087,7 +2089,6 @@ dcc_client/CMakeFiles/dcc_client.dir/Blockchain.cpp.o: /home/sam/Code/Distribute
   /usr/include/boost/process/start_dir.hpp \
   /usr/include/boost/process/detail/posix/start_dir.hpp \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/P2PClient.h \
-  /usr/include/c++/12/thread \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/FileManip.h
 
 dcc_client/CMakeFiles/dcc_client.dir/Console.cpp.o: /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Console.cpp \
@@ -2294,7 +2295,125 @@ dcc_client/CMakeFiles/dcc_client.dir/Console.cpp.o: /home/sam/Code/Distributed-C
   /usr/include/c++/12/bits/uses_allocator.h \
   /usr/include/c++/12/sstream \
   /usr/include/c++/12/bits/sstream.tcc \
-  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Console.h
+  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Console.h \
+  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/indicators.hpp \
+  /usr/include/unistd.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  /usr/include/linux/close_range.h \
+  /usr/include/c++/12/utility \
+  /usr/include/c++/12/bits/stl_relops.h \
+  /usr/include/x86_64-linux-gnu/sys/ioctl.h \
+  /usr/include/x86_64-linux-gnu/bits/ioctls.h \
+  /usr/include/x86_64-linux-gnu/asm/ioctls.h \
+  /usr/include/asm-generic/ioctls.h \
+  /usr/include/linux/ioctl.h \
+  /usr/include/x86_64-linux-gnu/asm/ioctl.h \
+  /usr/include/asm-generic/ioctl.h \
+  /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
+  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
+  /usr/include/c++/12/cstddef \
+  /usr/include/c++/12/tuple \
+  /usr/include/c++/12/locale \
+  /usr/include/c++/12/bits/locale_facets_nonio.h \
+  /usr/include/c++/12/ctime \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h \
+  /usr/include/libintl.h \
+  /usr/include/c++/12/bits/codecvt.h \
+  /usr/include/c++/12/bits/locale_facets_nonio.tcc \
+  /usr/include/c++/12/bits/locale_conv.h \
+  /usr/include/c++/12/algorithm \
+  /usr/include/c++/12/bits/stl_algo.h \
+  /usr/include/c++/12/bits/algorithmfwd.h \
+  /usr/include/c++/12/bits/stl_tempbuf.h \
+  /usr/include/c++/12/bits/uniform_int_dist.h \
+  /usr/include/c++/12/bits/ranges_algo.h \
+  /usr/include/c++/12/bits/ranges_algobase.h \
+  /usr/include/c++/12/bits/ranges_util.h \
+  /usr/include/c++/12/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/12/pstl/execution_defs.h \
+  /usr/include/c++/12/chrono \
+  /usr/include/c++/12/bits/chrono.h \
+  /usr/include/c++/12/ratio \
+  /usr/include/c++/12/limits \
+  /usr/include/c++/12/bits/parse_numbers.h \
+  /usr/include/c++/12/iomanip \
+  /usr/include/c++/12/bits/quoted_string.h \
+  /usr/include/c++/12/cassert \
+  /usr/include/assert.h \
+  /usr/include/c++/12/cmath \
+  /usr/include/math.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  /usr/include/c++/12/bits/specfun.h \
+  /usr/include/c++/12/tr1/gamma.tcc \
+  /usr/include/c++/12/tr1/special_function_util.h \
+  /usr/include/c++/12/tr1/bessel_function.tcc \
+  /usr/include/c++/12/tr1/beta_function.tcc \
+  /usr/include/c++/12/tr1/ell_integral.tcc \
+  /usr/include/c++/12/tr1/exp_integral.tcc \
+  /usr/include/c++/12/tr1/hypergeometric.tcc \
+  /usr/include/c++/12/tr1/legendre_function.tcc \
+  /usr/include/c++/12/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/12/tr1/poly_hermite.tcc \
+  /usr/include/c++/12/tr1/poly_laguerre.tcc \
+  /usr/include/c++/12/tr1/riemann_zeta.tcc \
+  /usr/include/c++/12/atomic \
+  /usr/include/c++/12/bits/atomic_base.h \
+  /usr/include/c++/12/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12/bits/atomic_wait.h \
+  /usr/include/c++/12/climits \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h \
+  /usr/include/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+  /usr/include/linux/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/syscall.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
+  /usr/include/c++/12/bits/std_mutex.h \
+  /usr/include/c++/12/mutex \
+  /usr/include/c++/12/bits/unique_lock.h \
+  /usr/include/c++/12/thread \
+  /usr/include/c++/12/stop_token \
+  /usr/include/c++/12/bits/std_thread.h \
+  /usr/include/c++/12/bits/unique_ptr.h \
+  /usr/include/c++/12/semaphore \
+  /usr/include/c++/12/bits/semaphore_base.h \
+  /usr/include/c++/12/bits/atomic_timed_wait.h \
+  /usr/include/c++/12/bits/this_thread_sleep.h \
+  /usr/include/x86_64-linux-gnu/sys/time.h \
+  /usr/include/semaphore.h \
+  /usr/include/x86_64-linux-gnu/bits/semaphore.h \
+  /usr/include/c++/12/functional \
+  /usr/include/c++/12/bits/std_function.h \
+  /usr/include/c++/12/unordered_map \
+  /usr/include/c++/12/ext/aligned_buffer.h \
+  /usr/include/c++/12/bits/hashtable.h \
+  /usr/include/c++/12/bits/hashtable_policy.h \
+  /usr/include/c++/12/bits/enable_special_members.h \
+  /usr/include/c++/12/bits/node_handle.h \
+  /usr/include/c++/12/bits/unordered_map.h \
+  /usr/include/c++/12/bits/erase_if.h \
+  /usr/include/c++/12/array
 
 dcc_client/CMakeFiles/dcc_client.dir/FileManip.cpp.o: /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/FileManip.cpp \
   /usr/include/stdc-predef.h \
@@ -4355,6 +4474,8 @@ dcc_client/CMakeFiles/dcc_client.dir/Main.cpp.o: /home/sam/Code/Distributed-Comp
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Console.h \
   /usr/include/c++/12/queue \
   /usr/include/c++/12/bits/stl_queue.h \
+  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/indicators.hpp \
+  /usr/include/c++/12/thread \
   /usr/include/c++/12/math.h \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.h \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/FileManip.h \
@@ -4368,7 +4489,6 @@ dcc_client/CMakeFiles/dcc_client.dir/Main.cpp.o: /home/sam/Code/Distributed-Comp
   _deps/curl-src/include/curl/urlapi.h \
   _deps/curl-src/include/curl/options.h \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/P2PClient.h \
-  /usr/include/c++/12/thread \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/crypto.h \
   /usr/include/openssl/md5.h \
   /usr/include/openssl/macros.h \
@@ -6284,8 +6404,10 @@ dcc_client/CMakeFiles/dcc_client.dir/Miner.cpp.o: /home/sam/Code/Distributed-Com
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Console.h \
   /usr/include/c++/12/queue \
   /usr/include/c++/12/bits/stl_queue.h \
-  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/System.h \
+  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/indicators.hpp \
   /usr/include/c++/12/iostream \
+  /usr/include/c++/12/thread \
+  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/System.h \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/strops.h \
   /usr/include/c++/12/math.h \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.h \
@@ -6631,12 +6753,37 @@ dcc_client/CMakeFiles/dcc_client.dir/Network.cpp.o: /home/sam/Code/Distributed-C
   /usr/include/c++/12/bits/stl_heap.h \
   /usr/include/c++/12/bits/stl_queue.h \
   /usr/include/c++/12/bits/uses_allocator.h \
-  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/strops.h \
-  /usr/include/c++/12/cstring \
-  /usr/include/string.h \
-  /usr/include/strings.h \
-  /usr/include/c++/12/sstream \
-  /usr/include/c++/12/bits/sstream.tcc \
+  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/indicators.hpp \
+  /usr/include/unistd.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  /usr/include/linux/close_range.h \
+  /usr/include/c++/12/utility \
+  /usr/include/c++/12/bits/stl_relops.h \
+  /usr/include/x86_64-linux-gnu/sys/ioctl.h \
+  /usr/include/x86_64-linux-gnu/bits/ioctls.h \
+  /usr/include/x86_64-linux-gnu/asm/ioctls.h \
+  /usr/include/asm-generic/ioctls.h \
+  /usr/include/linux/ioctl.h \
+  /usr/include/x86_64-linux-gnu/asm/ioctl.h \
+  /usr/include/asm-generic/ioctl.h \
+  /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
+  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
+  /usr/include/c++/12/cstddef \
+  /usr/include/c++/12/tuple \
+  /usr/include/c++/12/locale \
+  /usr/include/c++/12/bits/locale_facets_nonio.h \
+  /usr/include/c++/12/ctime \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h \
+  /usr/include/libintl.h \
+  /usr/include/c++/12/bits/codecvt.h \
+  /usr/include/c++/12/bits/locale_facets_nonio.tcc \
+  /usr/include/c++/12/bits/locale_conv.h \
   /usr/include/c++/12/algorithm \
   /usr/include/c++/12/bits/stl_algo.h \
   /usr/include/c++/12/bits/algorithmfwd.h \
@@ -6647,6 +6794,17 @@ dcc_client/CMakeFiles/dcc_client.dir/Network.cpp.o: /home/sam/Code/Distributed-C
   /usr/include/c++/12/bits/ranges_util.h \
   /usr/include/c++/12/pstl/glue_algorithm_defs.h \
   /usr/include/c++/12/pstl/execution_defs.h \
+  /usr/include/c++/12/chrono \
+  /usr/include/c++/12/bits/chrono.h \
+  /usr/include/c++/12/ratio \
+  /usr/include/c++/12/limits \
+  /usr/include/c++/12/bits/parse_numbers.h \
+  /usr/include/c++/12/sstream \
+  /usr/include/c++/12/bits/sstream.tcc \
+  /usr/include/c++/12/iomanip \
+  /usr/include/c++/12/bits/quoted_string.h \
+  /usr/include/c++/12/cassert \
+  /usr/include/assert.h \
   /usr/include/c++/12/cmath \
   /usr/include/math.h \
   /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -6659,7 +6817,6 @@ dcc_client/CMakeFiles/dcc_client.dir/Network.cpp.o: /home/sam/Code/Distributed-C
   /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/c++/12/bits/specfun.h \
-  /usr/include/c++/12/limits \
   /usr/include/c++/12/tr1/gamma.tcc \
   /usr/include/c++/12/tr1/special_function_util.h \
   /usr/include/c++/12/tr1/bessel_function.tcc \
@@ -6672,18 +6829,45 @@ dcc_client/CMakeFiles/dcc_client.dir/Network.cpp.o: /home/sam/Code/Distributed-C
   /usr/include/c++/12/tr1/poly_hermite.tcc \
   /usr/include/c++/12/tr1/poly_laguerre.tcc \
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
+  /usr/include/c++/12/atomic \
+  /usr/include/c++/12/bits/atomic_base.h \
+  /usr/include/c++/12/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12/bits/atomic_wait.h \
+  /usr/include/c++/12/climits \
+  /usr/include/syscall.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
+  /usr/include/c++/12/bits/std_mutex.h \
+  /usr/include/c++/12/mutex \
+  /usr/include/c++/12/bits/unique_lock.h \
+  /usr/include/c++/12/thread \
+  /usr/include/c++/12/stop_token \
+  /usr/include/c++/12/bits/std_thread.h \
+  /usr/include/c++/12/bits/unique_ptr.h \
+  /usr/include/c++/12/semaphore \
+  /usr/include/c++/12/bits/semaphore_base.h \
+  /usr/include/c++/12/bits/atomic_timed_wait.h \
+  /usr/include/c++/12/bits/this_thread_sleep.h \
+  /usr/include/semaphore.h \
+  /usr/include/x86_64-linux-gnu/bits/semaphore.h \
+  /usr/include/c++/12/functional \
+  /usr/include/c++/12/bits/std_function.h \
+  /usr/include/c++/12/unordered_map \
+  /usr/include/c++/12/ext/aligned_buffer.h \
+  /usr/include/c++/12/bits/hashtable.h \
+  /usr/include/c++/12/bits/hashtable_policy.h \
+  /usr/include/c++/12/bits/enable_special_members.h \
+  /usr/include/c++/12/bits/node_handle.h \
+  /usr/include/c++/12/bits/unordered_map.h \
+  /usr/include/c++/12/bits/erase_if.h \
+  /usr/include/c++/12/array \
+  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/strops.h \
+  /usr/include/c++/12/cstring \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/c++/12/math.h \
-  /usr/include/c++/12/iomanip \
-  /usr/include/c++/12/locale \
-  /usr/include/c++/12/bits/locale_facets_nonio.h \
-  /usr/include/c++/12/ctime \
-  /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h \
-  /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h \
-  /usr/include/libintl.h \
-  /usr/include/c++/12/bits/codecvt.h \
-  /usr/include/c++/12/bits/locale_facets_nonio.tcc \
-  /usr/include/c++/12/bits/locale_conv.h \
-  /usr/include/c++/12/bits/quoted_string.h \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.h
 
 dcc_client/CMakeFiles/dcc_client.dir/P2PClient.cpp.o: /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/P2PClient.cpp \
@@ -7064,6 +7248,19 @@ dcc_client/CMakeFiles/dcc_client.dir/P2PClient.cpp.o: /home/sam/Code/Distributed
   /usr/include/c++/12/bits/stl_deque.h \
   /usr/include/c++/12/bits/deque.tcc \
   /usr/include/c++/12/bits/stl_queue.h \
+  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/indicators.hpp \
+  /usr/include/x86_64-linux-gnu/sys/ioctl.h \
+  /usr/include/x86_64-linux-gnu/bits/ioctls.h \
+  /usr/include/x86_64-linux-gnu/asm/ioctls.h \
+  /usr/include/asm-generic/ioctls.h \
+  /usr/include/linux/ioctl.h \
+  /usr/include/x86_64-linux-gnu/asm/ioctl.h \
+  /usr/include/asm-generic/ioctl.h \
+  /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
+  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
+  /usr/include/c++/12/chrono \
+  /usr/include/c++/12/mutex \
+  /usr/include/c++/12/bits/unique_lock.h \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.h \
   /usr/include/boost/process.hpp \
   /usr/include/boost/process/args.hpp \
@@ -7111,8 +7308,6 @@ dcc_client/CMakeFiles/dcc_client.dir/P2PClient.cpp.o: /home/sam/Code/Distributed
   /usr/include/boost/system/detail/generic_category.hpp \
   /usr/include/boost/system/detail/system_category_posix.hpp \
   /usr/include/boost/system/detail/std_interoperability.hpp \
-  /usr/include/c++/12/mutex \
-  /usr/include/c++/12/bits/unique_lock.h \
   /usr/include/boost/core/enable_if.hpp \
   /usr/include/c++/12/list \
   /usr/include/c++/12/bits/stl_list.h \
@@ -7634,15 +7829,6 @@ dcc_client/CMakeFiles/dcc_client.dir/P2PClient.cpp.o: /home/sam/Code/Distributed
   /usr/include/x86_64-linux-gnu/bits/eventfd.h \
   /usr/include/boost/asio/detail/cstdint.hpp \
   /usr/include/boost/asio/detail/socket_types.hpp \
-  /usr/include/x86_64-linux-gnu/sys/ioctl.h \
-  /usr/include/x86_64-linux-gnu/bits/ioctls.h \
-  /usr/include/x86_64-linux-gnu/asm/ioctls.h \
-  /usr/include/asm-generic/ioctls.h \
-  /usr/include/linux/ioctl.h \
-  /usr/include/x86_64-linux-gnu/asm/ioctl.h \
-  /usr/include/asm-generic/ioctl.h \
-  /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
-  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
   /usr/include/poll.h \
   /usr/include/x86_64-linux-gnu/sys/poll.h \
   /usr/include/x86_64-linux-gnu/bits/poll.h \
@@ -7692,7 +7878,6 @@ dcc_client/CMakeFiles/dcc_client.dir/P2PClient.cpp.o: /home/sam/Code/Distributed
   /usr/include/boost/asio/detail/handler_cont_helpers.hpp \
   /usr/include/boost/asio/handler_continuation_hook.hpp \
   /usr/include/boost/asio/detail/chrono.hpp \
-  /usr/include/c++/12/chrono \
   /usr/include/boost/asio/impl/io_context.hpp \
   /usr/include/boost/asio/detail/completion_handler.hpp \
   /usr/include/boost/asio/detail/handler_work.hpp \
@@ -10385,6 +10570,9 @@ dcc_client/CMakeFiles/dcc_client.dir/System.cpp.o: /home/sam/Code/Distributed-Co
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Console.h \
   /usr/include/c++/12/queue \
   /usr/include/c++/12/bits/stl_queue.h \
+  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/indicators.hpp \
+  /usr/include/c++/12/iomanip \
+  /usr/include/c++/12/bits/quoted_string.h \
   /usr/include/c++/12/cmath \
   /usr/include/math.h \
   /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -10409,9 +10597,8 @@ dcc_client/CMakeFiles/dcc_client.dir/System.cpp.o: /home/sam/Code/Distributed-Co
   /usr/include/c++/12/tr1/poly_hermite.tcc \
   /usr/include/c++/12/tr1/poly_laguerre.tcc \
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
+  /usr/include/c++/12/thread \
   /usr/include/c++/12/math.h \
-  /usr/include/c++/12/iomanip \
-  /usr/include/c++/12/bits/quoted_string.h \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.h
 
 dcc_client/CMakeFiles/dcc_client.dir/benchmark.cpp.o: /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/benchmark.cpp \
@@ -11673,6 +11860,47 @@ dcc_client/CMakeFiles/dcc_client.dir/strops.cpp.o: /home/sam/Code/Distributed-Co
   /usr/include/c++/12/bits/deque.tcc \
   /usr/include/c++/12/bits/stl_queue.h \
   /usr/include/c++/12/bits/uses_allocator.h \
+  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/indicators.hpp \
+  /usr/include/c++/12/iostream \
+  /usr/include/unistd.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  /usr/include/linux/close_range.h \
+  /usr/include/c++/12/utility \
+  /usr/include/c++/12/bits/stl_relops.h \
+  /usr/include/x86_64-linux-gnu/sys/ioctl.h \
+  /usr/include/x86_64-linux-gnu/bits/ioctls.h \
+  /usr/include/x86_64-linux-gnu/asm/ioctls.h \
+  /usr/include/asm-generic/ioctls.h \
+  /usr/include/linux/ioctl.h \
+  /usr/include/x86_64-linux-gnu/asm/ioctl.h \
+  /usr/include/asm-generic/ioctl.h \
+  /usr/include/x86_64-linux-gnu/bits/ioctl-types.h \
+  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
+  /usr/include/c++/12/cstddef \
+  /usr/include/c++/12/tuple \
+  /usr/include/c++/12/locale \
+  /usr/include/c++/12/bits/locale_facets_nonio.h \
+  /usr/include/c++/12/ctime \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h \
+  /usr/include/libintl.h \
+  /usr/include/c++/12/bits/codecvt.h \
+  /usr/include/c++/12/bits/locale_facets_nonio.tcc \
+  /usr/include/c++/12/bits/locale_conv.h \
+  /usr/include/c++/12/chrono \
+  /usr/include/c++/12/bits/chrono.h \
+  /usr/include/c++/12/ratio \
+  /usr/include/c++/12/limits \
+  /usr/include/c++/12/bits/parse_numbers.h \
+  /usr/include/c++/12/iomanip \
+  /usr/include/c++/12/bits/quoted_string.h \
+  /usr/include/c++/12/cassert \
+  /usr/include/assert.h \
   /usr/include/c++/12/cmath \
   /usr/include/math.h \
   /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -11685,7 +11913,6 @@ dcc_client/CMakeFiles/dcc_client.dir/strops.cpp.o: /home/sam/Code/Distributed-Co
   /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/c++/12/bits/specfun.h \
-  /usr/include/c++/12/limits \
   /usr/include/c++/12/tr1/gamma.tcc \
   /usr/include/c++/12/tr1/special_function_util.h \
   /usr/include/c++/12/tr1/bessel_function.tcc \
@@ -11698,19 +11925,51 @@ dcc_client/CMakeFiles/dcc_client.dir/strops.cpp.o: /home/sam/Code/Distributed-Co
   /usr/include/c++/12/tr1/poly_hermite.tcc \
   /usr/include/c++/12/tr1/poly_laguerre.tcc \
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
+  /usr/include/c++/12/atomic \
+  /usr/include/c++/12/bits/atomic_base.h \
+  /usr/include/c++/12/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/12/bits/atomic_wait.h \
+  /usr/include/c++/12/climits \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h \
+  /usr/include/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+  /usr/include/linux/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/syscall.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
+  /usr/include/c++/12/bits/std_mutex.h \
+  /usr/include/c++/12/mutex \
+  /usr/include/c++/12/bits/unique_lock.h \
+  /usr/include/c++/12/thread \
+  /usr/include/c++/12/stop_token \
+  /usr/include/c++/12/bits/std_thread.h \
+  /usr/include/c++/12/bits/unique_ptr.h \
+  /usr/include/c++/12/semaphore \
+  /usr/include/c++/12/bits/semaphore_base.h \
+  /usr/include/c++/12/bits/atomic_timed_wait.h \
+  /usr/include/c++/12/bits/this_thread_sleep.h \
+  /usr/include/x86_64-linux-gnu/sys/time.h \
+  /usr/include/semaphore.h \
+  /usr/include/x86_64-linux-gnu/bits/semaphore.h \
+  /usr/include/c++/12/functional \
+  /usr/include/c++/12/bits/std_function.h \
+  /usr/include/c++/12/unordered_map \
+  /usr/include/c++/12/ext/aligned_buffer.h \
+  /usr/include/c++/12/bits/hashtable.h \
+  /usr/include/c++/12/bits/hashtable_policy.h \
+  /usr/include/c++/12/bits/enable_special_members.h \
+  /usr/include/c++/12/bits/node_handle.h \
+  /usr/include/c++/12/bits/unordered_map.h \
+  /usr/include/c++/12/bits/erase_if.h \
+  /usr/include/c++/12/array \
   /usr/include/c++/12/math.h \
-  /usr/include/c++/12/iomanip \
-  /usr/include/c++/12/locale \
-  /usr/include/c++/12/bits/locale_facets_nonio.h \
-  /usr/include/c++/12/ctime \
-  /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h \
-  /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h \
-  /usr/include/libintl.h \
-  /usr/include/c++/12/bits/codecvt.h \
-  /usr/include/c++/12/bits/locale_facets_nonio.tcc \
-  /usr/include/c++/12/bits/locale_conv.h \
-  /usr/include/c++/12/bits/quoted_string.h \
-  /usr/include/c++/12/iostream \
   /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.h
 
 
@@ -12722,22 +12981,6 @@ dcc_client/CMakeFiles/dcc_client.dir/strops.cpp.o: /home/sam/Code/Distributed-Co
 
 /usr/include/poll.h:
 
-/usr/include/boost/mpl/aux_/advance_forward.hpp:
-
-/usr/include/x86_64-linux-gnu/sys/ttydefaults.h:
-
-/usr/include/boost/predef/platform/mingw64.h:
-
-/usr/include/x86_64-linux-gnu/bits/ioctl-types.h:
-
-/usr/include/x86_64-linux-gnu/asm/ioctl.h:
-
-/usr/include/linux/ioctl.h:
-
-/usr/include/asm-generic/ioctls.h:
-
-/usr/include/x86_64-linux-gnu/asm/ioctls.h:
-
 /usr/include/boost/asio/detail/socket_types.hpp:
 
 /usr/include/boost/asio/detail/cstdint.hpp:
@@ -12746,49 +12989,27 @@ dcc_client/CMakeFiles/dcc_client.dir/strops.cpp.o: /home/sam/Code/Distributed-Co
 
 /usr/include/x86_64-linux-gnu/bits/eventfd.h:
 
-/usr/include/boost/preprocessor/list/adt.hpp:
+/usr/include/linux/falloc.h:
 
-/usr/include/boost/none.hpp:
+/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:
 
-/usr/include/boost/preprocessor/control/expr_iif.hpp:
+/usr/include/x86_64-linux-gnu/bits/fcntl.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+/usr/include/boost/type_traits/has_trivial_move_assign.hpp:
 
-/usr/include/boost/process/pipe.hpp:
+/usr/include/x86_64-linux-gnu/bits/types/struct_statx.h:
 
-/usr/include/boost/preprocessor/list/fold_left.hpp:
+/usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h:
 
-/usr/include/boost/mpl/void_fwd.hpp:
+/usr/include/boost/fusion/view/nview/detail/advance_impl.hpp:
 
-/usr/include/boost/fusion/sequence/comparison/equal_to.hpp:
+/usr/include/x86_64-linux-gnu/bits/statx-generic.h:
 
-/usr/include/boost/preprocessor/arithmetic/add.hpp:
+/usr/include/asm-generic/int-ll64.h:
 
-/usr/include/boost/fusion/support/detail/is_same_size.hpp:
+/usr/include/x86_64-linux-gnu/asm/types.h:
 
-/usr/include/boost/config/detail/posix_features.hpp:
-
-/usr/include/openssl/cterr.h:
-
-/usr/include/boost/mpl/aux_/preprocessor/def_params_tail.hpp:
-
-/usr/include/boost/smart_ptr/detail/sp_noexcept.hpp:
-
-/usr/include/boost/range/detail/extract_optional_type.hpp:
-
-/usr/include/boost/mpl/vector/aux_/pop_back.hpp:
-
-/usr/include/boost/mpl/aux_/config/intel.hpp:
-
-/usr/include/boost/preprocessor/tuple/eat.hpp:
-
-/usr/include/boost/optional/detail/optional_trivially_copyable_base.hpp:
-
-/usr/include/boost/preprocessor/debug/error.hpp:
-
-/usr/include/boost/mpl/push_back.hpp:
-
-/usr/include/boost/preprocessor/repetition/repeat.hpp:
+/usr/include/linux/types.h:
 
 /usr/include/boost/preprocessor/repeat.hpp:
 
@@ -12834,6 +13055,12 @@ dcc_client/CMakeFiles/dcc_client.dir/strops.cpp.o: /home/sam/Code/Distributed-Co
 
 /usr/include/boost/mpl/aux_/config/workaround.hpp:
 
+/usr/include/boost/mpl/void_fwd.hpp:
+
+/usr/include/boost/process/pipe.hpp:
+
+/usr/include/boost/preprocessor/list/fold_left.hpp:
+
 /usr/include/boost/mpl/aux_/config/static_constant.hpp:
 
 /usr/include/boost/iterator/transform_iterator.hpp:
@@ -12848,11 +13075,25 @@ dcc_client/CMakeFiles/dcc_client.dir/strops.cpp.o: /home/sam/Code/Distributed-Co
 
 /usr/include/boost/config/detail/suffix.hpp:
 
+/usr/include/boost/fusion/support/detail/is_same_size.hpp:
+
+/usr/include/boost/config/detail/posix_features.hpp:
+
+/usr/include/openssl/cterr.h:
+
+/usr/include/boost/fusion/sequence/comparison/equal_to.hpp:
+
+/usr/include/boost/preprocessor/arithmetic/add.hpp:
+
 /usr/include/boost/config/platform/linux.hpp:
 
 /usr/include/boost/config/detail/select_platform_config.hpp:
 
 /usr/include/c++/12/version:
+
+/usr/include/linux/stat.h:
+
+/usr/include/c++/12/bits/semaphore_base.h:
 
 /usr/include/boost/asio/impl/io_context.ipp:
 
@@ -12879,12 +13120,6 @@ dcc_client/CMakeFiles/dcc_client.dir/strops.cpp.o: /home/sam/Code/Distributed-Co
 /usr/include/boost/fusion/view/zip_view/detail/advance_impl.hpp:
 
 /usr/include/openssl/rand.h:
-
-/usr/include/boost/preprocessor/control/while.hpp:
-
-/usr/include/boost/preprocessor/logical/bitand.hpp:
-
-/usr/include/boost/type_traits/is_member_function_pointer.hpp:
 
 /usr/include/boost/fusion/view/zip_view/detail/at_impl.hpp:
 
@@ -12970,10 +13205,6 @@ dcc_client/CMakeFiles/dcc_client.dir/strops.cpp.o: /home/sam/Code/Distributed-Co
 
 /usr/include/openssl/prov_ssl.h:
 
-/usr/include/boost/smart_ptr/detail/sp_convertible.hpp:
-
-/usr/include/openssl/sha.h:
-
 /usr/include/x86_64-linux-gnu/openssl/opensslconf.h:
 
 /usr/include/boost/optional/detail/optional_swap.hpp:
@@ -13000,17 +13231,11 @@ _deps/curl-src/include/curl/options.h:
 
 /usr/include/c++/12/future:
 
-/usr/include/openssl/bioerr.h:
-
-/usr/include/asm-generic/sockios.h:
-
 /usr/include/boost/fusion/container/list/cons_iterator.hpp:
 
 /usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
 
 /usr/include/boost/process/detail/posix/shell_path.hpp:
-
-/usr/include/boost/preprocessor/detail/check.hpp:
 
 /usr/include/openssl/x509err.h:
 
@@ -13048,6 +13273,74 @@ _deps/curl-src/include/curl/options.h:
 
 _deps/curl-src/include/curl/curl.h:
 
+/usr/include/boost/type_traits/is_assignable.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/semaphore.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+
+/usr/include/c++/12/iosfwd:
+
+/usr/include/boost/mpl/bool.hpp:
+
+/usr/include/c++/12/bits/this_thread_sleep.h:
+
+/usr/include/boost/asio/detail/handler_alloc_helpers.hpp:
+
+/usr/include/openssl/e_os2.h:
+
+/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/sockaddr.h:
+
+/usr/include/openssl/bioerr.h:
+
+/usr/include/asm-generic/sockios.h:
+
+/usr/include/boost/process/detail/posix/sigchld_service.hpp:
+
+/usr/include/c++/12/mutex:
+
+/usr/include/boost/mpl/insert.hpp:
+
+/usr/include/boost/mpl/aux_/clear_impl.hpp:
+
+/usr/include/boost/mpl/aux_/has_apply.hpp:
+
+/usr/include/c++/12/atomic:
+
+/usr/include/boost/core/explicit_operator_bool.hpp:
+
+/usr/include/boost/type_traits/remove_extent.hpp:
+
+/usr/include/boost/predef/platform/mingw64.h:
+
+/usr/include/x86_64-linux-gnu/bits/ioctl-types.h:
+
+/usr/include/asm-generic/ioctls.h:
+
+/usr/include/boost/get_pointer.hpp:
+
+/usr/include/x86_64-linux-gnu/asm/ioctls.h:
+
+/usr/include/boost/mpl/pair_view.hpp:
+
+/usr/include/boost/algorithm/string/split.hpp:
+
+/usr/include/boost/smart_ptr/detail/sp_convertible.hpp:
+
+/usr/include/openssl/sha.h:
+
+/usr/include/asm-generic/types.h:
+
+/usr/include/c++/12/bits/move.h:
+
+/usr/include/boost/fusion/view/transform_view/transform_view.hpp:
+
+/usr/include/boost/ref.hpp:
+
 /usr/include/c++/12/bits/deque.tcc:
 
 /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/strops.h:
@@ -13055,6 +13348,10 @@ _deps/curl-src/include/curl/curl.h:
 /usr/include/c++/12/bits/forward_list.h:
 
 /usr/include/boost/asio/execution/execute.hpp:
+
+/usr/include/boost/mpl/aux_/arity.hpp:
+
+/usr/include/c++/12/bits/fs_dir.h:
 
 /usr/include/boost/mpl/vector/aux_/vector0.hpp:
 
@@ -13158,10 +13455,6 @@ _deps/curl-src/include/curl/curl.h:
 
 /usr/include/openssl/async.h:
 
-/usr/include/boost/mpl/aux_/preprocessor/enum.hpp:
-
-/usr/include/boost/config/workaround.hpp:
-
 /usr/include/boost/asio/execution/impl/receiver_invocation_error.ipp:
 
 /usr/include/boost/fusion/view/iterator_range/detail/is_segmented_impl.hpp:
@@ -13188,8 +13481,6 @@ _deps/curl-src/include/curl/curl.h:
 
 /usr/include/c++/12/tr1/ell_integral.tcc:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h:
-
 /usr/include/c++/12/tr1/beta_function.tcc:
 
 /usr/include/c++/12/ext/alloc_traits.h:
@@ -13201,10 +13492,6 @@ _deps/curl-src/include/curl/curl.h:
 /usr/include/boost/algorithm/string/predicate.hpp:
 
 /usr/include/openssl/stack.h:
-
-/usr/include/c++/12/bits/semaphore_base.h:
-
-/usr/include/linux/stat.h:
 
 /usr/include/boost/optional/optional.hpp:
 
@@ -13260,6 +13547,10 @@ _deps/curl-src/include/curl/curl.h:
 
 /usr/include/openssl/core.h:
 
+/usr/include/c++/12/semaphore:
+
+/usr/include/c++/12/bits/stl_multimap.h:
+
 /usr/include/c++/12/bits/stl_map.h:
 
 /usr/include/boost/process/detail/child_decl.hpp:
@@ -13276,7 +13567,11 @@ _deps/curl-src/include/curl/curl.h:
 
 /usr/include/boost/asio/detail/noncopyable.hpp:
 
-/usr/include/boost/preprocessor/arithmetic/dec.hpp:
+/usr/include/x86_64-linux-gnu/asm/ioctl.h:
+
+/usr/include/boost/process/posix.hpp:
+
+/usr/include/c++/12/bits/std_mutex.h:
 
 /usr/include/c++/12/bits/stl_numeric.h:
 
@@ -13316,10 +13611,6 @@ _deps/curl-src/include/curl/curl.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 
-/usr/include/boost/process/posix.hpp:
-
-/usr/include/c++/12/bits/std_mutex.h:
-
 /usr/include/boost/integer_traits.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/syscall.h:
@@ -13336,23 +13627,7 @@ _deps/curl-src/include/curl/curl.h:
 
 /usr/include/openssl/sslerr.h:
 
-/usr/include/openssl/e_os2.h:
-
-/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/sockaddr.h:
-
-/usr/include/c++/12/bits/stl_multimap.h:
-
-/usr/include/c++/12/semaphore:
-
 /usr/include/alloca.h:
-
-/usr/include/boost/mpl/aux_/type_wrapper.hpp:
-
-/usr/include/c++/12/bits/exception_defines.h:
 
 /usr/include/c++/12/string:
 
@@ -13377,6 +13652,10 @@ _deps/curl-src/include/curl/curl.h:
 /usr/include/boost/asio/async_result.hpp:
 
 /usr/include/c++/12/ext/concurrence.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+
+/usr/include/boost/preprocessor/control/expr_iif.hpp:
 
 /usr/include/boost/fusion/container/deque/detail/keyed_element.hpp:
 
@@ -13417,6 +13696,8 @@ _deps/curl-src/include/curl/curl.h:
 /usr/include/boost/fusion/mpl/front.hpp:
 
 /usr/include/boost/asio/detail/posix_event.hpp:
+
+/usr/include/linux/ioctl.h:
 
 /usr/include/c++/12/bits/iterator_concepts.h:
 
@@ -13510,10 +13791,6 @@ _deps/curl-src/include/curl/urlapi.h:
 
 /usr/include/boost/mpl/aux_/config/arrays.hpp:
 
-/usr/include/boost/fusion/view/nview/detail/advance_impl.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/statx-generic.h:
-
 /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Miner.cpp:
 
 /usr/include/openssl/macros.h:
@@ -13527,8 +13804,6 @@ _deps/curl-src/include/curl/urlapi.h:
 /usr/include/c++/12/bits/stl_algobase.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
-
-/usr/include/c++/12/iosfwd:
 
 /usr/include/boost/algorithm/string/case_conv.hpp:
 
@@ -13610,6 +13885,12 @@ _deps/curl-src/include/curl/urlapi.h:
 
 /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Network.h:
 
+/usr/include/boost/process/detail/posix/wait_for_exit.hpp:
+
+/usr/include/boost/process/detail/config.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
 /usr/include/c++/12/bits/postypes.h:
@@ -13631,8 +13912,6 @@ _deps/curl-src/include/curl/urlapi.h:
 /usr/include/x86_64-linux-gnu/c++/12/bits/ctype_inline.h:
 
 /usr/include/x86_64-linux-gnu/asm/errno.h:
-
-/usr/include/x86_64-linux-gnu/bits/fcntl.h:
 
 /usr/include/boost/asio/detail/concurrency_hint.hpp:
 
@@ -13659,6 +13938,10 @@ _deps/curl-src/include/curl/curlver.h:
 /usr/include/boost/asio/associated_executor.hpp:
 
 /usr/include/c++/12/bits/node_handle.h:
+
+/usr/include/boost/fusion/view/reverse_view/detail/value_of_impl.hpp:
+
+/usr/include/c++/12/stop_token:
 
 /usr/include/boost/mpl/aux_/empty_impl.hpp:
 
@@ -13695,6 +13978,12 @@ _deps/curl-src/include/curl/curlver.h:
 /usr/include/c++/12/bits/alloc_traits.h:
 
 /usr/include/limits.h:
+
+/usr/include/boost/fusion/container/vector/detail/prior_impl.hpp:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/c++/12/new:
 
 /usr/include/boost/mpl/aux_/na_spec.hpp:
 
@@ -13736,6 +14025,14 @@ _deps/curl-src/include/curl/curlver.h:
 
 /usr/include/stdio.h:
 
+/usr/include/boost/mpl/vector/aux_/pop_back.hpp:
+
+/usr/include/boost/mpl/aux_/config/intel.hpp:
+
+/usr/include/boost/config/workaround.hpp:
+
+/usr/include/boost/mpl/aux_/preprocessor/enum.hpp:
+
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
 /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/json.hpp:
@@ -13749,10 +14046,6 @@ _deps/curl-src/include/curl/curlver.h:
 /usr/include/x86_64-linux-gnu/asm/socket.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
-
-/usr/include/boost/preprocessor/detail/auto_rec.hpp:
-
-/usr/include/boost/type_traits/is_complete.hpp:
 
 /usr/include/boost/predef/platform/windows_runtime.h:
 
@@ -13792,6 +14085,8 @@ _deps/curl-src/include/curl/curlver.h:
 
 /usr/include/c++/12/bits/exception.h:
 
+/usr/include/c++/12/bits/std_thread.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h:
 
 /usr/include/boost/asio/impl/system_context.hpp:
@@ -13803,6 +14098,8 @@ _deps/curl-src/include/curl/curlver.h:
 /usr/include/c++/12/bits/ostream.tcc:
 
 /usr/include/x86_64-linux-gnu/sys/poll.h:
+
+/home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/indicators.hpp:
 
 /usr/include/boost/asio/execution/detail/bulk_sender.hpp:
 
@@ -13836,12 +14133,6 @@ _deps/curl-src/include/curl/curlver.h:
 
 /usr/include/c++/12/numbers:
 
-/usr/include/boost/mpl/iterator_category.hpp:
-
-/usr/include/x86_64-linux-gnu/sys/ioctl.h:
-
-/usr/include/x86_64-linux-gnu/bits/types.h:
-
 /usr/include/c++/12/functional:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
@@ -13871,18 +14162,6 @@ _deps/curl-src/include/curl/curlver.h:
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
-
-/usr/include/linux/falloc.h:
-
-/usr/include/c++/12/bits/fs_dir.h:
-
-/usr/include/boost/mpl/aux_/arity.hpp:
-
-/usr/include/boost/fusion/container/vector/detail/prior_impl.hpp:
-
-/usr/include/c++/12/new:
-
-/usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
 /usr/include/boost/asio/detail/socket_option.hpp:
 
@@ -14018,11 +14297,9 @@ _deps/curl-src/include/curl/curlver.h:
 
 /usr/include/boost/preprocessor/list/reverse.hpp:
 
+/usr/include/c++/12/bits/unique_lock.h:
+
 /usr/include/c++/12/concepts:
-
-/usr/include/boost/preprocessor/facilities/identity.hpp:
-
-/usr/include/boost/asio/detail/null_event.hpp:
 
 /usr/include/c++/12/bits/memoryfwd.h:
 
@@ -14071,6 +14348,10 @@ _deps/curl-src/include/curl/curlver.h:
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/include/c++/12/bits/max_size_type.h:
+
+/usr/include/boost/mpl/aux_/advance_forward.hpp:
+
+/usr/include/x86_64-linux-gnu/sys/ttydefaults.h:
 
 /usr/include/boost/asio/detail/impl/eventfd_select_interrupter.ipp:
 
@@ -14128,6 +14409,18 @@ _deps/curl-src/include/curl/easy.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
+/usr/include/boost/mpl/iterator_category.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/sys/ioctl.h:
+
+/usr/include/boost/fusion/algorithm/iteration/fold.hpp:
+
+/usr/include/asm-generic/posix_types.h:
+
+/usr/include/boost/asio/traits/require_free.hpp:
+
 /usr/include/c++/12/queue:
 
 /usr/include/syscall.h:
@@ -14175,24 +14468,6 @@ _deps/curl-src/include/curl/easy.h:
 /usr/include/boost/asio/detail/handler_type_requirements.hpp:
 
 /usr/include/boost/algorithm/string/finder.hpp:
-
-/usr/include/boost/optional/detail/optional_aligned_storage.hpp:
-
-/usr/include/c++/12/bits/std_abs.h:
-
-/usr/include/boost/preprocessor/identity.hpp:
-
-/usr/include/boost/mpl/quote.hpp:
-
-/usr/include/boost/asio/detail/posix_static_mutex.hpp:
-
-/usr/include/boost/algorithm/string/detail/formatter.hpp:
-
-/usr/include/boost/fusion/algorithm/iteration/fold.hpp:
-
-/usr/include/asm-generic/posix_types.h:
-
-/usr/include/boost/asio/traits/require_free.hpp:
 
 /usr/include/c++/12/bits/stl_heap.h:
 
@@ -14242,10 +14517,6 @@ _deps/curl-src/include/curl/easy.h:
 
 /usr/include/c++/12/bits/valarray_array.h:
 
-/usr/include/boost/preprocessor/list/detail/fold_left.hpp:
-
-/usr/include/boost/mpl/aux_/config/use_preprocessed.hpp:
-
 /usr/include/c++/12/bits/erase_if.h:
 
 /usr/include/boost/iterator/advance.hpp:
@@ -14270,19 +14541,11 @@ _deps/curl-src/include/curl/easy.h:
 
 /usr/include/boost/mpl/aux_/full_lambda.hpp:
 
-/usr/include/boost/process/detail/traits/error.hpp:
-
-/usr/include/boost/asio/prefer.hpp:
-
 /usr/include/c++/12/bits/stl_bvector.h:
 
 /usr/include/boost/mpl/aux_/config/eti.hpp:
 
 /usr/include/c++/12/bits/streambuf.tcc:
-
-/usr/include/boost/range/rend.hpp:
-
-/usr/include/boost/mpl/arg.hpp:
 
 /usr/include/boost/mpl/identity.hpp:
 
@@ -14293,14 +14556,6 @@ _deps/curl-src/include/curl/easy.h:
 /usr/include/boost/mpl/back_inserter.hpp:
 
 /usr/include/boost/asio/impl/execution_context.ipp:
-
-/usr/include/boost/mpl/limits/arity.hpp:
-
-/usr/include/boost/fusion/include/filter_if.hpp:
-
-/usr/include/boost/mem_fn.hpp:
-
-/usr/include/boost/process/exception.hpp:
 
 /usr/include/time.h:
 
@@ -14390,12 +14645,6 @@ _deps/curl-src/include/curl/easy.h:
 
 /usr/include/c++/12/bits/align.h:
 
-/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
-
-/usr/include/boost/type_traits/is_assignable.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/semaphore.h:
-
 /usr/include/boost/filesystem/operations.hpp:
 
 /usr/include/c++/12/bit:
@@ -14415,8 +14664,6 @@ _deps/curl-src/include/curl/easy.h:
 /usr/include/boost/asio/system_context.hpp:
 
 /usr/include/c++/12/ostream:
-
-/usr/include/boost/preprocessor/empty.hpp:
 
 /usr/include/c++/12/bits/stream_iterator.h:
 
@@ -14459,6 +14706,82 @@ _deps/curl-src/include/curl/easy.h:
 /usr/include/boost/asio/traits/bulk_execute_free.hpp:
 
 /usr/include/x86_64-linux-gnu/asm/unistd.h:
+
+/usr/include/boost/mpl/push_back.hpp:
+
+/usr/include/boost/preprocessor/repetition/repeat.hpp:
+
+/usr/include/boost/optional/detail/optional_trivially_copyable_base.hpp:
+
+/usr/include/boost/preprocessor/debug/error.hpp:
+
+/usr/include/boost/preprocessor/detail/auto_rec.hpp:
+
+/usr/include/boost/type_traits/is_complete.hpp:
+
+/usr/include/boost/preprocessor/tuple/eat.hpp:
+
+/usr/include/boost/mpl/aux_/preprocessor/def_params_tail.hpp:
+
+/usr/include/boost/smart_ptr/detail/sp_noexcept.hpp:
+
+/usr/include/boost/range/detail/extract_optional_type.hpp:
+
+/usr/include/boost/mpl/limits/arity.hpp:
+
+/usr/include/boost/fusion/include/filter_if.hpp:
+
+/usr/include/boost/mem_fn.hpp:
+
+/usr/include/boost/process/exception.hpp:
+
+/usr/include/boost/process/detail/traits/error.hpp:
+
+/usr/include/boost/asio/prefer.hpp:
+
+/usr/include/boost/preprocessor/logical/bitand.hpp:
+
+/usr/include/boost/type_traits/is_member_function_pointer.hpp:
+
+/usr/include/boost/optional/detail/optional_aligned_storage.hpp:
+
+/usr/include/c++/12/bits/std_abs.h:
+
+/usr/include/boost/preprocessor/identity.hpp:
+
+/usr/include/boost/mpl/quote.hpp:
+
+/usr/include/boost/mpl/arg.hpp:
+
+/usr/include/boost/range/rend.hpp:
+
+/usr/include/boost/asio/detail/posix_static_mutex.hpp:
+
+/usr/include/boost/algorithm/string/detail/formatter.hpp:
+
+/usr/include/boost/asio/detail/null_event.hpp:
+
+/usr/include/boost/preprocessor/facilities/identity.hpp:
+
+/usr/include/boost/preprocessor/empty.hpp:
+
+/usr/include/boost/preprocessor/arithmetic/dec.hpp:
+
+/usr/include/boost/preprocessor/control/while.hpp:
+
+/usr/include/boost/mpl/aux_/config/use_preprocessed.hpp:
+
+/usr/include/boost/preprocessor/list/detail/fold_left.hpp:
+
+/usr/include/boost/preprocessor/list/adt.hpp:
+
+/usr/include/c++/12/bits/exception_defines.h:
+
+/usr/include/boost/mpl/aux_/type_wrapper.hpp:
+
+/usr/include/boost/none.hpp:
+
+/usr/include/boost/preprocessor/detail/check.hpp:
 
 /usr/include/boost/preprocessor/list/fold_right.hpp:
 
@@ -14738,22 +15061,6 @@ _deps/curl-src/include/curl/easy.h:
 
 /usr/include/boost/mpl/apply_wrap.hpp:
 
-/usr/include/boost/mpl/insert.hpp:
-
-/usr/include/boost/mpl/aux_/clear_impl.hpp:
-
-/usr/include/boost/mpl/aux_/has_apply.hpp:
-
-/usr/include/boost/process/detail/posix/wait_for_exit.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
-/usr/include/boost/process/detail/config.hpp:
-
-/usr/include/boost/process/detail/posix/sigchld_service.hpp:
-
-/usr/include/c++/12/mutex:
-
 /usr/include/boost/mpl/has_xxx.hpp:
 
 /usr/include/boost/config/no_tr1/utility.hpp:
@@ -14766,9 +15073,9 @@ _deps/curl-src/include/curl/easy.h:
 
 /usr/include/boost/preprocessor/array/elem.hpp:
 
-/usr/include/boost/preprocessor/inc.hpp:
-
 /usr/include/boost/mpl/aux_/preprocessed/gcc/bind_fwd.hpp:
+
+/usr/include/boost/preprocessor/inc.hpp:
 
 /usr/include/boost/preprocessor/array/size.hpp:
 
@@ -15096,10 +15403,6 @@ _deps/curl-src/include/curl/system.h:
 
 /usr/include/boost/algorithm/string/detail/finder.hpp:
 
-/usr/include/boost/mpl/pair_view.hpp:
-
-/usr/include/boost/algorithm/string/split.hpp:
-
 /usr/include/boost/algorithm/string/trim.hpp:
 
 /usr/include/boost/algorithm/string/concept.hpp:
@@ -15160,10 +15463,6 @@ _deps/curl-src/include/curl/system.h:
 
 /usr/include/boost/type_traits/is_union.hpp:
 
-/usr/include/boost/fusion/view/transform_view/transform_view.hpp:
-
-/usr/include/boost/ref.hpp:
-
 /usr/include/x86_64-linux-gnu/bits/ss_flags.h:
 
 /usr/include/boost/core/ref.hpp:
@@ -15188,7 +15487,9 @@ _deps/curl-src/include/curl/system.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:
 
-/usr/include/boost/get_pointer.hpp:
+/usr/include/fcntl.h:
+
+/usr/include/boost/config/no_tr1/memory.hpp:
 
 /usr/include/boost/mpl/aux_/iter_fold_if_impl.hpp:
 
@@ -15250,8 +15551,6 @@ _deps/curl-src/include/curl/system.h:
 
 /usr/include/boost/filesystem/config.hpp:
 
-/usr/include/asm-generic/int-ll64.h:
-
 /usr/include/boost/iterator/iterator_concepts.hpp:
 
 /usr/include/boost/config/auto_link.hpp:
@@ -15261,12 +15560,6 @@ _deps/curl-src/include/curl/system.h:
 /usr/include/boost/process/detail/on_exit.hpp:
 
 /usr/include/boost/filesystem/path_traits.hpp:
-
-/usr/include/boost/core/explicit_operator_bool.hpp:
-
-/usr/include/boost/type_traits/remove_extent.hpp:
-
-/usr/include/c++/12/atomic:
 
 /usr/include/boost/system/error_code.hpp:
 
@@ -15283,8 +15576,6 @@ _deps/curl-src/include/curl/system.h:
 /usr/include/boost/algorithm/string/iter_find.hpp:
 
 /usr/include/boost/system/detail/std_interoperability.hpp:
-
-/usr/include/c++/12/bits/unique_lock.h:
 
 /usr/include/boost/mpl/pop_front_fwd.hpp:
 
@@ -15311,18 +15602,6 @@ _deps/curl-src/include/curl/system.h:
 /usr/include/boost/process/detail/traits/async.hpp:
 
 /usr/include/c++/12/condition_variable:
-
-/usr/include/boost/fusion/view/reverse_view/detail/value_of_impl.hpp:
-
-/usr/include/c++/12/stop_token:
-
-/usr/include/c++/12/bits/std_thread.h:
-
-/usr/include/boost/mpl/bool.hpp:
-
-/usr/include/c++/12/bits/this_thread_sleep.h:
-
-/usr/include/boost/asio/detail/handler_alloc_helpers.hpp:
 
 /usr/include/boost/preprocessor/repetition/enum_trailing_params.hpp:
 
@@ -15579,21 +15858,3 @@ _deps/curl-src/include/curl/system.h:
 /usr/include/boost/fusion/view/transform_view/detail/prior_impl.hpp:
 
 /usr/include/x86_64-linux-gnu/sys/stat.h:
-
-/usr/include/linux/types.h:
-
-/usr/include/x86_64-linux-gnu/asm/types.h:
-
-/usr/include/c++/12/bits/move.h:
-
-/usr/include/asm-generic/types.h:
-
-/usr/include/boost/type_traits/has_trivial_move_assign.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_statx.h:
-
-/usr/include/boost/config/no_tr1/memory.hpp:
-
-/usr/include/fcntl.h:
-
-/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:

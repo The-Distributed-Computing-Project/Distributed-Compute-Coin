@@ -2,6 +2,7 @@
 #define console_h
 
 #include <queue>
+#include "indicators.hpp"
 
 
 namespace console

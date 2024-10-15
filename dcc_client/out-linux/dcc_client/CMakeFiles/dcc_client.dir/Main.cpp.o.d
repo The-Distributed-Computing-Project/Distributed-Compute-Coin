@@ -1676,7 +1676,8 @@ dcc_client/CMakeFiles/dcc_client.dir/Main.cpp.o: \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/strops.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Console.h \
  /usr/include/c++/12/queue /usr/include/c++/12/bits/stl_queue.h \
- /usr/include/c++/12/math.h \
+ /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/indicators.hpp \
+ /usr/include/c++/12/thread /usr/include/c++/12/math.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/BaseConverter.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/FileManip.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Network.h \
@@ -1689,7 +1690,6 @@ dcc_client/CMakeFiles/dcc_client.dir/Main.cpp.o: \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/urlapi.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-src/include/curl/options.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/P2PClient.h \
- /usr/include/c++/12/thread \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/crypto.h \
  /usr/include/openssl/md5.h /usr/include/openssl/macros.h \
  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \

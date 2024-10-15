@@ -534,6 +534,17 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 		console::BlockchainPrint();
 		console::WriteLine("Checking blocks...");
 
+		using namespace indicators;
+
+		BlockProgressBar checkingProgressBar{
+			option::BarWidth{80},
+    		option::Start{"["},
+    		option::End{"]"},
+    		option::ForegroundColor{Color::white},
+    		option::FontStyles{std::vector<FontStyle>{FontStyle::bold}},
+			option::MaxProgress{chainLength}
+		};
+
 		// Apply funds to user from the first block separately
 		checkFirstBlock:
 		try
@@ -606,6 +617,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					return false;
 				}
 			}
+			checkingProgressBar.tick();
 		}
 		// If there is a failure state, assume that block is bad or does not exist.
 		catch (std::exception& e)
@@ -769,6 +781,11 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					console::Write("     Transactions: " + std::to_string(o["transactions"].size()));
 					console::Write("   Ok  ", console::greenFGColor, "");
 				}
+
+				checkingProgressBar.set_option(option::PostfixText{
+      				std::to_string(i) + "/" + std::to_string(chainLength)
+    			});
+				checkingProgressBar.tick();
 			}
 			// If there is a failure state, assume that block is bad or does not exist.
 			catch (...)
@@ -777,7 +794,7 @@ bool IsChainValid(P2P& p2p, json& walletInfo)
 					ERRORMSG("Error\n" << e.what());
 				}*/
 
-				console::Write("Attempting fix...");
+				console::Write("\nAttempting fix...");
 				SyncBlock(p2p, i, true); // Force resync
 				console::Write(" Done!", console::greenFGColor);
 

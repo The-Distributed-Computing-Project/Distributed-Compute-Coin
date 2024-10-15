@@ -223,8 +223,11 @@ void P2P::ListenerThread(int update_interval)
 						SavePeerList();
 
 						// If not currently connected, accept this connection.
-						if (otherAddrStr == "")
+						if (otherAddrStr == ""){
+							if (WalletSettingValues::verbose >= 4)
+								console::WriteLine("\n↓ Conversation Started ↓", console::greenFGColor, "");
 							otherAddrStr = fromIPString;
+						}
 
 						// If connected but different, ignore.
 						else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0]) {
@@ -1138,7 +1141,7 @@ void P2P::SenderThread()
 				if (messageStatus == idle)
 				{
 					if (WalletSettingValues::verbose >= 4)
-						console::WriteLine("Conversation complete\n", console::greenFGColor, "");
+						console::WriteLine("↑ Conversation complete ↑\n", console::greenFGColor, "");
 					otherAddrStr = "";
 					reqDat = -1;
 					role = -1;

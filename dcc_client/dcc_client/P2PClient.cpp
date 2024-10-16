@@ -967,7 +967,7 @@ void P2P::InitPeerList() {
 	bool wasFound = false;
 	// Add all lines to peerList vector
 	while (std::getline(peerFile, line)) {
-		if (line[0] != '#'){
+		if (line[0] != '#' && line != ""){
 			// Make sure at least one instance of DCCARK peer is included
 			if (SplitString(line, ":")[0] + ":" + SplitString(line, ":")[1] == DCCARK_ADDR)
 				wasFound = true;

@@ -24,7 +24,7 @@ DCC-Miner/out/build/x64-debug/DCC-Miner/DCC-Miner.pdb
 *.pdb
 *.db
 /sec/
-/wwwdata/
+*/wwwdata/*
 .vs
 *.obj
 *.pem

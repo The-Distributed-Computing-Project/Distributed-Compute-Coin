@@ -1,9 +1,0 @@
-FROM docker.io/gcc:6.3 AS build
-COPY . /usr/src/testCpp
-WORKDIR /usr/src/testCpp
-RUN g++ -o simpleapp2 main.cpp
-FROM debian:latest
-WORKDIR /usr/bin/testCpp
-COPY --from=0 /usr/src/testCpp/simpleapp2 .
-# Run the output program from the previous step
-CMD ["./simpleapp2"]

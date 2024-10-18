@@ -24,7 +24,7 @@ DCC-Miner/out/build/x64-debug/DCC-Miner/DCC-Miner.pdb
 *.pdb
 *.db
 /sec/
-*/wwwdata/*
+/wwwdata/
 .vs
 *.obj
 *.pem
@@ -34,5 +34,5 @@ DCC-Miner/out/_deps/cpr-src/
 DCC-Miner/out/_deps/zlib-src/
 dcc_client/out/_deps/cpr-src/
 dcc_client/out/_deps/zlib-src/
-#dcc_client/out/dcc_client/TestProgram/
+dcc_client/out/dcc_client/TestProgram/
 *.ilk

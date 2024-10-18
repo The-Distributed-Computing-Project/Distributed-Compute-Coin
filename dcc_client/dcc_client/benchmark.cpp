@@ -13,27 +13,6 @@ using namespace std;
 using namespace std::chrono;
 
 
-inline static const string roundFloat(const double input, const int decimal_places)
-{
-    ostringstream str;
-    str << fixed << setprecision(decimal_places);
-    str << input;
-    return str.str();
-}
-
-std::string truncateMetricNum(double x){
-    if(x > 1000000000000)
-        return roundFloat((float)((long long)x/10000000000)/100.0,2) + " T";
-    else if(x > 1000000000)
-        return roundFloat((float)((long)x/10000000)/100.0,2) + " G";
-    else if(x > 1000000)
-        return roundFloat((float)((long)x/10000)/100.0,2) + " M";
-    else if(x > 1000)
-        return roundFloat((float)((long)x/10)/100.0,2) + " K";
-    else
-        return std::to_string(x);
-}
-
 
 void calculateFLOPS(unsigned long long *p1, bool* isDone){
 	double a= 124.23525, b = 21.2412, c = 2342.23432, d = 23.324, e= 2.3412, f = 123.21, g = 1231.12, h =567.4, j = 34.4, k =24, l =342.24,

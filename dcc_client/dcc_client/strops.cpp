@@ -696,3 +696,25 @@ bool IsVersionGreaterOrEqual(std::string a, std::string b) {
 
 	return true;
 }
+
+inline static const std::string roundFloat(const double input, const int decimal_places)
+{
+	std::ostringstream str;
+    str << std::fixed << std::setprecision(decimal_places);
+    str << input;
+    return str.str();
+}
+
+std::string truncateMetricNum(double x){
+    if(x > 1000000000000)
+        return roundFloat((float)((long long)x/10000000000)/100.0,2) + " T";
+    else if(x > 1000000000)
+        return roundFloat((float)((long)x/10000000)/100.0,2) + " G";
+    else if(x > 1000000)
+        return roundFloat((float)((long)x/10000)/100.0,2) + " M";
+    else if(x > 1000)
+        return roundFloat((float)((long)x/10)/100.0,2) + " K";
+    else
+        return std::to_string(x);
+}
+

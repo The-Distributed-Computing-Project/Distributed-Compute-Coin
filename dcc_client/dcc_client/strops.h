@@ -53,6 +53,8 @@ void addOneToHexStrInRange(char* num, int start, int len);
 void csubstr(char* arr, char* outArr, int begin, int len, int totalLen, int& actualSize);
 void cConcatInt(char* arr, char* outArr, int len, int x);
 std::string SplitGetLastAfterChar(std::string str, std::string delim);
+inline static const std::string roundFloat(const double input, const int decimal_places);
+std::string truncateMetricNum(double x);
 
 template<class T>
 std::string FormatWithCommas(T value)

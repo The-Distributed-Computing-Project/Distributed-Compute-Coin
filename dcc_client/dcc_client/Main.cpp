@@ -203,6 +203,9 @@ int main()
 	console::Write("Your wallet: ");
 	console::WriteLine(wallet, console::cyanFGColor, "");
 	walletInfo["Address"] = wallet;
+	
+	walletInfo["pubkey"] = keypair[0];
+	walletInfo["prikey"] = keypair[1];
 
 	// Get all deluge files, and ensure they are complete
 	//walletInfo["FullPrograms"] = json::array();
@@ -647,7 +650,7 @@ int main()
 				console::Write("\nPeers: ");
 
 				// Make table
-				console::WriteIndented("+-----------------+-------+------------+-------+\n", "", "", 1);
+				console::WriteIndented("+-----------------+-------+------------+-------+---------+\n", "", "", 1);
 
 				// Colored headers
 				console::WriteIndented("| ", "", "", 1);
@@ -659,28 +662,38 @@ int main()
 				console::Write("     |");
 				console::Write(" Tries", console::cyanFGColor, "");
 				console::Write(" |");
+				console::Write(" Height", console::cyanFGColor, "");
+				console::Write("  |");
 				console::WriteLine();
 
-				console::WriteIndented("+-----------------+-------+------------+-------+\n", "", "", 1);
-				for(std::string peer : p2p.peerList)
+				console::WriteIndented("+-----------------+-------+------------+-------+---------+\n", "", "", 1);
+				for(const auto& [key, value] : p2p.p2pConnections)
 				{
-						console::WriteIndented("| " + PadStringRight(SplitString(peer, ":")[0], ' ', 16) + "| ", "", "", 1);
-						console::Write(PadStringRight(SplitString(peer, ":")[1], ' ', 5) + " | ");
-						int statusNum = stoi(SplitString(peer, ":")[2]);
-						if (statusNum <= 1)
-							console::Write(PadStringRight("online", ' ', 10), console::greenFGColor);
-						else if (statusNum <= 5)
-							console::Write(PadStringRight("stalling", ' ', 10), console::yellowFGColor);
-						else if (statusNum <= 9)
-							console::Write(PadStringRight("offline", ' ', 10), console::redFGColor);
-						console::Write(" | ");
+					// IP and Port
+					console::WriteIndented("| " + PadStringRight(SplitString(key, ":")[0], ' ', 16) + "| ", "", "", 1);
+					console::Write(PadStringRight(SplitString(key, ":")[1], ' ', 5) + " | ");
 
-						console::Write(PadStringRight(SplitString(peer, ":")[2], ' ', 5) + " | ");
+					
+					// Online/Offline
+					//int statusNum = stoi(SplitString(peer.first, ":")[2]);
+					//if (statusNum <= 1)
+					//	console::Write(PadStringRight("online", ' ', 10), console::greenFGColor);
+					//else if (statusNum <= 5)
+					//	console::Write(PadStringRight("stalling", ' ', 10), console::yellowFGColor);
+					//else if (statusNum <= 9)
+					//	console::Write(PadStringRight("offline", ' ', 10), console::redFGColor);
+					console::Write(" | ");
 
-						console::WriteLine();
+					// Tries
+					//console::Write(PadString(SplitString(peer.first, ":")[2], ' ', 5) + " | ");
+
+					// Height
+					console::Write(PadString(std::to_string(value->height), ' ', 7) + " | ");
+
+					console::WriteLine();
 
 				}
-				console::WriteIndented("+-----------------+-------+------------+-------+\n", "", "", 1);
+				console::WriteIndented("+-----------------+-------+------------+-------+---------+\n", "", "", 1);
 			}
 
 			//else if (commandParts[0] == "--CONNECT" || commandParts[0] == "-C")

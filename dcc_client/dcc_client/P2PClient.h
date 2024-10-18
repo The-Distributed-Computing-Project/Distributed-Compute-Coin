@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 #if WINDOWS
 #include <winsock2.h>
@@ -38,6 +39,20 @@ using json = nlohmann::json;
 
 //extern P2P p2p;
 
+class Peer{
+public:
+	std::string ip;
+	uint16_t port = 0;
+	unsigned long long height = 0;
+	std::vector<std::string> peerList;
+
+
+	void set_peerlist(std::vector<std::string> peerList){
+		this->peerList = peerList;
+	}
+
+	Peer(std::string ipPort);
+};
 
 class P2P
 {
@@ -64,6 +79,8 @@ public:
 
 	std::vector<std::string> peerList;
 	int peerListID = 0;
+
+	std::unordered_map<std::string, Peer*> p2pConnections;
 
 	int role = -1; //   -1 == offline,  0 == requester,  1 == answerer
 

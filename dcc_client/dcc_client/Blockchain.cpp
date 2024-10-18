@@ -248,24 +248,30 @@ int GetProgram(P2P& p2p, json& walletInfo)
 
 char outDatArray[DELUGE_CHUNK_SIZE + 5];
 // Make a Docker container and Deluge file for a program
-int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
+int MakeProgram(json& walletInfo, json& walletConfig, std::string& path, bool isQuiet)
 {
 	console::WriteLine();
 
 	// Build the container with temporary tag
-	console::ContainerManagerPrint();
 
 	std::string configFileName = "/Containerfile";
 	if (fs::exists(path + "/Dockerfile"))
 		configFileName = "/Dockerfile";
 
-	console::Write("Podman is building the application using \"" + path + configFileName + "\" ... ");
-	system(("podman build -q --rm -f " + path + configFileName + " -t dcc/temporaryimage:latest " + path).c_str());
 
-	console::Write(" Done\n", console::greenFGColor);
+	console::ContainerManagerPrint();
+	console::WriteLine("Podman is building the application using \"" + path + configFileName + "\" ... ");
+	console::ContainerManagerPrint();
+	console::WriteLine("This may take a moment...");
+
+	std::string quietOption = "";
+	if(isQuiet)
+		quietOption = "-q ";
+	system(("podman build "+quietOption+"--rm -f " + path + configFileName + " -t dcc/temporaryimage:latest " + path).c_str());
+
 	// Save to tar archive
 	console::ContainerManagerPrint();
-	console::Write("Archiving the application ... ");
+	console::WriteLine("Archiving the application ... ");
 	int podmanStatus = system("podman save -o temporaryimage.tar dcc/temporaryimage:latest"); // Save it to file
 
 	// Make sure podman did not give an error
@@ -278,7 +284,6 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 	}
 
 	ExecuteCommand("tar -a -c -f temporaryimage.tar.zip temporaryimage.tar"); // Compress the file using tar
-	console::Write(" Done\n", console::greenFGColor);
 
 
 	FILE* pFile;
@@ -305,6 +310,22 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		//std::string content = buffer.str();
 	console::ContainerManagerPrint();
 	std::cout << "Total compressed Deluge size: " << size << " bytes\n";
+
+
+	using namespace indicators;
+	indicators::ProgressBar delugeBuilderProgress{
+		indicators::option::BarWidth{50},
+		indicators::option::Start{"["},
+		indicators::option::Fill{"■"},
+		indicators::option::Lead{"■"},
+		indicators::option::Remainder{"-"},
+		indicators::option::End{" ]"},
+		indicators::option::PostfixText{"Building part 0"},
+		indicators::option::ForegroundColor{Color::blue},
+		indicators::option::FontStyles{std::vector<FontStyle>{FontStyle::bold}},
+		indicators::option::MaxProgress{size}
+	};
+
 
 	// Create hash for each 32kb chunk of the file, and add to list
 	std::vector<std::string> hashList;
@@ -335,8 +356,10 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 		{
 			hashList.push_back(sha256OutBuffer);
 		}
-		console::ContainerManagerPrint();
-		std::cout << "Building part " << PadString(std::to_string(chunks), '0', 4) << "  ,  " << PadString(std::to_string(ind), '0', std::to_string(size).size()) << " of " << size << " bytes" << "   =>   " << hashList.at(hashList.size() - 1).substr(0, 20) + "...\r";
+		delugeBuilderProgress.set_option(option::PostfixText{"Building part " + PadString(std::to_string(chunks), '0', 4)});
+		delugeBuilderProgress.set_progress(ind);
+		//console::ContainerManagerPrint();
+		//std::cout << "Building part " << PadString(std::to_string(chunks), '0', 4) << "  ,  " << PadString(std::to_string(ind), '0', std::to_string(size).size()) << " of " << size << " bytes" << "   =>   " << hashList.at(hashList.size() - 1).substr(0, 20) + "...\r";
 		allHashesString += sha256OutBuffer;
 		ind += DELUGE_CHUNK_SIZE;
 		chunks++;
@@ -349,7 +372,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 	if (chunks >= DELUGE_MAX_CHUNKS && ind < size) {
 		console::ErrorPrint();
 		console::WriteLine("Could not complete, file is too large.");
-		console::WriteIndented("Please make sure your program is no more than " + std::to_string(DELUGE_MAX_SIZE_B) + " bytes large", "", "", 1);
+		console::WriteIndented("Please make sure your program is no more than " + std::to_string(DELUGE_MAX_SIZE_B) + " bytes, or " + truncateMetricNum(DELUGE_MAX_SIZE_B) + "bytes large", "", "", 1);
 		// Free memory allocated using `new`
 		delete[] byteArray;
 		return 1;
@@ -358,9 +381,23 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 	console::ContainerManagerPrint();
 	console::WriteLine("Done building all parts", console::greenFGColor);
 
-	// Hash one last time, this time using all hashes as a total file checksum, and SHA256
-	sha256_string((char*)(allHashesString.c_str()), sha256OutBuffer);
+	unsigned long long currentTime = (unsigned long long)(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
+
+	// Hash all of the important data
+	std::string combinedData = 
+							JoinArrayPieces(hashList) + 
+							(std::string)walletConfig["ip"] + 
+							(std::string)walletInfo["Address"] + 
+							std::to_string(currentTime) + 
+							std::to_string(size)
+	;
+	sha256_string((char*)(combinedData.c_str()), sha256OutBuffer);
 	std::string hData = std::string(sha256OutBuffer);
+
+	// Generate signature by encrypting hash with private key
+	std::string signature = rsa_pri_encrypt(hData, walletInfo["prikey"]);
+	std::string sigBase64 = encode64((const unsigned char*)signature.c_str(), signature.length());
+
 
 	// Create json object storing the program data
 	json programData = json::object({});
@@ -372,8 +409,10 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path)
 			{"_chunkSizeB", DELUGE_CHUNK_SIZE},
 			{"_totalSizeB", size},
 			{"_version", DELUGE_VERSION},
+			{"_time", currentTime},
+			{"_signature", sigBase64},
 			{"_name", SplitGetLastAfterChar(path,"/").substr(0, 32)}, // Use path as name, also truncate to only 32 chars
-			{"peers", json::array()}, // List of peers that say have this file, add self for original distribution
+			{"peers", json::array()} // List of peers that say have this file, add self for original distribution
 	};
 	programData["peers"].push_back({ (std::string)walletConfig["ip"], (int)walletConfig["port"] });
 

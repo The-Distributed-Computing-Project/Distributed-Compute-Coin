@@ -41,7 +41,11 @@ struct sockaddr_in serv_addr, remoteAddr;
 #define GETSOCKETERRORNO() (errno)
 #endif
 
-//P2P p2p;
+Peer::Peer(std::string ipPort) {
+	ip = SplitString(ipPort, ":")[0];
+	port = stoi(SplitString(ipPort, ":")[1]);
+	peerList = std::vector<std::string>();
+}
 
 #if defined(_MSC_VER)
 // Get the IP:Port combination from SOCKADDR_IN struct, and return it as a string
@@ -227,6 +231,9 @@ void P2P::ListenerThread(int update_interval)
 							if (WalletSettingValues::verbose >= 4)
 								console::WriteLine("\nConversation Started", console::greenFGColor, "");
 							otherAddrStr = fromIPString;
+							// Add peer to collection of connections
+							Peer newPeer(otherAddrStr);
+							p2pConnections[otherAddrStr] = &newPeer;
 						}
 
 						// If connected but different, ignore.
@@ -339,6 +346,7 @@ void P2P::ListenerThread(int update_interval)
 							console::NetworkPrint();
 							console::WriteLine("Peer closed.");
 							CONNECTED_TO_PEER = false;
+							otherAddrStr = "";
 							reqDat = -1;
 							messageStatus = -1;
 							return;
@@ -634,6 +642,9 @@ void P2P::ListenerThread(int update_interval)
 							SetPeer(ipIndex);
 						else
 							SetPeer(peerList.size()-1);
+						// Add peer to collection of connections
+						Peer newPeer(otherAddrStr);
+						p2pConnections[otherAddrStr] = &newPeer;
 					}
 
 					// If connected but different, ignore.
@@ -1005,6 +1016,8 @@ int P2P::OpenP2PSocket(int port)
 
 	console::NetworkPrint();
 	console::Write("Starting P2P Client...");
+
+	p2pConnections = std::unordered_map<std::string, Peer*>();
 #if WINDOWS
 
 	Http http;

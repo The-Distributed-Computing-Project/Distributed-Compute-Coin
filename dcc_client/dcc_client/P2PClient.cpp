@@ -105,12 +105,12 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 			int segSize = segInfo.size();
 
 			segInfo += (p + total);
-			segInfo = segInfo.substr(0, (bytesLeft < MESSAGESIZE) ? (bytesLeft + segSize) : (MESSAGESIZE + segSize));
+			//segInfo = segInfo.substr(0, (bytesLeft < MESSAGESIZE) ? (bytesLeft + segSize) : (MESSAGESIZE + segSize));
 
 			n = sendto(socket,
 				segInfo.c_str(),
-				sizeof(segInfo.c_str()),
-				//(bytesLeft < MESSAGESIZE) ? (bytesLeft + segSize) : (MESSAGESIZE + segSize),
+				//sizeof(segInfo.c_str()),
+				(bytesLeft < MESSAGESIZE) ? (bytesLeft + segSize) : (MESSAGESIZE + segSize),
 				0,
 				to,
 				toLen)
@@ -125,7 +125,7 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 			total += n;
 			if (WalletSettingValues::verbose >= 7) {
 				std::cout << segInfo.c_str() << std::endl;
-				std::cout << std::to_string(n) << "bytes sent" << std::endl;
+				std::cout << std::to_string(-n) << " bytes sent" << std::endl;
 			}
 			if (bytesLeft < MESSAGESIZE)
 				bytesLeft -= n+segSize;

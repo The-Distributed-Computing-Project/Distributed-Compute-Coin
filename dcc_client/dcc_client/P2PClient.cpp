@@ -292,7 +292,7 @@ void P2P::ListenerThread(int update_interval)
 					}
 
 					// If connected but different, ignore.
-					else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0]) {
+					else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0]/* && messageStatus != initial_connect_request*/) {
 						// Send blank confirming message
 						std::string tmpMsg = "ACK";
 						mySendTo(localSocket, tmpMsg, tmpMsg.length(), 0, (sockaddr*)&remoteAddr, remoteAddrLen);
@@ -1045,7 +1045,7 @@ void P2P::SenderThread()
 							// Decrease life of current peer
 							//char newLife = (SplitString(peerList[peerListID], ":")[2]).c_str()[0] + 1;
 
-							p2pConnections[peerListID]->life += 1;
+							//p2pConnections[peerListID]->life += 1;
 							//if (newLife >= '9' && keepPeersAlive == false && SplitString(peerList[peerListID], ":")[0] + ":" + SplitString(peerList[peerListID], ":")[1] != DCCARK_ADDR) // If life is 9, remove it from list
 							//	peerList.erase(peerList.begin() + peerListID);
 							//else if (keepPeersAlive)

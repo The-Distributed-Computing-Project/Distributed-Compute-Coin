@@ -1239,6 +1239,8 @@ void P2P::SenderThread()
 							delugeHashes.push_back((std::string)delugeJson["_totalHash"]);
 						}
 					}
+
+					blockchainLength = FileCount("./wwwdata/blockchain/");
 	
 					json infoCompilation = json();
 					infoCompilation = {

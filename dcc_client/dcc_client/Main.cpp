@@ -653,7 +653,7 @@ int main()
 				console::Write("\nPeers: ");
 
 				// Make table
-				console::WriteIndented("+-----------------+-------+------------+-------+---------+\n", "", "", 1);
+				console::WriteIndented("+-----------------+-------+-------+---------+\n", "", "", 1);
 
 				// Colored headers
 				console::WriteIndented("| ", "", "", 1);
@@ -661,15 +661,13 @@ int main()
 				console::Write("              |");
 				console::Write(" PORT", console::cyanFGColor, "");
 				console::Write("  |");
-				console::Write(" Status", console::cyanFGColor, "");
-				console::Write("     |");
 				console::Write(" Tries", console::cyanFGColor, "");
 				console::Write(" |");
 				console::Write(" Height", console::cyanFGColor, "");
 				console::Write("  |");
 				console::WriteLine();
 
-				console::WriteIndented("+-----------------+-------+------------+-------+---------+\n", "", "", 1);
+				console::WriteIndented("+-----------------+-------+-------+---------+\n", "", "", 1);
 				for(const auto& [key, value] : p2p.p2pConnections)
 				{
 					// IP and Port
@@ -694,9 +692,8 @@ int main()
 					console::Write(PadString(std::to_string(value->height), ' ', 7) + " | ");
 
 					console::WriteLine();
-
 				}
-				console::WriteIndented("+-----------------+-------+------------+-------+---------+\n", "", "", 1);
+				console::WriteIndented("+-----------------+-------+-------+---------+\n", "", "", 1);
 			}
 
 			//else if (commandParts[0] == "--CONNECT" || commandParts[0] == "-C")

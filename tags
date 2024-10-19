@@ -3,8 +3,11 @@ CONNECTED_TO_PEER	dcc_client/dcc_client/P2PClient.h	/^	std::atomic_bool CONNECTE
 CONNECTION_PARTS	dcc_client/dcc_client/P2PClient.h	/^	std::vector<std::string> CONNECTION_PARTS = { "" };$/;"	m	class:P2P	typeref:typename:std::vector<std::string>
 DCCARK_ADDR	dcc_client/dcc_client/P2PClient.cpp	/^#define DCCARK_ADDR /;"	d	file:
 GETSOCKETERRORNO	dcc_client/dcc_client/P2PClient.cpp	/^#define GETSOCKETERRORNO(/;"	d	file:
+Help	dcc_client/dcc_client/Main.cpp	/^void Help()$/;"	f	typeref:typename:void
+ISKEYDOWN	dcc_client/dcc_client/Main.cpp	/^#define ISKEYDOWN(/;"	d	file:
 InitPeerList	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::InitPeerList() {$/;"	f	class:P2P	typeref:typename:void
 ListenerThread	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::ListenerThread(int update_interval)$/;"	f	class:P2P	typeref:typename:void
+Logo	dcc_client/dcc_client/Main.cpp	/^void Logo()$/;"	f	typeref:typename:void
 MESSAGESIZE	dcc_client/dcc_client/P2PClient.cpp	/^const int MESSAGESIZE = 2048; \/\/ The rough size of each data packet, in bytes, excluding the h/;"	v	typeref:typename:const int
 MSG_PART	dcc_client/dcc_client/P2PClient.h	/^	int MSG_PART = 0;$/;"	m	class:P2P	typeref:typename:int
 MsgStatus	dcc_client/dcc_client/P2PClient.h	/^	enum MsgStatus {$/;"	g	class:P2P
@@ -16,10 +19,14 @@ Peer	dcc_client/dcc_client/P2PClient.cpp	/^Peer::Peer(std::string ipPort) {$/;"	
 Peer	dcc_client/dcc_client/P2PClient.h	/^class Peer{$/;"	c
 RandomizePeer	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::RandomizePeer() {$/;"	f	class:P2P	typeref:typename:void
 SavePeerList	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::SavePeerList() {$/;"	f	class:P2P	typeref:typename:void
+SendFunds	dcc_client/dcc_client/Main.cpp	/^int SendFunds(P2P& p2p, std::string& toAddress, float amount)$/;"	f	typeref:typename:int
 SenderThread	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::SenderThread()$/;"	f	class:P2P	typeref:typename:void
 SetPeer	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::SetPeer(int id) {$/;"	f	class:P2P	typeref:typename:void
+UNIX	dcc_client/dcc_client/Main.cpp	/^#define UNIX /;"	d	file:
 UNIX	dcc_client/dcc_client/P2PClient.cpp	/^#define UNIX /;"	d	file:
 VerifyTransaction	dcc_client/dcc_client/P2PClient.cpp	/^bool VerifyTransaction(json& tx, uint32_t id, bool thorough) {$/;"	f	typeref:typename:bool
+Version	dcc_client/dcc_client/Main.cpp	/^void Version()$/;"	f	typeref:typename:void
+WINDOWS	dcc_client/dcc_client/Main.cpp	/^#define WINDOWS /;"	d	file:
 WINDOWS	dcc_client/dcc_client/P2PClient.cpp	/^#define WINDOWS /;"	d	file:
 _WINSOCK_DEPRECATED_NO_WARNINGS	dcc_client/dcc_client/P2PClient.h	/^#define _WINSOCK_DEPRECATED_NO_WARNINGS$/;"	d
 announce	dcc_client/dcc_client/P2PClient.h	/^		announce = 18,$/;"	e	enum:P2P::MsgStatus
@@ -28,19 +35,28 @@ await_second_success	dcc_client/dcc_client/P2PClient.h	/^		await_second_success 
 blockchainLength	dcc_client/dcc_client/P2PClient.cpp	/^int blockchainLength = 0;$/;"	v	typeref:typename:int
 buffer	dcc_client/dcc_client/P2PClient.cpp	/^char buffer[BUFFERLENGTH];$/;"	v	typeref:typename:char[]
 completeDelugeList	dcc_client/dcc_client/P2PClient.h	/^	std::map<std::string, std::map<std::string, uint16_t>> completeDelugeList;$/;"	m	class:P2P	typeref:typename:std::map<std::string,std::map<std::string,uint16_t>>
+connectionStatus	dcc_client/dcc_client/Main.cpp	/^int connectionStatus = 1;$/;"	v	typeref:typename:int
 differentPeerAttempts	dcc_client/dcc_client/P2PClient.h	/^	int differentPeerAttempts = 0;$/;"	m	class:P2P	typeref:typename:int
+directoryList	dcc_client/dcc_client/Main.cpp	/^const std::string directoryList[] = { ".\/sec", ".\/wwwdata", ".\/wwwdata\/blockchain", ".\/wwwd/;"	v	typeref:typename:const std::string[]
 disconnect_request	dcc_client/dcc_client/P2PClient.h	/^		disconnect_request = 9,$/;"	e	enum:P2P::MsgStatus
+endpointAddr	dcc_client/dcc_client/Main.cpp	/^std::string endpointAddr = "";$/;"	v	typeref:typename:std::string
+endpointPort	dcc_client/dcc_client/Main.cpp	/^std::string endpointPort = "";$/;"	v	typeref:typename:std::string
 extraData	dcc_client/dcc_client/P2PClient.h	/^	std::string extraData = "";$/;"	m	class:P2P	typeref:typename:std::string
+flops	dcc_client/dcc_client/Main.cpp	/^unsigned long long flops = 0;$/;"	v	typeref:typename:unsigned long long
 height	dcc_client/dcc_client/P2PClient.h	/^	unsigned long long height = 0;$/;"	m	class:Peer	typeref:typename:unsigned long long
 idle	dcc_client/dcc_client/P2PClient.h	/^		idle = -1,$/;"	e	enum:P2P::MsgStatus
+info	dcc_client/dcc_client/Main.cpp	/^struct stat info;$/;"	v	typeref:struct:stat
 initial_connect_request	dcc_client/dcc_client/P2PClient.h	/^		initial_connect_request = 0,$/;"	e	enum:P2P::MsgStatus
 ip	dcc_client/dcc_client/P2PClient.h	/^	std::string ip;$/;"	m	class:Peer	typeref:typename:std::string
 isAwaiting	dcc_client/dcc_client/P2PClient.cpp	/^bool P2P::isAwaiting() {$/;"	f	class:P2P	typeref:typename:bool
 isServer	dcc_client/dcc_client/P2PClient.h	/^	bool isServer = false;$/;"	m	class:P2P	typeref:typename:bool
+json	dcc_client/dcc_client/Main.cpp	/^using json = nlohmann::json;$/;"	t	typeref:typename:nlohmann::json	file:
 json	dcc_client/dcc_client/P2PClient.h	/^using json = nlohmann::json;$/;"	t	typeref:typename:nlohmann::json
 keepPeersAlive	dcc_client/dcc_client/P2PClient.h	/^	bool keepPeersAlive = false;$/;"	m	class:P2P	typeref:typename:bool
+keypair	dcc_client/dcc_client/Main.cpp	/^std::vector<std::string> keypair = { "", "" };$/;"	v	typeref:typename:std::vector<std::string>
 localSocket	dcc_client/dcc_client/P2PClient.cpp	/^int localSocket, newlocalSocket, portno;$/;"	v	typeref:typename:int
 localSocket	dcc_client/dcc_client/P2PClient.h	/^	SOCKET localSocket;$/;"	m	class:P2P	typeref:typename:SOCKET
+main	dcc_client/dcc_client/Main.cpp	/^int main()$/;"	f	typeref:typename:int
 messageAttempt	dcc_client/dcc_client/P2PClient.h	/^	int messageAttempt = 0;$/;"	m	class:P2P	typeref:typename:int
 messageStatus	dcc_client/dcc_client/P2PClient.h	/^	std::atomic_int messageStatus = -1;$/;"	m	class:P2P	typeref:typename:std::atomic_int
 mySendTo	dcc_client/dcc_client/P2PClient.cpp	/^int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toL/;"	f	class:P2P	typeref:typename:int
@@ -49,12 +65,14 @@ otherAddr	dcc_client/dcc_client/P2PClient.cpp	/^SOCKADDR_IN otherAddr;$/;"	v	typ
 otherAddr	dcc_client/dcc_client/P2PClient.cpp	/^sockaddr_in otherAddr;$/;"	v	typeref:typename:sockaddr_in
 otherAddrStr	dcc_client/dcc_client/P2PClient.cpp	/^std::string otherAddrStr;$/;"	v	typeref:typename:std::string
 otherSize	dcc_client/dcc_client/P2PClient.cpp	/^int otherSize;$/;"	v	typeref:typename:int
+p2p	dcc_client/dcc_client/Main.cpp	/^P2P p2p;$/;"	v	typeref:typename:P2P
 p2pConnections	dcc_client/dcc_client/P2PClient.h	/^	std::unordered_map<std::string, Peer*> p2pConnections;$/;"	m	class:P2P	typeref:typename:std::unordered_map<std::string,Peer * >
 peerBlockchainLength	dcc_client/dcc_client/P2PClient.cpp	/^int peerBlockchainLength = 0;$/;"	v	typeref:typename:int
 peerIP	dcc_client/dcc_client/P2PClient.h	/^	std::string peerIP;$/;"	m	class:P2P	typeref:typename:std::string
 peerList	dcc_client/dcc_client/P2PClient.h	/^	std::vector<std::string> peerList;$/;"	m	class:P2P	typeref:typename:std::vector<std::string>
 peerList	dcc_client/dcc_client/P2PClient.h	/^	std::vector<std::string> peerList;$/;"	m	class:Peer	typeref:typename:std::vector<std::string>
 peerListID	dcc_client/dcc_client/P2PClient.h	/^	int peerListID = 0;$/;"	m	class:P2P	typeref:typename:int
+peerPort	dcc_client/dcc_client/Main.cpp	/^std::string peerPort = "";$/;"	v	typeref:typename:std::string
 peerPort	dcc_client/dcc_client/P2PClient.h	/^	int peerPort;$/;"	m	class:P2P	typeref:typename:int
 port	dcc_client/dcc_client/P2PClient.h	/^	uint16_t port = 0;$/;"	m	class:Peer	typeref:typename:uint16_t
 portno	dcc_client/dcc_client/P2PClient.cpp	/^int localSocket, newlocalSocket, portno;$/;"	v	typeref:typename:int
@@ -82,3 +100,5 @@ set_peerlist	dcc_client/dcc_client/P2PClient.h	/^	void set_peerlist(std::vector<
 stop_thread_1	dcc_client/dcc_client/P2PClient.cpp	/^std::atomic_bool stop_thread_1 = false;$/;"	v	typeref:typename:std::atomic_bool
 stop_thread_2	dcc_client/dcc_client/P2PClient.cpp	/^std::atomic_bool stop_thread_2 = false;$/;"	v	typeref:typename:std::atomic_bool
 thread_running	dcc_client/dcc_client/P2PClient.cpp	/^std::atomic_bool thread_running = false;$/;"	v	typeref:typename:std::atomic_bool
+walletConfig	dcc_client/dcc_client/Main.cpp	/^json walletConfig;$/;"	v	typeref:typename:json
+walletInfo	dcc_client/dcc_client/Main.cpp	/^json walletInfo;$/;"	v	typeref:typename:json

@@ -123,6 +123,7 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 
 			total += n;
 			if (WalletSettingValues::verbose >= 7) {
+				std::cout << segInfo << std::endl;
 				std::cout << std::to_string((int)round(100 * ((float)total / (float)len))) << "% sent" << std::endl;
 			}
 			if (bytesLeft < MESSAGESIZE)
@@ -175,7 +176,7 @@ void P2P::ListenerThread(int update_interval)
 			}
 
 			bool pendingReceiveData = false;
-			int currentPendingSegment = 0;
+			int lastReceivedSegment = 0;
 			std::string totalMessage = "";
 			std::string totalPendingMessage = "";
 
@@ -270,8 +271,8 @@ void P2P::ListenerThread(int update_interval)
 							// If the current segment number is less than the last one, 
 							// this must be different data than we were receiving before,
 							// so cancel.
-							if (currentPendingSegment > segNumber) {
-								currentPendingSegment = 0;
+							if (lastReceivedSegment > segNumber) {
+								lastReceivedSegment = 0;
 								pendingReceiveData = false;
 								totalPendingMessage = "";
 								totalMessage = "";
@@ -280,7 +281,7 @@ void P2P::ListenerThread(int update_interval)
 							// Else if the maximum number of segments was reached, stop
 							// Pending receiving data
 							else if (maxSegments == segNumber) {
-								currentPendingSegment = 0;
+								lastReceivedSegment = 0;
 								pendingReceiveData = false;
 								totalPendingMessage += content;
 								totalMessage = totalPendingMessage;
@@ -288,7 +289,7 @@ void P2P::ListenerThread(int update_interval)
 							// Else if the maximum number of segments was NOT reached,
 							// continue receiving pending data
 							else if (maxSegments > segNumber || segNumber == 1) {
-								currentPendingSegment = segNumber;
+								lastReceivedSegment = segNumber;
 								totalPendingMessage += content;
 								totalMessage = totalPendingMessage;
 								//messageStatus = idle;
@@ -300,7 +301,7 @@ void P2P::ListenerThread(int update_interval)
 						// this is the first and this needs to wait for more data
 						// to arrive.
 						else if (maxSegments > segNumber && segNumber == 1) {
-							currentPendingSegment = segNumber;
+							lastReceivedSegment = segNumber;
 							pendingReceiveData = true;
 							totalPendingMessage = content; // Clear total message string and overwrite with current new data
 							totalMessage = "";
@@ -581,7 +582,7 @@ void P2P::ListenerThread(int update_interval)
 			}
 
 			bool pendingReceiveData = false;
-			int currentPendingSegment = 0;
+			int lastReceivedSegment = 0;
 			std::string totalMessage = "";
 
 			while (!stop_thread_1)
@@ -589,29 +590,8 @@ void P2P::ListenerThread(int update_interval)
 
 				// Set timer of 10 seconds for listening socket
 				struct timeval tv;
-				//fd_set rfds;
-				//FD_ZERO(&rfds);
-				//FD_SET(localSocket, &rfds);
 				tv.tv_sec = 0;
 				tv.tv_usec = 10000;
-
-				////listen(localSocket,5);
-				//int iResult = select(localSocket, &rfds, (fd_set*)0, (fd_set*)0, &tv);
-				//if (iResult > 0) {
-				//	remoteAddrLen = sizeof(remoteAddr);
-				//	newlocalSocket = accept(localSocket, (struct sockaddr*)&remoteAddr, &remoteAddrLen);
-				//	if (newlocalSocket < 0)
-				//		printf("ERROR on accept");
-				//	bzero(buffer, BUFFERLENGTH);
-				//	iResult = read(newlocalSocket, buffer, BUFFERLENGTH - 1);
-				//	if (WalletSettingValues::verbose >= 3) {
-				//		if (iResult < 0) printf("ERROR reading from socket");
-				//		printf("Here is the message: %s\n", buffer);
-				//	}
-				//}
-				////n = write(newlocalSocket,"I got your message",18);
-				////if (n < 0) printf("ERROR writing to socket");
-
 
 				remoteAddrLen = sizeof(remoteAddr);
 
@@ -677,7 +657,12 @@ void P2P::ListenerThread(int update_interval)
 					}
 
 					// Read the received data buffer into a string
-					std::string textVal = std::string(buffer, buffer + iResult-1);
+					std::string textVal = std::string(buffer, buffer + iResult);
+
+					if (WalletSettingValues::verbose >= 4) {
+						console::Write("received: " + NormalizedIPString(remoteAddr) + " -> ");
+							console::WriteLine("\"" + textVal + "\"",console::yellowFGColor);
+					}
 
 					// Get the segment information from the received data
 					std::string segInfo;
@@ -712,25 +697,25 @@ void P2P::ListenerThread(int update_interval)
 					// If we are currently still waiting for more data to be received
 					if (pendingReceiveData) {
 						totalMessage += content;
-						// If the current segment number is less than the last one, 
+						// If the current segment number is less than the expected one, 
 						// this must be different data than we were receiving before,
 						// so cancel.
-						if (currentPendingSegment > segNumber) {
-							currentPendingSegment = 0;
+						if (lastReceivedSegment >= segNumber) {
+							lastReceivedSegment = 0;
 							pendingReceiveData = false;
 							totalMessage = "";
 							continue;
 						}
 						// Else if the maximum number of segments was reached, stop
 						// Pending receiving data
-						else if (maxSegments == segNumber) {
-							currentPendingSegment = 0;
+						else if (maxSegments == segNumber && lastReceivedSegment == segNumber-1) {
+							lastReceivedSegment = 0;
 							pendingReceiveData = false;
 						}
 						// Else if the maximum number of segments was NOT reached,
 						// continue receiving pending data
 						else if (maxSegments > segNumber && segNumber == 1) {
-							currentPendingSegment = segNumber;
+							lastReceivedSegment = segNumber;
 							continue;
 						}
 					}
@@ -739,15 +724,26 @@ void P2P::ListenerThread(int update_interval)
 					// this is the first and this needs to wait for more data
 					// to arrive.
 					else if (maxSegments > segNumber && segNumber == 1) {
-						currentPendingSegment = segNumber;
+						lastReceivedSegment = segNumber;
 						pendingReceiveData = true;
 						totalMessage = content; // Clear total message string and overwrite with current new data
 						continue;
 					}
+					// Else if the segment received is not the first one
+					// while also not the only one, this means it is an
+					// out-of-order message, and should be ignored
+					else if (segNumber > 1){
+						pendingReceiveData = false;
+						lastReceivedSegment = 0;
+						continue;
+					}
 					// Else, this is a single segment message, and so the
 					// totalMessage` variable can be set to the content
-					else
+					else{
 						totalMessage = content;
+						pendingReceiveData = false;
+						lastReceivedSegment = 0;
+					}
 
 					std::string messagePrefix = "";
 
@@ -902,6 +898,7 @@ void P2P::ListenerThread(int update_interval)
 						// If peer is responding to an announce
 						else if (SplitString(totalMessage, "~")[1] == "announce") {
 							messagePrefix += "announce~";
+							console::WriteLine(totalMessage.substr(messagePrefix.size()));
 							json announcedInfo = json::parse(totalMessage.substr(messagePrefix.size()));
 							// Add peer to collection of connections if not there yet
 							if(p2pConnections.find(otherAddrStr) == p2pConnections.end()){
@@ -969,10 +966,6 @@ void P2P::ListenerThread(int update_interval)
 						}
 						messageAttempt = 0;
 
-					}
-					if (WalletSettingValues::verbose >= 4) {
-						console::Write("received: " + NormalizedIPString(remoteAddr) + " -> ");
-						console::WriteLine("\"" + totalMessage + "\"",console::yellowFGColor);
 					}
 				}
 #if WINDOWS

@@ -885,7 +885,6 @@ void P2P::ListenerThread(int update_interval)
 						// If peer is responding to an announce
 						else if (SplitString(totalMessage, "~")[1] == "announce") {
 							messagePrefix += "announce~";
-							console::WriteLine(totalMessage.substr(messagePrefix.size()));
 							json announcedInfo = json::parse(totalMessage.substr(messagePrefix.size()));
 							// Add peer to collection of connections if not there yet
 							if(p2pConnections.find(otherAddrStr) == p2pConnections.end()){

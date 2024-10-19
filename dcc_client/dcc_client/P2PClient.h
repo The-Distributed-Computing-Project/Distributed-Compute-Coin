@@ -89,7 +89,7 @@ public:
 
 	int role = -1; //   -1 == offline,  0 == requester,  1 == answerer
 
-	std::atomic_int messageStatus = -1;
+	std::atomic_int messageStatus = 0;
 	enum MsgStatus {
 		idle = -1,
 		initial_connect_request = 0,

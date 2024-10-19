@@ -285,7 +285,7 @@ void P2P::ListenerThread(int update_interval)
 					}
 
 					// If not currently connected, accept this connection.
-					if (otherAddrStr == ""){
+					if (otherAddrStr == "" || otherAddrStr == "0.0.0.0:0"){
 						if (WalletSettingValues::verbose >= 4)
 							console::WriteLine("\nConversation Started", console::greenFGColor, "");
 
@@ -756,6 +756,7 @@ void P2P::RandomizePeer() {
 		peerListID = it->second->ip;
 		peerIP = it->second->ip;
 		peerPort = it->second->port;
+		console::WriteLine("Randomized to: " + peerIP + " " + std::to_string(peerPort));
 	}
 	catch (const std::exception& e)
 	{
@@ -791,6 +792,7 @@ void P2P::SenderThread()
 	stop_thread_2 = false;
 
 	RandomizePeer();
+	otherAddrStr = NormalizedIPString(otherAddr);
 
 	while (true) {
 		try

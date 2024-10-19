@@ -725,6 +725,9 @@ void P2P::ListenerThread(int update_interval)
 							lastReceivedSegment = segNumber;
 							continue;
 						}
+						// Catchall
+						else
+							continue;
 					}
 					// Else if the maximum number of segments is greater than
 					// the current one, and the current one is 1, that means

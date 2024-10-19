@@ -748,6 +748,8 @@ void P2P::ListenerThread(int update_interval)
 					else
 						totalMessage = content;
 
+					std::string messagePrefix = "";
+
 					// If the peer is requesting to connect
 					if (totalMessage == "peer~connect") {
 						if (WalletSettingValues::verbose >= 4) {
@@ -803,6 +805,7 @@ void P2P::ListenerThread(int update_interval)
 					}
 					// If peer is requesting data
 					else if (SplitString(totalMessage, "~")[0] == "request") {
+						messagePrefix += "request~";
 						// If peer is asking for blockchain height
 						if (SplitString(totalMessage, "~")[1] == "height")
 							messageStatus = replying_height;
@@ -886,11 +889,30 @@ void P2P::ListenerThread(int update_interval)
 					}
 					// If peer is answering request
 					else if (SplitString(totalMessage, "~")[0] == "answer") {
+						messagePrefix += "answer~";
 						// If peer is giving blockchain height
 						if (SplitString(totalMessage, "~")[1] == "height") {
 							peerBlockchainLength = std::stoi(SplitString(totalMessage, "~")[2]);
 							messageStatus = await_first_success;
 							if (WalletSettingValues::verbose >= 4) {
+								console::WriteLine("answer height: " + std::to_string(peerBlockchainLength), console::greenFGColor, "");
+							}
+						}
+						// If peer is responding to an announce
+						else if (SplitString(totalMessage, "~")[1] == "announce") {
+							messagePrefix += "announce~";
+							json announcedInfo = json::parse(totalMessage.substr(messagePrefix.size()));
+							// Add peer to collection of connections if not there yet
+							if(p2pConnections.find(otherAddrStr) == p2pConnections.end()){
+								Peer newPeer(otherAddrStr);
+								p2pConnections[otherAddrStr] = &newPeer;
+							}
+
+							p2pConnections[otherAddrStr]->height = announcedInfo["height"];
+							p2pConnections[otherAddrStr]->peerList = announcedInfo["peerList"];
+
+							messageStatus = await_first_success;
+							if (WalletSettingValues::verbose >= 7) {
 								console::WriteLine("answer height: " + std::to_string(peerBlockchainLength), console::greenFGColor, "");
 							}
 						}

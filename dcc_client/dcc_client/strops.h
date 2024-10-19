@@ -17,12 +17,12 @@
 #define ERRORMSG( msg ) std::cerr << "\n\n[" << __FILE__ << ", at line: " << __LINE__ << "] " << msg << "  ";
 
 std::string JoinArrayPieces(std::string input[]);
-std::string JoinArrayPieces(std::vector<std::string> input);
+std::string JoinArrayPieces(std::vector<std::string>& input);
 std::string PadString(const std::string& input, char padChar, size_t desiredLength);
 std::string PadStringRight(const std::string& input, char padChar, size_t desiredLength);
 std::string ExtractPaddedChars(const std::string& input, char padChar);
-std::vector<std::string> SplitString(std::string str, std::string delim);
-bool StringContains(std::string str, std::string check);
+std::vector<std::string> SplitString(std::string& str, std::string delim);
+bool StringContains(std::string& str, std::string check);
 void ltrim(std::string& s);
 void rtrim(std::string& s);
 // Overridden by boost::trim
@@ -52,7 +52,7 @@ void addOneToHexStr(char* num, int len);
 void addOneToHexStrInRange(char* num, int start, int len);
 void csubstr(char* arr, char* outArr, int begin, int len, int totalLen, int& actualSize);
 void cConcatInt(char* arr, char* outArr, int len, int x);
-std::string SplitGetLastAfterChar(std::string str, std::string delim);
+std::string SplitGetLastAfterChar(const std::string& str, std::string delim);
 inline static const std::string roundFloat(const double input, const int decimal_places);
 std::string truncateMetricNum(double x);
 

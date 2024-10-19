@@ -11,7 +11,7 @@ std::string JoinArrayPieces(std::string input[])
 	return outStr;
 }
 
-std::string SplitGetLastAfterChar(std::string str, std::string delim)
+std::string SplitGetLastAfterChar(const std::string& str, std::string delim)
 {
 	std::vector<std::string> splittedString;
 	int startIndex = 0;
@@ -31,7 +31,7 @@ std::string SplitGetLastAfterChar(std::string str, std::string delim)
 	return "";
 }
 
-std::string JoinArrayPieces(std::vector<std::string> input)
+std::string JoinArrayPieces(std::vector<std::string>& input)
 {
 	std::string outStr = "";
 	for (int i = 0; i < input.size(); i++)
@@ -82,7 +82,8 @@ std::string CommaLargeNumberF(float num) {
 		n -= 3;
 	}
 
-	s += "." + SplitString(std::to_string(num), ".")[1];
+	std::string numStr = std::to_string(num);
+	s += "." + SplitString(numStr, ".")[1];
 
 	return s;
 }
@@ -98,7 +99,8 @@ std::string CommaLargeNumberF(double num) {
 		n -= 3;
 	}
 
-	s += "." + SplitString(std::to_string(num), ".")[1];
+	std::string numStr = std::to_string(num);
+	s += "." + SplitString(numStr, ".")[1];
 
 	return s;
 }
@@ -136,7 +138,7 @@ std::string ExtractPaddedChars(const std::string& input, char padChar) {
 }
 
 // Split a string <str> by a delimiter <delim>, and return a vector of strings
-std::vector<std::string> SplitString(std::string str, std::string delim)
+std::vector<std::string> SplitString(std::string& str, std::string delim)
 {
 	std::vector<std::string> splittedString;
 	int startIndex = 0;
@@ -156,7 +158,7 @@ std::vector<std::string> SplitString(std::string str, std::string delim)
 }
 
 // See if a string <str> contains another <check>
-bool StringContains(std::string str, std::string check)
+bool StringContains(std::string& str, std::string check)
 {
 	if (str.find(check, 0) < str.size())
 	{

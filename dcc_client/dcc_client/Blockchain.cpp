@@ -70,15 +70,15 @@ int AnnounceToPeers(P2P& p2p)
 {
 	try
 	{
-		for (int i = 0; i < p2p.peerList.size(); i++) {
-			p2p.SetPeer(i);
+		//for (int i = 0; i < p2p.peerList.size(); i++) {
+		//	p2p.SetPeer(i);
 
-			p2p.peerListID = i;
-			p2p.messageStatus = p2p.initial_connect_request;
-			p2p.messageAttempt = 0;
+		//	p2p.peerListID = i;
+		//	p2p.messageStatus = p2p.initial_connect_request;
+		//	p2p.messageAttempt = 0;
 
-			while (p2p.isAwaiting()) {}
-		}
+		//	while (p2p.isAwaiting()) {}
+		//}
 		//GetProgram(walletInfo);
 		return 1;
 	}
@@ -411,6 +411,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path, bool is
 			{"_version", DELUGE_VERSION},
 			{"_time", currentTime},
 			{"_signature", sigBase64},
+			{"_pubKey", walletInfo["pubKey"]},
 			{"_name", SplitGetLastAfterChar(path,"/").substr(0, 32)}, // Use path as name, also truncate to only 32 chars
 			{"peers", json::array()} // List of peers that say have this file, add self for original distribution
 	};

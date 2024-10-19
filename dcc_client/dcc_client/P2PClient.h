@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <map>
+#include <iterator>
 
 #if WINDOWS
 #include <winsock2.h>
@@ -46,6 +48,8 @@ public:
 	std::string ip;
 	uint16_t port = 0;
 	unsigned long long height = 0;
+	uint16_t life = 0;
+	bool testedOnline = false;
 	std::vector<std::string> peerList;
 
 
@@ -79,8 +83,7 @@ public:
 	int messageAttempt = 0;
 	int differentPeerAttempts = 0;
 
-	std::vector<std::string> peerList;
-	int peerListID = 0;
+	std::string peerListID = 0;
 
 	std::unordered_map<std::string, Peer*> p2pConnections;
 
@@ -135,13 +138,16 @@ public:
 	bool isAwaiting();
 	void ListenerThread(int update_interval);
 	void RandomizePeer();
-	void SetPeer(int id);
+	void SetPeer(std::string id);
 	//int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen);
 	int OpenP2PSocket(int port);
 	void SenderThread();
 	int mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toLen);
 	void InitPeerList();
 	void SavePeerList();
+	bool InPeerList(std::string& ipPort);
+	void AddToPeerList(std::string& ipPort);
+	std::vector<std::string> GeneratePeerList();
 };
 
 bool VerifyTransaction(json& tx, uint32_t id = 0, bool thorough = false);

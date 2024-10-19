@@ -44,7 +44,29 @@ struct sockaddr_in serv_addr, remoteAddr;
 Peer::Peer(std::string ipPort) {
 	ip = SplitString(ipPort, ":")[0];
 	port = stoi(SplitString(ipPort, ":")[1]);
-	peerList = std::vector<std::string>();
+}
+
+bool P2P::InPeerList(std::string& ipPort){
+	if(p2pConnections.find(ipPort) == p2pConnections.end())
+		return false;
+	return true;
+}
+
+void P2P::AddToPeerList(std::string& ipPort){
+	if(!InPeerList(ipPort)){
+		// Add peer to collection of connections
+		Peer newPeer(ipPort);
+		p2pConnections[ipPort] = &newPeer;
+		SavePeerList();
+	}
+}
+
+std::vector<std::string> P2P::GeneratePeerList(){
+	std::vector<std::string> oList = std::vector<std::string>();
+	for(const auto& [key, value] : p2pConnections){
+		oList.push_back(key);
+	}
+	return oList;
 }
 
 #if defined(_MSC_VER)
@@ -195,370 +217,7 @@ void P2P::ListenerThread(int update_interval)
 					int iResult = recvfrom(localSocket, buffer, BUFFERLENGTH, 0, (struct sockaddr*)&remoteAddr, &remoteAddrLen);
 
 
-					if (WalletSettingValues::verbose >= 7)
-						if (iResult != -1) {
-							std::cout << "iResult: " << std::to_string(iResult) << std::endl;
-							std::cout << "\n\nsin_family of received: " << remoteAddr.sin_family << "\n" << std::endl;
-						}
-
-					if (iResult > 0) {
-
-						// Get the IPV4 address:port pair of the received data. If it
-						// matches the expected one, continue. If it does not, then
-						// stop. If the current one is blank or has disconnected,
-						// set this one as the current connection and continue.
-						std::string fromIPString = NormalizedIPString(remoteAddr);
-
-						// See if peer is somewhere in the peerlist
-						int ipIndex = -1;
-						for (int i = 0; i < peerList.size(); i++) {
-							if (SplitString(peerList[i], ":")[0] + ":" + SplitString(peerList[i], ":")[1] == fromIPString) {
-								ipIndex = i;
-								break;
-							}
-						}
-						// If it is, reset life
-						if (ipIndex != -1) {
-							// Reset life of this peer to 0
-							peerList[ipIndex] = SplitString(peerList[ipIndex], ":")[0] + ":" + SplitString(peerList[ipIndex], ":")[1] + ":0";
-						}
-						else {
-							// Otherwise, add to list since not present
-							peerList.push_back(fromIPString + ":0");
-						}
-						SavePeerList();
-
-						// If not currently connected, accept this connection.
-						if (otherAddrStr == ""){
-							if (WalletSettingValues::verbose >= 4)
-								console::WriteLine("\nConversation Started", console::greenFGColor, "");
-							otherAddrStr = fromIPString;
-							// Add peer to collection of connections
-							Peer newPeer(otherAddrStr);
-							p2pConnections[otherAddrStr] = &newPeer;
-						}
-
-						// If connected but different, ignore.
-						else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0]) {
-							// Send blank confirming message
-							std::string tmpMsg = "DCC_PEER";
-							mySendTo(localSocket, tmpMsg, tmpMsg.length(), 0, (sockaddr*)&remoteAddr, remoteAddrLen);
-							continue;
-						}
-
-						// Read the received data buffer into a string
-						std::string textVal = std::string(buffer, buffer + iResult);
-
-						// Get the segment information from the received data
-						std::string segInfo = SplitString(textVal, "&")[0];
-						int segNumber = std::stoi(SplitString(segInfo, ":")[1]);
-						int maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
-						int segLength = std::stoi(SplitString(segInfo, ":")[5]) + segInfo.size() + 1;
-						//char* tempContent = buffer;
-						std::string content = "";
-						for (int i = segInfo.size() + 1; i < segLength; i++) {
-							content += buffer[i];
-						}
-						//csubstr(buffer, tempContent, segInfo.size()+2, BUFFERLENGTH, nullptr);
-						//std::string content = textVal.substr(segInfo.size()+2); // Get all data after the end of the segment info
-
-						if (WalletSettingValues::verbose >= 8) {
-							console::WriteLine("received -- " + segInfo, console::yellowFGColor, "");
-							console::WriteLine("\n\n" + content + "\n\n", console::greenFGColor, "");
-						}
-
-						// If we are currently still waiting for more data to be received
-						if (pendingReceiveData) {
-							// If the current segment number is less than the last one, 
-							// this must be different data than we were receiving before,
-							// so cancel.
-							if (lastReceivedSegment > segNumber) {
-								lastReceivedSegment = 0;
-								pendingReceiveData = false;
-								totalPendingMessage = "";
-								totalMessage = "";
-								continue;
-							}
-							// Else if the maximum number of segments was reached, stop
-							// Pending receiving data
-							else if (maxSegments == segNumber) {
-								lastReceivedSegment = 0;
-								pendingReceiveData = false;
-								totalPendingMessage += content;
-								totalMessage = totalPendingMessage;
-							}
-							// Else if the maximum number of segments was NOT reached,
-							// continue receiving pending data
-							else if (maxSegments > segNumber || segNumber == 1) {
-								lastReceivedSegment = segNumber;
-								totalPendingMessage += content;
-								totalMessage = totalPendingMessage;
-								//messageStatus = idle;
-								continue;
-							}
-						}
-						// Else if the maximum number of segments is greater than
-						// the current one, and the current one is 1, that means
-						// this is the first and this needs to wait for more data
-						// to arrive.
-						else if (maxSegments > segNumber && segNumber == 1) {
-							lastReceivedSegment = segNumber;
-							pendingReceiveData = true;
-							totalPendingMessage = content; // Clear total message string and overwrite with current new data
-							totalMessage = "";
-							continue;
-						}
-						// Else, this is a single segment message, and so the
-						// totalMessage` variable can be set to the content
-						else
-							totalMessage = content;
-
-						if (totalMessage.size() <= 1)
-							continue;
-
-						std::string messagePrefix = "";
-
-						// If the peer is requesting to connect
-						if (totalMessage == "peer~connect") {
-							if (WalletSettingValues::verbose >= 7) {
-								console::DebugPrint();
-								console::WriteLine("Received initial connection, awaiting confirmation...", console::greenFGColor, "");
-							}
-							messageStatus = announce;
-							//messageStatus = await_first_success; // Awaiting confirmation status
-							messageAttempt = 0;
-							differentPeerAttempts = 0;
-
-							CONNECTED_TO_PEER = true;
-
-							// Add item to peer list, and save to file
-							bool alreadyInList = false;
-							for (int y = 0; y < peerList.size(); y++) {
-								if (otherAddrStr == SplitString(peerList[y], ":")[0] + ":" + SplitString(peerList[y], ":")[1]) {
-									alreadyInList = true;
-									break;
-								}
-							}
-							if (alreadyInList == false) {
-								peerList.push_back(otherAddrStr + ":0");
-								SavePeerList();
-							}
-						}
-						// If the peer is ending the connection
-						else if (totalMessage == "peer~disconnect") {
-							console::NetworkPrint();
-							console::WriteLine("Peer closed.");
-							CONNECTED_TO_PEER = false;
-							otherAddrStr = "";
-							reqDat = -1;
-							messageStatus = -1;
-							return;
-						}
-						// If the peer is requesting message received confirmation
-						else if (totalMessage == "peer~success" && (messageStatus >= 0)) {
-							if (WalletSettingValues::verbose >= 7) {
-								console::DebugPrint();
-								console::WriteLine("Dual Confirmation", console::greenFGColor, "");
-							}
-							//messageStatus = await_second_success; // Confirmed message status, continue sending our own 
-							messageStatus = idle; // Confirmed message status, continue sending our own 
-							// confirm 2 times, then switch to idle state -1
-							CONNECTED_TO_PEER = true;
-						}
-						// If the peer is idling
-						else if (totalMessage == "peer~idle") {
-							if (WalletSettingValues::verbose >= 7) {
-								console::DebugPrint();
-								console::WriteLine("idle...", console::yellowFGColor, "");
-							}
-						}
-						// If peer is requesting data
-						else if (SplitString(totalMessage, "~")[0] == "request") {
-							messagePrefix += "request~";
-							// If peer is asking for blockchain height
-							if (SplitString(totalMessage, "~")[1] == "height")
-								messageStatus = replying_height;
-							// If peer is asking for a pending block's data
-							else if (SplitString(totalMessage, "~")[1] == "pendingblock") {
-								messageStatus = replying_pendingblock;
-								reqDat = std::stoi(SplitString(totalMessage, "~")[2]);
-							}
-							// If peer is asking for a block's data
-							else if (SplitString(totalMessage, "~")[1] == "block") {
-								messageStatus = replying_block;
-								reqDat = std::stoi(SplitString(totalMessage, "~")[2]);
-							}
-							// If peer is asking for this peer's peerList
-							else if (SplitString(totalMessage, "~")[1] == "peerlist")
-								messageStatus = replying_peer_list;
-							// If peer is asking for you to process and record a transaction
-							else if (SplitString(totalMessage, "~")[1] == "transactionprocess") {
-								messagePrefix += "request~transactionprocess~";
-								messageStatus = await_first_success;
-								std::string transactionString = totalMessage.substr(messagePrefix.size());
-
-
-								// Verify the transaction:
-								//	* First ensure it has a valid signature
-								//  * Then see if the user has enough DCC to send
-
-								json transaction = json::parse(transactionString);
-								std::string signature = transaction["sec"]["signature"];
-
-								// Check signature length
-								if (signature.size() == 0)
-									continue;
-
-								// Check if transaction is valid
-								if (VerifyTransaction(transaction, 0, true)) {
-									// Save transaction data to file
-									try
-									{
-										json pendingTransactions = json();
-										pendingTransactions["transactions"] = json::array();
-
-										// Read existing pending transactions file, if it exists
-										std::ifstream transactionsFileRead("./wwwdata/pendingtransactions.dcctxs");
-										if (transactionsFileRead.is_open())
-										{
-											std::stringstream bufferd;
-											bufferd << transactionsFileRead.rdbuf();
-											std::string blockText = bufferd.str();
-											transactionsFileRead.close();
-											pendingTransactions = json::parse(blockText);
-										}
-
-										// Append the new transaction
-										pendingTransactions["transactions"].push_back(transaction);
-
-										// Save the new transaction list
-										std::ofstream transactionsFileWrite("./wwwdata/pendingtransactions.dcctxs");
-										if (transactionsFileWrite.is_open())
-										{
-											transactionsFileWrite << pendingTransactions.dump();
-											transactionsFileWrite.close();
-											if (WalletSettingValues::verbose >= 2)
-												console::WriteLine("\nSaved new transaction");
-										}
-									}
-									catch (const std::exception& e)
-									{
-										ERRORMSG("transaction ("<<transaction<<") had error while verifying");
-										std::cerr << e.what() << std::endl;
-									}
-
-									if (WalletSettingValues::verbose >= 4) {
-										console::WriteLine("received transaction: " + (std::string)transaction["tx"]["fromAddr"], console::greenFGColor, "");
-									}
-								}
-
-							}
-
-							if (WalletSettingValues::verbose >= 7) {
-								console::WriteLine("request " + std::to_string(messageStatus), console::greenFGColor, "");
-							}
-						}
-						// If peer is answering request
-						else if (SplitString(totalMessage, "~")[0] == "answer") {
-							messagePrefix += "answer~";
-							// If peer is giving blockchain height
-							if (SplitString(totalMessage, "~")[1] == "height") {
-								messagePrefix += "height~";
-								peerBlockchainLength = std::stoi(totalMessage.substr(messagePrefix.size()));
-								messageStatus = await_first_success;
-								if (WalletSettingValues::verbose >= 7) {
-									console::WriteLine("answer height: " + std::to_string(peerBlockchainLength), console::greenFGColor, "");
-								}
-							}
-							// If peer is responding to an announce
-							else if (SplitString(totalMessage, "~")[1] == "announce") {
-								messagePrefix += "announce~";
-								json announcedInfo = json::parse(totalMessage.substr(messagePrefix.size()));
-								// Add peer to collection of connections if not there yet
-								if(p2pConnections.find(otherAddrStr) == p2pConnections.end()){
-									Peer newPeer(otherAddrStr);
-									p2pConnections[otherAddrStr] = &newPeer;
-								}
-
-								p2pConnections[otherAddrStr]->height = announcedInfo["height"];
-								p2pConnections[otherAddrStr]->peerList = announcedInfo["peerList"];
-
-								messageStatus = await_first_success;
-								if (WalletSettingValues::verbose >= 7) {
-									console::WriteLine("answer height: " + std::to_string(peerBlockchainLength), console::greenFGColor, "");
-								}
-							}
-							// If peer is giving peer list
-							else if (SplitString(totalMessage, "~")[1] == "peerlist") {
-								messagePrefix += "peerlist~";
-								std::vector<std::string> receivedPeers = SplitString(totalMessage.substr(messagePrefix.size()), ":");
-								// Iterate all received peers, and only add them to our list if it is not already on it
-								for (int x = 0; x < receivedPeers.size(); x++) {
-									bool wasFound = false;
-									for (int y = 0; y < peerList.size(); y++) {
-										if (receivedPeers[x] == peerList[y]) {
-											wasFound = true;
-											break;
-										}
-									}
-									if (wasFound == false)
-										peerList.push_back(SplitString(receivedPeers[x], ":")[0] + ":" + SplitString(receivedPeers[x], ":")[1] + ":0");
-								}
-								SavePeerList();
-								messageStatus = await_first_success;
-							}
-							// If peer is giving a block's data
-							else if (SplitString(totalMessage, "~")[1] == "block") {
-								messagePrefix += "block~";
-								messageStatus = await_first_success;
-								int num = std::stoi(SplitString(totalMessage, "~")[2]);
-								messagePrefix += std::to_string(num) + "~";
-								std::string blockData = totalMessage.substr(messagePrefix.size());
-
-								// Make sure this data is actually being requested; we don't want a forced download.
-								if (reqDat != num)
-									continue;
-
-								// Save block data to file
-								try
-								{
-									if (WalletSettingValues::verbose >= 5)
-										console::WriteLine("\nSaved block: " + std::to_string(num));
-									std::ofstream blockFile("./wwwdata/blockchain/block" + std::to_string(num) + ".dccblock");
-									if (blockFile.is_open())
-									{
-										blockFile << blockData;
-										blockFile.close();
-									}
-								}
-								catch (const std::exception& e)
-								{
-									ERRORMSG("Failed to save block data to file");
-									std::cerr << e.what() << std::endl;
-								}
-
-								if (WalletSettingValues::verbose >= 7) {
-									console::WriteLine("received block: " + std::to_string(num), console::greenFGColor, "");
-								}
-								if (WalletSettingValues::verbose >= 8) {
-									console::WriteLine("\ncontent: \n" + blockData, console::greenFGColor, "");
-								}
-							}
-							messageAttempt = 0;
-
-						}
-						if (WalletSettingValues::verbose >= 5) {
-							console::WriteLine("received: " + NormalizedIPString(remoteAddr) + " -> " + totalMessage + "\t status: " + std::to_string(messageStatus));
-						}
-					}
-					else if (WSAGetLastError() != WSAETIMEDOUT && WalletSettingValues::verbose >= 5) {
-						console::NetworkErrorPrint();
-						console::WriteLine("Error, Peer closed.");
-						CONNECTED_TO_PEER = false;
-						reqDat = -1;
-						//thread_running = false;
-						return;
-					}
+					
 				}
 			}
 		}
@@ -616,23 +275,14 @@ void P2P::ListenerThread(int update_interval)
 					fromIPString += std::to_string(ntohs(remoteAddr.sin_port));
 
 					// See if peer is somewhere in the peerlist
-					int ipIndex = -1;
-					for (int i = 0; i < peerList.size(); i++) {
-						if (SplitString(peerList[i], ":")[0] + ":" + SplitString(peerList[i], ":")[1] == fromIPString) {
-							ipIndex = i;
-							break;
-						}
-					}
-					// If it is, reset life
-					if (ipIndex != -1) {
+					if(InPeerList(fromIPString)){
 						// Reset life of this peer to 0
-						peerList[ipIndex] = SplitString(peerList[ipIndex], ":")[0] + ":" + SplitString(peerList[ipIndex], ":")[1] + ":0";
+						p2pConnections[fromIPString]->life = 0;
 					}
 					else {
-						// Otherwise, add to list since not present
-						peerList.push_back(fromIPString + ":0");
+						// Add peer to collection of connections
+						AddToPeerList(fromIPString);
 					}
-					SavePeerList();
 
 					// If not currently connected, accept this connection.
 					if (otherAddrStr == ""){
@@ -640,15 +290,7 @@ void P2P::ListenerThread(int update_interval)
 							console::WriteLine("\nConversation Started", console::greenFGColor, "");
 
 						otherAddrStr = fromIPString;
-						if(ipIndex != -1)
-							SetPeer(ipIndex);
-						else
-							SetPeer(peerList.size()-1);
-						// Add peer to collection of connections
-						if(p2pConnections.find(otherAddrStr) == p2pConnections.end()){
-							Peer newPeer(otherAddrStr);
-							p2pConnections[otherAddrStr] = &newPeer;
-						}
+						SetPeer(otherAddrStr);
 					}
 
 					// If connected but different, ignore.
@@ -746,18 +388,11 @@ void P2P::ListenerThread(int update_interval)
 						differentPeerAttempts = 0;
 
 						CONNECTED_TO_PEER = true;
-
+						
 						// Add item to peer list, and save to file
-						bool alreadyInList = false;
-						for (int y = 0; y < peerList.size(); y++) {
-							if (otherAddrStr == SplitString(peerList[y], ":")[0] + ":" + SplitString(peerList[y], ":")[1]) {
-								alreadyInList = true;
-								break;
-							}
-						}
-						if (alreadyInList == false) {
-							peerList.push_back(otherAddrStr + ":0");
-							SavePeerList();
+						if(!InPeerList(otherAddrStr)){
+							// Add peer to collection of connections
+							AddToPeerList(otherAddrStr);
 						}
 					}
 					// If the peer is ending the connection
@@ -888,8 +523,7 @@ void P2P::ListenerThread(int update_interval)
 							json announcedInfo = json::parse(totalMessage.substr(messagePrefix.size()));
 							// Add peer to collection of connections if not there yet
 							if(p2pConnections.find(otherAddrStr) == p2pConnections.end()){
-								Peer newPeer(otherAddrStr);
-								p2pConnections[otherAddrStr] = &newPeer;
+								AddToPeerList(otherAddrStr);
 							}
 
 							p2pConnections[otherAddrStr]->height = announcedInfo["height"];
@@ -902,20 +536,20 @@ void P2P::ListenerThread(int update_interval)
 						}
 						// If peer is giving peer list
 						else if (SplitString(totalMessage, "~")[1] == "peerlist") {
-							std::vector<std::string> receivedPeers = SplitString(SplitString(totalMessage, "~")[2], ":");
-							// Iterate all received peers, and only add them to our list if it is not already on it
-							for (int x = 0; x < receivedPeers.size(); x++) {
-								bool wasFound = false;
-								for (int y = 0; y < peerList.size(); y++) {
-									if (receivedPeers[x] == peerList[y]) {
-										wasFound = true;
-										break;
-									}
-								}
-								if (wasFound == false)
-									peerList.push_back(SplitString(receivedPeers[x], ":")[0] + ":" + SplitString(receivedPeers[x], ":")[1] + ":0");
-							}
-							SavePeerList();
+							//std::vector<std::string> receivedPeers = SplitString(SplitString(totalMessage, "~")[2], ":");
+							//// Iterate all received peers, and only add them to our list if it is not already on it
+							//for (int x = 0; x < receivedPeers.size(); x++) {
+							//	bool wasFound = false;
+							//	for (int y = 0; y < peerList.size(); y++) {
+							//		if (receivedPeers[x] == peerList[y]) {
+							//			wasFound = true;
+							//			break;
+							//		}
+							//	}
+							//	if (wasFound == false)
+							//		peerList.push_back(SplitString(receivedPeers[x], ":")[0] + ":" + SplitString(receivedPeers[x], ":")[1] + ":0");
+							//}
+							//SavePeerList();
 							messageStatus = await_first_success;
 						}
 						// If peer is giving a block's data
@@ -999,19 +633,19 @@ void P2P::InitPeerList() {
 	}
 
 	// Load peer file
-	bool wasFound = false;
-	// Add all lines to peerList vector
+	// Create a new Peer entry in p2pConnections for each address
 	while (std::getline(peerFile, line)) {
 		if (line[0] != '#' && line != ""){
-			// Make sure at least one instance of DCCARK peer is included
-			if (SplitString(line, ":")[0] + ":" + SplitString(line, ":")[1] == DCCARK_ADDR)
-				wasFound = true;
-			peerList.push_back(line);
+			if(!InPeerList(line)){
+				// Add peer to collection of connections
+				AddToPeerList(line);
+			}
 		}
 	}
 	// If DCCARK is not in peerlist, add it.
-	if (!wasFound) {
-		peerList.push_back(DCCARK_ADDR ":0");
+	std::string arkIP = DCCARK_ADDR;
+	if(!InPeerList(arkIP)){
+		AddToPeerList(arkIP);
 	}
 
 	peerFile.close();
@@ -1027,8 +661,9 @@ void P2P::SavePeerList() {
 		console::WriteLine("Failed to save to peer file", console::redFGColor, "");
 	}
 	else {
-		std::ostream_iterator<std::string> output_iterator(peerFile, "\n");
-		std::copy(std::begin(peerList), std::end(peerList), output_iterator);
+		for(const auto& [key, value] : p2pConnections){
+			peerFile << key << "\n";
+		}
 	}
 	peerFile.close();
 }
@@ -1106,14 +741,16 @@ int P2P::OpenP2PSocket(int port)
 
 // Function to get random peer credentials from the peerList
 void P2P::RandomizePeer() {
-	if (peerList.size() == 0)
+	if (p2pConnections.size() == 0)
 		return;
 	try
 	{
-		uint16_t randI = rand() % peerList.size();
-		peerListID = randI;
-		peerIP = SplitString(peerList[randI], ":")[0];
-		peerPort = stoi(SplitString(peerList[randI], ":")[1]);
+		uint16_t randI = rand() % p2pConnections.size();
+		auto it = p2pConnections.begin();
+		std::advance(it, randI);
+		peerListID = it->second->ip;
+		peerIP = it->second->ip;
+		peerPort = it->second->port;
 	}
 	catch (const std::exception& e)
 	{
@@ -1122,14 +759,16 @@ void P2P::RandomizePeer() {
 }
 
 // Function to set specific peer credentials from the peerList
-void P2P::SetPeer(int id) {
-	if (peerList.size() == 0)
+void P2P::SetPeer(std::string key) {
+	if (p2pConnections.size() == 0)
 		return;
 	try
 	{
-		peerListID = id;
-		peerIP = SplitString(peerList[id], ":")[0];
-		peerPort = stoi(SplitString(peerList[id], ":")[1]);
+		if(InPeerList(key)){
+			peerListID = key;
+			peerIP = p2pConnections[key]->ip;
+			peerPort = p2pConnections[key]->port;
+		}
 	}
 	catch (const std::exception& e)
 	{
@@ -1247,7 +886,7 @@ void P2P::SenderThread()
 					json infoCompilation = json();
 					infoCompilation = {
 						{"height", blockchainLength},
-						{"peerList", peerList},
+						{"peerList", GeneratePeerList()},
 						{"delugeHashes", delugeHashes},
 					};
 					msg = "answer~announce~" + infoCompilation.dump();
@@ -1299,6 +938,7 @@ void P2P::SenderThread()
 				else if (messageStatus == replying_peer_list) {
 					role = 1;
 					std::string totalPeersString = "";
+					std::vector<std::string> peerList = GeneratePeerList();
 					for (int i = 0; i < peerList.size() && i < 10; i++)
 						totalPeersString += peerList[i] + ((i == peerList.size() - 1 || i == 9) ? "" : ":");
 
@@ -1393,14 +1033,15 @@ void P2P::SenderThread()
 						try
 						{
 							// Decrease life of current peer
-							char newLife = (SplitString(peerList[peerListID], ":")[2]).c_str()[0] + 1;
+							//char newLife = (SplitString(peerList[peerListID], ":")[2]).c_str()[0] + 1;
 
-							if (newLife >= '9' && keepPeersAlive == false && SplitString(peerList[peerListID], ":")[0] + ":" + SplitString(peerList[peerListID], ":")[1] != DCCARK_ADDR) // If life is 9, remove it from list
-								peerList.erase(peerList.begin() + peerListID);
-							else if (keepPeersAlive)
-								peerList[peerListID] = SplitString(peerList[peerListID], ":")[0] + ":" + SplitString(peerList[peerListID], ":")[1] + ":0";
-							else // Otherwise just increment by 1
-								peerList[peerListID] = SplitString(peerList[peerListID], ":")[0] + ":" + SplitString(peerList[peerListID], ":")[1] + ":" + newLife;
+							p2pConnections[peerListID]->life++;
+							//if (newLife >= '9' && keepPeersAlive == false && SplitString(peerList[peerListID], ":")[0] + ":" + SplitString(peerList[peerListID], ":")[1] != DCCARK_ADDR) // If life is 9, remove it from list
+							//	peerList.erase(peerList.begin() + peerListID);
+							//else if (keepPeersAlive)
+							//	peerList[peerListID] = SplitString(peerList[peerListID], ":")[0] + ":" + SplitString(peerList[peerListID], ":")[1] + ":0";
+							//else // Otherwise just increment by 1
+							//	peerList[peerListID] = SplitString(peerList[peerListID], ":")[0] + ":" + SplitString(peerList[peerListID], ":")[1] + ":" + newLife;
 
 						}
 						catch (const std::exception& e)

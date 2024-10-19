@@ -422,7 +422,7 @@ int main()
 			}
 			else if (commandParts[0] == "--ADDPEER")
 			{
-				p2p.peerList.push_back(commandParts[1] + ":0");
+				p2p.AddToPeerList(commandParts[1]);
 				p2p.SavePeerList();
 			}
 			//else if (commandParts[0] == "--VERBOSITY")
@@ -475,7 +475,8 @@ int main()
 					std::string path = "./wwwdata/pendingblocks/";
 					bool isFirst = true;
 					for (const auto& entry : fs::directory_iterator(path)) {
-						std::string name = SplitString(entry.path().filename().string(), "block")[1];
+						std::string filename = entry.path().filename().string();
+						std::string name = SplitString(filename, "block")[1];
 						name = SplitString(name, ".dcc")[0];
 						// Delete old pending blocks, or ones that are too high
 						if (stoi(name) <= walletInfo["BlockchainLength"] || (stoi(name) >= (int)walletInfo["BlockchainLength"] + 2 && isFirst)) {
@@ -653,7 +654,7 @@ int main()
 				console::Write("\nPeers: ");
 
 				// Make table
-				console::WriteIndented("+-----------------+-------+-------+---------+\n", "", "", 1);
+				console::WriteIndented("+-----------------+-------+-------------+---------+\n", "", "", 1);
 
 				// Colored headers
 				console::WriteIndented("| ", "", "", 1);
@@ -661,18 +662,19 @@ int main()
 				console::Write("              |");
 				console::Write(" PORT", console::cyanFGColor, "");
 				console::Write("  |");
-				console::Write(" Tries", console::cyanFGColor, "");
+				console::Write(" Known Peers", console::cyanFGColor, "");
 				console::Write(" |");
 				console::Write(" Height", console::cyanFGColor, "");
 				console::Write("  |");
 				console::WriteLine();
 
-				console::WriteIndented("+-----------------+-------+-------+---------+\n", "", "", 1);
+				console::WriteIndented("+-----------------+-------+-------------+---------+\n", "", "", 1);
 				for(const auto& [key, value] : p2p.p2pConnections)
 				{
 					// IP and Port
-					console::WriteIndented("| " + PadStringRight(SplitString(key, ":")[0], ' ', 16) + "| ", "", "", 1);
-					console::Write(PadStringRight(SplitString(key, ":")[1], ' ', 5) + " | ");
+					std::string ipPort = key;
+					console::WriteIndented("| " + PadStringRight(SplitString(ipPort, ":")[0], ' ', 16) + "| ", "", "", 1);
+					console::Write(PadStringRight(SplitString(ipPort, ":")[1], ' ', 5) + " |     ");
 
 					
 					// Online/Offline
@@ -683,17 +685,16 @@ int main()
 					//	console::Write(PadStringRight("stalling", ' ', 10), console::yellowFGColor);
 					//else if (statusNum <= 9)
 					//	console::Write(PadStringRight("offline", ' ', 10), console::redFGColor);
-					console::Write(" | ");
 
-					// Tries
-					//console::Write(PadString(SplitString(peer.first, ":")[2], ' ', 5) + " | ");
+					// Known peers
+					console::Write(PadString(std::to_string(value->peerList.size()), ' ', 7) + " | ");
 
 					// Height
 					console::Write(PadString(std::to_string(value->height), ' ', 7) + " | ");
 
 					console::WriteLine();
 				}
-				console::WriteIndented("+-----------------+-------+-------+---------+\n", "", "", 1);
+				console::WriteIndented("+-----------------+-------+-------------+---------+\n", "", "", 1);
 			}
 
 			//else if (commandParts[0] == "--CONNECT" || commandParts[0] == "-C")

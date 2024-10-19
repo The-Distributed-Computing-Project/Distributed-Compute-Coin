@@ -686,6 +686,7 @@ void P2P::ListenerThread(int update_interval)
 					int segLength;
 					try{
 						segInfo = SplitString(textVal, "&")[0];
+						std::string s = SplitString(textVal, "&")[1]; // This value is not used, but tested to ensure the segInfo header is there
 						segNumber = std::stoi(SplitString(segInfo, ":")[1]);
 						maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
 						segLength = std::stoi(SplitString(segInfo, ":")[5]) + segInfo.size() + 1;

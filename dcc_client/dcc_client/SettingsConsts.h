@@ -14,9 +14,9 @@
 #endif
 
 #ifndef NDEBUG
-#define BUILDTYPE " (debug build)"
+#define BUILDTYPETEXT " (debug build)"
 #else
-#define BUILDTYPE " "
+#define BUILDTYPETEXT " "
 #endif
 
 const std::string VERSION = "v0.9.1-alpha";

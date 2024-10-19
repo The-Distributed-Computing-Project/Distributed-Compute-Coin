@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <thread>
+#include <atomic>
 
 #include "benchmark.h"
 #include "strops.h"
@@ -12,9 +13,11 @@
 using namespace std;
 using namespace std::chrono;
 
+std::atomic_bool stopBenchmarkThread = false;
 
-
-void calculateFLOPS(unsigned long long *p1, bool* isDone){
+#pragma GCC push_options
+#pragma GCC optimize("O0")
+void calculateFLOPS(unsigned long long *p1){
 	double a= 124.23525, b = 21.2412, c = 2342.23432, d = 23.324, e= 2.3412, f = 123.21, g = 1231.12, h =567.4, j = 34.4, k =24, l =342.24,
 	 m= 324.23525, n = 51.2412, o = 242.23432, p = 254.324, q= 112.3412, r = 853.21, s = 31.12, t =67.4, u = 34.4, v =4, w =3.24, x =89.131, y =123.23, z =123.123,
 	 v1 =12.3, v2 = 3, v3 = 56.5, v4 = 88.56, v5 = 787.43, v6 = 0, v7 = 0, v8 =0, v9 = 0, v10 = 1, v11 = 54, v12 = 12, v13= 45, v14 = 5.66, v15 = 123.12, v16 =1 ,
@@ -28,7 +31,7 @@ void calculateFLOPS(unsigned long long *p1, bool* isDone){
 
 
 	// run the loop
-	while(*isDone == false)
+	while(stopBenchmarkThread == false/* && noOfOperations < 999999999999999999 */)
 	{
 		a = a + b;
 		c = d + e;
@@ -76,8 +79,7 @@ unsigned long long benchmark(){
 	};
 
 
-	bool threadIsDone = false;
-	std::thread benchThread(&calculateFLOPS, &tFlops1, &threadIsDone);
+	std::thread benchThread(&calculateFLOPS, &tFlops1);
 	//Calculates the 5 flops samples	
 	for(int i = 0 ; i < BENCHMARK_SAMPLES; i++)
 	{
@@ -94,7 +96,7 @@ unsigned long long benchmark(){
 		prevFlops1 = tFlops1;
 		flops += dif;
 	}
-	threadIsDone = true;
+	stopBenchmarkThread = true;
 	benchThread.join();
 
 	indicators::show_console_cursor(true);
@@ -103,6 +105,7 @@ unsigned long long benchmark(){
 	//pthread_cancel(memThreads[0]);
 	return flops / BENCHMARK_SAMPLES * processor_count;
 }
+#pragma GCC pop_options
 
 //#define FLOPS_SAMPLES 100000
 //unsigned long long benchmark()

@@ -73,6 +73,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/altsvc.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -101,6 +102,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/altsvc.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -252,6 +254,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/amigaos.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -280,6 +283,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/amigaos.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -377,6 +381,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/asyn-ares.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -405,6 +410,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/asyn-ares.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -500,6 +506,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/asyn-thread.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -528,6 +535,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/asyn-thread.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -685,6 +693,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/base64.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -713,6 +722,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/base64.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -859,6 +869,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/bufref.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -887,6 +898,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/bufref.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -1028,6 +1040,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/c-hyper.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -1056,6 +1069,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/c-hyper.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -1151,6 +1165,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/conncache.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -1179,6 +1194,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/conncache.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -1353,6 +1369,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/connect.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -1381,6 +1398,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/connect.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -1578,6 +1596,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/content_encoding.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -1606,6 +1625,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/content_encoding.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -1753,6 +1773,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/cookie.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -1781,6 +1802,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/cookie.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -1935,6 +1957,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_addrinfo.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -1963,6 +1986,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_addrinfo.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -2073,6 +2097,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_ctype.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -2101,6 +2126,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_ctype.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -2196,6 +2222,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_des.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -2224,6 +2251,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_des.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -2319,6 +2347,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_endian.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -2347,6 +2376,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_endian.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -2443,6 +2473,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_fnmatch.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -2471,6 +2502,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_fnmatch.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -2566,6 +2598,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_get_line.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -2594,6 +2627,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_get_line.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -2692,6 +2726,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_gethostname.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -2720,6 +2755,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_gethostname.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -2816,6 +2852,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_gssapi.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -2844,6 +2881,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_gssapi.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -2939,6 +2977,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_memrchr.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -2967,6 +3006,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_memrchr.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -3065,6 +3105,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_multibyte.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -3093,6 +3134,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_multibyte.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -3188,6 +3230,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_ntlm_core.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -3216,6 +3259,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_ntlm_core.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -3446,6 +3490,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_ntlm_wb.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -3474,6 +3519,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_ntlm_wb.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -3569,6 +3615,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_path.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -3597,6 +3644,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_path.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -3692,6 +3740,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_range.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -3720,6 +3769,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_range.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -3862,6 +3912,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_rtmp.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -3890,6 +3941,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_rtmp.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -3985,6 +4037,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_sasl.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -4013,6 +4066,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_sasl.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -4108,6 +4162,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_sspi.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -4136,6 +4191,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_sspi.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -4231,6 +4287,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_threads.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -4259,6 +4316,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/curl_threads.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -4364,6 +4422,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/dict.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -4392,6 +4451,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/dict.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -4487,6 +4547,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/doh.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -4515,6 +4576,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/doh.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -4668,6 +4730,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/dotdot.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -4696,6 +4759,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/dotdot.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -4794,6 +4858,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/dynbuf.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -4822,6 +4887,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/dynbuf.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -4922,6 +4988,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/easy.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -4950,6 +5017,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/easy.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -5169,6 +5237,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/easygetopt.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -5197,6 +5266,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/easygetopt.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -5294,6 +5364,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/easyoptions.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -5322,6 +5393,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/easyoptions.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -5418,6 +5490,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/escape.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -5446,6 +5519,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/escape.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -5593,6 +5667,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/file.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -5621,6 +5696,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/file.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -5716,6 +5792,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/fileinfo.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -5744,6 +5821,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/fileinfo.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -5839,6 +5917,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/formdata.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -5867,6 +5946,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/formdata.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -6030,6 +6110,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/ftp.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -6058,6 +6139,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/ftp.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -6153,6 +6235,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/ftplistparser.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -6181,6 +6264,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/ftplistparser.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -6276,6 +6360,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/getenv.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -6304,6 +6389,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/getenv.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -6401,6 +6487,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/getinfo.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -6429,6 +6516,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/getinfo.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -6588,6 +6676,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/gopher.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -6616,6 +6705,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/gopher.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -6711,6 +6801,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hash.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -6739,6 +6830,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hash.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -6838,6 +6930,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hmac.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -6866,6 +6959,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hmac.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -6965,6 +7059,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hostasyn.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -6993,6 +7088,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hostasyn.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -7137,6 +7233,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hostcheck.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -7165,6 +7262,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hostcheck.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -7280,6 +7378,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hostip.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -7308,6 +7407,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hostip.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -7482,6 +7582,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hostip4.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -7510,6 +7611,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hostip4.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -7605,6 +7707,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hostip6.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -7633,6 +7736,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hostip6.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -7783,6 +7887,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hostsyn.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -7811,6 +7916,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hostsyn.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -7906,6 +8012,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hsts.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -7934,6 +8041,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/hsts.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -8085,6 +8193,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -8113,6 +8222,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -8337,6 +8447,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http2.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -8365,6 +8476,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http2.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -8460,6 +8572,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http_aws_sigv4.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -8488,6 +8601,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http_aws_sigv4.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -8642,6 +8756,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http_chunks.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -8670,6 +8785,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http_chunks.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -8816,6 +8932,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http_digest.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -8844,6 +8961,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http_digest.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -8991,6 +9109,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http_negotiate.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -9019,6 +9138,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http_negotiate.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -9114,6 +9234,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http_ntlm.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -9142,6 +9263,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http_ntlm.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -9368,6 +9490,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http_proxy.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -9396,6 +9519,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/http_proxy.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -9572,6 +9696,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/idn_win32.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -9600,6 +9725,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/idn_win32.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -9695,6 +9821,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/if2ip.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -9723,6 +9850,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/if2ip.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -9843,6 +9971,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/imap.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -9871,6 +10000,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/imap.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -9966,6 +10096,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/inet_ntop.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -9994,6 +10125,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/inet_ntop.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -10122,6 +10254,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/inet_pton.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -10150,6 +10283,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/inet_pton.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -10245,6 +10379,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/krb5.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -10273,6 +10408,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/krb5.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -10368,6 +10504,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/ldap.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -10396,6 +10533,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/ldap.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -10491,6 +10629,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/llist.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -10519,6 +10658,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/llist.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -10617,6 +10757,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/md4.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -10645,6 +10786,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/md4.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -10746,6 +10888,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/md5.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -10774,6 +10917,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/md5.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -10885,6 +11029,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/memdebug.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -10913,6 +11058,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/memdebug.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -11008,6 +11154,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/mime.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -11036,6 +11183,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/mime.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -11186,6 +11334,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/mprintf.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -11214,6 +11363,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/mprintf.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -11313,6 +11463,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/mqtt.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -11341,6 +11492,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/mqtt.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -11436,6 +11588,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/multi.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -11464,6 +11617,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/multi.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -11661,6 +11815,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/netrc.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -11689,6 +11844,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/netrc.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -11792,6 +11948,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/non-ascii.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -11820,6 +11977,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/non-ascii.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -11915,6 +12073,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/nonblock.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -11943,6 +12102,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/nonblock.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -12051,6 +12211,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/openldap.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -12079,6 +12240,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/openldap.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -12174,6 +12336,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/parsedate.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -12202,6 +12365,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/parsedate.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -12300,6 +12464,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/pingpong.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -12328,6 +12493,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/pingpong.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -12493,6 +12659,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/pop3.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -12521,6 +12688,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/pop3.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -12616,6 +12784,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/progress.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -12644,6 +12813,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/progress.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -12788,6 +12958,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/psl.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -12816,6 +12987,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/psl.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -12911,6 +13083,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/rand.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -12939,6 +13112,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/rand.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -13100,6 +13274,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/rename.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -13128,6 +13303,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/rename.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -13229,6 +13405,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/rtsp.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -13257,6 +13434,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/rtsp.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -13352,6 +13530,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/select.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -13380,6 +13559,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/select.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -13527,6 +13707,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/sendf.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -13555,6 +13736,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/sendf.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -13735,6 +13917,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/setopt.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -13763,6 +13946,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/setopt.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -13941,6 +14125,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/sha256.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -13969,6 +14154,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/sha256.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -14107,6 +14293,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/share.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -14135,6 +14322,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/share.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -14290,6 +14478,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/slist.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -14318,6 +14507,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/slist.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -14416,6 +14606,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/smb.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -14444,6 +14635,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/smb.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -14539,6 +14731,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/smtp.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -14567,6 +14760,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/smtp.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -14662,6 +14856,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/socketpair.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -14690,6 +14885,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/socketpair.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -14803,6 +14999,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/socks.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -14831,6 +15028,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/socks.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -14984,6 +15182,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/socks_gssapi.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -15012,6 +15211,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/socks_gssapi.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -15107,6 +15307,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/socks_sspi.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -15135,6 +15336,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/socks_sspi.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -15230,6 +15432,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/speedcheck.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -15258,6 +15461,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/speedcheck.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -15400,6 +15604,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/splay.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -15428,6 +15633,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/splay.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -15525,6 +15731,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/strcase.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -15553,6 +15760,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/strcase.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -15649,6 +15857,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/strdup.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -15677,6 +15886,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/strdup.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -15775,6 +15985,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/strerror.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -15803,6 +16014,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/strerror.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -15947,6 +16159,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/strtok.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -15975,6 +16188,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/strtok.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -16076,6 +16290,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/strtoofft.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -16104,6 +16319,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/strtoofft.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -16194,6 +16410,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/system_win32.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -16222,6 +16439,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/system_win32.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -16317,6 +16535,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/telnet.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -16345,6 +16564,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/telnet.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -16440,6 +16660,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/tftp.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -16468,6 +16689,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/tftp.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -16564,6 +16786,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/timeval.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -16592,6 +16815,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/timeval.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -16687,6 +16911,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/transfer.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -16715,6 +16940,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/transfer.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -16930,6 +17156,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/url.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -16958,6 +17185,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/url.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -17194,6 +17422,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/urlapi.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -17222,6 +17451,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/urlapi.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -17371,6 +17601,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/cleartext.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -17399,6 +17630,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/cleartext.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -17495,6 +17727,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/cram.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -17523,6 +17756,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/cram.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -17672,6 +17906,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/digest.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -17700,6 +17935,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/digest.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -17868,6 +18104,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/digest_sspi.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -17896,6 +18133,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/digest_sspi.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -17992,6 +18230,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/gsasl.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -18020,6 +18259,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/gsasl.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -18116,6 +18356,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/krb5_gssapi.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -18144,6 +18385,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/krb5_gssapi.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -18240,6 +18482,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/krb5_sspi.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -18268,6 +18511,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/krb5_sspi.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -18364,6 +18608,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/ntlm.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -18392,6 +18637,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/ntlm.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -18634,6 +18880,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/ntlm_sspi.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -18662,6 +18909,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/ntlm_sspi.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -18758,6 +19006,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/oauth2.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -18786,6 +19035,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/oauth2.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -18882,6 +19132,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/spnego_gssapi.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -18910,6 +19161,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/spnego_gssapi.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -19006,6 +19258,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/spnego_sspi.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -19034,6 +19287,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/spnego_sspi.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -19130,6 +19384,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/vauth.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -19158,6 +19413,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vauth/vauth.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -19261,6 +19517,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/version.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -19289,6 +19546,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/version.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -19446,6 +19704,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/version_win32.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -19474,6 +19733,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/version_win32.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -19569,6 +19829,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vquic/ngtcp2.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -19597,6 +19858,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vquic/ngtcp2.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -19693,6 +19955,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vquic/quiche.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -19721,6 +19984,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vquic/quiche.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -19817,6 +20081,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vquic/vquic.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -19845,6 +20110,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vquic/vquic.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -19941,6 +20207,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vssh/libssh.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -19969,6 +20236,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vssh/libssh.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -20065,6 +20333,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vssh/libssh2.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -20093,6 +20362,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vssh/libssh2.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -20189,6 +20459,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vssh/wolfssh.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -20217,6 +20488,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vssh/wolfssh.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -20313,6 +20585,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/bearssl.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -20341,6 +20614,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/bearssl.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -20437,6 +20711,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/gskit.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -20465,6 +20740,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/gskit.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -20561,6 +20837,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/gtls.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -20589,6 +20866,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/gtls.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -20685,6 +20963,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/keylog.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -20713,6 +20992,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/keylog.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -20812,6 +21092,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/mbedtls.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -20840,6 +21121,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/mbedtls.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -20936,6 +21218,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/mbedtls_threadlock.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -20964,6 +21247,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/mbedtls_threadlock.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -21060,6 +21344,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/mesalink.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -21088,6 +21373,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/mesalink.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -21184,6 +21470,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/nss.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -21212,6 +21499,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/nss.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -21308,6 +21596,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/openssl.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -21336,6 +21625,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/openssl.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -21599,6 +21889,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/rustls.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -21627,6 +21918,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/rustls.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -21723,6 +22015,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/schannel.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -21751,6 +22044,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/schannel.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -21847,6 +22141,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/schannel_verify.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -21875,6 +22170,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/schannel_verify.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -21971,6 +22267,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/sectransp.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -21999,6 +22296,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/sectransp.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -22145,6 +22443,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/vtls.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -22173,6 +22472,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/vtls.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -22345,6 +22645,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/wolfssl.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -22373,6 +22674,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/vtls/wolfssl.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -22469,6 +22771,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/warnless.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -22497,6 +22800,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/warnless.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -22593,6 +22897,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/wildcard.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -22621,6 +22926,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/wildcard.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h
@@ -22716,6 +23022,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/x509asn1.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/x86_64-linux-gnu/bits/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h
  /usr/include/limits.h
@@ -22744,6 +23051,7 @@ _deps/curl-build/lib/CMakeFiles/libcurl.dir/x509asn1.c.o
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/include/string.h
  /usr/include/strings.h

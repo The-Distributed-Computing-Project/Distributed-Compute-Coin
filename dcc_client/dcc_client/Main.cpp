@@ -727,7 +727,7 @@ void Version()
 {
 	console::Write("client: " + VERSION, console::cyanFGColor, "");
 	console::Write(PLATFORMSTR, PLATFORMCOLOR, "");
-	console::WriteLine(BUILDTYPE, console::redFGColor, "");
+	console::WriteLine(BUILDTYPETEXT, console::redFGColor, "");
 	console::WriteLine("block:  " + BLOCK_VERSION, console::cyanFGColor, "");
 	console::WriteLine("deluge: " + DELUGE_VERSION, console::cyanFGColor, "");
 	console::WriteLine("\n");

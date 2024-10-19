@@ -53,7 +53,7 @@ bool P2P::InPeerList(std::string& ipPort){
 }
 
 void P2P::AddToPeerList(std::string& ipPort){
-	if(!InPeerList(ipPort)){
+	if(!InPeerList(ipPort) && ipPort != clientIPPort){
 		// Add peer to collection of connections
 		p2pConnections.insert(std::make_pair(ipPort, new Peer(ipPort)));
 	}
@@ -752,8 +752,6 @@ void P2P::RandomizePeer() {
 		uint16_t randI = rand() % p2pConnections.size();
 		auto it = p2pConnections.begin();
 		std::advance(it, randI);
-		std::cout << "IPCHOSEN: " << it->first << std::endl;
-		std::cout << "ipPart: " << it->second->ip << std::endl;
 		peerListID = (std::string)(it->second->ip);
 		peerIP = (std::string)(it->second->ip);
 		peerPort = it->second->port;

@@ -85,6 +85,8 @@ public:
 
 	std::string peerListID;
 
+	std::string clientIPPort = "";
+
 	std::unordered_map<std::string, Peer*> p2pConnections;
 
 	int role = -1; //   -1 == offline,  0 == requester,  1 == answerer

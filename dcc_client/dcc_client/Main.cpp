@@ -273,6 +273,7 @@ int main()
 	p2p.InitPeerList();
 	p2p.keepPeersAlive = (bool)walletConfig["keepAlive"];
 	p2p.isServer = (bool)walletConfig["isServer"];
+	p2p.clientIPPort = (std::string)walletConfig["ip"] + ":" + std::to_string((int)walletConfig["port"]);
 	// Start the P2P listener thread
 	std::thread t1(&P2P::ListenerThread, &p2p, 10);
 	// Start the P2P sender thread
@@ -654,7 +655,7 @@ int main()
 				console::Write("\nPeers: ");
 
 				// Make table
-				console::WriteIndented("+-----------------+-------+-------------+---------+\n", "", "", 1);
+				console::WriteIndented("+-----------------+-------+-------------+---------+---------+\n", "", "", 1);
 
 				// Colored headers
 				console::WriteIndented("| ", "", "", 1);
@@ -666,9 +667,11 @@ int main()
 				console::Write(" |");
 				console::Write(" Height", console::cyanFGColor, "");
 				console::Write("  |");
+				console::Write(" Online", console::cyanFGColor, "");
+				console::Write("  |");
 				console::WriteLine();
 
-				console::WriteIndented("+-----------------+-------+-------------+---------+\n", "", "", 1);
+				console::WriteIndented("+-----------------+-------+-------------+---------+---------+\n", "", "", 1);
 				for(const auto& [key, value] : p2p.p2pConnections)
 				{
 					// IP and Port
@@ -676,25 +679,24 @@ int main()
 					console::WriteIndented("| " + PadStringRight(SplitString(ipPort, ":")[0], ' ', 16) + "| ", "", "", 1);
 					console::Write(PadStringRight(SplitString(ipPort, ":")[1], ' ', 5) + " |     ");
 
-					
-					// Online/Offline
-					//int statusNum = stoi(SplitString(peer.first, ":")[2]);
-					//if (statusNum <= 1)
-					//	console::Write(PadStringRight("online", ' ', 10), console::greenFGColor);
-					//else if (statusNum <= 5)
-					//	console::Write(PadStringRight("stalling", ' ', 10), console::yellowFGColor);
-					//else if (statusNum <= 9)
-					//	console::Write(PadStringRight("offline", ' ', 10), console::redFGColor);
-
 					// Known peers
 					console::Write(PadString(std::to_string(value->peerList.size()), ' ', 7) + " | ");
 
 					// Height
 					console::Write(PadString(std::to_string(value->height), ' ', 7) + " | ");
+					
+					// Online/Offline
+					bool statusBool = value->testedOnline;
+					if (statusBool)
+						console::Write(PadStringRight("online", ' ', 7), console::greenFGColor);
+					else
+						console::Write(PadStringRight("unknown", ' ', 7), console::redFGColor);
+					console::Write(" | ");
+
 
 					console::WriteLine();
 				}
-				console::WriteIndented("+-----------------+-------+-------------+---------+\n", "", "", 1);
+				console::WriteIndented("+-----------------+-------+-------------+---------+---------+\n", "", "", 1);
 			}
 
 			//else if (commandParts[0] == "--CONNECT" || commandParts[0] == "-C")

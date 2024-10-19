@@ -15,7 +15,7 @@ if (NOT CMAKE_BUILD_TYPE)
 endif()
 
 if (CMAKE_COMPILER_IS_GNUXX)
-	set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+	set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wzero-as-null-pointer-constant")
 	set(CMAKE_CXX_FLAGS_DEBUG "-g")
 	#set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 endif(CMAKE_COMPILER_IS_GNUXX)

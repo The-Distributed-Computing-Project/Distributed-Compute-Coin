@@ -83,7 +83,7 @@ public:
 	int messageAttempt = 0;
 	int differentPeerAttempts = 0;
 
-	std::string peerListID = 0;
+	std::string peerListID;
 
 	std::unordered_map<std::string, Peer*> p2pConnections;
 

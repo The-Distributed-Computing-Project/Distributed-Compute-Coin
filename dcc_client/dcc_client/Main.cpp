@@ -270,10 +270,10 @@ int main()
 
 	// Open the socket required to accept P2P requests and send responses
 	p2p.OpenP2PSocket((int)walletConfig["port"]);
-	p2p.InitPeerList();
+	p2p.clientIPPort = (std::string)walletConfig["ip"] + ":" + std::to_string((int)walletConfig["port"]);
 	p2p.keepPeersAlive = (bool)walletConfig["keepAlive"];
 	p2p.isServer = (bool)walletConfig["isServer"];
-	p2p.clientIPPort = (std::string)walletConfig["ip"] + ":" + std::to_string((int)walletConfig["port"]);
+	p2p.InitPeerList();
 	// Start the P2P listener thread
 	std::thread t1(&P2P::ListenerThread, &p2p, 10);
 	// Start the P2P sender thread

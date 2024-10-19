@@ -23,7 +23,6 @@ SOCKADDR_IN otherAddr;
 sockaddr_in otherAddr;
 #define UNIX true
 #endif
-std::string otherAddrStr;
 int otherSize;
 std::atomic_bool stop_thread_1 = false;
 std::atomic_bool stop_thread_2 = false;

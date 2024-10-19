@@ -76,6 +76,7 @@ public:
 	//
 	//void TaskRec();
 	std::atomic_bool CONNECTED_TO_PEER = false;
+	std::string otherAddrStr;
 
 	// A list of deluges given by: [totalHash][partHash] => dataString
 	std::map<std::string, std::map<std::string, uint16_t>> completeDelugeList;

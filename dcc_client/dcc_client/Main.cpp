@@ -592,6 +592,10 @@ int main()
 					MakeProgram(walletInfo, walletConfig, commandParts[1]);
 				}
 			}
+			else if (commandParts[0] == "--CURRENTCONNECTION")
+			{
+				console::WriteLine("Currently connected to: (" + p2p.otherAddrStr + ")");
+			}
 			else if (commandParts[0] == "--LIST-CONTAINERS" || commandParts[0] == "-LS")
 			{
 				console::WriteLine();

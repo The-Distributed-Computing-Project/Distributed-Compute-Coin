@@ -282,12 +282,13 @@ void P2P::ListenerThread(int update_interval)
 					}
 
 					// If not currently connected, accept this connection.
-					if (otherAddrStr == "" || otherAddrStr == "0.0.0.0:0"){
+					if ((otherAddrStr == "" || otherAddrStr == "0.0.0.0:0") && otherAddrStr != clientIPPort){
 						if (WalletSettingValues::verbose >= 4)
 							console::WriteLine("\nConversation Started", console::greenFGColor, "");
 
 						otherAddrStr = fromIPString;
 						SetPeer(otherAddrStr);
+						std::cout << "New peer found at: " << otherAddrStr << std::endl; 
 					}
 
 					// If connected but different, ignore.
@@ -829,7 +830,7 @@ void P2P::SenderThread()
 				{
 					if (WalletSettingValues::verbose >= 4)
 						console::WriteLine("Conversation complete\n", console::greenFGColor, "");
-					otherAddrStr = "";
+					otherAddrStr = "\0";
 					reqDat = -1;
 					role = -1;
 					break;

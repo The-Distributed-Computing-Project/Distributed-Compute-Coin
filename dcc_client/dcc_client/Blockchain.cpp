@@ -12,7 +12,7 @@
 
 
 
-std::string programID;
+std::string programID = "";
 json programConfig;
 
 //P2P p2p;

@@ -76,7 +76,7 @@ public:
 	//
 	//void TaskRec();
 	std::atomic_bool CONNECTED_TO_PEER = false;
-	std::string otherAddrStr;
+	std::string otherAddrStr = "";
 
 	// A list of deluges given by: [totalHash][partHash] => dataString
 	std::map<std::string, std::map<std::string, uint16_t>> completeDelugeList;
@@ -84,7 +84,7 @@ public:
 	int messageAttempt = 0;
 	int differentPeerAttempts = 0;
 
-	std::string peerListID;
+	std::string peerListID = "";
 
 	std::string clientIPPort = "";
 
@@ -128,7 +128,7 @@ public:
 	int reqDat = -1;
 	std::string extraData = "";
 
-	std::string peerIP;
+	std::string peerIP = "";
 	int peerPort;
 	bool keepPeersAlive = false;
 	bool isServer = false;

@@ -594,7 +594,8 @@ int main()
 			}
 			else if (commandParts[0] == "--CURRENTCONNECTION")
 			{
-				console::WriteLine("Currently connected to: (" + p2p.otherAddrStr + ")");
+				std::cout << p2p.otherAddrStr << std::endl;
+				std::cout << p2p.clientIPPort << std::endl;
 			}
 			else if (commandParts[0] == "--LIST-CONTAINERS" || commandParts[0] == "-LS")
 			{

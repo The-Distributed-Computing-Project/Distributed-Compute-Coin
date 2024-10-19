@@ -671,7 +671,7 @@ void P2P::ListenerThread(int update_interval)
 					// If connected but different, ignore.
 					else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0]) {
 						// Send blank confirming message
-						std::string tmpMsg = "DCC_PEER";
+						std::string tmpMsg = "ACK";
 						mySendTo(localSocket, tmpMsg, tmpMsg.length(), 0, (sockaddr*)&remoteAddr, remoteAddrLen);
 						continue;
 					}
@@ -1145,7 +1145,6 @@ void P2P::SenderThread()
 	stop_thread_2 = false;
 
 	RandomizePeer();
-	otherAddrStr = NormalizedIPString(otherAddr);
 
 	while (true) {
 		try
@@ -1154,6 +1153,7 @@ void P2P::SenderThread()
 			otherAddr.sin_port = htons(peerPort);
 			otherAddr.sin_family = AF_INET;
 			otherAddr.sin_addr.s_addr = inet_addr(peerIP.c_str());
+			otherAddrStr = NormalizedIPString(otherAddr);
 			//std::cout << "peer: \""<<peerIP.c_str() << "\"" << std::endl;
 
 			otherSize = sizeof(otherAddr);

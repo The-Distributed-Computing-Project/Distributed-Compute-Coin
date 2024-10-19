@@ -290,7 +290,7 @@ dcc_client/dcc_client: /usr/lib/x86_64-linux-gnu/libform.so
 dcc_client/dcc_client: /usr/lib/x86_64-linux-gnu/libssl.so
 dcc_client/dcc_client: _deps/cpr-build/cpr/libcpr.so.1.8.2
 dcc_client/dcc_client: /usr/lib/x86_64-linux-gnu/libcrypto.so
-dcc_client/dcc_client: _deps/curl-build/lib/libcurl-d.so
+dcc_client/dcc_client: _deps/curl-build/lib/libcurl.so
 dcc_client/dcc_client: /usr/lib/x86_64-linux-gnu/libssl.so
 dcc_client/dcc_client: /usr/lib/x86_64-linux-gnu/libcrypto.so
 dcc_client/dcc_client: /usr/lib/x86_64-linux-gnu/libz.so

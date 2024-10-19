@@ -364,7 +364,7 @@ _deps/cpr-build/cpr/libcpr.so.1.8.2: _deps/cpr-build/cpr/CMakeFiles/cpr.dir/util
 _deps/cpr-build/cpr/libcpr.so.1.8.2: _deps/cpr-build/cpr/CMakeFiles/cpr.dir/response.cpp.o
 _deps/cpr-build/cpr/libcpr.so.1.8.2: _deps/cpr-build/cpr/CMakeFiles/cpr.dir/redirect.cpp.o
 _deps/cpr-build/cpr/libcpr.so.1.8.2: _deps/cpr-build/cpr/CMakeFiles/cpr.dir/build.make
-_deps/cpr-build/cpr/libcpr.so.1.8.2: _deps/curl-build/lib/libcurl-d.so
+_deps/cpr-build/cpr/libcpr.so.1.8.2: _deps/curl-build/lib/libcurl.so
 _deps/cpr-build/cpr/libcpr.so.1.8.2: /usr/lib/x86_64-linux-gnu/libssl.so
 _deps/cpr-build/cpr/libcpr.so.1.8.2: /usr/lib/x86_64-linux-gnu/libcrypto.so
 _deps/cpr-build/cpr/libcpr.so.1.8.2: /usr/lib/x86_64-linux-gnu/libz.so

@@ -6,7 +6,7 @@ C_DEFINES = -DCPR_ENABLE_SSL -DHAVE_BUILTIN_CTZ -DHAVE_BUILTIN_CTZLL -DHAVE_VISI
 
 C_INCLUDES = -I/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-build -I/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-src
 
-C_FLAGS =  -Wall -Wno-implicit-fallthrough -g -DZLIB_DEBUG -fPIC -fno-semantic-interposition -std=c99
+C_FLAGS =  -Wall -Wno-implicit-fallthrough -O2 -DNDEBUG -fPIC -fno-semantic-interposition -std=c99
 
 # Custom flags: _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/slide_avx.c.o_FLAGS = -mavx2 -fno-lto
 

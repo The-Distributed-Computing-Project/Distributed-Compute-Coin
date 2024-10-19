@@ -292,7 +292,7 @@ void P2P::ListenerThread(int update_interval)
 					}
 
 					// If connected but different, ignore.
-					else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0] && messageStatus != initial_connect_request) {
+					else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0]) {
 						// Send blank confirming message
 						std::string tmpMsg = "ACK";
 						mySendTo(localSocket, tmpMsg, tmpMsg.length(), 0, (sockaddr*)&remoteAddr, remoteAddrLen);
@@ -845,6 +845,7 @@ void P2P::SenderThread()
 
 				// If doing initial connect request
 				if (messageStatus == initial_connect_request) {
+					role = 0;
 					msg = "peer~connect";
 					if (WalletSettingValues::verbose >= 7) {
 						console::Write(msg + "\n");
@@ -876,6 +877,7 @@ void P2P::SenderThread()
 				}
 				// If replying to peer connect request with announce
 				else if (messageStatus == announce) {
+					role = 1;
 					namespace fs = std::filesystem;
 					std::vector<std::string> delugeHashes = std::vector<std::string>();
 					for (auto deluge : fs::directory_iterator("./wwwdata/deluges/")){
@@ -1043,7 +1045,7 @@ void P2P::SenderThread()
 							// Decrease life of current peer
 							//char newLife = (SplitString(peerList[peerListID], ":")[2]).c_str()[0] + 1;
 
-							p2pConnections[peerListID]->life++;
+							p2pConnections[peerListID]->life += 1;
 							//if (newLife >= '9' && keepPeersAlive == false && SplitString(peerList[peerListID], ":")[0] + ":" + SplitString(peerList[peerListID], ":")[1] != DCCARK_ADDR) // If life is 9, remove it from list
 							//	peerList.erase(peerList.begin() + peerListID);
 							//else if (keepPeersAlive)
@@ -1060,7 +1062,7 @@ void P2P::SenderThread()
 						}
 						// Then select another
 						RandomizePeer();
-						SavePeerList();
+						//SavePeerList();
 						differentPeerAttempts++;
 					}
 					// If at least 5 have been tried, stop.

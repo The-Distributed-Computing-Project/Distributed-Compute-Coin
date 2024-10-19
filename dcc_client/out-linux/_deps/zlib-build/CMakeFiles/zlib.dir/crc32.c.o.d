@@ -24,6 +24,7 @@ _deps/zlib-build/CMakeFiles/zlib.dir/crc32.c.o: \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h /usr/include/string.h \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-src/zlib.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
@@ -34,14 +35,7 @@ _deps/zlib-build/CMakeFiles/zlib.dir/crc32.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h /usr/include/unistd.h \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h \
- /usr/include/x86_64-linux-gnu/bits/unistd_ext.h /usr/include/stdio.h \
- /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
- /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-src/arch/x86/x86.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-src/functable.h \
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/zlib-src/crc32_tbl.h \

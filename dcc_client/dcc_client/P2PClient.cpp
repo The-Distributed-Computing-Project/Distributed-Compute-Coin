@@ -715,6 +715,10 @@ void P2P::ListenerThread(int update_interval)
 							lastReceivedSegment = 0;
 							pendingReceiveData = false;
 						}
+						// Else if the current segment is too far ahead of the expected one,
+						// continue
+						else if(lastReceivedSegment < segNumber - 1)
+							continue;
 						// Else if the maximum number of segments was NOT reached,
 						// continue receiving pending data
 						else if (maxSegments > segNumber && segNumber == 1) {

@@ -669,7 +669,7 @@ void P2P::ListenerThread(int update_interval)
 					}
 
 					// If connected but different, ignore.
-					else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0]) {
+					else if (SplitString(fromIPString, ":")[0] != SplitString(otherAddrStr, ":")[0] && messageStatus != initial_connect_request) {
 						// Send blank confirming message
 						std::string tmpMsg = "ACK";
 						mySendTo(localSocket, tmpMsg, tmpMsg.length(), 0, (sockaddr*)&remoteAddr, remoteAddrLen);
@@ -1153,7 +1153,7 @@ void P2P::SenderThread()
 			otherAddr.sin_port = htons(peerPort);
 			otherAddr.sin_family = AF_INET;
 			otherAddr.sin_addr.s_addr = inet_addr(peerIP.c_str());
-			otherAddrStr = NormalizedIPString(otherAddr);
+			//otherAddrStr = NormalizedIPString(otherAddr);
 			//std::cout << "peer: \""<<peerIP.c_str() << "\"" << std::endl;
 
 			otherSize = sizeof(otherAddr);

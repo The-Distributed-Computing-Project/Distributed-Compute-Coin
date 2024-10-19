@@ -742,7 +742,12 @@ int P2P::OpenP2PSocket(int port)
 // Function to get random peer credentials from the peerList
 void P2P::RandomizePeer() {
 	if (p2pConnections.size() == 0)
+	{
+		peerListID = DCCARK_ADDR;
+		peerIP = DCCARK_ADDR;
+		peerPort = 5060;
 		return;
+	}
 	try
 	{
 		uint16_t randI = rand() % p2pConnections.size();

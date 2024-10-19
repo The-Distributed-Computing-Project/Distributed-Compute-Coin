@@ -125,7 +125,7 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 			total += n;
 			if (WalletSettingValues::verbose >= 7) {
 				std::cout << segInfo.c_str() << std::endl;
-				std::cout << std::to_string(-n) << " bytes sent" << std::endl;
+				std::cout << std::to_string(n+segSize) << " bytes sent" << std::endl;
 			}
 			if (bytesLeft < MESSAGESIZE)
 				bytesLeft -= n+segSize;
@@ -673,6 +673,8 @@ void P2P::ListenerThread(int update_interval)
 					try{
 						segInfo = SplitString(textVal, "&")[0];
 						std::string s = SplitString(textVal, "&")[1]; // This value is not used, but tested to ensure the segInfo header is there
+						if(StringStartsWith(segInfo, "seg") == false)
+							throw 1;
 						segNumber = std::stoi(SplitString(segInfo, ":")[1]);
 						maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
 						segLength = std::stoi(SplitString(segInfo, ":")[5]) + segInfo.size() + 1;

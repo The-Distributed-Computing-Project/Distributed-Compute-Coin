@@ -123,11 +123,11 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 
 			total += n;
 			if (WalletSettingValues::verbose >= 7) {
-				std::cout << segInfo << std::endl;
+				std::cout << segInfo.c_str() << std::endl;
 				std::cout << std::to_string((int)round(100 * ((float)total / (float)len))) << "% sent" << std::endl;
 			}
 			if (bytesLeft < MESSAGESIZE)
-				bytesLeft -= n;
+				bytesLeft -= n+segSize;
 			else
 				bytesLeft -= MESSAGESIZE;
 

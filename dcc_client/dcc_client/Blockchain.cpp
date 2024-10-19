@@ -309,7 +309,7 @@ int MakeProgram(json& walletInfo, json& walletConfig, std::string& path, bool is
 		//buffer << t.rdbuf();
 		//std::string content = buffer.str();
 	console::ContainerManagerPrint();
-	std::cout << "Total compressed Deluge size: " << size << " bytes\n";
+	std::cout << "Total compressed Deluge size: " << size << " bytes, "+truncateMetricNum(size)+"bytes\n";
 
 
 	using namespace indicators;

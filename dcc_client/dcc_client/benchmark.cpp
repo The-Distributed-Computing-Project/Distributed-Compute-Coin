@@ -57,7 +57,7 @@ void calculateFLOPS(unsigned long long *p1, bool* isDone){
 	return;
 }
 
-#define BENCHMARK_SAMPLES 10
+#define BENCHMARK_SAMPLES 2
 unsigned long long benchmark(){
 	unsigned long long flops1[BENCHMARK_SAMPLES];
 	unsigned long long flops = 0, prevFlops1 = 0; 

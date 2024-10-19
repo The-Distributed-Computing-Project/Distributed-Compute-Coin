@@ -1,130 +1,84 @@
-AnnounceToPeers	dcc_client/dcc_client/Blockchain.cpp	/^int AnnounceToPeers(P2P& p2p)$/;"	f	typeref:typename:int
-BENCHMARK_H	dcc_client/dcc_client/benchmark.h	/^#define BENCHMARK_H$/;"	d
-BENCHMARK_SAMPLES	dcc_client/dcc_client/benchmark.cpp	/^#define BENCHMARK_SAMPLES /;"	d	file:
-BLOCK_DIFFICULTY_CUTOFF_RANGE	dcc_client/dcc_client/Blockchain.cpp	/^#define BLOCK_DIFFICULTY_CUTOFF_RANGE /;"	d	file:
 BUFFERLENGTH	dcc_client/dcc_client/P2PClient.cpp	/^const int BUFFERLENGTH = 1024 * 64; \/\/ 64 kb buffer for large files$/;"	v	typeref:typename:const int
-CalculateDifficulty	dcc_client/dcc_client/Blockchain.cpp	/^std::string CalculateDifficulty(json& walletInfo) {$/;"	f	typeref:typename:std::string
-CharStrStartsWith	dcc_client/dcc_client/strops.cpp	/^bool CharStrStartsWith(unsigned char* str, char* substr, int len)$/;"	f	typeref:typename:bool
-CommaLargeNumber	dcc_client/dcc_client/strops.cpp	/^std::string CommaLargeNumber(long num) {$/;"	f	typeref:typename:std::string
-CommaLargeNumber	dcc_client/dcc_client/strops.cpp	/^std::string CommaLargeNumber(unsigned long long int num) {$/;"	f	typeref:typename:std::string
-CommaLargeNumberF	dcc_client/dcc_client/strops.cpp	/^std::string CommaLargeNumberF(double num) {$/;"	f	typeref:typename:std::string
-CommaLargeNumberF	dcc_client/dcc_client/strops.cpp	/^std::string CommaLargeNumberF(float num) {$/;"	f	typeref:typename:std::string
-CompareCharNumbers	dcc_client/dcc_client/strops.cpp	/^bool CompareCharNumbers(const unsigned char* number1, const unsigned char* number2) {$/;"	f	typeref:typename:bool
-CreateSuperblock	dcc_client/dcc_client/Blockchain.cpp	/^void CreateSuperblock() {$/;"	f	typeref:typename:void
-CreateTransaction	dcc_client/dcc_client/Blockchain.cpp	/^void CreateTransaction(P2P& p2p, json& walletInfo, double& amount) {$/;"	f	typeref:typename:void
+CONNECTED_TO_PEER	dcc_client/dcc_client/P2PClient.h	/^	std::atomic_bool CONNECTED_TO_PEER = false;$/;"	m	class:P2P	typeref:typename:std::atomic_bool
+CONNECTION_PARTS	dcc_client/dcc_client/P2PClient.h	/^	std::vector<std::string> CONNECTION_PARTS = { "" };$/;"	m	class:P2P	typeref:typename:std::vector<std::string>
 DCCARK_ADDR	dcc_client/dcc_client/P2PClient.cpp	/^#define DCCARK_ADDR /;"	d	file:
-ERRORMSG	dcc_client/dcc_client/strops.h	/^#define ERRORMSG(/;"	d
-ExtractPaddedChars	dcc_client/dcc_client/strops.cpp	/^std::string ExtractPaddedChars(const std::string& input, char padChar) {$/;"	f	typeref:typename:std::string
-FormatHPS	dcc_client/dcc_client/strops.cpp	/^std::string FormatHPS(float input)$/;"	f	typeref:typename:std::string
-FormatWithCommas	dcc_client/dcc_client/strops.h	/^std::string FormatWithCommas(T value)$/;"	f	typeref:typename:std::string
 GETSOCKETERRORNO	dcc_client/dcc_client/P2PClient.cpp	/^#define GETSOCKETERRORNO(/;"	d	file:
-GetProgram	dcc_client/dcc_client/Blockchain.cpp	/^int GetProgram(P2P& p2p, json& walletInfo)$/;"	f	typeref:typename:int
-GetProgramLifeLeft	dcc_client/dcc_client/Blockchain.cpp	/^float GetProgramLifeLeft()$/;"	f	typeref:typename:float
-Help	dcc_client/dcc_client/Main.cpp	/^void Help()$/;"	f	typeref:typename:void
-ISKEYDOWN	dcc_client/dcc_client/Main.cpp	/^#define ISKEYDOWN(/;"	d	file:
 InitPeerList	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::InitPeerList() {$/;"	f	class:P2P	typeref:typename:void
-IsChainValid	dcc_client/dcc_client/Blockchain.cpp	/^bool IsChainValid(P2P& p2p, json& walletInfo)$/;"	f	typeref:typename:bool
-IsVersionGreaterOrEqual	dcc_client/dcc_client/strops.cpp	/^bool IsVersionGreaterOrEqual(std::string a, std::string b) {$/;"	f	typeref:typename:bool
-JoinArrayPieces	dcc_client/dcc_client/strops.cpp	/^std::string JoinArrayPieces(std::string input[])$/;"	f	typeref:typename:std::string
-JoinArrayPieces	dcc_client/dcc_client/strops.cpp	/^std::string JoinArrayPieces(std::vector<std::string> input)$/;"	f	typeref:typename:std::string
 ListenerThread	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::ListenerThread(int update_interval)$/;"	f	class:P2P	typeref:typename:void
-Logo	dcc_client/dcc_client/Main.cpp	/^void Logo()$/;"	f	typeref:typename:void
 MESSAGESIZE	dcc_client/dcc_client/P2PClient.cpp	/^const int MESSAGESIZE = 2048; \/\/ The rough size of each data packet, in bytes, excluding the h/;"	v	typeref:typename:const int
-MakeProgram	dcc_client/dcc_client/Blockchain.cpp	/^int MakeProgram(json& walletInfo, json& walletConfig, std::string& path, bool isQuiet)$/;"	f	typeref:typename:int
+MSG_PART	dcc_client/dcc_client/P2PClient.h	/^	int MSG_PART = 0;$/;"	m	class:P2P	typeref:typename:int
+MsgStatus	dcc_client/dcc_client/P2PClient.h	/^	enum MsgStatus {$/;"	g	class:P2P
 NormalizedIPString	dcc_client/dcc_client/P2PClient.cpp	/^std::string P2P::NormalizedIPString(SOCKADDR_IN addr) {$/;"	f	class:P2P	typeref:typename:std::string
 NormalizedIPString	dcc_client/dcc_client/P2PClient.cpp	/^std::string P2P::NormalizedIPString(sockaddr_in remoteAddr) {$/;"	f	class:P2P	typeref:typename:std::string
 OpenP2PSocket	dcc_client/dcc_client/P2PClient.cpp	/^int P2P::OpenP2PSocket(int port)$/;"	f	class:P2P	typeref:typename:int
-PadString	dcc_client/dcc_client/strops.cpp	/^std::string PadString(const std::string& input, char padChar, size_t desiredLength) {$/;"	f	typeref:typename:std::string
-PadStringRight	dcc_client/dcc_client/strops.cpp	/^std::string PadStringRight(const std::string& input, char padChar, size_t desiredLength) {$/;"	f	typeref:typename:std::string
+P2P	dcc_client/dcc_client/P2PClient.h	/^class P2P$/;"	c
 Peer	dcc_client/dcc_client/P2PClient.cpp	/^Peer::Peer(std::string ipPort) {$/;"	f	class:Peer
+Peer	dcc_client/dcc_client/P2PClient.h	/^class Peer{$/;"	c
 RandomizePeer	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::RandomizePeer() {$/;"	f	class:P2P	typeref:typename:void
-ReadProgramConfig	dcc_client/dcc_client/Blockchain.cpp	/^json ReadProgramConfig()$/;"	f	typeref:typename:json
-ReplaceEscapeSymbols	dcc_client/dcc_client/strops.cpp	/^std::string ReplaceEscapeSymbols(std::string s)$/;"	f	typeref:typename:std::string
 SavePeerList	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::SavePeerList() {$/;"	f	class:P2P	typeref:typename:void
-SendFunds	dcc_client/dcc_client/Main.cpp	/^int SendFunds(P2P& p2p, std::string& toAddress, float amount)$/;"	f	typeref:typename:int
 SenderThread	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::SenderThread()$/;"	f	class:P2P	typeref:typename:void
 SetPeer	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::SetPeer(int id) {$/;"	f	class:P2P	typeref:typename:void
-SplitGetLastAfterChar	dcc_client/dcc_client/strops.cpp	/^std::string SplitGetLastAfterChar(std::string str, std::string delim)$/;"	f	typeref:typename:std::string
-SplitString	dcc_client/dcc_client/strops.cpp	/^std::vector<std::string> SplitString(std::string str, std::string delim)$/;"	f	typeref:typename:std::vector<std::string>
-StringContains	dcc_client/dcc_client/strops.cpp	/^bool StringContains(std::string str, std::string check)$/;"	f	typeref:typename:bool
-StringStartsWith	dcc_client/dcc_client/strops.cpp	/^bool StringStartsWith(std::string str, std::string substr)$/;"	f	typeref:typename:bool
-Sync	dcc_client/dcc_client/Blockchain.cpp	/^int Sync(P2P& p2p, json& walletInfo)$/;"	f	typeref:typename:int
-SyncBlock	dcc_client/dcc_client/Blockchain.cpp	/^int SyncBlock(P2P& p2p, int whichBlock, bool force, bool awaitFinish)$/;"	f	typeref:typename:int
-SyncPending	dcc_client/dcc_client/Blockchain.cpp	/^int SyncPending(P2P& p2p, int whichBlock)$/;"	f	typeref:typename:int
-ToLower	dcc_client/dcc_client/strops.cpp	/^std::string ToLower(std::string s)$/;"	f	typeref:typename:std::string
-ToUpper	dcc_client/dcc_client/strops.cpp	/^std::string ToUpper(std::string s)$/;"	f	typeref:typename:std::string
-TrimString	dcc_client/dcc_client/strops.cpp	/^std::string TrimString(std::string s)$/;"	f	typeref:typename:std::string
-UNIX	dcc_client/dcc_client/Main.cpp	/^#define UNIX /;"	d	file:
 UNIX	dcc_client/dcc_client/P2PClient.cpp	/^#define UNIX /;"	d	file:
-UpgradeBlock	dcc_client/dcc_client/Blockchain.cpp	/^json UpgradeBlock(json& b)$/;"	f	typeref:typename:json
-VerifyDeluge	dcc_client/dcc_client/Blockchain.cpp	/^bool VerifyDeluge(json& delugeJson, std::string& path)$/;"	f	typeref:typename:bool
 VerifyTransaction	dcc_client/dcc_client/P2PClient.cpp	/^bool VerifyTransaction(json& tx, uint32_t id, bool thorough) {$/;"	f	typeref:typename:bool
-Version	dcc_client/dcc_client/Main.cpp	/^void Version()$/;"	f	typeref:typename:void
-WINDOWS	dcc_client/dcc_client/Main.cpp	/^#define WINDOWS /;"	d	file:
 WINDOWS	dcc_client/dcc_client/P2PClient.cpp	/^#define WINDOWS /;"	d	file:
-WriteProgramConfig	dcc_client/dcc_client/Blockchain.cpp	/^int WriteProgramConfig()$/;"	f	typeref:typename:int
-__anond53db7cf0102	dcc_client/dcc_client/strops.cpp	/^	s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](unsigned char ch) {$/;"	f	function:ltrim	file:
-__anond53db7cf0202	dcc_client/dcc_client/strops.cpp	/^	s.erase(std::find_if(s.rbegin(), s.rend(), [](unsigned char ch) {$/;"	f	function:rtrim	file:
-addHexNumbers	dcc_client/dcc_client/strops.cpp	/^std::string addHexNumbers(const std::string& hexNumberA, const std::string& hexNumberB) {$/;"	f	typeref:typename:std::string
-addOneToHexStr	dcc_client/dcc_client/strops.cpp	/^void addOneToHexStr(char* num, int len) {$/;"	f	typeref:typename:void
-addOneToHexStrInRange	dcc_client/dcc_client/strops.cpp	/^void addOneToHexStrInRange(char* num, int start, int len) {$/;"	f	typeref:typename:void
-benchmark	dcc_client/dcc_client/benchmark.cpp	/^unsigned long long benchmark(){$/;"	f	typeref:typename:unsigned long long
+_WINSOCK_DEPRECATED_NO_WARNINGS	dcc_client/dcc_client/P2PClient.h	/^#define _WINSOCK_DEPRECATED_NO_WARNINGS$/;"	d
+announce	dcc_client/dcc_client/P2PClient.h	/^		announce = 18,$/;"	e	enum:P2P::MsgStatus
+await_first_success	dcc_client/dcc_client/P2PClient.h	/^		await_first_success = 1,$/;"	e	enum:P2P::MsgStatus
+await_second_success	dcc_client/dcc_client/P2PClient.h	/^		await_second_success = 2,$/;"	e	enum:P2P::MsgStatus
 blockchainLength	dcc_client/dcc_client/P2PClient.cpp	/^int blockchainLength = 0;$/;"	v	typeref:typename:int
 buffer	dcc_client/dcc_client/P2PClient.cpp	/^char buffer[BUFFERLENGTH];$/;"	v	typeref:typename:char[]
-cConcatInt	dcc_client/dcc_client/strops.cpp	/^void cConcatInt(char* arr, char* outArr, int len, int x)$/;"	f	typeref:typename:void
-calculateFLOPS	dcc_client/dcc_client/benchmark.cpp	/^void calculateFLOPS(unsigned long long *p1, bool* isDone){$/;"	f	typeref:typename:void
-clampf	dcc_client/dcc_client/strops.cpp	/^float clampf(float x, float min, float max) {$/;"	f	typeref:typename:float
-connectionStatus	dcc_client/dcc_client/Main.cpp	/^int connectionStatus = 1;$/;"	v	typeref:typename:int
-csubstr	dcc_client/dcc_client/strops.cpp	/^void csubstr(char* arr, char* outArr, int begin, int len, int totalLen, int &actualSize)$/;"	f	typeref:typename:void
-d	dcc_client/dcc_client/strops.cpp	/^char d[30]; \/\/ Buffer for the CharStrStartsWith() function check$/;"	v	typeref:typename:char[30]
-dec2hex	dcc_client/dcc_client/strops.cpp	/^const BaseConverter& dec2hex = BaseConverter::DecimalToHexConverter();$/;"	v	typeref:typename:const BaseConverter &
-directoryList	dcc_client/dcc_client/Main.cpp	/^const std::string directoryList[] = { ".\/sec", ".\/wwwdata", ".\/wwwdata\/blockchain", ".\/wwwd/;"	v	typeref:typename:const std::string[]
-divideHexByFloat	dcc_client/dcc_client/strops.cpp	/^std::string divideHexByFloat(const std::string& hexNumber, float divisor) {$/;"	f	typeref:typename:std::string
-endpointAddr	dcc_client/dcc_client/Main.cpp	/^std::string endpointAddr = "";$/;"	v	typeref:typename:std::string
-endpointPort	dcc_client/dcc_client/Main.cpp	/^std::string endpointPort = "";$/;"	v	typeref:typename:std::string
-flops	dcc_client/dcc_client/Main.cpp	/^unsigned long long flops = 0;$/;"	v	typeref:typename:unsigned long long
-hex2dec	dcc_client/dcc_client/strops.cpp	/^const BaseConverter& hex2dec = BaseConverter::HexToDecimalConverter();$/;"	v	typeref:typename:const BaseConverter &
-hexLongDivision	dcc_client/dcc_client/strops.cpp	/^std::string hexLongDivision(const std::string& number, uint32_t divisor)$/;"	f	typeref:typename:std::string
-info	dcc_client/dcc_client/Main.cpp	/^struct stat info;$/;"	v	typeref:struct:stat
+completeDelugeList	dcc_client/dcc_client/P2PClient.h	/^	std::map<std::string, std::map<std::string, uint16_t>> completeDelugeList;$/;"	m	class:P2P	typeref:typename:std::map<std::string,std::map<std::string,uint16_t>>
+differentPeerAttempts	dcc_client/dcc_client/P2PClient.h	/^	int differentPeerAttempts = 0;$/;"	m	class:P2P	typeref:typename:int
+disconnect_request	dcc_client/dcc_client/P2PClient.h	/^		disconnect_request = 9,$/;"	e	enum:P2P::MsgStatus
+extraData	dcc_client/dcc_client/P2PClient.h	/^	std::string extraData = "";$/;"	m	class:P2P	typeref:typename:std::string
+height	dcc_client/dcc_client/P2PClient.h	/^	unsigned long long height = 0;$/;"	m	class:Peer	typeref:typename:unsigned long long
+idle	dcc_client/dcc_client/P2PClient.h	/^		idle = -1,$/;"	e	enum:P2P::MsgStatus
+initial_connect_request	dcc_client/dcc_client/P2PClient.h	/^		initial_connect_request = 0,$/;"	e	enum:P2P::MsgStatus
+ip	dcc_client/dcc_client/P2PClient.h	/^	std::string ip;$/;"	m	class:Peer	typeref:typename:std::string
 isAwaiting	dcc_client/dcc_client/P2PClient.cpp	/^bool P2P::isAwaiting() {$/;"	f	class:P2P	typeref:typename:bool
-json	dcc_client/dcc_client/Blockchain.h	/^using json = nlohmann::json;$/;"	t	typeref:typename:nlohmann::json
-json	dcc_client/dcc_client/Main.cpp	/^using json = nlohmann::json;$/;"	t	typeref:typename:nlohmann::json	file:
-keypair	dcc_client/dcc_client/Main.cpp	/^std::vector<std::string> keypair = { "", "" };$/;"	v	typeref:typename:std::vector<std::string>
+isServer	dcc_client/dcc_client/P2PClient.h	/^	bool isServer = false;$/;"	m	class:P2P	typeref:typename:bool
+json	dcc_client/dcc_client/P2PClient.h	/^using json = nlohmann::json;$/;"	t	typeref:typename:nlohmann::json
+keepPeersAlive	dcc_client/dcc_client/P2PClient.h	/^	bool keepPeersAlive = false;$/;"	m	class:P2P	typeref:typename:bool
 localSocket	dcc_client/dcc_client/P2PClient.cpp	/^int localSocket, newlocalSocket, portno;$/;"	v	typeref:typename:int
-longDivision	dcc_client/dcc_client/strops.cpp	/^std::string longDivision(const std::string& number, uint32_t divisor)$/;"	f	typeref:typename:std::string
-ltrim	dcc_client/dcc_client/strops.cpp	/^void ltrim(std::string& s)$/;"	f	typeref:typename:void
-main	dcc_client/dcc_client/Main.cpp	/^int main()$/;"	f	typeref:typename:int
-multiplyHexByFloat	dcc_client/dcc_client/strops.cpp	/^std::string multiplyHexByFloat(const std::string& hexNumber, float multiplier) {$/;"	f	typeref:typename:std::string
-multiplyHexByInteger	dcc_client/dcc_client/strops.cpp	/^std::string multiplyHexByInteger(const std::string& hexNumber, int multiplier) {$/;"	f	typeref:typename:std::string
+localSocket	dcc_client/dcc_client/P2PClient.h	/^	SOCKET localSocket;$/;"	m	class:P2P	typeref:typename:SOCKET
+messageAttempt	dcc_client/dcc_client/P2PClient.h	/^	int messageAttempt = 0;$/;"	m	class:P2P	typeref:typename:int
+messageStatus	dcc_client/dcc_client/P2PClient.h	/^	std::atomic_int messageStatus = -1;$/;"	m	class:P2P	typeref:typename:std::atomic_int
 mySendTo	dcc_client/dcc_client/P2PClient.cpp	/^int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, sockaddr* to, int toL/;"	f	class:P2P	typeref:typename:int
 newlocalSocket	dcc_client/dcc_client/P2PClient.cpp	/^int localSocket, newlocalSocket, portno;$/;"	v	typeref:typename:int
 otherAddr	dcc_client/dcc_client/P2PClient.cpp	/^SOCKADDR_IN otherAddr;$/;"	v	typeref:typename:SOCKADDR_IN
 otherAddr	dcc_client/dcc_client/P2PClient.cpp	/^sockaddr_in otherAddr;$/;"	v	typeref:typename:sockaddr_in
 otherAddrStr	dcc_client/dcc_client/P2PClient.cpp	/^std::string otherAddrStr;$/;"	v	typeref:typename:std::string
 otherSize	dcc_client/dcc_client/P2PClient.cpp	/^int otherSize;$/;"	v	typeref:typename:int
-outDatArray	dcc_client/dcc_client/Blockchain.cpp	/^char outDatArray[DELUGE_CHUNK_SIZE + 5];$/;"	v	typeref:typename:char[]
-p2p	dcc_client/dcc_client/Main.cpp	/^P2P p2p;$/;"	v	typeref:typename:P2P
+p2pConnections	dcc_client/dcc_client/P2PClient.h	/^	std::unordered_map<std::string, Peer*> p2pConnections;$/;"	m	class:P2P	typeref:typename:std::unordered_map<std::string,Peer * >
 peerBlockchainLength	dcc_client/dcc_client/P2PClient.cpp	/^int peerBlockchainLength = 0;$/;"	v	typeref:typename:int
-peerPort	dcc_client/dcc_client/Main.cpp	/^std::string peerPort = "";$/;"	v	typeref:typename:std::string
+peerIP	dcc_client/dcc_client/P2PClient.h	/^	std::string peerIP;$/;"	m	class:P2P	typeref:typename:std::string
+peerList	dcc_client/dcc_client/P2PClient.h	/^	std::vector<std::string> peerList;$/;"	m	class:P2P	typeref:typename:std::vector<std::string>
+peerList	dcc_client/dcc_client/P2PClient.h	/^	std::vector<std::string> peerList;$/;"	m	class:Peer	typeref:typename:std::vector<std::string>
+peerListID	dcc_client/dcc_client/P2PClient.h	/^	int peerListID = 0;$/;"	m	class:P2P	typeref:typename:int
+peerPort	dcc_client/dcc_client/P2PClient.h	/^	int peerPort;$/;"	m	class:P2P	typeref:typename:int
+port	dcc_client/dcc_client/P2PClient.h	/^	uint16_t port = 0;$/;"	m	class:Peer	typeref:typename:uint16_t
 portno	dcc_client/dcc_client/P2PClient.cpp	/^int localSocket, newlocalSocket, portno;$/;"	v	typeref:typename:int
-processor_count	dcc_client/dcc_client/benchmark.h	/^const auto processor_count = std::thread::hardware_concurrency();$/;"	v	typeref:typename:const auto
-programConfig	dcc_client/dcc_client/Blockchain.cpp	/^json programConfig;$/;"	v	typeref:typename:json
-programID	dcc_client/dcc_client/Blockchain.cpp	/^std::string programID;$/;"	v	typeref:typename:std::string
 remoteAddr	dcc_client/dcc_client/P2PClient.cpp	/^struct sockaddr_in serv_addr, remoteAddr;$/;"	v	typeref:struct:sockaddr_in
 remoteAddrLen	dcc_client/dcc_client/P2PClient.cpp	/^socklen_t remoteAddrLen;$/;"	v	typeref:typename:socklen_t
-round	dcc_client/dcc_client/strops.cpp	/^double round(float value, int decimal_places)$/;"	f	typeref:typename:double
-roundFloat	dcc_client/dcc_client/strops.cpp	/^inline static const std::string roundFloat(const double input, const int decimal_places)$/;"	f	typeref:typename:const std::string	file:
-rtrim	dcc_client/dcc_client/strops.cpp	/^void rtrim(std::string& s)$/;"	f	typeref:typename:void
+replying_block	dcc_client/dcc_client/P2PClient.h	/^		replying_block = 4,$/;"	e	enum:P2P::MsgStatus
+replying_deluge_chunk	dcc_client/dcc_client/P2PClient.h	/^		replying_deluge_chunk = 17,$/;"	e	enum:P2P::MsgStatus
+replying_deluge_file	dcc_client/dcc_client/P2PClient.h	/^		replying_deluge_file = 15,$/;"	e	enum:P2P::MsgStatus
+replying_height	dcc_client/dcc_client/P2PClient.h	/^		replying_height = 3,$/;"	e	enum:P2P::MsgStatus
+replying_peer_list	dcc_client/dcc_client/P2PClient.h	/^		replying_peer_list = 8,$/;"	e	enum:P2P::MsgStatus
+replying_pendingblock	dcc_client/dcc_client/P2PClient.h	/^		replying_pendingblock = 11,$/;"	e	enum:P2P::MsgStatus
+replying_transaction_process	dcc_client/dcc_client/P2PClient.h	/^		replying_transaction_process = 13,$/;"	e	enum:P2P::MsgStatus
+reqDat	dcc_client/dcc_client/P2PClient.h	/^	int reqDat = -1;$/;"	m	class:P2P	typeref:typename:int
+requesting_block	dcc_client/dcc_client/P2PClient.h	/^		requesting_block = 6,$/;"	e	enum:P2P::MsgStatus
+requesting_deluge_chunk	dcc_client/dcc_client/P2PClient.h	/^		requesting_deluge_chunk = 16,$/;"	e	enum:P2P::MsgStatus
+requesting_deluge_file	dcc_client/dcc_client/P2PClient.h	/^		requesting_deluge_file = 14,$/;"	e	enum:P2P::MsgStatus
+requesting_height	dcc_client/dcc_client/P2PClient.h	/^		requesting_height = 5,$/;"	e	enum:P2P::MsgStatus
+requesting_peer_list	dcc_client/dcc_client/P2PClient.h	/^		requesting_peer_list = 7,$/;"	e	enum:P2P::MsgStatus
+requesting_pendingblock	dcc_client/dcc_client/P2PClient.h	/^		requesting_pendingblock = 10,$/;"	e	enum:P2P::MsgStatus
+requesting_transaction_process	dcc_client/dcc_client/P2PClient.h	/^		requesting_transaction_process = 12,$/;"	e	enum:P2P::MsgStatus
+role	dcc_client/dcc_client/P2PClient.h	/^	int role = -1; \/\/   -1 == offline,  0 == requester,  1 == answerer$/;"	m	class:P2P	typeref:typename:int
 sendbuffer	dcc_client/dcc_client/P2PClient.cpp	/^char sendbuffer[BUFFERLENGTH];$/;"	v	typeref:typename:char[]
 serv_addr	dcc_client/dcc_client/P2PClient.cpp	/^struct sockaddr_in serv_addr, remoteAddr;$/;"	v	typeref:struct:sockaddr_in
-shiftHexNumber	dcc_client/dcc_client/strops.cpp	/^std::string shiftHexNumber(const std::string& hexNumber, int digits) {$/;"	f	typeref:typename:std::string
+set_peerlist	dcc_client/dcc_client/P2PClient.h	/^	void set_peerlist(std::vector<std::string> peerList){$/;"	f	class:Peer	typeref:typename:void
 stop_thread_1	dcc_client/dcc_client/P2PClient.cpp	/^std::atomic_bool stop_thread_1 = false;$/;"	v	typeref:typename:std::atomic_bool
 stop_thread_2	dcc_client/dcc_client/P2PClient.cpp	/^std::atomic_bool stop_thread_2 = false;$/;"	v	typeref:typename:std::atomic_bool
-stringToHex	dcc_client/dcc_client/strops.cpp	/^void stringToHex(char* input, char* output, int len) {$/;"	f	typeref:typename:void
-strops_h	dcc_client/dcc_client/strops.h	/^#define strops_h$/;"	d
-subOneFromHex	dcc_client/dcc_client/strops.cpp	/^void subOneFromHex(std::string& hexNumber, int index) {$/;"	f	typeref:typename:void
 thread_running	dcc_client/dcc_client/P2PClient.cpp	/^std::atomic_bool thread_running = false;$/;"	v	typeref:typename:std::atomic_bool
-toHexChar	dcc_client/dcc_client/strops.cpp	/^char toHexChar(int value) {$/;"	f	typeref:typename:char
-truncateMetricNum	dcc_client/dcc_client/strops.cpp	/^std::string truncateMetricNum(double x){$/;"	f	typeref:typename:std::string
-walletConfig	dcc_client/dcc_client/Main.cpp	/^json walletConfig;$/;"	v	typeref:typename:json
-walletInfo	dcc_client/dcc_client/Main.cpp	/^json walletInfo;$/;"	v	typeref:typename:json

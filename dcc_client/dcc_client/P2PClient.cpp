@@ -322,7 +322,8 @@ void P2P::ListenerThread(int update_interval)
 								console::DebugPrint();
 								console::WriteLine("Received initial connection, awaiting confirmation...", console::greenFGColor, "");
 							}
-							messageStatus = await_first_success; // Awaiting confirmation status
+							messageStatus = announce;
+							//messageStatus = await_first_success; // Awaiting confirmation status
 							messageAttempt = 0;
 							differentPeerAttempts = 0;
 
@@ -462,6 +463,24 @@ void P2P::ListenerThread(int update_interval)
 							if (SplitString(totalMessage, "~")[1] == "height") {
 								messagePrefix += "height~";
 								peerBlockchainLength = std::stoi(totalMessage.substr(messagePrefix.size()));
+								messageStatus = await_first_success;
+								if (WalletSettingValues::verbose >= 7) {
+									console::WriteLine("answer height: " + std::to_string(peerBlockchainLength), console::greenFGColor, "");
+								}
+							}
+							// If peer is responding to an announce
+							else if (SplitString(totalMessage, "~")[1] == "announce") {
+								messagePrefix += "announce~";
+								json announcedInfo = json::parse(totalMessage.substr(messagePrefix.size()));
+								// Add peer to collection of connections if not there yet
+								if(p2pConnections.find(otherAddrStr) == p2pConnections.end()){
+									Peer newPeer(otherAddrStr);
+									p2pConnections[otherAddrStr] = &newPeer;
+								}
+
+								p2pConnections[otherAddrStr]->height = announcedInfo["height"];
+								p2pConnections[otherAddrStr]->peerList = announcedInfo["peerList"];
+
 								messageStatus = await_first_success;
 								if (WalletSettingValues::verbose >= 7) {
 									console::WriteLine("answer height: " + std::to_string(peerBlockchainLength), console::greenFGColor, "");
@@ -643,8 +662,10 @@ void P2P::ListenerThread(int update_interval)
 						else
 							SetPeer(peerList.size()-1);
 						// Add peer to collection of connections
-						Peer newPeer(otherAddrStr);
-						p2pConnections[otherAddrStr] = &newPeer;
+						if(p2pConnections.find(otherAddrStr) == p2pConnections.end()){
+							Peer newPeer(otherAddrStr);
+							p2pConnections[otherAddrStr] = &newPeer;
+						}
 					}
 
 					// If connected but different, ignore.
@@ -733,7 +754,8 @@ void P2P::ListenerThread(int update_interval)
 							console::DebugPrint();
 							console::WriteLine("Received initial connection from ("+otherAddrStr+")", console::greenFGColor, "");
 						}
-						messageStatus = await_first_success; // Awaiting confirmation status
+						messageStatus = announce;
+						//messageStatus = await_first_success; // Awaiting confirmation status
 						messageAttempt = 0;
 						differentPeerAttempts = 0;
 
@@ -1202,6 +1224,33 @@ void P2P::SenderThread()
 						messageAttempt = 0;
 						continue;
 					}
+				}
+				// If replying to peer connect request with announce
+				else if (messageStatus == announce) {
+					namespace fs = std::filesystem;
+					std::vector<std::string> delugeHashes = std::vector<std::string>();
+					for (auto deluge : fs::directory_iterator("./wwwdata/deluges/")){
+						std::ifstream delugeFile(deluge.path());
+						if (delugeFile.is_open()) {
+							std::stringstream delugeFilebuf;
+							delugeFilebuf << delugeFile.rdbuf();
+							json delugeJson = json::parse(delugeFilebuf.str());
+							delugeFile.close();
+							delugeHashes.push_back((std::string)delugeJson["_totalHash"]);
+						}
+					}
+	
+					json infoCompilation = json();
+					infoCompilation = {
+						{"height", blockchainLength},
+						{"peerList", peerList},
+						{"delugeHashes", delugeHashes},
+					};
+					msg = "answer~announce~" + infoCompilation.dump();
+					if (WalletSettingValues::verbose >= 7) {
+						console::Write(msg + "\n");
+					}
+					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 				}
 				// Else if replying to height request
 				else if (messageStatus == replying_height) {

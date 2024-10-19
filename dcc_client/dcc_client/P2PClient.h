@@ -16,6 +16,8 @@
 #endif
 
 #include <iostream>
+#include <fstream>
+#include <filesystem>
 #include <thread>
 #include <math.h>
 
@@ -113,6 +115,8 @@ public:
 
 		requesting_deluge_chunk = 16,
 		replying_deluge_chunk = 17,
+
+		announce = 18,
 	};
 
 	int reqDat = -1;

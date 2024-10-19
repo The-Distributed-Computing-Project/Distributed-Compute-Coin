@@ -7111,6 +7111,40 @@ dcc_client/CMakeFiles/dcc_client.dir/P2PClient.cpp.o
  /usr/include/c++/12/bits/ostream.tcc
  /usr/include/c++/12/istream
  /usr/include/c++/12/bits/istream.tcc
+ /usr/include/c++/12/fstream
+ /usr/include/c++/12/bits/codecvt.h
+ /usr/include/x86_64-linux-gnu/c++/12/bits/basic_file.h
+ /usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h
+ /usr/include/c++/12/bits/fstream.tcc
+ /usr/include/c++/12/filesystem
+ /usr/include/c++/12/bits/fs_fwd.h
+ /usr/include/c++/12/bits/chrono.h
+ /usr/include/c++/12/ratio
+ /usr/include/c++/12/limits
+ /usr/include/c++/12/ctime
+ /usr/include/c++/12/bits/parse_numbers.h
+ /usr/include/c++/12/bits/fs_path.h
+ /usr/include/c++/12/locale
+ /usr/include/c++/12/bits/locale_facets_nonio.h
+ /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h
+ /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h
+ /usr/include/libintl.h
+ /usr/include/c++/12/bits/locale_facets_nonio.tcc
+ /usr/include/c++/12/bits/locale_conv.h
+ /usr/include/c++/12/iomanip
+ /usr/include/c++/12/bits/quoted_string.h
+ /usr/include/c++/12/sstream
+ /usr/include/c++/12/bits/sstream.tcc
+ /usr/include/c++/12/codecvt
+ /usr/include/c++/12/ext/concurrence.h
+ /usr/include/c++/12/bits/shared_ptr.h
+ /usr/include/c++/12/bits/shared_ptr_base.h
+ /usr/include/c++/12/bits/allocated_ptr.h
+ /usr/include/c++/12/bits/unique_ptr.h
+ /usr/include/c++/12/bit
+ /usr/include/c++/12/bits/align.h
+ /usr/include/c++/12/bits/fs_dir.h
+ /usr/include/c++/12/bits/fs_ops.h
  /usr/include/c++/12/thread
  /usr/include/c++/12/stop_token
  /usr/include/c++/12/atomic
@@ -7134,14 +7168,8 @@ dcc_client/CMakeFiles/dcc_client.dir/P2PClient.cpp.o
  /usr/include/x86_64-linux-gnu/bits/syscall.h
  /usr/include/c++/12/bits/std_mutex.h
  /usr/include/c++/12/bits/std_thread.h
- /usr/include/c++/12/bits/unique_ptr.h
  /usr/include/c++/12/semaphore
  /usr/include/c++/12/bits/semaphore_base.h
- /usr/include/c++/12/bits/chrono.h
- /usr/include/c++/12/ratio
- /usr/include/c++/12/limits
- /usr/include/c++/12/ctime
- /usr/include/c++/12/bits/parse_numbers.h
  /usr/include/c++/12/bits/atomic_timed_wait.h
  /usr/include/c++/12/bits/this_thread_sleep.h
  /usr/include/x86_64-linux-gnu/sys/time.h
@@ -7192,12 +7220,6 @@ dcc_client/CMakeFiles/dcc_client.dir/P2PClient.cpp.o
  /usr/include/c++/12/bits/stream_iterator.h
  /usr/include/c++/12/memory
  /usr/include/c++/12/bits/stl_raw_storage_iter.h
- /usr/include/c++/12/bits/align.h
- /usr/include/c++/12/bit
- /usr/include/c++/12/bits/shared_ptr.h
- /usr/include/c++/12/bits/shared_ptr_base.h
- /usr/include/c++/12/bits/allocated_ptr.h
- /usr/include/c++/12/ext/concurrence.h
  /usr/include/c++/12/bits/shared_ptr_atomic.h
  /usr/include/c++/12/backward/auto_ptr.h
  /usr/include/c++/12/bits/ranges_uninitialized.h
@@ -7230,24 +7252,6 @@ dcc_client/CMakeFiles/dcc_client.dir/P2PClient.cpp.o
  /usr/include/c++/12/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /usr/include/c++/12/filesystem
- /usr/include/c++/12/bits/fs_fwd.h
- /usr/include/c++/12/bits/fs_path.h
- /usr/include/c++/12/locale
- /usr/include/c++/12/bits/locale_facets_nonio.h
- /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h
- /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h
- /usr/include/libintl.h
- /usr/include/c++/12/bits/codecvt.h
- /usr/include/c++/12/bits/locale_facets_nonio.tcc
- /usr/include/c++/12/bits/locale_conv.h
- /usr/include/c++/12/iomanip
- /usr/include/c++/12/bits/quoted_string.h
- /usr/include/c++/12/sstream
- /usr/include/c++/12/bits/sstream.tcc
- /usr/include/c++/12/codecvt
- /usr/include/c++/12/bits/fs_dir.h
- /usr/include/c++/12/bits/fs_ops.h
  /usr/include/c++/12/any
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/strops.h
  /home/sam/Code/Distributed-Compute-Coin/dcc_client/dcc_client/Console.h
@@ -8345,10 +8349,6 @@ dcc_client/CMakeFiles/dcc_client.dir/P2PClient.cpp.o
  /usr/include/boost/filesystem/convenience.hpp
  /usr/include/boost/filesystem/string_file.hpp
  /usr/include/boost/filesystem/fstream.hpp
- /usr/include/c++/12/fstream
- /usr/include/x86_64-linux-gnu/c++/12/bits/basic_file.h
- /usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h
- /usr/include/c++/12/bits/fstream.tcc
  /usr/include/boost/process/detail/posix/compare_handles.hpp
  /usr/include/boost/asio/posix/stream_descriptor.hpp
  /usr/include/boost/asio/posix/basic_stream_descriptor.hpp

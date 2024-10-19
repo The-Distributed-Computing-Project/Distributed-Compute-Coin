@@ -599,7 +599,7 @@ int main()
 					console::WriteLine("\"" + delugeDir + "\"", console::yellowFGColor);
 
 					// Make table
-					console::WriteIndented("+---------------------------------+-------------------------+--------+\n", "", "", 1);
+					console::WriteIndented("+---------------------------------+-------------------------+--------+-----------+\n", "", "", 1);
 
 					// Colored headers
 					console::WriteIndented("| ", "", "", 1);
@@ -609,9 +609,11 @@ int main()
 					console::Write("                      |");
 					console::Write(" Peers", console::cyanFGColor, "");
 					console::Write("  |");
+					console::Write(" Size", console::cyanFGColor, "");
+					console::Write("      |");
 					console::WriteLine();
 
-					console::WriteIndented("+---------------------------------+-------------------------+--------+\n", "", "", 1);
+					console::WriteIndented("+---------------------------------+-------------------------+--------+-----------+\n", "", "", 1);
 					for (auto deluge : fs::directory_iterator(delugeDir))
 					{
 						std::ifstream delugeFile(deluge.path());
@@ -624,6 +626,7 @@ int main()
 							console::WriteIndented("| " + PadStringRight((std::string)delugeJson["_name"], ' ', 32) + "| ", "", "", 1);
 							console::Write(((std::string)delugeJson["_totalHash"]).substr(0, 20) + "... |");
 							console::Write(PadString(std::to_string(delugeJson["peers"].size()), ' ', 7) + " |");
+							console::Write(PadString(truncateMetricNum((unsigned long long)delugeJson["_totalSizeB"]), ' ', 9) + "B |");
 							console::WriteLine();
 
 							//// Verify the deluge, by checking each chunk with its expected hash, and then the full hash
@@ -641,7 +644,7 @@ int main()
 							//}
 						}
 					}
-					console::WriteIndented("+---------------------------------+-------------------------+--------+\n", "", "", 1);
+					console::WriteIndented("+---------------------------------+-------------------------+--------+-----------+\n", "", "", 1);
 				}
 			}
 			else if (commandParts[0] == "--LIST-PEERS" || commandParts[0] == "-LP")

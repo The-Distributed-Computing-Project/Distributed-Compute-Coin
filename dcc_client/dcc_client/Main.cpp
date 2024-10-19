@@ -239,7 +239,6 @@ int main()
 		}
 	}
 
-	p2p.InitPeerList();
 
 
 	// Load the wallet config file and get the P2P port and IP
@@ -271,6 +270,7 @@ int main()
 
 	// Open the socket required to accept P2P requests and send responses
 	p2p.OpenP2PSocket((int)walletConfig["port"]);
+	p2p.InitPeerList();
 	p2p.keepPeersAlive = (bool)walletConfig["keepAlive"];
 	p2p.isServer = (bool)walletConfig["isServer"];
 	// Start the P2P listener thread

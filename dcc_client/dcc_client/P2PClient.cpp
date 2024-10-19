@@ -41,7 +41,7 @@ struct sockaddr_in serv_addr, remoteAddr;
 #define GETSOCKETERRORNO() (errno)
 #endif
 
-Peer::Peer(std::string ipPort) {
+Peer::Peer(std::string& ipPort) {
 	ip = SplitString(ipPort, ":")[0];
 	port = stoi(SplitString(ipPort, ":")[1]);
 }
@@ -55,9 +55,7 @@ bool P2P::InPeerList(std::string& ipPort){
 void P2P::AddToPeerList(std::string& ipPort){
 	if(!InPeerList(ipPort)){
 		// Add peer to collection of connections
-		Peer newPeer(ipPort);
-		p2pConnections[ipPort] = &newPeer;
-		SavePeerList();
+		p2pConnections.insert(std::make_pair(ipPort, new Peer(ipPort)));
 	}
 }
 
@@ -626,7 +624,7 @@ void P2P::InitPeerList() {
 		std::ofstream peerFileW("./wwwdata/peerlist.list");
 		if (peerFileW.is_open())
 		{
-			peerFileW << DCCARK_ADDR ":0";
+			peerFileW << DCCARK_ADDR;
 			peerFileW.close();
 		}
 		peerFileW.close();
@@ -741,6 +739,7 @@ int P2P::OpenP2PSocket(int port)
 
 // Function to get random peer credentials from the peerList
 void P2P::RandomizePeer() {
+	messageStatus = initial_connect_request;
 	if (p2pConnections.size() == 0)
 	{
 		peerListID = DCCARK_ADDR;
@@ -753,14 +752,15 @@ void P2P::RandomizePeer() {
 		uint16_t randI = rand() % p2pConnections.size();
 		auto it = p2pConnections.begin();
 		std::advance(it, randI);
-		peerListID = it->second->ip;
-		peerIP = it->second->ip;
+		std::cout << "IPCHOSEN: " << it->first << std::endl;
+		std::cout << "ipPart: " << it->second->ip << std::endl;
+		peerListID = (std::string)(it->second->ip);
+		peerIP = (std::string)(it->second->ip);
 		peerPort = it->second->port;
-		console::WriteLine("Randomized to: " + peerIP + " " + std::to_string(peerPort));
 	}
 	catch (const std::exception& e)
 	{
-		ERRORMSG("stoi() failed to parse input");
+		ERRORMSG(e.what());
 	}
 }
 
@@ -778,7 +778,7 @@ void P2P::SetPeer(std::string key) {
 	}
 	catch (const std::exception& e)
 	{
-		ERRORMSG("stoi() failed to parse input");
+		ERRORMSG(e.what());
 	}
 }
 
@@ -801,7 +801,10 @@ void P2P::SenderThread()
 			otherAddr.sin_port = htons(peerPort);
 			otherAddr.sin_family = AF_INET;
 			otherAddr.sin_addr.s_addr = inet_addr(peerIP.c_str());
-			//otherAddrStr = NormalizedIPString(otherAddr);
+
+			//printf("%s\n", peerIP);
+
+			otherAddrStr = NormalizedIPString(otherAddr);
 			//std::cout << "peer: \""<<peerIP.c_str() << "\"" << std::endl;
 
 			otherSize = sizeof(otherAddr);

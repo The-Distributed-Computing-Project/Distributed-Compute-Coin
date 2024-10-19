@@ -45,7 +45,7 @@ using json = nlohmann::json;
 
 class Peer{
 public:
-	std::string ip;
+	std::string ip = "";
 	uint16_t port = 0;
 	unsigned long long height = 0;
 	uint16_t life = 0;
@@ -57,7 +57,7 @@ public:
 		this->peerList = peerList;
 	}
 
-	Peer(std::string ipPort);
+	Peer(std::string& ipPort);
 };
 
 class P2P
@@ -89,7 +89,7 @@ public:
 
 	int role = -1; //   -1 == offline,  0 == requester,  1 == answerer
 
-	std::atomic_int messageStatus = 0;
+	std::atomic_int messageStatus = -1;
 	enum MsgStatus {
 		idle = -1,
 		initial_connect_request = 0,

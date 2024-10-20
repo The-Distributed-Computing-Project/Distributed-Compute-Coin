@@ -37,3 +37,4 @@ dcc_client/out/_deps/cpr-src/
 dcc_client/out/_deps/zlib-src/
 dcc_client/out/dcc_client/TestProgram/
 *.ilk
+core

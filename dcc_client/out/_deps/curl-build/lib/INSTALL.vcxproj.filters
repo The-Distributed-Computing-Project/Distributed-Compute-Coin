@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <CustomBuild Include="D:\Code\DC-Cryptocurrency\dcc_client\out\CMakeFiles\9d6cb1e3653391c4d180fe2cc4645ae7\INSTALL_force.rule">

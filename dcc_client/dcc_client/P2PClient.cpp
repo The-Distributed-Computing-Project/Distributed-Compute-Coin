@@ -869,7 +869,7 @@ void P2P::SenderThread()
 						{"peerList", GeneratePeerList()},
 						{"delugeHashes", delugeHashes},
 					};
-					msg = "peer~answer~" + infoCompilation.dump();
+					msg = "peer~connect~" + infoCompilation.dump();
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 				}
 				// If doing disconnect request

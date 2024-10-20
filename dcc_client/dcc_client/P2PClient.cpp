@@ -320,9 +320,12 @@ void P2P::ListenerThread(int update_interval)
 						maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
 						segLength = std::stoi(SplitString(segInfo, ":")[5]) + segInfo.size() + 1;
 					}
-					catch(...){ // If invalid segInfo header, ignore
-						if (WalletSettingValues::verbose >= 4)
+					catch (const std::exception& e){
+					//catch(...){ // If invalid segInfo header, ignore
+						if (WalletSettingValues::verbose >= 4){
 							console::WriteLine("Received invalid DCC_SEGMENT_HEADER ", console::redFGColor, "");
+							ERRORMSG(e.what());
+						}
 						continue;
 					}
 					//char* tempContent = buffer;

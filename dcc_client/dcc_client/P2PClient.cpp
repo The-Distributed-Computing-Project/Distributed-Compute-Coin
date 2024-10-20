@@ -116,10 +116,10 @@ int P2P::mySendTo(int socket, std::string& s, int len, int redundantFlags, socka
 		int segmentCount = 1;
 		while (bytesLeft > 0) {
 			//std::string segInfo = "seg " + + " of " + + ", " + + " bytes|";
-			std::string segInfo = "seg :" + std::to_string(segmentCount) +
+			std::string segInfo = "DCC_SEGMENT_HEADER :" + std::to_string(segmentCount) +
 				": of :" + std::to_string((int)ceil((float)len / (float)MESSAGESIZE)) +
 				": , :" + std::to_string((bytesLeft < MESSAGESIZE) ? bytesLeft : MESSAGESIZE) +
-				": bytes&";
+				": BYTES TOTAL\n";
 
 			int segSize = segInfo.size();
 
@@ -310,19 +310,19 @@ void P2P::ListenerThread(int update_interval)
 					maxSegments = 0;
 					int segLength;
 					try{
-						if(!StringContains(textVal, '&'))
+						//if(!StringContains(textVal, '&'))
+						//	throw 1;
+						if(StringStartsWith(segInfo, "DCC_SEGMENT_HEADER") == false)
 							throw 1;
-						if(StringStartsWith(segInfo, "seg") == false)
-							throw 1;
-						segInfo = SplitString(textVal, "&")[0];
-						std::string s = SplitString(textVal, "&")[1]; // This value is not used, but tested to ensure the segInfo header is there
+						segInfo = SplitString(textVal, "\n")[0];
+						std::string s = SplitString(textVal, "\n")[1]; // This value is not used, but tested to ensure the segInfo header is there
 						segNumber = std::stoi(SplitString(segInfo, ":")[1]);
 						maxSegments = std::stoi(SplitString(segInfo, ":")[3]);
 						segLength = std::stoi(SplitString(segInfo, ":")[5]) + segInfo.size() + 1;
 					}
 					catch(...){ // If invalid segInfo header, ignore
 						if (WalletSettingValues::verbose >= 4)
-							console::WriteLine("Received invalid segInfo header", console::redFGColor, "");
+							console::WriteLine("Received invalid DCC_SEGMENT_HEADER ", console::redFGColor, "");
 						continue;
 					}
 					//char* tempContent = buffer;

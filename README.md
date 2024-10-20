@@ -1,6 +1,6 @@
 
 
-# <img src="./DCC-Miner/DCC-Logo-3.png" height="30rem" style="margin:auto"> Distributed Compute Coin
+# <img src="./dcc_client/DCC-Logo4.png" height="30rem" style="margin:auto"> Distributed Compute Coin
 
 [![Badge License]][License]   [![Button Discord]][Discord Server]
 

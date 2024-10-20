@@ -166,6 +166,15 @@ bool StringContains(std::string& str, std::string check)
 	}
 	return false;
 }
+// See if a string <str> contains another <check>
+bool StringContains(std::string& str, char check)
+{
+	if (str.find(check, 0) < str.size())
+	{
+		return true;
+	}
+	return false;
+}
 
 // trim from start (in place)
 void ltrim(std::string& s)

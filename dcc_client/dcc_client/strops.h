@@ -23,6 +23,7 @@ std::string PadStringRight(const std::string& input, char padChar, size_t desire
 std::string ExtractPaddedChars(const std::string& input, char padChar);
 std::vector<std::string> SplitString(std::string& str, std::string delim);
 bool StringContains(std::string& str, std::string check);
+bool StringContains(std::string& str, char check);
 void ltrim(std::string& s);
 void rtrim(std::string& s);
 // Overridden by boost::trim

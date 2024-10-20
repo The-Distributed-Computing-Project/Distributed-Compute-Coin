@@ -272,14 +272,9 @@ void P2P::ListenerThread(int update_interval)
 					fromIPString += std::to_string(ntohs(remoteAddr.sin_port));
 
 					// See if peer is somewhere in the peerlist
-					if(InPeerList(fromIPString)){
-						// Reset life of this peer to 0
-						p2pConnections[fromIPString]->life = 0;
-					}
-					else {
-						// Add peer to collection of connections
-						AddToPeerList(fromIPString);
-					}
+					AddToPeerList(fromIPString);
+					// Reset life of this peer to 0
+					p2pConnections[fromIPString]->life = 0;
 
 					// If not currently connected, accept this connection.
 					if ((otherAddrStr == "" || otherAddrStr == "0.0.0.0:0") && otherAddrStr != clientIPPort){
@@ -386,11 +381,10 @@ void P2P::ListenerThread(int update_interval)
 
 						CONNECTED_TO_PEER = true;
 						
-						// Add item to peer list, and save to file
-						if(!InPeerList(otherAddrStr)){
-							// Add peer to collection of connections
-							AddToPeerList(otherAddrStr);
-						}
+						// Add peer to collection of connections
+						AddToPeerList(otherAddrStr);
+
+						p2pConnections[otherAddrStr]->testedOnline = true;
 					}
 					// If the peer is ending the connection
 					else if (totalMessage == "peer~disconnect") {
@@ -519,9 +513,7 @@ void P2P::ListenerThread(int update_interval)
 							messagePrefix += "announce~";
 							json announcedInfo = json::parse(totalMessage.substr(messagePrefix.size()));
 							// Add peer to collection of connections if not there yet
-							if(p2pConnections.find(otherAddrStr) == p2pConnections.end()){
-								AddToPeerList(otherAddrStr);
-							}
+							AddToPeerList(otherAddrStr);
 
 							p2pConnections[otherAddrStr]->height = announcedInfo["height"];
 							p2pConnections[otherAddrStr]->peerList = announcedInfo["peerList"];
@@ -634,17 +626,12 @@ void P2P::InitPeerList() {
 	// Create a new Peer entry in p2pConnections for each address
 	while (std::getline(peerFile, line)) {
 		if (line[0] != '#' && line != ""){
-			if(!InPeerList(line)){
-				// Add peer to collection of connections
-				AddToPeerList(line);
-			}
+			AddToPeerList(line);
 		}
 	}
 	// If DCCARK is not in peerlist, add it.
 	std::string arkIP = DCCARK_ADDR;
-	if(!InPeerList(arkIP)){
-		AddToPeerList(arkIP);
-	}
+	AddToPeerList(arkIP);
 
 	peerFile.close();
 	SavePeerList();

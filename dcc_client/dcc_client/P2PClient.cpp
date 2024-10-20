@@ -288,7 +288,6 @@ void P2P::ListenerThread(int update_interval)
 
 						otherAddrStr = fromIPString;
 						SetPeer(otherAddrStr);
-						std::cout << "New peer found at: " << otherAddrStr << std::endl; 
 					}
 
 					// If connected but different, ignore.
@@ -526,6 +525,7 @@ void P2P::ListenerThread(int update_interval)
 
 							p2pConnections[otherAddrStr]->height = announcedInfo["height"];
 							p2pConnections[otherAddrStr]->peerList = announcedInfo["peerList"];
+							p2pConnections[otherAddrStr]->testedOnline = true;
 
 							messageStatus = await_first_success;
 							if (WalletSettingValues::verbose >= 7) {
@@ -739,7 +739,8 @@ int P2P::OpenP2PSocket(int port)
 
 // Function to get random peer credentials from the peerList
 void P2P::RandomizePeer() {
-	messageStatus = initial_connect_request;
+	if(!isServer)
+		messageStatus = initial_connect_request;
 	if (p2pConnections.size() == 0)
 	{
 		peerListID = DCCARK_ADDR;
@@ -872,6 +873,7 @@ void P2P::SenderThread()
 					if (messageAttempt >= 2) {
 						messageStatus = idle;
 						messageAttempt = 0;
+						otherAddrStr = "";
 						continue;
 					}
 				}

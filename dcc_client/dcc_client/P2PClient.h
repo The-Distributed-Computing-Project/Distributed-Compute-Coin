@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include <map>
 #include <iterator>
+#include <stdexcept>
 
 #if WINDOWS
 #include <winsock2.h>

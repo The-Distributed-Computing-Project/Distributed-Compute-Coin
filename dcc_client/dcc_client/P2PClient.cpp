@@ -312,8 +312,8 @@ void P2P::ListenerThread(int update_interval)
 					try{
 						//if(!StringContains(textVal, '&'))
 						//	throw 1;
-						if(StringStartsWith(segInfo, "DCC_SEGMENT_HEADER") == false)
-							throw "Header did not start with DCC_SEGMENT_HEADER";
+						if(StringStartsWith(textVal, "DCC_SEGMENT_HEADER") == false)
+							throw std::runtime_error("Header did not start with DCC_SEGMENT_HEADER");
 						segInfo = SplitString(textVal, "\n")[0];
 						std::string s = SplitString(textVal, "\n")[1]; // This value is not used, but tested to ensure the segInfo header is there
 						segNumber = std::stoi(SplitString(segInfo, ":")[1]);
@@ -324,6 +324,8 @@ void P2P::ListenerThread(int update_interval)
 					//catch(...){ // If invalid segInfo header, ignore
 						if (WalletSettingValues::verbose >= 4){
 							console::WriteLine("Received invalid DCC_SEGMENT_HEADER ", console::redFGColor, "");
+						}
+						if (WalletSettingValues::verbose >= 5){
 							ERRORMSG(e.what());
 						}
 						continue;

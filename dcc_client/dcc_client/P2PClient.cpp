@@ -243,6 +243,7 @@ void P2P::ListenerThread(int update_interval)
 			std::string totalMessage = "";
 			std::map<int, std::string> messageParts = std::map<int, std::string>();
 			int maxSegments = 0;
+			uint32_t noreceipt = 0; // A counter that increments each time tick there is no message
 
 			while (!stop_thread_1)
 			{
@@ -263,6 +264,8 @@ void P2P::ListenerThread(int update_interval)
 
 				if (iResult > 0) {
 
+					noreceipt = 0;
+
 					// Get the IPV4 address:port pair of the received data. If it
 					// matches the expected one, continue. If it does not, then
 					// stop. If the current one is blank or has disconnected,
@@ -277,7 +280,7 @@ void P2P::ListenerThread(int update_interval)
 					p2pConnections[fromIPString]->life = 0;
 
 					// If not currently connected, accept this connection.
-					if ((otherAddrStr == "" || otherAddrStr == "0.0.0.0:0") && otherAddrStr != clientIPPort){
+					if (otherAddrStr == "" || otherAddrStr == "0.0.0.0:0"){
 						if (WalletSettingValues::verbose >= 4)
 							console::WriteLine("\nConversation Started", console::greenFGColor, "");
 
@@ -586,6 +589,17 @@ void P2P::ListenerThread(int update_interval)
 						messageAttempt = 0;
 
 					}
+				}
+				else if(noreceipt >= 100){
+					if(WalletSettingValues::verbose >= 4 && otherAddrStr != "")
+						console::WriteLine("noreceipt timeout check");
+					messageStatus = idle;
+					messageAttempt = 0;
+					otherAddrStr = "";
+					noreceipt = 0;
+				}
+				else{
+					noreceipt++;
 				}
 #if WINDOWS
 				else if (WSAGetLastError() != WSAETIMEDOUT && WalletSettingValues::verbose >= 5) {
@@ -1092,6 +1106,7 @@ void P2P::SenderThread()
 						console::NetworkErrorPrint();
 						console::WriteLine("!! No peers seem to be online. Please try again later. !!", console::redFGColor, "");
 						differentPeerAttempts = 0;
+						otherAddrStr = "";
 						reqDat = -1;
 					}
 				}
@@ -1099,6 +1114,7 @@ void P2P::SenderThread()
 				else {
 					role = -1;
 					messageStatus = idle;
+					otherAddrStr = "";
 					if(WalletSettingValues::verbose >= 5){
 						console::NetworkErrorPrint();
 						console::WriteLine("Asking peer went offline.", console::redFGColor, "");

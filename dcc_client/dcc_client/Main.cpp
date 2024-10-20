@@ -274,6 +274,8 @@ int main()
 	p2p.keepPeersAlive = (bool)walletConfig["keepAlive"];
 	p2p.isServer = (bool)walletConfig["isServer"];
 	p2p.InitPeerList();
+	if(p2p.isServer == false)
+		p2p.RandomizePeer();
 	// Start the P2P listener thread
 	std::thread t1(&P2P::ListenerThread, &p2p, 10);
 	// Start the P2P sender thread

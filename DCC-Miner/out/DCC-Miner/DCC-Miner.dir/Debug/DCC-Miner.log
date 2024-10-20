@@ -1,9 +1,0 @@
-﻿cl : command line  warning D9002: ignoring unknown option '-O3'
-  Main.cpp
-  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
-  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
-  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
-  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(49,54): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Code\DC-Cryptocurrency\DCC-Miner\DCC-Miner\Main.cpp(598,93): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-  DCC-Miner.vcxproj -> D:\Code\DC-Cryptocurrency\DCC-Miner\out\DCC-Miner\Debug\DCC-Miner.exe

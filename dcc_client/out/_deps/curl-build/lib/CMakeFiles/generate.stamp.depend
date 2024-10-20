@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-build/lib/Makefile.inc.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/lib/CMakeLists.txt
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/lib/Makefile.inc
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/lib/curl_config.h.cmake

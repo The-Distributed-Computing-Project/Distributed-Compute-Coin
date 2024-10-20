@@ -1,0 +1,15 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakeDetermineSystem.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakeSystem.cmake.in
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/ExternalProject-gitupdate.cmake.in
+C:/Program Files/CMake/share/cmake-3.21/Modules/ExternalProject.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/RepositoryInfo.txt.in
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/3.21.4/CMakeSystem.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeLists.txt
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-cfgcmd.txt.in

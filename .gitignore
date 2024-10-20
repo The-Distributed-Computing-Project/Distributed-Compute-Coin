@@ -1,4 +1,5 @@
-
+*.deluge
+*.tar.zip
 CPPClient/.vs/CPPClient/v16/ipch/AutoPCH/79e064bba4ed3c10/CPPCLIENT.ipch
 AutoPCH
 Preview
@@ -12,6 +13,7 @@ FileContentIndex
 *.dccwallet
 *.lnk
 *.dccblock
+*.dccsuper
 programs
 slnx.sqlite
 DCC-Miner/.vs/slnx.sqlite
@@ -21,9 +23,18 @@ DCC-Miner/out/build/x64-debug/DCC-Miner/DCC-Miner.pdb
 DCC-Miner/out/build/x64-debug/DCC-Miner/DCC-Miner.pdb
 *.pdb
 *.db
-*/sec/*
-*/wwwdata/*
+/sec/
+/wwwdata/
+wwwdata/
 .vs
+*.obj
 *.pem
 */config.cfg
 *.list
+DCC-Miner/out/_deps/cpr-src/
+DCC-Miner/out/_deps/zlib-src/
+dcc_client/out/_deps/cpr-src/
+dcc_client/out/_deps/zlib-src/
+dcc_client/out/dcc_client/TestProgram/
+*.ilk
+core

@@ -1,0 +1,82 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.21/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakeConfigurableFile.in
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CMakePushCheckState.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCSourceRuns.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckCXXSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckFunctionExists.c
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckFunctionExists.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckIncludeFile.c.in
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckIncludeFiles.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckStructHasMember.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckTypeSize.c.in
+C:/Program Files/CMake/share/cmake-3.21/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindCygwin.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindMsys.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindPerl.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindThreads.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/FindZLIB.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/SelectLibraryConfigurations.cmake
+C:/Program Files/CMake/share/cmake-3.21/Modules/WriteBasicConfigVersionFile.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_ARPA_TFTP_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_ASSERT_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_ERRNO_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_IDN2_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_IFADDRS_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_KRB_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_LIBGEN_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_LOCALE_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_NETINET_TCP_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_PEM_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_POLL_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_SSL_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_STDBOOL_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_STDIO_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_STROPTS_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_SYS_FILIO_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_SYS_IOCTL_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RESOURCE_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UIO_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UN_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTSNAME_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_SYS_XATTR_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_WINSOCK2_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckIncludeFiles/HAVE_WS2TCPIP_H.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/SIZEOF_ADDRESS_FAMILY.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/SIZEOF_CURL_OFF_T.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/SIZEOF_INT.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/SIZEOF_LONG.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/SIZEOF_LONG_LONG.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/SIZEOF_OFF_T.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/SIZEOF_SA_FAMILY_T.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/SIZEOF_SHORT.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/SIZEOF_SIZE_T.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/SIZEOF_SSIZE_T.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/SIZEOF_STRUCT_SOCKADDR_STORAGE.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/SIZEOF_TIME_T.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/CMakeFiles/CheckTypeSize/SIZEOF___INT64.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/CurlSymbolHiding.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/CurlTests.c
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/FindLibSSH2.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/Macros.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/OtherTests.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/Platforms/WindowsCache.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/Utilities.cmake
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/cmake_uninstall.cmake.in
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMake/curl-config.cmake.in
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/CMakeLists.txt
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/curl-config.in
+D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/curl-src/libcurl.pc.in

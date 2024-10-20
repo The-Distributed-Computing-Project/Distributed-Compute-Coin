@@ -369,22 +369,31 @@ void P2P::ListenerThread(int update_interval)
 					std::string messagePrefix = "";
 
 					// If the peer is requesting to connect
-					if (totalMessage == "peer~connect") {
+					if (StringStartsWith(totalMessage, "peer~connect")) {
+						role = 0;
 						if (WalletSettingValues::verbose >= 4) {
 							console::DebugPrint();
 							console::WriteLine("Received initial connection from ("+otherAddrStr+")", console::greenFGColor, "");
 						}
+						messagePrefix += "peer~connect~";
+						json announcedInfo = json::parse(totalMessage.substr(messagePrefix.size()));
+						// Add peer to collection of connections if not there yet
+						AddToPeerList(otherAddrStr);
+
+						p2pConnections[otherAddrStr]->height = announcedInfo["height"];
+						p2pConnections[otherAddrStr]->peerList = announcedInfo["peerList"];
+						p2pConnections[otherAddrStr]->testedOnline = true;
+
+						if (WalletSettingValues::verbose >= 7) {
+							console::WriteLine("answer peerconnect", console::greenFGColor, "");
+						}
+
 						messageStatus = announce;
 						//messageStatus = await_first_success; // Awaiting confirmation status
 						messageAttempt = 0;
 						differentPeerAttempts = 0;
 
 						CONNECTED_TO_PEER = true;
-						
-						// Add peer to collection of connections
-						AddToPeerList(otherAddrStr);
-
-						p2pConnections[otherAddrStr]->testedOnline = true;
 					}
 					// If the peer is ending the connection
 					else if (totalMessage == "peer~disconnect") {
@@ -833,11 +842,34 @@ void P2P::SenderThread()
 
 				// If doing initial connect request
 				if (messageStatus == initial_connect_request) {
-					role = 0;
-					msg = "peer~connect";
-					if (WalletSettingValues::verbose >= 7) {
-						console::Write(msg + "\n");
+					//role = 0;
+					//msg = "peer~connect";
+					//if (WalletSettingValues::verbose >= 7) {
+					//	console::Write(msg + "\n");
+					//}
+					//role = 1;
+					namespace fs = std::filesystem;
+					std::vector<std::string> delugeHashes = std::vector<std::string>();
+					for (auto deluge : fs::directory_iterator("./wwwdata/deluges/")){
+						std::ifstream delugeFile(deluge.path());
+						if (delugeFile.is_open()) {
+							std::stringstream delugeFilebuf;
+							delugeFilebuf << delugeFile.rdbuf();
+							json delugeJson = json::parse(delugeFilebuf.str());
+							delugeFile.close();
+							delugeHashes.push_back((std::string)delugeJson["_totalHash"]);
+						}
 					}
+
+					blockchainLength = FileCount("./wwwdata/blockchain/");
+	
+					json infoCompilation = json();
+					infoCompilation = {
+						{"height", blockchainLength},
+						{"peerList", GeneratePeerList()},
+						{"delugeHashes", delugeHashes},
+					};
+					msg = "peer~answer~" + infoCompilation.dump();
 					mySendTo(localSocket, msg, msg.length(), 0, (sockaddr*)&otherAddr, otherSize);
 				}
 				// If doing disconnect request

@@ -39,17 +39,17 @@ Inputting one of these commands and pressing the Enter key will execute the comm
 
 <hr>
 
-# The Docker Update
-For a much increased ability to compute, better portability, and fine control of the permissions programs are able to exercise, Docker containers will be replacing Rust programs in the near future.
+# The Podman Update
+For a much increased ability to compute, better portability, and fine control of the permissions programs are able to exercise, Podman containers will be replacing Rust programs in the near future.
 
 A set of commands for managing task may look like:
 ```ruby
 # Start container with limited network and file access 
-docker run --network none --rm --name=<taskID> -v "C:\Program Files\DCC\TaskData\<taskID>:/dcc_output/" <taskIDImg> /bin/bash run.sh;
+podman run --network none --rm --name=<taskID> -v "C:\Program Files\DCC\TaskData\<taskID>:/dcc_output/" <taskIDImg> /bin/bash run.sh;
 # Wait for the container to exit and return exit code (This will be done in a background thread, and will time out when mining ends)
-docker wait <taskID>;
+podman wait <taskID>;
 # Stop the container
-docker stop <taskID>;
+podman stop <taskID>;
 ```
 
 ## Computation Buying

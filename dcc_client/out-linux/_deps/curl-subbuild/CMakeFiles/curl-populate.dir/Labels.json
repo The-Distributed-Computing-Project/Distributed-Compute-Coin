@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/CMakeFiles/curl-populate"
+		},
+		{
+			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/CMakeFiles/curl-populate.rule"
+		},
+		{
+			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/CMakeFiles/curl-populate-complete.rule"
+		},
+		{
+			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-build.rule"
+		},
+		{
+			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-configure.rule"
+		},
+		{
+			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-download.rule"
+		},
+		{
+			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-install.rule"
+		},
+		{
+			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-patch.rule"
+		},
+		{
+			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-test.rule"
+		},
+		{
+			"file" : "/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"curl-populate"
+		],
+		"name" : "curl-populate"
+	}
+}

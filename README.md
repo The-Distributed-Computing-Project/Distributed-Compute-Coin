@@ -1,15 +1,17 @@
 
 
-# <img src="https://raw.githubusercontent.com/sam-astro/Distributed-Compute-Coin/dev/DCC-Miner/DCC-Logo.png" height="30rem" style="margin:auto"> Distributed Compute Coin
+# <img src="./dcc_client/DCC-Logo4.png" height="30rem" style="margin:auto"> Distributed Compute Coin
 
 [![Badge License]][License]   [![Button Discord]][Discord Server]
 
-A unique P2P blockchain built in C++, with a trading client and a miner. This crypto can be bought, traded, sold, mined, or used just like any other. What sets it apart though is how it can be used, and the technique for mining. It is based on sharing mining computing hardware with developers to run their programs better and compute a large amount of data quickly, using Distributed Computing. Anybody can submit code using the client to be run across the peer-to-peer network, and will pay for that using this crypto.
+A unique P2P blockchain built in C++, with a trading client and a miner. This crypto can be bought, traded, sold, mined, or used just like any other. What sets it apart though is how it can be used, and the technique for mining. It is based on sharing mining computing hardware with developers to run their programs better and compute a large amount of data quickly, using Distributed Computing. Anybody can submit code using the client to be run across the peer-to-peer network, and will pay for that using this crypto. [What sets this crypto apart?](./#condensing).
 
-If you want to learn more, please feel free to go to [the wiki.](https://github.com/sam-astro/DC-Blockchain-Cryptocurrency/wiki)
+If you want to learn more, please feel free to go to [the wiki.](https://github.com/sam-astro/Distributed-Compute-Coin/wiki)
+
+<hr>
 
 ## Installation / Use:
-1. First, either clone with `git clone https://github.com/sam-astro/DC-Blockchain-Cryptocurrency` or download it as a ZIP file, and extract it.
+1. First, either clone with `git clone https://github.com/sam-astro/Distributed-Compute-Coin` or download it as a ZIP file, and extract it.
 2. All of the builds are packaged in this folder. They all follow the same directory map, and the binary is located at `DCC-Miner/out/DCC-Miner/Debug/DCC-Miner.exe`.
 3. A change from the C# version, is that all functionality is now combined into a single program, which can handle transactions, submitting programs, and mining. It is also currently a command-line only interface while in development. 
 4. **If you are interested in earning DCC, then you can use the Mining aspect of the client.** The miner verifies the blockchain network, and also run programs created by developers. Just like the developers, programs are written in a language called Rust and you will need to install Rust before using the Miner. You can do that by going to the [Rust website](https://www.rust-lang.org/tools/install) and following the instructions there, which should only take a few minutes. Just use the `--mine` command to start mining a single block. You can also specify how many blocks you want to mine after the command like: `--mine 10` will mine 10 blocks. Using `-1` will mine until you stop the program.
@@ -35,8 +37,11 @@ Options:
 ```
 Inputting one of these commands and pressing the Enter key will execute the command. To begin mining, simply type "mine" (and a block amount, if you want to mine more than one).
 
-## Docker Update
+<hr>
+
+# The Docker Update
 For a much increased ability to compute, better portability, and fine control of the permissions programs are able to exercise, Docker containers will be replacing Rust programs in the near future.
+
 A set of commands for managing task may look like:
 ```ruby
 # Start container with limited network and file access 
@@ -47,42 +52,120 @@ docker wait <taskID>;
 docker stop <taskID>;
 ```
 
-## Using:
-* OpenSSL
-* cURL
+## Computation Buying
+Through this update, the uploading process should also be finalized, so as to completely remove the the server that has been passing out and managing programs since the C# implementation.
+
+The new command will be:
+```
+--buy-computation <funds> <container> [cpu-power] [gpu-power] [memory]     Create a program on the network, and allocate <funds> to be paid to the respective miners.
+```
+Optionally, the `[cpu-power]` option can specify an integer between 0-10, between lowest cpu power required and max cpu power required. The `[gpu-power]` option is similar. The `[memory]` option is used to specify how much RAM the container has access to in GB. By default, this value is 2 GB.
+
+There will also be a command to verify the readiness of a container before releasing, to ensure it works with the limited file, network, and resource access:
+```
+--verify-container <container> [cpu-power] [gpu-power] [memory]
+```
+The above options still apply, so you can test how well they will perform on your own hardware.
+
+## Computation Verification
+In order to verify the results of the computation of the container task, a method called Verification by replication, used by SETI@Home, will be used. This will involve a number of miners getting the same task, and their hashes of the computed data will be compared. Once a minimum of them match, the value will be saved.
+
+## URL Address Aliases
+There will be added support for OpenAlias, and such URLs as http://dccpool.us.to will get the TXT record, and return `oa1:dcc recipient_address=fd394f214e71e4aaf995914207d44181ca9e92c2f508afadf06d367f06151f84;`
+
+## Deluges
+The implementation of a filesharing system, similar to torrent. [See here for more details](./FileSharing.md).
+
+<hr>
+
+# Condensing
+
+The idea of the Distributed Computing Network likely seems a little backwards to begin with. *Why use your computer to run others' programs to save up DCC to run your own, when you can just run it on your own PC?* The answer to this is simple: when you use and run DCC, it is **not** an exchange. Rather, it is a ***condensing*** of your computing power, to be used on-demand at a later date.
+
+Most of the worlds computers run at a capacity far below their maximum, because of *idling*. When you are not running your program, your computer has nothing to do, right? And you only utilize that maximum it can reach sparsely, when you need something more demanding done. So most of the time, the power of your computer goes to waste.
+
+Instead of allowing this to happen, DCC allows you to **condense** this idle computing time (***condensing** is comparable to mining in other cryptocurrencies*), storing it physically in the form of DCC$, and letting you use it at a later time to exhert far more computing power than you could originally utilize, in far lower time.
+
+With this system, each client will receive an amount of DCC$ proportionally to their hardware, and more efficiently utilize hardware world-wide. Imagine an Artificial Intelligence model, that can be trained an equivilant of centuries in a matter of 5 minutes. Or protein folding and other medical computations. Or an accurate simulation of atoms, to a macroscopic scale. Or the simulation of a brain.
+
+Supercomputers are expensive to build, and equally as expensive for institutions to rent. Distributed Supercomputing is far cheaper, and actually contains enough power to out-compete even the best supercomputers. Although it has existed for some time, most implementations are through the process of volunteering, and a centralized developer and goal. DCC will bring supercomputing to the people, for a low price.
+
+<hr>
 
 
 ## Example of block format:
 > This is the genesis block
 ```json
 {
-	"Version": null,
-	"hash": "dccba5e70246993b252c8ceb8394e4cd97f6313fbf78c3b9113d694b0ff2016b",
-	"lastHash": "0000000000000000000000000000000000000000000000000000000000000000",
-	"nonce": "394849135",
-	"time": "0",
-	"transactionTimes": [
-		1664574203
-	],
-	"transactions": [
-		{
-			"tx": {
-				"fromAddr": "",
-				"toAddr": "fd394f214e71e4aaf995914207d44181ca9e92c2f508afadf06d367f06151f84",
-				"amount": 1000000000,
-				"txNum": 0
-			},
-			"sec": {
-				"signature": "",
-				"pubKey": "",
-				"note": ""
-			}
-		}
-	]
+    "_version": "v0.8.4-alpha-coin",
+    "containerTasks": [
+        {
+            "taskID": "",
+            "taskInstances": [
+                {
+                    "responsiblePeers": [
+                        {
+                            "ip": "",
+                            "port": 0,
+                            "signature": ""
+                        }
+                    ],
+                    "seed": "00000000",
+                    "taskDataHash": ""
+                }
+            ]
+        }
+    ],
+    "hash": "dccba5e885fda6209b50397c3d97ab416da0928d7d49b5f0bc9835cd88f756d6",
+    "id": 1,
+    "nonce": "1275615",
+    "pnext": "000000f7f6b329107664488aa6395c1e9a18ca07f9b172a25d7663691ca77d7e",
+    "pprev": "0000000000000000000000000000000000000000000000000000000000000000",
+    "targetDifficulty": "0000000ffff0000000000000000000000000000000000000000000000000000",
+    "time": "0",
+    "transactionTimes": [
+        1664574203
+    ],
+    "transactions": [
+        {
+            "sec": {
+                "note": "",
+                "pubKey": "",
+                "signature": ""
+            },
+            "tx": {
+                "amount": 1000000000,
+                "fromAddr": "",
+                "toAddr": "fd394f214e71e4aaf995914207d44181ca9e92c2f508afadf06d367f06151f84",
+                "transactionFee": 0,
+                "unlockTime": 0
+            }
+        }
+    ]
 }
 ```
 
+<hr>
 
+## Here is how the system works in 5 simplified steps:
+
+### 1. Announce program to peers, with reward as payment
+<img src="./Media/Steps_1.png" style="width:35vw;">
+
+### 2. Peers download program
+<img src="./Media/Steps_2.png" style="width:35vw;">
+
+### 3. They compute program while they mine
+<img src="./Media/Steps_3.png" style="width:35vw;">
+
+### 4. They send the computed data back to the developer, which is compiled into a large block, computed in a fraction of the time it would normally have taken
+<img src="./Media/Steps_4.png" style="width:35vw;">
+
+<hr>
+
+## Using:
+* OpenSSL
+* cURL
 
 <!----------------------------------------------------------------------------->
 
@@ -92,5 +175,5 @@ docker stop <taskID>;
 
 <!----------------------------------[ Badges ]--------------------------------->
 
-[Badge License]: https://img.shields.io/badge/license-DCC-brightgreen
+[Badge License]: https://img.shields.io/badge/license-DCP--GPL-brightgreen
 [Button Discord]: https://img.shields.io/badge/Discord_Server-573f75.svg?style=social&logo=Discord

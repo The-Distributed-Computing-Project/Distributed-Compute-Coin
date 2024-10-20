@@ -1,0 +1,42 @@
+﻿  Network.cpp
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Network.cpp(141,8): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\Network.cpp(167,8): warning C4101: 'fp': unreferenced local variable
+  P2PClient.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(91,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(218,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(218,17): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(229,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(232,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(942,7): warning C4101: 'http': unreferenced local variable
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1008,18): warning C4267: 'initializing': conversion from 'size_t' to 'uint16_t', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1098,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1098,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1106,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1106,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1114,41): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1114,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1130,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1130,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1145,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1145,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1160,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1160,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1173,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1173,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1182,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1182,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1192,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1192,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1203,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1203,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1215,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1215,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1226,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1226,15): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+D:\Code\DC-Cryptocurrency\dcc_client\dcc_client\P2PClient.cpp(1052,32): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  Generating Code...
+  dcc_client.vcxproj -> D:\Code\DC-Cryptocurrency\dcc_client\out\dcc_client\Debug\dcc_client.exe

@@ -1,0 +1,162 @@
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-MKDIR.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-build
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-DOWNLOAD.RULE
+setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-UPDATE.RULE
+setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/tmp/zlib-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-PATCH.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-CONFIGURE.RULE
+setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-BUILD.RULE
+setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-INSTALL.RULE
+setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\F6A9FBF87C1BDE7EC0636154359826E2\ZLIB-POPULATE-TEST.RULE
+setlocal
+cd D:\Code\DC-Cryptocurrency\dcc_client\out\_deps\zlib-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\FC995356A878E5BE91FB2DD1A6A0D000\ZLIB-POPULATE-COMPLETE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/Debug/zlib-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/zlib-populate-prefix/src/zlib-populate-stamp/Debug/zlib-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\268708F7521AF7C069BE33F5FFF0CA8E\ZLIB-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\CODE\DC-CRYPTOCURRENCY\DCC_CLIENT\OUT\_DEPS\ZLIB-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild -BD:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild --check-stamp-file D:/Code/DC-Cryptocurrency/dcc_client/out/_deps/zlib-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -802,7 +802,7 @@ void P2P::SenderThread()
 
 			//printf("%s\n", peerIP);
 
-			otherAddrStr = NormalizedIPString(otherAddr);
+			//otherAddrStr = NormalizedIPString(otherAddr);
 			//std::cout << "peer: \""<<peerIP.c_str() << "\"" << std::endl;
 
 			otherSize = sizeof(otherAddr);
@@ -830,7 +830,7 @@ void P2P::SenderThread()
 				{
 					if (WalletSettingValues::verbose >= 4)
 						console::WriteLine("Conversation complete\n", console::greenFGColor, "");
-					otherAddrStr = "\0";
+					//otherAddrStr = "\0";
 					reqDat = -1;
 					role = -1;
 					break;

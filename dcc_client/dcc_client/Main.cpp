@@ -594,8 +594,8 @@ int main()
 			}
 			else if (commandParts[0] == "--CURRENTCONNECTION")
 			{
-				std::cout << p2p.otherAddrStr << std::endl;
-				std::cout << p2p.clientIPPort << std::endl;
+				std::cout << p2p.otherAddrStr << " s: " << p2p.otherAddrStr.size() << std::endl;
+				std::cout << p2p.clientIPPort << " s: " << p2p.clientIPPort.size() << std::endl;
 			}
 			else if (commandParts[0] == "--LIST-CONTAINERS" || commandParts[0] == "-LS")
 			{

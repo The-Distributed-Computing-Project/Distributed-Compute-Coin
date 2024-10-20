@@ -195,8 +195,8 @@ dcc_client/clean: _deps/cpr-build/clean
 # Target rules for target dcc_client/CMakeFiles/dcc_client.dir
 
 # All Build rule for target.
-dcc_client/CMakeFiles/dcc_client.dir/all: _deps/cpr-build/cpr/CMakeFiles/cpr.dir/all
 dcc_client/CMakeFiles/dcc_client.dir/all: _deps/curl-build/lib/CMakeFiles/libcurl.dir/all
+dcc_client/CMakeFiles/dcc_client.dir/all: _deps/cpr-build/cpr/CMakeFiles/cpr.dir/all
 	$(MAKE) $(MAKESILENT) -f dcc_client/CMakeFiles/dcc_client.dir/build.make dcc_client/CMakeFiles/dcc_client.dir/depend
 	$(MAKE) $(MAKESILENT) -f dcc_client/CMakeFiles/dcc_client.dir/build.make dcc_client/CMakeFiles/dcc_client.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sam/Code/Distributed-Compute-Coin/dcc_client/out-linux/CMakeFiles --progress-num=9,10,11,12,13,14 "Built target dcc_client"

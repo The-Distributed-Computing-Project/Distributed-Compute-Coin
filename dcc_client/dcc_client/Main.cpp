@@ -153,7 +153,7 @@ int main()
 			std::ofstream configFile("./config.cfg");
 			if (configFile.is_open())
 			{
-				configFile << walletConfig.dump();
+				configFile << walletConfig.dump(4);
 				configFile.close();
 			}
 		}

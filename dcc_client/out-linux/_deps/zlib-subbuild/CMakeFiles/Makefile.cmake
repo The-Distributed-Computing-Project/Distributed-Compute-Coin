@@ -10,10 +10,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.25.1/CMakeSystem.cmake"
   "CMakeLists.txt"
   "zlib-populate-prefix/tmp/zlib-populate-mkdirs.cmake"
-  "/usr/share/cmake-3.25/Modules/CMakeDetermineSystem.cmake"
   "/usr/share/cmake-3.25/Modules/CMakeGenericSystem.cmake"
   "/usr/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake"
-  "/usr/share/cmake-3.25/Modules/CMakeSystem.cmake.in"
   "/usr/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake"
   "/usr/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake"
   "/usr/share/cmake-3.25/Modules/ExternalProject.cmake"
@@ -34,7 +32,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/3.25.1/CMakeSystem.cmake"
   "zlib-populate-prefix/tmp/zlib-populate-mkdirs.cmake"
   "zlib-populate-prefix/tmp/zlib-populate-gitclone.cmake"
   "zlib-populate-prefix/src/zlib-populate-stamp/zlib-populate-gitinfo.txt"

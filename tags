@@ -11376,7 +11376,7 @@ HandshakeCallback	dcc_client/out-linux/_deps/curl-src/lib/vtls/nss.c	/^static vo
 HandshakeCallback	dcc_client/out/_deps/curl-src/lib/vtls/nss.c	/^static void HandshakeCallback(PRFileDesc *sock, void *arg)$/;"	f	file:
 HdrCbData	dcc_client/out-linux/_deps/curl-src/src/tool_cb_hdr.h	/^struct HdrCbData {$/;"	s
 HdrCbData	dcc_client/out/_deps/curl-src/src/tool_cb_hdr.h	/^struct HdrCbData {$/;"	s
-Help	dcc_client/dcc_client/Main.cpp	/^void Help()$/;"	f
+Help	dcc_client/dcc_client/Main.cpp	/^void Help()$/;"	f	typeref:typename:void
 HexToDecimalConverter	dcc_client/dcc_client/BaseConverter.cpp	/^const BaseConverter& BaseConverter::HexToDecimalConverter()$/;"	f	class:BaseConverter
 Http	dcc_client/dcc_client/Network.h	/^class Http$/;"	c
 HttpReq	dcc_client/out-linux/_deps/curl-src/src/tool_sdecls.h	/^} HttpReq;$/;"	t	typeref:enum:__anon332
@@ -11555,8 +11555,7 @@ ISGRAPH	dcc_client/out-linux/_deps/curl-src/lib/curl_ctype.h	43;"	d
 ISGRAPH	dcc_client/out-linux/_deps/curl-src/lib/curl_ctype.h	68;"	d
 ISGRAPH	dcc_client/out/_deps/curl-src/lib/curl_ctype.h	43;"	d
 ISGRAPH	dcc_client/out/_deps/curl-src/lib/curl_ctype.h	68;"	d
-ISKEYDOWN	dcc_client/dcc_client/Main.cpp	16;"	d	file:
-ISKEYDOWN	dcc_client/dcc_client/Main.cpp	20;"	d	file:
+ISKEYDOWN	dcc_client/dcc_client/Main.cpp	/^#define ISKEYDOWN(/;"	d	file:
 ISKEYDOWN	dcc_client/dcc_client/Miner.cpp	11;"	d	file:
 ISKEYDOWN	dcc_client/dcc_client/Miner.cpp	7;"	d	file:
 ISLOWER	dcc_client/out-linux/_deps/curl-src/lib/curl_ctype.h	47;"	d
@@ -12334,7 +12333,7 @@ LWIP_POSIX_SOCKETS_IO_NAMES	dcc_client/out-linux/_deps/curl-src/lib/config-win32
 LWIP_POSIX_SOCKETS_IO_NAMES	dcc_client/out/_deps/curl-src/lib/config-win32.h	385;"	d
 LWIP_POSIX_SOCKETS_IO_NAMES	dcc_client/out/_deps/curl-src/lib/config-win32.h	395;"	d
 ListenerThread	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::ListenerThread(int update_interval)$/;"	f	class:P2P
-Logo	dcc_client/dcc_client/Main.cpp	/^void Logo()$/;"	f
+Logo	dcc_client/dcc_client/Main.cpp	/^void Logo()$/;"	f	typeref:typename:void
 LongShort	dcc_client/out-linux/_deps/curl-src/src/tool_getparam.c	/^struct LongShort {$/;"	s	file:
 LongShort	dcc_client/out/_deps/curl-src/src/tool_getparam.c	/^struct LongShort {$/;"	s	file:
 MACDEF	dcc_client/out-linux/_deps/curl-src/lib/netrc.c	/^  MACDEF$/;"	e	enum:host_lookup_state	file:
@@ -15922,7 +15921,7 @@ ScriptRC	dcc_client/out/_deps/curl-src/tests/negtelnetserver.py	/^class ScriptRC
 ScriptRC	dcc_client/out/_deps/curl-src/tests/smbserver.py	/^class ScriptRC(object):$/;"	c
 SelectClientCert	dcc_client/out-linux/_deps/curl-src/lib/vtls/nss.c	/^static SECStatus SelectClientCert(void *arg, PRFileDesc *sock,$/;"	f	file:
 SelectClientCert	dcc_client/out/_deps/curl-src/lib/vtls/nss.c	/^static SECStatus SelectClientCert(void *arg, PRFileDesc *sock,$/;"	f	file:
-SendFunds	dcc_client/dcc_client/Main.cpp	/^int SendFunds(P2P& p2p, std::string& toAddress, float amount)$/;"	f
+SendFunds	dcc_client/dcc_client/Main.cpp	/^int SendFunds(P2P& p2p, std::string& toAddress, float amount)$/;"	f	typeref:typename:int
 SenderThread	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::SenderThread()$/;"	f	class:P2P
 SessionLoad	dcc_client/dcc_client/Session.vim	/^let SessionLoad = 1$/;"	v
 Set	dcc_client/out-linux/_deps/curl-src/src/tool_urlglob.h	/^    } Set;$/;"	m	union:URLPattern::__anon334	typeref:struct:URLPattern::__anon334::__anon335
@@ -16420,8 +16419,7 @@ UNITTEST_STOP	dcc_client/out-linux/_deps/curl-src/tests/unit/curlcheck.h	105;"	d
 UNITTEST_STOP	dcc_client/out/_deps/curl-src/tests/unit/curlcheck.h	105;"	d
 UNIX	dcc_client/dcc_client/Console.cpp	3;"	d	file:
 UNIX	dcc_client/dcc_client/Console.cpp	6;"	d	file:
-UNIX	dcc_client/dcc_client/Main.cpp	4;"	d	file:
-UNIX	dcc_client/dcc_client/Main.cpp	7;"	d	file:
+UNIX	dcc_client/dcc_client/Main.cpp	/^#define UNIX /;"	d	file:
 UNIX	dcc_client/dcc_client/P2PClient.cpp	24;"	d	file:
 UNIX	dcc_client/out-linux/_deps/curl-src/lib/ftplistparser.c	/^    } UNIX;$/;"	m	union:ftp_parselist_data::__anon274	typeref:struct:ftp_parselist_data::__anon274::__anon275	file:
 UNIX	dcc_client/out/_deps/curl-src/lib/ftplistparser.c	/^    } UNIX;$/;"	m	union:ftp_parselist_data::__anon123	typeref:struct:ftp_parselist_data::__anon123::__anon124	file:
@@ -16969,7 +16967,7 @@ VS2012_MIN_TARGET	dcc_client/out/_deps/curl-src/lib/config-win32.h	483;"	d
 VS2012_MIN_TARGET	dcc_client/out/_deps/curl-src/lib/config-win32.h	485;"	d
 VerifyDeluge	dcc_client/dcc_client/Blockchain.cpp	/^bool VerifyDeluge(json& delugeJson, std::string& path)$/;"	f
 VerifyTransaction	dcc_client/dcc_client/P2PClient.cpp	/^bool VerifyTransaction(json& tx, uint32_t id, bool thorough) {$/;"	f
-Version	dcc_client/dcc_client/Main.cpp	/^void Version()$/;"	f
+Version	dcc_client/dcc_client/Main.cpp	/^void Version()$/;"	f	typeref:typename:void
 VersionCondition	dcc_client/out-linux/_deps/curl-src/lib/version_win32.h	/^} VersionCondition;$/;"	t	typeref:enum:__anon321
 VersionCondition	dcc_client/out/_deps/curl-src/lib/version_win32.h	/^} VersionCondition;$/;"	t	typeref:enum:__anon170
 VmsRealFileSize	dcc_client/out-linux/_deps/curl-src/lib/mime.c	/^curl_off_t VmsRealFileSize(const char *name,$/;"	f
@@ -17022,8 +17020,7 @@ WINBERAPI	dcc_client/out-linux/_deps/curl-src/lib/config-win32.h	659;"	d
 WINBERAPI	dcc_client/out/_deps/curl-src/lib/config-win32.h	659;"	d
 WINDOWS	dcc_client/dcc_client/Console.cpp	4;"	d	file:
 WINDOWS	dcc_client/dcc_client/Console.cpp	7;"	d	file:
-WINDOWS	dcc_client/dcc_client/Main.cpp	5;"	d	file:
-WINDOWS	dcc_client/dcc_client/Main.cpp	8;"	d	file:
+WINDOWS	dcc_client/dcc_client/Main.cpp	/^#define WINDOWS /;"	d	file:
 WINDOWS	dcc_client/dcc_client/P2PClient.cpp	21;"	d	file:
 WINLDAPAPI	dcc_client/out-linux/_deps/curl-src/lib/config-win32.h	660;"	d
 WINLDAPAPI	dcc_client/out/_deps/curl-src/lib/config-win32.h	660;"	d
@@ -19433,7 +19430,7 @@ connecting	dcc_client/out/_deps/curl-src/lib/urldata.h	/^  CURLcode (*connecting
 connecting	dcc_client/out/_deps/curl-src/tests/unit/unit1303.c	/^  bool connecting;$/;"	m	struct:timetest	file:
 connecting_state	dcc_client/out-linux/_deps/curl-src/lib/urldata.h	/^  ssl_connect_state connecting_state;$/;"	m	struct:ssl_connect_data
 connecting_state	dcc_client/out/_deps/curl-src/lib/urldata.h	/^  ssl_connect_state connecting_state;$/;"	m	struct:ssl_connect_data
-connectionStatus	dcc_client/dcc_client/Main.cpp	/^int connectionStatus = 1;$/;"	v
+connectionStatus	dcc_client/dcc_client/Main.cpp	/^int connectionStatus = 1;$/;"	v	typeref:typename:int
 connection_check	dcc_client/out-linux/_deps/curl-src/lib/urldata.h	/^  unsigned int (*connection_check)(struct Curl_easy *data,$/;"	m	struct:Curl_handler
 connection_check	dcc_client/out/_deps/curl-src/lib/urldata.h	/^  unsigned int (*connection_check)(struct Curl_easy *data,$/;"	m	struct:Curl_handler
 connection_id	dcc_client/out-linux/_deps/curl-src/lib/urldata.h	/^  long connection_id; \/* Contains a unique number to make it easier to$/;"	m	struct:connectdata
@@ -21019,7 +21016,7 @@ digestdata	dcc_client/out-linux/_deps/curl-src/lib/urldata.h	/^struct digestdata
 digestdata	dcc_client/out/_deps/curl-src/lib/urldata.h	/^struct digestdata {$/;"	s
 dirdepth	dcc_client/out-linux/_deps/curl-src/lib/ftp.h	/^  int dirdepth;  \/* number of entries used in the 'dirs' array *\/$/;"	m	struct:ftp_conn
 dirdepth	dcc_client/out/_deps/curl-src/lib/ftp.h	/^  int dirdepth;  \/* number of entries used in the 'dirs' array *\/$/;"	m	struct:ftp_conn
-directoryList	dcc_client/dcc_client/Main.cpp	/^const std::string directoryList[] = { ".\/sec", ".\/wwwdata", ".\/wwwdata\/blockchain", ".\/wwwdata\/pendingblocks", ".\/wwwdata\/containers", ".\/wwwdata\/deluges", ".\/wwwdata\/developing-containers", ".\/wwwdata\/developing-deluges", ".\/wwwdata\/superchain" };$/;"	v
+directoryList	dcc_client/dcc_client/Main.cpp	/^const std::string directoryList[] = { ".\/sec", ".\/wwwdata", ".\/wwwdata\/blockchain", ".\/wwwd/;"	v	typeref:typename:const std::string[]
 dirlistonly	dcc_client/out-linux/_deps/curl-src/src/tool_cfgable.h	/^  bool dirlistonly;         \/* only get the FTP dir list *\/$/;"	m	struct:OperationConfig
 dirlistonly	dcc_client/out/_deps/curl-src/src/tool_cfgable.h	/^  bool dirlistonly;         \/* only get the FTP dir list *\/$/;"	m	struct:OperationConfig
 dirorsize	dcc_client/out-linux/_deps/curl-src/lib/ftplistparser.c	/^  } dirorsize;$/;"	m	union:__anon269	typeref:enum:__anon269::__anon271	file:
@@ -21564,8 +21561,8 @@ end_of_input	dcc_client/dcc_client/json.hpp	/^                end_of_input,     
 end_value	dcc_client/dcc_client/json.hpp	/^            static constexpr difference_type end_value = begin_value + 1;$/;"	m	class:nlohmann::nlohmann::nlohmann::detail::primitive_iterator_t
 endofresp	dcc_client/out-linux/_deps/curl-src/lib/pingpong.h	/^  bool (*endofresp)(struct Curl_easy *data, struct connectdata *conn,$/;"	m	struct:pingpong
 endofresp	dcc_client/out/_deps/curl-src/lib/pingpong.h	/^  bool (*endofresp)(struct Curl_easy *data, struct connectdata *conn,$/;"	m	struct:pingpong
-endpointAddr	dcc_client/dcc_client/Main.cpp	/^std::string endpointAddr = "";$/;"	v
-endpointPort	dcc_client/dcc_client/Main.cpp	/^std::string endpointPort = "";$/;"	v
+endpointAddr	dcc_client/dcc_client/Main.cpp	/^std::string endpointAddr = "";$/;"	v	typeref:typename:std::string
+endpointPort	dcc_client/dcc_client/Main.cpp	/^std::string endpointPort = "";$/;"	v	typeref:typename:std::string
 endtask	dcc_client/out-linux/_deps/curl-src/lib/c-hyper.h	/^  hyper_task *endtask;$/;"	m	struct:hyptransfer
 endtask	dcc_client/out/_deps/curl-src/lib/c-hyper.h	/^  hyper_task *endtask;$/;"	m	struct:hyptransfer
 engine	dcc_client/out-linux/_deps/curl-src/lib/urldata.h	/^  void *engine;$/;"	m	struct:UrlState
@@ -22184,7 +22181,7 @@ flags2	dcc_client/out-linux/_deps/curl-src/lib/smb.h	/^  unsigned short flags2;$
 flags2	dcc_client/out/_deps/curl-src/lib/smb.h	/^  unsigned short flags2;$/;"	m	struct:smb_header
 flatten	dcc_client/dcc_client/json.hpp	/^        basic_json flatten() const$/;"	f	class:nlohmann::nlohmann::nlohmann::basic_json
 flatten	dcc_client/dcc_client/json.hpp	/^        static void flatten(const string_t& reference_string,$/;"	f	class:nlohmann::nlohmann::nlohmann::json_pointer
-flops	dcc_client/dcc_client/Main.cpp	/^unsigned long long flops = 0;$/;"	v
+flops	dcc_client/dcc_client/Main.cpp	/^unsigned long long flops = 0;$/;"	v	typeref:typename:unsigned long long
 flush_egress	dcc_client/out-linux/_deps/curl-src/lib/vquic/quiche.c	/^static CURLcode flush_egress(struct Curl_easy *data, int sockfd,$/;"	f	file:
 flush_egress	dcc_client/out/_deps/curl-src/lib/vquic/quiche.c	/^static CURLcode flush_egress(struct Curl_easy *data, int sockfd,$/;"	f	file:
 fly	dcc_client/out-linux/_deps/curl-src/src/tool_cb_prg.c	/^static void fly(struct ProgressData *bar, bool moved)$/;"	f	file:
@@ -24768,6 +24765,7 @@ j	dcc_client/out-linux/_deps/curl-src/docs/examples/smooth-gtk-thread.c	/^int j 
 j	dcc_client/out-linux/_deps/curl-src/tests/unit/unit1309.c	/^  int i, j;$/;"	v
 j	dcc_client/out/_deps/curl-src/docs/examples/smooth-gtk-thread.c	/^int j = 0;$/;"	v
 j	dcc_client/out/_deps/curl-src/tests/unit/unit1309.c	/^  int i, j;$/;"	v
+json	dcc_client/dcc_client/Main.cpp	/^using json = nlohmann::json;$/;"	t	typeref:typename:nlohmann::json	file:
 json	dcc_client/dcc_client/json.hpp	/^        enum class input_format_t { json, cbor, msgpack, ubjson, bson, bjdata };$/;"	m	class:nlohmann::nlohmann::nlohmann::detail::input_format_t
 jsonWriteString	dcc_client/out-linux/_deps/curl-src/src/tool_writeout_json.c	/^void jsonWriteString(FILE *stream, const char *in)$/;"	f
 jsonWriteString	dcc_client/out/_deps/curl-src/src/tool_writeout_json.c	/^void jsonWriteString(FILE *stream, const char *in)$/;"	f
@@ -24882,7 +24880,7 @@ keylog_done	dcc_client/out-linux/_deps/curl-src/lib/vtls/openssl.c	/^  bool     
 keylog_done	dcc_client/out/_deps/curl-src/lib/vtls/openssl.c	/^  bool     keylog_done;$/;"	m	struct:ssl_backend_data	file:
 keylog_file_fp	dcc_client/out-linux/_deps/curl-src/lib/vtls/keylog.c	/^static FILE *keylog_file_fp;$/;"	v	file:
 keylog_file_fp	dcc_client/out/_deps/curl-src/lib/vtls/keylog.c	/^static FILE *keylog_file_fp;$/;"	v	file:
-keypair	dcc_client/dcc_client/Main.cpp	/^std::vector<std::string> keypair = { "", "" };$/;"	v
+keypair	dcc_client/dcc_client/Main.cpp	/^std::vector<std::string> keypair = { "", "" };$/;"	v	typeref:typename:std::vector<std::string>
 keytype	dcc_client/dcc_client/include/curl/curl.h	/^  enum curl_khtype keytype;$/;"	m	struct:curl_khkey	typeref:enum:curl_khkey::curl_khtype
 keytype	dcc_client/out-linux/_deps/curl-src/include/curl/curl.h	/^  enum curl_khtype keytype;$/;"	m	struct:curl_khkey	typeref:enum:curl_khkey::curl_khtype
 keytype	dcc_client/out/_deps/curl-src/include/curl/curl.h	/^  enum curl_khtype keytype;$/;"	m	struct:curl_khkey	typeref:enum:curl_khkey::curl_khtype
@@ -25562,7 +25560,7 @@ mailbox	dcc_client/out/_deps/curl-src/lib/imap.h	/^  char *mailbox;             
 mailbox	dcc_client/out/_deps/curl-src/lib/imap.h	/^  char *mailbox;          \/* Mailbox to select *\/$/;"	m	struct:IMAP
 mailbox_uidvalidity	dcc_client/out-linux/_deps/curl-src/lib/imap.h	/^  char *mailbox_uidvalidity;  \/* UIDVALIDITY parsed from select response *\/$/;"	m	struct:imap_conn
 mailbox_uidvalidity	dcc_client/out/_deps/curl-src/lib/imap.h	/^  char *mailbox_uidvalidity;  \/* UIDVALIDITY parsed from select response *\/$/;"	m	struct:imap_conn
-main	dcc_client/dcc_client/Main.cpp	/^int main()$/;"	f
+main	dcc_client/dcc_client/Main.cpp	/^int main()$/;"	f	typeref:typename:int
 main	dcc_client/out-linux/_deps/curl-src/CMake/CurlTests.c	/^int main () { ; return 0; }$/;"	f
 main	dcc_client/out-linux/_deps/curl-src/CMake/CurlTests.c	/^int main() { return 0; }$/;"	f
 main	dcc_client/out-linux/_deps/curl-src/CMake/CurlTests.c	/^int main(void) {$/;"	f
@@ -27830,7 +27828,7 @@ p12	dcc_client/out-linux/_deps/curl-src/docs/examples/curlx.c	/^  PKCS12 *p12;$/
 p12	dcc_client/out/_deps/curl-src/docs/examples/curlx.c	/^  PKCS12 *p12;$/;"	m	struct:sslctxparm_st	file:
 p12file	dcc_client/out-linux/_deps/curl-src/docs/examples/curlx.c	/^  unsigned char *p12file;$/;"	m	struct:sslctxparm_st	file:
 p12file	dcc_client/out/_deps/curl-src/docs/examples/curlx.c	/^  unsigned char *p12file;$/;"	m	struct:sslctxparm_st	file:
-p2p	dcc_client/dcc_client/Main.cpp	/^P2P p2p;$/;"	v
+p2p	dcc_client/dcc_client/Main.cpp	/^P2P p2p;$/;"	v	typeref:typename:P2P
 p2pConnections	dcc_client/dcc_client/P2PClient.h	/^	std::unordered_map<std::string, Peer*> p2pConnections;$/;"	m	class:P2P
 p_identity	dcc_client/out-linux/_deps/curl-src/lib/urldata.h	/^  SEC_WINNT_AUTH_IDENTITY *p_identity;$/;"	m	struct:kerberos5data
 p_identity	dcc_client/out-linux/_deps/curl-src/lib/urldata.h	/^  SEC_WINNT_AUTH_IDENTITY *p_identity;$/;"	m	struct:ntlmdata
@@ -28097,7 +28095,7 @@ peerBlockchainLength	dcc_client/dcc_client/P2PClient.cpp	/^int peerBlockchainLen
 peerIP	dcc_client/dcc_client/P2PClient.h	/^	std::string peerIP = "";$/;"	m	class:P2P
 peerList	dcc_client/dcc_client/P2PClient.h	/^	std::vector<std::string> peerList;$/;"	m	class:Peer
 peerListID	dcc_client/dcc_client/P2PClient.h	/^	std::string peerListID = "";$/;"	m	class:P2P
-peerPort	dcc_client/dcc_client/Main.cpp	/^std::string peerPort = "";$/;"	v
+peerPort	dcc_client/dcc_client/Main.cpp	/^std::string peerPort = "";$/;"	v	typeref:typename:std::string
 peerPort	dcc_client/dcc_client/P2PClient.h	/^	int peerPort;$/;"	m	class:P2P
 pem_library	dcc_client/out-linux/_deps/curl-src/lib/vtls/nss.c	/^static const char *pem_library = "libnsspem.dylib";$/;"	v	file:
 pem_library	dcc_client/out-linux/_deps/curl-src/lib/vtls/nss.c	/^static const char *pem_library = "libnsspem.so";$/;"	v	file:
@@ -33961,8 +33959,8 @@ waitproxyconnect_getsock	dcc_client/out-linux/_deps/curl-src/lib/multi.c	/^stati
 waitproxyconnect_getsock	dcc_client/out/_deps/curl-src/lib/multi.c	/^static int waitproxyconnect_getsock(struct connectdata *conn,$/;"	f	file:
 wakeup_pair	dcc_client/out-linux/_deps/curl-src/lib/multihandle.h	/^  curl_socket_t wakeup_pair[2]; \/* socketpair() used for wakeup$/;"	m	struct:Curl_multi
 wakeup_pair	dcc_client/out/_deps/curl-src/lib/multihandle.h	/^  curl_socket_t wakeup_pair[2]; \/* socketpair() used for wakeup$/;"	m	struct:Curl_multi
-walletConfig	dcc_client/dcc_client/Main.cpp	/^json walletConfig;$/;"	v
-walletInfo	dcc_client/dcc_client/Main.cpp	/^json walletInfo;$/;"	v
+walletConfig	dcc_client/dcc_client/Main.cpp	/^json walletConfig;$/;"	v	typeref:typename:json
+walletInfo	dcc_client/dcc_client/Main.cpp	/^json walletInfo;$/;"	v	typeref:typename:json
 want	dcc_client/out-linux/_deps/curl-src/lib/urldata.h	/^  unsigned long want;  \/* Bitmask set to the authentication methods wanted by$/;"	m	struct:auth
 want	dcc_client/out/_deps/curl-src/lib/urldata.h	/^  unsigned long want;  \/* Bitmask set to the authentication methods wanted by$/;"	m	struct:auth
 warnf	dcc_client/out-linux/_deps/curl-src/src/tool_msgs.c	/^void warnf(struct GlobalConfig *config, const char *fmt, ...)$/;"	f

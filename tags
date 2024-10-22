@@ -14348,6 +14348,7 @@ ReadyForNewHandle	dcc_client/out-linux/_deps/curl-src/tests/libtest/libntlmconne
 ReadyForNewHandle	dcc_client/out/_deps/curl-src/tests/libtest/libntlmconnect.c	/^  ReadyForNewHandle,$/;"	e	enum:HandleState	file:
 ReceivedServerConnect	dcc_client/out-linux/_deps/curl-src/lib/ftp.c	/^static CURLcode ReceivedServerConnect(struct Curl_easy *data, bool *received)$/;"	f	file:
 ReceivedServerConnect	dcc_client/out/_deps/curl-src/lib/ftp.c	/^static CURLcode ReceivedServerConnect(struct Curl_easy *data, bool *received)$/;"	f	file:
+RemoveFromPeerList	dcc_client/dcc_client/P2PClient.cpp	/^void P2P::RemoveFromPeerList(std::string& ipPort){$/;"	f	class:P2P	typeref:typename:void
 ReplaceEscapeSymbols	dcc_client/dcc_client/strops.cpp	/^std::string ReplaceEscapeSymbols(std::string s)$/;"	f
 RequestParser	dcc_client/dcc_client/RequestParser.h	/^class RequestParser$/;"	c
 S	dcc_client/out-linux/_deps/curl-src/lib/sha256.c	326;"	d	file:

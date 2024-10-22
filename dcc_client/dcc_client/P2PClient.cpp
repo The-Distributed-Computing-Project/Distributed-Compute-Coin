@@ -58,6 +58,10 @@ void P2P::AddToPeerList(std::string& ipPort){
 	}
 }
 
+void P2P::RemoveFromPeerList(std::string& ipPort){
+	p2pConnections.erase(ipPort);
+}
+
 std::vector<std::string> P2P::GeneratePeerList(){
 	std::vector<std::string> oList = std::vector<std::string>();
 	for(const auto& [key, value] : p2pConnections){
@@ -328,6 +332,8 @@ void P2P::ListenerThread(int update_interval)
 						if (WalletSettingValues::verbose >= 5){
 							ERRORMSG(e.what());
 						}
+						// If an invalid header is sent, it is safest to assume that this is not a peer associated with the DCC network, so let's remove it from our list.
+						RemoveFromPeerList(fromIPString);
 						continue;
 					}
 					//char* tempContent = buffer;

@@ -151,6 +151,7 @@ public:
 	void SavePeerList();
 	bool InPeerList(std::string& ipPort);
 	void AddToPeerList(std::string& ipPort);
+	void RemoveFromPeerList(std::string& ipPort);
 	std::vector<std::string> GeneratePeerList();
 };
 

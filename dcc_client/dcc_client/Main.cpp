@@ -568,7 +568,17 @@ int main()
 				if (commandParts.size() == 2){
 					WalletSettingValues::verbose = stoi(commandParts[1]);
 					console::WriteLine("Changed verbosity to ("+std::to_string(WalletSettingValues::verbose)+")");
+					walletConfig["verbosity"] = WalletSettingValues::verbose;
+					// Save to file TODO: Mkae general save/load config function
+					std::ofstream configFile("./config.cfg");
+					if (configFile.is_open())
+					{
+						configFile << walletConfig.dump(4);
+						configFile.close();
+					}
 				}
+				else
+					console::WriteLine("Verbosity is currently set to ("+std::to_string(WalletSettingValues::verbose)+")");
 			}
 			else if (commandParts[0] == "--MINEANY" || commandParts[0] == "-MA")
 			{

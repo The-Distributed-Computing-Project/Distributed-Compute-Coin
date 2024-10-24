@@ -23,7 +23,7 @@ const std::string VERSION = "v0.9.1-alpha";
 const std::string BLOCK_VERSION = "v0.8.5-alpha-coin";
 const std::string DELUGE_VERSION = "v0.1.2-alpha-deluge";
 
-const std::string serverURL = "http://mullichia.mit.edu:3333";
+const std::string serverURL = "http://distributedcomputeproject.org:3333";
 
 //extern uint8_t VERBOSITY = 3;
 
